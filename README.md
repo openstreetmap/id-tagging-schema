@@ -1,4 +1,4 @@
-# :label: The iD Tagging Schema (ITS)
+# iD Tagging Schema
 
 This is the directory of OpenStreetMap tagging data used by the [iD editor](https://github.com/openstreetmap/iD).
 It includes presets, fields, deprecations, and more.
