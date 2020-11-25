@@ -17,6 +17,14 @@ This Tagging Schema fills that need, but with a number of caveats:
 - We support tags based on practicality, usage, and community approval
 - Sometimes there are reasons we can't support a tag even if it's used or approved
 
+## Usage
+
+### Java/Android
+
+The [westnordost/osmfeatures](https://github.com/westnordost/osmfeatures) project,
+a component of [StreetComplete](https://github.com/westnordost/StreetComplete),
+makes it easier to use this data with Android or other Java platforms.
+
 ## Integrations
 
 This schema incorporates data from the [name-suggestion-index](https://github.com/osmlab/name-suggestion-index).
