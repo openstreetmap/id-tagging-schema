@@ -25,9 +25,9 @@ The [westnordost/osmfeatures](https://github.com/westnordost/osmfeatures) projec
 a component of [StreetComplete](https://github.com/westnordost/StreetComplete),
 makes it easier to use this data with Android or other Java platforms.
 
-## Integrations
+## Related Projects
 
-This schema incorporates data from the [name-suggestion-index](https://github.com/osmlab/name-suggestion-index).
+iD also incorporates preset data from the [name-suggestion-index](https://github.com/osmlab/name-suggestion-index).
 
 ## Contributing
 
