@@ -8,5 +8,9 @@ schemaBuilder.buildDist({
     icon_url: 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@release/dist/img/logo.png',
     contact_name: 'Quincy Morgan',
     contact_email: 'q@quincylvania.com'
-  }
+  },
+  translOrgId: 'openstreetmap',
+  translProjectId: 'id-editor',
+  translResourceIds: ['presets'],
+  translReviewedOnly: ['vi']
 });
