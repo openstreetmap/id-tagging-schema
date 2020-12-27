@@ -1,4 +1,4 @@
-![test](https://github.com/openstreetmap/id-tagging-schema/workflows/test/badge.svg) [![npm version](https://badge.fury.io/js/%40openstreetmap%2Fid-tagging-schema.svg)](https://badge.fury.io/js/%40openstreetmap%2Fid-tagging-schema)
+[![npm version](https://badge.fury.io/js/%40openstreetmap%2Fid-tagging-schema.svg)](https://badge.fury.io/js/%40openstreetmap%2Fid-tagging-schema)
 
 # iD Tagging Schema
 
