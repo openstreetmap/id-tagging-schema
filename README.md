@@ -39,3 +39,7 @@ iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_
 Documentation for the data formats is located with the [schema-builder](https://github.com/ideditor/schema-builder)
 package, which is the technical basis of this project. To make a change, update a
 file within the `data` folder and rebuild by running `npm run build` in your terminal.
+
+### Translating
+
+See https://github.com/openstreetmap/iD/blob/develop/CONTRIBUTING.md#translating
