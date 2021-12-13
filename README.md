@@ -19,7 +19,7 @@ This Tagging Schema fills that need, but with a number of caveats:
 
 ## Translations
 
-* English translations for the `terms`-key should be added to the JSON data ([Exampple](https://github.com/openstreetmap/id-tagging-schema/blob/main/data/presets/natural/shrub.json#L16-L19)).
+* English translations for the `terms`-key should be added to the JSON data ([Example](https://github.com/openstreetmap/id-tagging-schema/blob/v3.1.0/data/presets/natural/shrub.json#L16-L19)).
 
 * Apart from that, translations are managed [in the Transifex Project of the iD Editor](https://www.transifex.com/openstreetmap/id-editor/) inside the translation resource _'preset'_.
 
