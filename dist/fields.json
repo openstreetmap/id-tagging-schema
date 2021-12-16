@@ -307,6 +307,10 @@
         "key": "boundary",
         "type": "combo"
     },
+    "branch_brand": {
+        "key": "branch",
+        "type": "text"
+    },
     "brand": {
         "key": "brand",
         "type": "text"
@@ -377,6 +381,26 @@
         "type": "number",
         "minValue": 1
     },
+    "cai_scale": {
+        "key": "cai_scale",
+        "type": "combo",
+        "snake_case": false,
+        "caseSensitive": true,
+        "autoSuggestions": false,
+        "customValues": false,
+        "locationSet": {
+            "include": [
+                "IT"
+            ]
+        },
+        "options": [
+            "T",
+            "E",
+            "EE",
+            "EEA",
+            "EAI"
+        ]
+    },
     "camera/direction": {
         "key": "camera:direction",
         "type": "number"
@@ -411,10 +435,29 @@
         "type": "number",
         "minValue": 0
     },
+    "capacity/caravans": {
+        "key": "capacity:caravans",
+        "type": "number",
+        "minValue": 0
+    },
     "capacity/disabled_parking": {
         "key": "capacity:disabled",
         "type": "number",
         "minValue": 0
+    },
+    "capacity/persons": {
+        "key": "capacity:persons",
+        "type": "number",
+        "minValue": 0
+    },
+    "capacity/tents": {
+        "key": "capacity:tents",
+        "type": "number",
+        "minValue": 0,
+        "prerequisiteTag": {
+            "key": "tents",
+            "valueNot": "no"
+        }
     },
     "cash_in": {
         "key": "cash_in",
@@ -577,8 +620,29 @@
         "key": "crossing",
         "type": "combo"
     },
+    "crossing/barrier": {
+        "key": "crossing:barrier",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "full",
+            "double_half",
+            "half",
+            "no",
+            "yes"
+        ]
+    },
+    "crossing/bell": {
+        "key": "crossing:bell",
+        "type": "check"
+    },
     "crossing/island": {
         "key": "crossing:island",
+        "type": "check"
+    },
+    "crossing/light": {
+        "key": "crossing:light",
         "type": "check"
     },
     "cuisine": {
@@ -597,16 +661,38 @@
             "kebab",
             "indian",
             "chicken",
+            "fish",
             "asian",
             "french",
+            "spanish",
+            "portuguese",
+            "russian",
+            "polish",
             "thai",
+            "korean",
             "american",
+            "seafood",
             "sushi",
             "ice_cream",
             "german",
             "greek",
             "vietnamese",
-            "turkish"
+            "turkish",
+            "lebanese",
+            "indonesian",
+            "malaysian",
+            "taiwanese",
+            "juice",
+            "bubble_tea",
+            "hot_dog",
+            "cake",
+            "pankcake",
+            "pasta",
+            "salad",
+            "chocolate",
+            "dessert",
+            "steak_house",
+            "donut"
         ]
     },
     "currency_multi": {
@@ -620,7 +706,8 @@
     },
     "cycle_network": {
         "key": "cycle_network",
-        "type": "networkCombo"
+        "type": "networkCombo",
+        "snake_case": false
     },
     "cycleway": {
         "keys": [
@@ -967,6 +1054,15 @@
         "key": "expected_rwn_route_relations",
         "type": "number"
     },
+    "expressway": {
+        "key": "expressway",
+        "type": "check",
+        "locationSet": {
+            "include": [
+                "US"
+            ]
+        }
+    },
     "faces": {
         "key": "faces",
         "type": "number",
@@ -1023,9 +1119,21 @@
         "type": "textarea",
         "universal": true
     },
+    "flag/name": {
+        "key": "flag:name",
+        "type": "text"
+    },
     "flag/type": {
         "key": "flag:type",
         "type": "combo"
+    },
+    "flag/wikidata": {
+        "key": "flag:wikidata",
+        "keys": [
+            "flag:wikidata",
+            "flag:wikipedia"
+        ],
+        "type": "wikidata"
     },
     "floating": {
         "key": "floating",
@@ -1187,6 +1295,10 @@
         "key": "height",
         "minValue": 0,
         "type": "number"
+    },
+    "highchair": {
+        "key": "highchair",
+        "type": "check"
     },
     "highspeed": {
         "key": "highspeed",
@@ -1554,6 +1666,10 @@
         "key": "lockable",
         "type": "check"
     },
+    "locked": {
+        "key": "locked",
+        "type": "check"
+    },
     "man_made": {
         "key": "man_made",
         "type": "typeCombo"
@@ -1658,6 +1774,14 @@
         "key": "min_age",
         "type": "number",
         "minValue": 0
+    },
+    "min_height": {
+        "key": "min_height",
+        "minValue": 0,
+        "type": "number",
+        "prerequisiteTag": {
+            "key": "height"
+        }
     },
     "minspeed": {
         "key": "minspeed",
@@ -1894,7 +2018,17 @@
             "carports",
             "garage_boxes",
             "rooftop",
-            "sheds"
+            "sheds",
+            "street_side"
+        ]
+    },
+    "parking/orientation": {
+        "key": "parking:orientation",
+        "type": "combo",
+        "options": [
+            "parallel",
+            "diagonal",
+            "perpendicular"
         ]
     },
     "payment_multi_fee": {
@@ -2083,7 +2217,8 @@
     },
     "population": {
         "key": "population",
-        "type": "text"
+        "type": "number",
+        "minValue": 0
     },
     "portable": {
         "key": "portable",
@@ -2702,7 +2837,8 @@
             "local knowledge",
             "aerial imagery",
             "gps",
-            "streetlevel imagery"
+            "streetlevel imagery",
+            "osm notes"
         ]
     },
     "species/wikidata": {
@@ -2847,6 +2983,7 @@
             "paved",
             "ground",
             "gravel",
+            "compacted",
             "concrete",
             "paving_stones",
             "dirt",
@@ -2874,6 +3011,37 @@
     "surveillance/zone": {
         "key": "surveillance:zone",
         "type": "combo"
+    },
+    "survey_point/datum_aligned": {
+        "key": "survey_point:datum_aligned",
+        "type": "check"
+    },
+    "survey_point/purpose": {
+        "key": "survey_point:purpose",
+        "type": "combo",
+        "options": [
+            "horizontal",
+            "vertical",
+            "both"
+        ]
+    },
+    "survey_point/structure": {
+        "key": "survey_point:structure",
+        "type": "combo",
+        "options": [
+            "beacon",
+            "block",
+            "pole",
+            "pillar",
+            "bracket",
+            "plaque",
+            "medallion",
+            "cairn",
+            "pin",
+            "indented_pin",
+            "cut",
+            "magnet"
+        ]
     },
     "survey/date": {
         "key": "survey:date",
@@ -3001,7 +3169,8 @@
     },
     "traffic_sign": {
         "key": "traffic_sign",
-        "type": "typeCombo"
+        "type": "typeCombo",
+        "snake_case": false
     },
     "traffic_sign/direction": {
         "key": "traffic_sign:direction",
