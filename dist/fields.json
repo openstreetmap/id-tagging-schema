@@ -41,6 +41,23 @@
             "unknown"
         ]
     },
+    "activity": {
+        "keys": [
+            "hiking",
+            "bicycle",
+            "mtb",
+            "horse",
+            "ski"
+        ],
+        "type": "manyCombo",
+        "options": [
+            "hiking",
+            "bicycle",
+            "mtb",
+            "horse",
+            "Ski"
+        ]
+    },
     "addr/interpolation": {
         "key": "addr:interpolation",
         "type": "combo",
@@ -595,6 +612,15 @@
         "type": "number",
         "minValue": 1
     },
+    "covered_no": {
+        "key": "covered",
+        "type": "check",
+        "options": [
+            "undefined",
+            "yes",
+            "no"
+        ]
+    },
     "covered": {
         "key": "covered",
         "type": "check"
@@ -1040,7 +1066,18 @@
     },
     "embassy": {
         "key": "embassy",
-        "type": "combo"
+        "type": "combo",
+        "autoSuggestions": false,
+        "options": [
+            "yes",
+            "residence",
+            "high_commission",
+            "mission",
+            "branch_embassy",
+            "nunciature",
+            "delegation",
+            "interests_section"
+        ]
     },
     "emergency_combo": {
         "key": "emergency",
@@ -1245,7 +1282,7 @@
     "gnis/feature_id-US": {
         "key": "gnis:feature_id",
         "type": "identifier",
-        "urlFormat": "https://geonames.usgs.gov/apex/f?p=gnispq:3:::NO::P3_FID:{value}",
+        "urlFormat": "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/{value}",
         "pattern": "^[0-9]{1,}$",
         "locationSet": {
             "include": [
@@ -1293,10 +1330,7 @@
     },
     "healthcare/speciality": {
         "key": "healthcare:speciality",
-        "type": "semiCombo",
-        "reference": {
-            "key": "healthcare"
-        }
+        "type": "semiCombo"
     },
     "heating": {
         "key": "heating",
@@ -2021,6 +2055,19 @@
         "type": "number",
         "minValue": 1
     },
+    "parcel_dropoff": {
+        "key": "parcel_mail_in",
+        "type": "check"
+    },
+    "parcel_pickup": {
+        "key": "parcel_pickup",
+        "type": "check",
+        "options": [
+            "undefined",
+            "yes",
+            "no"
+        ]
+    },
     "park_ride": {
         "key": "park_ride",
         "type": "check"
@@ -2051,7 +2098,8 @@
             "garage_boxes",
             "rooftop",
             "sheds",
-            "street_side"
+            "street_side",
+            "layby"
         ]
     },
     "parking/orientation": {
@@ -2580,6 +2628,14 @@
         "key": "salt",
         "type": "check"
     },
+    "sample_collection": {
+        "key": "sample_collection",
+        "type": "semiCombo",
+        "reference": {
+            "key": "healthcare",
+            "value": "sample_collection"
+        }
+    },
     "sanitary_dump_station": {
         "key": "sanitary_dump_station",
         "type": "check"
@@ -2900,7 +2956,8 @@
         "options": [
             "motor",
             "karting",
-            "motocross"
+            "motocross",
+            "speedway"
         ]
     },
     "sport_racing_nonmotor": {
@@ -3455,7 +3512,19 @@
     },
     "wetland": {
         "key": "wetland",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "marsh",
+            "reedbed",
+            "saltmarsh",
+            "tidalflat",
+            "wet_meadow",
+            "swamp",
+            "mangrove",
+            "bog",
+            "fen",
+            "string_bog"
+        ]
     },
     "wheelchair": {
         "key": "wheelchair",

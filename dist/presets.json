@@ -1891,7 +1891,8 @@
             "manufacturer"
         ],
         "geometry": [
-            "point"
+            "point",
+            "area"
         ],
         "tags": {
             "amenity": "charging_station"
@@ -3611,6 +3612,27 @@
             "lgbtq": "primary"
         }
     },
+    "amenity/parcel_locker": {
+        "icon": "temaki-vending_lockers",
+        "fields": [
+            "parcel_pickup",
+            "parcel_dropoff",
+            "operator",
+            "payment_multi",
+            "ref"
+        ],
+        "geometry": [
+            "point",
+            "vertex"
+        ],
+        "tags": {
+            "amenity": "parcel_locker"
+        },
+        "reference": {
+            "key": "amenity",
+            "value": "parcel_locker"
+        }
+    },
     "amenity/parking_entrance": {
         "icon": "maki-entrance-alt1",
         "fields": [
@@ -3700,7 +3722,7 @@
         "fields": [
             "name",
             "{amenity/parking}",
-            "building"
+            "building_area"
         ],
         "moreFields": [
             "{amenity/parking}",
@@ -3708,14 +3730,10 @@
             "building/levels"
         ],
         "geometry": [
+            "point",
             "area"
         ],
         "tags": {
-            "amenity": "parking",
-            "parking": "multi-storey"
-        },
-        "addTags": {
-            "building": "parking",
             "amenity": "parking",
             "parking": "multi-storey"
         },
@@ -5315,12 +5333,12 @@
             "operator",
             "operator/type",
             "address",
-            "building_area",
             "social_facility",
             "social_facility_for"
         ],
         "moreFields": [
             "baby_feeding",
+            "building_area",
             "email",
             "fax",
             "gnis/feature_id-US",
@@ -5546,13 +5564,12 @@
         "fields": [
             "operator",
             "phone",
-            "fee",
-            "payment_multi_fee",
-            "charge_fee",
+            "payment_multi",
             "booth"
         ],
         "moreFields": [
             "covered",
+            "fee",
             "indoor",
             "internet_access",
             "internet_access/fee",
@@ -6142,46 +6159,6 @@
             "value": "newspapers"
         }
     },
-    "amenity/vending_machine/parcel_pickup_dropoff": {
-        "icon": "temaki-vending_lockers",
-        "fields": [
-            "vending",
-            "operator",
-            "payment_multi",
-            "currency_multi"
-        ],
-        "geometry": [
-            "point",
-            "vertex"
-        ],
-        "tags": {
-            "amenity": "vending_machine",
-            "vending": "parcel_pickup;parcel_mail_in"
-        },
-        "reference": {
-            "key": "vending",
-            "value": "parcel_pickup;parcel_mail_in"
-        }
-    },
-    "amenity/vending_machine/parcel_pickup": {
-        "icon": "temaki-vending_lockers",
-        "fields": [
-            "vending",
-            "operator"
-        ],
-        "geometry": [
-            "point",
-            "vertex"
-        ],
-        "tags": {
-            "amenity": "vending_machine",
-            "vending": "parcel_pickup"
-        },
-        "reference": {
-            "key": "vending",
-            "value": "parcel_pickup"
-        }
-    },
     "amenity/vending_machine/parking_tickets": {
         "icon": "temaki-vending_tickets",
         "geometry": [
@@ -6449,9 +6426,19 @@
         },
         "matchScore": 0.1
     },
+    "area/footway": {
+        "fields": [
+            "surface"
+        ],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "area:highway": "footway"
+        }
+    },
     "area/highway": {
         "fields": [
-            "name",
             "area/highway",
             "surface"
         ],
@@ -7010,6 +6997,9 @@
         "icon": "temaki-height_restrictor",
         "fields": [
             "maxheight"
+        ],
+        "moreFields": [
+            "direction_vertex"
         ],
         "geometry": [
             "vertex"
@@ -7987,6 +7977,16 @@
         },
         "matchScore": 0.5
     },
+    "building/synagogue": {
+        "icon": "fas-synagogue",
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "building": "synagogue"
+        },
+        "matchScore": 0.5
+    },
     "building/temple": {
         "icon": "maki-place-of-worship",
         "geometry": [
@@ -8872,6 +8872,22 @@
             "emergency": "ambulance_station"
         }
     },
+    "emergency/assembly_point": {
+        "icon": "fas-compress-arrows-alt",
+        "fields": [
+            "name",
+            "ref",
+            "operator"
+        ],
+        "geometry": [
+            "point",
+            "vertex",
+            "area"
+        ],
+        "tags": {
+            "emergency": "assembly_point"
+        }
+    },
     "emergency/defibrillator": {
         "icon": "maki-defibrillator",
         "fields": [
@@ -9119,8 +9135,56 @@
             "emergency": "siren"
         }
     },
-    "emergency/water_tank": {
+    "emergency/water_reservoir covered": {
         "icon": "maki-water",
+        "fields": [
+            "name",
+            "ref",
+            "operator",
+            "capacity_volume",
+            "layer"
+        ],
+        "moreFields": [
+            "water_tank/volume"
+        ],
+        "geometry": [
+            "point",
+            "vertex",
+            "area"
+        ],
+        "tags": {
+            "emergency": "water_tank",
+            "man_made": "reservoir_covered"
+        }
+    },
+    "emergency/water_reservoir": {
+        "icon": "maki-water",
+        "fields": [
+            "name",
+            "operator",
+            "water",
+            "covered"
+        ],
+        "moreFields": [
+            "ref"
+        ],
+        "geometry": [
+            "point",
+            "vertex",
+            "area"
+        ],
+        "tags": {
+            "emergency": "water_tank",
+            "landuse": "reservoir"
+        },
+        "addTags": {
+            "emergency": "water_tank",
+            "landuse": "reservoir",
+            "natural": "water"
+        }
+    },
+    "emergency/water_tank": {
+        "icon": "temaki-storage_tank",
         "fields": [
             "name",
             "ref",
@@ -9129,6 +9193,7 @@
             "drinking_water"
         ],
         "moreFields": [
+            "covered",
             "height",
             "material"
         ],
@@ -9138,7 +9203,13 @@
             "area"
         ],
         "tags": {
-            "emergency": "water_tank"
+            "emergency": "water_tank",
+            "landuse": "reservoir"
+        },
+        "addTags": {
+            "emergency": "water_tank",
+            "man_made": "storage_tank",
+            "content": "water"
         }
     },
     "entrance": {
@@ -9234,6 +9305,9 @@
         "fields": [
             "name"
         ],
+        "moreFields": [
+            "surface"
+        ],
         "geometry": [
             "area"
         ],
@@ -9315,33 +9389,27 @@
     "golf/fairway": {
         "icon": "maki-golf",
         "fields": [
-            "name"
+            "name",
+            "surface"
         ],
         "geometry": [
             "area"
         ],
         "tags": {
             "golf": "fairway"
-        },
-        "addTags": {
-            "golf": "fairway",
-            "landuse": "grass"
         }
     },
     "golf/green": {
         "icon": "temaki-golf_green",
         "fields": [
-            "name"
+            "name",
+            "surface"
         ],
         "geometry": [
             "area"
         ],
         "tags": {
             "golf": "green"
-        },
-        "addTags": {
-            "golf": "green",
-            "landuse": "grass"
         }
     },
     "golf/hole": {
@@ -9399,23 +9467,21 @@
     "golf/rough": {
         "icon": "maki-golf",
         "fields": [
-            "name"
+            "name",
+            "surface"
         ],
         "geometry": [
             "area"
         ],
         "tags": {
             "golf": "rough"
-        },
-        "addTags": {
-            "golf": "rough",
-            "landuse": "grass"
         }
     },
     "golf/tee": {
         "icon": "maki-golf",
         "fields": [
-            "name"
+            "name",
+            "surface"
         ],
         "geometry": [
             "vertex",
@@ -9423,10 +9489,6 @@
         ],
         "tags": {
             "golf": "tee"
-        },
-        "addTags": {
-            "golf": "tee",
-            "landuse": "grass"
         }
     },
     "golf/water_hazard": {
@@ -9585,7 +9647,9 @@
         "fields": [
             "name",
             "operator",
+            "healthcare/speciality",
             "website",
+            "phone",
             "ref",
             "address",
             "opening_hours",
@@ -9669,6 +9733,26 @@
             "healthcare": "rehabilitation"
         }
     },
+    "healthcare/sample_collection": {
+        "icon": "fas-vial",
+        "fields": [
+            "name",
+            "sample_collection",
+            "operator",
+            "website",
+            "phone",
+            "address",
+            "opening_hours",
+            "opening_hours/covid19"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "healthcare": "sample_collection"
+        }
+    },
     "healthcare/speech_therapist": {
         "icon": "fas-comment",
         "geometry": [
@@ -9722,7 +9806,7 @@
             "horse_scale"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "dog",
             "lit",
             "maxweight_bridge",
@@ -9744,10 +9828,10 @@
             "name",
             "operator",
             "oneway",
-            "structure",
-            "covered"
+            "structure"
         ],
         "moreFields": [
+            "covered_no",
             "trolley_wire",
             "width"
         ],
@@ -9793,7 +9877,6 @@
             "wheelchair"
         ],
         "moreFields": [
-            "covered",
             "indoor",
             "maxheight",
             "stroller"
@@ -9979,7 +10062,7 @@
             "incline"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "dog",
             "lit",
             "maxspeed",
@@ -10197,7 +10280,7 @@
             "incline"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "dog",
             "lit",
             "maxweight_bridge",
@@ -10293,7 +10376,7 @@
             "wheelchair"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "dog",
             "incline",
             "lit",
@@ -10468,7 +10551,7 @@
             "access"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "cycleway",
             "flood_prone",
             "junction_line",
@@ -10496,6 +10579,9 @@
         "fields": [
             "distance",
             "direction_vertex"
+        ],
+        "moreFields": [
+            "ref"
         ],
         "tags": {
             "highway": "milestone"
@@ -10541,7 +10627,7 @@
         ],
         "moreFields": [
             "charge_toll",
-            "covered",
+            "covered_no",
             "destination/symbol_oneway",
             "incline",
             "junction_line",
@@ -10583,7 +10669,7 @@
         ],
         "moreFields": [
             "charge_toll",
-            "covered",
+            "covered_no",
             "destination/symbol_oneway",
             "incline",
             "junction_line",
@@ -10624,7 +10710,7 @@
         ],
         "moreFields": [
             "charge_toll",
-            "covered",
+            "covered_no",
             "incline",
             "junction_line",
             "lit",
@@ -10664,7 +10750,7 @@
             "incline"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "dog",
             "gnis/feature_id-US",
             "horse_scale",
@@ -10719,7 +10805,7 @@
             "incline"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "dog",
             "horse_scale",
             "informal",
@@ -10773,7 +10859,7 @@
             "access"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "incline",
             "maxweight_bridge",
             "smoothness"
@@ -10799,7 +10885,7 @@
         ],
         "moreFields": [
             "charge_toll",
-            "covered",
+            "covered_no",
             "cycleway",
             "destination/symbol_oneway",
             "flood_prone",
@@ -10845,7 +10931,7 @@
         ],
         "moreFields": [
             "charge_toll",
-            "covered",
+            "covered_no",
             "cycleway",
             "destination/symbol_oneway",
             "flood_prone",
@@ -10891,7 +10977,7 @@
         ],
         "moreFields": [
             "charge_toll",
-            "covered",
+            "covered_no",
             "cycleway",
             "expressway-US",
             "flood_prone",
@@ -10981,7 +11067,7 @@
             "access"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "cycleway",
             "flood_prone",
             "incline",
@@ -11109,7 +11195,7 @@
             "access"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "flood_prone",
             "incline",
             "lanes",
@@ -11244,7 +11330,7 @@
             "width"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "dog",
             "indoor",
             "level_semi",
@@ -11388,7 +11474,7 @@
             "smoothness"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "flood_prone",
             "horse_scale",
             "maxweight_bridge",
@@ -11512,7 +11598,7 @@
         ],
         "moreFields": [
             "charge_toll",
-            "covered",
+            "covered_no",
             "incline",
             "junction_line",
             "lit",
@@ -12315,6 +12401,21 @@
             "landuse": "construction"
         }
     },
+    "landuse/education": {
+        "icon": "temaki-school",
+        "fields": [
+            "name",
+            "operator"
+        ],
+        "moreFields": [],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "landuse": "education"
+        },
+        "matchScore": 0.9
+    },
     "landuse/farmland": {
         "icon": "fas-tractor",
         "fields": [
@@ -12636,10 +12737,6 @@
             "area"
         ],
         "tags": {
-            "military": "barracks"
-        },
-        "addTags": {
-            "landuse": "military",
             "military": "barracks"
         }
     },
@@ -13739,8 +13836,7 @@
             "name",
             "access_simple",
             "operator",
-            "address",
-            "building"
+            "address"
         ],
         "moreFields": [
             "email",
@@ -14204,8 +14300,7 @@
     "leisure/pitch/equestrian": {
         "icon": "maki-horse-riding",
         "fields": [
-            "{leisure/pitch}",
-            "building"
+            "{leisure/pitch}"
         ],
         "geometry": [
             "area",
@@ -14278,6 +14373,25 @@
         "reference": {
             "key": "sport",
             "value": "paintball"
+        }
+    },
+    "leisure/pitch/pickleball": {
+        "icon": "maki-tennis",
+        "fields": [
+            "{leisure/pitch}",
+            "access_simple"
+        ],
+        "geometry": [
+            "area",
+            "point"
+        ],
+        "tags": {
+            "leisure": "pitch",
+            "sport": "pickleball"
+        },
+        "reference": {
+            "key": "sport",
+            "value": "pickleball"
         }
     },
     "leisure/pitch/rugby_league": {
@@ -15321,11 +15435,7 @@
             "vertex"
         ],
         "tags": {
-            "manhole": "*"
-        },
-        "addTags": {
-            "man_made": "manhole",
-            "manhole": "*"
+            "man_made": "manhole"
         }
     },
     "man_made/manhole/drain": {
@@ -15731,7 +15841,6 @@
             "operator",
             "capacity_volume",
             "access_simple",
-            "location",
             "layer"
         ],
         "moreFields": [
@@ -15790,6 +15899,11 @@
         "geometry": [
             "point",
             "area"
+        ],
+        "moreFields": [
+            "{man_made/storage_tank}",
+            "covered",
+            "ref"
         ],
         "tags": {
             "man_made": "storage_tank",
@@ -16601,21 +16715,6 @@
             "natural": "hot_spring"
         }
     },
-    "natural/marsh": {
-        "icon": "maki-wetland",
-        "fields": [
-            "wetland",
-            "salt",
-            "tidal"
-        ],
-        "geometry": [
-            "area"
-        ],
-        "tags": {
-            "natural": "wetland",
-            "wetland": "marsh"
-        }
-    },
     "natural/mud": {
         "geometry": [
             "area"
@@ -16636,21 +16735,6 @@
         ],
         "tags": {
             "natural": "peak"
-        }
-    },
-    "natural/reedbed": {
-        "icon": "maki-wetland",
-        "fields": [
-            "wetland",
-            "salt",
-            "tidal"
-        ],
-        "geometry": [
-            "area"
-        ],
-        "tags": {
-            "natural": "wetland",
-            "wetland": "reedbed"
         }
     },
     "natural/reef": {
@@ -16779,21 +16863,6 @@
         ],
         "tags": {
             "natural": "stone"
-        }
-    },
-    "natural/swamp": {
-        "icon": "maki-wetland",
-        "fields": [
-            "wetland",
-            "salt",
-            "tidal"
-        ],
-        "geometry": [
-            "area"
-        ],
-        "tags": {
-            "natural": "wetland",
-            "wetland": "swamp"
         }
     },
     "natural/tree_row": {
@@ -16991,8 +17060,12 @@
     "natural/water/river": {
         "icon": "iD-waterway-river",
         "fields": [
-            "{natural/water}",
+            "water",
+            "intermittent",
             "tidal"
+        ],
+        "moreFields": [
+            "name"
         ],
         "geometry": [
             "area"
@@ -17009,7 +17082,11 @@
     "natural/water/stream": {
         "icon": "iD-waterway-stream",
         "fields": [
-            "{natural/water}"
+            "water",
+            "intermittent"
+        ],
+        "moreFields": [
+            "name"
         ],
         "geometry": [
             "area"
@@ -17050,6 +17127,168 @@
         ],
         "tags": {
             "natural": "wetland"
+        }
+    },
+    "natural/wetland/bog": {
+        "icon": "maki-wetland",
+        "fields": [],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "natural": "wetland",
+            "wetland": "bog"
+        },
+        "reference": {
+            "key": "wetland",
+            "value": "bog"
+        }
+    },
+    "natural/wetland/fen": {
+        "icon": "maki-wetland",
+        "fields": [],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "natural": "wetland",
+            "wetland": "fen"
+        },
+        "reference": {
+            "key": "wetland",
+            "value": "fen"
+        }
+    },
+    "natural/wetland/mangrove": {
+        "icon": "maki-wetland",
+        "fields": [
+            "salt",
+            "tidal"
+        ],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "natural": "wetland",
+            "wetland": "mangrove"
+        },
+        "reference": {
+            "key": "wetland",
+            "value": "mangrove"
+        }
+    },
+    "natural/wetland/marsh": {
+        "icon": "maki-wetland",
+        "fields": [],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "natural": "wetland",
+            "wetland": "marsh"
+        },
+        "reference": {
+            "key": "wetland",
+            "value": "marsh"
+        }
+    },
+    "natural/wetland/reedbed": {
+        "icon": "maki-wetland",
+        "fields": [],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "natural": "wetland",
+            "wetland": "reedbed"
+        },
+        "reference": {
+            "key": "wetland",
+            "value": "reedbed"
+        }
+    },
+    "natural/wetland/saltmarsh": {
+        "icon": "maki-wetland",
+        "fields": [
+            "salt",
+            "tidal"
+        ],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "natural": "wetland",
+            "wetland": "saltmarsh"
+        },
+        "reference": {
+            "key": "wetland",
+            "value": "saltmarsh"
+        }
+    },
+    "natural/wetland/string_bog": {
+        "icon": "maki-wetland",
+        "fields": [],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "natural": "wetland",
+            "wetland": "string_bog"
+        },
+        "reference": {
+            "key": "wetland",
+            "value": "string_bog"
+        }
+    },
+    "natural/wetland/swamp": {
+        "icon": "maki-wetland",
+        "fields": [],
+        "moreFields": [
+            "tidal"
+        ],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "natural": "wetland",
+            "wetland": "swamp"
+        },
+        "reference": {
+            "key": "wetland",
+            "value": "swamp"
+        }
+    },
+    "natural/wetland/tidalflat": {
+        "icon": "maki-wetland",
+        "fields": [
+            "salt",
+            "tidal"
+        ],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "natural": "wetland",
+            "wetland": "tidalflat"
+        },
+        "reference": {
+            "key": "wetland",
+            "value": "tidalflat"
+        }
+    },
+    "natural/wetland/wet_meadow": {
+        "icon": "maki-wetland",
+        "fields": [],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "natural": "wetland",
+            "wetland": "wet_meadow"
+        },
+        "reference": {
+            "key": "wetland",
+            "value": "wet_meadow"
         }
     },
     "natural/wood": {
@@ -18077,7 +18316,7 @@
         }
     },
     "place/square": {
-        "icon": "temaki-pedestrian",
+        "icon": "maki-marker-stroked",
         "moreFields": [
             "{place}",
             "website"
@@ -20109,7 +20348,7 @@
             "usage_rail"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "incline"
         ],
         "geometry": [
@@ -20141,7 +20380,7 @@
             "electrified"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "frequency_electrified",
             "highspeed",
             "incline",
@@ -20209,7 +20448,7 @@
             "service_rail"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "electrified",
             "frequency_electrified",
             "maxspeed",
@@ -20248,7 +20487,7 @@
             "usage_rail"
         ],
         "moreFields": [
-            "covered",
+            "covered_no",
             "frequency_electrified",
             "incline",
             "maxspeed",
@@ -20270,6 +20509,9 @@
         "fields": [
             "railway/position",
             "direction_vertex"
+        ],
+        "moreFields": [
+            "ref"
         ],
         "tags": {
             "railway": "milestone"
@@ -23269,7 +23511,8 @@
             "ref"
         ],
         "moreFields": [
-            "material"
+            "material",
+            "activity"
         ],
         "geometry": [
             "point",
@@ -23291,6 +23534,9 @@
             "map_type",
             "map_size",
             "direction"
+        ],
+        "moreFields": [
+            "activity"
         ],
         "geometry": [
             "point",
@@ -24644,6 +24890,10 @@
         "icon": "maki-water",
         "geometry": [
             "area"
+        ],
+        "fields": [],
+        "moreFields": [
+            "name"
         ],
         "tags": {
             "waterway": "riverbank"

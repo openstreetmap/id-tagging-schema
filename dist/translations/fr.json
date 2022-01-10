@@ -83,6 +83,10 @@
                             "description": "Accès autorisés uniquement sur autorisation nominative du propriétaire",
                             "title": "Privé"
                         },
+                        "unknown": {
+                            "description": "Les conditions d'accès sont inconnues ou pas claires",
+                            "title": "Inconnu"
+                        },
                         "yes": {
                             "description": "Accès autorisé par la loi ; droit de passage",
                             "title": "Autorisé"
@@ -109,9 +113,15 @@
                         "permissive": "Accès toléré",
                         "permit": "Avec autorisation uniquement",
                         "private": "Privé",
+                        "unknown": "Inconnu",
                         "yes": "Public"
                     },
                     "terms": "permis,autorisé,privé,public,publique"
+                },
+                "activity": {
+                    "options": {
+                        "hiking": "Randonnée"
+                    }
                 },
                 "addr/interpolation": {
                     "label": "Adresses interpolées",
@@ -403,17 +413,17 @@
                     "label": "Cables ",
                     "placeholder": "1, 2, 3..."
                 },
-                "cai_scale": {
-                    "label": "Difficulté de l'itinéraire de randonnée (Club Alpin Italien)",
+                "cai_scale-IT": {
+                    "label": "Niveau de difficulté de l'itinéraire (Club Alpin Italien)",
                     "options": {
-                        "E": "E: Pour les randonneurs",
-                        "EAI": "EAI: Randonnée dans la neige",
-                        "EE": "EE: Pour les randonneurs confirmés",
-                        "EEA": "EEA: Pour les randonneurs confirmés avec équipement",
-                        "T": "T: Touristique"
+                        "E": "Pour randonneurs",
+                        "EAI": "Randonnée en cas de neige",
+                        "EE": "Pour randonneurs experts",
+                        "EEA": "Pour randonneurs experts équipés",
+                        "T": "Touristique"
                     },
-                    "placeholder": "T, E, EE, …",
-                    "terms": "échelle,niveau,difficulté,sentier,itinéraire,chemin,randonnée,montagne,italie,italien"
+                    "placeholder": "Type de randonnée",
+                    "terms": "niveau,difficulté,échelle,rando,randonnée,sentier,itinéraire,chemin,italien,italie,club,alpin"
                 },
                 "camera/direction": {
                     "label": "Direction (en degrés dans le sens horaire)",
@@ -596,31 +606,45 @@
                     "options": {
                         "american": "Américaine",
                         "asian": "Asiatique",
+                        "bubble_tea": "Thé aux perles",
                         "burger": "Hamburger",
+                        "cake": "Pâtisserie",
                         "chicken": "Poulet",
                         "chinese": "Chinoise",
+                        "chocolate": "Boissons et desserts au chocolat",
                         "coffee_shop": "Boutique de vente de cafés",
+                        "dessert": "Desserts",
+                        "donut": "Donuts",
                         "fish": "Poisson",
                         "french": "Française",
                         "german": "Allemande",
                         "greek": "Grecque",
+                        "hot_dog": "Hot dogs",
                         "ice_cream": "Crème glacée",
                         "indian": "Indienne",
+                        "indonesian": "Indonésien",
                         "italian": "Italienne",
                         "japanese": "Japonaise",
+                        "juice": "Jus de fruits",
                         "kebab": "Kebab",
                         "korean": "Coréen",
                         "lebanese": "Libanais",
+                        "malaysian": "Malais",
                         "mexican": "Mexicaine",
+                        "pankcake": "Pancakes",
+                        "pasta": "Pâtes",
                         "pizza": "Pizza",
                         "polish": "Polonais",
                         "portuguese": "Portugais",
                         "regional": "Régionale",
                         "russian": "Russe",
+                        "salad": "Salades",
                         "sandwich": "Sandwich",
                         "seafood": "Fruits de mer",
                         "spanish": "Espagnol",
+                        "steak_house": "Viandes",
                         "sushi": "Sushi",
+                        "taiwanese": "Taïwanais",
                         "thai": "Thaïlandaise",
                         "turkish": "Turque",
                         "vietnamese": "Vietnamienne"
@@ -774,6 +798,16 @@
                     "placeholder": "45, 90, 180, 270",
                     "terms": "direction,orientation"
                 },
+                "direction_cardinal-US-CA-NZ": {
+                    "label": "Direction",
+                    "options": {
+                        "east": "Vers l'est",
+                        "north": "Vers le nord",
+                        "south": "Vers le sud",
+                        "west": "Vers l'ouest"
+                    },
+                    "terms": "direction,sens,orientation"
+                },
                 "direction_clock": {
                     "label": "Direction",
                     "options": {
@@ -860,12 +894,12 @@
                     "terms": "durée"
                 },
                 "ele": {
-                    "label": "Altitude",
-                    "terms": "altitude,hauteur,élévation"
+                    "label": "Altitude (en mètre)",
+                    "terms": "altitude (en mètre)"
                 },
                 "ele_node": {
-                    "label": "Altitude",
-                    "terms": "altitude,hauteur,élévation"
+                    "label": "Altitude (en mètre)",
+                    "terms": "altitude (en mètre)"
                 },
                 "electrified": {
                     "label": "Électrification",
@@ -914,8 +948,9 @@
                 "expected_rwn_route_relations": {
                     "label": "Nœud de marche adjacent"
                 },
-                "expressway": {
-                    "label": "Voie rapide"
+                "expressway-US": {
+                    "label": "Voie rapide",
+                    "terms": "route,voie,trajet,rapide,express,autoroute"
                 },
                 "faces": {
                     "label": "Faces"
@@ -1037,10 +1072,6 @@
                 },
                 "geyser/height": {
                     "label": "Hauteur de l'éruption"
-                },
-                "gnis/feature_id": {
-                    "label": "Identifiant d'élément GNIS",
-                    "terms": "gnis,geographic names informaton service"
                 },
                 "government": {
                     "label": "Type"
@@ -1870,10 +1901,6 @@
                 },
                 "rcn_ref": {
                     "label": "Code du réseau cyclable"
-                },
-                "real_fire": {
-                    "label": "Cheminée ou poêle",
-                    "terms": "cheminée,poêle à bois,âtre"
                 },
                 "recycling_accepts": {
                     "label": "Accepte"
@@ -3054,7 +3081,8 @@
                     "terms": "salle des fêtes,salle festive,centre communautaire,maison de quartier,maison des associations,salle des associations,centre d'animation,salle des fetes,salle des fètes,salle polyvalente,community centre,gay,lesbien,lgbtq"
                 },
                 "amenity/community_centre/youth_centre": {
-                    "name": "Centre pour la jeunesse"
+                    "name": "Centre pour la jeunesse",
+                    "terms": "centre,club,maison,jeunesse,jeunes"
                 },
                 "amenity/compressed_air": {
                     "name": "Air comprimé",
@@ -3756,14 +3784,6 @@
                 "amenity/vending_machine/newspapers": {
                     "name": "Distributeur de journaux",
                     "terms": "distributeur de journaux,distributeur à journaux,distributeur automatique de journaux,machine à journaux,vente automatique de journaux,vente de journaux,vente journaux,journaux,journal,machine journaux,vending machine newspapers,newspapers,magazines"
-                },
-                "amenity/vending_machine/parcel_pickup": {
-                    "name": "Consigne pour récupérer des colis",
-                    "terms": "amazon,consigne,colis,retrait"
-                },
-                "amenity/vending_machine/parcel_pickup_dropoff": {
-                    "name": "Consigne de dépôt ou retrait de colis",
-                    "terms": "colis,retrait,dépôt"
                 },
                 "amenity/vending_machine/parking_tickets": {
                     "name": "Distributeur de tickets de parking",
@@ -5648,6 +5668,10 @@
                     "name": "Cale de mise à l'eau",
                     "terms": "cale de lancement,cale,cale de mise à l'eau,rampe de mise à l'eau"
                 },
+                "leisure/slipway_drivable": {
+                    "name": "Cale de mise à l'eau carrossable",
+                    "terms": "cale de lancement,cale,cale de mise à l'eau,rampe d'accès,carrossable,roulable,accessible en véhicule"
+                },
                 "leisure/sports_centre": {
                     "name": "Centre sportif",
                     "terms": "complexe sportif,salle de sport"
@@ -6098,10 +6122,6 @@
                     "name": "Source chaude",
                     "terms": "source géothermique"
                 },
-                "natural/marsh": {
-                    "name": "Marais",
-                    "terms": "marais,zone humide"
-                },
                 "natural/mud": {
                     "name": "Boue",
                     "terms": "boue"
@@ -6109,10 +6129,6 @@
                 "natural/peak": {
                     "name": "Sommet",
                     "terms": "pic,mont"
-                },
-                "natural/reedbed": {
-                    "name": "Roselière",
-                    "terms": "roselière,roseaux"
                 },
                 "natural/reef": {
                     "name": "Récif",
@@ -6157,10 +6173,6 @@
                 "natural/stone": {
                     "name": "Pierre (détachée du sol)",
                     "terms": "rocher,pierre"
-                },
-                "natural/swamp": {
-                    "name": "Marécage",
-                    "terms": "marécage,forêt inondée,arbres inondés,arbustes inondés"
                 },
                 "natural/tree": {
                     "name": "Arbre",
@@ -6220,15 +6232,11 @@
                 },
                 "natural/wetland": {
                     "name": "Zone humide",
-                    "terms": "zone humide,marais,marécage,mangrove,roselière,marais salant,zone de marée,prairie humide"
+                    "terms": "zone humide,marais,marécage,mangrove,roselière,marais côtier,tourbière,prairie humide"
                 },
                 "natural/wood": {
                     "name": "Bois naturel",
                     "terms": "forêt,arbre,taïga,bois"
-                },
-                "network/type/node_network": {
-                    "name": "Itinéraire de ballade",
-                    "terms": "itinéraire de ballade,route,rcn,rwn"
                 },
                 "noexit/yes": {
                     "name": "Sans issue",
@@ -6260,10 +6268,6 @@
                 "office/association": {
                     "name": "Bureau d'association",
                     "terms": "bureau d'association,organisation à but non lucratif"
-                },
-                "office/bail_bond_agent": {
-                    "name": "Agent de cautionnement",
-                    "terms": "agent de cautionnement,cautionnement"
                 },
                 "office/charity": {
                     "name": "Organisation de bienfaisance/charité",

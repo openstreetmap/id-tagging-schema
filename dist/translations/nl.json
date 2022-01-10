@@ -83,6 +83,10 @@
                             "description": "Toegang slechts toegestaan met toestemming van de eigenaar op individuele basis",
                             "title": "Privé"
                         },
+                        "unknown": {
+                            "description": "Toegangsvoorwaarden zijn onbekend of niet duidelijk",
+                            "title": "Onbekend"
+                        },
                         "yes": {
                             "description": "Toegang bij wet toegestaan: recht van overpad",
                             "title": "Toegestaan"
@@ -109,9 +113,20 @@
                         "permissive": "Toegestaan",
                         "permit": "Enkel met toelating",
                         "private": "Privé",
+                        "unknown": "Onbekend",
                         "yes": "Openbaar"
                     },
                     "terms": "toegestaan,privé,openbaar"
+                },
+                "activity": {
+                    "label": "Activiteit",
+                    "options": {
+                        "Ski": "Skieën",
+                        "bicycle": "Fietsen",
+                        "hiking": "Wandelen",
+                        "horse": "Paardrijden",
+                        "mtb": "Mountainbiken"
+                    }
                 },
                 "addr/interpolation": {
                     "label": "Type",
@@ -403,7 +418,7 @@
                     "label": "Electrokabels",
                     "placeholder": "1, 2, 3 …"
                 },
-                "cai_scale": {
+                "cai_scale-IT": {
                     "label": "Moeilijkheid wandelroute (Italiaanse Alpinistenvereniging)",
                     "options": {
                         "E": "E: Voor wandelaars",
@@ -412,7 +427,8 @@
                         "EEA": "EEA: Voor ervaren wandelaars met uitrusting",
                         "T": "T: Toeristisch"
                     },
-                    "placeholder": "T, E, EE, ..."
+                    "placeholder": "T, E, EE, ...",
+                    "terms": "moeilijkheid,wandelen"
                 },
                 "camera/direction": {
                     "label": "Richting (in graden met de klok mee)",
@@ -553,6 +569,15 @@
                 "covered": {
                     "label": "Overdekt",
                     "terms": "overdekt,dak"
+                },
+                "covered_no": {
+                    "label": "Overdekt",
+                    "options": {
+                        "no": "Nee",
+                        "undefined": "Aangenomen van niet",
+                        "yes": "Ja"
+                    },
+                    "terms": "overdekt,dak,arcade,colonnade"
                 },
                 "craft": {
                     "label": "Type"
@@ -787,6 +812,15 @@
                     "placeholder": "45, 90, 180, 270",
                     "terms": "richting kloksgewijs"
                 },
+                "direction_cardinal-US-CA-NZ": {
+                    "label": "Richting",
+                    "options": {
+                        "east": "Oostwaarts",
+                        "north": "Noordwaarts",
+                        "south": "Zuidwaarts",
+                        "west": "Westwaarts"
+                    }
+                },
                 "direction_clock": {
                     "label": "Richting",
                     "options": {
@@ -873,12 +907,10 @@
                     "terms": "duur"
                 },
                 "ele": {
-                    "label": "Hoogte boven zeeniveau",
-                    "terms": "hoogte,altitude"
+                    "label": "Hoogte (meter)"
                 },
                 "ele_node": {
-                    "label": "Hoogte boven zeeniveau",
-                    "terms": "hoogte,altitude"
+                    "label": "Hoogte (meter)"
                 },
                 "electrified": {
                     "label": "Bovenleiding",
@@ -927,7 +959,7 @@
                 "expected_rwn_route_relations": {
                     "label": "Aangrenzende wandelknooppunten"
                 },
-                "expressway": {
+                "expressway-US": {
                     "label": "Expresweg",
                     "terms": "autosnelwegen,autobaan,autoroute,snelweg"
                 },
@@ -1052,7 +1084,7 @@
                 "geyser/height": {
                     "label": "Uitbarstingshoogte"
                 },
-                "gnis/feature_id": {
+                "gnis/feature_id-US": {
                     "label": "GNIS object-ID"
                 },
                 "government": {
@@ -1636,6 +1668,17 @@
                     "label": "Par",
                     "placeholder": "3, 4, 5 …"
                 },
+                "parcel_dropoff": {
+                    "label": "Pakket verzenden"
+                },
+                "parcel_pickup": {
+                    "label": "Pakket afhalen",
+                    "options": {
+                        "no": "Nee",
+                        "undefined": "Aangenomen van niet",
+                        "yes": "Ja"
+                    }
+                },
                 "park_ride": {
                     "label": "Park & Ride",
                     "terms": "p+r,p&r,parkeer en reis"
@@ -1883,9 +1926,8 @@
                 "rcn_ref": {
                     "label": "Fietscode"
                 },
-                "real_fire": {
-                    "label": "Echt vuur",
-                    "terms": "vuur,echt,open haard,kachel"
+                "real_fire-GB-IE": {
+                    "label": "Echt vuur"
                 },
                 "recycling_accepts": {
                     "label": "Aanvaardt"
@@ -2018,6 +2060,9 @@
                 "salt": {
                     "label": "Zout",
                     "terms": "zout,gezouten"
+                },
+                "sample_collection": {
+                    "label": "Monsters"
                 },
                 "sanitary_dump_station": {
                     "label": "Toilet-afvoer",
@@ -2267,7 +2312,8 @@
                     "options": {
                         "karting": "Karten",
                         "motocross": "Motorcross",
-                        "motor": "Motorsport"
+                        "motor": "Motorsport",
+                        "speedway": "Speedway"
                     }
                 },
                 "sport_racing_nonmotor": {
@@ -2699,7 +2745,13 @@
                     "terms": "website,url,webpagina,internet,link"
                 },
                 "wetland": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "bog": "Hoogveen",
+                        "fen": "Laagveen",
+                        "marsh": "Moeras (onbebost)",
+                        "reedbed": "Rietland"
+                    }
                 },
                 "wheelchair": {
                     "label": "Rolstoeltoegankelijkheid",
@@ -3069,6 +3121,9 @@
                 "amenity/doctors": {
                     "name": "Dokter",
                     "terms": "arts,geneesheer,huisarts"
+                },
+                "amenity/doctors/gynaecology": {
+                    "name": "Gynaecoloog"
                 },
                 "amenity/dojo": {
                     "name": "Dojo / School voor Japanse krijgskunsten",
@@ -3674,13 +3729,6 @@
                     "name": "Krantenautomaat",
                     "terms": "automaat,dagbladautomaat,nieuwsautomaat"
                 },
-                "amenity/vending_machine/parcel_pickup": {
-                    "name": "Pakketafhaalkluis"
-                },
-                "amenity/vending_machine/parcel_pickup_dropoff": {
-                    "name": "Pakketautomaat",
-                    "terms": "pakjesautomaat,pakketafhaalautomaat,pakjesafhaalautomaat,postpakketjes"
-                },
                 "amenity/vending_machine/parking_tickets": {
                     "name": "Parkeerticketautomaat",
                     "terms": "ticketautomaat,automaat"
@@ -3731,6 +3779,9 @@
                 "area": {
                     "name": "Vlak",
                     "terms": "gebied"
+                },
+                "area/footway": {
+                    "name": "Gebied van voetpad"
                 },
                 "area/highway": {
                     "name": "Gebied van de weg"
@@ -4132,6 +4183,10 @@
                 "building/sty": {
                     "name": "Varkensstal",
                     "terms": "stal,varkensstal,varkens,schuur,boerderij"
+                },
+                "building/synagogue": {
+                    "name": "Synagogegebouw",
+                    "terms": "synagoge"
                 },
                 "building/temple": {
                     "name": "Tempelgebouw"
@@ -4598,6 +4653,10 @@
                     "name": "Revalidatiekliniek",
                     "terms": "cognitieverevalidatiekliniek,neuropsychologischerevalidatiekliniek,verslavingszorg,ontwenningskliniek,afkickkliniek,beroepsrevalidatie,psychologischerevalidatiekliniek,gezichtsrevalidatiekliniek"
                 },
+                "healthcare/sample_collection": {
+                    "name": "Faciliteit voor monsterafname",
+                    "terms": "bloedbank,urinemonster,bloedafname"
+                },
                 "healthcare/speech_therapist": {
                     "name": "Logopedist",
                     "terms": "logopedie,spraaktherapeut,spraaktherapie"
@@ -4747,6 +4806,9 @@
                     "name": "Verbindingsweg van autosnelweg",
                     "terms": "autostrade,snelweg,autosnelweg,link,invoegstrook,afslag"
                 },
+                "highway/motorway_link-US-CA": {
+                    "name": "Verbindingsweg van autosnelweg"
+                },
                 "highway/passing_place": {
                     "name": "Passeerplaats",
                     "terms": "uitwijkplaats,kruisplaats"
@@ -4778,6 +4840,9 @@
                 "highway/primary_link": {
                     "name": "Verbindingsweg van hoofdweg",
                     "terms": "invoegstrook,oprit,afrit,provinciale weg,primaire weg,gewestweg,provincieweg"
+                },
+                "highway/primary_link-US-CA": {
+                    "name": "Verbindingsweg van hoofdweg"
                 },
                 "highway/raceway": {
                     "name": "Motorsport racecircuit",
@@ -4897,6 +4962,9 @@
                 "highway/trunk_link": {
                     "name": "Verbindingsweg van autoweg",
                     "terms": "invoegstrook,oprit,afrit,expressweg,autostrade,autosnelweg"
+                },
+                "highway/trunk_link-US-CA": {
+                    "name": "Verbindingsweg van autoweg"
                 },
                 "highway/turning_circle": {
                     "name": "Keerplein",
@@ -5862,10 +5930,6 @@
                 "natural/hot_spring": {
                     "name": "Warmwaterbron"
                 },
-                "natural/marsh": {
-                    "name": "Moeras (onbebost)",
-                    "terms": "drasland,broek,veenmoeras"
-                },
                 "natural/mud": {
                     "name": "Modder",
                     "terms": "slijk,modderpoel,drassig gebied,moeras,drasland"
@@ -5873,10 +5937,6 @@
                 "natural/peak": {
                     "name": "Top",
                     "terms": "bergtop,heuveltop,piek,bergspits"
-                },
-                "natural/reedbed": {
-                    "name": "Rietland",
-                    "terms": "rietkraag,rietmoeras"
                 },
                 "natural/reef": {
                     "name": "Rif",
@@ -5915,10 +5975,6 @@
                 },
                 "natural/stone": {
                     "name": "Steen (niet bevestigd)"
-                },
-                "natural/swamp": {
-                    "name": "Moeras (bebost)",
-                    "terms": "broekbos,zwamp,zomp,moer"
                 },
                 "natural/tree": {
                     "name": "Boom"
@@ -5972,10 +6028,13 @@
                     "name": "Moeras of drassig gebied",
                     "terms": "drasland,moerassen en waterrijke gebieden,drassig gebied,wetlands,watergebied,onderlopend gebied,waterrijk gebied,water- en moerasgebied,wetland,moeras"
                 },
+                "natural/wetland/swamp": {
+                    "name": "Moeras (bebost)"
+                },
                 "natural/wood": {
                     "name": "Natuurlijk bos"
                 },
-                "network/type/node_network": {
+                "network/type/node_network-DE-NL-BE-LU": {
                     "name": "Knooppunt van recreatief netwerk"
                 },
                 "noexit/yes": {
@@ -6009,9 +6068,8 @@
                     "name": "Kantoor van non-profitorganisatie",
                     "terms": "non-profitorganisatiekantoor,ngo-kantoor,vzw-kantoor,verenigingskantoor,kantoor van vereniging zonder winstoogmerk,vereniging zonder winstoogmerk,kantoor van vzw,kantoor van ngo"
                 },
-                "office/bail_bond_agent": {
-                    "name": "Borgtochtgeldschieter",
-                    "terms": "bailbondsman"
+                "office/bail_bond_agent-US-PH": {
+                    "name": "Borgtochtgeldschieter"
                 },
                 "office/charity": {
                     "name": "Kantoor van liefdadigheidsinstelling",
@@ -6322,6 +6380,9 @@
                 "point": {
                     "name": "Punt",
                     "terms": "anders,overige,iets anders,algemeen"
+                },
+                "police/checkpoint": {
+                    "name": "Politiecontrolepost"
                 },
                 "polling_station": {
                     "name": "Tijdelijk stembureau",
