@@ -6,8 +6,8 @@ schemaBuilder.buildDist({
     description: 'Presets available in the iD and Go Map!! editors and recognized by the Overpass turbo query wizard',
     project_url: 'https://github.com/openstreetmap/id-tagging-schema/',
     icon_url: 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@release/dist/img/logo.png',
-    contact_name: 'Quincy Morgan',
-    contact_email: 'q@quincylvania.com'
+    contact_name: 'Martin Raifer',
+    contact_email: 'martin@raifer.tech'
   },
   translOrgId: 'openstreetmap',
   translProjectId: 'id-editor',
