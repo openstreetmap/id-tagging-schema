@@ -79,6 +79,7 @@
                             "title": "Era"
                         },
                         "yes": {
+                            "description": "Juurdepääs seaduse alusel; igaüheõigus",
                             "title": "Lubatud"
                         }
                     },
@@ -98,6 +99,12 @@
                     "label": "Pääs lubatud",
                     "options": {
                         "customers": "Ainult klientidele"
+                    }
+                },
+                "activity": {
+                    "options": {
+                        "Ski": "Suusatamine",
+                        "horse": "Ratsutamine"
                     }
                 },
                 "addr/interpolation": {
@@ -576,7 +583,7 @@
                     "placeholder": "1, 2, 3..."
                 },
                 "diameter": {
-                    "label": "Läbimõõt",
+                    "label": "Läbimõõt (mm)",
                     "placeholder": "5 mm, 10 cm, 15 in…"
                 },
                 "diet_multi": {
@@ -761,7 +768,7 @@
                     "label": "Meetod"
                 },
                 "generator/output/electricity": {
-                    "label": "Võimsus",
+                    "label": "Väljundvõimsus",
                     "placeholder": "50 MW, 100 MW, 200 MW..."
                 },
                 "generator/source": {
@@ -914,11 +921,39 @@
                 "layer": {
                     "label": "Kiht"
                 },
+                "leaf_cycle": {
+                    "label": "Lehisus",
+                    "options": {
+                        "deciduous": "Heitlehine",
+                        "evergreen": "Igihaljas",
+                        "semi_deciduous": "Pool-heitlehine",
+                        "semi_evergreen": "Pool-igihaljas"
+                    }
+                },
+                "leaf_cycle_singular": {
+                    "label": "Lehisus",
+                    "options": {
+                        "deciduous": "Heitlehine",
+                        "evergreen": "Igihaljas",
+                        "semi_deciduous": "Pool-heitlehine",
+                        "semi_evergreen": "Pool-igihaljas"
+                    }
+                },
                 "leaf_type": {
-                    "label": "Lehe tüüp"
+                    "label": "Lehe tüüp",
+                    "options": {
+                        "broadleaved": "Lehtpuu",
+                        "leafless": "Lehed puuduvad",
+                        "needleleaved": "Okkad"
+                    }
                 },
                 "leaf_type_singular": {
-                    "label": "Lehe tüüp"
+                    "label": "Lehe tüüp",
+                    "options": {
+                        "broadleaved": "Lehtpuu",
+                        "leafless": "Lehed puuduvad",
+                        "needleleaved": "Okkad"
+                    }
                 },
                 "leisure": {
                     "label": "Tüüp"
@@ -951,6 +986,9 @@
                 },
                 "manhole": {
                     "label": "Tüüp"
+                },
+                "manufacturer": {
+                    "label": "Tootja"
                 },
                 "map_type": {
                     "label": "Tüüp"
@@ -1084,6 +1122,12 @@
                 "place": {
                     "label": "Tüüp"
                 },
+                "plant/method": {
+                    "label": "Tööpõhimõte"
+                },
+                "plant/source": {
+                    "label": "Energiaallikas"
+                },
                 "playground": {
                     "label": "Tüüp"
                 },
@@ -1114,6 +1158,10 @@
                 },
                 "ref/isil": {
                     "label": "ISIL-kood"
+                },
+                "ref_road_number": {
+                    "label": "Tee number/tähis",
+                    "terms": "tee number,tee tähis,number,tähis"
                 },
                 "relation": {
                     "label": "Tüüp"
@@ -1269,11 +1317,19 @@
                 "surface": {
                     "label": "Pinnakate",
                     "options": {
+                        "asphalt": "Asfalt",
+                        "concrete": "Betoon",
                         "wood": "puit"
                     }
                 },
                 "surveillance/type": {
-                    "label": "Jälgimise tüüp"
+                    "label": "Jälgimise tüüp",
+                    "options": {
+                        "camera": "Kaamera"
+                    }
+                },
+                "surveillance/zone": {
+                    "label": "Jälgitav piirkond"
                 },
                 "swimming_pool": {
                     "label": "Tüüp"
@@ -1377,7 +1433,14 @@
                     "label": "Veebileht"
                 },
                 "wetland": {
-                    "label": "Tüüp"
+                    "label": "Tüüp",
+                    "options": {
+                        "bog": "Soo",
+                        "mangrove": "Mangroov",
+                        "marsh": "Padur",
+                        "reedbed": "Roostik",
+                        "swamp": "Lodu"
+                    }
                 },
                 "wheelchair": {
                     "label": "Pääs ratastooliga"
@@ -2813,7 +2876,8 @@
                     "name": "Mahuti"
                 },
                 "man_made/surveillance/camera": {
-                    "name": "Valvekaamera"
+                    "name": "Valvekaamera",
+                    "terms": "turvakaamera,cctv"
                 },
                 "man_made/tower": {
                     "name": "Torn"
@@ -2968,6 +3032,9 @@
                 "natural/water": {
                     "name": "Vesi"
                 },
+                "natural/water/canal": {
+                    "name": "Kanal"
+                },
                 "natural/water/lake": {
                     "name": "Järv"
                 },
@@ -2979,8 +3046,8 @@
                     "name": "Tiik"
                 },
                 "natural/water/reservoir": {
-                    "name": "Reservuaar",
-                    "terms": "veehoidla"
+                    "name": "Veehoidla",
+                    "terms": "reservuaar"
                 },
                 "natural/water/wastewater": {
                     "name": "Reoveehoidla",
@@ -2989,6 +3056,26 @@
                 "natural/wetland": {
                     "name": "Märgala",
                     "terms": "roostik"
+                },
+                "natural/wetland/bog": {
+                    "name": "Soo",
+                    "terms": "raba,kõrgsoo"
+                },
+                "natural/wetland/mangrove": {
+                    "name": "Mangroov",
+                    "terms": "estuaar"
+                },
+                "natural/wetland/marsh": {
+                    "name": "Padur",
+                    "terms": "maršimaa,soo,ranna"
+                },
+                "natural/wetland/reedbed": {
+                    "name": "Roostik",
+                    "terms": "kõrkjad,võsa,rand"
+                },
+                "natural/wetland/swamp": {
+                    "name": "Lodu",
+                    "terms": "soo,mets"
                 },
                 "natural/wood": {
                     "name": "Looduslik mets"
@@ -3066,9 +3153,25 @@
                     "name": "Elektrigeneraator",
                     "terms": "generaator"
                 },
+                "power/generator/method/photovoltaic": {
+                    "name": "Päikesepaneel",
+                    "terms": "päikesepatarei,päikesepaneel"
+                },
+                "power/generator/method/photovoltaic/building/roof": {
+                    "name": "Päikesepaneelidest varjualune",
+                    "terms": "päikese,katus,varjualune,kate"
+                },
+                "power/generator/method/photovoltaic/location/roof": {
+                    "name": "Päikesepaneel katusel",
+                    "terms": "päikesepatarei,päikesepaneel,katusepäik"
+                },
                 "power/generator/source/hydro": {
                     "name": "Hüdroturbiin",
                     "terms": "hüdroelektrijaam,pais,veegeneraator,turbiin"
+                },
+                "power/generator/source/wind": {
+                    "name": "Tuulegeneraator",
+                    "terms": "tuuleelektrijaam,tuugen,tuulik,elektri"
                 },
                 "power/line": {
                     "name": "Kõrgepingeliin",
@@ -3080,6 +3183,21 @@
                 },
                 "power/plant": {
                     "name": "Elektrijaamaala"
+                },
+                "power/plant/source/hydro": {
+                    "name": "Hüdroelektrijaam",
+                    "terms": "hüdro,tamm,veeturbiin"
+                },
+                "power/plant/source/nuclear": {
+                    "name": "Tuumaelektrijaam",
+                    "terms": "tuumajaam,aatom,reaktor"
+                },
+                "power/plant/source/solar": {
+                    "name": "Päikeseelektrijaam",
+                    "terms": "päikese,elektri"
+                },
+                "power/plant/source/wind": {
+                    "name": "Tuulepark"
                 },
                 "power/pole": {
                     "name": "Elektripost",
