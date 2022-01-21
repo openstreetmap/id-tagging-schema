@@ -166,7 +166,6 @@ Thanks to all contributors: [@1ec5], [@andrewharvey], [@bagage], [@Bertware], [@
 [#199]: https://github.com/openstreetmap/id-tagging-schema/pull/199
 [#200]: https://github.com/openstreetmap/id-tagging-schema/pull/200
 [#203]: https://github.com/openstreetmap/id-tagging-schema/issues/203
-[#203]: https://github.com/openstreetmap/id-tagging-schema/issues/203
 [#208]: https://github.com/openstreetmap/id-tagging-schema/issues/208
 [#212]: https://github.com/openstreetmap/id-tagging-schema/pull/212
 [#214]: https://github.com/openstreetmap/id-tagging-schema/pull/214
@@ -203,7 +202,6 @@ Thanks to all contributors: [@1ec5], [@andrewharvey], [@bagage], [@Bertware], [@
 [#299]: https://github.com/openstreetmap/id-tagging-schema/issues/299
 [#304]: https://github.com/openstreetmap/id-tagging-schema/pull/304
 [#309]: https://github.com/openstreetmap/id-tagging-schema/pull/309
-[#311]: https://github.com/openstreetmap/id-tagging-schema/issues/311
 [#311]: https://github.com/openstreetmap/id-tagging-schema/issues/311
 [#315]: https://github.com/openstreetmap/id-tagging-schema/pull/315
 [#316]: https://github.com/openstreetmap/id-tagging-schema/pull/316
