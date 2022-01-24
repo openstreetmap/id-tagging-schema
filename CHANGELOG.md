@@ -17,6 +17,16 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 3.2.1
+
+#### Bugfixes
+
+* Patch a bug which caused pickup/dropoff parcel lockers to incorrectly get a `parcel_pickup=no` tag when upgrading from the old tagging schema ([#364], thanks [@riQQ])
+
+[#364]: https://github.com/openstreetmap/id-tagging-schema/issues/364
+
+[@riQQ]: https://github.com/riQQ
+
 # 3.2.0
 
 #### :mega: Release Highlights
