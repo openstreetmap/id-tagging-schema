@@ -40,7 +40,7 @@ Thanks to all contributors: [@1ec5], [@andrewharvey], [@bagage], [@Bertware], [@
 
 #### New and Changed Presets, New and Changed Fields
 
-* Add `payment:*` as an optinal field to `amenity=restaurant` ([#115])
+* Add `payment:*` as an optional field to `amenity=restaurant` ([#115])
 * Add `name` and `voltage` fields to `power=substation` preset ([#187])
 * Add `drinking_water` as optional field to `tourism=camp_site` preset ([#191])
 * Add presets for various shooting sport facilities ([#240])
@@ -73,7 +73,7 @@ Thanks to all contributors: [@1ec5], [@andrewharvey], [@bagage], [@Bertware], [@
 * Add `ref` field to milestone presets ([#110])
 * Add `speedway` as a value for the `sports` tag of the `highway=raceway` preset ([#111])
 * Drop the `name` field from `area:highway` presets ([#328])
-* Show contact information fields by default for touristic accomodation presets
+* Show contact information fields by default for touristic accommodation presets
 * Add preset for `area:highway=footway` ([#329], [#131])
 * Add field to indicate what kind of activity `information=map` and `information=guidepost` features are depicting (e.g. `hiking=yes`) ([#45])
 * Indicate that `covered` field can be _assumed to be "no"_ for roads and railways ([#130])
