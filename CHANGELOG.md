@@ -98,7 +98,7 @@ Thanks to all contributors: [@1ec5], [@andrewharvey], [@bagage], [@Bertware], [@
 * Add `smoothness` field for cycleway and similar presets ([#346])
 * Add values for the `castle_type` field ([#350])
 * Add labels for `recycling:` subtags ([#349])
-* Add `bin` field to `vending=exprement_bags` preset ([#355])
+* Add `bin` field to `vending=excrement_bags` preset ([#355])
 * Add field for `usage` tag of canals ([#348])
 * Hide `man_made=couryard` preset ([#354])
 * Add optional `wikimedia_commons` field to `emergency=defibrillator` preset ([#359])
