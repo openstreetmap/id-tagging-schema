@@ -17,6 +17,15 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 3.2.2
+
+#### Bugfixes
+
+* Fix `maxspeed` field not showing up in the US and Canada ([#388])
+
+[#388]: https://github.com/openstreetmap/id-tagging-schema/issues/388
+
+
 # 3.2.1
 
 #### Bugfixes
@@ -26,6 +35,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#364]: https://github.com/openstreetmap/id-tagging-schema/issues/364
 
 [@riQQ]: https://github.com/riQQ
+
 
 # 3.2.0
 
