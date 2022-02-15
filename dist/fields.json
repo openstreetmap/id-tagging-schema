@@ -36,6 +36,7 @@
             "private",
             "designated",
             "destination",
+            "customers",
             "dismount",
             "permit",
             "unknown"
@@ -1792,23 +1793,11 @@
     },
     "maxspeed": {
         "key": "maxspeed",
-        "type": "roadspeed",
-        "locationSet": {
-            "exclude": [
-                "ca",
-                "us"
-            ]
-        }
+        "type": "roadspeed"
     },
     "maxspeed/advisory": {
         "key": "maxspeed:advisory",
-        "type": "roadspeed",
-        "locationSet": {
-            "include": [
-                "ca",
-                "us"
-            ]
-        }
+        "type": "roadspeed"
     },
     "maxstay": {
         "key": "maxstay",
@@ -1969,7 +1958,8 @@
     },
     "network_road": {
         "key": "network",
-        "type": "networkCombo"
+        "type": "networkCombo",
+        "snake_case": false
     },
     "network": {
         "key": "network",
@@ -2436,14 +2426,18 @@
             "glass_bottles",
             "glass",
             "paper",
+            "plastic",
             "clothes",
             "cans",
             "batteries",
             "shoes",
             "green_waste",
             "plastic_packaging",
+            "plastic_bottles",
             "cardboard",
-            "scrap_metal"
+            "scrap_metal",
+            "cooking_oil",
+            "engine_oil"
         ]
     },
     "recycling_type": {
@@ -2457,6 +2451,10 @@
         ]
     },
     "ref_aeroway_gate": {
+        "key": "ref",
+        "type": "text"
+    },
+    "ref_disc_golf_hole": {
         "key": "ref",
         "type": "text"
     },
@@ -2790,6 +2788,22 @@
     "seamark/mooring/category": {
         "key": "seamark:mooring:category",
         "type": "combo"
+    },
+    "seamark/rescue_station/category": {
+        "key": "seamark:rescue_station:category",
+        "type": "semiCombo",
+        "options": [
+            "lifeboat",
+            "lifeboat_on_mooring",
+            "seaplane",
+            "aircraft",
+            "hovercraft",
+            "radio",
+            "first_aid",
+            "refuge_shipwrecked",
+            "refuge_intertidal",
+            "tug"
+        ]
     },
     "seamark/type": {
         "key": "seamark:type",

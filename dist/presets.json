@@ -5638,6 +5638,26 @@
             "theatre:type": "amphi"
         }
     },
+    "amenity/ticket_validator": {
+        "icon": "temaki-vending_machine",
+        "fields": [
+            "ref",
+            "operator"
+        ],
+        "moreFields": [
+            "colour",
+            "covered",
+            "indoor",
+            "level",
+            "support"
+        ],
+        "geometry": [
+            "point"
+        ],
+        "tags": {
+            "amenity": "ticket_validator"
+        }
+    },
     "amenity/toilets": {
         "icon": "maki-toilet",
         "fields": [
@@ -8741,6 +8761,43 @@
         },
         "searchable": false
     },
+    "disc_golf/basket": {
+        "icon": "temaki-disc_golf_basket",
+        "geometry": [
+            "point",
+            "vertex"
+        ],
+        "tags": {
+            "disc_golf": "basket"
+        }
+    },
+    "disc_golf/hole": {
+        "icon": "temaki-disc_golf_basket",
+        "fields": [
+            "name",
+            "ref_disc_golf_hole",
+            "par"
+        ],
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "disc_golf": "hole"
+        }
+    },
+    "disc_golf/tee": {
+        "icon": "temaki-disc_golf_basket",
+        "fields": [
+            "surface"
+        ],
+        "geometry": [
+            "point",
+            "vertex"
+        ],
+        "tags": {
+            "disc_golf": "tee"
+        }
+    },
     "disused/amenity": {
         "fields": [
             "disused/amenity"
@@ -9058,6 +9115,7 @@
         "fields": [
             "name",
             "operator",
+            "seamark/rescue_station/category",
             "address",
             "building_area",
             "phone",
@@ -9075,6 +9133,9 @@
         ],
         "tags": {
             "emergency": "lifeboat_station"
+        },
+        "addTags": {
+            "seamark:type": "rescue_station"
         }
     },
     "emergency/lifeguard": {
@@ -9154,7 +9215,7 @@
             "emergency": "siren"
         }
     },
-    "emergency/water_reservoir covered": {
+    "emergency/water_reservoir_covered": {
         "icon": "maki-water",
         "fields": [
             "name",
@@ -9194,12 +9255,8 @@
         ],
         "tags": {
             "emergency": "water_tank",
-            "landuse": "reservoir"
-        },
-        "addTags": {
-            "emergency": "water_tank",
-            "landuse": "reservoir",
-            "natural": "water"
+            "natural": "water",
+            "water": "reservoir"
         }
     },
     "emergency/water_tank": {
@@ -9598,7 +9655,7 @@
             "area"
         ],
         "tags": {
-            "healthcare": "birthing_center"
+            "healthcare": "birthing_centre"
         }
     },
     "healthcare/blood_donation": {
@@ -9911,6 +9968,27 @@
             "indoor": "yes"
         }
     },
+    "highway/crossing/uncontrolled": {
+        "icon": "temaki-pedestrian_crosswalk",
+        "fields": [
+            "crossing",
+            "tactile_paving",
+            "crossing/island",
+            "crossing_raised"
+        ],
+        "geometry": [
+            "vertex"
+        ],
+        "tags": {
+            "highway": "crossing",
+            "crossing": "uncontrolled"
+        },
+        "reference": {
+            "key": "crossing",
+            "value": "uncontrolled"
+        },
+        "searchable": false
+    },
     "highway/crossing/zebra": {
         "icon": "temaki-pedestrian_crosswalk",
         "fields": [
@@ -9948,8 +10026,8 @@
             "crossing": "marked"
         },
         "reference": {
-            "key": "highway",
-            "value": "crossing"
+            "key": "crossing",
+            "value": "marked"
         }
     },
     "highway/crossing/signals": {
@@ -10137,8 +10215,8 @@
             "crossing": "marked"
         },
         "reference": {
-            "key": "cycleway",
-            "value": "crossing"
+            "key": "crossing",
+            "value": "marked"
         },
         "matchScore": 0.95
     },
@@ -10160,8 +10238,8 @@
             "crossing": "unmarked"
         },
         "reference": {
-            "key": "cycleway",
-            "value": "crossing"
+            "key": "crossing",
+            "value": "unmarked"
         },
         "matchScore": 0.95
     },
@@ -12486,6 +12564,7 @@
             "industrial"
         ],
         "moreFields": [
+            "operator",
             "address",
             "email",
             "fax",
@@ -12557,7 +12636,8 @@
             "area"
         ],
         "fields": [
-            "name"
+            "name",
+            "operator"
         ],
         "moreFields": [
             "address",
@@ -14258,6 +14338,21 @@
             "value": "field_hockey"
         }
     },
+    "leisure/pitch/four_square": {
+        "icon": "maki-pitch",
+        "geometry": [
+            "area",
+            "point"
+        ],
+        "tags": {
+            "leisure": "pitch",
+            "sport": "four_square"
+        },
+        "reference": {
+            "key": "sport",
+            "value": "four_square"
+        }
+    },
     "leisure/pitch/futsal": {
         "icon": "maki-soccer",
         "geometry": [
@@ -15612,6 +15707,10 @@
             "operator",
             "manufacturer"
         ],
+        "moreFields": [
+            "ref",
+            "website"
+        ],
         "tags": {
             "man_made": "monitoring_station"
         }
@@ -15770,6 +15869,11 @@
         "geometry": [
             "point",
             "area"
+        ],
+        "fields": [
+            "name",
+            "operator",
+            "address"
         ],
         "moreFields": [
             "gnis/feature_id-US"
@@ -17366,6 +17470,24 @@
             "value": "travel_agency"
         },
         "searchable": false
+    },
+    "office/yes": {
+        "icon": "maki-suitcase",
+        "fields": [
+            "name",
+            "office",
+            "{office}"
+        ],
+        "geometry": [
+            "point",
+            "vertex",
+            "area"
+        ],
+        "tags": {
+            "office": "yes"
+        },
+        "searchable": false,
+        "matchScore": 0.5
     },
     "office/accountant": {
         "icon": "temaki-accounting",
@@ -19113,6 +19235,7 @@
             "ref"
         ],
         "moreFields": [
+            "address",
             "gnis/feature_id-US"
         ],
         "geometry": [
@@ -20928,6 +21051,23 @@
             "shop": "vacant"
         },
         "searchable": false
+    },
+    "shop/yes": {
+        "icon": "maki-shop",
+        "fields": [
+            "name",
+            "shop",
+            "{shop}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "shop": "yes"
+        },
+        "searchable": false,
+        "matchScore": 0.5
     },
     "shop/agrarian": {
         "icon": "fas-tractor",
