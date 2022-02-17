@@ -1,4 +1,4 @@
-const schemaBuilder = require('@ideditor/schema-builder');
+import schemaBuilder from '@ideditor/schema-builder';
 
 schemaBuilder.buildDist({
   taginfoProjectInfo: {
