@@ -1652,6 +1652,18 @@
     "replace": {"amenity": "townhall", "townhall:type": "village"}
   },
   {
+    "old": {"transformer": "auto"},
+    "replace": {"windings:auto": "yes"}
+  },
+  {
+    "old": {"transformer": "minor_distribution"},
+    "replace": {"transformer": "distribution"}
+  },
+  {
+    "old": {"transformer": "traction"},
+    "replace": {"transformer": "main"}
+  },
+  {
     "old": {"tunnel": "1"},
     "replace": {"tunnel": "yes"}
   },
@@ -1742,6 +1754,22 @@
   {
     "old": {"volcano": "extinct"},
     "replace": {"volcano:status": "extinct"}
+  },
+  {
+    "old": {"voltage-high": "*"},
+    "replace": {"voltage:primary":"$1"}
+  },
+  {
+    "old": {"voltage-low": "*"},
+    "replace": {"voltage:secondary":"$1"}
+  },
+  {
+    "old": {"voltage-high": "*", "transformer":"generator"},
+    "replace": {"voltage:secondary":"$1", "transformer":"generator"}
+  },
+  {
+    "old": {"voltage-low": "*", "transformer":"generator"},
+    "replace": {"voltage:primary":"$1", "transformer":"generator"}
   },
   {
     "old": {"wall_type": "noise_barrier"},
