@@ -882,8 +882,7 @@
             "width"
         ],
         "geometry": [
-            "line",
-            "area"
+            "line"
         ],
         "tags": {
             "aeroway": "runway"
@@ -5821,6 +5820,29 @@
             "amenity": "toy_library"
         }
     },
+    "amenity/trolley_bay": {
+        "icon": "fas-cart-shopping",
+        "fields": [
+            "capacity",
+            "deposit/trolley",
+            "payment_multi_fee"
+        ],
+        "moreFields": [
+            "brand",
+            "covered",
+            "fee",
+            "indoor",
+            "opening_hours",
+            "operator"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "trolley_bay"
+        }
+    },
     "amenity/university": {
         "icon": "maki-college",
         "fields": [
@@ -9939,8 +9961,11 @@
             "line"
         ],
         "tags": {
+            "highway": "construction"
+        },
+        "removeTags": {
             "highway": "construction",
-            "access": "no"
+            "construction": "*"
         }
     },
     "highway/corridor": {
@@ -15677,6 +15702,27 @@
             "value": "yes"
         }
     },
+    "man_made/mast/lighting": {
+        "icon": "temaki-mast",
+        "fields": [
+            "{man_made/mast}",
+            "direction_point"
+        ],
+        "moreFields": [
+            "{man_made/mast}"
+        ],
+        "geometry": [
+            "point"
+        ],
+        "tags": {
+            "man_made": "mast",
+            "tower:type": "lighting"
+        },
+        "reference": {
+            "key": "tower:type",
+            "value": "lighting"
+        }
+    },
     "man_made/mineshaft": {
         "icon": "temaki-mineshaft_cage",
         "geometry": [
@@ -17611,10 +17657,6 @@
         ],
         "tags": {
             "office": "coworking"
-        },
-        "reference": {
-            "key": "amenity",
-            "value": "coworking_space"
         }
     },
     "office/diplomatic": {

@@ -52,6 +52,9 @@
                 "access": {
                     "label": "Pääs lubatud",
                     "options": {
+                        "customers": {
+                            "title": "Klientidele"
+                        },
                         "designated": {
                             "description": "Ligipääs on lubatud vaid kohalike siltide või reeglite alusel",
                             "title": "Määratud"
@@ -78,6 +81,10 @@
                         "private": {
                             "title": "Era"
                         },
+                        "unknown": {
+                            "description": "Ligipääsutingimused on teadmata või ebaselged",
+                            "title": "Teadmata"
+                        },
                         "yes": {
                             "description": "Juurdepääs seaduse alusel; igaüheõigus",
                             "title": "Lubatud"
@@ -98,7 +105,10 @@
                 "access_simple": {
                     "label": "Pääs lubatud",
                     "options": {
-                        "customers": "Ainult klientidele"
+                        "customers": "Ainult klientidele",
+                        "no": "Puudub",
+                        "unknown": "Teadmata",
+                        "yes": "Avalik"
                     }
                 },
                 "activity": {
@@ -373,6 +383,14 @@
                     "label": "Invakohtade arv",
                     "placeholder": "1, 2, 3..."
                 },
+                "capacity/persons": {
+                    "label": "Mahutavus (inimesi)",
+                    "placeholder": "50, 100, 200..."
+                },
+                "capacity/tents": {
+                    "label": "Mahutavus (telke)",
+                    "placeholder": "10, 20, 50..."
+                },
                 "capacity_parking": {
                     "label": "Kohti kokku",
                     "placeholder": "10, 20, 30..."
@@ -578,6 +596,12 @@
                     "label": "Kirjeldus",
                     "terms": "seletus,info,lisainfo"
                 },
+                "destination": {
+                    "label": "Sihtkohad"
+                },
+                "destination_oneway": {
+                    "label": "Sihtkohad"
+                },
                 "devices": {
                     "label": "Seadmed",
                     "placeholder": "1, 2, 3..."
@@ -651,6 +675,12 @@
                 "duration": {
                     "label": "Kestus",
                     "placeholder": "00:00"
+                },
+                "ele": {
+                    "label": "Kõrgus merepinnast (meetrites)"
+                },
+                "ele_node": {
+                    "label": "Kõrgus merepinnast (meetrites)"
                 },
                 "electrified": {
                     "label": "Elektrifitseeritud",
@@ -909,6 +939,9 @@
                     },
                     "terms": "risttee"
                 },
+                "lamp_mount": {
+                    "label": "Paigaldusviis"
+                },
                 "lamp_type": {
                     "label": "Tüüp"
                 },
@@ -993,6 +1026,9 @@
                 "map_type": {
                     "label": "Tüüp"
                 },
+                "mapillary": {
+                    "label": "Mapillary pildi ID"
+                },
                 "material": {
                     "label": "Materjal"
                 },
@@ -1052,6 +1088,9 @@
                 "network_road": {
                     "label": "Võrgustik"
                 },
+                "not/name": {
+                    "label": "Valenimed"
+                },
                 "note": {
                     "label": "Märge"
                 },
@@ -1083,6 +1122,9 @@
                 },
                 "operator": {
                     "label": "Operaator"
+                },
+                "outdoor_seating": {
+                    "label": "Väliistekohad"
                 },
                 "park_ride": {
                     "label": "Pargi ja Reisi"
@@ -1277,6 +1319,9 @@
                         "streetlevel imagery": "Tänavatasandi fotod"
                     }
                 },
+                "start_date": {
+                    "label": "Alguskuupäev"
+                },
                 "stop": {
                     "label": "Tüüp",
                     "options": {
@@ -1317,8 +1362,18 @@
                 "surface": {
                     "label": "Pinnakate",
                     "options": {
+                        "artificial_turf": "Kunstmuru",
                         "asphalt": "Asfalt",
+                        "compacted": "Tihendatud",
                         "concrete": "Betoon",
+                        "dirt": "Muld",
+                        "grass": "Muru",
+                        "gravel": "Kruus",
+                        "ground": "Maapind",
+                        "paved": "Pinnakattega",
+                        "paving_stones": "Sillutuskivid",
+                        "sand": "Liiv",
+                        "unpaved": "Pinnakatteta",
                         "wood": "puit"
                     }
                 },
@@ -1336,6 +1391,13 @@
                 },
                 "switch": {
                     "label": "Tüüp"
+                },
+                "takeaway": {
+                    "label": "Kaasaost",
+                    "options": {
+                        "only": "Ainult kaasaost"
+                    },
+                    "placeholder": "Jah, Ei, Ainult kaasaost..."
                 },
                 "tidal": {
                     "label": "Loodeline"
@@ -1766,6 +1828,57 @@
                 },
                 "amenity/restaurant": {
                     "name": "Restoran"
+                },
+                "amenity/restaurant/american": {
+                    "name": "Ameerika restoran"
+                },
+                "amenity/restaurant/asian": {
+                    "name": "Aasia restoran"
+                },
+                "amenity/restaurant/chinese": {
+                    "name": "Hiina restoran"
+                },
+                "amenity/restaurant/french": {
+                    "name": "Prantsuse restoran"
+                },
+                "amenity/restaurant/german": {
+                    "name": "Saksa restoran"
+                },
+                "amenity/restaurant/greek": {
+                    "name": "Kreeka restoran"
+                },
+                "amenity/restaurant/indian": {
+                    "name": "India restoran"
+                },
+                "amenity/restaurant/italian": {
+                    "name": "Itaalia restoran"
+                },
+                "amenity/restaurant/japanese": {
+                    "name": "Jaapani restoran"
+                },
+                "amenity/restaurant/mexican": {
+                    "name": "Mehhiko restoran"
+                },
+                "amenity/restaurant/noodle": {
+                    "name": "Nuudlirestoran"
+                },
+                "amenity/restaurant/pizza": {
+                    "name": "Pitsarestoran"
+                },
+                "amenity/restaurant/seafood": {
+                    "name": "Mereannirestoran"
+                },
+                "amenity/restaurant/sushi": {
+                    "name": "Sushi-restoran"
+                },
+                "amenity/restaurant/thai": {
+                    "name": "Tai restoran"
+                },
+                "amenity/restaurant/turkish": {
+                    "name": "Türgi restoran"
+                },
+                "amenity/restaurant/vietnamese": {
+                    "name": "Vietnami restoran"
                 },
                 "amenity/school": {
                     "name": "Kool",
@@ -3240,6 +3353,9 @@
                 },
                 "public_transport/platform/bus_tram_point": {
                     "name": "Bussi- ja trammipeatus"
+                },
+                "public_transport/stop_position_bus": {
+                    "name": "Bussi peatuspaik"
                 },
                 "railway/abandoned": {
                     "name": "Mahajäetud raudtee"
