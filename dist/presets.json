@@ -1232,6 +1232,7 @@
         ],
         "moreFields": [
             "branch_brand",
+            "ref",
             "brand",
             "covered",
             "height",
@@ -1383,7 +1384,7 @@
         }
     },
     "amenity/bicycle_parking": {
-        "icon": "maki-bicycle",
+        "icon": "temaki-bicycle_parked",
         "fields": [
             "bicycle_parking",
             "capacity",
@@ -3615,15 +3616,21 @@
     "amenity/parcel_locker": {
         "icon": "temaki-vending_lockers",
         "fields": [
+            "operator",
             "parcel_pickup",
             "parcel_dropoff",
-            "operator",
+            "opening_hours",
             "payment_multi",
             "ref"
         ],
+        "moreFields": [
+            "brand",
+            "colour"
+        ],
         "geometry": [
             "point",
-            "vertex"
+            "vertex",
+            "area"
         ],
         "tags": {
             "amenity": "parcel_locker"
@@ -3853,6 +3860,7 @@
         ],
         "moreFields": [
             "branch_brand",
+            "ref",
             "covered",
             "currency_multi",
             "indoor",
@@ -5821,7 +5829,7 @@
         }
     },
     "amenity/trolley_bay": {
-        "icon": "fas-cart-shopping",
+        "icon": "fas-shopping-cart",
         "fields": [
             "capacity",
             "deposit/trolley",
@@ -5921,6 +5929,7 @@
             "currency_multi"
         ],
         "moreFields": [
+            "ref",
             "blind",
             "branch_brand",
             "brand",
@@ -7700,8 +7709,10 @@
     "building/garage": {
         "icon": "fas-warehouse",
         "fields": [
-            "{building}",
-            "capacity"
+            "{building/garages}"
+        ],
+        "moreFields": [
+            "{building/garages}"
         ],
         "geometry": [
             "area"
@@ -7714,8 +7725,15 @@
     "building/garages": {
         "icon": "fas-warehouse",
         "fields": [
-            "{building}",
             "capacity"
+        ],
+        "moreFields": [
+            "name",
+            "building",
+            "building/levels",
+            "height",
+            "address",
+            "{building}"
         ],
         "geometry": [
             "area"
@@ -9073,6 +9091,7 @@
         "moreFields": [
             "fire_hydrant/diameter",
             "fire_hydrant/pressure",
+            "fire_hydrant/position",
             "level",
             "survey/date",
             "water_volume"
@@ -9952,10 +9971,10 @@
             "construction",
             "opening_date",
             "check_date",
-            "note",
+            "access",
             "oneway",
             "structure",
-            "access"
+            "note"
         ],
         "geometry": [
             "line"
@@ -10043,6 +10062,9 @@
             "crossing/island",
             "crossing_raised"
         ],
+        "moreFields": [
+            "flashing_lights"
+        ],
         "geometry": [
             "vertex"
         ],
@@ -10061,7 +10083,15 @@
             "crossing",
             "tactile_paving",
             "crossing/island",
-            "crossing_raised"
+            "crossing_raised",
+            "button_operated",
+            "traffic_signals/sound",
+            "traffic_signals/vibration"
+        ],
+        "moreFields": [
+            "traffic_signals/arrow",
+            "traffic_signals/countdown",
+            "traffic_signals/minimap"
         ],
         "geometry": [
             "vertex"
@@ -10082,6 +10112,9 @@
             "tactile_paving",
             "crossing/island",
             "crossing_raised"
+        ],
+        "moreFields": [
+            "flashing_lights"
         ],
         "geometry": [
             "vertex"
@@ -10454,6 +10487,9 @@
             "crossing/island",
             "crossing_raised"
         ],
+        "moreFields": [
+            "flashing_lights"
+        ],
         "geometry": [
             "line"
         ],
@@ -10492,7 +10528,15 @@
             "surface",
             "tactile_paving",
             "crossing/island",
-            "crossing_raised"
+            "crossing_raised",
+            "button_operated",
+            "traffic_signals/sound",
+            "traffic_signals/vibration"
+        ],
+        "moreFields": [
+            "traffic_signals/arrow",
+            "traffic_signals/countdown",
+            "traffic_signals/minimap"
         ],
         "geometry": [
             "line"
@@ -10516,6 +10560,9 @@
             "tactile_paving",
             "crossing/island",
             "crossing_raised"
+        ],
+        "moreFields": [
+            "flashing_lights"
         ],
         "geometry": [
             "line"
@@ -11402,6 +11449,7 @@
         },
         "fields": [
             "lamp_type",
+            "support",
             "lamp_mount",
             "direction",
             "height",
@@ -11518,6 +11566,9 @@
         "fields": [
             "traffic_signals",
             "traffic_signals/direction"
+        ],
+        "moreFields": [
+            "traffic_signals/countdown"
         ]
     },
     "highway/trailhead": {
@@ -14191,10 +14242,6 @@
     },
     "leisure/pitch/badminton": {
         "icon": "maki-tennis",
-        "fields": [
-            "{leisure/pitch}",
-            "access_simple"
-        ],
         "geometry": [
             "area",
             "point"
@@ -14226,11 +14273,8 @@
     "leisure/pitch/basketball": {
         "icon": "maki-basketball",
         "fields": [
-            "name",
-            "surface",
-            "hoops",
-            "lit",
-            "access_simple"
+            "{leisure/pitch}",
+            "hoops"
         ],
         "geometry": [
             "area",
@@ -14423,6 +14467,21 @@
             "value": "netball"
         }
     },
+    "leisure/pitch/padel": {
+        "icon": "maki-tennis",
+        "geometry": [
+            "area",
+            "point"
+        ],
+        "tags": {
+            "leisure": "pitch",
+            "sport": "padel"
+        },
+        "reference": {
+            "key": "sport",
+            "value": "padel"
+        }
+    },
     "leisure/pitch/paintball": {
         "icon": "fas-crosshairs",
         "geometry": [
@@ -14440,10 +14499,6 @@
     },
     "leisure/pitch/pickleball": {
         "icon": "maki-tennis",
-        "fields": [
-            "{leisure/pitch}",
-            "access_simple"
-        ],
         "geometry": [
             "area",
             "point"
@@ -14584,10 +14639,6 @@
     },
     "leisure/pitch/tennis": {
         "icon": "maki-tennis",
-        "fields": [
-            "{leisure/pitch}",
-            "access_simple"
-        ],
         "geometry": [
             "area",
             "point"
@@ -14599,6 +14650,21 @@
         "reference": {
             "key": "sport",
             "value": "tennis"
+        }
+    },
+    "leisure/pitch/tetherball": {
+        "icon": "maki-pitch",
+        "geometry": [
+            "area",
+            "point"
+        ],
+        "tags": {
+            "leisure": "pitch",
+            "sport": "tetherball"
+        },
+        "reference": {
+            "key": "sport",
+            "value": "tetherball"
         }
     },
     "leisure/pitch/volleyball": {
@@ -15703,7 +15769,7 @@
         }
     },
     "man_made/mast/lighting": {
-        "icon": "temaki-mast",
+        "icon": "temaki-mast_lighting",
         "fields": [
             "{man_made/mast}",
             "direction_point"
@@ -16346,7 +16412,8 @@
         "fields": [
             "name",
             "operator",
-            "address"
+            "address",
+            "ref"
         ],
         "moreFields": [
             "email",
@@ -16674,7 +16741,10 @@
     "natural/beach": {
         "icon": "temaki-beach",
         "fields": [
-            "surface"
+            "name",
+            "surface",
+            "lifeguard",
+            "supervised"
         ],
         "geometry": [
             "point",
@@ -16803,7 +16873,8 @@
             "gnis/feature_id-US"
         ],
         "geometry": [
-            "point"
+            "point",
+            "area"
         ],
         "tags": {
             "natural": "hot_spring"
@@ -16983,11 +17054,17 @@
             "leaf_cycle_singular",
             "denotation",
             "height",
-            "diameter"
+            "circumference"
         ],
         "moreFields": [
-            "circumference",
-            "species/wikidata"
+            "genus",
+            "species",
+            "species/wikidata",
+            "taxon",
+            "start_date",
+            "diameter_crown",
+            "diameter",
+            "name"
         ],
         "geometry": [
             "point",
@@ -18537,6 +18614,16 @@
         ],
         "tags": {
             "playground": "cushion"
+        }
+    },
+    "playground/hopscotch": {
+        "icon": "maki-playground",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "playground": "hopscotch"
         }
     },
     "playground/horizontal_bar": {
