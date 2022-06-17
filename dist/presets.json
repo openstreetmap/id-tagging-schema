@@ -1241,7 +1241,6 @@
             "level",
             "lit",
             "manufacturer",
-            "name",
             "opening_hours",
             "opening_hours/covid19",
             "wheelchair"
@@ -1318,6 +1317,7 @@
             "phone",
             "ref/vatin",
             "smoking",
+            "sport_pub",
             "website",
             "wheelchair"
         ],
@@ -3709,7 +3709,6 @@
             "email",
             "fax",
             "maxstay",
-            "name",
             "opening_hours",
             "opening_hours/covid19",
             "park_ride",
@@ -4456,6 +4455,7 @@
             "phone",
             "ref/vatin",
             "real_fire-GB-IE",
+            "sport_pub",
             "website",
             "wheelchair"
         ],
@@ -4807,6 +4807,7 @@
             "ref/vatin",
             "reservation",
             "smoking",
+            "sport_pub",
             "stars",
             "takeaway",
             "wheelchair",
@@ -7737,7 +7738,6 @@
             "capacity"
         ],
         "moreFields": [
-            "name",
             "building",
             "building/levels",
             "height",
@@ -7751,6 +7751,15 @@
             "building": "garages"
         },
         "matchScore": 0.5
+    },
+    "building/ger": {
+        "icon": "temaki-hut",
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "building": "ger"
+        }
     },
     "building/grandstand": {
         "icon": "maki-building",
@@ -9023,8 +9032,7 @@
         "moreFields": [
             "level",
             "opening_hours",
-            "access_simple",
-            "wikimedia_commons"
+            "access_simple"
         ],
         "geometry": [
             "point",
@@ -9385,6 +9393,7 @@
             "ref",
             "door",
             "access_simple",
+            "wheelchair",
             "level"
         ],
         "geometry": [
@@ -9397,12 +9406,6 @@
     },
     "entrance/main": {
         "icon": "maki-entrance-alt1",
-        "fields": [
-            "ref",
-            "door",
-            "access_simple",
-            "level"
-        ],
         "geometry": [
             "vertex"
         ],
@@ -10381,6 +10384,7 @@
         "moreFields": [
             "covered_no",
             "dog",
+            "informal",
             "lit",
             "maxweight_bridge",
             "not/name",
@@ -10414,6 +10418,39 @@
         "reference": {
             "key": "footway",
             "value": "crossing"
+        },
+        "searchable": false
+    },
+    "highway/footway/informal": {
+        "icon": "fas-shoe-prints",
+        "fields": [
+            "surface",
+            "width",
+            "access",
+            "trail_visibility",
+            "smoothness",
+            "incline"
+        ],
+        "moreFields": [
+            "covered_no",
+            "dog",
+            "informal",
+            "lit",
+            "maxweight_bridge",
+            "sac_scale",
+            "stroller",
+            "structure",
+            "wheelchair"
+        ],
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "highway": "footway",
+            "informal": "yes"
+        },
+        "reference": {
+            "key": "informal"
         },
         "searchable": false
     },
@@ -10457,7 +10494,6 @@
             "incline",
             "lit",
             "maxweight_bridge",
-            "name",
             "ref",
             "smoothness",
             "stroller",
@@ -10704,7 +10740,6 @@
             "maxheight",
             "maxspeed",
             "maxweight_bridge",
-            "name",
             "ref_road_number",
             "smoothness",
             "toll",
@@ -10746,7 +10781,6 @@
             "maxheight",
             "maxspeed/advisory",
             "maxweight_bridge",
-            "name",
             "ref_road_number",
             "smoothness",
             "toll",
@@ -10965,7 +10999,6 @@
             "maxheight",
             "maxspeed",
             "maxweight_bridge",
-            "name",
             "oneway/bicycle",
             "ref_road_number",
             "smoothness",
@@ -11011,7 +11044,6 @@
             "maxheight",
             "maxspeed/advisory",
             "maxweight_bridge",
-            "name",
             "oneway/bicycle",
             "ref_road_number",
             "smoothness",
@@ -11052,6 +11084,7 @@
             "flood_prone",
             "incline",
             "junction_line",
+            "lane_markings",
             "lit",
             "maxheight",
             "maxspeed/advisory",
@@ -11141,6 +11174,7 @@
             "flood_prone",
             "incline",
             "junction_line",
+            "lane_markings",
             "lit",
             "maxheight",
             "maxspeed/advisory",
@@ -11390,6 +11424,7 @@
     "highway/steps": {
         "icon": "iD-highway-steps",
         "fields": [
+            "name",
             "incline_steps",
             "access_simple",
             "handrail",
@@ -11404,7 +11439,6 @@
             "indoor",
             "level_semi",
             "lit",
-            "name",
             "ref",
             "ramp",
             "stroller",
@@ -12055,7 +12089,6 @@
         ],
         "moreFields": [
             "{historic}",
-            "start_date",
             "religion",
             "denomination"
         ],
@@ -12538,8 +12571,7 @@
             "operator"
         ],
         "moreFields": [
-            "address",
-            "name"
+            "address"
         ],
         "geometry": [
             "area"
@@ -14642,6 +14674,25 @@
             "value": "softball"
         }
     },
+    "leisure/pitch/table_soccer": {
+        "fields": [
+            "name",
+            "lit",
+            "access_simple"
+        ],
+        "geometry": [
+            "area",
+            "point"
+        ],
+        "tags": {
+            "leisure": "pitch",
+            "sport": "table_soccer"
+        },
+        "reference": {
+            "key": "sport",
+            "value": "table_soccer"
+        }
+    },
     "leisure/pitch/table_tennis": {
         "icon": "fas-table-tennis",
         "fields": [
@@ -15349,7 +15400,6 @@
         "moreFields": [
             "colour",
             "material",
-            "name",
             "operator",
             "ref"
         ],
@@ -15359,6 +15409,21 @@
         ],
         "tags": {
             "man_made": "cairn"
+        }
+    },
+    "man_made/carpet_hanger": {
+        "icon": "maki-picnic-site",
+        "fields": [
+            "material",
+            "height",
+            "colour"
+        ],
+        "geometry": [
+            "point",
+            "line"
+        ],
+        "tags": {
+            "man_made": "carpet_hanger"
         }
     },
     "man_made/chimney": {
@@ -16183,7 +16248,6 @@
             "lit"
         ],
         "moreFields": [
-            "name",
             "operator",
             "ref"
         ],
@@ -16418,7 +16482,6 @@
             "min_height"
         ],
         "moreFields": [
-            "name",
             "ref",
             "website",
             "visibility"
@@ -16783,8 +16846,7 @@
         "icon": "temaki-cape_landform",
         "fields": [
             "name",
-            "ele_node",
-            "description"
+            "ele_node"
         ],
         "geometry": [
             "point",
@@ -17086,10 +17148,8 @@
             "species",
             "species/wikidata",
             "taxon",
-            "start_date",
             "diameter_crown",
-            "diameter",
-            "name"
+            "diameter"
         ],
         "geometry": [
             "point",
@@ -17103,8 +17163,7 @@
         "icon": "temaki-valley",
         "fields": [
             "name",
-            "ele_node",
-            "description"
+            "ele_node"
         ],
         "geometry": [
             "vertex",
@@ -17260,9 +17319,7 @@
             "intermittent",
             "tidal"
         ],
-        "moreFields": [
-            "name"
-        ],
+        "moreFields": [],
         "geometry": [
             "area"
         ],
@@ -17281,9 +17338,7 @@
             "water",
             "intermittent"
         ],
-        "moreFields": [
-            "name"
-        ],
+        "moreFields": [],
         "geometry": [
             "area"
         ],
@@ -20961,7 +21016,8 @@
     "railway/tram": {
         "icon": "temaki-tram",
         "fields": [
-            "{railway/light_rail}"
+            "{railway/light_rail}",
+            "oneway"
         ],
         "moreFields": [
             "{railway/light_rail}"
@@ -21681,6 +21737,17 @@
             "second_hand": "only"
         }
     },
+    "shop/clothes/suits": {
+        "icon": "fas-tshirt",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "shop": "clothes",
+            "clothes": "suits"
+        }
+    },
     "shop/clothes/underwear": {
         "icon": "temaki-bikini",
         "geometry": [
@@ -21709,6 +21776,17 @@
         "reference": {
             "key": "clothes",
             "value": "wedding"
+        }
+    },
+    "shop/clothes/workwear": {
+        "icon": "fas-tshirt",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "shop": "clothes",
+            "clothes": "workwear"
         }
     },
     "shop/coffee": {
@@ -24375,19 +24453,6 @@
             "traffic_sign": "maxspeed"
         }
     },
-    "type/multipolygon": {
-        "icon": "iD-multipolygon",
-        "geometry": [
-            "area",
-            "relation"
-        ],
-        "tags": {
-            "type": "multipolygon"
-        },
-        "removeTags": {},
-        "searchable": false,
-        "matchScore": 0.1
-    },
     "type/boundary": {
         "icon": "iD-boundary",
         "fields": [
@@ -24477,6 +24542,17 @@
             "key": "enforcement",
             "value": "maxspeed"
         }
+    },
+    "type/multipolygon": {
+        "icon": "iD-multipolygon",
+        "geometry": [
+            "relation"
+        ],
+        "tags": {
+            "type": "multipolygon"
+        },
+        "removeTags": {},
+        "matchScore": 0.1
     },
     "type/public_transport/stop_area_group": {
         "icon": "iD-relation",
@@ -24994,6 +25070,32 @@
             "value": "power"
         }
     },
+    "type/route/railway": {
+        "icon": "temaki-railway_track",
+        "fields": [
+            "name",
+            "ref_route",
+            "operator",
+            "network",
+            "from",
+            "to",
+            "via"
+        ],
+        "moreFields": [
+            "distance"
+        ],
+        "geometry": [
+            "relation"
+        ],
+        "tags": {
+            "type": "route",
+            "route": "railway"
+        },
+        "reference": {
+            "key": "route",
+            "value": "railway"
+        }
+    },
     "type/route/road": {
         "icon": "iD-highway-unclassified",
         "fields": [
@@ -25143,20 +25245,6 @@
         "tags": {
             "type": "waterway"
         }
-    },
-    "waterway/riverbank": {
-        "icon": "maki-water",
-        "geometry": [
-            "area"
-        ],
-        "fields": [],
-        "moreFields": [
-            "name"
-        ],
-        "tags": {
-            "waterway": "riverbank"
-        },
-        "searchable": false
     },
     "waterway/boatyard": {
         "icon": "temaki-boat",
