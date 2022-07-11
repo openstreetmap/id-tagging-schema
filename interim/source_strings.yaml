@@ -2489,6 +2489,9 @@ en:
         label: Runway Number
         # ref_runway field placeholder
         placeholder: e.g. 01L/19R
+      ref_sector:
+        # ref=*
+        label: Section Number
       ref_stop_position:
         # ref=*
         label: Stop Number
@@ -2756,6 +2759,11 @@ en:
         # second_hand field placeholder
         placeholder: Yes, No, Only
         terms: '[translate with synonyms or related terms for ''Sells Used'', separated by commas]'
+      sector/name:
+        # sector:name=*
+        label: Name
+        # sector/name field placeholder
+        placeholder: Dedicated name (if any)
       segregated:
         # segregated=*
         label: Bicycle-Pedestrian Separation
@@ -3340,21 +3348,19 @@ en:
         label: Type
         options:
           # transformer=auxiliary
-          auxiliary: Auxiliary
-          # transformer=compensator
-          compensator: Compensation feed
+          auxiliary: Feeds internal systems in substations
           # transformer=converter
-          converter: Converter
+          converter: Feeds power converters
           # transformer=distribution
-          distribution: Distribution
+          distribution: Feeds final consumers, installed outside substations
           # transformer=generator
-          generator: Generator
+          generator: Steps-up voltage in power plants
           # transformer=main
-          main: Main
+          main: Forwards power
           # transformer=phase_angle_regulator
-          phase_angle_regulator: Phase Angle Regulator
+          phase_angle_regulator: Regulates phase angle
           # transformer=yes
-          'yes': Unknown
+          'yes': Unknown role
       trees:
         # trees=*
         label: Trees
@@ -3592,7 +3598,7 @@ en:
         terms: '[translate with synonyms or related terms for ''Windings'', separated by commas]'
       windings/auto:
         # windings:auto=*
-        label: Auto-transformer
+        label: Autotransformer
         options:
           # windings:auto=no
           'no': 'No'
@@ -3600,7 +3606,7 @@ en:
           undefined: Assumed to be No
           # windings:auto=yes
           'yes': 'Yes'
-        terms: '[translate with synonyms or related terms for ''Auto-transformer'', separated by commas]'
+        terms: '[translate with synonyms or related terms for ''Autotransformer'', separated by commas]'
       windings/configuration:
         # windings:configuration=*
         label: Windings Configuration
@@ -4793,6 +4799,11 @@ en:
         # amenity=vending_machine | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Vending Machine
         terms: <translate with synonyms or related terms for 'Vending Machine', separated by commas>
+      amenity/vending_machine/bicycle_tube:
+        # amenity=vending_machine + vending=bicycle_tube | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
+        name: Bicycle Inner Tube Vending Machine
+        # 'terms: inner tube,bicycle tubes,bike tube'
+        terms: <translate with synonyms or related terms for 'Bicycle Inner Tube Vending Machine', separated by commas>
       amenity/vending_machine/bottle_return:
         # amenity=vending_machine + vending=bottle_return | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Bottle Return Machine
@@ -4878,6 +4889,11 @@ en:
         name: Parking Ticket Vending Machine
         # 'terms: parking,ticket'
         terms: <translate with synonyms or related terms for 'Parking Ticket Vending Machine', separated by commas>
+      amenity/vending_machine/pizza:
+        # amenity=vending_machine + vending=pizza | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
+        name: Pizza Vending Machine
+        # 'terms: pizza'
+        terms: <translate with synonyms or related terms for 'Pizza Vending Machine', separated by commas>
       amenity/vending_machine/public_transport_tickets:
         # amenity=vending_machine + vending=public_transport_tickets | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Transit Ticket Vending Machine
@@ -5111,9 +5127,9 @@ en:
         terms: <translate with synonyms or related terms for 'Railing', separated by commas>
       barrier/full-height_turnstile:
         # barrier=full-height_turnstile | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
-        name: Full-height Turnstile
+        name: Full-Height Turnstile
         # 'terms: baffle gate,turnstyle'
-        terms: <translate with synonyms or related terms for 'Full-height Turnstile', separated by commas>
+        terms: <translate with synonyms or related terms for 'Full-Height Turnstile', separated by commas>
       barrier/gate:
         # barrier=gate | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Gate
@@ -5125,9 +5141,9 @@ en:
         terms: <translate with synonyms or related terms for 'Guard Rail', separated by commas>
       barrier/hampshire_gate:
         # barrier=hampshire_gate | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
-        name: Hampshire Gate
-        # 'terms: new zealand gate,wire gate'
-        terms: <translate with synonyms or related terms for 'Hampshire Gate', separated by commas>
+        name: Wire Gate
+        # 'terms: hampshire gate,new zealand gate'
+        terms: <translate with synonyms or related terms for 'Wire Gate', separated by commas>
       barrier/handrail:
         # barrier=handrail | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Handrail
@@ -5398,6 +5414,9 @@ en:
         name: Preschool / Kindergarten Building
         # 'terms: kindergarten,kindergarden,pre-school'
         terms: <translate with synonyms or related terms for 'Preschool / Kindergarten Building', separated by commas>
+      building/manufacture:
+        # building=manufacture | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
+        name: Industrial Production Building
       building/mosque:
         # building=mosque | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Mosque Building
@@ -5507,6 +5526,11 @@ en:
       building_point:
         # building=* | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Building
+      cemetery/sector:
+        # cemetery=sector | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
+        name: Cemetery Section
+        # 'terms: burial ground,cemetary,cemetery,churchyard,columbarium,grave yard,graveyard,mausoleum,tomb'
+        terms: <translate with synonyms or related terms for 'Cemetery Section', separated by commas>
       club:
         # club=* | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Club
