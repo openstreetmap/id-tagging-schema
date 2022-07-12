@@ -17,6 +17,12 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 3.4.1
+
+#### Bugfixes
+* Replace unavailable icon for new `moped_link` preset with an alternative.
+
+
 # 3.4.0
 
 #### :mega: Release Highlights
