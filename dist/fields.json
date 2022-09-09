@@ -242,6 +242,17 @@
         "key": "bar",
         "type": "check"
     },
+    "barrier_planter": {
+        "key": "barrier",
+        "type": "defaultCheck",
+        "geometry": [
+            "vertex"
+        ],
+        "options": [
+            "undefined",
+            "planter"
+        ]
+    },
     "barrier": {
         "key": "barrier",
         "type": "typeCombo"
@@ -431,7 +442,8 @@
     },
     "camera/direction": {
         "key": "camera:direction",
-        "type": "number"
+        "type": "number",
+        "increment": 5
     },
     "camera/mount": {
         "key": "camera:mount",
@@ -625,7 +637,9 @@
     },
     "country": {
         "key": "country",
-        "type": "combo"
+        "type": "combo",
+        "snake_case": false,
+        "caseSensitive": true
     },
     "couplings": {
         "key": "couplings",
@@ -863,7 +877,8 @@
     },
     "destination": {
         "key": "destination",
-        "type": "semiCombo"
+        "type": "semiCombo",
+        "snake_case": false
     },
     "destination/ref_oneway": {
         "key": "destination:ref",
@@ -1677,6 +1692,10 @@
         "key": "landuse",
         "type": "typeCombo"
     },
+    "lane_markings": {
+        "key": "lane_markings",
+        "type": "check"
+    },
     "lanes": {
         "key": "lanes",
         "type": "number",
@@ -1893,6 +1912,11 @@
         "type": "combo",
         "snake_case": false
     },
+    "maxwidth": {
+        "key": "maxwidth",
+        "type": "roadheight",
+        "snake_case": false
+    },
     "memorial": {
         "key": "memorial",
         "type": "combo"
@@ -1900,6 +1924,10 @@
     "microbrewery": {
         "key": "microbrewery",
         "type": "check"
+    },
+    "military_service": {
+        "key": "military_service",
+        "type": "combo"
     },
     "mimics": {
         "key": "mimics",
@@ -2548,6 +2576,10 @@
         "key": "ref",
         "type": "text"
     },
+    "ref_sector": {
+        "key": "ref",
+        "type": "text"
+    },
     "ref_stop_position": {
         "key": "ref",
         "type": "text"
@@ -2671,7 +2703,7 @@
     },
     "roof/colour": {
         "key": "roof:colour",
-        "type": "combo"
+        "type": "text"
     },
     "room": {
         "key": "room",
@@ -2895,6 +2927,10 @@
             "only"
         ]
     },
+    "sector/name": {
+        "key": "sector:name",
+        "type": "text"
+    },
     "segregated": {
         "key": "segregated",
         "type": "check"
@@ -3060,6 +3096,16 @@
             "curling",
             "ice_stock",
             "multi"
+        ]
+    },
+    "sport_pub": {
+        "key": "sport",
+        "type": "semiCombo",
+        "autoSuggestions": false,
+        "options": [
+            "table_soccer",
+            "billiards",
+            "darts"
         ]
     },
     "sport_racing_motor": {
@@ -3282,7 +3328,9 @@
     },
     "target": {
         "key": "target",
-        "type": "combo"
+        "type": "combo",
+        "snake_case": false,
+        "caseSensitive": true
     },
     "taxon": {
         "key": "taxon",
@@ -3457,11 +3505,10 @@
         "autoSuggestions": false,
         "customValues": false,
         "options": [
+            "main",
             "distribution",
             "generator",
             "converter",
-            "traction",
-            "auto",
             "phase_angle_regulator",
             "auxiliary",
             "yes"
@@ -3668,7 +3715,8 @@
     "website": {
         "key": "website",
         "type": "url",
-        "icon": "website"
+        "icon": "website",
+        "universal": true
     },
     "wetland": {
         "key": "wetland",
@@ -3736,6 +3784,15 @@
         "key": "windings",
         "type": "number",
         "minValue": 1
+    },
+    "windings/auto": {
+        "key": "windings:auto",
+        "type": "check",
+        "options": [
+            "undefined",
+            "yes",
+            "no"
+        ]
     },
     "windings/configuration": {
         "key": "windings:configuration",

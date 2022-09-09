@@ -289,6 +289,13 @@
                 "bar": {
                     "label": "Bar"
                 },
+                "barrier_planter": {
+                    "label": "Barrier",
+                    "options": {
+                        "undefined": "No",
+                        "planter": "Yes"
+                    }
+                },
                 "barrier": {
                     "label": "Type"
                 },
@@ -1362,6 +1369,10 @@
                 "landuse": {
                     "label": "Type"
                 },
+                "lane_markings": {
+                    "label": "Lane Markings",
+                    "terms": "centerline,lane dividers,lane line,striped,unstriped"
+                },
                 "lanes": {
                     "label": "Lanes",
                     "placeholder": "1, 2, 3..."
@@ -1508,12 +1519,18 @@
                 "maxweight": {
                     "label": "Max Weight"
                 },
+                "maxwidth": {
+                    "label": "Max Width"
+                },
                 "memorial": {
                     "label": "Type"
                 },
                 "microbrewery": {
                     "label": "Microbrewery",
                     "terms": "brewpub,craft beer"
+                },
+                "military_service": {
+                    "label": "Military Service"
                 },
                 "mimics": {
                     "label": "Mimics",
@@ -2007,6 +2024,9 @@
                     "label": "Runway Number",
                     "placeholder": "e.g. 01L/19R"
                 },
+                "ref_sector": {
+                    "label": "Section Number"
+                },
                 "ref_stop_position": {
                     "label": "Stop Number"
                 },
@@ -2196,7 +2216,7 @@
                         "radio": "Radio Station",
                         "first_aid": "First aid",
                         "refuge_shipwrecked": "Shipwreck Refuge",
-                        "refuge_intertidal": " Intertidal Refuge",
+                        "refuge_intertidal": "Intertidal Refuge",
                         "tug": "Salvage tug"
                     }
                 },
@@ -2222,6 +2242,10 @@
                         "no": "No",
                         "only": "Only"
                     }
+                },
+                "sector/name": {
+                    "label": "Name",
+                    "placeholder": "Dedicated name (if any)"
                 },
                 "segregated": {
                     "label": "Bicycle-Pedestrian Separation"
@@ -2348,6 +2372,14 @@
                         "curling": "Curling",
                         "ice_stock": "Ice Stock",
                         "multi": "Multiple"
+                    }
+                },
+                "sport_pub": {
+                    "label": "Sports",
+                    "options": {
+                        "table_soccer": "Foosball",
+                        "billiards": "Billiards",
+                        "darts": "Darts"
                     }
                 },
                 "sport_racing_motor": {
@@ -2665,14 +2697,13 @@
                 "transformer": {
                     "label": "Type",
                     "options": {
-                        "distribution": "Distribution",
-                        "generator": "Generator",
-                        "converter": "Converter",
-                        "traction": "Traction",
-                        "auto": "Autotransformer",
+                        "main": "Main: Forwards power",
+                        "distribution": "Distribution: Feeds final consumers, installed outside substations",
+                        "generator": "Generator: Steps-up voltage in power plants",
+                        "converter": "Converter: Feeds power converters",
                         "phase_angle_regulator": "Phase Angle Regulator",
-                        "auxiliary": "Auxiliary",
-                        "yes": "Unknown"
+                        "auxiliary": "Auxiliary: Feeds internal systems in substations",
+                        "yes": "Unknown Role"
                     }
                 },
                 "trees": {
@@ -2860,6 +2891,14 @@
                 "windings": {
                     "label": "Windings",
                     "placeholder": "1, 2, 3..."
+                },
+                "windings/auto": {
+                    "label": "Autotransformer",
+                    "options": {
+                        "undefined": "Assumed to be No",
+                        "yes": "Yes",
+                        "no": "No"
+                    }
                 },
                 "windings/configuration": {
                     "label": "Windings Configuration",
@@ -3711,6 +3750,7 @@
                 },
                 "amenity/restaurant/pizza": {
                     "name": "Pizza Restaurant",
+                    "aliases": "Pizzeria",
                     "terms": "bar,dine,dining,dinner,drive-in,eat,lunch,table,deep dish,thin crust,slice"
                 },
                 "amenity/restaurant/seafood": {
@@ -3837,7 +3877,7 @@
                 },
                 "amenity/ticket_validator": {
                     "name": "Ticket Validator",
-                    "aliases": "ticket puncher\npunching machine\nticket marker",
+                    "aliases": "Ticket Puncher\nPunching Machine\nTicket Marker",
                     "terms": "ticket,validator,puncher"
                 },
                 "amenity/toilets": {
@@ -3887,6 +3927,10 @@
                 },
                 "amenity/vending_machine": {
                     "name": "Vending Machine"
+                },
+                "amenity/vending_machine/bicycle_tube": {
+                    "name": "Bicycle Inner Tube Vending Machine",
+                    "terms": "inner tube,bicycle tubes,bike tube"
                 },
                 "amenity/vending_machine/bottle_return": {
                     "name": "Bottle Return Machine",
@@ -3956,6 +4000,10 @@
                     "name": "Parking Ticket Vending Machine",
                     "aliases": "Parking Meter",
                     "terms": "parking,ticket"
+                },
+                "amenity/vending_machine/pizza": {
+                    "name": "Pizza Vending Machine",
+                    "terms": "pizza"
                 },
                 "amenity/vending_machine/public_transport_tickets": {
                     "name": "Transit Ticket Vending Machine",
@@ -4086,8 +4134,20 @@
                 "barrier": {
                     "name": "Barrier"
                 },
+                "barrier/ditch": {
+                    "name": "Trench"
+                },
                 "barrier/entrance": {
                     "name": "Entrance"
+                },
+                "barrier/handrail": {
+                    "name": "Handrail"
+                },
+                "barrier/log": {
+                    "name": "Fallen Tree"
+                },
+                "barrier/planter": {
+                    "name": "Planter (Barrier)"
                 },
                 "barrier/block": {
                     "name": "Block"
@@ -4101,6 +4161,18 @@
                 "barrier/border_control": {
                     "name": "Border Control",
                     "terms": "checkpoint,customs,international boundary,passport check,port of entry,visa"
+                },
+                "barrier/bump_gate": {
+                    "name": "Bump Gate",
+                    "terms": "drive-through gate"
+                },
+                "barrier/bus_trap": {
+                    "name": "Bus Trap",
+                    "terms": "car trap"
+                },
+                "barrier/cable_barrier": {
+                    "name": "Cable Barrier",
+                    "terms": "guard cable,wire rope safety barrier"
                 },
                 "barrier/cattle_grid": {
                     "name": "Cattle Grid",
@@ -4116,15 +4188,16 @@
                     "name": "Cycle Barrier",
                     "terms": "bicycle barrier,bicycling barrier,bike gates,cycling barrier"
                 },
-                "barrier/ditch": {
-                    "name": "Trench"
-                },
                 "barrier/fence": {
                     "name": "Fence"
                 },
                 "barrier/fence/railing": {
                     "name": "Railing",
                     "terms": "handrail,guard rail"
+                },
+                "barrier/full-height_turnstile": {
+                    "name": "Full-Height Turnstile",
+                    "terms": "baffle gate,turnstyle"
                 },
                 "barrier/gate": {
                     "name": "Gate"
@@ -4133,12 +4206,20 @@
                     "name": "Guard Rail",
                     "terms": "guardrail,traffic barrier,crash barrier,median barrier,roadside barrier,armco barrier"
                 },
+                "barrier/hampshire_gate": {
+                    "name": "Wire Gate",
+                    "terms": "hampshire gate,new zealand gate"
+                },
                 "barrier/hedge": {
                     "name": "Hedge"
                 },
                 "barrier/height_restrictor": {
                     "name": "Height Restrictor",
                     "terms": "height barrier,height restriction barrier,maxheight,maximum height measurer"
+                },
+                "barrier/jersey_barrier": {
+                    "name": "Jersey Barrier",
+                    "terms": "concrete median,concrete barrier,constant-slope barrier,f-shape barrier,k-rail,median,new jersey wall,ontario tall wall,plastic barrier"
                 },
                 "barrier/kerb": {
                     "name": "Curb"
@@ -4166,8 +4247,14 @@
                     "name": "Lift Gate",
                     "terms": "boom barrier,boom gate,boom lift,hinged bar,pivoted pole"
                 },
+                "barrier/motorcycle_barrier": {
+                    "name": "Motorcycle Barrier"
+                },
                 "barrier/retaining_wall": {
                     "name": "Retaining Wall"
+                },
+                "barrier/rope": {
+                    "name": "Rope Fence"
                 },
                 "barrier/sally_port": {
                     "name": "Sally Port",
@@ -4197,6 +4284,9 @@
                     "name": "Noise Barrier",
                     "terms": "acoustical barrier,noise wall,noisewall,sound barrier,sound berm,sound wall,soundberm,soundwall"
                 },
+                "barrier/wicket_gate": {
+                    "name": "Wicket Gate"
+                },
                 "boundary/administrative": {
                     "name": "Administrative Boundary"
                 },
@@ -4219,6 +4309,9 @@
                 },
                 "building/entrance": {
                     "name": "Entrance/Exit"
+                },
+                "building/manufacture": {
+                    "name": "Industrial Production Building"
                 },
                 "building/train_station": {
                     "name": "Train Station Building"
@@ -4289,6 +4382,10 @@
                 },
                 "building/garages": {
                     "name": "Garages"
+                },
+                "building/ger": {
+                    "name": "Yurt",
+                    "terms": "ger"
                 },
                 "building/grandstand": {
                     "name": "Grandstand",
@@ -4399,6 +4496,14 @@
                 },
                 "building/warehouse": {
                     "name": "Warehouse"
+                },
+                "cemetery/grave": {
+                    "name": "Grave",
+                    "terms": "mausoleum,tomb"
+                },
+                "cemetery/sector": {
+                    "name": "Cemetery Section",
+                    "terms": "burial ground,cemetary,cemetery,churchyard,columbarium,grave yard,graveyard,mausoleum,tomb"
                 },
                 "club": {
                     "name": "Club",
@@ -4723,7 +4828,7 @@
                 },
                 "golf/bunker": {
                     "name": "Sand Trap",
-                    "aliases": "bunker",
+                    "aliases": "Bunker",
                     "terms": "hazard"
                 },
                 "golf/cartpath": {
@@ -4869,15 +4974,15 @@
                 },
                 "highway/crossing/marked": {
                     "name": "Marked Crosswalk",
-                    "terms": "zebra crossing,marked crossing,crosswalk,flat top,hump,speed,slow"
+                    "terms": "zebra crossing,marked crossing,crosswalk"
                 },
-                "highway/crossing/signals": {
+                "highway/crossing/traffic_signals": {
                     "name": "Crossing With Pedestrian Signals",
-                    "terms": "pedestrian traffic lights,pedestrian traffic signals,pedestrian crossing (lights),bicycle crossing (lights),crosswalk (lights),flat top,hump,speed,slow"
+                    "terms": "pedestrian traffic lights,pedestrian traffic signals,pedestrian crossing (lights),bicycle crossing (lights),crosswalk (lights)"
                 },
                 "highway/crossing/unmarked": {
                     "name": "Unmarked Crossing",
-                    "terms": "unmarked foot path crossing,unmarked crosswalk,unmarked pedestrian crossing,flat top,hump,speed,slow"
+                    "terms": "unmarked foot path crossing,unmarked crosswalk,unmarked pedestrian crossing"
                 },
                 "highway/cycleway": {
                     "name": "Cycle Path",
@@ -4902,6 +5007,9 @@
                     "name": "Unmarked Cycle Crossing",
                     "terms": "cycle path crossing,cycleway crossing,bicycle crossing,bike crossing"
                 },
+                "highway/cycleway/moped_link-NL": {
+                    "name": "Moped Link"
+                },
                 "highway/elevator_line": {
                     "name": "Inclined Elevator",
                     "aliases": "Inclined Lift",
@@ -4910,6 +5018,11 @@
                 "highway/elevator": {
                     "name": "Elevator",
                     "terms": "lift"
+                },
+                "highway/emergency_access_point": {
+                    "name": "Emergency Access Point",
+                    "aliases": "Emergency Location Marker\nRescue Point",
+                    "terms": "rescue,emergency,emergency marker,elm"
                 },
                 "highway/emergency_bay": {
                     "name": "Emergency Stopping Place",
@@ -4921,6 +5034,9 @@
                 },
                 "highway/footway/crossing": {
                     "name": "Pedestrian Crossing"
+                },
+                "highway/footway/informal": {
+                    "name": "Informal Foot Path"
                 },
                 "highway/footway/zebra": {
                     "name": "Marked Crosswalk"
@@ -4935,19 +5051,19 @@
                 },
                 "highway/footway/marked": {
                     "name": "Marked Crosswalk",
-                    "terms": "marked foot path crossing,marked crossing,marked pedestrian crosswalk,zebra crossing,crosswalk,flat top,hump,speed,slow"
+                    "terms": "marked foot path crossing,marked crossing,marked pedestrian crosswalk,zebra crossing,crosswalk"
                 },
                 "highway/footway/sidewalk": {
                     "name": "Sidewalk",
                     "terms": "pavement,sidepath"
                 },
-                "highway/footway/signals": {
+                "highway/footway/traffic_signals": {
                     "name": "Crossing With Pedestrian Signals",
-                    "terms": "pedestrian traffic lights,pedestrian traffic signals,pedestrian crossing (lights),bicycle crossing (lights),crosswalk (lights),flat top,hump,speed,slow"
+                    "terms": "pedestrian traffic lights,pedestrian traffic signals,pedestrian crossing (lights),bicycle crossing (lights),crosswalk (lights)"
                 },
                 "highway/footway/unmarked": {
                     "name": "Unmarked Crossing",
-                    "terms": "unmarked foot path crossing,unmarked crosswalk,unmarked pedestrian crossing,flat top,hump,speed,slow"
+                    "terms": "unmarked foot path crossing,unmarked crosswalk,unmarked pedestrian crossing"
                 },
                 "highway/give_way": {
                     "name": "Yield Sign",
@@ -5072,11 +5188,15 @@
                 },
                 "highway/services": {
                     "name": "Service Area",
-                    "terms": "services,travel plaza,service station"
+                    "terms": "roadhouse,service station,services,travel plaza,truck stop"
                 },
                 "highway/speed_camera": {
                     "name": "Speed Camera",
                     "terms": "maxspeed camera,photo radar,speed limit camera,speed trap,traffic enforcement camera"
+                },
+                "highway/speed_display": {
+                    "name": "Radar Speed Sign",
+                    "terms": "driver feedback sign,dynamic speed display,speed awareness message,speed display board,speed radar sign,traffic calming sign,your speed sign"
                 },
                 "highway/steps": {
                     "name": "Steps",
@@ -5107,8 +5227,8 @@
                     "terms": "license plate camera toll,cashless toll,electronic toll,free-flow toll,toll gantry,transponder toll"
                 },
                 "highway/track": {
-                    "name": "Unmaintained Track Road",
-                    "terms": "woods road,forest road,logging road,fire road,farm road,agricultural road,ranch road,carriage road,primitive,unmaintained,rut,offroad,4wd,4x4,four wheel drive,atv,quad,jeep,double track,two track"
+                    "name": "Track / Land-Access Road",
+                    "terms": "4wd,4x4,agricultural road,atv,carriage road,double track,farm road,fire road,forest road,four wheel drive,high-clearance,jeep,land access road,logging road,offroad,overgrown,primitive,quad,ranch road,rut,track,track road,two track,unmaintained,woods road"
                 },
                 "highway/traffic_mirror": {
                     "name": "Traffic Mirror",
@@ -5303,7 +5423,7 @@
                 },
                 "landuse/farmyard": {
                     "name": "Farmyard",
-                    "terms": "crop,grow,plant"
+                    "terms": "barnyard,cattleyard,feeding,feedlot,feedyard,livestock"
                 },
                 "landuse/flowerbed": {
                     "name": "Flowerbed",
@@ -5365,13 +5485,17 @@
                     "name": "Barracks",
                     "terms": "air force,army,base,fight,force,guard,marine,navy,troop,war"
                 },
+                "landuse/military/base": {
+                    "name": "Military Base",
+                    "terms": "air force,army,base,border guard,coast guard,fight,force,guard,troop,war"
+                },
+                "landuse/military/base/navy": {
+                    "name": "Naval Base",
+                    "terms": "base,fight,force,guard,marine,navy,ship,sub,troop,war"
+                },
                 "landuse/military/danger_area": {
                     "name": "Danger Area",
                     "terms": "air force,army,base,blast,bomb,explo*,force,guard,mine,marine,navy,troop,war"
-                },
-                "landuse/military/naval_base": {
-                    "name": "Naval Base",
-                    "terms": "base,fight,force,guard,marine,navy,ship,sub,troop,war"
                 },
                 "landuse/military/obstacle_course": {
                     "name": "Military Obstacle Course",
@@ -5717,6 +5841,10 @@
                     "name": "Softball Field",
                     "terms": "baseball,diamond,softball"
                 },
+                "leisure/pitch/table_soccer": {
+                    "name": "Foosball Table",
+                    "terms": "kicker,table football,table soccer,tecball"
+                },
                 "leisure/pitch/table_tennis": {
                     "name": "Ping Pong Table",
                     "terms": "table tennis,ping pong"
@@ -5847,6 +5975,10 @@
                 "man_made/cairn": {
                     "name": "Cairn",
                     "terms": "rock pile,stone stack,stone pile,càrn"
+                },
+                "man_made/carpet_hanger": {
+                    "name": "Carpet Hanger",
+                    "terms": "rack,beater,stand"
                 },
                 "man_made/chimney": {
                     "name": "Chimney"
@@ -5987,6 +6119,9 @@
                 "man_made/pipeline/valve": {
                     "name": "Pipeline Valve",
                     "terms": "oil,natural gas,water,sewer,sewage"
+                },
+                "man_made/planter": {
+                    "name": "Planter"
                 },
                 "man_made/pumping_station": {
                     "name": "Pumping Station"
@@ -7270,6 +7405,10 @@
                     "name": "Secondhand Clothing Store",
                     "terms": "blouses,clothes,consignment,dresses,pants,second hand,shirts,shorts,skirts,slacks,suits,used"
                 },
+                "shop/clothes/suits": {
+                    "name": "Suits Store",
+                    "terms": "businessman,necktie,tie"
+                },
                 "shop/clothes/underwear": {
                     "name": "Underwear Store",
                     "terms": "boutique,bras,brassieres,briefs,boxers,fashion,lingerie,panties,slips,socks,stockings,underclothes,undergarments,underpants,undies"
@@ -7277,6 +7416,10 @@
                 "shop/clothes/wedding": {
                     "name": "Wedding Clothes Store",
                     "terms": "boutique,bridal,bride,bridegroom,bridesmaid,groom,groomsman,tuxedo,wedding dress,wedding gown"
+                },
+                "shop/clothes/workwear": {
+                    "name": "Workwear Store",
+                    "terms": "craftsman,safety footwear"
                 },
                 "shop/coffee": {
                     "name": "Coffee Store"
@@ -7772,8 +7915,9 @@
                     "terms": "telecommunications,telephone exchange,telephone switch"
                 },
                 "tourism/alpine_hut": {
-                    "name": "Alpine Hut",
-                    "terms": "cabin,climbing hut,lodge,lodging,overnight accommodations,wilderness hut"
+                    "name": "Mountain Lodge",
+                    "aliases": "Alpine Hut\nMountain Hut\nMountain Shelter\nMountain Refuge\nMountain Hostel",
+                    "terms": "cabin,climbing hut,lodge,lodging,overnight accommodations,refuge,refuge hut,wilderness hut"
                 },
                 "tourism/apartment": {
                     "name": "Guest Apartment / Condo",
@@ -7909,7 +8053,8 @@
                 },
                 "tourism/wilderness_hut": {
                     "name": "Wilderness Hut",
-                    "terms": "alpine hut,cabin,backcountry hut,bothy,lodge,lodging,overnight accommodations,sleeping shelter"
+                    "aliases": "Backcountry Hut\nBackcountry Shelter\nBothy",
+                    "terms": "alpine hut,bivouac,bivouac box,biwakschachtel,cabin,lodge,lodging,overnight accommodations,refuge,sleeping shelter"
                 },
                 "tourism/zoo": {
                     "name": "Zoo",
@@ -7979,9 +8124,6 @@
                     "name": "Speed Limit Sign",
                     "terms": "max speed,maximum speed,road,highway"
                 },
-                "type/multipolygon": {
-                    "name": "Multipolygon"
-                },
                 "type/boundary": {
                     "name": "Boundary"
                 },
@@ -8001,6 +8143,9 @@
                 "type/enforcement/maxspeed": {
                     "name": "Speed Limit Enforcement",
                     "terms": "maxspeed,radar,speed camera"
+                },
+                "type/multipolygon": {
+                    "name": "Multipolygon"
                 },
                 "type/public_transport/stop_area_group": {
                     "name": "Transit Stop Area Group"
@@ -8082,6 +8227,9 @@
                 "type/route/power": {
                     "name": "Power Route"
                 },
+                "type/route/railway": {
+                    "name": "Railway Route"
+                },
                 "type/route/road": {
                     "name": "Road Route"
                 },
@@ -8102,9 +8250,6 @@
                 },
                 "type/waterway": {
                     "name": "Waterway"
-                },
-                "waterway/riverbank": {
-                    "name": "Riverbank"
                 },
                 "waterway/boatyard": {
                     "name": "Boatyard"

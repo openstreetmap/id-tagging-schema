@@ -17,6 +17,111 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 3.4.2
+
+#### Bugfixes
+* Replace unavailable icon for new `moped_link` preset with an alternative.
+
+
+# 3.4.0
+
+#### :mega: Release Highlights
+* Rename `highway=track` preset to "Track / Land-Access Road" ([#288])
+* Allow the website tag to be used on any feature ([#503])
+
+Thanks to all contributors: [@westnordost], [@arch0345], [@matkoniecz], [@flacombe], [@Kazing], [@kjonosm], [@k-yle], [@Binnette], all translators and everyone else who suggested improvements!
+
+#### New Presets
+* Add presets for Workwear Store and Suits Store ([#478])
+* Add Yurt preset ([#489])
+* Add Informal Foot Path preset ([#493])
+* Create preset for `route=railway` ([#483])
+* Add preset for `sport=table_football` ([#485])
+* Add Radar Speed Sign preset ([#442])
+* Add preset for `highway=emergency_access_point` ([#504])
+* Add more barrier presets ([#506])
+* Add presets for bike tube and pizza vending machines ([#516])
+* Add preset for `cemetery=sector` ([#517])
+* Add Grave preset ([#522])
+* Add hidden preset for `building=manufacture` ([#524])
+#### Regional Presets
+* add support for moped links in the NL ([#484])
+#### Changed Presets
+* Make all entrance `fields` available in the Main Entrance preset ([#491])
+* Add oneway field to Tram Track preset
+* Add additional terms to Service Area preset ([#495])
+* Make the `multipolygon` relation type searchable ([#481])
+* Add Wheelchair field to Emergency Exits
+* Add `lane_markings` field to some road presets ([#479])
+* Drop `description` field from Valley and Cape presets
+* Add `ref` field to Milestone preset ([#474])
+* Rename `tourism=alpine_hut` preset to "Mountain Lodge" ([#480])
+* Improve terms of crossing and traffic calming presets/fields ([#508])
+* Remove Crop field from Farmyard preset and add terms ([#513])
+* Update power presets following transformer tagging extension ([#447])
+#### New and Changed Fields
+* Increment camera:direction by 5 degrees at a time ([#482])
+* Made `target` and `country` fields case sensitive ([#490])
+* Add a field for `sport=table_football` to the Pub, Bar and Restaurant presets ([#485])
+* Add `maxwidth` as optional field to some road presets and the Ferry Route preset ([#518])
+#### Bugfixes
+* Fix broken Carpet Hanger preset ([#486])
+* Fix spelling of not title cased aliases
+* Avoid converting Destination field to snake case ([#515])
+* Fix wrong tag used in Emergency Water Tank preset (replace wrong tag ~~landuse=reservoire~~ with `man_made=storage_tank`) ([#525])
+#### Deprecated Tags
+* Drop deprecation rule for `fenced=yes` tag ([#514])
+* Add deprecation and new tag for (naval) military bases ([#510])
+* Fix replacements of deprecated golf tags
+* Replace ~~`shop=general_store`~~ with `shop=general` ([#476])
+* Replace ~~`shop=office_supplies`~~ with `shop=stationery` ([#477])
+* Drop preset for deprecated `waterway=riverbank` tag
+#### Documentation and Other Changes
+* Clean up unnecessary uses of the `wikimedia_commons` field (which is a universal field)
+* Clean up unnecessary uses of the `name` field (which is a universal field)
+* Clean up unnecessary uses of the `start_date` field (which is a universal field)
+* Make `roof:colour` field to work with iD's color picker widget ([#500])
+
+[#288]: https://github.com/openstreetmap/id-tagging-schema/pull/288
+[#442]: https://github.com/openstreetmap/id-tagging-schema/pull/442
+[#447]: https://github.com/openstreetmap/id-tagging-schema/pull/447
+[#474]: https://github.com/openstreetmap/id-tagging-schema/issues/474
+[#476]: https://github.com/openstreetmap/id-tagging-schema/pull/476
+[#477]: https://github.com/openstreetmap/id-tagging-schema/pull/477
+[#478]: https://github.com/openstreetmap/id-tagging-schema/pull/478
+[#479]: https://github.com/openstreetmap/id-tagging-schema/pull/479
+[#480]: https://github.com/openstreetmap/id-tagging-schema/issues/480
+[#481]: https://github.com/openstreetmap/id-tagging-schema/pull/481
+[#482]: https://github.com/openstreetmap/id-tagging-schema/pull/482
+[#483]: https://github.com/openstreetmap/id-tagging-schema/pull/483
+[#484]: https://github.com/openstreetmap/id-tagging-schema/issues/484
+[#485]: https://github.com/openstreetmap/id-tagging-schema/pull/485
+[#485]: https://github.com/openstreetmap/id-tagging-schema/pull/485
+[#486]: https://github.com/openstreetmap/id-tagging-schema/pull/486
+[#489]: https://github.com/openstreetmap/id-tagging-schema/pull/489
+[#490]: https://github.com/openstreetmap/id-tagging-schema/pull/490
+[#491]: https://github.com/openstreetmap/id-tagging-schema/pull/491
+[#493]: https://github.com/openstreetmap/id-tagging-schema/pull/493
+[#495]: https://github.com/openstreetmap/id-tagging-schema/pull/495
+[#500]: https://github.com/openstreetmap/id-tagging-schema/pull/500
+[#503]: https://github.com/openstreetmap/id-tagging-schema/pull/503
+[#504]: https://github.com/openstreetmap/id-tagging-schema/pull/504
+[#506]: https://github.com/openstreetmap/id-tagging-schema/pull/506
+[#508]: https://github.com/openstreetmap/id-tagging-schema/pull/508
+[#510]: https://github.com/openstreetmap/id-tagging-schema/issues/510
+[#513]: https://github.com/openstreetmap/id-tagging-schema/pull/513
+[#514]: https://github.com/openstreetmap/id-tagging-schema/issues/514
+[#515]: https://github.com/openstreetmap/id-tagging-schema/pull/515
+[#516]: https://github.com/openstreetmap/id-tagging-schema/pull/516
+[#517]: https://github.com/openstreetmap/id-tagging-schema/pull/517
+[#518]: https://github.com/openstreetmap/id-tagging-schema/issues/518
+[#522]: https://github.com/openstreetmap/id-tagging-schema/pull/522
+[#524]: https://github.com/openstreetmap/id-tagging-schema/pull/524
+[#525]: https://github.com/openstreetmap/id-tagging-schema/issues/525
+[@flacombe]: https://github.com/flacombe
+[@Kazing]: https://github.com/Kazing
+
+
 # 3.3.0
 
 #### :mega: Release Highlights

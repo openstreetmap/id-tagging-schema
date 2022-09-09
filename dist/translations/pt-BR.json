@@ -287,6 +287,12 @@
                 "barrier": {
                     "label": "Tipo"
                 },
+                "barrier_planter": {
+                    "options": {
+                        "planter": "Sim",
+                        "undefined": "Não"
+                    }
+                },
                 "basin": {
                     "label": "Tipo"
                 },
@@ -303,7 +309,12 @@
                     "label": "Serviço",
                     "options": {
                         "cosmetics": "Cosméticos",
-                        "tanning": "Bronzeamento"
+                        "hair_removal": "Depilação",
+                        "nails": "Desabilitar pontes integradas",
+                        "skin_care": "Cuidados com a pele",
+                        "spa": "Spa diurno",
+                        "tanning": "Bronzeamento",
+                        "waxing": "Depilação"
                     }
                 },
                 "bench": {
@@ -417,8 +428,13 @@
                 "cai_scale-IT": {
                     "label": "Dificuldade de rota de trilha (Clube Alpino Italiano)",
                     "options": {
-                        "E": "E: Para trilheiros experientes"
-                    }
+                        "E": "E: Para trilheiros experientes",
+                        "EAI": "EAI: Caminhadas em condições de neve",
+                        "EE": "EE: Para caminhantes experientes",
+                        "EEA": "EEE: Para caminhantes experientes com equipamento",
+                        "T": "T: Turístico"
+                    },
+                    "placeholder": "T, E, EE, …"
                 },
                 "camera/direction": {
                     "label": "Direção (Graus Sentido Horário)",
@@ -471,6 +487,8 @@
                     "label": "Tipo",
                     "options": {
                         "castrum": "Forte romano",
+                        "defensive": "Castelo defensivo",
+                        "fortress": "Fortaleza",
                         "palace": "Palácio"
                     }
                 },
@@ -781,6 +799,9 @@
                     "label": "Diâmetro",
                     "placeholder": "5 mm, 10 cm, 15 in…"
                 },
+                "diameter_crown": {
+                    "label": "Diâmetro da coroa"
+                },
                 "diet_multi": {
                     "label": "Tipos de dieta",
                     "options": {
@@ -1027,6 +1048,29 @@
                 "flag/wikidata": {
                     "label": "Wikidata da bandeira"
                 },
+                "flashing_lights": {
+                    "label": "Luzes piscantes",
+                    "options": {
+                        "always": {
+                            "description": "As luzes estão sempre piscando",
+                            "title": "Sempre piscando"
+                        },
+                        "button": {
+                            "description": "Luzes ativadas pressionando um botão",
+                            "title": "Botão ativado"
+                        },
+                        "button;sensor": {
+                            "description": "Luzes ativadas por sensor ou botão",
+                            "title": "Ativado por botão e sensor"
+                        },
+                        "no": "Não",
+                        "sensor": {
+                            "description": "Luzes ativadas por sensor",
+                            "title": "Sensor ativado"
+                        },
+                        "yes": "Sim"
+                    }
+                },
                 "floating": {
                     "label": "Flutuando"
                 },
@@ -1088,6 +1132,10 @@
                 },
                 "generator/type": {
                     "label": "Tipo"
+                },
+                "genus": {
+                    "label": "Gênero",
+                    "placeholder": "Acer, Platanus, Quercus…"
                 },
                 "geyser/height": {
                     "label": "Altura da erupção"
@@ -1499,6 +1547,13 @@
                 },
                 "mtb/scale/imba": {
                     "label": "Trilha de baixa dificuldade",
+                    "options": {
+                        "0": "⚪ Mais fácil (círculo branco)",
+                        "1": "🟢 Fácil (círculo verde)",
+                        "2": "🟦 Médio (quadrado azul)",
+                        "3": "◆ Difícil (diamante preto)",
+                        "4": "◆◆ Extremamente difícil (duplo diamante preto)"
+                    },
                     "placeholder": "Fácil, Médio, Difícil..."
                 },
                 "mtb/scale/uphill": {
@@ -2560,17 +2615,7 @@
                     "placeholder": "Excelente, Bom, Ruim..."
                 },
                 "transformer": {
-                    "label": "Tipo",
-                    "options": {
-                        "auto": "Autotransformador",
-                        "auxiliary": "Auxiliar",
-                        "converter": "Conversor",
-                        "distribution": "Distribuição",
-                        "generator": "Gerador",
-                        "phase_angle_regulator": "Regulador de ângulo de fase",
-                        "traction": "Tração",
-                        "yes": "Desconhecido"
-                    }
+                    "label": "Tipo"
                 },
                 "trees": {
                     "label": "Árvores"
@@ -3672,6 +3717,9 @@
                     "name": "Máquina de validação de bilhetes",
                     "terms": "ticket,bilhete,ingresso,validação de ingresso,catraca,entrada"
                 },
+                "amenity/toilets": {
+                    "name": "Banheiros"
+                },
                 "amenity/toilets/disposal/flush": {
                     "name": "Banheiros com descarga",
                     "terms": "banheiro"
@@ -4766,10 +4814,6 @@
                     "name": "Faixa de pedestres",
                     "terms": "faixa de pedestres"
                 },
-                "highway/crossing/signals": {
-                    "name": "Faixa de pedestres com semáforos",
-                    "terms": "pedestre,passagem,travessia,atravessar,cruzar,cruzamento,luzes,luminosos"
-                },
                 "highway/crossing/unmarked": {
                     "name": "Travessia de pedestres não marcada",
                     "terms": "travessia de pedestres não marcada"
@@ -5007,8 +5051,7 @@
                     "terms": "pedágio de fluxo livre,pedágio sem dinheiro"
                 },
                 "highway/track": {
-                    "name": "Estrada agrícola",
-                    "terms": "estrada de fazenda,fazenda,estrada em floresta,floresta"
+                    "name": "Trilha / Via de Acesso"
                 },
                 "highway/traffic_mirror": {
                     "name": "Espelho de tráfego",
@@ -5279,10 +5322,6 @@
                 "landuse/military/danger_area": {
                     "name": "Zona de exclusão militar",
                     "terms": "área de perigo,área perigosa,perigo,área militar,tiro,bombas,nuclear,zona militar,zona de exclusão"
-                },
-                "landuse/military/naval_base": {
-                    "name": "Base naval",
-                    "terms": "base naval,base da marinha"
                 },
                 "landuse/military/obstacle_course": {
                     "name": "Curso de obstáculo militar",
@@ -7708,8 +7747,7 @@
                     "name": "Elemento turístico"
                 },
                 "tourism/alpine_hut": {
-                    "name": "Abrigo de montanha",
-                    "terms": "cabana alpina,abrigo de montanha,refúgio de montanha"
+                    "name": "Pousada da Montanha"
                 },
                 "tourism/apartment": {
                     "name": "Apartamento de Temporada",
@@ -8125,9 +8163,6 @@
                 "waterway/river": {
                     "name": "Rio",
                     "terms": "rio"
-                },
-                "waterway/riverbank": {
-                    "name": "Orla fluvial"
                 },
                 "waterway/sanitary_dump_station": {
                     "name": "Ponto de descarga de dejetos (para barcos)",
