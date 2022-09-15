@@ -17,6 +17,12 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+
+# 3.5.1
+
+* Update distribution files and translations from Transifex.
+
+
 # 3.5.0
 
 #### New Presets
