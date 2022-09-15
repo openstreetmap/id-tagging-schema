@@ -17,6 +17,94 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 3.5.0
+
+#### New Presets
+* Add a preset for Barbeque Restaurants ([#535], thanks [@arch0345])
+* Add Horse Race Course preset ([#537], thanks [@arch0345])
+* Add presets for building=allotment_house and building=outhouse ([#528], thanks [@matkoniecz])
+* Add presets for more playground features: Play Activity Panel, Hanging Roundabout, Play Bridge, Play CLimbing Wall, Funnel Ball Funnel, Painted Playground Map, Play Sledding Hill, Play Splash Pad, Teen Shelter, Tetherball Pole, Trampoline, Play Tunnel, Gaga Pit, Funnel Ball Court ([#543], thanks [@arch0345])
+* Add (hidden) preset for unspecified Barriers (`barrier=yes`) ([#531])
+* Add (hidden) presets for unspecified Healthcare (`healthcare=yes`) and unspecified Traffic Calming (`traffic_calming=yes`) features ([#547])
+* Add (hidden) preset for unspecified Man Made Feature (`man_made=yes`)
+* Add preset for "ini Speed Bumps (`traffic_calming=mini_bumps`) ([#549])
+* Add preset for Driver Training Grounds (`amenity=driver_training`) ([#499], thanks [@SteveLz])
+* Add preset for Runaway Truck Ramp (`highway=escape`) ([#580], thanks [@arch0345])
+#### Changed Presets
+* Add more fields to the Wilderness Hut preset ([#501], thanks [@k-yle])
+* Improve icons of some presets (Toll Booth, Rest Area, Cycling Track, Horse Racetrack, Observation Tower, Hot Spring, Nursery/Childcare) ([#535],[#579], thanks [@arch0345])
+* Don't suggest to add `natural=sand` for bunkers in golf courses ([#534])
+* Add field for the value of the `tee` tag to the Tee preset ([#546], thanks [@arch0345])
+* Make `building` field always visible in Gas Station preset ([#559], thanks [@arch0345])
+* Add aliases and terms for many Shop presets ([#475], thanks [@westnordost])
+* Add Gender field on Hairdresser preset ([#575], thanks [@nlehuby])
+* Show Activity field by default in Guidepost and Map preset ([#571])
+#### Regional Presets and Fields
+* Add field for the `ref:FR:SIRET` tag for the "SIRET" number of businesses in France ([#576], thanks [@nlehuby])
+#### New and Changed Fields
+* Add field for the value of the `building:part` tag to the Building Part preset ([#527], thanks [@arch0345])
+* Add a field for Truck Speed Limit (`maxspeed:hgv` tag) ([#520], thanks [@arch0345])
+* Add value `separate` to the Bike Lanes field ([#540], thanks [@SafetyIng])
+* Add fields for the `subject` and `subject:wikidata` tags ([#543], thanks [@arch0345])
+* Add field for the `turning_circle` tag to map the Shape of a Turning Circle ([#562], thanks [@arch0345])
+* Split `building_area` field: one with default value `"yes"` and one with no default, and apply it accordingly to different presets (default `yes` is only used for presets where the vast majority of features have the `building` tag set)
+* Add field for Classes of Driver’s License (`license_classes`) ([#499], thanks [@SteveLz])
+#### Bugfixes
+* Fix missing primary `emergency` tag in `addTags` of Lifeboat Station preset ([#551], thanks [@k-yle])
+* Disable TagInfo-suggestions of parking:orientation ([#554])
+* Don't add `landuse=industrial` to hydro power plants by default ([#557], thanks [@Hiausirg])
+* Don't consider `craft=optician` as deprecated anymore (it is documented and approved)
+* Fix typo "ski" instead of "Ski" in Activity field ([#560], thanks [@Hufkratzer])
+* Replace `sector:name` tag/field with regular `name` field in Cemetery Section preset ([#561], thanks [@arch0345])
+* Allow Barbecue/Grill preset to be used on areas ([#567], thanks [@elcaptain])
+* Allow Truck Scale (`amenity=weighbridge`) also on lines ([#573])
+#### Deprecated Tags
+* Replace ~~`parking:orientation=orthogonal`~~ with `=perpendicular` ([#553])
+* Drop some deprecation rules which today have only very few (<10) occurrences
+* Don't suggest to blindly remove ambiguous oneway tags (`oneway=no;yes` or `oneway=unknown`)
+#### Documentation and Other Changes
+* Add Github issue templates ([#542])
+* Add a Github workflow to automatically run `npm run build`
+* Add an automated check which looks for non-json files in the `data/` directory
+
+[#475]: https://github.com/openstreetmap/id-tagging-schema/pull/475
+[#499]: https://github.com/openstreetmap/id-tagging-schema/pull/499
+[#501]: https://github.com/openstreetmap/id-tagging-schema/pull/501
+[#520]: https://github.com/openstreetmap/id-tagging-schema/pull/520
+[#527]: https://github.com/openstreetmap/id-tagging-schema/pull/527
+[#528]: https://github.com/openstreetmap/id-tagging-schema/pull/528
+[#531]: https://github.com/openstreetmap/id-tagging-schema/issues/531
+[#534]: https://github.com/openstreetmap/id-tagging-schema/issues/534
+[#535]: https://github.com/openstreetmap/id-tagging-schema/pull/535
+[#537]: https://github.com/openstreetmap/id-tagging-schema/pull/537
+[#540]: https://github.com/openstreetmap/id-tagging-schema/pull/540
+[#542]: https://github.com/openstreetmap/id-tagging-schema/pull/542
+[#543]: https://github.com/openstreetmap/id-tagging-schema/pull/543
+[#546]: https://github.com/openstreetmap/id-tagging-schema/pull/546
+[#547]: https://github.com/openstreetmap/id-tagging-schema/issues/547
+[#549]: https://github.com/openstreetmap/id-tagging-schema/issues/549
+[#551]: https://github.com/openstreetmap/id-tagging-schema/pull/551
+[#553]: https://github.com/openstreetmap/id-tagging-schema/issues/553
+[#554]: https://github.com/openstreetmap/id-tagging-schema/pull/554
+[#557]: https://github.com/openstreetmap/id-tagging-schema/pull/557
+[#559]: https://github.com/openstreetmap/id-tagging-schema/pull/559
+[#560]: https://github.com/openstreetmap/id-tagging-schema/pull/560
+[#561]: https://github.com/openstreetmap/id-tagging-schema/pull/561
+[#562]: https://github.com/openstreetmap/id-tagging-schema/pull/562
+[#567]: https://github.com/openstreetmap/id-tagging-schema/pull/567
+[#571]: https://github.com/openstreetmap/id-tagging-schema/issues/571
+[#573]: https://github.com/openstreetmap/id-tagging-schema/issues/573
+[#575]: https://github.com/openstreetmap/id-tagging-schema/pull/575
+[#576]: https://github.com/openstreetmap/id-tagging-schema/pull/576
+[#579]: https://github.com/openstreetmap/id-tagging-schema/pull/579
+[#580]: https://github.com/openstreetmap/id-tagging-schema/pull/580
+[@elcaptain]: https://github.com/elcaptain
+[@Hiausirg]: https://github.com/Hiausirg
+[@Hufkratzer]: https://github.com/Hufkratzer
+[@nlehuby]: https://github.com/nlehuby
+[@SafetyIng]: https://github.com/SafetyIng
+[@SteveLz]: https://github.com/SteveLz
+
 # 3.4.2
 
 #### Bugfixes
