@@ -33,7 +33,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 * Add (hidden) preset for unspecified Barriers (`barrier=yes`) ([#531])
 * Add (hidden) presets for unspecified Healthcare (`healthcare=yes`) and unspecified Traffic Calming (`traffic_calming=yes`) features ([#547])
 * Add (hidden) preset for unspecified Man Made Feature (`man_made=yes`)
-* Add preset for "ini Speed Bumps (`traffic_calming=mini_bumps`) ([#549])
+* Add preset for Mini Speed Bumps (`traffic_calming=mini_bumps`) ([#549])
 * Add preset for Driver Training Grounds (`amenity=driver_training`) ([#499], thanks [@SteveLz])
 * Add preset for Runaway Truck Ramp (`highway=escape`) ([#580], thanks [@arch0345])
 #### Changed Presets
