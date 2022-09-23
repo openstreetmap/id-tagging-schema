@@ -685,6 +685,13 @@ en:
       crossing:
         # crossing=*
         label: Type
+        options:
+          # crossing=traffic_signals
+          traffic_signals: Crossing With Traffic Signals
+          # crossing=uncontrolled
+          uncontrolled: Only Road Markings
+          # crossing=unmarked
+          unmarked: No Road Markings or Traffic Lights
       crossing/barrier:
         # crossing:barrier=*
         label: Barrier Arm
@@ -708,6 +715,10 @@ en:
       crossing/light:
         # crossing:light=*
         label: Lights
+      crossing/markings:
+        # crossing:markings=*
+        label: Crossing Markings
+        terms: '[translate with synonyms or related terms for ''Crossing Markings'', separated by commas]'
       crossing_raised:
         # traffic_calming=*
         label: Raised
@@ -6200,8 +6211,6 @@ en:
       highway/crossing/marked:
         # highway=crossing + crossing=marked | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Marked Crosswalk
-        # 'terms: zebra crossing,marked crossing,crosswalk'
-        terms: <translate with synonyms or related terms for 'Marked Crosswalk', separated by commas>
       highway/crossing/traffic_signals:
         # highway=crossing + crossing=traffic_signals | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Crossing With Pedestrian Signals
@@ -6210,6 +6219,7 @@ en:
       highway/crossing/uncontrolled:
         # highway=crossing + crossing=uncontrolled | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Marked Crosswalk
+        terms: <translate with synonyms or related terms for 'Marked Crosswalk', separated by commas>
       highway/crossing/unmarked:
         # highway=crossing + crossing=unmarked | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Unmarked Crossing
@@ -6238,6 +6248,14 @@ en:
         terms: <translate with synonyms or related terms for 'Cycle & Foot Crossing', separated by commas>
       highway/cycleway/crossing/marked:
         # highway=cycleway + cycleway=crossing + crossing=marked | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
+        name: Marked Cycle Crossing
+      highway/cycleway/crossing/traffic_signals:
+        # highway=cycleway + cycleway=crossing + crossing=traffic_signals | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
+        name: Cycle Crossing With Traffic Signals
+        # 'terms: cycle path crossing,cycleway crossing,bicycle crossing,bike crossing'
+        terms: <translate with synonyms or related terms for 'Cycle Crossing With Traffic Signals', separated by commas>
+      highway/cycleway/crossing/uncontrolled:
+        # highway=cycleway + cycleway=crossing + crossing=uncontrolled | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Marked Cycle Crossing
         # 'terms: cycle crosswalk,cycle path crossing,cycleway crossing,bicycle crossing,bike crossing'
         terms: <translate with synonyms or related terms for 'Marked Cycle Crossing', separated by commas>
@@ -6293,32 +6311,35 @@ en:
       highway/footway/crossing:
         # highway=footway + footway=crossing | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Pedestrian Crossing
+      highway/footway/crossing/marked:
+        # highway=footway + footway=crossing + crossing=marked | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
+        name: Marked Crossing
+      highway/footway/crossing/traffic_signals:
+        # highway=footway + footway=crossing + crossing=traffic_signals | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
+        name: Crossing With Pedestrian Signals
+        # 'terms: pedestrian traffic lights,pedestrian traffic signals,pedestrian crossing (lights),bicycle crossing (lights),crosswalk (lights)'
+        terms: <translate with synonyms or related terms for 'Crossing With Pedestrian Signals', separated by commas>
+      highway/footway/crossing/uncontrolled:
+        # highway=footway + footway=crossing + crossing=uncontrolled | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
+        name: Marked Crossing
+        # 'terms: marked foot path crossing,marked crosswalk,marked pedestrian crosswalk,zebra crossing,crosswalk'
+        terms: <translate with synonyms or related terms for 'Marked Crossing', separated by commas>
+      highway/footway/crossing/unmarked:
+        # highway=footway + footway=crossing + crossing=unmarked | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
+        name: Unmarked Crossing
+        # 'terms: unmarked foot path crossing,unmarked crosswalk,unmarked pedestrian crossing'
+        terms: <translate with synonyms or related terms for 'Unmarked Crossing', separated by commas>
+      highway/footway/crossing/zebra:
+        # highway=footway + footway=crossing + crossing=zebra | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
+        name: Marked Crossing
       highway/footway/informal:
         # highway=footway + informal=yes | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Informal Foot Path
-      highway/footway/marked:
-        # highway=footway + footway=crossing + crossing=marked | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
-        name: Marked Crosswalk
-        # 'terms: marked foot path crossing,marked crossing,marked pedestrian crosswalk,zebra crossing,crosswalk'
-        terms: <translate with synonyms or related terms for 'Marked Crosswalk', separated by commas>
       highway/footway/sidewalk:
         # footway=sidewalk | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Sidewalk
         # 'terms: pavement,sidepath'
         terms: <translate with synonyms or related terms for 'Sidewalk', separated by commas>
-      highway/footway/traffic_signals:
-        # highway=footway + footway=crossing + crossing=traffic_signals | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
-        name: Crossing With Pedestrian Signals
-        # 'terms: pedestrian traffic lights,pedestrian traffic signals,pedestrian crossing (lights),bicycle crossing (lights),crosswalk (lights)'
-        terms: <translate with synonyms or related terms for 'Crossing With Pedestrian Signals', separated by commas>
-      highway/footway/unmarked:
-        # highway=footway + footway=crossing + crossing=unmarked | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
-        name: Unmarked Crossing
-        # 'terms: unmarked foot path crossing,unmarked crosswalk,unmarked pedestrian crossing'
-        terms: <translate with synonyms or related terms for 'Unmarked Crossing', separated by commas>
-      highway/footway/zebra:
-        # highway=footway + footway=crossing + crossing=zebra | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
-        name: Marked Crosswalk
       highway/give_way:
         # highway=give_way | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Yield Sign
