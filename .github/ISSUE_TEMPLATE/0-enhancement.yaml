@@ -1,0 +1,103 @@
+name: Add support of a missing OSM tag
+description: This requests an OSM tag to be added to the tagging schema in the form of a new preset, field or value.
+# title: ''
+labels: enhancement
+# assignees: ''
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this request to add a new tag to the tagging schema.
+  - type: input
+    attributes:
+      label: OSM Tag(s)
+      description: Please list the tag or tags which you would like to see included.
+      placeholder: tourism=camp_site
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: How would you like this tag to see supported?
+      description: 'A tag can be supported in different ways: A preset, a field or a option in a dropdown field.'
+      options:
+        - As a Preset
+        - As a Field
+        - As an Option of a Field
+        - Other (please indicate below)
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Label
+      description: The title/name/label of the preset, field or field option (preferably in American English).
+      placeholder: Campground
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Aliases
+      description: 'Only for Presets: Synonyms of the name of the preset.'
+      placeholder: Campsite
+    validations:
+      required: false
+  - type: input
+    attributes:
+      label: Terms
+      description: 'Only for Presets and Fields: Synonyms of the name of the preset.'
+      placeholder: Camping, Tenting, Camp Site, Caravans, …
+    validations:
+      required: false
+  - type: input
+    attributes:
+      label: Link to OSM Wiki page
+      description: Link to the documentation of this tag on the OSM wiki.
+      placeholder: https://wiki.openstreetmap.org/wiki/Tag:tourism=camp_site
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Status of the Tag
+      description: The status of the tag(s) according to the OSM wiki.
+      options:
+        - Approved
+        - De Facto
+        - In Use
+        - Unspecified / Unknown
+        - Voting
+        - Abandoned
+        - Deprecated
+        - Discardable
+        - Draft
+        - Imported
+        - Obsolete
+        - Proposed
+        - Rejected
+        - Other (please indicate below)
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Usage of the tag
+      description: How many OSM object exist currently which use the tag?
+      placeholder: '126,000'
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Replaces other Tag?
+      description: Does this tag replace a different one which is already supported by the tagging schema?
+    validations:
+      required: false
+  - type: input
+    attributes:
+      label: Regional Tag?
+      description: Should this tag only be available in a specific region or country?
+      placeholder: global
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Further Information
+      description: Please add further details about this tag which should be considered. For example, include a link to taginfo, taghistory or to an overpass query, add a list tools which support this tag, etc.
+    validations:
+      required: false

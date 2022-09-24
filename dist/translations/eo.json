@@ -55,6 +55,10 @@
                 "access": {
                     "label": "Aliro permesata al",
                     "options": {
+                        "customers": {
+                            "description": "Aliro nur por klientoj de rilata objekto",
+                            "title": "Klientoj"
+                        },
                         "designated": {
                             "description": "Aliro permesata laŭ signoj aŭ specifaj lokaj leĝoj",
                             "title": "Adaptita"
@@ -83,6 +87,10 @@
                             "description": "Aliro permesata nur laŭ permeso de posedanto individue",
                             "title": "Privata"
                         },
+                        "unknown": {
+                            "description": "Alir-permeso estas nekonata aŭ malklara",
+                            "title": "Nekonata"
+                        },
                         "yes": {
                             "description": "Aliro permesata laŭ leĝo",
                             "title": "Permesata"
@@ -109,9 +117,20 @@
                         "permissive": "Verŝajne permesata",
                         "permit": "Nur kun paspermeso",
                         "private": "Privata",
+                        "unknown": "Nekonata",
                         "yes": "Al ĉiuj"
                     },
                     "terms": "aliro,eniro,enveturo,publika,privata"
+                },
+                "activity": {
+                    "label": "Aktiveco",
+                    "options": {
+                        "bicycle": "Biciklado",
+                        "hiking": "Piedirado",
+                        "horse": "Ĉeval-rajdado",
+                        "mtb": "Montara biciklado",
+                        "ski": "Skiado"
+                    }
                 },
                 "addr/interpolation": {
                     "label": "Maniero",
@@ -126,7 +145,7 @@
                     "label": "Adreso",
                     "placeholders": {
                         "block_number": "Dombloko",
-                        "block_number!jp": "Dombloko n-ro",
+                        "block_number!jp": "Dombloka n-ro",
                         "city": "Urbego",
                         "city!cn": "Urbo duanivela/Prefektujo/Ligo",
                         "city!jp": "Urbego/Urbo/Vilaĝo/Kvartalo de Tokio",
@@ -184,7 +203,7 @@
                     "placeholder": "500, 2500, 5000…"
                 },
                 "aerialway/duration": {
-                    "label": "Daŭro (en minutoj)",
+                    "label": "Daŭro [minutoj]",
                     "placeholder": "1, 2, 3…"
                 },
                 "aerialway/heating": {
@@ -276,6 +295,13 @@
                 "barrier": {
                     "label": "Speco"
                 },
+                "barrier_planter": {
+                    "label": "Barilo",
+                    "options": {
+                        "planter": "jes",
+                        "undefined": "ne"
+                    }
+                },
                 "basin": {
                     "label": "Speco"
                 },
@@ -292,8 +318,12 @@
                     "label": "Servoj",
                     "options": {
                         "cosmetics": "kosmetiko",
-                        "nails": "manikuro/pedikuro (ung-flagado)",
-                        "tanning": "sunbrunigo"
+                        "hair_removal": "senharigo",
+                        "nails": "ung-flegado (manikuro/pedikuro)",
+                        "skin_care": "haŭt-flegado",
+                        "spa": "akvoterapio",
+                        "tanning": "sunbrunigo",
+                        "waxing": "senharigo per vakso"
                     }
                 },
                 "bench": {
@@ -343,6 +373,10 @@
                 "boundary": {
                     "label": "Speco"
                 },
+                "branch_brand": {
+                    "label": "Filio",
+                    "terms": "sekcio,departamento,branĉa ofico,subofico,subfirmo"
+                },
                 "brand": {
                     "label": "Marko",
                     "terms": "marko,firmao,reto"
@@ -388,6 +422,9 @@
                     "label": "Materialo de fasado",
                     "terms": "materialo"
                 },
+                "building/part": {
+                    "label": "Parto de konstruaĵo"
+                },
                 "building_area": {
                     "label": "Konstruaĵo",
                     "terms": "konstruajho,konstruajxo.domo,konstruo"
@@ -395,9 +432,24 @@
                 "bunker_type": {
                     "label": "Speco"
                 },
+                "button_operated": {
+                    "label": "Butonprema"
+                },
                 "cables": {
                     "label": "Kabloj",
                     "placeholder": "1, 2, 3…"
+                },
+                "cai_scale-IT": {
+                    "label": "Piedirada malfacileco (skalo de Klubo Alpisma Itala)",
+                    "options": {
+                        "E": "E: mezfacila turisma marŝado",
+                        "EAI": "EAI: pli malfacila turisma marŝado en neĝa medio",
+                        "EE": "EE: malfacila turisma marŝado",
+                        "EEA": "EEA: pli malfacila turisma marŝado kun ekipaĵo",
+                        "T": "T: facila (plata tereno, bone markita)"
+                    },
+                    "placeholder": "T, E, EE, …",
+                    "terms": "malfacilo,facileco,cai,skalo,itala skalo,club alpino italiano"
                 },
                 "camera/direction": {
                     "label": "Direkto (horloĝdirekte en gradoj)",
@@ -419,23 +471,46 @@
                     "placeholder": "50, 100, 200…",
                     "terms": "nombro da ejoj"
                 },
+                "capacity/caravans": {
+                    "label": "Enhaveco (kampad-veturiloj)",
+                    "placeholder": "10, 20, 50…"
+                },
                 "capacity/disabled_parking": {
                     "label": "Lokoj (por nekapabluloj)",
                     "placeholder": "1, 2, 3…"
+                },
+                "capacity/persons": {
+                    "label": "Enhaveco (personoj)",
+                    "placeholder": "50, 100, 200…"
+                },
+                "capacity/tents": {
+                    "label": "Enhaveco (tendoj)",
+                    "placeholder": "10, 20, 50…"
                 },
                 "capacity_parking": {
                     "label": "Lokoj (tute)",
                     "placeholder": "10, 20, 30…"
                 },
                 "capacity_volume": {
-                    "label": "Enhaveco (m³)",
+                    "label": "Enhaveco [m³]",
                     "placeholder": "50, 100, 200…"
                 },
                 "cash_in": {
                     "label": "Enpagoj"
                 },
                 "castle_type": {
-                    "label": "Speco"
+                    "label": "Speco",
+                    "options": {
+                        "castrum": "Castrum (Romia fortikaĵo)",
+                        "defensive": "Defenda palaceto",
+                        "fortress": "Fortikaĵo",
+                        "hillfort": "Rempar-burgo",
+                        "kremlin": "Kremlo",
+                        "manor": "Palaceto (biendomo)",
+                        "palace": "Palaco",
+                        "shiro": "Shiro (Japana kastelo)",
+                        "stately": "Palaceto"
+                    }
                 },
                 "changing_table": {
                     "label": "Tablo por ŝanĝi vindotukojn"
@@ -455,12 +530,12 @@
                     "placeholder": "YYYY-MM-DD"
                 },
                 "circumference": {
-                    "label": "Perimetro (je 1,3 m)",
-                    "placeholder": "1 m, 20 cm…",
-                    "terms": "diametro,cirkonferenco,periferio"
+                    "label": "Perimetro je brusta alteco (1,3 m) [metroj]",
+                    "placeholder": "1, 0.2, 0.75…"
                 },
                 "clothes": {
-                    "label": "Vestaĵoj"
+                    "label": "Vestaĵoj",
+                    "terms": "vestaĵoj,vestajhoj,vestoj,pantalonoj,roboj,jupoj,subvestaĵo"
                 },
                 "club": {
                     "label": "Speco"
@@ -497,7 +572,7 @@
                 },
                 "contact/webcam": {
                     "label": "Ligilo al retkamerao",
-                    "placeholder": "http://ekzemplo.com/"
+                    "placeholder": "http://example.com/"
                 },
                 "content": {
                     "label": "Enhavo"
@@ -527,6 +602,15 @@
                     "label": "Kovrita",
                     "terms": "kovra,tegmenta,tegmentita"
                 },
+                "covered_no": {
+                    "label": "Kovrita",
+                    "options": {
+                        "no": "Ne",
+                        "undefined": "Implicite ne",
+                        "yes": "Jes"
+                    },
+                    "terms": "kovra,tegmenta,tegmentita"
+                },
                 "craft": {
                     "label": "Speco"
                 },
@@ -544,31 +628,76 @@
                 "crossing": {
                     "label": "Speco"
                 },
+                "crossing/barrier": {
+                    "label": "Barieroj",
+                    "options": {
+                        "double_half": "Du duonaj",
+                        "full": "Plenaj",
+                        "half": "Duonaj",
+                        "no": "Neniuj",
+                        "yes": "Jes"
+                    }
+                },
+                "crossing/bell": {
+                    "label": "Sona signalo"
+                },
                 "crossing/island": {
                     "label": "Trafik-insuleto"
+                },
+                "crossing/light": {
+                    "label": "Trafiklumoj"
+                },
+                "crossing_raised": {
+                    "label": "Plialtigita (stratĝibo)",
+                    "options": {
+                        "table": "Jes",
+                        "undefined": "Ne"
+                    }
                 },
                 "cuisine": {
                     "label": "Kuirartoj",
                     "options": {
                         "american": "usona",
                         "asian": "azia",
+                        "bubble_tea": "bobelteo",
                         "burger": "burgeroj",
+                        "cake": "kukoj",
                         "chicken": "kokaĵo",
                         "chinese": "ĉina",
+                        "chocolate": "ĉokoladoj",
                         "coffee_shop": "kaftrinkaĵoj",
+                        "dessert": "desertoj",
+                        "donut": "kuketoj",
+                        "fish": "fiŝaĵoj",
                         "french": "franca",
                         "german": "germana",
                         "greek": "greka",
+                        "hot_dog": "kolbasbulkoj (hotdogoj)",
                         "ice_cream": "glaciaĵoj",
                         "indian": "hinda",
+                        "indonesian": "indonezia",
                         "italian": "itala",
                         "japanese": "japana",
+                        "juice": "sukoj",
                         "kebab": "kebabo",
+                        "korean": "korea",
+                        "lebanese": "libana",
+                        "malaysian": "malajzia",
                         "mexican": "meksika",
+                        "pankcake": "patkukoj",
+                        "pasta": "makaronioj",
                         "pizza": "picoj",
+                        "polish": "pola",
+                        "portuguese": "portugala",
                         "regional": "regiona",
+                        "russian": "rusa",
+                        "salad": "salatoj",
                         "sandwich": "sandviĉoj",
+                        "seafood": "marfruktoj",
+                        "spanish": "hispana",
+                        "steak_house": "viandtranĉaĵoj (stekoj)",
                         "sushi": "suŝio",
+                        "taiwanese": "tajvana",
                         "thai": "taja",
                         "turkish": "turka",
                         "vietnamese": "vjetnama"
@@ -605,8 +734,12 @@
                             "description": "Bicikla koridoro, kiu ebligas moviĝi en kontraŭa direkto ol direkto de koridoro ĉe kiu ĝi troviĝas",
                             "title": "Kontraŭflua bicikl-koridoro (sur dudirekta strato)"
                         },
+                        "separate": {
+                            "description": "Bicikla koridoro mapigita kiel aparta linio",
+                            "title": "Bicikl-koridoro mapigita aparte"
+                        },
                         "share_busway": {
-                            "description": "Bicikla koridoro kunhavigata kun aŭtobusa koridoro",
+                            "description": "Unu koridoro por ambaŭ bicikloj kaj aŭtobusoj",
                             "title": "Aŭtobusa kaj bicikla koridoro"
                         },
                         "shared_lane": {
@@ -654,8 +787,11 @@
                         "yes": "jes"
                     }
                 },
+                "deposit/trolley": {
+                    "label": "Mongarantiaĵo"
+                },
                 "depth": {
-                    "label": "Profundo (metroj)"
+                    "label": "Profundo [metroj]"
                 },
                 "descent": {
                     "label": "Sumo de malsupreniroj",
@@ -696,7 +832,13 @@
                 },
                 "diameter": {
                     "label": "Diametro",
-                    "placeholder": "5 mm, 10 cm…"
+                    "placeholder": "5 mm, 10 cm…",
+                    "terms": "diametro"
+                },
+                "diameter_crown": {
+                    "label": "Diametro de arbokrono [metroj]",
+                    "placeholder": "2.75, 4…",
+                    "terms": "arbkrono,krono,branĉaro,brancharo,brancxaro"
                 },
                 "diet_multi": {
                     "label": "Dietoj",
@@ -722,6 +864,16 @@
                     "placeholder": "45, 90, 180, 270",
                     "terms": "azimuto"
                 },
+                "direction_cardinal-US-CA-NZ": {
+                    "label": "Direkto",
+                    "options": {
+                        "east": "Orienten",
+                        "north": "Norden",
+                        "south": "Suden",
+                        "west": "Okcidenten"
+                    },
+                    "terms": "azimuto,nordo,oriento,okcidento,sudo"
+                },
                 "direction_clock": {
                     "label": "Direkto",
                     "options": {
@@ -739,7 +891,8 @@
                         "backward": "Malantaŭen",
                         "both": "Ambaŭ / ĉiuj",
                         "forward": "Antaŭen"
-                    }
+                    },
+                    "terms": "direkto,orientiĝo,orientigho"
                 },
                 "direction_vertex_dual": {
                     "label": "Rilata direkto",
@@ -798,6 +951,10 @@
                     "label": "Trinkebla",
                     "terms": "trinkakvo"
                 },
+                "drinking_water_available": {
+                    "label": "Disponebla trinkebla akvo",
+                    "terms": "trinkebla akvo,akvo,akvokrano"
+                },
                 "drive_through": {
                     "label": "Sen-elaŭtiĝa servo (transveturo)",
                     "terms": "senelautigha servo,senelauxtigxa servo,drivethrough,drivethru,drive through,drive thru,transveturo"
@@ -808,12 +965,12 @@
                     "terms": "dauxro,dauro,tempodaŭro"
                 },
                 "ele": {
-                    "label": "Altitudo",
-                    "terms": "alto,alteco,supermara alteco,marnivelo"
+                    "label": "Altitudo [metroj]",
+                    "terms": "supermara alteco,absoluta alteco,alto"
                 },
                 "ele_node": {
-                    "label": "Altitudo",
-                    "terms": "alto,alteco,supermara alteco,marnivelo"
+                    "label": "Altitudo [metroj]",
+                    "terms": "supermara alteco,absoluta alteco,alto"
                 },
                 "electrified": {
                     "label": "Elektra sistemo",
@@ -836,7 +993,17 @@
                     "placeholder": "Norma"
                 },
                 "embassy": {
-                    "label": "Speco"
+                    "label": "Speco",
+                    "options": {
+                        "branch_embassy": "Filio",
+                        "delegation": "Delegitaro",
+                        "high_commission": "Alta komisaro",
+                        "interests_section": "Sekcio de interesoj",
+                        "mission": "Diplomatia misio",
+                        "nunciature": "Apostola nuncio",
+                        "residence": "Oficiala rezidejo de ambasadestro",
+                        "yes": "Gvidata de ambasadestro"
+                    }
                 },
                 "emergency": {
                     "label": "Je danĝero"
@@ -851,7 +1018,8 @@
                     "label": "Speco"
                 },
                 "entrance": {
-                    "label": "Speco"
+                    "label": "Speco",
+                    "terms": "tipo,savelirejo"
                 },
                 "except": {
                     "label": "Esceptoj"
@@ -862,12 +1030,16 @@
                 "expected_rwn_route_relations": {
                     "label": "Elirantaj piedirantaj kursoj"
                 },
+                "expressway-US": {
+                    "label": "Kvazaŭ-aŭtovojo",
+                    "terms": "kvazaŭaŭtovojo,kvazauautovojo,rapidvojo,ekspresa vojo"
+                },
                 "faces": {
                     "label": "Flankoj"
                 },
                 "fax": {
                     "label": "Telekopiilo",
-                    "placeholder": "+672 123456789",
+                    "placeholder": "+881 123456789",
                     "terms": "telefakso,fakso"
                 },
                 "fee": {
@@ -881,8 +1053,18 @@
                     "label": "Diametro (mm, in aŭ literoj)",
                     "terms": "perimetro,tubdikeco,dikeco de tubo"
                 },
+                "fire_hydrant/position": {
+                    "label": "Pozicio",
+                    "options": {
+                        "green": "herbotapiŝo",
+                        "lane": "veturejo",
+                        "parking_lot": "parkumejo",
+                        "sidewalk": "irejo"
+                    },
+                    "terms": "pozicio de hidranto,aranĝo"
+                },
                 "fire_hydrant/pressure": {
-                    "label": "Premo (bar)",
+                    "label": "Premo [baroj]",
                     "terms": "akvopremo"
                 },
                 "fire_hydrant/type": {
@@ -906,10 +1088,40 @@
                 },
                 "fixme": {
                     "label": "Riparu min!",
-                    "terms": "riparenda,farendaĵo"
+                    "terms": "riparenda,farendaĵo,korektu min"
+                },
+                "flag/name": {
+                    "label": "Nomo de flago"
                 },
                 "flag/type": {
                     "label": "Speco de flago"
+                },
+                "flag/wikidata": {
+                    "label": "Flago en Vikidatumoj"
+                },
+                "flashing_lights": {
+                    "label": "Pulsanta lumo",
+                    "options": {
+                        "always": {
+                            "description": "Trafiklumo senĉese blinkas",
+                            "title": "ĉiam"
+                        },
+                        "button": {
+                            "description": "Trafiklumo blinkas post aktivigi ĝin per butono",
+                            "title": "aktivigebla per butono"
+                        },
+                        "button;sensor": {
+                            "description": "Trafiklumo blinkas post aktivigi ĝin per mov-sentilo aŭ butono",
+                            "title": "aktivigebla per butono kaj sentilo"
+                        },
+                        "no": "ne",
+                        "sensor": {
+                            "description": "Trafiklumo blinkas post aktivigi ĝin per mov-sentilo",
+                            "title": "aktivigebla per sentilo"
+                        },
+                        "yes": "jes"
+                    },
+                    "terms": "blinkanta lumo,averta lumo,pulsanta"
                 },
                 "floating": {
                     "label": "Flosanta"
@@ -954,11 +1166,11 @@
                 "gender": {
                     "label": "Sekso",
                     "options": {
-                        "female": "Ina",
-                        "male": "Vira",
-                        "unisex": "Gea"
+                        "female": "ina",
+                        "male": "vira",
+                        "unisex": "gea"
                     },
-                    "placeholder": "Nekonata",
+                    "placeholder": "nekonata",
                     "terms": "genro,ina,iĉa,vira,ambaŭseksa"
                 },
                 "generator/method": {
@@ -974,12 +1186,17 @@
                 "generator/type": {
                     "label": "Tipo"
                 },
+                "genus": {
+                    "label": "Genro (latine)",
+                    "placeholder": "Acer, Platanus, Quercus…",
+                    "terms": "genro,speciaro,superspeco"
+                },
                 "geyser/height": {
                     "label": "Alto de erupcio"
                 },
-                "gnis/feature_id": {
+                "gnis/feature_id-US": {
                     "label": "GNIS-identigilo",
-                    "terms": "geographic names information system"
+                    "terms": "geographic names information system,gnis-kodo,gniskodo"
                 },
                 "government": {
                     "label": "Speco"
@@ -1019,12 +1236,16 @@
                     "label": "Hejtado"
                 },
                 "height": {
-                    "label": "Alto (metroj)",
+                    "label": "Alto [metroj]",
                     "terms": "alteco"
                 },
                 "height_building": {
-                    "label": "Alto de konstruaĵo (metroj)",
+                    "label": "Alto de konstruaĵo [metroj]",
                     "terms": "alteco"
+                },
+                "highchair": {
+                    "label": "Alta seĝo por nutri infanojn",
+                    "terms": "altseĝo,alta segho,infana seĝo,beba seĝo"
                 },
                 "highspeed": {
                     "label": "Altrapida",
@@ -1032,6 +1253,13 @@
                 },
                 "highway": {
                     "label": "Speco"
+                },
+                "highway_cartpath": {
+                    "label": "Speco de vojo",
+                    "options": {
+                        "path": "por golfveturiloj",
+                        "service": "alira"
+                    }
                 },
                 "historic": {
                     "label": "Speco"
@@ -1047,6 +1275,14 @@
                 },
                 "historic/wreck/visible_at_low_tide": {
                     "label": "Videbla dum defluo"
+                },
+                "holding_position/type": {
+                    "label": "Speco",
+                    "options": {
+                        "ILS": "Sistemo de aparata surteriĝo (ILS)",
+                        "intermediate": "Kruciĝo aŭtokur‑strato/aŭtokur‑strato",
+                        "runway": "Aviokurejo"
+                    }
                 },
                 "hoops": {
                     "label": "Korboj",
@@ -1186,6 +1422,9 @@
                 "kerb/height": {
                     "label": "Alto"
                 },
+                "kitchen": {
+                    "label": "Kuirejo"
+                },
                 "kneipp_water_cure_multi": {
                     "label": "Naĝejeto por"
                 },
@@ -1222,7 +1461,8 @@
                         "mixed": "Plurspecaj",
                         "semi_deciduous": "Duonfalfoliaj",
                         "semi_evergreen": "Duonĉiamfoliaj"
-                    }
+                    },
+                    "terms": "foliciklo,ĉiamverda,chiamverda,falfolia"
                 },
                 "leaf_cycle_singular": {
                     "label": "Foli-ciklo",
@@ -1240,7 +1480,8 @@
                         "leafless": "Senfoliaj",
                         "mixed": "Plurspecaj",
                         "needleleaved": "Pinglofoliaj"
-                    }
+                    },
+                    "terms": "folispeco,folihava,senfolia,pingfolia,pinglofolia"
                 },
                 "leaf_type_singular": {
                     "label": "Foli-speco",
@@ -1297,6 +1538,9 @@
                     "label": "Ŝlosebla",
                     "terms": "ŝlosebla,fermebla,seruro,pendseruro"
                 },
+                "locked": {
+                    "label": "Ŝlosita"
+                },
                 "man_made": {
                     "label": "Speco"
                 },
@@ -1342,6 +1586,9 @@
                     "placeholder": "40, 50, 60…",
                     "terms": "rapido konsilinda,rekomendata rapido"
                 },
+                "maxspeed/hgv": {
+                    "placeholder": "40, 50, 60..."
+                },
                 "maxstay": {
                     "label": "Templimo de parkumado",
                     "terms": "parkumada tempolimo,maksimuma restadtempo,maksimuma parkumtempo"
@@ -1369,6 +1616,9 @@
                     "label": "Minimuma aĝo",
                     "terms": "aĝlimo,aĝlimito,agho minimuma,agxo minimuma"
                 },
+                "min_height": {
+                    "label": "Alto al malsupra parto (metroj)"
+                },
                 "minspeed": {
                     "label": "Minimuma rapido",
                     "placeholder": "20, 30, 40…",
@@ -1394,11 +1644,11 @@
                 "mtb/scale/imba": {
                     "label": "Montbicikla malfacileca skalo de IMBA",
                     "options": {
-                        "0": "Facilega (blanka cirklo)",
-                        "1": "Facila (verda cirklo)",
-                        "2": "Meza (blua kvadrato)",
-                        "3": "Malfacila (nigra rombo)",
-                        "4": "Malfacilega (duobla nigra rombo)"
+                        "0": "⚪ Plej facila (blanka rondo)",
+                        "1": "🟢 Facila (verda rondo)",
+                        "2": "🟦 Meza (blua kvadrato)",
+                        "3": "◆ Malfacila (nigra diamanto)",
+                        "4": "◆◆ Ekstreme malfacila (duobla nigra diamanto)"
                     },
                     "placeholder": "Facila, meza, malfacila…",
                     "terms": "imba"
@@ -1517,7 +1767,7 @@
                     "terms": "horoj de malfermo,malfermitaj horoj"
                 },
                 "opening_hours/covid19": {
-                    "label": "Malfermaj horoj (COVID-19)",
+                    "label": "Malfermaj horoj (KOVIM-19)",
                     "terms": "horoj de malfermo,malfermitaj horoj,covid-19,kronviruso"
                 },
                 "operator": {
@@ -1544,6 +1794,17 @@
                     "label": "Par",
                     "placeholder": "3, 4, 5…"
                 },
+                "parcel_dropoff": {
+                    "label": "Sendo de poŝtaĵoj"
+                },
+                "parcel_pickup": {
+                    "label": "Ricevo de poŝtaĵoj",
+                    "options": {
+                        "no": "Ne",
+                        "undefined": "Implicite jes",
+                        "yes": "Jes"
+                    }
+                },
                 "park_ride": {
                     "label": "Parkumu kaj veturu (P+R)",
                     "terms": "parkumejo,p+r,parku kaj veturu"
@@ -1554,11 +1815,21 @@
                         "carports": "Tegmentitaj duonbudoj",
                         "garage_boxes": "Parkumeja domo",
                         "lane": "Apudvoja",
+                        "layby": "Trafikgolfo (servejo de vojaĝantoj)",
                         "multi-storey": "Pluretaĝa",
                         "rooftop": "Tegmento",
                         "sheds": "Garaĝ-budoj privataj",
+                        "street_side": "Apudstrata",
                         "surface": "Supraĵa",
                         "underground": "Subtera"
+                    }
+                },
+                "parking/orientation": {
+                    "label": "Orientiĝo",
+                    "options": {
+                        "diagonal": "Diagonale al strato",
+                        "parallel": "Laŭlonge de strato",
+                        "perpendicular": "Orte al strato"
                     }
                 },
                 "parking_entrance": {
@@ -1585,7 +1856,7 @@
                 },
                 "phone": {
                     "label": "Telefono",
-                    "placeholder": "+672 123456789",
+                    "placeholder": "+881 123456789",
                     "terms": "telefonnumero,numero telefona"
                 },
                 "piste/difficulty": {
@@ -1783,12 +2054,29 @@
                 "rcn_ref": {
                     "label": "Numero de biciklada kurso"
                 },
-                "real_fire": {
-                    "label": "Kameno",
+                "real_fire-GB-IE": {
+                    "label": "Kameno kun vera fajro",
                     "terms": "fajro"
                 },
                 "recycling_accepts": {
-                    "label": "Akceptataj ruboj"
+                    "label": "Akceptataj ruboj",
+                    "options": {
+                        "batteries": "Baterioj",
+                        "cans": "Ladskatoloj / trinkaĵskatoloj",
+                        "cardboard": "Kartonoj",
+                        "clothes": "Vestaĵoj",
+                        "cooking_oil": "Manĝ-oleo",
+                        "engine_oil": "Motor-oleo",
+                        "glass": "Vitro (ĉiuspeca: hardita vitro, fenestroj, speguloj, ktp.)",
+                        "glass_bottles": "Vitraj ujoj (boteloj, konserv-vazoj)",
+                        "green_waste": "Bioruboj",
+                        "paper": "Papero",
+                        "plastic": "Plasto",
+                        "plastic_bottles": "Plastaj boteloj",
+                        "plastic_packaging": "Plastaj pakumoj",
+                        "scrap_metal": "Ferrubo",
+                        "shoes": "Ŝuoj"
+                    }
                 },
                 "recycling_type": {
                     "label": "Speco",
@@ -1811,6 +2099,10 @@
                 },
                 "ref_aeroway_gate": {
                     "label": "Numero de enirejo"
+                },
+                "ref_disc_golf_hole": {
+                    "label": "Numero de truo",
+                    "placeholder": "1-18"
                 },
                 "ref_golf_hole": {
                     "label": "Numero de truo",
@@ -1919,6 +2211,9 @@
                     "label": "Sala",
                     "terms": "dolĉa"
                 },
+                "sample_collection": {
+                    "label": "Specimenoj prenataj"
+                },
                 "sanitary_dump_station": {
                     "label": "Stacio de forigo de fekaĵoj",
                     "terms": "malpruaĵo,fekaĵo,necesejo"
@@ -2007,6 +2302,20 @@
                 "seamark/mooring/category": {
                     "label": "Kategorio"
                 },
+                "seamark/rescue_station/category": {
+                    "label": "Vivsava ekipaĵo",
+                    "options": {
+                        "aircraft": "Aviadilo",
+                        "first_aid": "Man-apoteko",
+                        "hovercraft": "Aeroglita boato",
+                        "lifeboat": "Vivsava boato (sur tero)",
+                        "lifeboat_on_mooring": "Vivsava boata (ŝnurfiksita preta por uzi)",
+                        "radio": "Radiostacio",
+                        "refuge_shipwrecked": "Ŝirmejo post-mar-katastrofa",
+                        "seaplane": "Akvoaviadilo",
+                        "tug": "Trenŝipo"
+                    }
+                },
                 "seamark/type": {
                     "label": "Marmarko",
                     "terms": "marnavigado,naŭtika"
@@ -2046,9 +2355,6 @@
                         "emergency_access": "aliro por vivsava servo",
                         "parking_aisle": "parkumeja strateto"
                     }
-                },
-                "service/bicycle": {
-                    "label": "Servoj"
                 },
                 "service/vehicle": {
                     "label": "Servoj"
@@ -2140,6 +2446,7 @@
                         "aerial imagery": "aera fotaro",
                         "gps": "GPS",
                         "local knowledge": "loka scio",
+                        "osm notes": "OpenStreetMap-rimarkoj",
                         "streetlevel imagery": "strat-nivela fotaro",
                         "survey": "senpera observado"
                     },
@@ -2167,7 +2474,8 @@
                     "options": {
                         "karting": "karting",
                         "motocross": "motokroso",
-                        "motor": "aŭtosportoj"
+                        "motor": "aŭtosportoj",
+                        "speedway": "Spidvejo"
                     }
                 },
                 "sport_racing_nonmotor": {
@@ -2256,6 +2564,7 @@
                     "options": {
                         "artificial_turf": "artefarita herbo",
                         "asphalt": "asfalto",
+                        "compacted": "Ebenbatita gruzo",
                         "concrete": "betono",
                         "dirt": "grundo malebena",
                         "grass": "herbo",
@@ -2286,6 +2595,35 @@
                 "survey/date": {
                     "label": "Antaŭe mapigita je",
                     "terms": "dato de kontrolo"
+                },
+                "survey_point/datum_aligned": {
+                    "label": "Alkonformigita al la loka geodezia referenca sistemo",
+                    "terms": "alĝustigita,korekta,misĝustigita,malĝustigita,movita,erara"
+                },
+                "survey_point/purpose": {
+                    "label": "Celo",
+                    "options": {
+                        "both": "Horizontala kaj vertikala triangulado",
+                        "horizontal": "Horizontala triangulado",
+                        "vertical": "Vertikala triangulado"
+                    }
+                },
+                "survey_point/structure": {
+                    "label": "Strukturo",
+                    "options": {
+                        "beacon": "Turo",
+                        "block": "Bloko",
+                        "bracket": "Tabulo kun teodolitingo",
+                        "cairn": "Ŝtonamaso",
+                        "cut": "Krevo",
+                        "indented_pin": "Marko kun teodolitingo",
+                        "magnet": "Magneto",
+                        "medallion": "Ronda tabulo kun teodolitingo",
+                        "pillar": "Fosto malalta",
+                        "pin": "Marko",
+                        "plaque": "Tabulo",
+                        "pole": "Fosto alta"
+                    }
                 },
                 "swimming_pool": {
                     "label": "Speco"
@@ -2423,17 +2761,7 @@
                     "terms": "videblo,markita"
                 },
                 "transformer": {
-                    "label": "Speco",
-                    "options": {
-                        "auto": "Komun-transformilo (aŭtotransformilo)",
-                        "auxiliary": "Helpa (intern-sistema)",
-                        "converter": "Konvertilo",
-                        "distribution": "Distribu-transformilo",
-                        "generator": "Blok-transformilo",
-                        "phase_angle_regulator": "Fazangul-alĝustigilo",
-                        "traction": "Kontaktrela",
-                        "yes": "Nekonata"
-                    }
+                    "label": "Speco"
                 },
                 "trees": {
                     "label": "Arboj"
@@ -2464,6 +2792,17 @@
                     },
                     "terms": "uzado"
                 },
+                "usage_waterway": {
+                    "label": "Uzo",
+                    "options": {
+                        "headrace": "Akvocentralo: enlaso",
+                        "irrigation": "Agrokulturo (irigacio)",
+                        "spillway": "Krizokaza ellaso",
+                        "tailrace": "Akvocentralo: ellaso",
+                        "transmission": "Transporto de fluoj aŭ varoj",
+                        "transportation": "Transporto per ŝipoj"
+                    }
+                },
                 "utility": {
                     "label": "Uzata por"
                 },
@@ -2493,6 +2832,9 @@
                     "label": "VHF-kanalo",
                     "terms": "kanalo,radiokanalo"
                 },
+                "via": {
+                    "label": "Tra"
+                },
                 "video_calls": {
                     "label": "Videotelefono",
                     "terms": "vidtelefono,videovoki,telefono"
@@ -2503,7 +2845,8 @@
                         "area": "Pli ol 20m",
                         "house": "Ĝis 5m",
                         "street": "De 5 ĝis 20m"
-                    }
+                    },
+                    "terms": "videblo,grando"
                 },
                 "volcano/status": {
                     "label": "Vulkana aktiveco",
@@ -2557,7 +2900,8 @@
                 },
                 "water_tank/volume": {
                     "label": "Enhaveco (en litroj)",
-                    "placeholder": "10000, 20000, 30000…"
+                    "placeholder": "10000, 20000, 30000…",
+                    "terms": "volumeno,kapacito"
                 },
                 "water_volume": {
                     "label": "Volumeno de akva rezervujo (m³)",
@@ -2572,7 +2916,19 @@
                     "terms": "retpaĝo,retpagxo,retpajho,retadreso,ttt-ejo,ligilo"
                 },
                 "wetland": {
-                    "label": "Speco"
+                    "label": "Speco",
+                    "options": {
+                        "bog": "Pluvmarĉo (marĉo alta)",
+                        "fen": "Marĉo malalta",
+                        "mangrove": "Mangrovo",
+                        "marsh": "Marĉo (sen arboj)",
+                        "reedbed": "Kareksejo",
+                        "saltmarsh": "Salmarĉo",
+                        "string_bog": "Aapa-marĉo",
+                        "swamp": "Marĉo (kun arboj)",
+                        "tidalflat": "Vado",
+                        "wet_meadow": "Malsekherbejo"
+                    }
                 },
                 "wheelchair": {
                     "label": "Aliro por rulseĝoj",
@@ -2717,7 +3073,7 @@
                     "terms": "dromo,aerodromo,flugkampo,surteriĝejo,aŭtokurejo,autokurejo,auxtokurejo"
                 },
                 "aeroway/gate": {
-                    "name": "Aerodroma enirejo",
+                    "name": "Kluzo aerodromo-aviadilo",
                     "terms": "aerodroma kluzo,aerodroma pordego"
                 },
                 "aeroway/hangar": {
@@ -2757,8 +3113,8 @@
                     "terms": "flughaveno,terminalo"
                 },
                 "aeroway/windsock": {
-                    "name": "Ventmontrilo (maniko)",
-                    "terms": "maniko,ŝtrumpo,aerŝtrumpo"
+                    "name": "Ventmaniko",
+                    "terms": "maniko,ŝtrumpo,aerŝtrumpo,ventmontrilo"
                 },
                 "allotments/plot": {
                     "name": "Parcelo de familia ĝardeno",
@@ -2930,6 +3286,10 @@
                     "name": "Komunuma centro GLAT+",
                     "terms": "glat,lgbt,geja,lesba,ambaŭseksema,samseksema,transseksa"
                 },
+                "amenity/community_centre/youth_centre": {
+                    "name": "Komunuma centro por junuloj",
+                    "terms": "komunuma centro,azilo,klubejo"
+                },
                 "amenity/compressed_air": {
                     "name": "Gaskunpremilo",
                     "terms": "kunpremilo,kompresoro,aerkompresoro,aerkunpremilo"
@@ -2960,6 +3320,10 @@
                 "amenity/doctors": {
                     "name": "Kabineto de kuracisto",
                     "terms": "kuracistejo,sanigejo,doktoro"
+                },
+                "amenity/doctors/gynaecology": {
+                    "name": "Kabineto de ginekologiisto",
+                    "terms": "ginekologiisto,ginekologo,virinkuracisto"
                 },
                 "amenity/dojo": {
                     "name": "Doĵo / batalart-lernejo",
@@ -3056,7 +3420,7 @@
                 },
                 "amenity/gambling": {
                     "name": "Hazardludejo",
-                    "terms": "enĵetmaŝinoj,enjxetmasxinoj,enjhetmashinoj,pachinko,paĉinko,unubrakaj banditoj,salono de ludoj,ludsalono,loterio,pokero"
+                    "terms": "pachinko,paĉinko,salono de ludoj,ludsalono,loterio,pokero,bingo"
                 },
                 "amenity/give_box": {
                     "name": "Kesto de senpaga interŝanĝo",
@@ -3165,6 +3529,10 @@
                 "amenity/nursing_home": {
                     "name": "Domo de permanenta zorgado"
                 },
+                "amenity/parcel_locker": {
+                    "name": "Poŝt-aŭtomato",
+                    "terms": "poŝtaŭtomato,poshtautomato,poŝtoaŭtomato,poŝtmaŝino,poshtmashino,posxtmasxino,poŝtkesto,pakaĵo,ekspedaĵo"
+                },
                 "amenity/parking": {
                     "name": "Parkumejo",
                     "terms": "parkumejo,parkejo,aŭtohaltejo,parkadejo"
@@ -3176,6 +3544,10 @@
                 "amenity/parking/park_ride": {
                     "name": "Parkumejo P+R (ĉe publika transporto)",
                     "terms": "parkumejo"
+                },
+                "amenity/parking/street-side": {
+                    "name": "Parkumejo apudstrata",
+                    "terms": "apudstrata parkumejo,ĉestrata parkumejo,chestrata parkumejo"
                 },
                 "amenity/parking/underground": {
                     "name": "Parkumejo subtera",
@@ -3520,9 +3892,9 @@
                     "name": "Amfiteatro",
                     "terms": "teatro,spektejo"
                 },
-                "amenity/toilets": {
-                    "name": "Necesejo",
-                    "terms": "tualeto,urinejo,wc,latrino,maltrinkejo,pisejo"
+                "amenity/ticket_validator": {
+                    "name": "Bilet-kontrolilo",
+                    "terms": "biletkontrolilo,kontrolilo,validigilo.bilettruilo,truilo"
                 },
                 "amenity/toilets/disposal/flush": {
                     "name": "Necesejo akvospruĉa",
@@ -3628,14 +4000,6 @@
                     "name": "Vendilo de gazetoj",
                     "terms": "gazeto,ĵurnalo,jhurnalo,jxurnalo,vendmaŝino"
                 },
-                "amenity/vending_machine/parcel_pickup": {
-                    "name": "Poŝt-aŭtomato (nur ricevo)",
-                    "terms": "poŝtmaŝino,poshtmashino,posxtmasxino,poŝtkesto,pakaĵo,ekspedaĵo"
-                },
-                "amenity/vending_machine/parcel_pickup_dropoff": {
-                    "name": "Poŝt-aŭtomato (sendo kaj ricevo)",
-                    "terms": "poŝtmaŝino,poshtmashino,posxtmasxino,poŝtkesto,pakaĵo,ekspedaĵo"
-                },
                 "amenity/vending_machine/parking_tickets": {
                     "name": "Vendilo de parkumbiletoj",
                     "terms": "parkhorloĝo,parkhorlogho,parkhorlogxo,parkbiletoj"
@@ -3687,6 +4051,10 @@
                 "area": {
                     "name": "Areo",
                     "terms": "areo"
+                },
+                "area/footway": {
+                    "name": "Areo de trotuaro",
+                    "terms": "trotuaro,piedirejo,irejo,pavimo"
                 },
                 "area/highway": {
                     "name": "Areo de vojo",
@@ -4107,6 +4475,10 @@
                     "name": "Pork-stalo",
                     "terms": "porkstalo,stalo,porkostalo,porkejo"
                 },
+                "building/synagogue": {
+                    "name": "Konstruaĵo de sinagogo",
+                    "terms": "sinagogo,juda preĝejo"
+                },
                 "building/temple": {
                     "name": "Konstruaĵo de templo",
                     "terms": "templo,sanktejo"
@@ -4362,6 +4734,18 @@
                 "demolished/building": {
                     "name": "Antaŭnelonge malkonstruita konstruaĵo"
                 },
+                "disc_golf/basket": {
+                    "name": "Korbo (golfdisko)",
+                    "terms": "golfdisko,golfodisko,frisbee,flugdisko"
+                },
+                "disc_golf/hole": {
+                    "name": "Truo (golfdisko)",
+                    "terms": "golfdisko,golfodisko,frisbee,flugdisko"
+                },
+                "disc_golf/tee": {
+                    "name": "Startejo (Tee) (golfdisko)",
+                    "terms": "golfdisko,golfodisko,frisbee,flugdisko"
+                },
                 "disused/amenity": {
                     "name": "Neuzata servejo"
                 },
@@ -4380,6 +4764,10 @@
                 "emergency/ambulance_station": {
                     "name": "Ambulanca stacio",
                     "terms": "ambulanco,rapida sanservo,rapidservo"
+                },
+                "emergency/assembly_point": {
+                    "name": "Renkontejo post evakuo",
+                    "terms": "evakuejo,incendio,fajrego,kolektiĝejo,krizokaza kolektiĝejo,sekurejo"
                 },
                 "emergency/defibrillator": {
                     "name": "Defibrililo",
@@ -4412,7 +4800,7 @@
                     "terms": "manapoteko,tujhelpilo,bandaĝo"
                 },
                 "emergency/landing_site": {
-                    "name": "Surteriĝejo kriokaza",
+                    "name": "Surteriĝejo krizokaza",
                     "terms": "surterighejo,surterigxejo,helikopterejo"
                 },
                 "emergency/life_ring": {
@@ -4448,9 +4836,17 @@
                     "name": "Alarmsireno",
                     "terms": "alarmo,avertilo,sireno"
                 },
+                "emergency/water_reservoir": {
+                    "name": "Kontraŭbrulega artefarita lago",
+                    "terms": "kontraubrulega lago,fajrobrigado,krizokaza akvujo,rezervujo"
+                },
+                "emergency/water_reservoir_covered": {
+                    "name": "Kontraŭbrulega akvujo subtera",
+                    "terms": "kontraubrulega akvujo,fajrobrigado,subtera rezervujo"
+                },
                 "emergency/water_tank": {
                     "name": "Kontraŭbrulega akvujo",
-                    "terms": "akvujo,rezervujo,kriokaza akvujo,fajrobrigada akvujo"
+                    "terms": "akvujo,rezervujo,krizokaza akvujo,fajrobrigada akvujo"
                 },
                 "emergency/yes": {
                     "name": "Vivsav-serva aliro: jes"
@@ -4464,8 +4860,8 @@
                     "terms": "eliro,evakua eliro,pordo"
                 },
                 "entrance/emergency_ward_entrance": {
-                    "name": "Enirejo al kriokaza sekcio de malsanulejo",
-                    "terms": "kriokazoj,urĝaj okazoj,savservo"
+                    "name": "Enirejo al krizokaza sekcio de malsanulejo",
+                    "terms": "krizokazoj,urĝaj okazoj,savservo"
                 },
                 "entrance/main": {
                     "name": "Ĉefa enirejo",
@@ -4594,6 +4990,10 @@
                     "name": "Rekapabligejo",
                     "terms": "fizioterapiisto,kinezoterapiisto,rekapabligo,rehabilito"
                 },
+                "healthcare/sample_collection": {
+                    "name": "Prenejo de medicinaj specimenoj",
+                    "terms": "specimenoj,sango.urino,ekskremento,feko,kolektejo"
+                },
                 "healthcare/speech_therapist": {
                     "name": "Logopediisto",
                     "terms": "ortofona kuracisto"
@@ -4612,38 +5012,26 @@
                 "highway/bus_stop": {
                     "name": "Haltejo aŭtobusa"
                 },
-                "highway/construction": {
-                    "name": "Fermita vojo",
-                    "terms": "vojo fermita,dumkonstruado,riparata vojo"
-                },
                 "highway/corridor": {
                     "name": "Enkonstruaĵa koridoro (linio)",
                     "terms": "interna koridoro,ena koridoro,endoma koridoro,koridoro"
                 },
                 "highway/crossing": {
-                    "name": "Trapasejo"
+                    "name": "Stratpasejo"
                 },
                 "highway/crossing/marked": {
                     "name": "Stratpasejo zebrostria",
-                    "terms": "zebro,pasejo,trairejo,irejo"
+                    "terms": "zebro,pasejo,trairejo,irejo,stripasejo,piedira transirejo,markita stratpasejo"
                 },
-                "highway/crossing/marked-raised": {
-                    "name": "Stratpasejo zebrostria (kun stratĝibo longa)",
-                    "terms": "pasejo,trairejo,irejo,stratĝibo,azendorso,malrapidigilo"
+                "highway/crossing/uncontrolled": {
+                    "name": "Stratpasejo zebrostria"
                 },
                 "highway/crossing/unmarked": {
-                    "name": "Stratpasejo",
-                    "terms": "pasejo,trairejo,irejo"
-                },
-                "highway/crossing/unmarked-raised": {
-                    "name": "Stratpasejo (kun stratĝibo longa)",
-                    "terms": "pasejo,trairejo,irejo,stratĝibo,azendorso,malrapidigilo"
+                    "name": "Stratpasejo nemarkita",
+                    "terms": "pasejo,trairejo,transpasejo,piedira transirejo"
                 },
                 "highway/crossing/zebra": {
                     "name": "Stratpasejo zebrostria"
-                },
-                "highway/crossing/zebra-raised": {
-                    "name": "Stratpasejo zebrostria (kun stratĝibo longa)"
                 },
                 "highway/cycleway": {
                     "name": "Bicikl-vojo",
@@ -4658,7 +5046,7 @@
                 },
                 "highway/cycleway/crossing/bicycle_foot": {
                     "name": "Stratpasejo por biciklistoj k piedirantoj",
-                    "terms": "biciklvojo,biciklovojo,pasejo,zebro"
+                    "terms": "biciklvojo,biciklovojo,pasejo,zebro,transirejo"
                 },
                 "highway/cycleway/crossing/marked": {
                     "name": "Stratpasejo bicikla (markita)",
@@ -4697,11 +5085,7 @@
                 },
                 "highway/footway/marked": {
                     "name": "Stratpasejo zebrostria",
-                    "terms": "zebro,pasejo,trairejo,irejo"
-                },
-                "highway/footway/marked-raised": {
-                    "name": "Stratpasejo zebrostria (kun stratĝibo longa)",
-                    "terms": "pasejo,trairejo,irejo,stratĝibo,azendorso,malrapidigilo"
+                    "terms": "zebro,pasejo,trairejo,irejo,markita stratpasejo"
                 },
                 "highway/footway/sidewalk": {
                     "name": "Trotuaro (ĉestrata)",
@@ -4709,17 +5093,10 @@
                 },
                 "highway/footway/unmarked": {
                     "name": "Stratpasejo",
-                    "terms": "pasejo,trairejo,irejo"
-                },
-                "highway/footway/unmarked-raised": {
-                    "name": "Stratpasejo (kun stratĝibo longa)",
-                    "terms": "pasejo,trairejo,irejo,stratĝibo,azendorso,malrapidigilo"
+                    "terms": "pasejo,trairejo,irejo,piedira transirejo,transpasejo"
                 },
                 "highway/footway/zebra": {
                     "name": "Stratpasejo zebrostria"
-                },
-                "highway/footway/zebra-raised": {
-                    "name": "Stratpasejo zebrostria (kun stratĝibo longa)"
                 },
                 "highway/give_way": {
                     "name": "Trafiksigno pri cedi traveturon",
@@ -4749,21 +5126,25 @@
                     "name": "Aŭtovoja ligilo",
                     "terms": "enveturejo,elveturejo,aŭtoŝoseo,nodo"
                 },
+                "highway/motorway_link-US-CA": {
+                    "name": "Aŭtovoja ligilo",
+                    "terms": "enveturejo,elveturejo,aŭtoŝoseo,nodo"
+                },
                 "highway/passing_place": {
                     "name": "Preterpasejo",
                     "terms": "pasejo,preterveturejo"
                 },
                 "highway/path": {
-                    "name": "Vojeto (piedpremita)",
-                    "terms": "vojo,pado,irejo,piedvojeto"
+                    "name": "Vojeto (konstruita)",
+                    "terms": "vojo,pado,irejo,piedvojeto,trotuaro"
                 },
                 "highway/path/boardwalk": {
                     "name": "Trotuaro ligna tra malsekejo/sablo",
                     "terms": "tramalsekejo,irejo,ligna irejo,tabula irejo,lignotabula irejo,ponteto"
                 },
                 "highway/path/informal": {
-                    "name": "Vojeto neoficiala",
-                    "terms": "vojeto,pado,piedvojeto,irejo"
+                    "name": "Vojeto (piedpremita)",
+                    "terms": "vojeto,pado,piedvojeto,irejo,trotuaro,dezirpado"
                 },
                 "highway/pedestrian_area": {
                     "name": "Piedirada areo",
@@ -4778,6 +5159,10 @@
                     "terms": "aŭtovojo,aŭtoŝoseo,vojego,unuaranga,unuaklasa,primara"
                 },
                 "highway/primary_link": {
+                    "name": "Unua-rang-voja ligilo",
+                    "terms": "nodo,elveturejo,enveturejo,vojkruciĝo"
+                },
+                "highway/primary_link-US-CA": {
                     "name": "Unua-rang-voja ligilo",
                     "terms": "nodo,elveturejo,enveturejo,vojkruciĝo"
                 },
@@ -4877,10 +5262,6 @@
                     "name": "Televojpagejo",
                     "terms": "vojpagejo,elektronika vojpagejo,impostejo,pagejo"
                 },
-                "highway/track": {
-                    "name": "Vojo kampa",
-                    "terms": "kampa vojo,nepavima,malpavima,tervojo"
-                },
                 "highway/traffic_mirror": {
                     "name": "Trafika spegulo",
                     "terms": "spegulo"
@@ -4898,6 +5279,10 @@
                     "terms": "ekspresvojo,ekspresa vojo,aŭtovojo,aŭtoŝoseo,vojego"
                 },
                 "highway/trunk_link": {
+                    "name": "Ekspres-voja ligilo",
+                    "terms": "nodo,elveturejo,enveturejo,vojkruciĝo"
+                },
+                "highway/trunk_link-US-CA": {
                     "name": "Ekspres-voja ligilo",
                     "terms": "nodo,elveturejo,enveturejo,vojkruciĝo"
                 },
@@ -5068,6 +5453,10 @@
                     "name": "Konstruejo",
                     "terms": "konstruado,buldozoj"
                 },
+                "landuse/education": {
+                    "name": "Tereno de edukada institucio",
+                    "terms": "lernejo,universitato"
+                },
                 "landuse/farm": {
                     "name": "Farmejo"
                 },
@@ -5143,10 +5532,6 @@
                     "name": "Danĝerejo",
                     "terms": "dangherejo,dangxerejo,minkampo,pafaĵejo"
                 },
-                "landuse/military/naval_base": {
-                    "name": "Marbazo armea",
-                    "terms": "haveno armea,ŝiparo milita"
-                },
                 "landuse/military/obstacle_course": {
                     "name": "Obstakl-kurejo armea",
                     "terms": "obstaklkurejo,soldatkurejo,termilitistoj"
@@ -5201,6 +5586,10 @@
                     "name": "Komerca tereno",
                     "terms": "komercejo"
                 },
+                "landuse/salt_pond": {
+                    "name": "Salejo",
+                    "terms": "salo,salminejo,elvaporigo"
+                },
                 "landuse/vineyard": {
                     "name": "Vinber-ĝardeno",
                     "terms": "vinberĝardeno,vinberghardeno,vinbergxardeno,vinejo,vinberejo,vitejo"
@@ -5214,7 +5603,7 @@
                 },
                 "leisure/adult_gaming_centre": {
                     "name": "Hazardludejo (enĵet-maŝinoj)",
-                    "terms": "kazino,vetludejo,monludejo,vetaŭtomato"
+                    "terms": "kazino,vetludejo,monludejo,vetaŭtomato,enĵetmaŝinoj,enjxetmasxinoj,enjhetmashinoj,salono de ludoj,salono de hazardludoj,unubrakaj banditoj,ludsalono"
                 },
                 "leisure/amusement_arcade": {
                     "name": "Salono de ludoj",
@@ -5348,13 +5737,13 @@
                     "name": "Kodumulejo (hackerspace)",
                     "terms": "hackerspace,hackspace"
                 },
-                "leisure/horse_riding": {
-                    "name": "Ĉeval-rajdadejo",
-                    "terms": "ĉevalrajdado,chevalrajdado,cxevalrajdado,rajdejo,rajdadejo"
-                },
                 "leisure/ice_rink": {
                     "name": "Glitkurejo",
                     "terms": "glitejo"
+                },
+                "leisure/indoor_play": {
+                    "name": "Enkonstruaĵa infana ludejo (kun prizorgo)",
+                    "terms": "infana ludejo,seka naĝejo,naĝejo de globetoj,distriĝo,infanludejo"
                 },
                 "leisure/marina": {
                     "name": "Jaĥt-haveno",
@@ -5392,6 +5781,10 @@
                     "name": "Uson-futbala ludkampo",
                     "terms": "futbalo usona,usona futbalo,usona piedpilkado,amerika futbalo"
                 },
+                "leisure/pitch/archery": {
+                    "name": "Arkpafejo",
+                    "terms": "arkpafado,pafejo,arkopafado,arkopafejo,pafdomo"
+                },
                 "leisure/pitch/australian_football": {
                     "name": "Aŭstrali-futbala ludkampo",
                     "terms": "aŭstralia futbalo,aŭstralia piedpilkado"
@@ -5428,13 +5821,17 @@
                     "name": "Kriketa ludkampo",
                     "terms": "kriketo,kriketejo"
                 },
-                "leisure/pitch/equestrian": {
-                    "name": "Rajdlernejo",
-                    "terms": "ĉevalrajdlernejo,rajdlernejo,rajdejo,rajdadejo,maneĝo,maneĝejo,hipodromo"
-                },
                 "leisure/pitch/field_hockey": {
                     "name": "Ludkampo por herbhokeo",
                     "terms": "herbhokeo,herbohokeo,gazonhokeo"
+                },
+                "leisure/pitch/four_square": {
+                    "name": "Ludejo por kvar-kvadrat-ludo",
+                    "terms": "4kvadratludo,kvarkvadratludejo,4-kvadratludejo,4 kvadrata ludejo,4 square"
+                },
+                "leisure/pitch/futsal": {
+                    "name": "Futsala ludejo",
+                    "terms": "futsalo,futbalo ĉambra,halo,piedpilko"
                 },
                 "leisure/pitch/horseshoes": {
                     "name": "Hufumluda kampo",
@@ -5444,6 +5841,14 @@
                     "name": "Netbala ludkampo",
                     "terms": "netbalo,korbopilkado"
                 },
+                "leisure/pitch/paintball": {
+                    "name": "Ludejo por farbopafado",
+                    "terms": "farbopafado,farbopafejo,paintball"
+                },
+                "leisure/pitch/pickleball": {
+                    "name": "Ludkampo por pickleball",
+                    "terms": "pickleball,pickle-ball,teniso"
+                },
                 "leisure/pitch/rugby_league": {
                     "name": "Rugbeo-13 ludkampo",
                     "terms": "rugbeo 13,rugbio league,league,rugbeejo"
@@ -5451,6 +5856,10 @@
                 "leisure/pitch/rugby_union": {
                     "name": "Rugbeo-15 ludkampo",
                     "terms": "rugbeo 15,rugbio,rugbeo union,rugbeejo"
+                },
+                "leisure/pitch/shooting": {
+                    "name": "Pafejo sporta (eksterdoma)",
+                    "terms": "pafejo"
                 },
                 "leisure/pitch/shuffleboard": {
                     "name": "Ludejo por glitŝtonludo planka (Shuffleboard)",
@@ -5484,6 +5893,10 @@
                     "name": "Infana ludejo",
                     "terms": "ludo,distriĝo,infanoj,sabloludejo,balancilo,infanludejo"
                 },
+                "leisure/playground/indoor": {
+                    "name": "Enkonstruaĵa infana ludejo (neprizorgata)",
+                    "terms": "infana ludejo,seka naĝejo,naĝejo de globetoj,distriĝo,infanludejo"
+                },
                 "leisure/resort": {
                     "name": "Turisma centro",
                     "terms": "turismejo,kuracejo,feriejo,pensiono"
@@ -5496,9 +5909,9 @@
                     "name": "Ŝipglitejo",
                     "terms": "shipglitejo,sxipglitejo,ŝiplanĉejo"
                 },
-                "leisure/slipway_point": {
-                    "name": "Ŝipglitejo",
-                    "terms": "seka doko,doko"
+                "leisure/slipway_drivable": {
+                    "name": "Enveturejo al ŝipglitejo",
+                    "terms": "ŝipglitejo,shipglitejo,sxipglitejo"
                 },
                 "leisure/sports_centre": {
                     "name": "Sporta centro",
@@ -5507,6 +5920,10 @@
                 "leisure/sports_centre/climbing": {
                     "name": "Sporta centro (grimpado)",
                     "terms": "grimpado,grimpejo"
+                },
+                "leisure/sports_centre/shooting": {
+                    "name": "Pafejo sporta (endoma)",
+                    "terms": "pafejo,pafdomo"
                 },
                 "leisure/sports_centre/swimming": {
                     "name": "Naĝejo (tuta sportejo)",
@@ -5536,10 +5953,6 @@
                     "name": "Kurejo bicikla",
                     "terms": "dromo,biciklado,biciklkonkursejo,konkursejo"
                 },
-                "leisure/track/horse_racing": {
-                    "name": "Kurejo ĉevala",
-                    "terms": "ĉevalkurejo,chevalkurejo,cxevalkurejo,hipodromo"
-                },
                 "leisure/track/running": {
                     "name": "Kurejo",
                     "terms": "dromo,kurado"
@@ -5555,9 +5968,6 @@
                 "line": {
                     "name": "Linio",
                     "terms": "linio"
-                },
-                "man_made": {
-                    "name": "Artefarita objekto"
                 },
                 "man_made/adit": {
                     "name": "Mineja koridoro",
@@ -5599,9 +6009,12 @@
                     "name": "Hakita arbaro",
                     "terms": "malarbaro,dehakita arbaro,senarba areo,senarbigita areo,stumpoj"
                 },
+                "man_made/compass_rose": {
+                    "name": "Kompasrozo",
+                    "terms": "ventorozo,kompasorozo,ventcirklo,nordo,sudo,okcidento,oriento"
+                },
                 "man_made/courtyard": {
-                    "name": "Korto",
-                    "terms": "interdomejo,interkonstruaĵo"
+                    "name": "Korto"
                 },
                 "man_made/crane": {
                     "name": "Gruo",
@@ -5814,6 +6227,10 @@
                 "man_made/utility_pole": {
                     "name": "Fosto",
                     "terms": "masto,elektrofosto,paliso"
+                },
+                "man_made/video_wall": {
+                    "name": "Cifereca ekrano",
+                    "terms": "ekrano,led-panelo,led panelo,televidilo,reklamo"
                 },
                 "man_made/wastewater_plant": {
                     "name": "Akvopurigejo",
@@ -6050,11 +6467,51 @@
                     "name": "Malsekejo",
                     "terms": "marĉo,marcho,marcxo,torfejo,kotejo"
                 },
+                "natural/wetland/bog": {
+                    "name": "Pluvmarĉo (marĉo alta)",
+                    "terms": "pluvmarcho,alta marĉo,marcho,malsekejo,torfejo,ombrotrofa marĉo"
+                },
+                "natural/wetland/fen": {
+                    "name": "Marĉo malalta",
+                    "terms": "marcho malalta,malaltmarĉo,malaltmarcho,malsekejo"
+                },
+                "natural/wetland/mangrove": {
+                    "name": "Mangrovo",
+                    "terms": "malsekejo,manglejo,rizoforejo,tropika arbaro,subtropika arbaro"
+                },
+                "natural/wetland/marsh": {
+                    "name": "Marĉo (sen arboj)",
+                    "terms": "marcho,aluvia grundo,malsekejo,marsko"
+                },
+                "natural/wetland/reedbed": {
+                    "name": "Kareksejo",
+                    "terms": "kanejo,malsekejo"
+                },
+                "natural/wetland/saltmarsh": {
+                    "name": "Salmarĉo",
+                    "terms": "salmarcho,malsekejo"
+                },
+                "natural/wetland/string_bog": {
+                    "name": "Aapa-marĉo",
+                    "terms": "marcho,malsekejo,torfejo"
+                },
+                "natural/wetland/swamp": {
+                    "name": "Marĉo (kun arboj)",
+                    "terms": "marcho,malsekejo,superakvita arbaro"
+                },
+                "natural/wetland/tidalflat": {
+                    "name": "Vado",
+                    "terms": "tajdo,kotejo"
+                },
+                "natural/wetland/wet_meadow": {
+                    "name": "Malsekherbejo",
+                    "terms": "herbejo malseka,humidherbejo,malsekejo"
+                },
                 "natural/wood": {
                     "name": "Arbaro (natura)",
                     "terms": "arbaro,forsto,praarbaro"
                 },
-                "network/type/node_network": {
+                "network/type/node_network-DE-NL-BE-LU": {
                     "name": "Nodo de ripoza kurso",
                     "terms": "ripoza kurso"
                 },
@@ -6087,9 +6544,9 @@
                 },
                 "office/association": {
                     "name": "Oficejo de ne-profit-cela organizaĵo",
-                    "terms": "neprofitcela organizaĵo,neprofitdona organizaĵo,organizaĵo,neregistara organizaĵo,senprofitcela organizaĵo"
+                    "terms": "neprofitcela organizaĵo,neprofitdona organizaĵo,organizaĵo,neregistara organizaĵo,senprofitcela organizaĵo,asocio,oficejo de asocio"
                 },
-                "office/bail_bond_agent": {
+                "office/bail_bond_agent-US-PH": {
                     "name": "Oficejo de kaŭci-leĝisto",
                     "terms": "kaŭcio,kaucio,kauxcio,garantianto,bejlo"
                 },
@@ -6131,7 +6588,7 @@
                 },
                 "office/employment_agency": {
                     "name": "Dungoficejo",
-                    "terms": "dungado,labora agentejo,senlaborula oficejo,dungejo"
+                    "terms": "dungado,labora agentejo,senlaborula oficejo,dungejo,laborserĉado"
                 },
                 "office/energy_supplier": {
                     "name": "Oficejo de elektr-provizanto",
@@ -6257,6 +6714,9 @@
                 "office/water_utility": {
                     "name": "Oficejo de akv-provizanta firmao",
                     "terms": "akvoprovizo,akvokondukto"
+                },
+                "office/yes": {
+                    "name": "Oficejo (nekonata speco)"
                 },
                 "piste/downhill": {
                     "name": "Skivojo alpa (malsuprenira)",
@@ -6423,6 +6883,10 @@
                     "name": "Punkto",
                     "terms": "punkto"
                 },
+                "police/checkpoint": {
+                    "name": "Kontrolejo polica",
+                    "terms": "kontrolpunkto,patrolo,rapidkontrolo"
+                },
                 "polling_station": {
                     "name": "Balotejo (portempa loko)",
                     "terms": "baloto,voĉdonejo,elektejo"
@@ -6443,6 +6907,14 @@
                 },
                 "power/generator/method/photovoltaic": {
                     "name": "Sun-panelo",
+                    "terms": "sunpanelo,sunĉelo,fotovoltaiko,suna pilo"
+                },
+                "power/generator/method/photovoltaic/building/roof": {
+                    "name": "Tegmento de sun-paneloj",
+                    "terms": "sunpanelo,sunĉelo,fotovoltaiko,suna pilo"
+                },
+                "power/generator/method/photovoltaic/location/roof": {
+                    "name": "Sun-paneloj sur tegmento",
                     "terms": "sunpanelo,sunĉelo,fotovoltaiko,suna pilo"
                 },
                 "power/generator/source/hydro": {
@@ -6492,6 +6964,10 @@
                 "power/plant/source/solar": {
                     "name": "Sunenergia elektrocentralo",
                     "terms": "elektrejo,centralo,sunpanelo,sunĉelo,fotovoltaiko,sunkolektroro,suncentralo"
+                },
+                "power/plant/source/waste": {
+                    "name": "Rub-bruliganta elektrocentralo",
+                    "terms": "centralo,elektrejo,rubbruligejo,rubbruligado,rubaĵbruligejo,roboforbruligo"
                 },
                 "power/plant/source/wind": {
                     "name": "Ventenergia elektrocentralo",
@@ -6857,10 +7333,6 @@
                     "name": "Anime-/manga-vendejo",
                     "terms": "animeo,mangao,rolkostumado,kosplejo,cosplay"
                 },
-                "shop/antiques": {
-                    "name": "Antikvaĵa vendejo",
-                    "terms": "antikvaĵejo,antikvajhejo,antikvajxejo"
-                },
                 "shop/appliance": {
                     "name": "Elektronikaĵega vendejo",
                     "terms": "elektronikoj,lavmaŝinoj,lavmashinoj,lavmasxinoj,frostujoj,fridujoj,polvosuĉiloj,senpolvigiloj,kuiriloj,forneloj,kuirejo"
@@ -6916,10 +7388,6 @@
                 "shop/bookmaker": {
                     "name": "Vetperistejo",
                     "terms": "vetperisto,bukmekro"
-                },
-                "shop/books": {
-                    "name": "Libra vendejo",
-                    "terms": "librejo,librovendejo"
                 },
                 "shop/boutique": {
                     "name": "Mod-butiko (altprezaj vestaĵoj)"
@@ -7032,10 +7500,6 @@
                     "name": "Kosmetikaĵa (persona higieno) vendejo",
                     "terms": "kosmetikaĵoj,kosmetikajhoj,kosmetikajxoj,drogejo,beligaĵoj,kosmetikoj,drogerio"
                 },
-                "shop/country_store": {
-                    "name": "Ĝenerala vendejo",
-                    "terms": "ĝenerala vendejo"
-                },
                 "shop/craft": {
                     "name": "Vendejo de materialoj por metio",
                     "terms": "metio,metiado,manmetio,artisto,plastikisto,artaĵo"
@@ -7048,10 +7512,6 @@
                     "name": "Laktaĵa vendejo",
                     "terms": "laktaĵoj,laktajhoj,laktajxoj,fromaĝoj,laktoproduktoj"
                 },
-                "shop/deli": {
-                    "name": "Delikataĵa vendejo",
-                    "terms": "delikataĵoj,delikatajhoj,delikatajxoj,frandaĵoj,bongustaĵoj"
-                },
                 "shop/department_store": {
                     "name": "Ĉiovendejo",
                     "terms": "chiovendejo,cxiovendejo,butikego,grandmagazeno,superbazaro,vendejego"
@@ -7062,7 +7522,7 @@
                 },
                 "shop/doors": {
                     "name": "Vendejo de pordoj",
-                    "terms": "pordoj,pordovendejo"
+                    "terms": "pordoj,pordovendejo,porda vendejo"
                 },
                 "shop/dry_cleaning": {
                     "name": "Vest-lavejo (nepolara solvilo)",
@@ -7174,10 +7634,6 @@
                 "shop/hardware": {
                     "name": "Laborila vendejo",
                     "terms": "iloj,ilovendejo,il-vendejo,memfaradiloj,faru vin mem"
-                },
-                "shop/health_food": {
-                    "name": "Sanig-manĝaĵa vendejo",
-                    "terms": "saniga manĝaĵo,sana manĝaĵo,ekologia manĝaĵo,vegetarisma manĝaĵo"
                 },
                 "shop/hearing_aids": {
                     "name": "Aŭd-helpila vendejo",
@@ -7291,10 +7747,6 @@
                     "name": "Muzikinstrumenta vendejo",
                     "terms": "muzikinstrumentoj,muzikiloj,instrumentoj,gitaroj"
                 },
-                "shop/newsagent": {
-                    "name": "Gazeta vendejo",
-                    "terms": "gazetvendejo,gazetejo,magazinoj"
-                },
                 "shop/nutrition_supplements": {
                     "name": "Diet-suplementa vendejo",
                     "terms": "dietsuplementoj,nutraĵoj,suplementoj"
@@ -7323,17 +7775,13 @@
                     "name": "Kukejo",
                     "terms": "panejo,bakejo,sukeraĵejo"
                 },
-                "shop/pawnbroker": {
-                    "name": "Mon-pruntejo (kontraŭ garantiaĵo)",
-                    "terms": "lombardo,monprunto,lombardejo,pruntejo,brokantejo"
-                },
                 "shop/perfumery": {
                     "name": "Parfuma vendejo",
                     "terms": "parfumoj,parfumejo,bonodorejo"
                 },
                 "shop/pet": {
-                    "name": "Dombesta vendejo",
-                    "terms": "dombestoj,hejmbestoj,bestoj,kobajo,kuniklo,papago"
+                    "name": "Hejmbesta vendejo",
+                    "terms": "dombesta vendejo,dombestoj,hejmbestoj,bestoj,kobajo,kuniklo,papago"
                 },
                 "shop/pet_grooming": {
                     "name": "Hejmbesta beligejo",
@@ -7382,10 +7830,6 @@
                 "shop/seafood": {
                     "name": "Marfrukta vendejo",
                     "terms": "marfruktoj,fiŝoj,fishoj,fisxoj,fiŝvendejo"
-                },
-                "shop/second_hand": {
-                    "name": "Brokantejo",
-                    "terms": "lambardejo,eluzitaĵoj,uzitaĵoj,malnovaĵoj"
                 },
                 "shop/sewing": {
                     "name": "Kudrilar-vendejo",
@@ -7486,10 +7930,6 @@
                     "name": "Polvosuĉila vendejo",
                     "terms": "polvosuĉiloj,polvosochiloj,polvosucxiloj,senpolvigiloj"
                 },
-                "shop/variety_store": {
-                    "name": "Ĉio-po-unu-spesmilo vendejo",
-                    "terms": "ĉiopounuspesmilo,eŭrovendejo,euroshop,diversaĵoj,ĉio po unu"
-                },
                 "shop/video": {
                     "name": "Filma vendejo/pruntejo",
                     "terms": "filmoj,videoj,dvd,bluray,blu-radia"
@@ -7530,6 +7970,9 @@
                     "name": "Vina vendejo",
                     "terms": "vinvendejo,vinovendejo,vindejo,alkoholaĵoj"
                 },
+                "shop/yes": {
+                    "name": "Vendejo (nekonata speco)"
+                },
                 "telecom": {
                     "name": "Telekomunikada objekto"
                 },
@@ -7543,10 +7986,6 @@
                 },
                 "tourism": {
                     "name": "Turisma objekto"
-                },
-                "tourism/alpine_hut": {
-                    "name": "Montara rifuĝejo",
-                    "terms": "montara kabano,alpisma kabano,kabano,ŝirmejo,vintrostacio,rifuĝejo"
                 },
                 "tourism/apartment": {
                     "name": "Apartamento feria (luprenebla)",
@@ -7808,24 +8247,24 @@
                     "terms": "malpermeso,rekten,antaŭen,prohibo"
                 },
                 "type/restriction/no_u_turn": {
-                    "name": "Turno malantaŭen malpermesata",
-                    "terms": "malpermeso,malantaŭen,u-forma,uforma,prohibo"
+                    "name": "Turniĝo malantaŭen malpermesata",
+                    "terms": "malpermeso,malantaŭen,u-forma,uforma,prohibo,turnigho"
                 },
                 "type/restriction/only_left_turn": {
-                    "name": "Nur turno maldekstren",
-                    "terms": "maldekstren,liven"
+                    "name": "Nur turniĝo maldekstren",
+                    "terms": "malpermeso,maldekstren,devigo,turnigho"
                 },
                 "type/restriction/only_right_turn": {
-                    "name": "Nur turno dekstren",
-                    "terms": "dekstren"
+                    "name": "Nur turniĝo dekstren",
+                    "terms": "malpermeso,dekstren,devigo,turnigho"
                 },
                 "type/restriction/only_straight_on": {
                     "name": "Nur veturo rekten",
-                    "terms": "rekten,antaŭen"
+                    "terms": "malpermeso,rekten,antaŭen,prohibo,devigo"
                 },
                 "type/restriction/only_u_turn": {
-                    "name": "Nur turno malantaŭen",
-                    "terms": "malantaŭen,reveturen,u-turno"
+                    "name": "Nur turniĝo malantaŭen",
+                    "terms": "malpermeso,malantaŭen,u-forma,uforma,prohibo,turnigho,devigo"
                 },
                 "type/route": {
                     "name": "Kurso",
@@ -7859,10 +8298,6 @@
                     "name": "Piedirada kurso",
                     "terms": "turisma kurso,vojo turisma,marŝada kurso"
                 },
-                "type/route/horse": {
-                    "name": "Ĉevala kurso",
-                    "terms": "chevala kurso,cxevala kurso,ĉevalvojo"
-                },
                 "type/route/light_rail": {
                     "name": "Kurso de fervojo malpeza",
                     "terms": "malpeza fervojo,malpeza trajno,suburba fervojo,tramo"
@@ -7870,6 +8305,10 @@
                 "type/route/monorail": {
                     "name": "Unurel‑fervoja kurso",
                     "terms": "unurela fervojo"
+                },
+                "type/route/mtb": {
+                    "name": "Montbicikla kurso",
+                    "terms": "bicikla kurso,bicikla vojo,mtb"
                 },
                 "type/route/pipeline": {
                     "name": "Konduktubo",
@@ -7965,9 +8404,6 @@
                 "waterway/river": {
                     "name": "Rivero",
                     "terms": "rivereto,torento,akvofluo"
-                },
-                "waterway/riverbank": {
-                    "name": "Riverbordo"
                 },
                 "waterway/sanitary_dump_station": {
                     "name": "Stacio de forigo de fekaĵoj (por jaĥtoj)",

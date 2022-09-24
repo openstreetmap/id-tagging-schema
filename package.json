@@ -1,6 +1,6 @@
 {
   "name": "@openstreetmap/id-tagging-schema",
-  "version": "3.0.0",
+  "version": "3.5.1",
   "description": "The OpenStreetMap tagging model used by the iD editor",
   "homepage": "https://github.com/openstreetmap/id-tagging-schema#readme",
   "bugs": "https://github.com/openstreetmap/id-tagging-schema/issues",
@@ -11,12 +11,15 @@
   "license": "ISC",
   "main": "build.js",
   "scripts": {
+    "lint": "prettier --check data",
+    "lint:fix": "prettier --write data",
     "build": "node scripts/build.js",
     "dist": "node scripts/dist.js",
     "test": "node scripts/test.js",
     "translations": "node scripts/translations.js"
   },
   "devDependencies": {
-    "@ideditor/schema-builder": "4.0.4"
+    "@ideditor/schema-builder": "~4.0.6",
+    "prettier": "~2.7.1"
   }
 }

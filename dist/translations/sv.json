@@ -55,6 +55,10 @@
                 "access": {
                     "label": "Tillåten åtkomst",
                     "options": {
+                        "customers": {
+                            "description": "Begränsat till kunder på destinationen",
+                            "title": "Kunder"
+                        },
                         "designated": {
                             "description": "Åtkomst tillåten enligt skyltar eller specifika lokala lagar",
                             "title": "Föredragen"
@@ -83,6 +87,10 @@
                             "description": "Tillträde tillåten endast med tillstånd av ägaren på individuell basis",
                             "title": "Privat"
                         },
+                        "unknown": {
+                            "description": "Åtkomstförhållandena är okända eller oklara",
+                            "title": "Okänd"
+                        },
                         "yes": {
                             "description": "Tillträde är tillåtet enligt lag",
                             "title": "Tillåten"
@@ -106,12 +114,23 @@
                     "options": {
                         "customers": "Enbart kunder",
                         "no": "Ingen",
-                        "permissive": "Påbjuden",
+                        "permissive": "Tillåtande",
                         "permit": "Enbart med tillstånd",
                         "private": "Privat",
+                        "unknown": "Okänd",
                         "yes": "Offentlig"
                     },
                     "terms": "åtkomst,tillåten,privat,publik"
+                },
+                "activity": {
+                    "label": "Aktivitet",
+                    "options": {
+                        "bicycle": "Cykling",
+                        "hiking": "Vanding",
+                        "horse": "Hästridning",
+                        "mtb": "Bergscykling",
+                        "ski": "Skidåkning"
+                    }
                 },
                 "addr/interpolation": {
                     "label": "Typ",
@@ -276,6 +295,13 @@
                 "barrier": {
                     "label": "Typ"
                 },
+                "barrier_planter": {
+                    "label": "Barriär",
+                    "options": {
+                        "planter": "Ja",
+                        "undefined": "Nej"
+                    }
+                },
                 "basin": {
                     "label": "Typ"
                 },
@@ -292,8 +318,12 @@
                     "label": "Tjänster",
                     "options": {
                         "cosmetics": "Kosmetika",
-                        "nails": "Naglar",
-                        "tanning": "Solarium"
+                        "hair_removal": "Hårborttagning",
+                        "nails": "Manikyr / Pedikyr",
+                        "skin_care": "Hudvård",
+                        "spa": "Dag-spa",
+                        "tanning": "Solarium",
+                        "waxing": "Vaxning"
                     }
                 },
                 "bench": {
@@ -343,6 +373,10 @@
                 "boundary": {
                     "label": "Typ"
                 },
+                "branch_brand": {
+                    "label": "Butikskedja",
+                    "terms": "filial,dotterbolag,butikskedja,kedja"
+                },
                 "brand": {
                     "label": "Varumärke",
                     "terms": "märke,varumärke,ägare"
@@ -388,16 +422,37 @@
                     "label": "Material",
                     "terms": "material,tillverkat av"
                 },
+                "building/part": {
+                    "label": "Byggnadsdel"
+                },
                 "building_area": {
                     "label": "Byggnad",
                     "terms": "byggnad,hus,konstruktion,byggnadsverk,bygge,anläggning,fastighet,kåk"
                 },
+                "building_area_yes": {
+                    "label": "Byggnad"
+                },
                 "bunker_type": {
                     "label": "Typ"
+                },
+                "button_operated": {
+                    "label": "Tryckknapp"
                 },
                 "cables": {
                     "label": "Kablar",
                     "placeholder": "1, 2, 3..."
+                },
+                "cai_scale-IT": {
+                    "label": "Vandringssvårighet (Italian Alpine Club)",
+                    "options": {
+                        "E": "E: För vandrare",
+                        "EAI": "EAI: Vandring i snöiga förhållanden",
+                        "EE": "EE: För erfarna vandrare",
+                        "EEA": "EES: För erfarna vandrare med utrustning",
+                        "T": "T: Turistiskt"
+                    },
+                    "placeholder": "T, E, EE, …",
+                    "terms": "vandringssvårighet,vandring,vandrare,svårighet,bergsvandring,turistled"
                 },
                 "camera/direction": {
                     "label": "Riktning (grader medurs)",
@@ -419,9 +474,21 @@
                     "placeholder": "50, 100, 200...",
                     "terms": "kapacitet,antal,besökare,användare"
                 },
+                "capacity/caravans": {
+                    "label": "Kapacitet (Husvagnar)",
+                    "placeholder": "10, 20, 50..."
+                },
                 "capacity/disabled_parking": {
                     "label": "Handikappsplatser",
                     "placeholder": "1, 2, 3..."
+                },
+                "capacity/persons": {
+                    "label": "Kapacitet (Personer)",
+                    "placeholder": "50, 100, 200..."
+                },
+                "capacity/tents": {
+                    "label": "Kapacitet (Tält)",
+                    "placeholder": "10, 20, 50..."
                 },
                 "capacity_parking": {
                     "label": "Totalt antal platser",
@@ -435,7 +502,18 @@
                     "label": "Insättning av pengar"
                 },
                 "castle_type": {
-                    "label": "Typ"
+                    "label": "Typ",
+                    "options": {
+                        "castrum": "Romerskt fort",
+                        "defensive": "Defensivt slott",
+                        "fortress": "Befästning",
+                        "hillfort": "Fornborg",
+                        "kremlin": "Kreml",
+                        "manor": "Herrgård",
+                        "palace": "Palats",
+                        "shiro": "Shiro (japanskt slott)",
+                        "stately": "Ståtligt hem (Slott)"
+                    }
                 },
                 "changing_table": {
                     "label": "Skötbord"
@@ -455,12 +533,12 @@
                     "placeholder": "ÅÅÅÅ-MM-DD"
                 },
                 "circumference": {
-                    "label": "Omkrets",
-                    "placeholder": "1 m, 20 cm, 30 in…",
-                    "terms": "omkrets,omfång,storlek,vidd"
+                    "label": "Omkrets (vid brösthöjd)",
+                    "placeholder": "1 m, 20 cm, 30\"…"
                 },
                 "clothes": {
-                    "label": "Kläder"
+                    "label": "Kläder",
+                    "terms": "kläder,mode,klädsel,typ av kläder,klädestyp,klädtyp"
                 },
                 "club": {
                     "label": "Typ"
@@ -476,7 +554,7 @@
                     "terms": "färg"
                 },
                 "comment": {
-                    "label": "Ändringskommentar",
+                    "label": "Ändringsuppsättningskommentar",
                     "placeholder": "Kortfattad beskrivning av ditt bidrag (obligatoriskt)"
                 },
                 "communication_multi": {
@@ -527,6 +605,15 @@
                     "label": "Övertäckt",
                     "terms": "övertäckt,täckt,dold"
                 },
+                "covered_no": {
+                    "label": "Täckt",
+                    "options": {
+                        "no": "Nej",
+                        "undefined": "Förväntas vara Nej",
+                        "yes": "Ja"
+                    },
+                    "terms": "övertäckt,täckt,dold,tak,skyddad"
+                },
                 "craft": {
                     "label": "Typ"
                 },
@@ -544,36 +631,81 @@
                 "crossing": {
                     "label": "Typ"
                 },
+                "crossing/barrier": {
+                    "label": "Barriärarm",
+                    "options": {
+                        "double_half": "Dubbel halva",
+                        "full": "Full",
+                        "half": "Halv",
+                        "no": "Nej",
+                        "yes": "Ja"
+                    }
+                },
+                "crossing/bell": {
+                    "label": "Klocka"
+                },
                 "crossing/island": {
                     "label": "Refug"
+                },
+                "crossing/light": {
+                    "label": "Trafikljus"
+                },
+                "crossing_raised": {
+                    "label": "Upphöjd",
+                    "options": {
+                        "table": "Ja",
+                        "undefined": "Nej"
+                    }
                 },
                 "cuisine": {
                     "label": "Typer av mat",
                     "options": {
                         "american": "Amerikansk",
                         "asian": "Asiatisk",
+                        "bubble_tea": "Bubble tea",
                         "burger": "Burgare",
+                        "cake": "Bakverk och tårtor",
                         "chicken": "Kykling",
                         "chinese": "Kinesisk",
+                        "chocolate": "Choklad",
                         "coffee_shop": "Kaffeaffär",
+                        "dessert": "Dessert",
+                        "donut": "Munkar",
+                        "fish": "Fisk",
                         "french": "Fransk",
                         "german": "Tysk",
                         "greek": "Grekisk",
+                        "hot_dog": "Varmkorv",
                         "ice_cream": "Glass",
                         "indian": "Indisk",
+                        "indonesian": "Indonesisk",
                         "italian": "Italiensk",
                         "japanese": "Japansk",
+                        "juice": "Juice",
                         "kebab": "Kebab",
+                        "korean": "Koreansk",
+                        "lebanese": "Libanesisk",
+                        "malaysian": "Malaysisk",
                         "mexican": "Mexikansk",
+                        "pankcake": "Pannkakor",
+                        "pasta": "Pasta",
                         "pizza": "Pizza",
+                        "polish": "Polsk",
+                        "portuguese": "Portugisisk",
                         "regional": "Regional",
+                        "russian": "Rysk",
+                        "salad": "Sallad",
                         "sandwich": "Smörgås",
+                        "seafood": "Skaldjur",
+                        "spanish": "Spansk",
+                        "steak_house": "Stekhus",
                         "sushi": "Sushi",
+                        "taiwanese": "Taiwanesisk",
                         "thai": "Thai",
                         "turkish": "Turkisk",
                         "vietnamese": "Vitnamesisk"
                     },
-                    "terms": "mat,kök,matgrupp,regional mat,världens mat,kost,kostalternativ,meny,menyutbud"
+                    "terms": "mat,kök,matgrupp,regional mat,världens,kost,kostalternativ,meny,menyutbud"
                 },
                 "currency_multi": {
                     "label": "Valutor",
@@ -604,6 +736,10 @@
                         "opposite_lane": {
                             "description": "Cykelfil som går i motsatt riktning mot övrig trafik",
                             "title": "Motriktad cykelfil"
+                        },
+                        "separate": {
+                            "description": "Indikerar att cykelväg var kartlagd som en separat geometri",
+                            "title": "Cykelväg kartlagd separat"
                         },
                         "share_busway": {
                             "description": "Cykelfil delad med bussfil",
@@ -654,6 +790,9 @@
                         "yes": "Ja"
                     }
                 },
+                "deposit/trolley": {
+                    "label": "Deposition"
+                },
                 "depth": {
                     "label": "Djup (meter)"
                 },
@@ -696,7 +835,13 @@
                 },
                 "diameter": {
                     "label": "Diameter",
-                    "placeholder": "5 mm, 10 cm, 15 in…"
+                    "placeholder": "5 mm, 10 cm, 15 in…",
+                    "terms": "diameter,cirkelbredd,bredd,vidd"
+                },
+                "diameter_crown": {
+                    "label": "Diameter på trädkrona",
+                    "placeholder": "4 m, 9', …",
+                    "terms": "krondiameter,diameter på krona,trädkrona,diameter,träddiameter,trädstorlek"
                 },
                 "diet_multi": {
                     "label": "Typ av diet",
@@ -722,6 +867,16 @@
                     "placeholder": "45, 90, 180, 270",
                     "terms": "riktning (grader medsols),riktning,grader,medsol,medsols,väderstreck"
                 },
+                "direction_cardinal-US-CA-NZ": {
+                    "label": "Riktning",
+                    "options": {
+                        "east": "Österut",
+                        "north": "Norrut",
+                        "south": "Söderut",
+                        "west": "Västerut"
+                    },
+                    "terms": "riktning,kurs,väderstreck,öst,syd,väst,norr,öster,söder,nord"
+                },
                 "direction_clock": {
                     "label": "Riktning",
                     "options": {
@@ -739,7 +894,8 @@
                         "backward": "Bakåt",
                         "both": "Båda / Alla",
                         "forward": "Framåt"
-                    }
+                    },
+                    "terms": "påverkad riktning,riktning,kurs,framåt,bakåt"
                 },
                 "direction_vertex_dual": {
                     "label": "Påverkad riktning",
@@ -761,7 +917,7 @@
                     }
                 },
                 "distance": {
-                    "label": "Distans",
+                    "label": "Avstånd",
                     "terms": "distans,längd,avstånd,miltal"
                 },
                 "disused/amenity": {
@@ -798,6 +954,10 @@
                     "label": "Drickbart",
                     "terms": "dricksvatten,drickbart,drickbar"
                 },
+                "drinking_water_available": {
+                    "label": "Dricksvatten tillgängligt",
+                    "terms": "dricksvatten tillgängligt,dricksvatten,vatten,vattenkran,drickbart vatten"
+                },
                 "drive_through": {
                     "label": "Genomkörning (Drive-through)",
                     "terms": "genomkörning,drive-through,drive through,drivethrough,hämtmat,mcdrive"
@@ -808,19 +968,19 @@
                     "terms": "varaktighet,tid,längd,tidslängd,minuter,sekunder,timmar"
                 },
                 "ele": {
-                    "label": "Höjd",
-                    "terms": "höjd,altitud,höjd över havet,höh"
+                    "label": "Höjd över havet (meter)",
+                    "terms": "höjd,altitud,höjd över havet,höh,möh"
                 },
                 "ele_node": {
-                    "label": "Höjd",
-                    "terms": "höjd,altitud,höjd över havet,höh"
+                    "label": "Höjd över havet (meter)",
+                    "terms": "höjd,altitud,höjd över havet,höh,möh"
                 },
                 "electrified": {
                     "label": "Elförsörjning",
                     "options": {
                         "contact_line": "Kontaktledning",
                         "no": "Nej",
-                        "rail": "Elektrifierad räls",
+                        "rail": "Strömskena",
                         "yes": "Ja (ospecificerad)"
                     },
                     "placeholder": "Kontaktledning, elektrifierad räls...",
@@ -836,7 +996,17 @@
                     "placeholder": "Standard"
                 },
                 "embassy": {
-                    "label": "Typ"
+                    "label": "Typ",
+                    "options": {
+                        "branch_embassy": "Filial till en ambassad",
+                        "delegation": "Delegation",
+                        "high_commission": "högkommissarie ",
+                        "interests_section": "Intressesektionen",
+                        "mission": "Diplomatisk beskickning",
+                        "nunciature": "Diplomatisk beskickning för den heliga stolen",
+                        "residence": "Officiell bostad för en ambassadör",
+                        "yes": "Ambassad"
+                    }
                 },
                 "emergency": {
                     "label": "Akut"
@@ -851,7 +1021,8 @@
                     "label": "Typ"
                 },
                 "entrance": {
-                    "label": "Typ"
+                    "label": "Typ",
+                    "terms": "entré,entrétyp,typ av entré,ingång,ingångstyp,typ av ingång,utgång,utgångstyp,typ av utgång"
                 },
                 "except": {
                     "label": "Undantag"
@@ -861,6 +1032,10 @@
                 },
                 "expected_rwn_route_relations": {
                     "label": "Angränsande gångnoder"
+                },
+                "expressway-US": {
+                    "label": "Express-väg",
+                    "terms": "express-väg,expressväg,snabbväg,motorväg,motortrafikled"
                 },
                 "faces": {
                     "label": "Sidor"
@@ -880,6 +1055,16 @@
                 "fire_hydrant/diameter": {
                     "label": "Diameter (mm, tum eller bokstäver)",
                     "terms": "diameter,storlek"
+                },
+                "fire_hydrant/position": {
+                    "label": "Position",
+                    "options": {
+                        "green": "Grönska/Gräs",
+                        "lane": "Vägbana",
+                        "parking_lot": "Parkeringsplats",
+                        "sidewalk": "Trottoar"
+                    },
+                    "terms": "position,lokalisering,plats"
                 },
                 "fire_hydrant/pressure": {
                     "label": "Tryck (bar)",
@@ -908,8 +1093,38 @@
                     "label": "Fixa mig",
                     "terms": "fixa mig,fix me,fixme,problem,hjälp behövs,hjälp"
                 },
+                "flag/name": {
+                    "label": "Flaggnamn"
+                },
                 "flag/type": {
                     "label": "Flaggtyp"
+                },
+                "flag/wikidata": {
+                    "label": "Flaggans Wikidata"
+                },
+                "flashing_lights": {
+                    "label": "Blinkande trafikljus ",
+                    "options": {
+                        "always": {
+                            "description": "Trafikljus blinkar alltid",
+                            "title": "Blinkar alltid"
+                        },
+                        "button": {
+                            "description": "Trafikljus aktiveras genom att trycka på knapp",
+                            "title": "Knappaktiverat"
+                        },
+                        "button;sensor": {
+                            "description": "Trafikljus aktiveras med en sensor eller med ett knapptryck",
+                            "title": "Knapp- eller sensoraktiverat"
+                        },
+                        "no": "Nej",
+                        "sensor": {
+                            "description": "Trafikljus aktiveras med en sensor",
+                            "title": "Sensoraktiverat"
+                        },
+                        "yes": "Ja"
+                    },
+                    "terms": "blinkande ljus,blinkande trafikljus,trafikljus,blinkning,blinkande"
                 },
                 "floating": {
                     "label": "Flytande"
@@ -958,7 +1173,7 @@
                         "male": "Man",
                         "unisex": "Unisex"
                     },
-                    "placeholder": "Okänt",
+                    "placeholder": "Okänd",
                     "terms": "kön,åtkomst,man,kvinna,unisex,manlig,kvinnlig"
                 },
                 "generator/method": {
@@ -974,10 +1189,15 @@
                 "generator/type": {
                     "label": "Typ"
                 },
-                "geyser/height": {
-                    "label": "Utbrottets höjd"
+                "genus": {
+                    "label": "Släkte",
+                    "placeholder": "Acer, Platanus, Quercus …",
+                    "terms": "släkte,släkt,växtsläkte,genus,genera"
                 },
-                "gnis/feature_id": {
+                "geyser/height": {
+                    "label": "Utbrottetshöjd"
+                },
+                "gnis/feature_id-US": {
                     "label": "GNIS objekt-ID",
                     "terms": "gnis objekt-id,gnis,federal geographic names information service,united states board on geographic names,usa"
                 },
@@ -1026,12 +1246,22 @@
                     "label": "Byggnadshöjd (meter)",
                     "terms": "byggnadshöjd,höjd,höjd på byggnad"
                 },
+                "highchair": {
+                    "label": "Barnstol",
+                    "terms": "barnstol,bältesstol,matningsstol,babystol"
+                },
                 "highspeed": {
                     "label": "Höghastighet",
                     "terms": "höghastighet,snabbspår,höghastighetsspår,snabbtåg"
                 },
                 "highway": {
                     "label": "Typ"
+                },
+                "highway_cartpath": {
+                    "label": "Typ av väg",
+                    "options": {
+                        "service": "Service-väg"
+                    }
                 },
                 "historic": {
                     "label": "Typ"
@@ -1047,6 +1277,14 @@
                 },
                 "historic/wreck/visible_at_low_tide": {
                     "label": "Synligt vid lågt tidvatten"
+                },
+                "holding_position/type": {
+                    "label": "Typ",
+                    "options": {
+                        "ILS": "Instrumentlandningssystem",
+                        "intermediate": "Taxiväg-taxiväg-korsning",
+                        "runway": "Start- och landningsbana"
+                    }
                 },
                 "hoops": {
                     "label": "Basketkorgar",
@@ -1186,6 +1424,10 @@
                 "kerb/height": {
                     "label": "Höjd"
                 },
+                "kitchen": {
+                    "label": "Kök",
+                    "terms": "kök,matlagning,spis,pentry,kokplatta,kokvrå,kabyss"
+                },
                 "kneipp_water_cure_multi": {
                     "label": "Bassängtyper"
                 },
@@ -1200,6 +1442,10 @@
                 },
                 "landuse": {
                     "label": "Typ"
+                },
+                "lane_markings": {
+                    "label": "Vägmarkeringar",
+                    "terms": "vägmarkeringar,filmarkeringar,väglinjer,mittlinje,kantlinje"
                 },
                 "lanes": {
                     "label": "Filer",
@@ -1222,7 +1468,8 @@
                         "mixed": "Mixat",
                         "semi_deciduous": "Delvist lövfällande",
                         "semi_evergreen": "Delvist vintergröna"
-                    }
+                    },
+                    "terms": "lövcykel,löv,träd,lövfällning,lövfällande,vintergrön,höstlöv"
                 },
                 "leaf_cycle_singular": {
                     "label": "Lövcykel",
@@ -1240,7 +1487,8 @@
                         "leafless": "Utan löv",
                         "mixed": "Blandat",
                         "needleleaved": "Barr"
-                    }
+                    },
+                    "terms": "lövtyp,löv,träd,barr"
                 },
                 "leaf_type_singular": {
                     "label": "Lövtyp",
@@ -1254,7 +1502,8 @@
                     "label": "Typ"
                 },
                 "length": {
-                    "label": "Längd (meter)"
+                    "label": "Längd (meter)",
+                    "terms": "längd,meter,höjd,avstånd,bredd"
                 },
                 "level": {
                     "label": "Våning",
@@ -1266,6 +1515,9 @@
                 },
                 "liaison": {
                     "label": "Typ"
+                },
+                "lifeguard": {
+                    "label": "Livvakt"
                 },
                 "line_attachment": {
                     "label": "Ledningsanslutning"
@@ -1297,6 +1549,9 @@
                     "label": "Låsbar",
                     "terms": "låsbar,lås,låsa,inlåsning,hänglås,nyckel"
                 },
+                "locked": {
+                    "label": "Låst"
+                },
                 "man_made": {
                     "label": "Typ"
                 },
@@ -1324,6 +1579,10 @@
                     "label": "Material",
                     "terms": "material,tillverkad av"
                 },
+                "mattress": {
+                    "label": "Madrasser tillgängliga",
+                    "terms": "madrasser tillgängliga,madrasser,sängar,sängplatser,liggunderlag,bolster,resårmadrass,skumgummimadrass,latexmadrass,resårbotten,bäddmadrass,plastmadrass,galonmadrass,åkmadrass"
+                },
                 "max_age": {
                     "label": "Maxålder",
                     "terms": "maxålder,högsta ålder,ålder,åldersgräns,åldersbegränsning,övre åldersgräns"
@@ -1342,6 +1601,11 @@
                     "placeholder": "40, 50, 60...",
                     "terms": "rekommenderad högsta hastighet,rekommenderad hastighet,rekommenderad fart,rekommendation,hastighet,fart"
                 },
+                "maxspeed/hgv": {
+                    "label": "Hastighetsbegränsning för lastbil",
+                    "placeholder": "40, 50, 60...",
+                    "terms": "hastighetsbegränsning för lastbil,lastbildhastighet,fart för lastbil,lastbildsfart"
+                },
                 "maxstay": {
                     "label": "Maxtid",
                     "terms": "maxtid,längsta tid,parkeringstid,förtöjningstid,förtöjning,parkering,tid"
@@ -1354,12 +1618,19 @@
                     "label": "Maxvikt",
                     "terms": "maxvikt,vikt,tyngd,begränsning"
                 },
+                "maxwidth": {
+                    "label": "Maxbredd",
+                    "terms": "maxbredd,bredd,maximal bredd,begränsning,begränsad bredd,breddrestrektion"
+                },
                 "memorial": {
                     "label": "Typ"
                 },
                 "microbrewery": {
                     "label": "Microbryggeri",
                     "terms": "microbryggeri,bryggeri,hantverksbryggeri,öl"
+                },
+                "military_service": {
+                    "label": "Militärtjänst"
                 },
                 "mimics": {
                     "label": "Efterliknar",
@@ -1368,6 +1639,9 @@
                 "min_age": {
                     "label": "Lägsta ålder",
                     "terms": "lägsta ålder,ålder,åldersgräns,åldersbegränsning,lägre åldersgräns"
+                },
+                "min_height": {
+                    "label": "Höjd till undersidan (meter)"
                 },
                 "minspeed": {
                     "label": "Lägsta tillåtna hastighet",
@@ -1394,11 +1668,11 @@
                 "mtb/scale/imba": {
                     "label": "Svårighetsgrad enligt IMBA",
                     "options": {
-                        "0": "Enklast (vita cirkel)",
-                        "1": "Enkel (gröna cirkel)",
-                        "2": "Medium (blå fyrkant)",
-                        "3": "Svår (svart diamant)",
-                        "4": "Extremt svårt (dubbel svart diamant)"
+                        "0": "⚪ Enklast (vita cirkel)",
+                        "1": "🟢 Enkel (gröna cirkel)",
+                        "2": "🟦 Medel (blå fyrkant)",
+                        "3": "◆ Svår (svart diamant)",
+                        "4": "◆◆ Extremt svårt (dubbel svart diamant)"
                     },
                     "placeholder": "Enkel, medel, svår...",
                     "terms": "svårighetsgrad enligt imba,imba,svårighetsgrad,svårighet,utmaning"
@@ -1513,7 +1787,7 @@
                 },
                 "opening_hours": {
                     "label": "Öppettider ",
-                    "placeholder": "Okänt",
+                    "placeholder": "Okänd",
                     "terms": "öppettider,öppet"
                 },
                 "opening_hours/covid19": {
@@ -1544,6 +1818,17 @@
                     "label": "Par",
                     "placeholder": "3, 4, 5..."
                 },
+                "parcel_dropoff": {
+                    "label": "Avlämning av paket"
+                },
+                "parcel_pickup": {
+                    "label": "Uthämtning paket",
+                    "options": {
+                        "no": "Nej",
+                        "undefined": "Förväntas vara Ja",
+                        "yes": "Ja"
+                    }
+                },
                 "park_ride": {
                     "label": "Pendelparkering",
                     "terms": "pendelparkering,parkering,pendel"
@@ -1554,11 +1839,21 @@
                         "carports": "Carportar",
                         "garage_boxes": "Garageboxar",
                         "lane": "Fickparkering",
+                        "layby": "Rastplats",
                         "multi-storey": "Flera våningar",
                         "rooftop": "På taket",
                         "sheds": "Skjul",
+                        "street_side": "Sidan av väg",
                         "surface": "Yta",
                         "underground": "Underjordisk"
+                    }
+                },
+                "parking/orientation": {
+                    "label": "Orientering",
+                    "options": {
+                        "diagonal": "Diagonalt i förhållande till gatan",
+                        "parallel": "Parallellt med gatan",
+                        "perpendicular": "Möter gatan i en rät vinkel"
                     }
                 },
                 "parking_entrance": {
@@ -1763,7 +2058,7 @@
                 },
                 "railway/position": {
                     "label": "Position förhållande till kilometerstolpe",
-                    "placeholder": "Distans med en decimal (123.4)"
+                    "placeholder": "Avstånd med en decimal (123.4)"
                 },
                 "railway/signal/direction": {
                     "label": "Påverkad riktning",
@@ -1783,12 +2078,29 @@
                 "rcn_ref": {
                     "label": "Kod för cykelrutt"
                 },
-                "real_fire": {
+                "real_fire-GB-IE": {
                     "label": "Verklig eldstad",
                     "terms": "verklig eldstad,eldstad,brasa,kamin,öppen eldstad,öppen eld,eldplats,eld"
                 },
                 "recycling_accepts": {
-                    "label": "Accepterar"
+                    "label": "Accepterar",
+                    "options": {
+                        "batteries": "Batterier",
+                        "cans": "Burkar",
+                        "cardboard": "Kartong",
+                        "clothes": "Kläder",
+                        "cooking_oil": "Matlagningsolja",
+                        "engine_oil": "Motorolja",
+                        "glass": "All typ av glas (härdat glas, fönster, speglar, etc.)",
+                        "glass_bottles": "Glasflaskor och -burkar",
+                        "green_waste": "Trädgårdsavfall",
+                        "paper": "Papper",
+                        "plastic": "Plast",
+                        "plastic_bottles": "Plastflaskor",
+                        "plastic_packaging": "Plastförpackningar",
+                        "scrap_metal": "Skräpmetall",
+                        "shoes": "Skor"
+                    }
                 },
                 "recycling_type": {
                     "label": "Typ",
@@ -1802,6 +2114,10 @@
                     "label": "Referenskod",
                     "terms": "referenskod,referens,kod"
                 },
+                "ref/FR/siret-FR": {
+                    "label": "SIRET-nummer",
+                    "terms": "siret-nummer. siret-referens,siret"
+                },
                 "ref/isil": {
                     "label": "ISIL-kod"
                 },
@@ -1811,6 +2127,10 @@
                 },
                 "ref_aeroway_gate": {
                     "label": "Gatenummer"
+                },
+                "ref_disc_golf_hole": {
+                    "label": "Hålnummer",
+                    "placeholder": "1-18"
                 },
                 "ref_golf_hole": {
                     "label": "Hålnummer",
@@ -1836,6 +2156,9 @@
                 "ref_runway": {
                     "label": "Nummer på start- och landningsbana",
                     "placeholder": "t.ex. 01L/19R"
+                },
+                "ref_sector": {
+                    "label": "Sektionsnummer"
                 },
                 "ref_stop_position": {
                     "label": "Hållplatsnummer"
@@ -1919,6 +2242,9 @@
                     "label": "Salt",
                     "terms": "salt,saltlösning,försaltats"
                 },
+                "sample_collection": {
+                    "label": "Testtyper"
+                },
                 "sanitary_dump_station": {
                     "label": "Latrintömning ",
                     "terms": "latrintömning,sanitet,campingplats,torrtoalett,toalettömning,campingtoalett,gråvatten,tömningsplats"
@@ -1940,8 +2266,8 @@
                         "danger_right": "Fara höger",
                         "port": "Babord",
                         "starboard": "Styrbord",
-                        "waterway_left": "Farled vänster",
-                        "waterway_right": "Farled höger"
+                        "waterway_left": "Vattenväg vänster",
+                        "waterway_right": "Vattenväg höger"
                     }
                 },
                 "seamark/beacon_lateral/colour": {
@@ -1975,8 +2301,8 @@
                         "preferred_channel_port": "Farledsriktning Babord",
                         "preferred_channel_starboard": "Farledsriktning Styrbord ",
                         "starboard": "Styrbord",
-                        "waterway_left": "Farled vänster",
-                        "waterway_right": "Farled höger"
+                        "waterway_left": "Vattenväg vänster",
+                        "waterway_right": "Vattenväg höger"
                     }
                 },
                 "seamark/buoy_lateral/colour": {
@@ -2006,6 +2332,21 @@
                 },
                 "seamark/mooring/category": {
                     "label": "Kategori"
+                },
+                "seamark/rescue_station/category": {
+                    "label": "Livräddningsutrustning",
+                    "options": {
+                        "aircraft": "Flygplan",
+                        "first_aid": "Första hjälpen",
+                        "hovercraft": "Svävfarkost",
+                        "lifeboat": "Livbåt (på land)",
+                        "lifeboat_on_mooring": "Livbåt (vid en förtöjning)",
+                        "radio": "Radiostation",
+                        "refuge_intertidal": "Skydd för personer vid högvatten",
+                        "refuge_shipwrecked": "Skydd för personer vi skeppsbrott",
+                        "seaplane": "Sjöflygplan",
+                        "tug": "Bärgningsbogserbåt"
+                    }
                 },
                 "seamark/type": {
                     "label": "Sjömärke",
@@ -2048,7 +2389,8 @@
                     }
                 },
                 "service/bicycle": {
-                    "label": "Tjänster"
+                    "label": "Cykelservice",
+                    "terms": "cykelservice,cykel,service,cykelreperation,cykelverkstad"
                 },
                 "service/vehicle": {
                     "label": "Tjänster"
@@ -2057,9 +2399,9 @@
                     "label": "Typ av service",
                     "options": {
                         "crossover": "Växelförbindelse",
-                        "siding": "Sidospår",
-                        "spur": "Industrispår",
-                        "yard": "Bangård"
+                        "siding": "Förbigångsspår / avvikande huvudspår",
+                        "spur": "Anslutningsspår",
+                        "yard": "Bangårdsspår / uppställningsspår"
                     },
                     "terms": "typ av service,typ av serviceväg,service,serviceväg"
                 },
@@ -2140,10 +2482,16 @@
                         "aerial imagery": "Flygfoto",
                         "gps": "GPS",
                         "local knowledge": "Lokal kännedom",
+                        "osm notes": "OpenStreetMap-anteckningar",
                         "streetlevel imagery": "Gatubilder",
                         "survey": "Kartläggning"
                     },
                     "terms": "källa,referens,ursprung"
+                },
+                "species": {
+                    "label": "Arter",
+                    "placeholder": "Acer platanoides, Quercus robur, …",
+                    "terms": "art,sort,latinskt namn,växtart,djurart"
                 },
                 "species/wikidata": {
                     "label": "Wikidata för art",
@@ -2162,12 +2510,22 @@
                         "multi": "Flera"
                     }
                 },
+                "sport_pub": {
+                    "label": "Sporter",
+                    "options": {
+                        "billiards": "Biljard",
+                        "darts": "Dart",
+                        "table_soccer": "Bordsfotboll"
+                    },
+                    "terms": "sporer,idrotter,lekar,aktiviteter"
+                },
                 "sport_racing_motor": {
                     "label": "Sporter",
                     "options": {
                         "karting": "Gokart",
                         "motocross": "Motocross",
-                        "motor": "Motorsport"
+                        "motor": "Motorsport",
+                        "speedway": "Motorcykel Speedway"
                     }
                 },
                 "sport_racing_nonmotor": {
@@ -2224,7 +2582,7 @@
                         "ford": "Vadställe",
                         "tunnel": "Tunnel"
                     },
-                    "placeholder": "Okänt",
+                    "placeholder": "Okänd",
                     "terms": "struktur,bro,tunnel,vägbank,vägsnitt,vadställe"
                 },
                 "structure_waterway": {
@@ -2236,6 +2594,14 @@
                 },
                 "studio": {
                     "label": "Typ"
+                },
+                "subject": {
+                    "label": "Ämne",
+                    "terms": "ämne,typ,tema,motiv,fråga,problem,fack,område,läroämne,gren,disciplin"
+                },
+                "subject/wikidata": {
+                    "label": "Ämnets Wikidata",
+                    "terms": "ämnets wikidata,ämnets wikisida,ämneswiki,wiki,wikipedia,wikidata"
                 },
                 "substance": {
                     "label": "Substans"
@@ -2252,10 +2618,11 @@
                     "terms": "brostöd,bro,viadukt,akvedukt,stöd,bropelare,hängbro,snedkabelbro,pylon,anfang,förankring,landfäste,stödpelarna"
                 },
                 "surface": {
-                    "label": "Beläggning",
+                    "label": "Yta",
                     "options": {
                         "artificial_turf": "Konstgräs",
-                        "asphalt": "Asfallt",
+                        "asphalt": "Asfalt",
+                        "compacted": "Komprimerad",
                         "concrete": "Betong",
                         "dirt": "Jord",
                         "grass": "Gräs",
@@ -2287,6 +2654,35 @@
                     "label": "Senaste undersökningsdatum",
                     "terms": "senaste undersökningsdatum,undersökningsdatum"
                 },
+                "survey_point/datum_aligned": {
+                    "label": "Anpassad till lokalt geodetiskt referenssystem",
+                    "terms": "anpassad till lokalt geodetiskt referenssystem,geodetiskt referenssystem,referenssystem,geodetisk,referens"
+                },
+                "survey_point/purpose": {
+                    "label": "Syfte",
+                    "options": {
+                        "both": "Båda",
+                        "horizontal": "Horisontell justering",
+                        "vertical": "Vertikal justering"
+                    }
+                },
+                "survey_point/structure": {
+                    "label": "Struktur",
+                    "options": {
+                        "beacon": "Fyr",
+                        "block": "Block",
+                        "bracket": "Fäste",
+                        "cairn": "Stenröse",
+                        "cut": "Ristning",
+                        "indented_pin": "Försänkt stift",
+                        "magnet": "Magnet",
+                        "medallion": "Medaljong",
+                        "pillar": "Stolpe",
+                        "pin": "Stift",
+                        "plaque": "Platta",
+                        "pole": "Påle"
+                    }
+                },
                 "swimming_pool": {
                     "label": "Typ"
                 },
@@ -2315,6 +2711,14 @@
                 },
                 "target": {
                     "label": "Riktas mot"
+                },
+                "taxon": {
+                    "label": "Taxon",
+                    "placeholder": "Acer platanoides Columnare, Pyrus calleryana Chanticleer …",
+                    "terms": "taxon,taxa,enheter,avdelningar"
+                },
+                "tee": {
+                    "label": "Tee-färg/typ"
                 },
                 "telecom": {
                     "label": "Typ"
@@ -2401,6 +2805,14 @@
                 "traffic_signals": {
                     "label": "Typ"
                 },
+                "traffic_signals/arrow": {
+                    "label": "Taktil pil",
+                    "terms": "taktil pil,taktil,pil,upphöjd pil,kännbar pil"
+                },
+                "traffic_signals/countdown": {
+                    "label": "Nedräkning",
+                    "terms": "nedräkning,räknare,tid kvar"
+                },
                 "traffic_signals/direction": {
                     "label": "Påverkad riktning",
                     "options": {
@@ -2408,6 +2820,28 @@
                         "both": "Båda / Alla",
                         "forward": "Framåt"
                     }
+                },
+                "traffic_signals/minimap": {
+                    "label": "Taktil karta",
+                    "terms": "taktil karta,karta,kännbar karta,upphöjd arta"
+                },
+                "traffic_signals/sound": {
+                    "label": "Ljudsignaler",
+                    "options": {
+                        "locate": {
+                            "description": "Det är ett ljud bara för att hitta knappen",
+                            "title": "Lokalisering av knapp"
+                        },
+                        "no": "Nej",
+                        "walk": {
+                            "description": "Det är enbart signal när det är tillåtet att gå",
+                            "title": "Gå-indikator"
+                        },
+                        "yes": "Ja"
+                    }
+                },
+                "traffic_signals/vibration": {
+                    "label": "Vibration"
                 },
                 "trail_visibility": {
                     "label": "Synlighet",
@@ -2425,14 +2859,8 @@
                 "transformer": {
                     "label": "Typ",
                     "options": {
-                        "auto": "Enkellindad transformator",
-                        "auxiliary": "Lokaltransformator",
-                        "converter": "Omformarstation",
-                        "distribution": "Distribution",
-                        "generator": "Generator",
-                        "phase_angle_regulator": "Fasregulator",
-                        "traction": "Enfastransformator",
-                        "yes": "Okänd"
+                        "phase_angle_regulator": "Fasvinkelregulator",
+                        "yes": "Okänd roll"
                     }
                 },
                 "trees": {
@@ -2452,17 +2880,31 @@
                 "tunnel_combo": {
                     "label": "Typ"
                 },
+                "turning_circle": {
+                    "label": "Form"
+                },
                 "usage_rail": {
                     "label": "Användningsområde",
                     "options": {
-                        "branch": "Sidospår",
+                        "branch": "Sidolinje",
                         "industrial": "Industrispår",
-                        "main": "Huvudspår",
+                        "main": "Huvudlinje",
                         "military": "Militärt spår",
                         "test": "Testspår",
                         "tourism": "Museijärnväg"
                     },
                     "terms": "användningsområde,användning,används till"
+                },
+                "usage_waterway": {
+                    "label": "Användningstyp",
+                    "options": {
+                        "headrace": "Inlopp",
+                        "irrigation": "Bevattning",
+                        "spillway": "Spillvatten",
+                        "tailrace": "Utflöde",
+                        "transmission": "Transmission",
+                        "transportation": "Transport"
+                    }
                 },
                 "utility": {
                     "label": "Infrastruktur"
@@ -2493,6 +2935,9 @@
                     "label": "VHF-kanal",
                     "terms": "vhf-kanal,vhf,radio,anropsnamn"
                 },
+                "via": {
+                    "label": "Via"
+                },
                 "video_calls": {
                     "label": "Videosamtal",
                     "terms": "videosamtal,bildtelefon"
@@ -2503,7 +2948,8 @@
                         "area": "Över 20 m (65 ft)",
                         "house": "Upp till 5 m (16 ft)",
                         "street": "5 till 20 m (16 till 65 ft)"
-                    }
+                    },
+                    "terms": "synlighet,tydlighet,följbarhet"
                 },
                 "volcano/status": {
                     "label": "Vulkanstatus",
@@ -2557,7 +3003,8 @@
                 },
                 "water_tank/volume": {
                     "label": "Volym (Liter)",
-                    "placeholder": "10000, 20000, 30000…"
+                    "placeholder": "10000, 20000, 30000…",
+                    "terms": "volym,liter,omfång,rymd,utrymme"
                 },
                 "water_volume": {
                     "label": "Volym på vattenreservoarer (m³)",
@@ -2567,12 +3014,24 @@
                     "label": "Typ"
                 },
                 "website": {
-                    "label": "Webbsida",
+                    "label": "Hemsida",
                     "placeholder": "https://exempel.se",
                     "terms": "webbsida,webbsite,website,hemsida,www,url,uri,internet,internetsida,internetsite"
                 },
                 "wetland": {
-                    "label": "Typ"
+                    "label": "Typ",
+                    "options": {
+                        "bog": "Mosse",
+                        "fen": "Sankmark",
+                        "mangrove": "Mangrove",
+                        "marsh": "Kärr",
+                        "reedbed": "Vassbädd",
+                        "saltmarsh": "Salt våtmark (Sälta)",
+                        "string_bog": "Strängflarkkärr (Aapamyr)",
+                        "swamp": "Träsk",
+                        "tidalflat": "Tidvattenslätt",
+                        "wet_meadow": "Våt äng"
+                    }
                 },
                 "wheelchair": {
                     "label": "Handikappanpassning",
@@ -2607,6 +3066,13 @@
                     "label": "Lindningar",
                     "placeholder": "1, 2, 3...",
                     "terms": "lindningar,lindning"
+                },
+                "windings/auto": {
+                    "options": {
+                        "no": "Nej",
+                        "undefined": "Förväntas vara Nej",
+                        "yes": "Ja"
+                    }
                 },
                 "windings/configuration": {
                     "label": "Lindningskonfiguration",
@@ -2930,6 +3396,10 @@
                     "name": "HBTQ-samlingslokal",
                     "terms": "hbtq-samlingslokal,hbtq-festlokal,hbtq--evenemang,hbtq"
                 },
+                "amenity/community_centre/youth_centre": {
+                    "name": "Fritidsgård",
+                    "terms": "fritidsgård,fritisgård,fritidsklubb,fritisklubb,ungdomsgård,ungdomsklubb,fritids,fritis,fritidshem,fritishem,skolbarnsomsorg,barnkrubba,fritidslokal,fritislokal"
+                },
                 "amenity/compressed_air": {
                     "name": "Tryckluft",
                     "terms": "tryckluft,pumpstation,komprimerad luft"
@@ -2960,6 +3430,10 @@
                 "amenity/doctors": {
                     "name": "Doktor",
                     "terms": "doktor,vårdcentral,sjukhus,klinik,vårdinrättning,läkare,sjukvårdare,sjukvård"
+                },
+                "amenity/doctors/gynaecology": {
+                    "name": "Gynekolog",
+                    "terms": "gynekolog,gynekologi,obstetrik,ägglossning,reproduktiv,kvinnoläkare,kvinnodoktor,kvinnovård"
                 },
                 "amenity/dojo": {
                     "name": "Dojo / Akademi för kampsport",
@@ -3165,6 +3639,10 @@
                 "amenity/nursing_home": {
                     "name": "Vårdhem"
                 },
+                "amenity/parcel_locker": {
+                    "name": "Paketautomat (utlämning)",
+                    "terms": "paketautomat,amazon,paket,paketutlämning,utlämning,leverans,paketleverans,internetbutik,webbshop,inposts"
+                },
                 "amenity/parking": {
                     "name": "Parkeringsplats",
                     "terms": "parkering,parkeringsplats,p-plats,parkeringsområde,bilparkering,bil"
@@ -3176,6 +3654,10 @@
                 "amenity/parking/park_ride": {
                     "name": "Pendelparkeringsplats",
                     "terms": "pendelparkeringsplats,pendelparkering,pendlarparkering,parkering,parkeringsplats,p-plats,parkeringsområde,bilparkering,bil,infartsparkering,pendling,pendlare"
+                },
+                "amenity/parking/street-side": {
+                    "name": "Parkering vid väg",
+                    "terms": "parkering längs väg,bilparkering,fordonsparkering,gatuparkering,vägparkering,fickparkering"
                 },
                 "amenity/parking/underground": {
                     "name": "Underjordisk parkering",
@@ -3271,7 +3753,7 @@
                 },
                 "amenity/post_box": {
                     "name": "Brevlåda",
-                    "terms": "brevlåda,postlåda,brevinkast,brevinlämning,paketinlämning,postfack,postbox"
+                    "terms": "brevlåda,postlåda,brevinkast,brevinlämning,paketinlämning,postfack,postbox,brev,post"
                 },
                 "amenity/post_depot": {
                     "name": "Postsorteringskontor",
@@ -3520,9 +4002,13 @@
                     "name": "Amfiteater",
                     "terms": "amfiteater,utescen,utomhus,teater,utomhusteater,scen,läktare"
                 },
+                "amenity/ticket_validator": {
+                    "name": "Biljettkontrollmaskin",
+                    "terms": "biljettkontrollmaskin,biljettkontroll,biljett,kontroll,validator,biljettvalidator,biljettregistrering,biljetstämpling,biljettspärr,spärr"
+                },
                 "amenity/toilets": {
                     "name": "Toaletter",
-                    "terms": "toalett,klosett,vattenklosett,wc,avträde,toa,dass,utedass,bajamaja,torrklosett,hemlighus,klo,mugg,bekvämlighetsinrättning,skithus,baja-maja,badrum,latrin,vattentoalett"
+                    "terms": "toalett,badrum,utedass,dass,latrin,wc,w.c.,klosett,vattenklosett,avträde,toa,bajamaja,hemlighus,mugg"
                 },
                 "amenity/toilets/disposal/flush": {
                     "name": "Vattentoalett",
@@ -3547,6 +4033,10 @@
                 "amenity/toy_library": {
                     "name": "Leksaksbibliotek",
                     "terms": "leksaksbibliotek,spel,leksak"
+                },
+                "amenity/trolley_bay": {
+                    "name": "Kundvagnsgarage",
+                    "terms": "kundvagnsgarage,kundvagn,hus för kundvagnar,kundvagnshus,kundvagnsförvaring,förvaring av kundvagnar"
                 },
                 "amenity/university": {
                     "name": "Universitetsområde",
@@ -3628,14 +4118,6 @@
                     "name": "Tidningsautomat",
                     "terms": "tidningsautomat,tidningsutlämning,tidningsdistribution,tidningslåda,tidning,tidningar"
                 },
-                "amenity/vending_machine/parcel_pickup": {
-                    "name": "Paketautomat (utlämning)",
-                    "terms": "paketautomat,amazon,paket,paketutlämning,utlämning,leverans,paketleverans,internetbutik,webbshop,inposts"
-                },
-                "amenity/vending_machine/parcel_pickup_dropoff": {
-                    "name": "Paketautomat (ut- och inlämning)",
-                    "terms": "paketautomat,amazon,paket,paketutlämning,packetinlämning,utlämning,leverans,paketleverans,internetbutik,webbshop,inposts"
-                },
                 "amenity/vending_machine/parking_tickets": {
                     "name": "Parkeringsautomat",
                     "terms": "parkeringsautomat,parkometer,parkeringsur,parkeringsavgift,parkering,biljett"
@@ -3687,6 +4169,10 @@
                 "area": {
                     "name": "Yta",
                     "terms": "yta,areal,område,plan,utrymme,fällt,mark"
+                },
+                "area/footway": {
+                    "name": "Gångområde",
+                    "terms": "gångområde,gångvägsområde,gång,gågata,torg,trottoar,gående"
                 },
                 "area/highway": {
                     "name": "Vägyta",
@@ -4107,6 +4593,10 @@
                     "name": "Svinstia",
                     "terms": "svinstia,stia,svin,gris,sugga,kulting,bås,grisbås,grislada,grisladugård,svinladugård"
                 },
+                "building/synagogue": {
+                    "name": "Synagogsbyggnad",
+                    "terms": "synagogsbyggnad,synagoga,jude,judendom"
+                },
                 "building/temple": {
                     "name": "Tempelbyggnad",
                     "terms": "tempelbyggnad,tempel,andaktsrum,bönhus,bönehus,böneplats,dyrkan,fristad,gud,guds hus,gudshus,helgedom,mission,religion,religiös,religiös anläggning,religiöst område,tempelområde,tillbedjan,tro"
@@ -4116,7 +4606,7 @@
                     "terms": "terrasshus"
                 },
                 "building/train_station": {
-                    "name": "Tågstationsbyggnad"
+                    "name": "Stationshus"
                 },
                 "building/transportation": {
                     "name": "Byggnad för kollektivtrafik",
@@ -4594,6 +5084,10 @@
                     "name": "Rehabilitering",
                     "terms": "rehabilitering,rehab,terapeut,terapi"
                 },
+                "healthcare/sample_collection": {
+                    "name": "Provinlämningsplats",
+                    "terms": "provinlämningsplats,blodprovsinlämningsplats,urininlämningsplats,självtestinlämning,inlämning av provtagningskit,provtagningsstation"
+                },
                 "healthcare/speech_therapist": {
                     "name": "Logoped (röst/tal)",
                     "terms": "logoped,tal,terapeut,terapi,röst,språk,språkstörning,talstörning,röststörning,dysfagi"
@@ -4613,8 +5107,7 @@
                     "name": "Busshållplats"
                 },
                 "highway/construction": {
-                    "name": "Avstängd väg",
-                    "terms": "väg avstängd,avstängd väg,avstängd,stängd,vägbyggnad,väg under konstruktion,vägbygge"
+                    "name": "Väg under konstruktion"
                 },
                 "highway/corridor": {
                     "name": "Korridor inomhus",
@@ -4627,23 +5120,15 @@
                     "name": "Markerad gångpassage",
                     "terms": "övergångsställe för gående,övergångsställe,vägövergång,vägpassage,gångvägspassage,gångpassage,markerat övergångsställe,markerad gångpassage"
                 },
-                "highway/crossing/marked-raised": {
-                    "name": "Markerad gångpassage (upphöjt)",
-                    "terms": "övergångsställe för gående,övergångsställe,vägövergång,vägpassage,gångvägspassage,gångpassage,markerat övergångsställe,markerat övergångsställe (upphöjt),markerad gångpassage (upphöjt),markerad gångpassage,fartgupp,gupp,puckel,fartpuckel,farthinder"
+                "highway/crossing/uncontrolled": {
+                    "name": "Markerat övergångsställe"
                 },
                 "highway/crossing/unmarked": {
                     "name": "Omarkerad övergång",
                     "terms": "övergångsställe för gående,övergångsställe,vägövergång,vägpassage,gångvägspassage,gångpassage,omarkerat övergångsställe,omarkerad gångpassage,omarkerad övergång"
                 },
-                "highway/crossing/unmarked-raised": {
-                    "name": "Omarkerad övergång (upphöjt)",
-                    "terms": "övergångsställe för gående,övergångsställe,vägövergång,vägpassage,gångvägspassage,gångpassage,omarkerat övergångsställe,omarkerat övergångsställe (upphöjt),omarkerad övergång (upphöjt),omarkerad övergång,fartgupp,gupp,puckel,fartpuckel,farthinder"
-                },
                 "highway/crossing/zebra": {
                     "name": "Markerat övergångsställe"
-                },
-                "highway/crossing/zebra-raised": {
-                    "name": "Markerat övergångsställe (upphöjt)"
                 },
                 "highway/cycleway": {
                     "name": "Cykelväg",
@@ -4672,6 +5157,10 @@
                     "name": "Hiss",
                     "terms": "hiss"
                 },
+                "highway/elevator_line": {
+                    "name": "Snedhiss",
+                    "terms": "hiss,snedhiss,snedbanehiss,banhiss,bergbana,lift,elevator,vinsch,lutning,lutande hiss,kabelspårväg,funikular"
+                },
                 "highway/emergency_bay": {
                     "name": "Nöduppställningsplats",
                     "terms": "nöduppställningsplats,nödstopp,nödtelefon,nödstoppplats,uppställning,stopp,haveri,motorstopp"
@@ -4695,10 +5184,6 @@
                     "name": "Markerat övergångsställe",
                     "terms": "övergångsställe för gående,övergångsställe,vägövergång,vägpassage,gångvägspassage,gångpassage,markerat övergångsställe,markerad gångpassage"
                 },
-                "highway/footway/marked-raised": {
-                    "name": "Markerat övergångsställe (upphöjt)",
-                    "terms": "övergångsställe för gående,övergångsställe,vägövergång,vägpassage,gångvägspassage,gångpassage,markerat övergångsställe,markerat övergångsställe (upphöjt),markerad gångpassage (upphöjt),markerad gångpassage,fartgupp,gupp,puckel,fartpuckel,farthinder"
-                },
                 "highway/footway/sidewalk": {
                     "name": "Trottoar",
                     "terms": "trottoar,gångbana,gångväg"
@@ -4707,15 +5192,8 @@
                     "name": "Omarkerad övergång",
                     "terms": "övergångsställe för gående,övergångsställe,vägövergång,vägpassage,gångvägspassage,gångpassage,omarkerat övergångsställe,omarkerad gångpassage,omarkerad övergång"
                 },
-                "highway/footway/unmarked-raised": {
-                    "name": "Omarkerad övergång (upphöjt)",
-                    "terms": "övergångsställe för gående,övergångsställe,vägövergång,vägpassage,gångvägspassage,gångpassage,omarkerat övergångsställe,omarkerat övergångsställe (upphöjt),omarkerad övergång (upphöjt),omarkerad övergång,fartgupp,gupp,puckel,fartpuckel,farthinder"
-                },
                 "highway/footway/zebra": {
                     "name": "Markerat övergångsställe"
-                },
-                "highway/footway/zebra-raised": {
-                    "name": "Markerat övergångsställe (upphöjt)"
                 },
                 "highway/give_way": {
                     "name": "Väjningsplikt",
@@ -4743,6 +5221,10 @@
                 },
                 "highway/motorway_link": {
                     "name": "Anslutning, motorväg",
+                    "terms": "anslutning,motorvägsanslutning,påfart,avfart,trafikplats"
+                },
+                "highway/motorway_link-US-CA": {
+                    "name": "Motorväganslutning",
                     "terms": "anslutning,motorvägsanslutning,påfart,avfart,trafikplats"
                 },
                 "highway/passing_place": {
@@ -4774,6 +5256,10 @@
                     "terms": "primär väg,primärväg,riksväg,huvudväg,länsväg"
                 },
                 "highway/primary_link": {
+                    "name": "Anslutning, primär väg",
+                    "terms": "anslutning,påfart,avfart,huvudväg,riksväg,primär väg,primärväg"
+                },
+                "highway/primary_link-US-CA": {
                     "name": "Anslutning, primär väg",
                     "terms": "anslutning,påfart,avfart,huvudväg,riksväg,primär väg,primärväg"
                 },
@@ -4894,7 +5380,11 @@
                     "terms": "stamväg,huvudväg,europaväg,riksväg,motortrafikled"
                 },
                 "highway/trunk_link": {
-                    "name": "Stamvägsramp",
+                    "name": "Anslutning, stamväg",
+                    "terms": "ramp,anslutning,påfart,avfart,huvudväg,europaväg"
+                },
+                "highway/trunk_link-US-CA": {
+                    "name": "Anslutning, stamväg",
                     "terms": "ramp,anslutning,påfart,avfart,huvudväg,europaväg"
                 },
                 "highway/turning_circle": {
@@ -5139,10 +5629,6 @@
                     "name": "Farligt område",
                     "terms": "farligt område,skjutbana,säkerhetszon,militärt skyddsområde,militärt övningsområde"
                 },
-                "landuse/military/naval_base": {
-                    "name": "Marinbas",
-                    "terms": "marinbas,marint förband,marinen,flottan,amfibiekåren,kustartilleriet,flottilj,flottbas,örlogsbas"
-                },
                 "landuse/military/obstacle_course": {
                     "name": "Militär hinderbana",
                     "terms": "militär hinderbana,militär,armé,militärbas,vakt,marin,hinderbana,hoppbana,hinderlöpning,hinderlopp"
@@ -5352,6 +5838,10 @@
                     "name": "Skridskobana",
                     "terms": "skridskobana,ishall,ishockey,ishockeybana,isrink,konstisbana,isbana,skridsko,skridskohall,ishockeyhall,hockey,skridskoåkning,curling"
                 },
+                "leisure/indoor_play": {
+                    "name": "Inomhuslekland",
+                    "terms": "inomhuslekland,bollhav,lekland,lekplats"
+                },
                 "leisure/marina": {
                     "name": "Marina",
                     "terms": "marina,småbåtshamn,hamn,småbåt,segelbåt,yacht,fritidsbåt,gästhamn,båt"
@@ -5385,7 +5875,7 @@
                     "terms": "idrottsplats,idrottsplan,plan,idrottsanläggning,arena,stadion,sportplats,fällt"
                 },
                 "leisure/pitch/american_football": {
-                    "name": "Plan för amerikansk fotboll",
+                    "name": "Amerikansk fotbollsplan",
                     "terms": "amerikansk fotboll,amerikansk fotbollsplan,football"
                 },
                 "leisure/pitch/australian_football": {
@@ -5440,6 +5930,10 @@
                     "name": "Nätbollsplan",
                     "terms": "nätbollsplan,nätboll,netball,dambasket,basket"
                 },
+                "leisure/pitch/paintball": {
+                    "name": "Paintballfält",
+                    "terms": "paintballfält,paintballplan,paintball"
+                },
                 "leisure/pitch/rugby_league": {
                     "name": "Rugby League-plan",
                     "terms": "rugby league,rugby,rugger,rugby football,rugbyplan"
@@ -5447,6 +5941,10 @@
                 "leisure/pitch/rugby_union": {
                     "name": "Rugby Union-plan",
                     "terms": "rugby union-plan,rugby union,rugby,rugger,rugby football,rugbyplan"
+                },
+                "leisure/pitch/shooting": {
+                    "name": "Skjutbana",
+                    "terms": "skjutfält,skytteklubb,skytteförening,skjutbana,vapenområde,vapenövning,vapenträning,skjutövning,skjutträning,målskjutning,vapen,skjuta,exercisfält,skytte,skjutvall,skyttepaviljong,fältskytte,sportskytte,jaktskytte"
                 },
                 "leisure/pitch/shuffleboard": {
                     "name": "Shuffleboardbana",
@@ -5480,6 +5978,10 @@
                     "name": "Lekplats",
                     "terms": "lekplats,lekområde,lekpark,lek,klätterställning,gunga"
                 },
+                "leisure/playground/indoor": {
+                    "name": "Inomhuslekplats",
+                    "terms": "inomhuslekplats,bollhav,lekland,lekplats"
+                },
                 "leisure/resort": {
                     "name": "Resort",
                     "terms": "resort,turistanläggning,hotellanläggning,semesterresort,semesteranläggning,rekreationsort,kurort,badort,turist,turism,hotell"
@@ -5492,9 +5994,9 @@
                     "name": "Stapelbädd",
                     "terms": "stapelbädd,sjösättningsplats,staplar,varv,docka,fartygsdocka,torrdocka,båtramp,sjösättning"
                 },
-                "leisure/slipway_point": {
-                    "name": "Sjösättningsplats",
-                    "terms": "stapelbädd,sjösättningsplats,staplar,varv,docka,fartygsdocka,torrdocka,båtramp,sjösättning"
+                "leisure/slipway_drivable": {
+                    "name": "Sjösättningsramp (körbar)",
+                    "terms": "sjösättningsramp,sjösättning av båt,båtramp,båtlandning,ramp"
                 },
                 "leisure/sports_centre": {
                     "name": "Sportcenter / -anläggning",
@@ -5503,6 +6005,10 @@
                 "leisure/sports_centre/climbing": {
                     "name": "Klättergym",
                     "terms": "klättergym,klättringsgym,firning,repellering,konstgjord klättervägg,klättervägg,bouldering,bergsklättring,bergsvägg,rep,topprep,topprepsklättring,klättring,repklättring"
+                },
+                "leisure/sports_centre/shooting": {
+                    "name": "Skjutbaneanläggning",
+                    "terms": "skjutfält,skytteklubb,skytteförening,skjutbana,vapenområde,vapenövning,vapenträning,skjutövning,skjutträning,målskjutning,vapen,skjuta,exercisfält,skytte,skjutvall,skyttepaviljong,fältskytte,sportskytte,jaktskytte,skyttebiograf"
                 },
                 "leisure/sports_centre/swimming": {
                     "name": "Badanläggning",
@@ -5533,7 +6039,7 @@
                     "terms": "cykelspår,cykelväg,cykelstig,cykel,cykelbana"
                 },
                 "leisure/track/horse_racing": {
-                    "name": "Tävlingsbana (Hästkapplöpning)",
+                    "name": "Hästkapplöpningsbana",
                     "terms": "hästkapplöpningsbana,hästkapplöpning,kapplöpningsbana,häst,kapplöpning,trav,galopp"
                 },
                 "leisure/track/running": {
@@ -5595,9 +6101,12 @@
                     "name": "Kalhygge",
                     "terms": "kalhygge,hygge,skog,timmer,träd,trä,slutavverkning,avverkning,föryngringsyta,föryngringsavverkning,avskogning,skövlat skogsområde,avverkningsområde"
                 },
+                "man_made/compass_rose": {
+                    "name": "Kompassros",
+                    "terms": "kompassros,kompass,öst,norr,vindros,syd,väst"
+                },
                 "man_made/courtyard": {
-                    "name": "Innergård",
-                    "terms": "innergård,torg,gård,gårdsplan,borggård,innetorg,inhägnad öppet område"
+                    "name": "Innergård"
                 },
                 "man_made/crane": {
                     "name": "Kran",
@@ -5810,6 +6319,10 @@
                 "man_made/utility_pole": {
                     "name": "El-/Telefonstolpe",
                     "terms": "elstolpe,telefonstolpe,kraftledningsstolpe,stolpe,elledningsstolpe"
+                },
+                "man_made/video_wall": {
+                    "name": "Digital skärm",
+                    "terms": "digital skärm,skärm,tv,display,videovägg,led-vägg"
                 },
                 "man_made/wastewater_plant": {
                     "name": "Avloppsreningsverk",
@@ -6046,11 +6559,51 @@
                     "name": "Våtmark",
                     "terms": "våtmark,sankmark,myr,sump,kärr,mosse,torvmark,sumpmark,träsk,moras,mad"
                 },
+                "natural/wetland/bog": {
+                    "name": "Mosse",
+                    "terms": "våtmark,blötmark,mosse,sankmark,kärr,träsk,våt,blöt"
+                },
+                "natural/wetland/fen": {
+                    "name": "Sankmark",
+                    "terms": "våtmark,blötmark,mosse,sankmark,kärr,träsk,våt,blöt,grundvatten"
+                },
+                "natural/wetland/mangrove": {
+                    "name": "Mangrove",
+                    "terms": "våtmark,blötmark,mosse,sankmark,kärr,träsk,våt,blöt,mangrove"
+                },
+                "natural/wetland/marsh": {
+                    "name": "Kärr",
+                    "terms": "våtmark,blötmark,mosse,sankmark,kärr,träsk,våt,blöt"
+                },
+                "natural/wetland/reedbed": {
+                    "name": "Vassbädd",
+                    "terms": "våtmark,blötmark,mosse,sankmark,kärr,träsk,våt,blöt,vassbädd,vass,säv"
+                },
+                "natural/wetland/saltmarsh": {
+                    "name": "Salt våtmark (Sälta)",
+                    "terms": "våtmark,blötmark,mosse,sankmark,kärr,träsk,våt,blöt,salt våtmark,sälta"
+                },
+                "natural/wetland/string_bog": {
+                    "name": "Strängflarkkärr (Aapamyr)",
+                    "terms": "våtmark,blötmark,mosse,sankmark,kärr,träsk,våt,blöt,strängflarkkärr,aapamyr"
+                },
+                "natural/wetland/swamp": {
+                    "name": "Träsk",
+                    "terms": "våtmark,blötmark,mosse,sankmark,kärr,träsk,våt,blöt"
+                },
+                "natural/wetland/tidalflat": {
+                    "name": "Tidvattenslätt",
+                    "terms": "våtmark,blötmark,mosse,sankmark,kärr,träsk,våt,blöt,tidvattensslätt,tidvatten,ebb,flod"
+                },
+                "natural/wetland/wet_meadow": {
+                    "name": "Våt äng",
+                    "terms": "våtmark,blötmark,mosse,sankmark,kärr,träsk,våt,blöt,våt äng,äng,blöt äng"
+                },
                 "natural/wood": {
                     "name": "Naturskog",
                     "terms": "naturskog,skog,urskog,djungel,bush,regnskog,vildmark,träd"
                 },
-                "network/type/node_network": {
+                "network/type/node_network-DE-NL-BE-LU": {
                     "name": "Nod i rekreationsvägsnätverk",
                     "terms": "nod i rekreationsvägsnätverk,nodnätverk,cykelnätverk,cykelled,vandringsled,vandringsnätverk"
                 },
@@ -6085,7 +6638,7 @@
                     "name": "Frivilligorganisation",
                     "terms": "frivilligorganisation,frivillig,volontär,frivilligarbetare,biståndsarbetare,förening,ideell,icke vinstdrivande,organisation,samhälle"
                 },
-                "office/bail_bond_agent": {
+                "office/bail_bond_agent-US-PH": {
                     "name": "Bail Bond-agent",
                     "terms": "bail bond-agent,borgen"
                 },
@@ -6254,6 +6807,9 @@
                     "name": "Vattenleverantör",
                     "terms": "vattenleverantör,dricksvatten,vattenbolag"
                 },
+                "office/yes": {
+                    "name": "Kontor (ospecificerad typ)"
+                },
                 "piste/downhill": {
                     "name": "Utförsåkning",
                     "terms": "utförsåkning,skidor,alpint,snowboard,pist,skidbacke,slalombacke"
@@ -6419,6 +6975,10 @@
                     "name": "Punkt",
                     "terms": "punkt,fläck,läge,ställe,plats"
                 },
+                "police/checkpoint": {
+                    "name": "Poliskontrollplats",
+                    "terms": "poliskontrollplats,kontrollplats,vägspärr,platskontrol,stopp,poliskontroll,lastbilskontroll"
+                },
                 "polling_station": {
                     "name": "Tillfällig vallokal",
                     "terms": "vallokal,valurna,valsedel,val,rösta,röstning,folkomröstning,omröstning,röstmaskin,valmaskin,omröstningsapparat,valbås"
@@ -6440,6 +7000,14 @@
                 "power/generator/method/photovoltaic": {
                     "name": "Solpanel",
                     "terms": "solpanel,solcell,solkraft,solcellsmodul,pv-modul,solljus,solenergi,fotovoltaik,termisk solkraft,solkraftverk,solel"
+                },
+                "power/generator/method/photovoltaic/building/roof": {
+                    "name": "Solpaneltak",
+                    "terms": "solcellstak,solmarkis,solcarport,soltak,solcell,solpanel"
+                },
+                "power/generator/method/photovoltaic/location/roof": {
+                    "name": "Solpanel på byggnad",
+                    "terms": "hemsolpanel,taksolcellsmodul,pv-modul,taksolpanel,solpanel,solcell"
                 },
                 "power/generator/source/hydro": {
                     "name": "Vattenkraftverk",
@@ -6488,6 +7056,10 @@
                 "power/plant/source/solar": {
                     "name": "Solfarm",
                     "terms": "solfarm,solkraft,solkraftverk,ljuskraft,ljuskraftverk,solpanel,solpark"
+                },
+                "power/plant/source/waste": {
+                    "name": "Avfallsförbränningskraftverk",
+                    "terms": "avfallsförbränningskraftverk,avfallsförbränningsanläggning,förbränningsanläggning,sopförbränningsanläggning,avfall,sopor,avfallsanläggning,förbränning,förgasning,kraftverk,eldkraftverk,kraftstation,generator,graftverk"
                 },
                 "power/plant/source/wind": {
                     "name": "Vindfarm",
@@ -6683,7 +7255,7 @@
                     "name": "Järnvägsobjekt"
                 },
                 "railway/abandoned": {
-                    "name": "Riven järnväg",
+                    "name": "Uppriven spårsträcka",
                     "terms": "riven järnväg,borttagen järnväg"
                 },
                 "railway/buffer_stop": {
@@ -6691,7 +7263,7 @@
                     "terms": "stoppbock,buffert,buffertstopp,stoppblock"
                 },
                 "railway/construction": {
-                    "name": "Järnväg under konstruktion",
+                    "name": "Spår under uppbyggnad",
                     "terms": "järnväg under konstruktion,järnväg under byggnad,järnväg under uppförande,järnväg,byggarbete,bygge,byggarbetsplats,byggnation,byggnadsplats"
                 },
                 "railway/crossing": {
@@ -6703,7 +7275,7 @@
                     "terms": "spårspärr,omläggningsanordning,utspårare"
                 },
                 "railway/disused": {
-                    "name": "Oanvänd järnväg",
+                    "name": "Nedlagd spårsträcka",
                     "terms": "oanvänd järnväg,övergiven järnväg,övergiven tågbana,oanvänd tågbana"
                 },
                 "railway/funicular": {
@@ -6749,7 +7321,7 @@
                     "terms": "museijärnväg,historisk järnväg,historiskt tåg,bevarad järnväg,ångtåg,turisttåg,turistjärnväg"
                 },
                 "railway/rail": {
-                    "name": "Räls",
+                    "name": "Järnväg",
                     "terms": "räls,järnvägsspår,spår,bana"
                 },
                 "railway/rail/highspeed": {
@@ -6768,7 +7340,7 @@
                     "name": "Järnvägsstation"
                 },
                 "railway/subway": {
-                    "name": "Tunnelbanespår",
+                    "name": "Tunnelbana",
                     "terms": "tunnelbanespår,tunnelbana,t-bana,metro,underjordisk järnväg"
                 },
                 "railway/subway_entrance": {
@@ -6784,7 +7356,7 @@
                     "terms": "tågtvätt,loktvätt,tvätthall"
                 },
                 "railway/tram": {
-                    "name": "Spårvägsspår",
+                    "name": "Spårväg",
                     "terms": "spårvägsspår,spårvagn,spårväg,motorvagn"
                 },
                 "railway/tram_crossing": {
@@ -6799,7 +7371,7 @@
                     "name": "Stopposition för spårvagn"
                 },
                 "railway/yard": {
-                    "name": "Godsbangård",
+                    "name": "Bangård",
                     "terms": "godsbangård,godsvagnstopp,godstågstation,järnvägsstation,järnvägsgård,bangård,rangerbangård,kombiterminal,växlingsbangårdar"
                 },
                 "relation": {
@@ -7028,10 +7600,6 @@
                     "name": "Sminkaffär",
                     "terms": "sminkaffär,smink,kosmetika,kosmetikaffär"
                 },
-                "shop/country_store": {
-                    "name": "Lanthandel",
-                    "terms": "lanthandel,landet"
-                },
                 "shop/craft": {
                     "name": "Konst- & hantverksbutik",
                     "terms": "konst,konsthantverk,konstverk,hantverk,slöjd"
@@ -7144,7 +7712,7 @@
                     "terms": "trädgårdscenter,plantskola,blommor,blomkrukor,krukväxter,buskar,träd,trädgårdsväxter,trädgård,trädgårdsverktyg,planteringsjord,jord,landskap,kompost"
                 },
                 "shop/gas": {
-                    "name": "Försäljning av gas",
+                    "name": "Gasbutik",
                     "terms": "gas,cng,lpg,naturgas,propan,återfyllning,gasbehållare,fordonsgas,metangas,gasol,gasflaskor,gasolflaskor"
                 },
                 "shop/general": {
@@ -7170,10 +7738,6 @@
                 "shop/hardware": {
                     "name": "Järnaffär",
                     "terms": "järnaffär,järnhandlare,skruv,skruvar,bult,bultar,spik,krokar,järnbeslag,järntillbehör,metallverktyg,verktyg,bygg,el,vvs,trädgårdsredskap,redskap,handverktyg,elverktyg,köksutrustning,badrum,kök,hushållsprodukter,lås,nycklar,nyckeltillverkning"
-                },
-                "shop/health_food": {
-                    "name": "Hälsokostbutik",
-                    "terms": "hälsokostbutik,hälsokost,hälsomat,organisk,organist,vitaminer,vegetarian,vegan,naturligt,kosttillskott,köttersättning,mjölkersättning"
                 },
                 "shop/hearing_aids": {
                     "name": "Hörapparater",
@@ -7325,7 +7889,7 @@
                 },
                 "shop/perfumery": {
                     "name": "Parfymbutik",
-                    "terms": "parfym,parfymbutik,parfymeri,kosmetika,smink"
+                    "terms": "parfym,parfymaffär,parfymeri,kosmetika,smink"
                 },
                 "shop/pet": {
                     "name": "Djurbutik",
@@ -7413,7 +7977,7 @@
                 },
                 "shop/supermarket": {
                     "name": "Mataffär",
-                    "terms": "självbetjäningsbutik,självköp,supermarket,snabbköp,dagligvarubutik,affär,mataffär,livsmedel,livsmedelsbutik,mat"
+                    "terms": "självbetjäningsbutik,självköp,supermarket,snabbköp,dagligvarubutik,affär,mataffär,livsmedel,livsmedelsbutik,mat,stormarknad"
                 },
                 "shop/supermarket/organic": {
                     "name": "Organisk mataffär",
@@ -7526,6 +8090,9 @@
                     "name": "Vinaffär",
                     "terms": "vinaffär,systembolaget,systemet,vin,vinförsäljning"
                 },
+                "shop/yes": {
+                    "name": "Affär (ospecificerad typ)"
+                },
                 "telecom": {
                     "name": "Telekomobjekt"
                 },
@@ -7553,7 +8120,7 @@
                     "terms": "akvarium,fisk,hav,vatten"
                 },
                 "tourism/artwork": {
-                    "name": "Publik konst",
+                    "name": "Konstverk",
                     "terms": "konst,publik konst,gatukonst,offentlig konst,väggmålning,målning,skulptur,staty"
                 },
                 "tourism/artwork/bust": {
@@ -7805,15 +8372,15 @@
                 },
                 "type/restriction/no_u_turn": {
                     "name": "Ingen U-sväng",
-                    "terms": "ingen u-sväng,får ej vända"
+                    "terms": "ingen u-sväng,får ej vända,vändförbud"
                 },
                 "type/restriction/only_left_turn": {
                     "name": "Enbart vänstersväng",
-                    "terms": "enbart vänstersväng,vänstersväng,vänster"
+                    "terms": "endast vänstersväng,vänstersväng,vänster,sväng vänster"
                 },
                 "type/restriction/only_right_turn": {
                     "name": "Enbart högersväng",
-                    "terms": "enbart högersväng,högersväng,höger"
+                    "terms": "endast högersväng,högersväng,höger,sväng höger"
                 },
                 "type/restriction/only_straight_on": {
                     "name": "Enbart rakt fram",
@@ -7833,7 +8400,7 @@
                 },
                 "type/route/bicycle": {
                     "name": "Cykelrutt",
-                    "terms": "cykelrutt,cykelled,cykelförbindelse,cykelnät"
+                    "terms": "cykelrutt,cykelled,cykelförbindelse,cykelnät,cykel,cykelväg"
                 },
                 "type/route/bus": {
                     "name": "Busslinje",
@@ -7856,8 +8423,8 @@
                     "terms": "vandringsrutt,vandringsled,stig"
                 },
                 "type/route/horse": {
-                    "name": "Hästspår",
-                    "terms": "ridrutt,ridning,rida,häst,hästrutt,hästspår,ridspår"
+                    "name": "Ridled",
+                    "terms": "rida,ridning,häst,ridled,hästled,ridrutt,hästrutt,ridväg,hästväg,långfärdsridning,ridetapp,hästsport,ridturism"
                 },
                 "type/route/light_rail": {
                     "name": "Rutt på snabbspårväg / stadsbana",
@@ -7866,6 +8433,10 @@
                 "type/route/monorail": {
                     "name": "Monorailrutt",
                     "terms": "monorail,enskensbana,balkbana,räls,spår,kollektivtrafik,linjetrafik,transport"
+                },
+                "type/route/mtb": {
+                    "name": "Mountainbikerutt",
+                    "terms": "mountainbikerutt,mountainbike,terrängcykling,utförsåkning,enduro,freeride,mtb,trail ridning"
                 },
                 "type/route/pipeline": {
                     "name": "Rörledningsrutt",
@@ -7908,8 +8479,8 @@
                     "terms": "plats,ställe,läge,anläggning"
                 },
                 "type/waterway": {
-                    "name": "Vattendrag",
-                    "terms": "vattenväg,vattenflöde,vattendrag"
+                    "name": "Vattenväg",
+                    "terms": "vattenflöde,vattendrag"
                 },
                 "waterway": {
                     "name": "Vattenvägobjekt"
@@ -7955,15 +8526,12 @@
                     "terms": "slussport,sluss,kanal"
                 },
                 "waterway/milestone": {
-                    "name": "Milsten vid vattendrag",
+                    "name": "Milsten vid vattenväg",
                     "terms": "milsten vid vattendrag,sjöfart,kilometerstolpe,kilometertavla,avståndsmärke,milsten,referenstavla,kilometerpåle"
                 },
                 "waterway/river": {
                     "name": "Flod",
                     "terms": "å,flod,älv,fors,ström,jokk,vattendrag"
-                },
-                "waterway/riverbank": {
-                    "name": "Flodbank"
                 },
                 "waterway/sanitary_dump_station": {
                     "name": "Marin latrintömning",

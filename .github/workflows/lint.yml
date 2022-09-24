@@ -1,0 +1,40 @@
+name: code style checks
+on: [push, pull_request]
+jobs:
+  lint:
+    name: Check file endings
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          notJSONs=`find data/ -type f -not -iname "*.json"`
+          for f in $notJSONs
+          do
+            echo "::error file=$f::File $f is not a .json file."
+          done
+          if [ ! -z "$notJSONs" ]; then exit 1; fi
+
+  prettier:
+    name: Check for code formatting mistakes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: 'for f in `find data/ -type f -not -iname "*.json"`; do echo "::error File $f is not a .json file."; done'
+      - run: npm run lint
+
+  codespell:
+    name: Check for spelling errors
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: codespell-project/actions-codespell@master
+        with:
+          check_filenames: true
+          skip: ./.git,./dist/translations
+          ignore_words_list: "auxilary,casette,cemetary,chancel,extentions,faiway,generat,goverment,guerilla,kindergarden,pavillion,sculpter,storys"
+          only_warn: 1
+
