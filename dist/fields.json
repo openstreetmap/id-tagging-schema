@@ -56,7 +56,7 @@
             "bicycle",
             "mtb",
             "horse",
-            "Ski"
+            "ski"
         ]
     },
     "addr/interpolation": {
@@ -242,6 +242,17 @@
         "key": "bar",
         "type": "check"
     },
+    "barrier_planter": {
+        "key": "barrier",
+        "type": "defaultCheck",
+        "geometry": [
+            "vertex"
+        ],
+        "options": [
+            "undefined",
+            "planter"
+        ]
+    },
     "barrier": {
         "key": "barrier",
         "type": "typeCombo"
@@ -356,10 +367,17 @@
         "key": "bridge:support",
         "type": "typeCombo"
     },
-    "building_area": {
+    "building_area_yes": {
         "key": "building",
         "type": "combo",
         "default": "yes",
+        "geometry": [
+            "area"
+        ]
+    },
+    "building_area": {
+        "key": "building",
+        "type": "combo",
         "geometry": [
             "area"
         ]
@@ -396,6 +414,11 @@
         "key": "building:material",
         "type": "combo"
     },
+    "building/part": {
+        "key": "building:part",
+        "type": "combo",
+        "default": "yes"
+    },
     "bunker_type": {
         "key": "bunker_type",
         "type": "combo"
@@ -431,7 +454,8 @@
     },
     "camera/direction": {
         "key": "camera:direction",
-        "type": "number"
+        "type": "number",
+        "increment": 5
     },
     "camera/mount": {
         "key": "camera:mount",
@@ -625,7 +649,9 @@
     },
     "country": {
         "key": "country",
-        "type": "combo"
+        "type": "combo",
+        "snake_case": false,
+        "caseSensitive": true
     },
     "couplings": {
         "key": "couplings",
@@ -782,7 +808,8 @@
             "track",
             "share_busway",
             "opposite_lane",
-            "opposite"
+            "opposite",
+            "separate"
         ]
     },
     "dance/style": {
@@ -863,7 +890,8 @@
     },
     "destination": {
         "key": "destination",
-        "type": "semiCombo"
+        "type": "semiCombo",
+        "snake_case": false
     },
     "destination/ref_oneway": {
         "key": "destination:ref",
@@ -1047,6 +1075,10 @@
     "drink_multi": {
         "key": "drink:",
         "type": "multiCombo"
+    },
+    "drinking_water_available": {
+        "key": "drinking_water",
+        "type": "check"
     },
     "drinking_water": {
         "key": "drinking_water",
@@ -1657,6 +1689,10 @@
         "type": "combo",
         "snake_case": false
     },
+    "kitchen": {
+        "key": "kitchen",
+        "type": "check"
+    },
     "kneipp_water_cure_multi": {
         "key": "kneipp_water_cure:",
         "type": "multiCombo"
@@ -1676,6 +1712,10 @@
     "landuse": {
         "key": "landuse",
         "type": "typeCombo"
+    },
+    "lane_markings": {
+        "key": "lane_markings",
+        "type": "check"
     },
     "lanes": {
         "key": "lanes",
@@ -1762,6 +1802,10 @@
         "key": "liaison",
         "type": "combo"
     },
+    "license_classes": {
+        "key": "license_classes",
+        "type": "semiCombo"
+    },
     "lifeguard": {
         "key": "lifeguard",
         "type": "check"
@@ -1842,6 +1886,10 @@
         "key": "material",
         "type": "combo"
     },
+    "mattress": {
+        "key": "mattress",
+        "type": "check"
+    },
     "max_age": {
         "key": "max_age",
         "type": "number",
@@ -1858,6 +1906,10 @@
     },
     "maxspeed/advisory": {
         "key": "maxspeed:advisory",
+        "type": "roadspeed"
+    },
+    "maxspeed/hgv": {
+        "key": "maxspeed:hgv",
         "type": "roadspeed"
     },
     "maxstay": {
@@ -1893,6 +1945,11 @@
         "type": "combo",
         "snake_case": false
     },
+    "maxwidth": {
+        "key": "maxwidth",
+        "type": "roadheight",
+        "snake_case": false
+    },
     "memorial": {
         "key": "memorial",
         "type": "combo"
@@ -1900,6 +1957,10 @@
     "microbrewery": {
         "key": "microbrewery",
         "type": "check"
+    },
+    "military_service": {
+        "key": "military_service",
+        "type": "combo"
     },
     "mimics": {
         "key": "mimics",
@@ -2176,6 +2237,7 @@
     "parking/orientation": {
         "key": "parking:orientation",
         "type": "combo",
+        "autoSuggestions": false,
         "options": [
             "parallel",
             "diagonal",
@@ -2548,6 +2610,10 @@
         "key": "ref",
         "type": "text"
     },
+    "ref_sector": {
+        "key": "ref",
+        "type": "text"
+    },
     "ref_stop_position": {
         "key": "ref",
         "type": "text"
@@ -2559,6 +2625,17 @@
     "ref": {
         "key": "ref",
         "type": "text"
+    },
+    "ref/FR/siret-FR": {
+        "key": "ref:FR:SIRET",
+        "type": "identifier",
+        "urlFormat": "https://annuaire-entreprises.data.gouv.fr/etablissement/{value}",
+        "pattern": "^[0-9]{9}([1-7][0-9]{3}|0[1-9][0-9]{2}|00[1-9][0-9]|000[1-9])[0-9]$",
+        "locationSet": {
+            "include": [
+                "fr"
+            ]
+        }
     },
     "ref/isil": {
         "key": "ref:isil",
@@ -2671,7 +2748,7 @@
     },
     "roof/colour": {
         "key": "roof:colour",
-        "type": "combo"
+        "type": "text"
     },
     "room": {
         "key": "room",
@@ -3062,6 +3139,16 @@
             "multi"
         ]
     },
+    "sport_pub": {
+        "key": "sport",
+        "type": "semiCombo",
+        "autoSuggestions": false,
+        "options": [
+            "table_soccer",
+            "billiards",
+            "darts"
+        ]
+    },
     "sport_racing_motor": {
         "key": "sport",
         "type": "semiCombo",
@@ -3159,6 +3246,18 @@
     "studio": {
         "key": "studio",
         "type": "combo"
+    },
+    "subject": {
+        "key": "subject",
+        "type": "text"
+    },
+    "subject/wikidata": {
+        "key": "subject:wikidata",
+        "keys": [
+            "subject:wikidata",
+            "subject:wikipedia"
+        ],
+        "type": "wikidata"
     },
     "substance": {
         "key": "substance",
@@ -3282,12 +3381,22 @@
     },
     "target": {
         "key": "target",
-        "type": "combo"
+        "type": "combo",
+        "snake_case": false,
+        "caseSensitive": true
     },
     "taxon": {
         "key": "taxon",
         "type": "combo",
         "snake_case": false
+    },
+    "tee": {
+        "key": "tee",
+        "type": "semiCombo",
+        "reference": {
+            "key": "golf",
+            "value": "tee"
+        }
     },
     "telecom": {
         "key": "telecom",
@@ -3457,11 +3566,10 @@
         "autoSuggestions": false,
         "customValues": false,
         "options": [
+            "main",
             "distribution",
             "generator",
             "converter",
-            "traction",
-            "auto",
             "phase_angle_regulator",
             "auxiliary",
             "yes"
@@ -3487,6 +3595,10 @@
         "key": "tunnel",
         "type": "typeCombo",
         "usage": "group"
+    },
+    "turning_circle": {
+        "key": "turning_circle",
+        "type": "combo"
     },
     "usage_rail": {
         "key": "usage",
@@ -3668,7 +3780,8 @@
     "website": {
         "key": "website",
         "type": "url",
-        "icon": "website"
+        "icon": "website",
+        "universal": true
     },
     "wetland": {
         "key": "wetland",
@@ -3736,6 +3849,15 @@
         "key": "windings",
         "type": "number",
         "minValue": 1
+    },
+    "windings/auto": {
+        "key": "windings:auto",
+        "type": "check",
+        "options": [
+            "undefined",
+            "yes",
+            "no"
+        ]
     },
     "windings/configuration": {
         "key": "windings:configuration",
