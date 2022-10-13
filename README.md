@@ -17,6 +17,18 @@ This Tagging Schema fills that need, but with a number of caveats:
 - We support tags based on practicality, usage, and community approval
 - Sometimes there are reasons we can't support a tag even if it's used or approved
 
+## Translations
+
+* English translations for the `terms`-key should be added to the JSON data ([Example](https://github.com/openstreetmap/id-tagging-schema/blob/v3.1.0/data/presets/natural/shrub.json#L16-L19)).
+
+* Apart from that, translations are managed [in the Transifex Project of the iD Editor](https://www.transifex.com/openstreetmap/id-editor/) inside the translation resource _'preset'_.
+
+  To translate, you can [open the translation page](https://www.transifex.com/openstreetmap/id-editor/translate/), select a language, select _'preset'_ and search for `key:living_street` or `translation_text:'Living Street'` to find and change translations.
+
+  To contribute to a language: [Select a language](https://www.transifex.com/openstreetmap/id-editor/languages/) and use 'Join team' to request access. The administrators will approve requests routinely, only rejecting requests for overly specific locales.
+
+* All translation changes will be released whenever [a new id-tagging-schema release is created](https://github.com/openstreetmap/id-tagging-schema/releases). They will be visible inside iD and other editors once those editors update their dependencies and release a new version as well.
+
 ## Usage
 
 ### Java/Android

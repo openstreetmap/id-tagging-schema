@@ -13,6 +13,7 @@
             "permissive",
             "customers",
             "permit",
+            "unknown",
             "no"
         ]
     },
@@ -35,8 +36,27 @@
             "private",
             "designated",
             "destination",
+            "customers",
             "dismount",
-            "permit"
+            "permit",
+            "unknown"
+        ]
+    },
+    "activity": {
+        "keys": [
+            "hiking",
+            "bicycle",
+            "mtb",
+            "horse",
+            "ski"
+        ],
+        "type": "manyCombo",
+        "options": [
+            "hiking",
+            "bicycle",
+            "mtb",
+            "horse",
+            "ski"
         ]
     },
     "addr/interpolation": {
@@ -222,6 +242,17 @@
         "key": "bar",
         "type": "check"
     },
+    "barrier_planter": {
+        "key": "barrier",
+        "type": "defaultCheck",
+        "geometry": [
+            "vertex"
+        ],
+        "options": [
+            "undefined",
+            "planter"
+        ]
+    },
     "barrier": {
         "key": "barrier",
         "type": "typeCombo"
@@ -248,7 +279,11 @@
         "options": [
             "nails",
             "tanning",
-            "cosmetics"
+            "cosmetics",
+            "spa",
+            "skin_care",
+            "waxing",
+            "hair_removal"
         ]
     },
     "bench": {
@@ -307,6 +342,10 @@
         "key": "boundary",
         "type": "combo"
     },
+    "branch_brand": {
+        "key": "branch",
+        "type": "text"
+    },
     "brand": {
         "key": "brand",
         "type": "text"
@@ -328,10 +367,17 @@
         "key": "bridge:support",
         "type": "typeCombo"
     },
-    "building_area": {
+    "building_area_yes": {
         "key": "building",
         "type": "combo",
         "default": "yes",
+        "geometry": [
+            "area"
+        ]
+    },
+    "building_area": {
+        "key": "building",
+        "type": "combo",
         "geometry": [
             "area"
         ]
@@ -368,18 +414,48 @@
         "key": "building:material",
         "type": "combo"
     },
+    "building/part": {
+        "key": "building:part",
+        "type": "combo",
+        "default": "yes"
+    },
     "bunker_type": {
         "key": "bunker_type",
         "type": "combo"
+    },
+    "button_operated": {
+        "key": "button_operated",
+        "type": "check"
     },
     "cables": {
         "key": "cables",
         "type": "number",
         "minValue": 1
     },
+    "cai_scale-IT": {
+        "key": "cai_scale",
+        "type": "combo",
+        "snake_case": false,
+        "caseSensitive": true,
+        "autoSuggestions": false,
+        "customValues": false,
+        "locationSet": {
+            "include": [
+                "IT"
+            ]
+        },
+        "options": [
+            "T",
+            "E",
+            "EE",
+            "EEA",
+            "EAI"
+        ]
+    },
     "camera/direction": {
         "key": "camera:direction",
-        "type": "number"
+        "type": "number",
+        "increment": 5
     },
     "camera/mount": {
         "key": "camera:mount",
@@ -411,10 +487,29 @@
         "type": "number",
         "minValue": 0
     },
+    "capacity/caravans": {
+        "key": "capacity:caravans",
+        "type": "number",
+        "minValue": 0
+    },
     "capacity/disabled_parking": {
         "key": "capacity:disabled",
         "type": "number",
         "minValue": 0
+    },
+    "capacity/persons": {
+        "key": "capacity:persons",
+        "type": "number",
+        "minValue": 0
+    },
+    "capacity/tents": {
+        "key": "capacity:tents",
+        "type": "number",
+        "minValue": 0,
+        "prerequisiteTag": {
+            "key": "tents",
+            "valueNot": "no"
+        }
     },
     "cash_in": {
         "key": "cash_in",
@@ -422,7 +517,18 @@
     },
     "castle_type": {
         "key": "castle_type",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "defensive",
+            "palace",
+            "stately",
+            "manor",
+            "fortress",
+            "castrum",
+            "shiro",
+            "kremlin",
+            "hillfort"
+        ]
     },
     "changing_table": {
         "key": "changing_table",
@@ -543,12 +649,23 @@
     },
     "country": {
         "key": "country",
-        "type": "combo"
+        "type": "combo",
+        "snake_case": false,
+        "caseSensitive": true
     },
     "couplings": {
         "key": "couplings",
         "type": "number",
         "minValue": 1
+    },
+    "covered_no": {
+        "key": "covered",
+        "type": "check",
+        "options": [
+            "undefined",
+            "yes",
+            "no"
+        ]
     },
     "covered": {
         "key": "covered",
@@ -573,12 +690,41 @@
         "key": "crop",
         "type": "semiCombo"
     },
+    "crossing_raised": {
+        "key": "traffic_calming",
+        "type": "defaultCheck",
+        "options": [
+            "undefined",
+            "table"
+        ]
+    },
     "crossing": {
         "key": "crossing",
         "type": "combo"
     },
+    "crossing/barrier": {
+        "key": "crossing:barrier",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "full",
+            "double_half",
+            "half",
+            "no",
+            "yes"
+        ]
+    },
+    "crossing/bell": {
+        "key": "crossing:bell",
+        "type": "check"
+    },
     "crossing/island": {
         "key": "crossing:island",
+        "type": "check"
+    },
+    "crossing/light": {
+        "key": "crossing:light",
         "type": "check"
     },
     "cuisine": {
@@ -597,16 +743,38 @@
             "kebab",
             "indian",
             "chicken",
+            "fish",
             "asian",
             "french",
+            "spanish",
+            "portuguese",
+            "russian",
+            "polish",
             "thai",
+            "korean",
             "american",
+            "seafood",
             "sushi",
             "ice_cream",
             "german",
             "greek",
             "vietnamese",
-            "turkish"
+            "turkish",
+            "lebanese",
+            "indonesian",
+            "malaysian",
+            "taiwanese",
+            "juice",
+            "bubble_tea",
+            "hot_dog",
+            "cake",
+            "pankcake",
+            "pasta",
+            "salad",
+            "chocolate",
+            "dessert",
+            "steak_house",
+            "donut"
         ]
     },
     "currency_multi": {
@@ -620,7 +788,8 @@
     },
     "cycle_network": {
         "key": "cycle_network",
-        "type": "networkCombo"
+        "type": "networkCombo",
+        "snake_case": false
     },
     "cycleway": {
         "keys": [
@@ -639,7 +808,8 @@
             "track",
             "share_busway",
             "opposite_lane",
-            "opposite"
+            "opposite",
+            "separate"
         ]
     },
     "dance/style": {
@@ -682,6 +852,10 @@
             "no"
         ]
     },
+    "deposit/trolley": {
+        "key": "trolley:deposit",
+        "type": "check"
+    },
     "depth": {
         "key": "depth",
         "minValue": 0,
@@ -716,7 +890,8 @@
     },
     "destination": {
         "key": "destination",
-        "type": "semiCombo"
+        "type": "semiCombo",
+        "snake_case": false
     },
     "destination/ref_oneway": {
         "key": "destination:ref",
@@ -749,6 +924,11 @@
         "type": "number",
         "minValue": 0
     },
+    "diameter_crown": {
+        "key": "diameter_crown",
+        "type": "combo",
+        "snake_case": false
+    },
     "diameter": {
         "key": "diameter",
         "type": "combo",
@@ -774,6 +954,24 @@
     "diplomatic/services": {
         "key": "diplomatic:services:",
         "type": "multiCombo"
+    },
+    "direction_cardinal-US-CA-NZ": {
+        "key": "direction",
+        "type": "combo",
+        "autoSuggestions": false,
+        "locationSet": {
+            "include": [
+                "CA",
+                "NZ",
+                "US"
+            ]
+        },
+        "options": [
+            "north",
+            "south",
+            "east",
+            "west"
+        ]
     },
     "direction_clock": {
         "key": "direction",
@@ -878,6 +1076,10 @@
         "key": "drink:",
         "type": "multiCombo"
     },
+    "drinking_water_available": {
+        "key": "drinking_water",
+        "type": "check"
+    },
     "drinking_water": {
         "key": "drinking_water",
         "type": "check"
@@ -933,7 +1135,18 @@
     },
     "embassy": {
         "key": "embassy",
-        "type": "combo"
+        "type": "combo",
+        "autoSuggestions": false,
+        "options": [
+            "yes",
+            "residence",
+            "high_commission",
+            "mission",
+            "branch_embassy",
+            "nunciature",
+            "delegation",
+            "interests_section"
+        ]
     },
     "emergency_combo": {
         "key": "emergency",
@@ -967,6 +1180,15 @@
         "key": "expected_rwn_route_relations",
         "type": "number"
     },
+    "expressway-US": {
+        "key": "expressway",
+        "type": "check",
+        "locationSet": {
+            "include": [
+                "US"
+            ]
+        }
+    },
     "faces": {
         "key": "faces",
         "type": "number",
@@ -988,6 +1210,18 @@
         "key": "fire_hydrant:diameter",
         "type": "combo",
         "snake_case": false
+    },
+    "fire_hydrant/position": {
+        "key": "fire_hydrant:position",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "green",
+            "lane",
+            "sidewalk",
+            "parking_lot"
+        ]
     },
     "fire_hydrant/pressure": {
         "key": "fire_hydrant:pressure",
@@ -1023,9 +1257,35 @@
         "type": "textarea",
         "universal": true
     },
+    "flag/name": {
+        "key": "flag:name",
+        "type": "text"
+    },
     "flag/type": {
         "key": "flag:type",
         "type": "combo"
+    },
+    "flag/wikidata": {
+        "key": "flag:wikidata",
+        "keys": [
+            "flag:wikidata",
+            "flag:wikipedia"
+        ],
+        "type": "wikidata"
+    },
+    "flashing_lights": {
+        "key": "flashing_lights",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "button",
+            "always",
+            "sensor",
+            "button;sensor",
+            "no",
+            "yes"
+        ]
     },
     "floating": {
         "key": "floating",
@@ -1110,14 +1370,19 @@
         "key": "generator:type",
         "type": "combo"
     },
+    "genus": {
+        "key": "genus",
+        "type": "combo",
+        "snake_case": false
+    },
     "geyser/height": {
         "key": "geyser:height",
         "type": "text"
     },
-    "gnis/feature_id": {
+    "gnis/feature_id-US": {
         "key": "gnis:feature_id",
         "type": "identifier",
-        "urlFormat": "https://geonames.usgs.gov/apex/f?p=gnispq:3:::NO::P3_FID:{value}",
+        "urlFormat": "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/{value}",
         "pattern": "^[0-9]{1,}$",
         "locationSet": {
             "include": [
@@ -1165,10 +1430,7 @@
     },
     "healthcare/speciality": {
         "key": "healthcare:speciality",
-        "type": "semiCombo",
-        "reference": {
-            "key": "healthcare"
-        }
+        "type": "semiCombo"
     },
     "heating": {
         "key": "heating",
@@ -1188,9 +1450,22 @@
         "minValue": 0,
         "type": "number"
     },
+    "highchair": {
+        "key": "highchair",
+        "type": "check"
+    },
     "highspeed": {
         "key": "highspeed",
         "type": "check"
+    },
+    "highway_cartpath": {
+        "key": "highway",
+        "type": "typeCombo",
+        "autoSuggestions": false,
+        "options": [
+            "path",
+            "service"
+        ]
     },
     "highway": {
         "key": "highway",
@@ -1414,6 +1689,10 @@
         "type": "combo",
         "snake_case": false
     },
+    "kitchen": {
+        "key": "kitchen",
+        "type": "check"
+    },
     "kneipp_water_cure_multi": {
         "key": "kneipp_water_cure:",
         "type": "multiCombo"
@@ -1433,6 +1712,10 @@
     "landuse": {
         "key": "landuse",
         "type": "typeCombo"
+    },
+    "lane_markings": {
+        "key": "lane_markings",
+        "type": "check"
     },
     "lanes": {
         "key": "lanes",
@@ -1519,6 +1802,14 @@
         "key": "liaison",
         "type": "combo"
     },
+    "license_classes": {
+        "key": "license_classes",
+        "type": "semiCombo"
+    },
+    "lifeguard": {
+        "key": "lifeguard",
+        "type": "check"
+    },
     "line_attachment": {
         "key": "line_attachment",
         "type": "combo"
@@ -1552,6 +1843,10 @@
     },
     "lockable": {
         "key": "lockable",
+        "type": "check"
+    },
+    "locked": {
+        "key": "locked",
         "type": "check"
     },
     "man_made": {
@@ -1591,6 +1886,10 @@
         "key": "material",
         "type": "combo"
     },
+    "mattress": {
+        "key": "mattress",
+        "type": "check"
+    },
     "max_age": {
         "key": "max_age",
         "type": "number",
@@ -1607,6 +1906,10 @@
     },
     "maxspeed/advisory": {
         "key": "maxspeed:advisory",
+        "type": "roadspeed"
+    },
+    "maxspeed/hgv": {
+        "key": "maxspeed:hgv",
         "type": "roadspeed"
     },
     "maxstay": {
@@ -1642,6 +1945,11 @@
         "type": "combo",
         "snake_case": false
     },
+    "maxwidth": {
+        "key": "maxwidth",
+        "type": "roadheight",
+        "snake_case": false
+    },
     "memorial": {
         "key": "memorial",
         "type": "combo"
@@ -1649,6 +1957,10 @@
     "microbrewery": {
         "key": "microbrewery",
         "type": "check"
+    },
+    "military_service": {
+        "key": "military_service",
+        "type": "combo"
     },
     "mimics": {
         "key": "mimics",
@@ -1658,6 +1970,14 @@
         "key": "min_age",
         "type": "number",
         "minValue": 0
+    },
+    "min_height": {
+        "key": "min_height",
+        "minValue": 0,
+        "type": "number",
+        "prerequisiteTag": {
+            "key": "height"
+        }
     },
     "minspeed": {
         "key": "minspeed",
@@ -1760,7 +2080,8 @@
     },
     "network_road": {
         "key": "network",
-        "type": "networkCombo"
+        "type": "networkCombo",
+        "snake_case": false
     },
     "network": {
         "key": "network",
@@ -1775,7 +2096,8 @@
     },
     "not/name": {
         "key": "not:name",
-        "type": "semiCombo"
+        "type": "semiCombo",
+        "snake_case": false
     },
     "note": {
         "key": "note",
@@ -1865,6 +2187,19 @@
         "type": "number",
         "minValue": 1
     },
+    "parcel_dropoff": {
+        "key": "parcel_mail_in",
+        "type": "check"
+    },
+    "parcel_pickup": {
+        "key": "parcel_pickup",
+        "type": "check",
+        "options": [
+            "undefined",
+            "yes",
+            "no"
+        ]
+    },
     "park_ride": {
         "key": "park_ride",
         "type": "check"
@@ -1894,7 +2229,19 @@
             "carports",
             "garage_boxes",
             "rooftop",
-            "sheds"
+            "sheds",
+            "street_side",
+            "layby"
+        ]
+    },
+    "parking/orientation": {
+        "key": "parking:orientation",
+        "type": "combo",
+        "autoSuggestions": false,
+        "options": [
+            "parallel",
+            "diagonal",
+            "perpendicular"
         ]
     },
     "payment_multi_fee": {
@@ -2083,7 +2430,8 @@
     },
     "population": {
         "key": "population",
-        "type": "text"
+        "type": "number",
+        "minValue": 0
     },
     "portable": {
         "key": "portable",
@@ -2185,7 +2533,7 @@
         "key": "rcn_ref",
         "type": "text"
     },
-    "real_fire": {
+    "real_fire-GB-IE": {
         "locationSet": {
             "include": [
                 "gb",
@@ -2197,7 +2545,24 @@
     },
     "recycling_accepts": {
         "key": "recycling:",
-        "type": "multiCombo"
+        "type": "multiCombo",
+        "options": [
+            "glass_bottles",
+            "glass",
+            "paper",
+            "plastic",
+            "clothes",
+            "cans",
+            "batteries",
+            "shoes",
+            "green_waste",
+            "plastic_packaging",
+            "plastic_bottles",
+            "cardboard",
+            "scrap_metal",
+            "cooking_oil",
+            "engine_oil"
+        ]
     },
     "recycling_type": {
         "key": "recycling_type",
@@ -2210,6 +2575,10 @@
         ]
     },
     "ref_aeroway_gate": {
+        "key": "ref",
+        "type": "text"
+    },
+    "ref_disc_golf_hole": {
         "key": "ref",
         "type": "text"
     },
@@ -2241,6 +2610,10 @@
         "key": "ref",
         "type": "text"
     },
+    "ref_sector": {
+        "key": "ref",
+        "type": "text"
+    },
     "ref_stop_position": {
         "key": "ref",
         "type": "text"
@@ -2253,6 +2626,17 @@
         "key": "ref",
         "type": "text"
     },
+    "ref/FR/siret-FR": {
+        "key": "ref:FR:SIRET",
+        "type": "identifier",
+        "urlFormat": "https://annuaire-entreprises.data.gouv.fr/etablissement/{value}",
+        "pattern": "^[0-9]{9}([1-7][0-9]{3}|0[1-9][0-9]{2}|00[1-9][0-9]|000[1-9])[0-9]$",
+        "locationSet": {
+            "include": [
+                "fr"
+            ]
+        }
+    },
     "ref/isil": {
         "key": "ref:isil",
         "type": "text"
@@ -2262,55 +2646,55 @@
         "type": "identifier",
         "locationSet": {
             "exclude": [
-                "ao",
                 "ai",
+                "ao",
                 "bm",
-                "bt",
-                "io",
-                "vg",
                 "bn",
-                "ky",
-                "km",
+                "bt",
                 "cu",
                 "dj",
                 "er",
                 "fk",
-                "gi",
+                "fm",
                 "gg",
+                "gi",
+                "gs",
                 "hk",
+                "io",
                 "iq",
                 "ki",
-                "xk",
+                "km",
+                "kp",
                 "kw",
+                "ky",
                 "lr",
                 "ly",
-                "mo",
-                "mv",
                 "mh",
-                "fm",
-                "ms",
                 "mm",
+                "mo",
+                "ms",
+                "mv",
                 "nr",
-                "kp",
                 "om",
-                "pw",
                 "pn",
+                "pw",
                 "qa",
+                "sb",
                 "sh",
                 "sm",
-                "st",
-                "sb",
                 "so",
-                "gs",
-                "ss",
                 "sr",
-                "sz",
+                "ss",
+                "st",
                 "sy",
-                "tl",
+                "sz",
                 "tc",
+                "tl",
                 "tv",
                 "us",
                 "va",
+                "vg",
+                "xk",
                 "ye"
             ]
         }
@@ -2364,7 +2748,7 @@
     },
     "roof/colour": {
         "key": "roof:colour",
-        "type": "combo"
+        "type": "text"
     },
     "room": {
         "key": "room",
@@ -2412,6 +2796,14 @@
     "salt": {
         "key": "salt",
         "type": "check"
+    },
+    "sample_collection": {
+        "key": "sample_collection",
+        "type": "semiCombo",
+        "reference": {
+            "key": "healthcare",
+            "value": "sample_collection"
+        }
     },
     "sanitary_dump_station": {
         "key": "sanitary_dump_station",
@@ -2535,6 +2927,22 @@
     "seamark/mooring/category": {
         "key": "seamark:mooring:category",
         "type": "combo"
+    },
+    "seamark/rescue_station/category": {
+        "key": "seamark:rescue_station:category",
+        "type": "semiCombo",
+        "options": [
+            "lifeboat",
+            "lifeboat_on_mooring",
+            "seaplane",
+            "aircraft",
+            "hovercraft",
+            "radio",
+            "first_aid",
+            "refuge_shipwrecked",
+            "refuge_intertidal",
+            "tug"
+        ]
     },
     "seamark/type": {
         "key": "seamark:type",
@@ -2702,8 +3110,14 @@
             "local knowledge",
             "aerial imagery",
             "gps",
-            "streetlevel imagery"
+            "streetlevel imagery",
+            "osm notes"
         ]
+    },
+    "species": {
+        "key": "species",
+        "type": "combo",
+        "snake_case": false
     },
     "species/wikidata": {
         "key": "species:wikidata",
@@ -2725,6 +3139,16 @@
             "multi"
         ]
     },
+    "sport_pub": {
+        "key": "sport",
+        "type": "semiCombo",
+        "autoSuggestions": false,
+        "options": [
+            "table_soccer",
+            "billiards",
+            "darts"
+        ]
+    },
     "sport_racing_motor": {
         "key": "sport",
         "type": "semiCombo",
@@ -2732,7 +3156,8 @@
         "options": [
             "motor",
             "karting",
-            "motocross"
+            "motocross",
+            "speedway"
         ]
     },
     "sport_racing_nonmotor": {
@@ -2822,6 +3247,18 @@
         "key": "studio",
         "type": "combo"
     },
+    "subject": {
+        "key": "subject",
+        "type": "text"
+    },
+    "subject/wikidata": {
+        "key": "subject:wikidata",
+        "keys": [
+            "subject:wikidata",
+            "subject:wikipedia"
+        ],
+        "type": "wikidata"
+    },
     "substance": {
         "key": "substance",
         "type": "combo"
@@ -2847,6 +3284,7 @@
             "paved",
             "ground",
             "gravel",
+            "compacted",
             "concrete",
             "paving_stones",
             "dirt",
@@ -2874,6 +3312,37 @@
     "surveillance/zone": {
         "key": "surveillance:zone",
         "type": "combo"
+    },
+    "survey_point/datum_aligned": {
+        "key": "survey_point:datum_aligned",
+        "type": "check"
+    },
+    "survey_point/purpose": {
+        "key": "survey_point:purpose",
+        "type": "combo",
+        "options": [
+            "horizontal",
+            "vertical",
+            "both"
+        ]
+    },
+    "survey_point/structure": {
+        "key": "survey_point:structure",
+        "type": "combo",
+        "options": [
+            "beacon",
+            "block",
+            "pole",
+            "pillar",
+            "bracket",
+            "plaque",
+            "medallion",
+            "cairn",
+            "pin",
+            "indented_pin",
+            "cut",
+            "magnet"
+        ]
     },
     "survey/date": {
         "key": "survey:date",
@@ -2912,7 +3381,22 @@
     },
     "target": {
         "key": "target",
-        "type": "combo"
+        "type": "combo",
+        "snake_case": false,
+        "caseSensitive": true
+    },
+    "taxon": {
+        "key": "taxon",
+        "type": "combo",
+        "snake_case": false
+    },
+    "tee": {
+        "key": "tee",
+        "type": "semiCombo",
+        "reference": {
+            "key": "golf",
+            "value": "tee"
+        }
     },
     "telecom": {
         "key": "telecom",
@@ -3001,7 +3485,8 @@
     },
     "traffic_sign": {
         "key": "traffic_sign",
-        "type": "typeCombo"
+        "type": "typeCombo",
+        "snake_case": false
     },
     "traffic_sign/direction": {
         "key": "traffic_sign:direction",
@@ -3022,6 +3507,14 @@
         "type": "combo",
         "default": "signal"
     },
+    "traffic_signals/arrow": {
+        "key": "traffic_signals:arrow",
+        "type": "check"
+    },
+    "traffic_signals/countdown": {
+        "key": "traffic_signals:countdown",
+        "type": "check"
+    },
     "traffic_signals/direction": {
         "key": "traffic_signals:direction",
         "type": "combo",
@@ -3032,6 +3525,26 @@
             "backward",
             "both"
         ]
+    },
+    "traffic_signals/minimap": {
+        "key": "traffic_signals:minimap",
+        "type": "check"
+    },
+    "traffic_signals/sound": {
+        "key": "traffic_signals:sound",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "yes",
+            "no",
+            "locate",
+            "walk"
+        ]
+    },
+    "traffic_signals/vibration": {
+        "key": "traffic_signals:vibration",
+        "type": "check"
     },
     "trail_visibility": {
         "key": "trail_visibility",
@@ -3053,11 +3566,10 @@
         "autoSuggestions": false,
         "customValues": false,
         "options": [
+            "main",
             "distribution",
             "generator",
             "converter",
-            "traction",
-            "auto",
             "phase_angle_regulator",
             "auxiliary",
             "yes"
@@ -3084,6 +3596,10 @@
         "type": "typeCombo",
         "usage": "group"
     },
+    "turning_circle": {
+        "key": "turning_circle",
+        "type": "combo"
+    },
     "usage_rail": {
         "key": "usage",
         "type": "combo",
@@ -3096,6 +3612,20 @@
             "military",
             "test",
             "tourism"
+        ]
+    },
+    "usage_waterway": {
+        "key": "usage",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "transportation",
+            "transmission",
+            "irrigation",
+            "headrace",
+            "tailrace",
+            "spillway"
         ]
     },
     "utility_semi": {
@@ -3250,11 +3780,24 @@
     "website": {
         "key": "website",
         "type": "url",
-        "icon": "website"
+        "icon": "website",
+        "universal": true
     },
     "wetland": {
         "key": "wetland",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "marsh",
+            "reedbed",
+            "saltmarsh",
+            "tidalflat",
+            "wet_meadow",
+            "swamp",
+            "mangrove",
+            "bog",
+            "fen",
+            "string_bog"
+        ]
     },
     "wheelchair": {
         "key": "wheelchair",
@@ -3306,6 +3849,15 @@
         "key": "windings",
         "type": "number",
         "minValue": 1
+    },
+    "windings/auto": {
+        "key": "windings:auto",
+        "type": "check",
+        "options": [
+            "undefined",
+            "yes",
+            "no"
+        ]
     },
     "windings/configuration": {
         "key": "windings:configuration",
