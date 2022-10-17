@@ -176,6 +176,18 @@
     "replace": {"amenity": "vending_machine", "vending": "newspapers"}
   },
   {
+    "old": {"amenity": "vending_machine", "vending": "parcel_pickup"},
+    "replace": {"amenity": "parcel_locker"}
+  },
+  {
+    "old": {"amenity": "vending_machine", "vending": "parcel_mail_in;parcel_pickup"},
+    "replace": {"amenity": "parcel_locker", "parcel_mail_in": "yes"}
+  },
+  {
+    "old": {"amenity": "vending_machine", "vending": "parcel_pickup;parcel_mail_in"},
+    "replace": {"amenity": "parcel_locker", "parcel_mail_in": "yes"}
+  },
+  {
     "old": {"amenity": "weigh_bridge"},
     "replace": {"amenity": "weighbridge"}
   },
@@ -384,6 +396,10 @@
     "replace": {"roof:colour": "$1"}
   },
   {
+    "old": {"building:roof:shape": "*"},
+    "replace": {"roof:shape": "$1"}
+  },
+  {
     "old": {"building:type": "*"},
     "replace": {"building": "$1"}
   },
@@ -421,14 +437,6 @@
   {
     "old": {"craft": "glass"},
     "replace": {"craft": "glaziery"}
-  },
-  {
-    "old": {"craft": "jeweler"},
-    "replace": {"shop": "jewelry"}
-  },
-  {
-    "old": {"craft": "optician"},
-    "replace": {"shop": "optician"}
   },
   {
     "old": {"craft": "sculpter"},
@@ -543,10 +551,6 @@
     "replace": {"drinking_water": "$1"}
   },
   {
-    "old": {"dropped_kerb": "*"},
-    "replace": {"kerb": "lowered"}
-  },
-  {
     "old": {"embankment": "1"},
     "replace": {"embankment": "yes"}
   },
@@ -561,6 +565,10 @@
   {
     "old": {"embankment": "true"},
     "replace": {"embankment": "yes"}
+  },
+  {
+    "old": {"embassy": "embassy"},
+    "replace": {"embassy": "yes"}
   },
   {
     "old": {"entrance": "emergency_exit"},
@@ -623,10 +631,6 @@
     "replace": {"fee": "yes"}
   },
   {
-    "old": {"fenced": "yes"},
-    "replace": {"barrier": "fence"}
-  },
-  {
     "old": {"FIXME": "*"},
     "replace": {"fixme": "$1"}
   },
@@ -676,11 +680,11 @@
   },
   {
     "old": {"golf": "faiway"},
-    "replace": {"golf": "fairway", "landuse": "grass"}
+    "replace": {"golf": "fairway"}
   },
   {
     "old": {"golf": "putting_green"},
-    "replace": {"golf": "green", "landuse": "grass"}
+    "replace": {"golf": "green"}
   },
   {
     "old": {"golf": "sand_trap"},
@@ -688,27 +692,31 @@
   },
   {
     "old": {"golf": "tee_area"},
-    "replace": {"golf": "tee", "landuse": "grass"}
+    "replace": {"golf": "tee"}
   },
   {
     "old": {"golf": "tee_box"},
-    "replace": {"golf": "tee", "landuse": "grass"}
+    "replace": {"golf": "tee"}
   },
   {
     "old": {"golf": "teebox"},
-    "replace": {"golf": "tee", "landuse": "grass"}
+    "replace": {"golf": "tee"}
+  },
+  {
+    "old": {"healthcare": "birthing_center"},
+    "replace": {"healthcare": "birthing_centre"}
   },
   {
     "old": {"highway": "abandoned"},
     "replace": {"abandoned:highway": "*"}
   },
+	{
+		"old": {"highway": "service", "service": "busway"},
+		"replace": {"highway": "busway"}
+	},
   {
     "old": {"highway": "bridleway", "horse": "no"},
     "replace": {"highway": "path", "horse": "no"}
-  },
-  {
-    "old": {"highway": "cycleway", "bicycle": "no"},
-    "replace": {"highway": "path", "bicycle": "no"}
   },
   {
     "old": {"highway": "cycleway", "cycleway": "track"},
@@ -735,11 +743,47 @@
     "replace": {"highway": "road", "surface": "unpaved"}
   },
   {
+    "old": {"information": "citymap"},
+    "replace": {"tourism": "information", "information": "map", "map_type": "street", "map_size": "city"}
+  },
+  {
+    "old": {"information": "hikingmap"},
+    "replace": {"tourism": "information", "information": "map", "map_type": "topo", "hiking": "yes"}
+  },
+  {
+    "old": {"information": "bicyclemap"},
+    "replace": {"tourism": "information", "information": "map", "map_type": "topo", "bicyle": "yes"}
+  },
+  {
+    "old": {"information": "nature"},
+    "replace": {"tourism": "information", "information": "board", "board_type": "nature"}
+  },
+  {
+    "old": {"information": "history"},
+    "replace": {"tourism": "information", "information": "board", "board_type": "history"}
+  },
+  {
+    "old": {"information": "wild_life"},
+    "replace": {"tourism": "information", "information": "board", "board_type": "wildlife"}
+  },
+  {
+    "old": {"information": "wildlife"},
+    "replace": {"tourism": "information", "information": "board", "board_type": "wildlife"}
+  },
+  {
     "old": {"internet_access": "public"},
     "replace": {"internet_access": "yes", "internet_access:fee": "no"}
   },
   {
     "old": {"internet_access": "wifi"},
+    "replace": {"internet_access": "wlan"}
+  },
+{
+    "old": {"internet_access": "wi-fi"},
+    "replace": {"internet_access": "wlan"}
+  },
+{
+    "old": {"internet_access": "WLAN"},
     "replace": {"internet_access": "wlan"}
   },
   {
@@ -847,6 +891,18 @@
     "replace": {"natural": "water", "water": "reservoir"}
   },
   {
+     "old": {"landuse": "reservoir", "reservoir_type": "tailings", "natural": "water", "water": "reservoir"},
+     "replace": {"man_made": "tailings_pond"}
+  },
+  {
+     "old": {"landuse": "reservoir", "reservoir_type": "tailings"},
+     "replace": {"man_made": "tailings_pond"}
+  },
+  {
+    "old": {"landuse": "school"},
+    "replace": {"landuse": "education"}
+  },
+  {
     "old": {"landuse": "wood"},
     "replace": {"natural": "wood"}
   },
@@ -904,14 +960,6 @@
   },
   {
     "old": {"levels": "*"},
-    "replace": {"building:levels": "$1"}
-  },
-  {
-    "old": {"LEVELS": "*"},
-    "replace": {"building:levels": "$1"}
-  },
-  {
-    "old": {"levels_count": "*"},
     "replace": {"building:levels": "$1"}
   },
   {
@@ -1039,16 +1087,16 @@
     "replace": {"natural": "wetland", "wetland": "marsh"}
   },
   {
+     "old": {"natural": "water", "water": "reservoir", "reservoir_type": "tailings"},
+     "replace": {"man_made": "tailings_pond"}
+  },
+  {
     "old": {"natural": "waterfall"},
     "replace": {"waterway": "waterfall"}
   },
   {
     "old": {"NOTE": "*"},
     "replace": {"note": "$1"}
-  },
-  {
-    "old": {"nosquare": "*"},
-    "replace": {"nonsquare": "$1"}
   },
   {
     "old": {"office": "administrative"},
@@ -1073,12 +1121,6 @@
   {
     "old": {"oneway": "alternate"},
     "replace": {"oneway": "alternating"}
-  },
-  {
-    "old": {"oneway": "no;yes"}
-  },
-  {
-    "old": {"oneway": "unknown"}
   },
   {
     "old": {"operator:type": "goverment"},
@@ -1126,6 +1168,10 @@
   {
     "old": {"parking": "street"},
     "replace": {"parking": "lane"}
+  },
+  {
+    "old": {"parking:orientation": "orthogonal"},
+    "replace": {"parking:orientation": "perpendicular"}
   },
   {
     "old": {"place_name": "*"},
@@ -1248,10 +1294,6 @@
     "replace": {"religion": "christian", "denomination": "catholic"}
   },
   {
-    "old": {"reservations": "*"},
-    "replace": {"reservation": "$1"}
-  },
-  {
     "old": {"roof:color": "*"},
     "replace": {"roof:colour": "$1"}
   },
@@ -1262,10 +1304,6 @@
   {
     "old": {"route": "ncn"},
     "replace": {"route": "bicycle", "network": "ncn"}
-  },
-  {
-    "old": {"rwn_expected_route_relations": "*"},
-    "replace": {"expected_rwn_route_relations": "$1"}
   },
   {
     "old": {"service": "drive_through"},
@@ -1348,6 +1386,10 @@
     "replace": {"shop": "art"}
   },
   {
+    "old": {"shop": "general_store"},
+    "replace": {"shop": "general"}
+  },
+  {
     "old": {"shop": "insurance"},
     "replace": {"office": "insurance"}
   },
@@ -1374,6 +1416,10 @@
   {
     "old": {"shop": "moneylender"},
     "replace": {"shop": "money_lender"}
+  },
+  {
+    "old": {"shop": "office_supplies"},
+    "replace": {"shop": "stationery"}
   },
   {
     "old": {"shop": "organic"},
@@ -1406,10 +1452,6 @@
   {
     "old": {"shop": "winery"},
     "replace": {"craft": "winery"}
-  },
-  {
-    "old": {"showers": "*"},
-    "replace": {"shower": "$1"}
   },
   {
     "old": {"sloped_curb": "0"},
@@ -1454,22 +1496,6 @@
   {
     "old": {"sloped_curb": "yes"},
     "replace": {"kerb": "lowered"}
-  },
-  {
-    "old": {"speed_limit": "*"},
-    "replace": {"maxspeed": "$1"}
-  },
-  {
-    "old": {"speedlimit": "*"},
-    "replace": {"maxspeed": "$1"}
-  },
-  {
-    "old": {"SpeedLimit": "*"},
-    "replace": {"maxspeed": "$1"}
-  },
-  {
-    "old": {"SPEEDLIMIT": "*"},
-    "replace": {"maxspeed": "$1"}
   },
   {
     "old": {"sport": "horse_shoes"},
@@ -1600,6 +1626,18 @@
     "replace": {"amenity": "townhall", "townhall:type": "village"}
   },
   {
+    "old": {"transformer": "auto"},
+    "replace": {"transformer": "yes", "windings:auto": "yes"}
+  },
+  {
+    "old": {"transformer": "minor_distribution"},
+    "replace": {"transformer": "distribution"}
+  },
+  {
+    "old": {"transformer": "traction"},
+    "replace": {"transformer": "main"}
+  },
+  {
     "old": {"tunnel": "1"},
     "replace": {"tunnel": "yes"}
   },
@@ -1684,16 +1722,28 @@
     "replace": {"noname": "$1"}
   },
   {
-    "old": {"vending": "parcel_mail_in;parcel_pickup"},
-    "replace": {"vending": "parcel_pickup;parcel_mail_in"}
-  },
-  {
     "old": {"vhf_channel": "*"},
     "replace": {"vhf": "$1"}
   },
   {
     "old": {"volcano": "extinct"},
     "replace": {"volcano:status": "extinct"}
+  },
+  {
+    "old": {"voltage-high": "*", "transformer":"generator"},
+    "replace": {"voltage:secondary":"$1", "transformer":"generator"}
+  },
+  {
+    "old": {"voltage-low": "*", "transformer":"generator"},
+    "replace": {"voltage:primary":"$1", "transformer":"generator"}
+  },
+  {
+    "old": {"voltage-high": "*"},
+    "replace": {"voltage:primary":"$1"}
+  },
+  {
+    "old": {"voltage-low": "*"},
+    "replace": {"voltage:secondary":"$1"}
   },
   {
     "old": {"wall_type": "noise_barrier"},

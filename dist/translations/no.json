@@ -55,6 +55,10 @@
                 "access": {
                     "label": "Tillatt for",
                     "options": {
+                        "customers": {
+                            "description": "Begrenset til kunder på destinasjonen",
+                            "title": "Kunder"
+                        },
                         "designated": {
                             "description": "Tilgang i amsvar med skilt eller spesifikke lokale lover",
                             "title": "Utpekt"
@@ -83,6 +87,9 @@
                             "description": "Tilgang tillatt kun ved tillatelse fra eieren på individuell basis",
                             "title": "Privat"
                         },
+                        "unknown": {
+                            "title": "Ukjent"
+                        },
                         "yes": {
                             "description": "Lovfestet tilgang",
                             "title": "Tillatt"
@@ -108,7 +115,17 @@
                         "permissive": "Permissiv",
                         "permit": "Kun med tillatelse ",
                         "private": "Privat",
+                        "unknown": "Ukjent",
                         "yes": "Offentlig "
+                    }
+                },
+                "activity": {
+                    "label": "Aktivitet",
+                    "options": {
+                        "bicycle": "Sykling",
+                        "hiking": "Turgåing",
+                        "horse": "Ridning",
+                        "mtb": "Terrengsykling"
                     }
                 },
                 "addr/interpolation": {
@@ -142,11 +159,14 @@
                         "housenumber": "123",
                         "housenumber!jp": "Bygningsnr. / Lottnr. ",
                         "neighbourhood": "Nabolag",
+                        "neighbourhood!jp": "Chōme/Aza/Koaza",
                         "place": "Sted",
                         "postcode": "Postnummer",
                         "province": "Provins",
+                        "province!cn": "Provins/Kommune/Autonom region/Spesiell administrativ region",
                         "province!jp": "Prefektur",
                         "quarter": "Kvartal",
+                        "quarter!jp": "Ōaza/Machi",
                         "state": "Stat",
                         "street": "Gate",
                         "subdistrict": "Underdistrikt",
@@ -252,6 +272,9 @@
                 "baby_seat": {
                     "label": "Babysete"
                 },
+                "backcountry": {
+                    "label": "Backcountry"
+                },
                 "backrest": {
                     "label": "Ryggstøtte"
                 },
@@ -278,8 +301,12 @@
                     "label": "Tjenester",
                     "options": {
                         "cosmetics": "Kosmetikk ",
-                        "nails": "Negler",
-                        "tanning": "Solarium"
+                        "hair_removal": "Hårfjerning",
+                        "nails": "Manikyr / Pedikyr",
+                        "skin_care": "Hudpleie",
+                        "spa": "Dagspa",
+                        "tanning": "Solarium",
+                        "waxing": "Voksing"
                     }
                 },
                 "bench": {
@@ -372,9 +399,21 @@
                 "bunker_type": {
                     "label": "Type"
                 },
+                "button_operated": {
+                    "label": "Ringeknapp"
+                },
                 "cables": {
                     "label": "Kabler",
                     "placeholder": "1, 2, 3..."
+                },
+                "cai_scale-IT": {
+                    "label": "Vanskelighetsgrad for vandreruter (Italian Alpine Club)",
+                    "options": {
+                        "E": "E: For turgåere",
+                        "EAI": "EAI: Turgåing i snøforhold",
+                        "EE": "EE: For expert turgåere"
+                    },
+                    "placeholder": "T, E, EE, …"
                 },
                 "camera/direction": {
                     "label": "Retning (grader med klokken)",
@@ -395,9 +434,21 @@
                     "label": "Kapasitet",
                     "placeholder": "50, 100, 200..."
                 },
+                "capacity/caravans": {
+                    "label": "Kapasitet (Caravans)",
+                    "placeholder": "10, 20, 50..."
+                },
                 "capacity/disabled_parking": {
                     "label": "Tilgjengelige Plasser",
                     "placeholder": "1, 2, 3..."
+                },
+                "capacity/persons": {
+                    "label": "Kapasitet (Persons)",
+                    "placeholder": "50, 100, 200..."
+                },
+                "capacity/tents": {
+                    "label": "Kapasitet (Tents)",
+                    "placeholder": "10, 20, 50..."
                 },
                 "capacity_parking": {
                     "label": "Totalt Antall Plasser",
@@ -411,13 +462,22 @@
                     "label": "Innskudd"
                 },
                 "castle_type": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "castrum": "Romersk Fort",
+                        "defensive": "Forsvarsslott",
+                        "fortress": "Festning",
+                        "hillfort": "Fjellfort",
+                        "kremlin": "Kremlin",
+                        "palace": "Palass",
+                        "stately": "Herskapelig Hjem"
+                    }
                 },
                 "changing_table": {
                     "label": "Bleie skiftebord"
                 },
                 "charge_fee": {
-                    "label": "Avgift mengde",
+                    "label": "Gebyrbeløp",
                     "placeholder": "1 EUR, 5 USD, 10 JPY…"
                 },
                 "charge_toll": {
@@ -429,8 +489,8 @@
                     "placeholder": "YYYY-MM-DD"
                 },
                 "circumference": {
-                    "label": "Omkrets",
-                    "placeholder": "1 m, 20 cm, 30 tommer ..."
+                    "label": "Omkrets (ved brysthøyde)",
+                    "placeholder": "1 m, 20 cm, 30\"…"
                 },
                 "clothes": {
                     "label": "Klær"
@@ -497,6 +557,14 @@
                 "covered": {
                     "label": "Dekket"
                 },
+                "covered_no": {
+                    "label": "Dekket",
+                    "options": {
+                        "no": "Nei",
+                        "undefined": "Antas å være nr",
+                        "yes": "Ja"
+                    }
+                },
                 "craft": {
                     "label": "Type"
                 },
@@ -514,31 +582,67 @@
                 "crossing": {
                     "label": "Type"
                 },
+                "crossing/barrier": {
+                    "options": {
+                        "yes": "Ja"
+                    }
+                },
                 "crossing/island": {
                     "label": "Fotgjenger øy"
+                },
+                "crossing/light": {
+                    "label": "Lys"
+                },
+                "crossing_raised": {
+                    "label": "Hevet",
+                    "options": {
+                        "table": "Ja",
+                        "undefined": "Nei"
+                    }
                 },
                 "cuisine": {
                     "label": "Kjøkken",
                     "options": {
                         "american": "Amerikansk",
                         "asian": "Asiatisk",
+                        "bubble_tea": "Te med kuler",
                         "burger": "Burger",
+                        "cake": "Kake",
                         "chicken": "Kylling",
                         "chinese": "Kinesisk",
+                        "chocolate": "Sjokolade",
                         "coffee_shop": "Kafé",
+                        "dessert": "Dessert",
+                        "donut": "Donut",
+                        "fish": "Fisk",
                         "french": "Fransk",
                         "german": "Tysk",
                         "greek": "Gresk",
+                        "hot_dog": "Hot Dog",
                         "ice_cream": "Iskrem",
                         "indian": "indisk",
+                        "indonesian": "Indonesisk",
                         "italian": "Italiensk",
                         "japanese": "Japansk",
+                        "juice": "Juice",
                         "kebab": "Kebab",
+                        "korean": "Koreansk",
+                        "lebanese": "Libanesisk",
                         "mexican": "Meksikansk",
+                        "pankcake": "Pannekake",
+                        "pasta": "Pasta",
                         "pizza": "Pizza",
+                        "polish": "Polsk",
+                        "portuguese": "Portugisisk",
                         "regional": "Regional",
+                        "russian": "Russisk",
+                        "salad": "Salat",
                         "sandwich": "Smørbrød",
+                        "seafood": "Sjømat",
+                        "spanish": "Spanks",
+                        "steak_house": "Biffrestaurant",
                         "sushi": "Sushi",
+                        "taiwanese": "Taiwansk",
                         "thai": "Thailandsk",
                         "turkish": "Tyrkisk",
                         "vietnamese": "Vietnamesisk"
@@ -619,6 +723,9 @@
                         "yes": "Ja"
                     }
                 },
+                "deposit/trolley": {
+                    "label": "Deposit"
+                },
                 "depth": {
                     "label": "Dybde(Meter)"
                 },
@@ -651,6 +758,9 @@
                     "label": "Diameter",
                     "placeholder": "5 mm, 10 cm, 15 in…"
                 },
+                "diameter_crown": {
+                    "placeholder": "4 m, 9', …"
+                },
                 "diet_multi": {
                     "label": "Dietttyper",
                     "options": {
@@ -672,12 +782,25 @@
                     "label": "Retning (Grader Medurs)",
                     "placeholder": "45, 90, 180, 270"
                 },
+                "direction_cardinal-US-CA-NZ": {
+                    "label": "Retning",
+                    "options": {
+                        "east": "Østgående",
+                        "north": "Nordgående",
+                        "south": "Sørgående",
+                        "west": "Vestgående"
+                    }
+                },
                 "direction_clock": {
                     "label": "Retning",
                     "options": {
                         "anticlockwise": "Mot klokken",
                         "clockwise": "Med klokken"
                     }
+                },
+                "direction_point": {
+                    "label": "Retning (grader med klokken)",
+                    "placeholder": "45, 90, 180, 270"
                 },
                 "direction_vertex": {
                     "label": "Retning Berørt",
@@ -688,6 +811,7 @@
                     }
                 },
                 "direction_vertex_dual": {
+                    "label": "Påvirket Retning",
                     "options": {
                         "backward": "Bakover",
                         "forward": "Framover"
@@ -700,7 +824,8 @@
                     "label": "Skjerm",
                     "options": {
                         "analog": "Analog",
-                        "digital": "Digital"
+                        "digital": "Digital",
+                        "unorthodox": "Uortodoks"
                     }
                 },
                 "distance": {
@@ -747,10 +872,7 @@
                     "placeholder": "00:00"
                 },
                 "ele": {
-                    "label": "Elevasjon"
-                },
-                "ele_node": {
-                    "label": "Elevasjon"
+                    "label": "Høyde (meter)"
                 },
                 "electrified": {
                     "label": "Elektrifisering",
@@ -772,7 +894,13 @@
                     "placeholder": "Standard"
                 },
                 "embassy": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "delegation": "Delegasjon",
+                        "high_commission": "Høykommisjon",
+                        "interests_section": "Interesseseksjon",
+                        "yes": "ambassade"
+                    }
                 },
                 "emergency": {
                     "label": "Nød"
@@ -798,6 +926,9 @@
                 "expected_rwn_route_relations": {
                     "label": "Tilstøtende gånoder"
                 },
+                "expressway-US": {
+                    "label": "Ekspressvei"
+                },
                 "fax": {
                     "label": "Fax",
                     "placeholder": "+47 22 12 34 56"
@@ -811,6 +942,13 @@
                 },
                 "fire_hydrant/diameter": {
                     "label": "Diameter (mm, i, eller bokstaver)"
+                },
+                "fire_hydrant/position": {
+                    "label": "Posisjon",
+                    "options": {
+                        "parking_lot": "Parkeringsplass",
+                        "sidewalk": "Fortau"
+                    }
                 },
                 "fire_hydrant/pressure": {
                     "label": "Trykk (bar)"
@@ -836,8 +974,28 @@
                 "fixme": {
                     "label": "Fiks meg"
                 },
+                "flag/name": {
+                    "label": "Flaggnavn"
+                },
                 "flag/type": {
                     "label": "Flaggtype"
+                },
+                "flashing_lights": {
+                    "label": "Blinklys",
+                    "options": {
+                        "always": {
+                            "title": "Alltid blinkende"
+                        },
+                        "button": {
+                            "title": "Knapp aktivert"
+                        },
+                        "no": "Nei",
+                        "sensor": {
+                            "description": "Lys aktivert av en sensor",
+                            "title": "Sensor aktivert"
+                        },
+                        "yes": "Ja"
+                    }
                 },
                 "floating": {
                     "label": "Flytende"
@@ -900,9 +1058,6 @@
                 },
                 "geyser/height": {
                     "label": "Utbruddshøyde"
-                },
-                "gnis/feature_id": {
-                    "label": "GNIS Egenskap ID"
                 },
                 "government": {
                     "label": "Type"
@@ -1161,6 +1316,9 @@
                 "liaison": {
                     "label": "Type"
                 },
+                "lifeguard": {
+                    "label": "Livvakt"
+                },
                 "line_attachment": {
                     "label": "Linjefeste"
                 },
@@ -1269,11 +1427,11 @@
                 "mtb/scale/imba": {
                     "label": "IMBA Bakkevanskelighet",
                     "options": {
-                        "0": "Enklest (hvit sirkel)",
-                        "1": "Enkel (grønn sirkel)",
-                        "2": "Middels (blå kvadrat)",
-                        "3": "Vanskelig (svart diamant)",
-                        "4": "Ekstremt Vanskelig (dobbel svart diamant)"
+                        "0": "⚪ Enkleste (hvit sirkel)",
+                        "1": "🟢  Enkelt (grønn sirkel)",
+                        "2": "🟦 Medium (blå firkant)",
+                        "3": "◆ Vanskelig (svart diamant)",
+                        "4": "◆◆ Ekstremt vanskelig (dobbel svart diamant)"
                     },
                     "placeholder": "Enkel, Middels, Vanskelig..."
                 },
@@ -1404,6 +1562,17 @@
                 "par": {
                     "label": "Par",
                     "placeholder": "3, 4, 5..."
+                },
+                "parcel_dropoff": {
+                    "label": "Pakkelevering"
+                },
+                "parcel_pickup": {
+                    "label": "Pakkehenting",
+                    "options": {
+                        "no": "Nei",
+                        "undefined": "Antas å være Ja",
+                        "yes": "Ja"
+                    }
                 },
                 "park_ride": {
                     "label": "Park & Ride"
@@ -1622,9 +1791,6 @@
                 },
                 "rcn_ref": {
                     "label": "Sykkel Lov"
-                },
-                "real_fire": {
-                    "label": "Ekte Flamme"
                 },
                 "recycling_accepts": {
                     "label": "Godtar "
@@ -1848,9 +2014,6 @@
                         "driveway": "innkjørsel",
                         "emergency_access": "Nødtilgang "
                     }
-                },
-                "service/bicycle": {
-                    "label": "Tjenester"
                 },
                 "service/vehicle": {
                     "label": "Tjenester"
@@ -2130,11 +2293,7 @@
                     "placeholder": "Utmerket, god, dårlig..."
                 },
                 "transformer": {
-                    "label": "Type",
-                    "options": {
-                        "generator": "Generator",
-                        "yes": "Ukjent"
-                    }
+                    "label": "Type"
                 },
                 "trees": {
                     "label": "Trær"
@@ -2797,9 +2956,6 @@
                 "amenity/theatre/type/amphi": {
                     "name": "Amfiteater"
                 },
-                "amenity/toilets": {
-                    "name": "Toaletter"
-                },
                 "amenity/toilets/disposal/flush": {
                     "name": "Spyl Toaletter"
                 },
@@ -2850,9 +3006,6 @@
                 },
                 "amenity/vending_machine/newspapers": {
                     "name": "Avisautomat"
-                },
-                "amenity/vending_machine/parcel_pickup": {
-                    "name": "Pakkeboks"
                 },
                 "amenity/vending_machine/parking_tickets": {
                     "name": "Parkeringsautomat"
@@ -3287,7 +3440,8 @@
                     "name": "Rørlegger"
                 },
                 "craft/pottery": {
-                    "name": "Keramikkmaker"
+                    "name": "Keramikkmaker",
+                    "aliases": "Pottemaker"
                 },
                 "craft/rigger": {
                     "name": "Scenerigger"
@@ -3487,20 +3641,11 @@
                 "highway/crossing/marked": {
                     "name": "Fotgjengerovergang"
                 },
-                "highway/crossing/marked-raised": {
-                    "name": "Fotgjengerovergang (forhøyet)"
-                },
                 "highway/crossing/unmarked": {
                     "name": "Tilrettelagt kryssing"
                 },
-                "highway/crossing/unmarked-raised": {
-                    "name": "Tilrettelagt kryssing (forhøyet)"
-                },
                 "highway/crossing/zebra": {
                     "name": "Fotgjengerovergang"
-                },
-                "highway/crossing/zebra-raised": {
-                    "name": "Fotgjengerovergang (forhøyet)"
                 },
                 "highway/cycleway": {
                     "name": "Sykkelvei"
@@ -3532,23 +3677,14 @@
                 "highway/footway/marked": {
                     "name": "Fotgjengerovergang"
                 },
-                "highway/footway/marked-raised": {
-                    "name": "Fotgjengerovergang (forhøyet)"
-                },
                 "highway/footway/sidewalk": {
                     "name": "Fortau"
                 },
                 "highway/footway/unmarked": {
                     "name": "Tilrettelagt kryssing"
                 },
-                "highway/footway/unmarked-raised": {
-                    "name": "Tilrettelagt kryssing (forhøyet)"
-                },
                 "highway/footway/zebra": {
                     "name": "Fotgjengerovergang"
-                },
-                "highway/footway/zebra-raised": {
-                    "name": "Fotgjengerovergang (forhøyet)"
                 },
                 "highway/give_way": {
                     "name": "Vikepliktskilt"
@@ -3646,10 +3782,6 @@
                 },
                 "highway/tertiary_link": {
                     "name": "Tertiær lenke"
-                },
-                "highway/track": {
-                    "name": "Vei for ATV, landbruk-, hogst- eller anleggsmaskin",
-                    "terms": "landbruksvei,skogsbilvei,traktorsti,traktorvei,anleggsvei"
                 },
                 "highway/traffic_mirror": {
                     "name": "Trafikkspeil"
@@ -3792,9 +3924,6 @@
                 "landuse/military/danger_area": {
                     "name": "Fareområde"
                 },
-                "landuse/military/naval_base": {
-                    "name": "Marinebase"
-                },
                 "landuse/orchard": {
                     "name": "Frukthage"
                 },
@@ -3878,9 +4007,6 @@
                 },
                 "leisure/hackerspace": {
                     "name": "Hackerspace"
-                },
-                "leisure/horse_riding": {
-                    "name": "Ridesenter"
                 },
                 "leisure/ice_rink": {
                     "name": "Skøytebane"
@@ -3986,9 +4112,6 @@
                 },
                 "leisure/track/cycling": {
                     "name": "Sykkelbane"
-                },
-                "leisure/track/horse_racing": {
-                    "name": "Travbane"
                 },
                 "leisure/track/running": {
                     "name": "Løpe bane"
@@ -4515,9 +4638,6 @@
                 "shop/alcohol": {
                     "name": "Vinutsalg"
                 },
-                "shop/antiques": {
-                    "name": "Antikvariat / antikvitetshandel"
-                },
                 "shop/appliance": {
                     "name": "Hvitevarebutikk"
                 },
@@ -4556,9 +4676,6 @@
                 },
                 "shop/bookmaker": {
                     "name": "Bookmaker"
-                },
-                "shop/books": {
-                    "name": "Bokhandel"
                 },
                 "shop/boutique": {
                     "name": "Klesbutikk"
@@ -4620,9 +4737,6 @@
                 "shop/cosmetics": {
                     "name": "Parfymeri"
                 },
-                "shop/country_store": {
-                    "name": "Landhandel"
-                },
                 "shop/craft": {
                     "name": "Kunst & Håndverksbutikk"
                 },
@@ -4631,9 +4745,6 @@
                 },
                 "shop/dairy": {
                     "name": "Ferskvarebutikk"
-                },
-                "shop/deli": {
-                    "name": "Delikatessebutikk"
                 },
                 "shop/department_store": {
                     "name": "Supermarked"
@@ -4707,9 +4818,6 @@
                 "shop/hardware": {
                     "name": "Jernvarehandel"
                 },
-                "shop/health_food": {
-                    "name": "Helsekostbutikk"
-                },
                 "shop/hearing_aids": {
                     "name": "Høreapparatutsalg"
                 },
@@ -4779,9 +4887,6 @@
                 "shop/musical_instrument": {
                     "name": "Musikkinstrumentbutikk"
                 },
-                "shop/newsagent": {
-                    "name": "Aviskiosk"
-                },
                 "shop/optician": {
                     "name": "Optiker"
                 },
@@ -4796,9 +4901,6 @@
                 },
                 "shop/pastry": {
                     "name": "Bakeri"
-                },
-                "shop/pawnbroker": {
-                    "name": "Pantelåner"
                 },
                 "shop/perfumery": {
                     "name": "Parfymeri"
@@ -4823,9 +4925,6 @@
                 },
                 "shop/seafood": {
                     "name": "Sjømatbutikk"
-                },
-                "shop/second_hand": {
-                    "name": "Gjenbruksbutikk"
                 },
                 "shop/sewing": {
                     "name": "Sybutikk"
@@ -4904,9 +5003,6 @@
                 },
                 "telecom/data_center": {
                     "name": "Datasenter"
-                },
-                "tourism/alpine_hut": {
-                    "name": "Fjellhytte"
                 },
                 "tourism/aquarium": {
                     "name": "Akvarium"
@@ -5127,9 +5223,6 @@
                 },
                 "waterway/river": {
                     "name": "Elv"
-                },
-                "waterway/riverbank": {
-                    "name": "Elvebredd"
                 },
                 "waterway/stream": {
                     "name": "Bekk"
