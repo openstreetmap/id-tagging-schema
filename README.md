@@ -16,6 +16,7 @@ This Tagging Schema fills that need, but with a number of caveats:
 - Our primary aim is to serve the needs of iD mappers (but other tools are welcome to use this too)
 - We support tags based on practicality, usage, and community approval
 - Sometimes there are reasons we can't support a tag even if it's used or approved
+- There are also other projects with similar goals - OpenStreetMap Wiki documenting various tagging schemas, JOSM presets, Vespucci presets...
 
 ## Translations
 
