@@ -7,8 +7,9 @@ It includes presets, fields, deprecations, and more.
 
 ## Background
 
-OpenStreetMap itself does not have a formal tagging [schema](https://en.wikipedia.org/wiki/Database_schema),
-but editing tools need to know how tags are used in order to facilitate mapping.
+OpenStreetMap itself does not have a formal rigid [database schema](https://en.wikipedia.org/wiki/Database_schema),
+but relies on a [tagging](https://wiki.openstreetmap.org/wiki/Tags) [folksonomy](https://en.wikipedia.org/wiki/Folksonomy) instead.
+Editing tools need to know how tags are used in order to facilitate mapping.
 This Tagging Schema fills that need, but with a number of caveats:
 
 - This isn't authoritative or definitive
@@ -39,7 +40,9 @@ makes it easier to use this data with Android or other Java platforms.
 
 ## Related Projects
 
-iD also incorporates preset data from the [name-suggestion-index](https://github.com/osmlab/name-suggestion-index).
+* The [OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Map_features) documents the current usage of tags, and hosts discussions about proposed new tags.
+* iD also incorporates preset data from the [name-suggestion-index](https://github.com/osmlab/name-suggestion-index).
+* Other editors also include their own models of interpretations of OSM tags. See for example [Vespucci's](https://github.com/simonpoole/beautified-JOSM-preset) or [JOSM's](https://josm.openstreetmap.de/wiki/Presets) tagging presets.
 
 ## Contributing
 

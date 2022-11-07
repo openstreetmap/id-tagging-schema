@@ -29,7 +29,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 * Add a preset for Barbeque Restaurants ([#535], thanks [@arch0345])
 * Add Horse Race Course preset ([#537], thanks [@arch0345])
 * Add presets for building=allotment_house and building=outhouse ([#528], thanks [@matkoniecz])
-* Add presets for more playground features: Play Activity Panel, Hanging Roundabout, Play Bridge, Play CLimbing Wall, Funnel Ball Funnel, Painted Playground Map, Play Sledding Hill, Play Splash Pad, Teen Shelter, Tetherball Pole, Trampoline, Play Tunnel, Gaga Pit, Funnel Ball Court ([#543], thanks [@arch0345])
+* Add presets for more playground features: Play Activity Panel, Hanging Roundabout, Play Bridge, Play Climbing Wall, Funnel Ball Funnel, Painted Playground Map, Play Sledding Hill, Play Splash Pad, Teen Shelter, Tetherball Pole, Trampoline, Play Tunnel, Gaga Pit, Funnel Ball Court ([#543], thanks [@arch0345])
 * Add (hidden) preset for unspecified Barriers (`barrier=yes`) ([#531])
 * Add (hidden) presets for unspecified Healthcare (`healthcare=yes`) and unspecified Traffic Calming (`traffic_calming=yes`) features ([#547])
 * Add (hidden) preset for unspecified Man Made Feature (`man_made=yes`)
