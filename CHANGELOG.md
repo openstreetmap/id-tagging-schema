@@ -18,6 +18,112 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 -->
 
 
+# 5.0.0
+
+#### Schema Changes
+* Upgrade to the schema-build version 5 ([#598])
+  * :warning: Introduces a new `colour` field type
+  * :warning: Allows to cross-reference strings in presets and fields
+#### New Presets
+* Add a preset for Straits (`natural=strait`)
+* Add a preset for Oxbow Lakes (`natural=water` + `water=oxbow`) ([#595], thanks [@kjonosm])
+* Add a preset for Catenary Poles (`power=catenary_mast`) ([#593], thanks [@kjonosm])
+* Add Fire Station Building preset ([#603], thanks [@arch0345])
+* Add a Cafeteria preset ([#613], thanks [@Morion-Self])
+* Add a Busway (`highway=busway`) preset ([#164], thanks [@kolgza])
+* Add preset for the tag `man_made=tailings_pond`
+* Add a preset for `highway=service` mapped as areas ([#463])
+* Add presets for `office=property_mangagement` and `office=union` ([#622], thanks [@arch0345])
+* Add preset for industrial brewery (`man_made=works` + `product=beer` or `industrial=brewery`)
+* Add some additional power generation presets ([#624])
+* Add American Handball Court preset ([#628], thanks [@arch0345])
+* Add Tree Stump preset ([#630], thanks [@arch0345])
+#### Changed Presets
+* Add aliases to the Track (`highway=track`) preset ([#470], thanks [@westnordost])
+* Add Toilets field as optional field to more POI presets ([#325])
+* Add terms to presets: Bed, Clothes, and Wedding Shops ([#618], thanks [@willemarcel])
+* Add `community_centre:for` tag as additional tag (`addTags`) to LGBTQ+ Community Center preset ([#625], thanks [@EvanCarroll])
+* Add `building` field to School and Sports Center presets ([iD#9341])
+* Add "Bridge" as an alias to the `man_made=bridge` preset ([#632])
+* Change icon for ATMs ([#626])
+* Add Access field to: Park, Nature Reserve, Sports Center and Sports Club presets ([#631])
+#### New and Changed Fields
+* Rename `cash_in` field to Deposits
+* Add a field for the `model` tag (applies to the Street Cabinet, Ticket Validator and Telephone preset) ([#584], thanks [@Lukas458])
+* Add `salt`, `sett`, `metal`, `unhewn_cobblestone`, `mud`, `woodchips` as translatable strings to the Surface field ([iD#9305], [#597], thanks [@matkoniecz])
+* Add field for the `building:prefabricated` tag ([#600], thanks [@arch0345])
+* Add translatable strings to the (Type of) `bicycle_parking` field ([#608], thanks [@matkoniecz])
+* Add field for the "two_sided=yes" tag (applies to City Wall, Guard Rail and Kerb presets)
+* Add translatable strings for payment types ([#255], thanks [@1ec5])
+* Add translatable strings for tunnel types ([#251], thanks [@1ec5])
+* Add translatable strings for crops ([#257], thanks [@1ec5])
+* Add Population Date and Population Source fields ([#261], thanks [@1ec5])
+* Add translatable strings for the `healthcare:speciality` tag ([#392], thanks [@kjonosm])
+* Add translatable strings for the Religion field ([#263], thanks [@1ec5])
+* Add Bike and Ride field ([#521], thanks [@arch0345])
+* Rename field for `departure_board` to Departures/Arrivals Board ([#582])
+* Add translatable strings for fields: `fuel`, `entrance` and `substation` ([#467], thanks [@Miroff], [#621])
+* Make `recycling:*` field case sensitive
+* Add strings for power generation Source and Method fields ([#624])
+* Drop default value `yes` from the `dispensing` field ([#627])
+#### Bugfixes
+* Describe `tracktype=grade1` as paved only ([#583], thanks [@matkoniecz])
+* Allow Water Slides to be mapped as points (and disallow them to be areas) ([#612])
+* Allow Jersey Barrier to be mapped as a vertex (and disallow it to be a standalone point) ([#614], thanks [@arch0345])
+#### Deprecated Tags
+* Add ~~`internet_access=wi-fi`~~ and ~~`internet_access=WLAN`~~ as typos of the `internet_access=wlan` tag ([#592], thanks [@Marc-marc-marc])
+* Upgrade ~~`natural=water` + `water=reservoir` + `reservoir_type=tailings`~~ and ~~`landuse=reservoir` + `reservoir_type=tailings`~~ to `man_made=tailings_pond` ([#144], thanks [@Marc-marc-marc])
+* Replace `generator:method=solar` with `generator:source=solar` ([#620], thanks [@Marc-marc-marc])
+#### Documentation and Other Changes
+
+[#144]: https://github.com/openstreetmap/id-tagging-schema/pull/144
+[#164]: https://github.com/openstreetmap/id-tagging-schema/pull/164
+[#251]: https://github.com/openstreetmap/id-tagging-schema/pull/251
+[#255]: https://github.com/openstreetmap/id-tagging-schema/pull/255
+[#257]: https://github.com/openstreetmap/id-tagging-schema/pull/257
+[#261]: https://github.com/openstreetmap/id-tagging-schema/pull/261
+[#263]: https://github.com/openstreetmap/id-tagging-schema/pull/263
+[#325]: https://github.com/openstreetmap/id-tagging-schema/pull/325
+[#392]: https://github.com/openstreetmap/id-tagging-schema/pull/392
+[#463]: https://github.com/openstreetmap/id-tagging-schema/pull/463
+[#467]: https://github.com/openstreetmap/id-tagging-schema/pull/467
+[#470]: https://github.com/openstreetmap/id-tagging-schema/pull/470
+[#521]: https://github.com/openstreetmap/id-tagging-schema/pull/521
+[#582]: https://github.com/openstreetmap/id-tagging-schema/pull/582
+[#583]: https://github.com/openstreetmap/id-tagging-schema/pull/583
+[#584]: https://github.com/openstreetmap/id-tagging-schema/pull/584
+[#592]: https://github.com/openstreetmap/id-tagging-schema/pull/592
+[#593]: https://github.com/openstreetmap/id-tagging-schema/pull/593
+[#595]: https://github.com/openstreetmap/id-tagging-schema/pull/595
+[#597]: https://github.com/openstreetmap/id-tagging-schema/pull/597
+[#598]: https://github.com/openstreetmap/id-tagging-schema/pull/598
+[#600]: https://github.com/openstreetmap/id-tagging-schema/pull/600
+[#603]: https://github.com/openstreetmap/id-tagging-schema/pull/603
+[#608]: https://github.com/openstreetmap/id-tagging-schema/pull/608
+[#612]: https://github.com/openstreetmap/id-tagging-schema/issues/612
+[#613]: https://github.com/openstreetmap/id-tagging-schema/pull/613
+[#614]: https://github.com/openstreetmap/id-tagging-schema/pull/614
+[#618]: https://github.com/openstreetmap/id-tagging-schema/pull/618
+[#620]: https://github.com/openstreetmap/id-tagging-schema/pull/620
+[#621]: https://github.com/openstreetmap/id-tagging-schema/issues/621
+[#622]: https://github.com/openstreetmap/id-tagging-schema/pull/622
+[#624]: https://github.com/openstreetmap/id-tagging-schema/pull/624
+[#625]: https://github.com/openstreetmap/id-tagging-schema/pull/625
+[#626]: https://github.com/openstreetmap/id-tagging-schema/issues/626
+[#627]: https://github.com/openstreetmap/id-tagging-schema/issues/627
+[#628]: https://github.com/openstreetmap/id-tagging-schema/pull/628
+[#630]: https://github.com/openstreetmap/id-tagging-schema/pull/630
+[#631]: https://github.com/openstreetmap/id-tagging-schema/pull/631
+[#632]: https://github.com/openstreetmap/id-tagging-schema/issues/632
+[iD#9305]: https://github.com/openstreetmap/iD/issues/9305
+[iD#9341]: https://github.com/openstreetmap/iD/issues/9341
+[@EvanCarroll]: https://github.com/EvanCarroll
+[@Miroff]: https://github.com/Miroff
+[@kolgza]: https://github.com/kolgza
+[@Morion-Self]: https://github.com/Morion-Self
+[@Marc-marc-marc]: https://github.com/Marc-marc-marc
+
+
 # 3.5.1
 
 * Update distribution files and translations from Transifex.

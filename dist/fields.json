@@ -97,8 +97,7 @@
             "addr:subdistrict",
             "addr:suburb",
             "addr:unit"
-        ],
-        "icon": "address"
+        ]
     },
     "admin_level": {
         "key": "admin_level",
@@ -292,7 +291,19 @@
     },
     "bicycle_parking": {
         "key": "bicycle_parking",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "stands",
+            "wall_loops",
+            "shed",
+            "lockers",
+            "building",
+            "handlebar_holder"
+        ]
+    },
+    "bike_ride": {
+        "key": "bike_ride",
+        "type": "check"
     },
     "bin": {
         "key": "bin",
@@ -395,6 +406,8 @@
         "key": "building:levels",
         "type": "number",
         "minValue": 0,
+        "label": "{building/levels}",
+        "placeholder": "{building/levels}",
         "prerequisiteTag": {
             "key": "building",
             "valueNot": "no"
@@ -418,6 +431,10 @@
         "key": "building:part",
         "type": "combo",
         "default": "yes"
+    },
+    "building/prefabricated": {
+        "key": "building:prefabricated",
+        "type": "check"
     },
     "bunker_type": {
         "key": "bunker_type",
@@ -577,7 +594,7 @@
     },
     "colour": {
         "key": "colour",
-        "type": "text"
+        "type": "colour"
     },
     "comment": {
         "key": "comment",
@@ -606,8 +623,7 @@
     },
     "contact/webcam": {
         "key": "contact:webcam",
-        "type": "url",
-        "icon": "website"
+        "type": "url"
     },
     "content": {
         "key": "content",
@@ -688,7 +704,35 @@
     },
     "crop": {
         "key": "crop",
-        "type": "semiCombo"
+        "type": "semiCombo",
+        "options": [
+            "asparagus",
+            "barley",
+            "beet",
+            "cassava",
+            "coffee",
+            "cotton",
+            "cranberries",
+            "fast_growing_wood",
+            "flowers",
+            "grape",
+            "grass",
+            "hop",
+            "lavender",
+            "maize",
+            "potato",
+            "rape",
+            "rice",
+            "strawberry",
+            "sugar_beet",
+            "sugarcane",
+            "sunflower",
+            "soy",
+            "tea",
+            "tobacco",
+            "vegetable",
+            "wheat"
+        ]
     },
     "crossing_raised": {
         "key": "traffic_calming",
@@ -1019,8 +1063,7 @@
     },
     "dispensing": {
         "key": "dispensing",
-        "type": "check",
-        "default": "yes"
+        "type": "check"
     },
     "display": {
         "key": "display",
@@ -1095,7 +1138,6 @@
     "ele_node": {
         "key": "ele",
         "type": "number",
-        "icon": "elevation",
         "universal": true,
         "geometry": [
             "point",
@@ -1105,7 +1147,6 @@
     "ele": {
         "key": "ele",
         "type": "number",
-        "icon": "elevation",
         "geometry": [
             "line",
             "area",
@@ -1166,7 +1207,19 @@
     },
     "entrance": {
         "key": "entrance",
-        "type": "typeCombo"
+        "type": "typeCombo",
+        "options": [
+            "yes",
+            "main",
+            "secondary",
+            "service",
+            "exit",
+            "entrance",
+            "emergency",
+            "staircase",
+            "home",
+            "garage"
+        ]
     },
     "except": {
         "key": "except",
@@ -1320,13 +1373,70 @@
         "key": "from",
         "type": "text"
     },
-    "fuel_multi": {
-        "key": "fuel:",
-        "type": "multiCombo"
-    },
     "fuel": {
         "key": "fuel",
         "type": "combo"
+    },
+    "fuel/fuel_multi-RU": {
+        "key": "fuel:",
+        "type": "multiCombo",
+        "label": "{fuel/fuel_multi}",
+        "stringsCrossReference": "{fuel/fuel_multi}",
+        "options": [
+            "diesel",
+            "octane_80",
+            "octane_92",
+            "octane_95",
+            "octane_98",
+            "octane_100",
+            "lpg",
+            "cng"
+        ],
+        "autoSuggestions": false,
+        "locationSet": {
+            "include": [
+                "RU"
+            ]
+        }
+    },
+    "fuel/fuel_multi": {
+        "key": "fuel:",
+        "type": "multiCombo",
+        "autoSuggestions": true,
+        "caseSensitive": true,
+        "locationSet": {
+            "exclude": [
+                "RU"
+            ]
+        },
+        "options": [
+            "diesel",
+            "GTL_diesel",
+            "HGV_diesel",
+            "biodiesel",
+            "octane_80",
+            "octane_85",
+            "octane_87",
+            "octane_88",
+            "octane_89",
+            "octane_90",
+            "octane_91",
+            "octane_92",
+            "octane_93",
+            "octane_95",
+            "octane_97",
+            "octane_98",
+            "octane_100",
+            "e10",
+            "e85",
+            "lpg",
+            "cng",
+            "propane",
+            "LH2",
+            "h70",
+            "adblue",
+            "adblue:canister"
+        ]
     },
     "gambling": {
         "key": "gambling",
@@ -1355,7 +1465,39 @@
     },
     "generator/method": {
         "key": "generator:method",
-        "type": "combo"
+        "type": "combo",
+        "autoSuggestions": false,
+        "options": [
+            "fission",
+            "fusion",
+            "wind_turbine",
+            "water-storage",
+            "water-pumped-storage",
+            "run-of-the-river",
+            "barrage",
+            "stream",
+            "thermal",
+            "photovoltaic",
+            "combustion",
+            "gasification",
+            "anaerobic_digestion"
+        ]
+    },
+    "generator/method/hydro": {
+        "key": "generator:method",
+        "type": "combo",
+        "label": "{generator/method}",
+        "stringsCrossReference": "{generator/method}",
+        "options": [
+            "water-storage",
+            "water-pumped-storage",
+            "run-of-the-river"
+        ],
+        "autoSuggestions": false,
+        "prerequisiteTag": {
+            "key": "generator:source",
+            "value": "hydro"
+        }
     },
     "generator/output/electricity": {
         "key": "generator:output:electricity",
@@ -1364,7 +1506,26 @@
     },
     "generator/source": {
         "key": "generator:source",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "nuclear",
+            "wind",
+            "hydro",
+            "tidal",
+            "wave",
+            "geothermal",
+            "solar",
+            "coal",
+            "gas",
+            "biomass",
+            "biofuel",
+            "biogas",
+            "oil",
+            "diesel",
+            "gasoline",
+            "waste",
+            "battery"
+        ]
     },
     "generator/type": {
         "key": "generator:type",
@@ -1430,7 +1591,94 @@
     },
     "healthcare/speciality": {
         "key": "healthcare:speciality",
-        "type": "semiCombo"
+        "type": "semiCombo",
+        "options": [
+            "abortion",
+            "acupuncture",
+            "allergology",
+            "anaesthetics",
+            "angiology",
+            "anthroposophical",
+            "applied_kinesiology",
+            "aromatherapy",
+            "ayurveda",
+            "behavior",
+            "biochemistry",
+            "biology",
+            "blood_check",
+            "body",
+            "cardiology",
+            "cardiothoracic_surgery",
+            "child_psychiatry",
+            "chiropractic",
+            "clinical_pathology",
+            "community",
+            "depth",
+            "dermatology",
+            "dermatovenereology",
+            "diabetology",
+            "diagnostic_radiology",
+            "emergency",
+            "endocrinology",
+            "fertility",
+            "gastroenterology",
+            "general",
+            "geriatrics",
+            "gynaecology",
+            "haematology",
+            "hepatology",
+            "herbalism",
+            "homeopathy",
+            "humanistic",
+            "hydrotherapy",
+            "hypnosis",
+            "infectious_diseases",
+            "intensive",
+            "internal",
+            "dental_oral_maxillo_facial_surgery",
+            "naturopathy",
+            "neonatology",
+            "nephrology",
+            "neurology",
+            "neuropsychiatry",
+            "neurosurgery",
+            "nuclear",
+            "occupational",
+            "oncology",
+            "ophthalmology",
+            "orthodontics",
+            "orthopaedics",
+            "osteopathy",
+            "otolaryngology",
+            "paediatric_surgery",
+            "paediatrics",
+            "palliative",
+            "pathology",
+            "physiatry",
+            "plastic_surgery",
+            "podiatry",
+            "proctology",
+            "psychiatry",
+            "pulmonology",
+            "radiology",
+            "radiotherapy",
+            "reflexology",
+            "reiki",
+            "rheumatology",
+            "shiatsu",
+            "stomatology",
+            "surgery",
+            "systemic",
+            "traditional_chinese_medicine",
+            "transplant",
+            "trauma",
+            "tropical",
+            "tuina",
+            "unani",
+            "urology",
+            "vaccination",
+            "vascular_surgery"
+        ]
     },
     "heating": {
         "key": "heating",
@@ -1983,6 +2231,11 @@
         "key": "minspeed",
         "type": "roadspeed"
     },
+    "model": {
+        "key": "model",
+        "type": "combo",
+        "caseSensitive": true
+    },
     "monitoring_multi": {
         "key": "monitoring:",
         "type": "multiCombo"
@@ -2102,8 +2355,7 @@
     "note": {
         "key": "note",
         "type": "textarea",
-        "universal": true,
-        "icon": "note"
+        "universal": true
     },
     "office": {
         "key": "office",
@@ -2247,14 +2499,58 @@
     "payment_multi_fee": {
         "key": "payment:",
         "type": "multiCombo",
+        "label": "{payment_multi}",
         "prerequisiteTag": {
             "key": "fee",
             "valueNot": "no"
-        }
+        },
+        "stringsCrossReference": "{payment_multi}"
     },
     "payment_multi": {
         "key": "payment:",
-        "type": "multiCombo"
+        "type": "multiCombo",
+        "options": [
+            "account_cards",
+            "app",
+            "cards",
+            "cash",
+            "cheque",
+            "coins",
+            "contactless",
+            "credit_cards",
+            "cryptocurrencies",
+            "debit_cards",
+            "electronic_purses",
+            "notes",
+            "prepaid_ticket",
+            "telephone_cards",
+            "alipay",
+            "american_express",
+            "apple_pay",
+            "bancomat",
+            "blik",
+            "clipper",
+            "diners_club",
+            "discover_card",
+            "dkv",
+            "ep_easycard",
+            "ep_geldkarte",
+            "ep_ipass",
+            "girocard",
+            "google_pay",
+            "jcb",
+            "maestro",
+            "mastercard",
+            "mastercard_contactless",
+            "paypal",
+            "unionpay",
+            "uta",
+            "v_pay",
+            "visa",
+            "visa_debit",
+            "visa_electron",
+            "wechat"
+        ]
     },
     "phases": {
         "key": "phases",
@@ -2263,8 +2559,7 @@
     },
     "phone": {
         "key": "phone",
-        "type": "tel",
-        "icon": "maki-telephone"
+        "type": "tel"
     },
     "piste/difficulty_downhill": {
         "key": "piste:difficulty",
@@ -2400,16 +2695,84 @@
     },
     "plant/method": {
         "key": "plant:method",
-        "type": "combo"
+        "type": "combo",
+        "stringsCrossReference": "{generator/method}",
+        "autoSuggestions": false
+    },
+    "plant/method/hydro": {
+        "key": "plant:method",
+        "type": "combo",
+        "label": "{plant/method}",
+        "stringsCrossReference": "{generator/method}",
+        "options": [
+            "water-storage",
+            "water-pumped-storage",
+            "run-of-the-river"
+        ],
+        "autoSuggestions": false,
+        "prerequisiteTag": {
+            "key": "plant:source",
+            "value": "hydro"
+        }
+    },
+    "plant/method/solar": {
+        "key": "plant:method",
+        "type": "combo",
+        "label": "{plant/method}",
+        "stringsCrossReference": "{generator/method}",
+        "options": [
+            "thermal",
+            "photovoltaic"
+        ],
+        "autoSuggestions": false,
+        "prerequisiteTag": {
+            "key": "plant:source",
+            "value": "solar"
+        }
+    },
+    "plant/method/waste": {
+        "key": "plant:method",
+        "type": "combo",
+        "label": "{plant/method}",
+        "stringsCrossReference": "{generator/method}",
+        "options": [
+            "combustion",
+            "gasification"
+        ],
+        "autoSuggestions": false,
+        "prerequisiteTag": {
+            "key": "plant:source",
+            "value": "waste"
+        }
+    },
+    "plant/output": {
+        "key": "plant:output",
+        "type": "multiCombo",
+        "autoSuggestions": false,
+        "options": [
+            "electricity",
+            "hot_water",
+            "hot_air",
+            "cold_water",
+            "cold_air",
+            "compressed_air",
+            "steam",
+            "vacuum"
+        ]
     },
     "plant/output/electricity": {
         "key": "plant:output:electricity",
         "type": "typeCombo",
-        "snake_case": false
+        "snake_case": false,
+        "prerequisiteTag": {
+            "key": "plant:output:electricity",
+            "valueNot": "no"
+        }
     },
     "plant/source": {
         "key": "plant:source",
-        "type": "combo"
+        "type": "combo",
+        "stringsCrossReference": "{generator/source}"
     },
     "playground": {
         "key": "playground",
@@ -2432,6 +2795,13 @@
         "key": "population",
         "type": "number",
         "minValue": 0
+    },
+    "population/date": {
+        "key": "population:date",
+        "type": "text",
+        "prerequisiteTag": {
+            "key": "population"
+        }
     },
     "portable": {
         "key": "portable",
@@ -2546,6 +2916,7 @@
     "recycling_accepts": {
         "key": "recycling:",
         "type": "multiCombo",
+        "caseSensitive": true,
         "options": [
             "glass_bottles",
             "glass",
@@ -2705,7 +3076,31 @@
     },
     "religion": {
         "key": "religion",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "bahai",
+            "benzhu",
+            "buddhist",
+            "caodaism",
+            "chinese_folk",
+            "christian",
+            "confucian",
+            "hindu",
+            "jain",
+            "jewish",
+            "multifaith",
+            "muslim",
+            "none",
+            "pagan",
+            "shinto",
+            "sikh",
+            "spiritualist",
+            "taoist",
+            "tenrikyo",
+            "unitarian_universalist",
+            "vietnamese_folk",
+            "voodoo"
+        ]
     },
     "reservation": {
         "key": "reservation",
@@ -2740,7 +3135,6 @@
         "geometry": [
             "vertex"
         ],
-        "icon": "iD-restrictions",
         "usage": "manual",
         "reference": {
             "rtype": "restriction"
@@ -3100,7 +3494,6 @@
     "source": {
         "key": "source",
         "type": "semiCombo",
-        "icon": "source",
         "universal": true,
         "snake_case": false,
         "caseSensitive": true,
@@ -3113,6 +3506,15 @@
             "streetlevel imagery",
             "osm notes"
         ]
+    },
+    "source/population": {
+        "key": "source:population",
+        "type": "combo",
+        "prerequisiteTag": {
+            "key": "population"
+        },
+        "snake_case": false,
+        "caseSensitive": true
     },
     "species": {
         "key": "species",
@@ -3265,7 +3667,19 @@
     },
     "substation": {
         "key": "substation",
-        "type": "typeCombo"
+        "type": "typeCombo",
+        "autoSuggestions": false,
+        "options": [
+            "transmission",
+            "distribution",
+            "minor_distribution",
+            "industrial",
+            "generation",
+            "transition",
+            "traction",
+            "converter",
+            "compensation"
+        ]
     },
     "supervised": {
         "key": "supervised",
@@ -3287,11 +3701,17 @@
             "compacted",
             "concrete",
             "paving_stones",
+            "sett",
             "dirt",
             "grass",
             "sand",
             "wood",
-            "artificial_turf"
+            "metal",
+            "artificial_turf",
+            "unhewn_cobblestone",
+            "mud",
+            "woodchips",
+            "salt"
         ]
     },
     "surveillance": {
@@ -3437,6 +3857,19 @@
     "toilets/position": {
         "key": "toilets:position",
         "type": "semiCombo"
+    },
+    "toilets/wheelchair": {
+        "key": "toilets/wheelchair",
+        "type": "radio",
+        "prerequisiteTag": {
+            "key": "toilets",
+            "valueNot": "no"
+        },
+        "options": [
+            "yes",
+            "limited",
+            "no"
+        ]
     },
     "toll": {
         "key": "toll",
@@ -3589,7 +4022,13 @@
     },
     "tunnel_combo": {
         "key": "tunnel",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "avalanche_protector",
+            "building_passage",
+            "culvert",
+            "flooded"
+        ]
     },
     "tunnel": {
         "key": "tunnel",
@@ -3599,6 +4038,17 @@
     "turning_circle": {
         "key": "turning_circle",
         "type": "combo"
+    },
+    "two_sided": {
+        "key": "two_sided",
+        "type": "defaultCheck",
+        "geometry": [
+            "line"
+        ],
+        "options": [
+            "undefined",
+            "yes"
+        ]
     },
     "usage_rail": {
         "key": "usage",
@@ -3780,7 +4230,6 @@
     "website": {
         "key": "website",
         "type": "url",
-        "icon": "website",
         "universal": true
     },
     "wetland": {
@@ -3802,7 +4251,6 @@
     "wheelchair": {
         "key": "wheelchair",
         "type": "radio",
-        "icon": "maki-wheelchair",
         "options": [
             "yes",
             "limited",
@@ -3825,7 +4273,6 @@
             "wikipedia"
         ],
         "type": "wikidata",
-        "icon": "wikipedia",
         "universal": true
     },
     "wikimedia_commons": {
@@ -3842,7 +4289,6 @@
             "wikidata"
         ],
         "type": "wikipedia",
-        "icon": "wikipedia",
         "universal": true
     },
     "windings": {
