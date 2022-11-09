@@ -18,6 +18,12 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 -->
 
 
+# 5.0.1
+
+#### Bugfixes
+* add missing `caseSensitive` property to many combo fields which require it
+
+
 # 5.0.0
 
 #### Schema Changes
