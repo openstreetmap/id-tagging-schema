@@ -75,6 +75,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 * Upgrade ~~`natural=water` + `water=reservoir` + `reservoir_type=tailings`~~ and ~~`landuse=reservoir` + `reservoir_type=tailings`~~ to `man_made=tailings_pond` ([#144], thanks [@Marc-marc-marc])
 * Replace `generator:method=solar` with `generator:source=solar` ([#620], thanks [@Marc-marc-marc])
 #### Documentation and Other Changes
+* Mention more "related projects" in readme
 
 [#144]: https://github.com/openstreetmap/id-tagging-schema/pull/144
 [#164]: https://github.com/openstreetmap/id-tagging-schema/pull/164
