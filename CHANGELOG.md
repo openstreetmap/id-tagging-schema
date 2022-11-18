@@ -17,6 +17,13 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# unreleased (5.1.0-dev, changelog incomplete)
+
+#### Development
+* Upgrade schema-builder to version 5.2, updates transifex API to v3 (see also [iD#9375])
+
+[iD#9375]: https://github.com/openstreetmap/iD/pull/9375
+
 
 # 5.0.1
 
