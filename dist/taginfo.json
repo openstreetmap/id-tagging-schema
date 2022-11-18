@@ -132,7 +132,7 @@
         },
         {
             "key": "natural",
-            "description": "🄿 Natural Feature (unsearchable), 🄵 Natural",
+            "description": "🄿 Natural Feature (unsearchable), 🄿 Pipeline Feature (unsearchable), 🄵 Natural",
             "object_types": [
                 "node",
                 "way",
@@ -5302,8 +5302,8 @@
         },
         {
             "key": "crossing",
-            "value": "uncontrolled",
-            "description": "🄿 Marked Crosswalk (unsearchable)",
+            "value": "marked",
+            "description": "🄿 Marked Crosswalk (unsearchable), 🄿 Marked Cycle Crossing (unsearchable), 🄿 Marked Crossing (unsearchable)",
             "object_types": [
                 "node"
             ],
@@ -5312,16 +5312,7 @@
         {
             "key": "crossing",
             "value": "zebra",
-            "description": "🄿 Marked Crosswalk (unsearchable)",
-            "object_types": [
-                "node"
-            ],
-            "icon_url": "https://cdn.jsdelivr.net/gh/ideditor/temaki/icons/pedestrian_crosswalk.svg"
-        },
-        {
-            "key": "crossing",
-            "value": "marked",
-            "description": "🄿 Marked Crosswalk, 🄿 Marked Cycle Crossing",
+            "description": "🄿 Marked Crosswalk (unsearchable), 🄿 Marked Crossing (unsearchable)",
             "object_types": [
                 "node"
             ],
@@ -5330,7 +5321,7 @@
         {
             "key": "crossing",
             "value": "traffic_signals",
-            "description": "🄿 Crossing With Pedestrian Signals",
+            "description": "🄿 Crossing With Pedestrian Signals, 🄿 Cycle Crossing With Traffic Signals, 🄵🅅 Type: Crossing With Traffic Signals",
             "object_types": [
                 "node"
             ],
@@ -5338,8 +5329,17 @@
         },
         {
             "key": "crossing",
+            "value": "uncontrolled",
+            "description": "🄿 Marked Crosswalk, 🄿 Marked Cycle Crossing, 🄿 Marked Crossing, 🄵🅅 Type: Only Road Markings",
+            "object_types": [
+                "node"
+            ],
+            "icon_url": "https://cdn.jsdelivr.net/gh/ideditor/temaki/icons/pedestrian_crosswalk.svg"
+        },
+        {
+            "key": "crossing",
             "value": "unmarked",
-            "description": "🄿 Unmarked Crossing, 🄿 Unmarked Cycle Crossing",
+            "description": "🄿 Unmarked Crossing, 🄿 Unmarked Cycle Crossing, 🄵🅅 Type: No Road Markings or Traffic Signals",
             "object_types": [
                 "node"
             ],
@@ -5464,6 +5464,15 @@
             "key": "footway",
             "value": "sidewalk",
             "description": "🄿 Sidewalk",
+            "object_types": [
+                "way"
+            ],
+            "icon_url": "https://cdn.jsdelivr.net/gh/ideditor/temaki/icons/pedestrian.svg"
+        },
+        {
+            "key": "footway",
+            "value": "traffic_island",
+            "description": "🄿 Refuge Island",
             "object_types": [
                 "way"
             ],
@@ -7230,6 +7239,16 @@
         },
         {
             "key": "sport",
+            "value": "handball",
+            "description": "🄿 Team Handball Court",
+            "object_types": [
+                "area",
+                "node"
+            ],
+            "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/pitch-15.svg"
+        },
+        {
+            "key": "sport",
             "value": "horseshoes",
             "description": "🄿 Horseshoes Pit",
             "object_types": [
@@ -8022,15 +8041,6 @@
             "icon_url": "https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/iD-sprite/presets/pipeline-line.svg"
         },
         {
-            "key": "pipeline",
-            "value": "valve",
-            "description": "🄿 Pipeline Valve",
-            "object_types": [
-                "node"
-            ],
-            "icon_url": "https://cdn.jsdelivr.net/gh/ideditor/temaki/icons/wheel.svg"
-        },
-        {
             "key": "man_made",
             "value": "pumping_station",
             "description": "🄿 Pumping Station",
@@ -8154,6 +8164,16 @@
                 "area"
             ],
             "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/castle-15.svg"
+        },
+        {
+            "key": "tower:type",
+            "value": "diving",
+            "description": "🄿 Diving Platform",
+            "object_types": [
+                "node",
+                "area"
+            ],
+            "icon_url": "https://cdn.jsdelivr.net/gh/ideditor/temaki/icons/diving.svg"
         },
         {
             "key": "tower:type",
@@ -9431,6 +9451,25 @@
             "icon_url": "https://cdn.jsdelivr.net/gh/mapbox/maki/icons/suitcase-15.svg"
         },
         {
+            "key": "pipeline",
+            "value": "substation",
+            "description": "🄿 Pipeline Substation",
+            "object_types": [
+                "area",
+                "node"
+            ],
+            "icon_url": "https://cdn.jsdelivr.net/gh/ideditor/temaki/icons/powered_pump.svg"
+        },
+        {
+            "key": "pipeline",
+            "value": "valve",
+            "description": "🄿 Pipeline Valve",
+            "object_types": [
+                "node"
+            ],
+            "icon_url": "https://cdn.jsdelivr.net/gh/ideditor/temaki/icons/wheel.svg"
+        },
+        {
             "key": "piste:type",
             "value": "downhill",
             "description": "🄿 Downhill Ski Run, 🄵🅅 Type: Downhill",
@@ -10053,9 +10092,9 @@
             "icon_url": "https://cdn.jsdelivr.net/gh/ideditor/temaki/icons/radiation.svg"
         },
         {
-            "key": "generator:method",
-            "value": "wind_turbine",
-            "description": "🄿 Wind Turbine, 🄵🅅 Method: Wind Turbine",
+            "key": "generator:source",
+            "value": "wind",
+            "description": "🄿 Wind Turbine, 🄵🅅 Source: Wind",
             "object_types": [
                 "node",
                 "area"
@@ -14676,6 +14715,85 @@
             "description": "🄵 Lights"
         },
         {
+            "key": "crossing:markings",
+            "description": "🄵 Crossing Markings"
+        },
+        {
+            "key": "crossing:markings",
+            "value": "zebra",
+            "description": "🄵🅅 Crossing Markings: Longitudinal Bars"
+        },
+        {
+            "key": "crossing:markings",
+            "value": "lines",
+            "description": "🄵🅅 Crossing Markings: Transverse Lines"
+        },
+        {
+            "key": "crossing:markings",
+            "value": "no",
+            "description": "🄵🅅 Crossing Markings: Unmarked"
+        },
+        {
+            "key": "crossing:markings",
+            "value": "ladder",
+            "description": "🄵🅅 Crossing Markings: Ladder With Longitudinal Bars"
+        },
+        {
+            "key": "crossing:markings",
+            "value": "dots",
+            "description": "🄵🅅 Crossing Markings: Dotted Transverse Lines"
+        },
+        {
+            "key": "crossing:markings",
+            "value": "dashes",
+            "description": "🄵🅅 Crossing Markings: Dashed Transverse Lines"
+        },
+        {
+            "key": "crossing:markings",
+            "value": "yes",
+            "description": "🄵🅅 Crossing Markings: Marked Somehow"
+        },
+        {
+            "key": "crossing:markings",
+            "value": "surface",
+            "description": "🄵🅅 Crossing Markings: Surface Treatment Only"
+        },
+        {
+            "key": "crossing:markings",
+            "value": "ladder:skewed",
+            "description": "🄵🅅 Crossing Markings: Ladder With Diagonal Bars"
+        },
+        {
+            "key": "crossing:markings",
+            "value": "pictograms",
+            "description": "🄵🅅 Crossing Markings: Painted Pictograms"
+        },
+        {
+            "key": "crossing:markings",
+            "value": "lines:paired",
+            "description": "🄵🅅 Crossing Markings: Double Transverse Lines"
+        },
+        {
+            "key": "crossing:markings",
+            "value": "zebra:double",
+            "description": "🄵🅅 Crossing Markings: Triple-Four"
+        },
+        {
+            "key": "crossing:markings",
+            "value": "zebra:paired",
+            "description": "🄵🅅 Crossing Markings: Paired Longitudinal Bars"
+        },
+        {
+            "key": "crossing:markings",
+            "value": "zebra:bicolour",
+            "description": "🄵🅅 Crossing Markings: Longitudinal Bars With Alternating Colors"
+        },
+        {
+            "key": "crossing:markings",
+            "value": "ladder:paired",
+            "description": "🄵🅅 Crossing Markings: Ladder With Paired Longitudinal Bars"
+        },
+        {
             "key": "cuisine",
             "description": "🄵 Cuisines"
         },
@@ -15608,6 +15726,11 @@
         },
         {
             "key": "generator:method",
+            "value": "wind_turbine",
+            "description": "🄵🅅 Method: Wind Turbine"
+        },
+        {
+            "key": "generator:method",
             "value": "water-storage",
             "description": "🄵🅅 Method: Reservoir"
         },
@@ -15663,11 +15786,6 @@
             "key": "generator:source",
             "value": "nuclear",
             "description": "🄵🅅 Source: Nuclear Power"
-        },
-        {
-            "key": "generator:source",
-            "value": "wind",
-            "description": "🄵🅅 Source: Wind"
         },
         {
             "key": "generator:source",
@@ -16198,6 +16316,10 @@
         {
             "key": "height",
             "description": "🄵 Building Height (Meters), 🄵 Height (Meters)"
+        },
+        {
+            "key": "height:hub",
+            "description": "🄵 Height of Hub (Meters)"
         },
         {
             "key": "highchair",
@@ -17236,6 +17358,10 @@
             "description": "🄵 Telephone"
         },
         {
+            "key": "pipeline",
+            "description": "🄵 Type"
+        },
+        {
             "key": "piste:difficulty",
             "description": "🄵 Difficulty"
         },
@@ -17795,6 +17921,10 @@
         {
             "key": "rooms",
             "description": "🄵 Rooms"
+        },
+        {
+            "key": "rotor:diameter",
+            "description": "🄵 Rotor Diameter (Meters)"
         },
         {
             "key": "roundtrip",
@@ -18538,7 +18668,7 @@
         {
             "key": "substation",
             "value": "transmission",
-            "description": "🄵🅅 Type: High-Voltage Transmission"
+            "description": "🄵🅅 Type: Transmission, 🄵🅅 Type: High-Voltage Transmission"
         },
         {
             "key": "substation",
@@ -18554,6 +18684,36 @@
             "key": "substation",
             "value": "industrial",
             "description": "🄵🅅 Type: Industrial"
+        },
+        {
+            "key": "substation",
+            "value": "compression",
+            "description": "🄵🅅 Type: Compression"
+        },
+        {
+            "key": "substation",
+            "value": "measurement",
+            "description": "🄵🅅 Type: Measurement"
+        },
+        {
+            "key": "substation",
+            "value": "valve",
+            "description": "🄵🅅 Type: Valve"
+        },
+        {
+            "key": "substation",
+            "value": "valve_group",
+            "description": "🄵🅅 Type: Valve Group"
+        },
+        {
+            "key": "substation",
+            "value": "inspection_gauge",
+            "description": "🄵🅅 Type: Inspection Gauge"
+        },
+        {
+            "key": "substation",
+            "value": "field_gathering",
+            "description": "🄵🅅 Type: Field Gathering"
         },
         {
             "key": "substation",
@@ -18916,6 +19076,10 @@
         {
             "key": "tower:construction",
             "description": "🄵 Construction"
+        },
+        {
+            "key": "tower:platforms",
+            "description": "🄵 Platforms"
         },
         {
             "key": "tower:type",
@@ -19366,10 +19530,6 @@
         {
             "key": "water_tank:volume",
             "description": "🄵 Volume (Liters)"
-        },
-        {
-            "key": "water_volume",
-            "description": "🄵 Water Reserve Volume (m³)"
         },
         {
             "key": "water",
@@ -21098,6 +21258,11 @@
             "key": "sport",
             "value": "shuffle_board",
             "description": "🄳 (deprecated tag) ➜ sport=shuffleboard"
+        },
+        {
+            "key": "sport",
+            "value": "team_handball",
+            "description": "🄳 (deprecated tag) ➜ sport=handball"
         },
         {
             "key": "station",

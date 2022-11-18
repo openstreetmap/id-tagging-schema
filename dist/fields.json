@@ -744,7 +744,12 @@
     },
     "crossing": {
         "key": "crossing",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "traffic_signals",
+            "uncontrolled",
+            "unmarked"
+        ]
     },
     "crossing/barrier": {
         "key": "crossing:barrier",
@@ -770,6 +775,27 @@
     "crossing/light": {
         "key": "crossing:light",
         "type": "check"
+    },
+    "crossing/markings": {
+        "key": "crossing:markings",
+        "type": "combo",
+        "options": [
+            "zebra",
+            "lines",
+            "no",
+            "ladder",
+            "dots",
+            "dashes",
+            "yes",
+            "surface",
+            "ladder:skewed",
+            "pictograms",
+            "lines:paired",
+            "zebra:double",
+            "zebra:paired",
+            "zebra:bicolour",
+            "ladder:paired"
+        ]
     },
     "cuisine": {
         "key": "cuisine",
@@ -833,7 +859,8 @@
     "cycle_network": {
         "key": "cycle_network",
         "type": "networkCombo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "cycleway": {
         "keys": [
@@ -935,7 +962,8 @@
     "destination": {
         "key": "destination",
         "type": "semiCombo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "destination/ref_oneway": {
         "key": "destination:ref",
@@ -944,12 +972,14 @@
             "key": "oneway",
             "value": "yes"
         },
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "destination/ref": {
         "key": "destination:ref",
         "type": "semiCombo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "destination/symbol_oneway": {
         "key": "destination:symbol",
@@ -1279,7 +1309,8 @@
     "fire_hydrant/pressure": {
         "key": "fire_hydrant:pressure",
         "type": "combo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "fire_hydrant/type": {
         "key": "fire_hydrant:type",
@@ -1502,7 +1533,8 @@
     "generator/output/electricity": {
         "key": "generator:output:electricity",
         "type": "typeCombo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "generator/source": {
         "key": "generator:source",
@@ -1534,7 +1566,8 @@
     "genus": {
         "key": "genus",
         "type": "combo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "geyser/height": {
         "key": "geyser:height",
@@ -1558,7 +1591,8 @@
     "grades": {
         "key": "grades",
         "type": "combo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "grape_variety": {
         "key": "grape_variety",
@@ -1695,6 +1729,11 @@
     },
     "height": {
         "key": "height",
+        "minValue": 0,
+        "type": "number"
+    },
+    "height/hub": {
+        "key": "height:hub",
         "minValue": 0,
         "type": "number"
     },
@@ -2334,7 +2373,8 @@
     "network_road": {
         "key": "network",
         "type": "networkCombo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "network": {
         "key": "network",
@@ -2350,7 +2390,8 @@
     "not/name": {
         "key": "not:name",
         "type": "semiCombo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "note": {
         "key": "note",
@@ -2401,12 +2442,14 @@
     "opening_hours": {
         "key": "opening_hours",
         "type": "combo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "opening_hours/covid19": {
         "key": "opening_hours:covid19",
         "type": "combo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "operator": {
         "key": "operator",
@@ -2560,6 +2603,10 @@
     "phone": {
         "key": "phone",
         "type": "tel"
+    },
+    "pipeline": {
+        "key": "pipeline",
+        "type": "typeCombo"
     },
     "piste/difficulty_downhill": {
         "key": "piste:difficulty",
@@ -2764,6 +2811,7 @@
         "key": "plant:output:electricity",
         "type": "typeCombo",
         "snake_case": false,
+        "caseSensitive": true,
         "prerequisiteTag": {
             "key": "plant:output:electricity",
             "valueNot": "no"
@@ -2897,7 +2945,8 @@
     "rating": {
         "key": "rating",
         "type": "combo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "rcn_ref": {
         "key": "rcn_ref",
@@ -3152,6 +3201,11 @@
         "key": "rooms",
         "type": "number",
         "minValue": 0
+    },
+    "rotor/diameter": {
+        "key": "rotor:diameter",
+        "minValue": 0,
+        "type": "number"
     },
     "roundtrip": {
         "key": "roundtrip",
@@ -3519,7 +3573,8 @@
     "species": {
         "key": "species",
         "type": "combo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "species/wikidata": {
         "key": "species:wikidata",
@@ -3665,6 +3720,23 @@
         "key": "substance",
         "type": "combo"
     },
+    "substation_pipeline": {
+        "key": "substation",
+        "type": "typeCombo",
+        "autoSuggestions": false,
+        "options": [
+            "transmission",
+            "distribution",
+            "minor_distribution",
+            "industrial",
+            "compression",
+            "measurement",
+            "valve",
+            "valve_group",
+            "inspection_gauge",
+            "field_gathering"
+        ]
+    },
     "substation": {
         "key": "substation",
         "type": "typeCombo",
@@ -3808,7 +3880,8 @@
     "taxon": {
         "key": "taxon",
         "type": "combo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "tee": {
         "key": "tee",
@@ -3887,6 +3960,11 @@
         "key": "tower:construction",
         "type": "combo"
     },
+    "tower/platforms": {
+        "key": "tower:platforms",
+        "type": "number",
+        "minValue": 1
+    },
     "tower/type": {
         "key": "tower:type",
         "type": "combo"
@@ -3919,7 +3997,8 @@
     "traffic_sign": {
         "key": "traffic_sign",
         "type": "typeCombo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "traffic_sign/direction": {
         "key": "traffic_sign:direction",
@@ -4130,7 +4209,8 @@
     "via": {
         "key": "via",
         "type": "semiCombo",
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "video_calls": {
         "key": "video",
@@ -4213,11 +4293,6 @@
     "water_tank/volume": {
         "key": "water_tank:volume",
         "type": "text"
-    },
-    "water_volume": {
-        "key": "water_volume",
-        "type": "number",
-        "snake_case": false
     },
     "water": {
         "key": "water",

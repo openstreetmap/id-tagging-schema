@@ -670,7 +670,12 @@
                     }
                 },
                 "crossing": {
-                    "label": "Typ"
+                    "label": "Typ",
+                    "options": {
+                        "traffic_signals": "Gehweh-Querung mit Ampel",
+                        "uncontrolled": "Nur mit Straßenmarkierung",
+                        "unmarked": "Ohne Straßenmarkierung und ohne Ampel"
+                    }
                 },
                 "crossing/barrier": {
                     "label": "Beschrankung des Bahnübergangs",
@@ -690,6 +695,27 @@
                 },
                 "crossing/light": {
                     "label": "Warnlicht am Bahnübergang"
+                },
+                "crossing/markings": {
+                    "label": "Straßenmarkierung",
+                    "options": {
+                        "dashes": "Gestrichelte Linien",
+                        "dots": "Gepunktete Linien",
+                        "ladder": "Leiter mit Querlinien",
+                        "ladder:paired": "Leiter mit Doppelquerlinien",
+                        "ladder:skewed": "Leiter mit Diagonallinien",
+                        "lines": "Durchgezogene Linien",
+                        "lines:paired": "Durchgezogene Doppellinien",
+                        "no": "Keine Markierung",
+                        "pictograms": "Piktogramme",
+                        "surface": "Nur Wechsel des Straßenbelags",
+                        "yes": "Unbestimmte Markierung",
+                        "zebra": "Zebrastreifen",
+                        "zebra:bicolour": "Zweifarbiger Zebrastreifen",
+                        "zebra:double": "Zebrastreifen mit geteilten Querstreifen",
+                        "zebra:paired": "Zebrasteifen mit gepaarten Querstreifen"
+                    },
+                    "terms": "markierung,markierungen,kennzeichnung,linien,straßenmarkierung,straßenmarkierungen,straßenkennzeichnung,straßenlinien,bodenmarkierung,bodenmarkierungen,bodenkennzeichnungen,bodenlinien,querungsmarkierung,querungsmarkierungen,querungskennzeichnung,querungslinien,kreuzungsmarkierung,kreuzungsmarkierungen,kreuzungskennzeichnung,kreuzungslinien"
                 },
                 "crossing_raised": {
                     "label": "Aufpflasterung\nPlateauaufpflasterung\nAnhebung der Fahrbahn",
@@ -1445,6 +1471,10 @@
                     "label": "Höhe (in Meter)",
                     "terms": "höhe (meter)"
                 },
+                "height/hub": {
+                    "label": "Nabenhöhe des Rotors (Meter)",
+                    "terms": "nabenhöhe,rotor,achshöhe,nabe,achse,mittelpunkt,zentrum"
+                },
                 "height_building": {
                     "label": "Gebäudehöhe (Meter)",
                     "terms": "gebäudehöhe (meter)"
@@ -2136,6 +2166,9 @@
                     "placeholder": "+49 123 4567",
                     "terms": "telefonnummer,rufnummer"
                 },
+                "pipeline": {
+                    "label": "Typ"
+                },
                 "piste/difficulty": {
                     "label": "Schwierigkeit",
                     "options": {
@@ -2502,6 +2535,10 @@
                 },
                 "rooms": {
                     "label": "Räume"
+                },
+                "rotor/diameter": {
+                    "label": "Rotordurchmesser (Meter)",
+                    "terms": "rotor,durchmesser"
                 },
                 "roundtrip": {
                     "label": "Rundweg",
@@ -2917,6 +2954,12 @@
                         "transmission": "Regionales Transportnetz"
                     }
                 },
+                "substation_pipeline": {
+                    "label": "Typ",
+                    "options": {
+                        "compression": "Verdichterstation"
+                    }
+                },
                 "supervised": {
                     "label": "Überwacht",
                     "terms": "überwacht,bemannt,bewacht"
@@ -3090,6 +3133,10 @@
                 "tower/construction": {
                     "label": "Konstruktionstyp",
                     "placeholder": "Abgespannt, ummantelte oder Gittertrüme."
+                },
+                "tower/platforms": {
+                    "label": "Plattformen",
+                    "placeholder": "1, 2, 3..."
                 },
                 "tower/type": {
                     "label": "Typ"
@@ -3347,10 +3394,6 @@
                     "label": "Volumen (Liter)",
                     "placeholder": "10000, 20000, 30000…",
                     "terms": "liter,kubikdezimeter,volumen,inhalt"
-                },
-                "water_volume": {
-                    "label": "Wasser Reserve Volumen (m³)",
-                    "terms": "wasserreservevolumen (m³)"
                 },
                 "waterway": {
                     "label": "Typ"
@@ -5598,15 +5641,15 @@
                     "name": "Übergang"
                 },
                 "highway/crossing/marked": {
-                    "name": "markierter / gekennzeichneter Übergang",
-                    "terms": "zebrastreifen,gekennzeichneter übergang"
+                    "name": "markierter / gekennzeichneter Übergang"
                 },
                 "highway/crossing/traffic_signals": {
                     "name": "Kreuzung mit Fußgängerampel",
                     "terms": "fußgängerampel,fußgängerübergang,radübergang"
                 },
                 "highway/crossing/uncontrolled": {
-                    "name": "markierter / gekennzeichneter Übergang"
+                    "name": "markierter / gekennzeichneter Übergang",
+                    "terms": "zebrastreifen,gekennzeichneter übergang,markierter übergang,querung,übergang,überweg,fußgängerüberweg,markierung"
                 },
                 "highway/crossing/unmarked": {
                     "name": "Nicht gekennzeichneter Übergang",
@@ -5631,7 +5674,14 @@
                     "terms": "rad- und fußübergang,fahrradübergang und fußgängerübergang"
                 },
                 "highway/cycleway/crossing/marked": {
-                    "name": "Gekennzeichneter Fahrrad-Übergang",
+                    "name": "Gekennzeichneter Fahrrad-Übergang"
+                },
+                "highway/cycleway/crossing/traffic_signals": {
+                    "name": "Radweg-Querung mit Ampel",
+                    "terms": "fahrradquerung,fahrradüberweg,radquerung,radüberweg,radfahrerquerung,radfahrerüberweg,fahrradweg,radweg,fahrradstreifen,radstreifen,ampel,ampelgeregelt,lichtzeichen"
+                },
+                "highway/cycleway/crossing/uncontrolled": {
+                    "name": "Radweg-Querung mit Straßenmarkierung",
                     "terms": "gekennzeichneter fahrrad-übergang"
                 },
                 "highway/cycleway/crossing/unmarked": {
@@ -5677,28 +5727,37 @@
                 "highway/footway/crossing": {
                     "name": "Fußgängerüberweg (eigener Weg)"
                 },
+                "highway/footway/crossing/marked": {
+                    "name": "Gehweg-Querung mit Straßenmarkierung",
+                    "aliases": "Gekennzeichneter Übergang\nMarkierter Übergang"
+                },
+                "highway/footway/crossing/traffic_signals": {
+                    "name": "Gehweg-Querung mit Ampel",
+                    "terms": "fußgängerampel,fußgängergang,fußgängerüberweg (ampel),fahrradüberweg (ampel),zebrastreifen (ampel)"
+                },
+                "highway/footway/crossing/uncontrolled": {
+                    "name": "Gehweg-Querung mit Straßenmarkierung",
+                    "terms": "markierter fußgängerüberweg,markierter zebrastreifen,zebrastreifen,fußgängerüberweg",
+                    "aliases": "Gekennzeichneter Übergang\nMarkierter Übergang"
+                },
+                "highway/footway/crossing/unmarked": {
+                    "name": "Querung ohne Markierungen",
+                    "terms": "nicht gekennzeichneter übergang,nicht markierte kreuzung,nicht gekennzeichnete kreuzung"
+                },
+                "highway/footway/crossing/zebra": {
+                    "name": "Gehweg-Querung mit Zebrastreifen"
+                },
                 "highway/footway/informal": {
                     "name": "Trampelpfad"
-                },
-                "highway/footway/marked": {
-                    "name": "markierter / gekennzeichneter Übergang",
-                    "terms": "zebrastreifen,markierter fußgängerübergang"
                 },
                 "highway/footway/sidewalk": {
                     "name": "Bürgersteig",
                     "terms": "gangsteig,gehsteig,bürgersteig,trottoir,gehweg,fußweg",
                     "aliases": "Gehsteig\nTrottoir"
                 },
-                "highway/footway/traffic_signals": {
-                    "name": "Kreuzung mit Fußgängerampel",
-                    "terms": "fußgängerampel,fußgängerübergang,radübergang"
-                },
-                "highway/footway/unmarked": {
-                    "name": "Nicht gekennzeichneter Übergang",
-                    "terms": "unbezeichneter übergang,unmarkierter übergang,ungekennzeichneter übergang"
-                },
-                "highway/footway/zebra": {
-                    "name": "markierter / gekennzeichneter Übergang"
+                "highway/footway/traffic_island": {
+                    "name": "Verkehrsinsel",
+                    "terms": "fahrbahnteiler,insel,mittelinsel"
                 },
                 "highway/give_way": {
                     "name": "Vorfahrt gewähren",
@@ -6462,6 +6521,10 @@
                     "name": "Gagaballfeld",
                     "terms": "gagaball,gaga-ball,gaga"
                 },
+                "leisure/pitch/handball": {
+                    "name": "Handballplatz",
+                    "terms": "mannschaftshandballplatz,handballplatz"
+                },
                 "leisure/pitch/horseshoes": {
                     "name": "Hufeisenwurfplatz",
                     "terms": "pferde,hufeisen"
@@ -6808,10 +6871,6 @@
                     "name": "Unterirdische Pipeline",
                     "terms": "unterirdische pipeline"
                 },
-                "man_made/pipeline/valve": {
-                    "name": "Pipeline-Ventil",
-                    "terms": "öl,gas,wasser,abwasser,abwasserkanal"
-                },
                 "man_made/planter": {
                     "name": "Pflanzkübel",
                     "terms": "blumentopf,blumenkübel,pflanztopf,pflanzbehälter",
@@ -6880,6 +6939,11 @@
                 "man_made/tower/defensive": {
                     "name": "Wachturm",
                     "terms": "befestigter turm,wachturm,wehrturm"
+                },
+                "man_made/tower/diving": {
+                    "name": "Sprungturm",
+                    "terms": "wasserspringen,turmspringen,kunstspringen,synchronspringen,sprunganlage,einer,ein-meter-brett,dreier,drei-meter-brett,fünfer,fünf-meter-turm,siebeneinhalber,siebeneinhalb-meter-turm,zehner,zehn-meter-turm",
+                    "aliases": "Sprungbrett"
                 },
                 "man_made/tower/minaret": {
                     "name": "Minarett",
