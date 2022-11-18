@@ -21,6 +21,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 
 #### Development
 * Upgrade schema-builder to version 5.2, updates transifex API to v3 (see also [iD#9375])
+* Don't purge and re-fetch translations when running `npm run dist`: To do a "full" dist run – including updated translations – one can run `npm run dist translations` now.
 
 [iD#9375]: https://github.com/openstreetmap/iD/pull/9375
 
