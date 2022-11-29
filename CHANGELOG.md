@@ -17,13 +17,58 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
-# unreleased (5.1.0-dev, changelog incomplete)
+# 5.1.0
 
+#### :mega: Release Highlights
+* Add support for new `crossing:markings` tag of foot/cycle crossing ([#590])
+#### Bugfixes
+* Fix wrong tag key in Wheelchair Accessible Toilet field: instead of `:` it mistakenly contained the character `/` ([#656], thanks [@alanb43])
+* Fix wrong default options for the `maxstay` field (it contained abbreviated time units, e.g. `15 min` instead of `15 minutes`) ([#652], thanks [@Zaczero])
+* Values of the Currency field should not be converted to lowercase letters ([#654])
+#### New Presets
+* Add preset for Cycle Crossing With Traffic Signals ([#590])
+* Add preset for Team Handball Court ([#636], thanks [@arch0345])
+* Add preset for Diving Platform ([#637], thanks [@arch0345])
+* Add preset for Pipeline Substation ([#640], thanks [@arch0345])
+* Add presets for Gantry Crane and Portal Crane ([#649], thanks [@arch0345])
+* Add preset for Gantry (`man_made=gantry`) ([#649], thanks [@arch0345])
+* Add preset for Anchor Portal (`power=portal`) ([#649], thanks [@arch0345])
+#### Changed Presets
+* Switch Marked Crosswalk preset to use the `crossing=uncontrolled` tag instead of `crossing=marked` ([#590])
+* Add additional search terms to the preset for `man_made=bridge` ([#634])
+* Add additional search term "bike parking" to the Bicycle Parking preset
+* Allow Viewpoints to be mapped as areas ([#650])
+* Expand uses of the (unsupported special "wildcard" character) `*` in terms of some presets
+#### New and Changed Fields
+* Add fields for diameter (`rotor:diameter`) and height (`height:hub`) of wind turbines ([#241])
+* Remove field for undocumented and (essentially) unused tag `water_volume` (was used on Fire Hydrant preset)
+* Update `roof:colour` field to new `colour` field type ([#647])
+* Add `cables` field to presets for Power Lines (`power=line` and `power=minor_line`) ([#645])
+* Add field for the `structure` tag (used for example on power line towers and portals) ([#649], thanks [@arch0345])
+#### Deprecated Tags
+#### Docs and other
 #### Development
+* Fix a bug which prevented `npm run translations` to run
 * Upgrade schema-builder to version 5.2, updates transifex API to v3 (see also [iD#9375])
-* Don't purge and re-fetch translations when running `npm run dist`: To do a "full" dist run – including updated translations – one can run `npm run dist translations` now.
+* Don't purge and re-fetch translations when running `npm run dist`: To do a "full" dist run – including updated translations – one can run `npm run dist translations` now
+* Fix compatibility with Windows operating system (was a regression in v5.0.0) ([#655])
 
 [iD#9375]: https://github.com/openstreetmap/iD/pull/9375
+[#241]: https://github.com/openstreetmap/id-tagging-schema/pull/241
+[#590]: https://github.com/openstreetmap/id-tagging-schema/pull/590
+[#634]: https://github.com/openstreetmap/id-tagging-schema/issues/634
+[#636]: https://github.com/openstreetmap/id-tagging-schema/pull/636
+[#637]: https://github.com/openstreetmap/id-tagging-schema/pull/637
+[#645]: https://github.com/openstreetmap/id-tagging-schema/issues/645
+[#647]: https://github.com/openstreetmap/id-tagging-schema/issues/647
+[#649]: https://github.com/openstreetmap/id-tagging-schema/pull/649
+[#650]: https://github.com/openstreetmap/id-tagging-schema/issues/650
+[#652]: https://github.com/openstreetmap/id-tagging-schema/pull/652
+[#654]: https://github.com/openstreetmap/id-tagging-schema/issues/654
+[#655]: https://github.com/openstreetmap/id-tagging-schema/issues/655
+[#656]: https://github.com/openstreetmap/id-tagging-schema/pull/656
+[@alanb43]: https://github.com/alanb43
+[@Zaczero]: https://github.com/Zaczero
 
 
 # 5.0.1
