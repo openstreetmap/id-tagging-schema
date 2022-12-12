@@ -17,6 +17,14 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 5.1.1
+
+#### Bugfixes
+* Fix a bug causing `undefined` to be used as the tag key in the `structure` field ([#676])
+
+[#676]: https://github.com/openstreetmap/id-tagging-schema/issues/676
+
+
 # 5.1.0
 
 #### :mega: Release Highlights
@@ -59,6 +67,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#634]: https://github.com/openstreetmap/id-tagging-schema/issues/634
 [#636]: https://github.com/openstreetmap/id-tagging-schema/pull/636
 [#637]: https://github.com/openstreetmap/id-tagging-schema/pull/637
+[#640]: https://github.com/openstreetmap/id-tagging-schema/pull/640
 [#645]: https://github.com/openstreetmap/id-tagging-schema/issues/645
 [#647]: https://github.com/openstreetmap/id-tagging-schema/issues/647
 [#649]: https://github.com/openstreetmap/id-tagging-schema/pull/649
