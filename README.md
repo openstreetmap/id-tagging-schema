@@ -24,7 +24,7 @@ This Tagging Schema fills that need, but with a number of caveats:
 
 * Apart from that, translations are managed [in the Transifex Project of the iD Editor](https://www.transifex.com/openstreetmap/id-editor/) inside the translation resource _'preset'_.
 
-  To translate, you can [open the translation page](https://www.transifex.com/openstreetmap/id-editor/translate/), select a language, select _'preset'_ and search for `key:living_street` or `translation_text:'Living Street'` to find and change translations.
+  To translate, you can [open the translation page](https://www.transifex.com/openstreetmap/id-editor/translate/), select a language, select _'presets'_ and search for `key:living_street` or `translation_text:'Living Street'` to find and change translations.
 
   To contribute to a language: [Select a language](https://www.transifex.com/openstreetmap/id-editor/languages/) and use 'Join team' to request access. The administrators will approve requests routinely, only rejecting requests for overly specific locales.
 
