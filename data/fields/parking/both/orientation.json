@@ -1,0 +1,82 @@
+{
+    "key": "parking:both:orientation",
+    "type": "combo",
+    "label": "Parking orientation (both sides)",
+    "strings": {
+        "options": {
+            "parallel": {
+                "title": "Parallel to the Street",
+                "description": "Parking "
+            },
+            "diagonal": {
+                "title": "Diagonal in Relation to the Street",
+                "description": ""
+            },
+            "perpendicular": {
+                "title": "Meets the Street at a Straight Angle",
+                "description": ""
+            }
+        }
+    },
+    "prerequisiteTag": {
+        "key": "parking:both",
+        "valueNot:": "no"
+    },
+    // TODO: Option 3:
+    //   Can we move the "prerequisiteTag" to the string>types area?
+    //   Or maybe use the keys from string>types here, to match per "side"?
+    //
+    // TODO: Option 1:
+    // "prerequisiteTag": {
+    //     "key": "parking:both",
+    //     "valuesNot:": ["no", "separate"]
+    // },
+    //
+    // TODO: Option 2: Which would allow to list :left, :right as well in the future.
+    // "prerequisiteTag": {
+    //     "and": [
+    //         {
+    //             "key": "parking:both",
+    //             "valueNot:": "no"
+    //         },
+    //         {
+    //             "key": "parking:both",
+    //             "valueNot:": "separate"
+    //         }
+    //     ],
+    //     "or": []
+    // },
+    //
+    // TODO: Option 2 variant for ./left_right/orientation
+    // "prerequisiteTag": {
+    //     "and": [
+    //         {
+    //             "key": "parking:both",
+    //             "valueNot:": "no"
+    //         },
+    //         {
+    //             "key": "parking:both",
+    //             "valueNot:": "separate"
+    //         },
+    //         {
+    //             "key": "parking:left",
+    //             "valueNot:": "no"
+    //         },
+    //         {
+    //             "key": "parking:left",
+    //             "valueNot:": "separate"
+    //         },
+    //         {
+    //             "key": "parking:right",
+    //             "valueNot:": "no"
+    //         },
+    //         {
+    //             "key": "parking:right",
+    //             "valueNot:": "separate"
+    //         }
+    //     ],
+    //     "or": []
+    // },
+    "autoSuggestions": false,
+    "customValues": false
+}
