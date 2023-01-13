@@ -181,6 +181,10 @@
         "key": "animal_shelter",
         "type": "semiCombo"
     },
+    "archaeological_site": {
+        "key": "archaeological_site",
+        "type": "combo"
+    },
     "architect": {
         "key": "architect",
         "type": "text"
@@ -195,7 +199,18 @@
     },
     "artwork_type": {
         "key": "artwork_type",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "sculpture",
+            "statue",
+            "mural",
+            "installation",
+            "graffiti",
+            "bust",
+            "painting",
+            "mosaic",
+            "relief"
+        ]
     },
     "ascent": {
         "key": "ascent",
@@ -258,7 +273,13 @@
     },
     "basin": {
         "key": "basin",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "detention",
+            "evaporation",
+            "infiltration",
+            "retention"
+        ]
     },
     "bath/open_air": {
         "key": "bath:open_air",
@@ -330,11 +351,29 @@
     },
     "board_type": {
         "key": "board_type",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "art",
+            "astronomy",
+            "geology",
+            "history",
+            "nature",
+            "notice",
+            "plants",
+            "welcome_sign",
+            "wildlife"
+        ]
     },
     "bollard": {
         "key": "bollard",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "fixed",
+            "flexible",
+            "foldable",
+            "removable",
+            "rising"
+        ]
     },
     "booth": {
         "key": "booth",
@@ -384,14 +423,16 @@
         "default": "yes",
         "geometry": [
             "area"
-        ]
+        ],
+        "label": "{building}"
     },
     "building_area": {
         "key": "building",
         "type": "combo",
         "geometry": [
             "area"
-        ]
+        ],
+        "label": "{building}"
     },
     "building": {
         "key": "building",
@@ -677,6 +718,7 @@
     "covered_no": {
         "key": "covered",
         "type": "check",
+        "label": "{covered}",
         "options": [
             "undefined",
             "yes",
@@ -689,7 +731,65 @@
     },
     "craft": {
         "key": "craft",
-        "type": "typeCombo"
+        "type": "typeCombo",
+        "options": [
+            "agricultural_engines",
+            "basket_maker",
+            "beekeeper",
+            "blacksmith",
+            "boatbuilder",
+            "bookbinder",
+            "brewery",
+            "builder",
+            "carpenter",
+            "carpet_layer",
+            "caterer",
+            "chimney_sweeper",
+            "cleaning",
+            "clockmaker",
+            "confectionery",
+            "distillery",
+            "dressmaker",
+            "electronics_repair",
+            "electrician",
+            "floorer",
+            "gardener",
+            "glaziery",
+            "grinding_mill",
+            "handicraft",
+            "hvac",
+            "insulation",
+            "jeweller",
+            "joiner",
+            "key_cutter",
+            "locksmith",
+            "metal_construction",
+            "oil_mill",
+            "painter",
+            "parquet_layer",
+            "photographer",
+            "photographic_laboratory",
+            "plasterer",
+            "plumber",
+            "pottery",
+            "rigger",
+            "roofer",
+            "saddler",
+            "sailmaker",
+            "sawmill",
+            "scaffolder",
+            "sculptor",
+            "shoemaker",
+            "signmaker",
+            "stonemason",
+            "tailor",
+            "tiler",
+            "tinsmith",
+            "upholsterer",
+            "watchmaker",
+            "window_construction",
+            "winery"
+        ]
     },
     "crane/type": {
         "key": "crane:type",
@@ -699,7 +799,9 @@
         "options": [
             "portal_crane",
             "floor-mounted_crane",
-            "travel_lift"
+            "travel_lift",
+            "gantry_crane",
+            "tower_crane"
         ]
     },
     "crop": {
@@ -873,8 +975,9 @@
             "key": "cycleway"
         },
         "type": "cycleway",
+        "autoSuggestions": true,
         "options": [
-            "none",
+            "no",
             "lane",
             "shared_lane",
             "track",
@@ -950,6 +1053,7 @@
     "destination_oneway": {
         "key": "destination",
         "type": "semiCombo",
+        "label": "{destination}",
         "prerequisiteTag": {
             "key": "oneway",
             "value": "yes"
@@ -969,6 +1073,7 @@
     "destination/ref_oneway": {
         "key": "destination:ref",
         "type": "semiCombo",
+        "label": "{destination/ref}",
         "prerequisiteTag": {
             "key": "oneway",
             "value": "yes"
@@ -985,6 +1090,7 @@
     "destination/symbol_oneway": {
         "key": "destination:symbol",
         "type": "semiCombo",
+        "label": "{destination/symbol}",
         "prerequisiteTag": {
             "key": "oneway",
             "value": "yes"
@@ -1061,6 +1167,7 @@
     "direction_point": {
         "key": "direction",
         "type": "number",
+        "label": "{direction}",
         "increment": 5,
         "geometry": [
             "point"
@@ -1069,16 +1176,24 @@
     "direction_vertex_dual": {
         "key": "direction",
         "type": "combo",
-        "autoSuggestions": false,
-        "customValues": false,
+        "label": "{direction_vertex}",
+        "stringsCrossReference": "{direction_vertex}",
         "options": [
             "forward",
             "backward"
-        ]
+        ],
+        "geometry": [
+            "vertex"
+        ],
+        "autoSuggestions": false,
+        "customValues": false
     },
     "direction_vertex": {
         "key": "direction",
         "type": "combo",
+        "geometry": [
+            "vertex"
+        ],
         "autoSuggestions": false,
         "customValues": false,
         "options": [
@@ -1169,6 +1284,7 @@
     "ele_node": {
         "key": "ele",
         "type": "number",
+        "label": "{ele}",
         "universal": true,
         "geometry": [
             "point",
@@ -1392,6 +1508,7 @@
     "frequency_electrified": {
         "key": "frequency",
         "type": "combo",
+        "label": "{frequency}",
         "prerequisiteTag": {
             "key": "electrified",
             "valueNot": "no"
@@ -1865,6 +1982,7 @@
     "incline_steps": {
         "key": "incline",
         "type": "combo",
+        "label": "{incline}",
         "autoSuggestions": false,
         "customValues": false,
         "options": [
@@ -1903,6 +2021,7 @@
     "intermittent_yes": {
         "key": "intermittent",
         "type": "check",
+        "label": "{intermittent}",
         "default": "yes"
     },
     "intermittent": {
@@ -2021,14 +2140,16 @@
     "leaf_cycle_singular": {
         "key": "leaf_cycle",
         "type": "combo",
-        "autoSuggestions": false,
-        "customValues": false,
+        "label": "{leaf_cycle}",
+        "stringsCrossReference": "{leaf_cycle}",
         "options": [
             "evergreen",
             "deciduous",
             "semi_evergreen",
             "semi_deciduous"
-        ]
+        ],
+        "autoSuggestions": false,
+        "customValues": false
     },
     "leaf_cycle": {
         "key": "leaf_cycle",
@@ -2046,13 +2167,14 @@
     "leaf_type_singular": {
         "key": "leaf_type",
         "type": "combo",
-        "autoSuggestions": false,
-        "customValues": false,
+        "stringsCrossReference": "{leaf_type}",
         "options": [
             "broadleaved",
             "needleleaved",
             "leafless"
-        ]
+        ],
+        "autoSuggestions": false,
+        "customValues": false
     },
     "leaf_type": {
         "key": "leaf_type",
@@ -2113,6 +2235,7 @@
     "location_pool": {
         "key": "location",
         "type": "combo",
+        "label": "{location}",
         "autoSuggestions": false,
         "customValues": false,
         "options": [
@@ -2222,6 +2345,7 @@
     "maxweight_bridge": {
         "key": "maxweight",
         "type": "combo",
+        "label": "{maxweight}",
         "snake_case": false,
         "prerequisiteTag": {
             "key": "bridge",
@@ -2406,6 +2530,7 @@
     "oneway_yes": {
         "key": "oneway",
         "type": "onewayCheck",
+        "label": "{oneway}",
         "options": [
             "undefined",
             "yes",
@@ -2503,10 +2628,14 @@
     "parking_entrance": {
         "key": "parking",
         "type": "combo",
+        "stringsCrossReference": "{parking}",
         "options": [
             "underground",
-            "multi-storey"
-        ]
+            "multi-storey",
+            "surface"
+        ],
+        "autoSuggestions": false,
+        "customValues": true
     },
     "parking_space": {
         "key": "parking_space",
@@ -2612,6 +2741,7 @@
     "piste/difficulty_downhill": {
         "key": "piste:difficulty",
         "type": "combo",
+        "label": "{piste/difficulty}",
         "autoSuggestions": false,
         "customValues": false,
         "options": [
@@ -2627,6 +2757,7 @@
     "piste/difficulty_nordic": {
         "key": "piste:difficulty",
         "type": "combo",
+        "label": "{piste/difficulty}",
         "autoSuggestions": false,
         "customValues": false,
         "options": [
@@ -2640,6 +2771,7 @@
     "piste/difficulty_skitour": {
         "key": "piste:difficulty",
         "type": "combo",
+        "label": "{piste/difficulty}",
         "autoSuggestions": false,
         "customValues": false,
         "options": [
@@ -2670,6 +2802,7 @@
     "piste/grooming_downhill": {
         "key": "piste:grooming",
         "type": "combo",
+        "label": "{piste/grooming}",
         "autoSuggestions": false,
         "customValues": false,
         "options": [
@@ -2681,6 +2814,7 @@
     "piste/grooming_hike": {
         "key": "piste:grooming",
         "type": "combo",
+        "label": "{piste/grooming}",
         "autoSuggestions": false,
         "customValues": false,
         "options": [
@@ -2691,6 +2825,7 @@
     "piste/grooming_nordic": {
         "key": "piste:grooming",
         "type": "combo",
+        "label": "{piste/grooming}",
         "autoSuggestions": false,
         "customValues": false,
         "options": [
@@ -3473,6 +3608,10 @@
         "key": "shelter",
         "type": "check"
     },
+    "shoes": {
+        "key": "shoes",
+        "type": "semiCombo"
+    },
     "shop": {
         "key": "shop",
         "type": "typeCombo"
@@ -3495,10 +3634,6 @@
             "electronic",
             "other"
         ]
-    },
-    "site_type": {
-        "key": "site_type",
-        "type": "combo"
     },
     "site": {
         "key": "site",
@@ -3544,7 +3679,18 @@
     },
     "social_facility": {
         "key": "social_facility",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "ambulatory_care",
+            "assisted_living",
+            "day_care",
+            "food_bank",
+            "group_home",
+            "nursing_home",
+            "outreach",
+            "shelter",
+            "workshop"
+        ]
     },
     "source": {
         "key": "source",
@@ -3677,6 +3823,7 @@
     },
     "structure_power": {
         "type": "combo",
+        "key": "structure",
         "autoSuggestions": false,
         "customValues": false,
         "options": [
@@ -4003,7 +4150,21 @@
     },
     "traffic_calming": {
         "key": "traffic_calming",
-        "type": "typeCombo"
+        "type": "typeCombo",
+        "options": [
+            "bump",
+            "chicane",
+            "choker",
+            "choked_table",
+            "cushion",
+            "dip",
+            "double_dip",
+            "hump",
+            "island",
+            "mini_bumps",
+            "rumble_strip",
+            "table"
+        ]
     },
     "traffic_sign": {
         "key": "traffic_sign",
@@ -4174,7 +4335,16 @@
     },
     "utility": {
         "key": "utility",
-        "type": "typeCombo"
+        "type": "typeCombo",
+        "options": [
+            "gas",
+            "oil",
+            "power",
+            "sewerage",
+            "street_lighting",
+            "telecom",
+            "water"
+        ]
     },
     "valve": {
         "key": "valve",
@@ -4263,6 +4433,7 @@
     "voltage_electrified": {
         "key": "voltage",
         "type": "combo",
+        "label": "{voltage}",
         "prerequisiteTag": {
             "key": "electrified",
             "valueNot": "no"
@@ -4298,8 +4469,14 @@
     },
     "water_source": {
         "key": "water_source",
-        "default": "main",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "main",
+            "water_tank",
+            "pond",
+            "river",
+            "stream"
+        ]
     },
     "water_tank/volume": {
         "key": "water_tank:volume",

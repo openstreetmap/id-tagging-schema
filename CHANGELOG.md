@@ -17,6 +17,90 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 5.2.0
+
+#### Bugfixes
+* Fix match score for "generic" office presets (closes [#661], thanks [@k-yle])
+* Remove "line" geometry from lift gate ([#679])
+* Allow `direction=forward/backward` only on vertices ([#684])
+* Cycleway field: use `no` value instead of `none`
+* Allow charging stations to be mapped as vertices ([#703])
+* Don't add "surface=grass" to Driving Ranges ([#727])
+#### New Presets
+* Add preset for office=graphic_design ([#664], thanks [@k-yle])
+* Add preset for Variable Message Signs ([#666], thanks [@k-yle])
+* Add Mobile Home Park preset ([#696], thanks [@arch0345])
+* Add preset for residential gardens ([#714], thanks [@mikaeldui])
+* Add specialized presets for common physicians ([#718], thanks [@westnordost])
+#### Changed Presets
+* add seamark tags to marine fuel & sewerage presets ([#663], thanks [@k-yle])
+* add `direction` field to presets for `railway=derail` and `aeroway=holding_position` ([#665], thanks [@k-yle])
+* Restrict (most) Traffic Calming presets to vertices
+* Add oneway field to cycleway crossing presets ([#667], [#668], thanks [@kjonosm])
+* Add "GNIS Feature ID" field to waterway relation preset ([#687])
+* Make name field for EV chargers optional ([#688])
+* Add `layer=1` by default to Solar Panel Canopy objects ([#689], thanks [@arch0345])
+* Add `drive_through` as (optional) field to Cafe preset ([#697], thanks [@arch0345])
+* Add `operator:type` field to park related presets
+([#698], thanks [@arch0345])
+* Add `material` as field to the (Utility) Marker preset ([#704], thanks [@kesterlester])
+#### New and Changed Fields
+* Add strings for documented values of `water_source` for Hydrants
+* Add missing values to `crane:type` field ([#662], thanks [@k-yle])
+* Add new field for `shoes` tag (applies to the `shop=shoes` preset) ([#669], thanks [@jdabapo])
+* Add field for `archaeological_site` ([#677], thanks [@kjonosm])
+* Add translatable strings to `craft` field ([#692], thanks [@kjonosm])
+* Add translatable strings to fields: `traffic_calming`, `artwork_type`, `board_type`, `bollard`, `basin`, `social_facility`, `utility` ([#699], [#700], [#701], [#702], [#710], [#712], [#713], thanks [@kjonosm])
+* Add `notice` as a value of the `board_type` field
+#### Deprecated Tags
+* Replace ~~`site_type`~~ on `historic=archaeological_site` objects with `archaeological_site` ([#677], thanks [@kjonosm])
+* Upgrade ~~`board_type=map`~~ to `information=map`
+#### Documentation and Other Changes
+* Reduce number of duplicate translatable strings, closes ([#686])
+* Add Trolleybus Route preset to Routes category ([#724], thanks [@Dimitar5555])
+* Update taginfo project description ([#726])
+#### Development
+* Bump schema-builder to v5.3
+
+[#661]: https://github.com/openstreetmap/id-tagging-schema/pull/661
+[#662]: https://github.com/openstreetmap/id-tagging-schema/pull/662
+[#663]: https://github.com/openstreetmap/id-tagging-schema/pull/663
+[#664]: https://github.com/openstreetmap/id-tagging-schema/pull/664
+[#665]: https://github.com/openstreetmap/id-tagging-schema/pull/665
+[#666]: https://github.com/openstreetmap/id-tagging-schema/pull/666
+[#667]: https://github.com/openstreetmap/id-tagging-schema/pull/667
+[#668]: https://github.com/openstreetmap/id-tagging-schema/pull/668
+[#669]: https://github.com/openstreetmap/id-tagging-schema/pull/669
+[#677]: https://github.com/openstreetmap/id-tagging-schema/issues/677
+[#679]: https://github.com/openstreetmap/id-tagging-schema/pull/679
+[#686]: https://github.com/openstreetmap/id-tagging-schema/issues/686
+[#684]: https://github.com/openstreetmap/id-tagging-schema/pull/684
+[#687]: https://github.com/openstreetmap/id-tagging-schema/issues/687
+[#688]: https://github.com/openstreetmap/id-tagging-schema/issues/688
+[#689]: https://github.com/openstreetmap/id-tagging-schema/pull/689
+[#692]: https://github.com/openstreetmap/id-tagging-schema/pull/692
+[#696]: https://github.com/openstreetmap/id-tagging-schema/pull/696
+[#697]: https://github.com/openstreetmap/id-tagging-schema/pull/697
+[#698]: https://github.com/openstreetmap/id-tagging-schema/pull/698
+[#699]: https://github.com/openstreetmap/id-tagging-schema/pull/699
+[#700]: https://github.com/openstreetmap/id-tagging-schema/pull/700
+[#701]: https://github.com/openstreetmap/id-tagging-schema/pull/701
+[#702]: https://github.com/openstreetmap/id-tagging-schema/pull/702
+[#703]: https://github.com/openstreetmap/id-tagging-schema/issues/703
+[#704]: https://github.com/openstreetmap/id-tagging-schema/pull/704
+[#710]: https://github.com/openstreetmap/id-tagging-schema/pull/710
+[#712]: https://github.com/openstreetmap/id-tagging-schema/pull/712
+[#713]: https://github.com/openstreetmap/id-tagging-schema/pull/713
+[#714]: https://github.com/openstreetmap/id-tagging-schema/pull/714
+[#718]: https://github.com/openstreetmap/id-tagging-schema/pull/718
+[#724]: https://github.com/openstreetmap/id-tagging-schema/pull/724
+[#726]: https://github.com/openstreetmap/id-tagging-schema/issues/726
+[#727]: https://github.com/openstreetmap/id-tagging-schema/issues/727
+[@jdabapo]: https://github.com/jdabapo
+[@kesterlester]: https://github.com/kesterlester
+[@mikaeldui]: https://github.com/mikaeldui
+
+
 # 5.1.1
 
 #### Bugfixes
@@ -53,8 +137,6 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 * Update `roof:colour` field to new `colour` field type ([#647])
 * Add `cables` field to presets for Power Lines (`power=line` and `power=minor_line`) ([#645])
 * Add field for the `structure` tag (used for example on power line towers and portals) ([#649], thanks [@arch0345])
-#### Deprecated Tags
-#### Docs and other
 #### Development
 * Fix a bug which prevented `npm run translations` to run
 * Upgrade schema-builder to version 5.2, updates transifex API to v3 (see also [iD#9375])
@@ -415,7 +497,7 @@ Thanks to all contributors: [@matkoniecz], [@Binnette], [@danieldegroot2], [@arc
 * Add preset for Carpet Hangers ([#452])
 
 #### Changed Presets
-* Add presets for pedestrian crossings with traffic signals for lines ([#368])
+* Add presets for pedestrian crossings with traffic signals for lines ([#368], thanks [@Dimitar5555])
 * Consolidate _raised_ crossing presets into a field
 * Update icon for Swamp preset ([#371])
 * Add 'pet' as search term for Excrement Bag Dispenser preset ([#370])
