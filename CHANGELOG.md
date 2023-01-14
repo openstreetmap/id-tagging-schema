@@ -17,6 +17,14 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 5.2.1
+
+#### Bugfixes
+* Revert restriction of Traffic Calming presets to vertices, which had unintended side effects with iD's validation mechanism ([#733])
+
+[#733]: https://github.com/openstreetmap/id-tagging-schema/issues/733
+
+
 # 5.2.0
 
 #### Bugfixes
