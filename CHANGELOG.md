@@ -598,6 +598,7 @@ Thanks to all contributors: [@matkoniecz], [@Binnette], [@danieldegroot2], [@arc
 [#438]: https://github.com/openstreetmap/id-tagging-schema/pull/438
 [#439]: https://github.com/openstreetmap/id-tagging-schema/pull/439
 [#441]: https://github.com/openstreetmap/id-tagging-schema/pull/441
+[#443]: https://github.com/openstreetmap/id-tagging-schema/issues/443
 [#445]: https://github.com/openstreetmap/id-tagging-schema/pull/445
 [#446]: https://github.com/openstreetmap/id-tagging-schema/pull/446
 [#448]: https://github.com/openstreetmap/id-tagging-schema/pull/448
