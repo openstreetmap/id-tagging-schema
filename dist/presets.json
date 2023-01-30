@@ -7946,6 +7946,7 @@
     "barrier/lift_gate": {
         "icon": "temaki-lift_gate",
         "fields": [
+            "lift_gate/type",
             "access",
             "locked",
             "opening_hours"
@@ -10525,7 +10526,7 @@
         "matchScore": 0.5
     },
     "healthcare/alternative": {
-        "icon": "maki-hospital",
+        "icon": "fas-spa",
         "geometry": [
             "point",
             "area"
@@ -10534,8 +10535,30 @@
             "healthcare": "alternative"
         }
     },
+    "healthcare/alternative/acupuncture": {
+        "icon": "fas-spa",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "healthcare": "alternative",
+            "healthcare:speciality": "acupuncture"
+        }
+    },
+    "healthcare/alternative/ayurveda": {
+        "icon": "temaki-hinduism",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "healthcare": "alternative",
+            "healthcare:speciality": "ayurveda"
+        }
+    },
     "healthcare/alternative/chiropractic": {
-        "icon": "maki-hospital",
+        "icon": "fas-spa",
         "geometry": [
             "point",
             "area"
@@ -10543,6 +10566,50 @@
         "tags": {
             "healthcare": "alternative",
             "healthcare:speciality": "chiropractic"
+        }
+    },
+    "healthcare/alternative/homeopathy": {
+        "icon": "fas-spa",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "healthcare": "alternative",
+            "healthcare:speciality": "homeopathy"
+        }
+    },
+    "healthcare/alternative/naturopathy": {
+        "icon": "fas-spa",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "healthcare": "alternative",
+            "healthcare:speciality": "naturopathy"
+        }
+    },
+    "healthcare/alternative/osteopathy": {
+        "icon": "fas-spa",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "healthcare": "alternative",
+            "healthcare:speciality": "osteopathy"
+        }
+    },
+    "healthcare/alternative/traditional_chinese_medicine": {
+        "icon": "fas-spa",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "healthcare": "alternative",
+            "healthcare:speciality": "traditional_chinese_medicine"
         }
     },
     "healthcare/audiologist": {
@@ -10922,10 +10989,16 @@
             "highway": "crossing",
             "crossing": "marked"
         },
+        "addTags": {
+            "highway": "crossing",
+            "crossing": "marked",
+            "crossing:markings": "yes"
+        },
         "reference": {
             "key": "crossing",
             "value": "marked"
         },
+        "name": "{highway/crossing/uncontrolled}",
         "searchable": false
     },
     "highway/crossing/zebra": {
@@ -10948,6 +11021,7 @@
             "key": "crossing",
             "value": "zebra"
         },
+        "name": "{highway/crossing/uncontrolled}",
         "searchable": false
     },
     "highway/crossing/traffic_signals": {
@@ -10985,7 +11059,7 @@
             "crossing",
             "tactile_paving",
             "crossing/island",
-            "crossing/markings",
+            "crossing/markings_yes",
             "crossing_raised"
         ],
         "geometry": [
@@ -11017,6 +11091,11 @@
         "tags": {
             "highway": "crossing",
             "crossing": "unmarked"
+        },
+        "addTags": {
+            "highway": "crossing",
+            "crossing": "unmarked",
+            "crossing:markings": "no"
         },
         "reference": {
             "key": "crossing",
@@ -11133,11 +11212,18 @@
             "cycleway": "crossing",
             "crossing": "marked"
         },
+        "addTags": {
+            "highway": "cycleway",
+            "cycleway": "crossing",
+            "crossing": "marked",
+            "crossing:markings": "yes"
+        },
         "reference": {
             "key": "crossing",
             "value": "marked"
         },
         "matchScore": 0.95,
+        "name": "{highway/cycleway/crossing/uncontrolled}",
         "searchable": false
     },
     "highway/cycleway/crossing/bicycle_foot": {
@@ -11215,7 +11301,7 @@
             "surface",
             "tactile_paving",
             "crossing/island",
-            "crossing/markings",
+            "crossing/markings_yes",
             "crossing_raised",
             "access"
         ],
@@ -11250,6 +11336,12 @@
             "highway": "cycleway",
             "cycleway": "crossing",
             "crossing": "unmarked"
+        },
+        "addTags": {
+            "highway": "cycleway",
+            "cycleway": "crossing",
+            "crossing": "unmarked",
+            "crossing:markings": "no"
         },
         "reference": {
             "key": "crossing",
@@ -11525,10 +11617,17 @@
             "footway": "crossing",
             "crossing": "marked"
         },
+        "addTags": {
+            "highway": "footway",
+            "footway": "crossing",
+            "crossing": "marked",
+            "crossing:markings": "yes"
+        },
         "reference": {
             "key": "crossing",
             "value": "marked"
         },
+        "name": "{highway/footway/crossing/uncontrolled}",
         "searchable": false
     },
     "highway/footway/crossing/zebra": {
@@ -11554,6 +11653,7 @@
             "key": "crossing",
             "value": "zebra"
         },
+        "name": "{highway/footway/crossing/uncontrolled}",
         "searchable": false
     },
     "highway/footway/crossing/traffic_signals": {
@@ -11595,7 +11695,7 @@
             "surface",
             "tactile_paving",
             "crossing/island",
-            "crossing/markings",
+            "crossing/markings_yes",
             "crossing_raised",
             "access"
         ],
@@ -11635,6 +11735,12 @@
             "highway": "footway",
             "footway": "crossing",
             "crossing": "unmarked"
+        },
+        "addTags": {
+            "highway": "footway",
+            "footway": "crossing",
+            "crossing": "unmarked",
+            "crossing:markings": "no"
         },
         "reference": {
             "key": "crossing",
@@ -11708,6 +11814,8 @@
             "maxweight_bridge",
             "maxwidth",
             "oneway/bicycle",
+            "parking/side/parking",
+            "parking/side/orientation",
             "smoothness",
             "trolley_wire",
             "width"
@@ -12098,6 +12206,8 @@
             "maxweight_bridge",
             "maxwidth",
             "oneway/bicycle",
+            "parking/side/parking",
+            "parking/side/orientation",
             "ref_road_number",
             "smoothness",
             "toll",
@@ -12146,9 +12256,10 @@
             "maxwidth",
             "not/name",
             "oneway/bicycle",
+            "parking/side/parking",
+            "parking/side/orientation",
             "smoothness",
             "toll",
-            "traffic_calming",
             "trolley_wire",
             "width"
         ],
@@ -12238,8 +12349,9 @@
             "maxwidth",
             "not/name",
             "oneway/bicycle",
+            "parking/side/parking",
+            "parking/side/orientation",
             "smoothness",
-            "traffic_calming",
             "trolley_wire",
             "width"
         ],
@@ -12393,8 +12505,9 @@
             "maxweight_bridge",
             "maxwidth",
             "oneway/bicycle",
+            "parking/side/parking",
+            "parking/side/orientation",
             "smoothness",
-            "traffic_calming",
             "trolley_wire",
             "width"
         ],
@@ -16711,7 +16824,7 @@
         }
     },
     "man_made/crane": {
-        "icon": "temaki-crane",
+        "icon": "roentgen-crane",
         "fields": [
             "operator",
             "manufacturer",
@@ -16729,7 +16842,7 @@
         }
     },
     "man_made/crane/gantry_crane": {
-        "icon": "temaki-crane",
+        "icon": "roentgen-crane_gantry",
         "geometry": [
             "point",
             "vertex",
@@ -16745,7 +16858,7 @@
         }
     },
     "man_made/crane/portal_crane": {
-        "icon": "temaki-crane",
+        "icon": "roentgen-crane_portal",
         "geometry": [
             "point",
             "vertex",
@@ -18152,6 +18265,23 @@
             "military": "trench"
         }
     },
+    "natural/wood": {
+        "icon": "maki-park-alt1",
+        "fields": [
+            "name",
+            "leaf_type",
+            "leaf_cycle"
+        ],
+        "moreFields": [
+            "species/wikidata"
+        ],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "natural": "wood"
+        }
+    },
     "natural/bare_rock": {
         "icon": "temaki-boulder3",
         "geometry": [
@@ -18938,24 +19068,6 @@
             "value": "wet_meadow"
         }
     },
-    "natural/wood": {
-        "icon": "maki-park-alt1",
-        "fields": [
-            "name",
-            "leaf_type",
-            "leaf_cycle"
-        ],
-        "moreFields": [
-            "species/wikidata"
-        ],
-        "geometry": [
-            "area",
-            "point"
-        ],
-        "tags": {
-            "natural": "wood"
-        }
-    },
     "network/type/node_network-DE-NL-BE-LU": {
         "fields": [
             "name",
@@ -19673,7 +19785,13 @@
         ],
         "tags": {
             "office": "therapist"
-        }
+        },
+        "fields": [
+            "healthcare_therapist",
+            "healthcare/speciality",
+            "{office}"
+        ],
+        "matchScore": 0.9
     },
     "office/union": {
         "icon": "maki-suitcase",
@@ -25267,9 +25385,12 @@
             "operator",
             "address",
             "access_simple",
-            "capacity/caravans",
             "capacity/persons",
+            "tents",
             "capacity/tents",
+            "caravans",
+            "capacity/caravans",
+            "static_caravans",
             "fee",
             "payment_multi_fee",
             "charge_fee"
@@ -25285,10 +25406,12 @@
             "internet_access",
             "internet_access/fee",
             "internet_access/ssid",
+            "nudism",
             "openfire",
             "opening_hours",
             "opening_hours/covid19",
             "phone",
+            "picnic_table",
             "power_supply",
             "ref/vatin",
             "reservation",
@@ -26003,7 +26126,9 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex"
+            "vertex",
+            "line",
+            "area"
         ],
         "tags": {
             "traffic_calming": "*"
@@ -26017,7 +26142,9 @@
             "{traffic_calming}"
         ],
         "geometry": [
-            "vertex"
+            "vertex",
+            "line",
+            "area"
         ],
         "tags": {
             "traffic_calming": "yes"
@@ -26032,7 +26159,8 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex"
+            "vertex",
+            "line"
         ],
         "tags": {
             "traffic_calming": "bump"
@@ -26045,7 +26173,9 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex"
+            "vertex",
+            "line",
+            "area"
         ],
         "tags": {
             "traffic_calming": "chicane"
@@ -26058,7 +26188,9 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex"
+            "vertex",
+            "line",
+            "area"
         ],
         "tags": {
             "traffic_calming": "choker"
@@ -26071,7 +26203,8 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex"
+            "vertex",
+            "line"
         ],
         "tags": {
             "traffic_calming": "cushion"
@@ -26084,7 +26217,8 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex"
+            "vertex",
+            "line"
         ],
         "tags": {
             "traffic_calming": "dip"
@@ -26097,7 +26231,8 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex"
+            "vertex",
+            "line"
         ],
         "tags": {
             "traffic_calming": "hump"
@@ -26110,6 +26245,7 @@
         ],
         "geometry": [
             "vertex",
+            "line",
             "area"
         ],
         "tags": {
@@ -26122,7 +26258,8 @@
             "traffic_calming": "mini_bumps"
         },
         "geometry": [
-            "vertex"
+            "vertex",
+            "line"
         ],
         "fields": [
             "surface",
@@ -26135,7 +26272,8 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex"
+            "vertex",
+            "line"
         ],
         "tags": {
             "traffic_calming": "rumble_strip"

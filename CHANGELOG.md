@@ -7,6 +7,8 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 
 <!--
 # A.B.C
+##### YYYY-MMM-DD
+
 #### :mega: Release Highlights
 #### New Presets
 #### Changed Presets
@@ -16,6 +18,56 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#xxxx]: https://github.com/openstreetmap/id-tagging-schema/pull/xxxx
 [@xxxx]: https://github.com/xxxx
 -->
+
+# 6.0.0-rc.1
+##### 2023-Jan-30
+
+#### Schema Changes
+* Upgrade to the schema-builder [version 6](https://github.com/ideditor/schema-builder/blob/main/CHANGELOG.md#600)
+  * :warning: Field type `cycleway` is replaced with new `directionalCombo` field
+  * :warning: Adds new `date` field type
+  * :warning: Introduces the use of icons from the [Röntgen icon set](https://github.com/enzet/map-machine#r%C3%B6ntgen-icon-set)
+  * Allows to specify icons for values of combo fields
+#### New Presets
+* Add most popular alternative medicine practitioners ([#731], thanks [@westnordost])
+#### Changed Presets
+* Make natural wood points unsearchable ([#755], thanks [@arch0345])
+* Rename `attraction=big_wheel` to Ferris Wheel
+* Use Rötgen icons for crane types
+* Allow to specify Therapist offices more precisely by adding `healthcare` fields
+* Add `crossing:markings=yes` as the default value to any newly created Marked Crossings (leave existing objects with `crossing=uncontrolled` as they are)
+#### New and Changed Fields
+* Switch type of various fields to `date`: `check_date`, `opening_date`, `start_date`, `survey:date`, `wreck:date_sunk`
+* Add translatable strings for the fields `substance` ([#737]), `material` ([#735]), `memorial` ([#734]), `barrier type` ([#709]), `archaeological_site` ([#707]), `bath:type` ([#742]), `sport` ([#747]), `attraction` ([#756]), `waste` ([#758]), `office` ([#761]), `resource` ([#760]) (thanks [@kjonosm])
+* Add fields for `parking:both|left|right` and `parking:both|left|right:orientation` ([#744])
+* Add more options to the `parking` field: `on_kerb`, `half_on_kerb` and `shoulder` ([#672])
+* Add field for `lift_gate:type` ([#711], thanks [@arch0345])
+* Add fields `tents`, `caravans`, `static_caravans`, `picnic_table`, and `nudism` to Camp Site preset ([#749], [#750], [#750], [#751], [#752], thanks [@kjonosm])
+* Use Rötgen icons for crane types
+* Specify icons for crossing markings
+
+[#672]: https://github.com/openstreetmap/id-tagging-schema/pull/672
+[#707]: https://github.com/openstreetmap/id-tagging-schema/pull/707
+[#709]: https://github.com/openstreetmap/id-tagging-schema/pull/709
+[#711]: https://github.com/openstreetmap/id-tagging-schema/pull/711
+[#731]: https://github.com/openstreetmap/id-tagging-schema/pull/731
+[#732]: https://github.com/openstreetmap/id-tagging-schema/pull/732
+[#734]: https://github.com/openstreetmap/id-tagging-schema/pull/734
+[#735]: https://github.com/openstreetmap/id-tagging-schema/pull/735
+[#737]: https://github.com/openstreetmap/id-tagging-schema/pull/737
+[#742]: https://github.com/openstreetmap/id-tagging-schema/pull/742
+[#744]: https://github.com/openstreetmap/id-tagging-schema/pull/744
+[#747]: https://github.com/openstreetmap/id-tagging-schema/pull/747
+[#749]: https://github.com/openstreetmap/id-tagging-schema/pull/749
+[#750]: https://github.com/openstreetmap/id-tagging-schema/pull/750
+[#751]: https://github.com/openstreetmap/id-tagging-schema/pull/751
+[#752]: https://github.com/openstreetmap/id-tagging-schema/pull/752
+[#755]: https://github.com/openstreetmap/id-tagging-schema/pull/755
+[#756]: https://github.com/openstreetmap/id-tagging-schema/pull/756
+[#758]: https://github.com/openstreetmap/id-tagging-schema/pull/758
+[#760]: https://github.com/openstreetmap/id-tagging-schema/pull/760
+[#761]: https://github.com/openstreetmap/id-tagging-schema/pull/761
+
 
 # 5.2.1
 
@@ -41,8 +93,8 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 * Add preset for residential gardens ([#714], thanks [@mikaeldui])
 * Add specialized presets for common physicians ([#718], thanks [@westnordost])
 #### Changed Presets
-* add seamark tags to marine fuel & sewerage presets ([#663], thanks [@k-yle])
-* add `direction` field to presets for `railway=derail` and `aeroway=holding_position` ([#665], thanks [@k-yle])
+* Add seamark tags to marine fuel & sewerage presets ([#663], thanks [@k-yle])
+* Add `direction` field to presets for `railway=derail` and `aeroway=holding_position` ([#665], thanks [@k-yle])
 * Restrict (most) Traffic Calming presets to vertices
 * Add oneway field to cycleway crossing presets ([#667], [#668], thanks [@kjonosm])
 * Add "GNIS Feature ID" field to waterway relation preset ([#687])
@@ -81,8 +133,8 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#669]: https://github.com/openstreetmap/id-tagging-schema/pull/669
 [#677]: https://github.com/openstreetmap/id-tagging-schema/issues/677
 [#679]: https://github.com/openstreetmap/id-tagging-schema/pull/679
-[#686]: https://github.com/openstreetmap/id-tagging-schema/issues/686
 [#684]: https://github.com/openstreetmap/id-tagging-schema/pull/684
+[#686]: https://github.com/openstreetmap/id-tagging-schema/issues/686
 [#687]: https://github.com/openstreetmap/id-tagging-schema/issues/687
 [#688]: https://github.com/openstreetmap/id-tagging-schema/issues/688
 [#689]: https://github.com/openstreetmap/id-tagging-schema/pull/689
@@ -179,7 +231,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 # 5.0.0
 
 #### Schema Changes
-* Upgrade to the schema-build version 5 ([#598])
+* Upgrade to the schema-builder version 5 ([#598])
   * :warning: Introduces a new `colour` field type
   * :warning: Allows to cross-reference strings in presets and fields
 #### New Presets

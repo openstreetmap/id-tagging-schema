@@ -183,7 +183,22 @@
     },
     "archaeological_site": {
         "key": "archaeological_site",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "baths",
+            "city",
+            "crannog",
+            "enclosure",
+            "fortification",
+            "hut_circle",
+            "megalith",
+            "necropolis",
+            "petroglyph",
+            "roman_circus",
+            "roman_villa",
+            "settlement",
+            "tumulus"
+        ]
     },
     "architect": {
         "key": "architect",
@@ -223,7 +238,28 @@
     },
     "attraction": {
         "key": "attraction",
-        "type": "typeCombo"
+        "type": "typeCombo",
+        "options": [
+            "animal",
+            "water_slide",
+            "amusement_ride",
+            "roller_coaster",
+            "carousel",
+            "maze",
+            "summer_toboggan",
+            "big_wheel",
+            "train",
+            "bumper_car",
+            "bungee_jumping",
+            "dark_ride",
+            "drop_tower",
+            "kiddie_ride",
+            "log_flume",
+            "pirate_ship",
+            "river_rafting",
+            "swing_carousel",
+            "alpine_coaster"
+        ]
     },
     "automated": {
         "key": "automated",
@@ -269,7 +305,32 @@
     },
     "barrier": {
         "key": "barrier",
-        "type": "typeCombo"
+        "type": "typeCombo",
+        "options": [
+            "fence",
+            "gate",
+            "wall",
+            "hedge",
+            "kerb",
+            "bollard",
+            "lift_gate",
+            "retaining_wall",
+            "block",
+            "guard_rail",
+            "cycle_barrier",
+            "stile",
+            "entrance",
+            "swing_gate",
+            "cattle_grid",
+            "ditch",
+            "toll_booth",
+            "city_wall",
+            "kissing_gate",
+            "chain",
+            "jersey_barrier",
+            "height_restrictor",
+            "turnstile"
+        ]
     },
     "basin": {
         "key": "basin",
@@ -291,7 +352,14 @@
     },
     "bath/type": {
         "key": "bath:type",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "hammam",
+            "hot_spring",
+            "lake",
+            "onsen",
+            "thermal"
+        ]
     },
     "beauty": {
         "key": "beauty",
@@ -548,7 +616,11 @@
     "capacity/caravans": {
         "key": "capacity:caravans",
         "type": "number",
-        "minValue": 0
+        "minValue": 0,
+        "prerequisiteTag": {
+            "key": "caravans",
+            "valueNot": "no"
+        }
     },
     "capacity/disabled_parking": {
         "key": "capacity:disabled",
@@ -568,6 +640,10 @@
             "key": "tents",
             "valueNot": "no"
         }
+    },
+    "caravans": {
+        "key": "caravans",
+        "type": "check"
     },
     "cash_in": {
         "key": "cash_in",
@@ -610,7 +686,8 @@
     },
     "check_date": {
         "key": "check_date",
-        "type": "text"
+        "type": "date",
+        "universal": true
     },
     "circumference": {
         "key": "circumference",
@@ -794,6 +871,12 @@
     "crane/type": {
         "key": "crane:type",
         "type": "combo",
+        "icons": {
+            "portal_crane": "roentgen-crane_portal",
+            "gantry_crane": "roentgen-crane_gantry",
+            "tower_crane": "roentgen-crane",
+            "travel_lift": "roentgen-crane_travel_lift"
+        },
         "autoSuggestions": false,
         "customValues": false,
         "options": [
@@ -878,9 +961,31 @@
         "key": "crossing:light",
         "type": "check"
     },
+    "crossing/markings_yes": {
+        "key": "crossing:markings",
+        "type": "combo",
+        "label": "{crossing/markings}",
+        "stringsCrossReference": "{crossing/markings}",
+        "iconsCrossReference": "{crossing/markings}",
+        "default": "yes"
+    },
     "crossing/markings": {
         "key": "crossing:markings",
         "type": "combo",
+        "icons": {
+            "zebra": "iD-crossing_markings-zebra",
+            "lines": "iD-crossing_markings-lines",
+            "ladder": "iD-crossing_markings-ladder",
+            "dots": "iD-crossing_markings-dots",
+            "dashes": "iD-crossing_markings-dashes",
+            "surface": "iD-crossing_markings-surface",
+            "ladder:skewed": "iD-crossing_markings-ladder_skewed",
+            "lines:paired": "iD-crossing_markings-lines_paired",
+            "zebra:double": "iD-crossing_markings-zebra_double",
+            "zebra:paired": "iD-crossing_markings-zebra_paired",
+            "zebra:bicolour": "iD-crossing_markings-zebra_bicolour",
+            "ladder:paired": "iD-crossing_markings-ladder_paired"
+        },
         "options": [
             "zebra",
             "lines",
@@ -966,15 +1071,15 @@
         "caseSensitive": true
     },
     "cycleway": {
+        "key": "cycleway",
         "keys": [
-            "cycleway",
             "cycleway:left",
             "cycleway:right"
         ],
         "reference": {
             "key": "cycleway"
         },
-        "type": "cycleway",
+        "type": "directionalCombo",
         "autoSuggestions": true,
         "options": [
             "no",
@@ -1737,6 +1842,18 @@
         "type": "semiCombo",
         "usage": "changeset"
     },
+    "healthcare_therapist": {
+        "key": "healthcare",
+        "type": "typeCombo",
+        "options": [
+            "physiotherapist",
+            "psychotherapist",
+            "occupational_therapist",
+            "speech_therapist"
+        ],
+        "autoSuggestions": false,
+        "label": "{healthcare}"
+    },
     "healthcare": {
         "key": "healthcare",
         "type": "typeCombo"
@@ -1886,7 +2003,7 @@
     },
     "historic/wreck/date_sunk": {
         "key": "wreck:date_sunk",
-        "type": "text"
+        "type": "date"
     },
     "historic/wreck/visible_at_high_tide": {
         "key": "wreck:visible_at_high_tide",
@@ -2220,6 +2337,18 @@
         "key": "lifeguard",
         "type": "check"
     },
+    "lift_gate/type": {
+        "key": "lift_gate:type",
+        "type": "combo",
+        "reference": {
+            "key": "barrier",
+            "value": "lift_gate"
+        },
+        "options": [
+            "single",
+            "double"
+        ]
+    },
     "line_attachment": {
         "key": "line_attachment",
         "type": "combo"
@@ -2295,7 +2424,31 @@
     },
     "material": {
         "key": "material",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "adobe",
+            "aluminium",
+            "brass",
+            "brick",
+            "bronze",
+            "concrete",
+            "dry_stone",
+            "glass",
+            "granite",
+            "iron",
+            "limestone",
+            "marble",
+            "metal",
+            "plastic",
+            "reinforced_conrete",
+            "rock",
+            "sand",
+            "sandstone",
+            "soil",
+            "steel",
+            "stone",
+            "wood"
+        ]
     },
     "mattress": {
         "key": "mattress",
@@ -2364,7 +2517,20 @@
     },
     "memorial": {
         "key": "memorial",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "blue_plaque",
+            "bust",
+            "cross",
+            "obelisk",
+            "plaque",
+            "sculpture",
+            "statue",
+            "stele",
+            "stolperstein",
+            "stone",
+            "war_memorial"
+        ]
     },
     "microbrewery": {
         "key": "microbrewery",
@@ -2523,9 +2689,72 @@
         "type": "textarea",
         "universal": true
     },
+    "nudism": {
+        "key": "nudism",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "customary",
+            "designated",
+            "no",
+            "obligatory",
+            "permissive",
+            "yes"
+        ]
+    },
     "office": {
         "key": "office",
-        "type": "typeCombo"
+        "type": "typeCombo",
+        "options": [
+            "accountant",
+            "adoption_agency",
+            "advertising_agency",
+            "architect",
+            "association",
+            "charity",
+            "company",
+            "construction_company",
+            "consulting",
+            "courier",
+            "coworking",
+            "diplomatic",
+            "educational_institution",
+            "employment_agency",
+            "energy_supplier",
+            "engineer",
+            "estate_agent",
+            "financial",
+            "financial_advisor",
+            "forestry",
+            "foundation",
+            "government",
+            "graphic_design",
+            "guide",
+            "insurance",
+            "it",
+            "lawyer",
+            "logistics",
+            "moving_company",
+            "newspaper",
+            "ngo",
+            "notary",
+            "physician",
+            "political_party",
+            "private_investigator",
+            "property_management",
+            "quango",
+            "religion",
+            "research",
+            "security",
+            "surveyor",
+            "tax_advisor",
+            "telecommunication",
+            "therapist",
+            "travel_agent",
+            "union",
+            "water_utility"
+        ]
     },
     "oneway_yes": {
         "key": "oneway",
@@ -2563,7 +2792,7 @@
     },
     "opening_date": {
         "key": "opening_date",
-        "type": "text"
+        "type": "date"
     },
     "opening_hours": {
         "key": "opening_hours",
@@ -2656,7 +2885,10 @@
             "rooftop",
             "sheds",
             "street_side",
-            "layby"
+            "layby",
+            "on_kerb",
+            "half_on_kerb",
+            "shoulder"
         ]
     },
     "parking/orientation": {
@@ -2667,6 +2899,47 @@
             "parallel",
             "diagonal",
             "perpendicular"
+        ]
+    },
+    "parking/side/orientation": {
+        "key": "parking:both:orientation",
+        "keys": [
+            "parking:left:orientation",
+            "parking:right:orientation"
+        ],
+        "reference": {
+            "key": "parking:orientation"
+        },
+        "type": "directionalCombo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "parallel",
+            "diagonal",
+            "perpendicular"
+        ]
+    },
+    "parking/side/parking": {
+        "key": "parking:both",
+        "keys": [
+            "parking:left",
+            "parking:right"
+        ],
+        "reference": {
+            "key": "parking"
+        },
+        "type": "directionalCombo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "lane",
+            "street_side",
+            "on_kerb",
+            "half_on_kerb",
+            "shoulder",
+            "no",
+            "separate",
+            "yes"
         ]
     },
     "payment_multi_fee": {
@@ -2733,6 +3006,10 @@
     "phone": {
         "key": "phone",
         "type": "tel"
+    },
+    "picnic_table": {
+        "key": "picnic_table",
+        "type": "check"
     },
     "pipeline": {
         "key": "pipeline",
@@ -3309,7 +3586,18 @@
     },
     "resource": {
         "key": "resource",
-        "type": "semiCombo"
+        "type": "semiCombo",
+        "options": [
+            "aggregate",
+            "clay",
+            "coal",
+            "gold",
+            "gravel",
+            "iron_ore",
+            "limestone",
+            "peat",
+            "sand"
+        ]
     },
     "restriction": {
         "key": "restriction",
@@ -3778,7 +4066,44 @@
     },
     "sport": {
         "key": "sport",
-        "type": "semiCombo"
+        "type": "semiCombo",
+        "options": [
+            "american_football",
+            "athletics",
+            "badminton",
+            "baseball",
+            "basketball",
+            "beachvolleyball",
+            "boules",
+            "bowls",
+            "climbing",
+            "cricket",
+            "cycling",
+            "equestrian",
+            "fitness",
+            "free_flying",
+            "futsal",
+            "golf",
+            "gymnastics",
+            "handball",
+            "horse_racing",
+            "karting",
+            "motocross",
+            "motor",
+            "netball",
+            "padel",
+            "rugby_union",
+            "running",
+            "shooting",
+            "skateboard",
+            "skiing",
+            "soccer",
+            "softball",
+            "swimming",
+            "table_tennis",
+            "tennis",
+            "volleyball"
+        ]
     },
     "stars": {
         "key": "stars",
@@ -3786,8 +4111,12 @@
     },
     "start_date": {
         "key": "start_date",
-        "type": "text",
+        "type": "date",
         "universal": true
+    },
+    "static_caravans": {
+        "key": "static_caravans",
+        "type": "check"
     },
     "step_count": {
         "key": "step_count",
@@ -3876,7 +4205,16 @@
     },
     "substance": {
         "key": "substance",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "fuel",
+            "gas",
+            "hot_water",
+            "oil",
+            "rainwater",
+            "sewage",
+            "water"
+        ]
     },
     "substation_pipeline": {
         "key": "substation",
@@ -3996,7 +4334,7 @@
     },
     "survey/date": {
         "key": "survey:date",
-        "type": "text"
+        "type": "date"
     },
     "swimming_pool": {
         "key": "swimming_pool",
@@ -4056,6 +4394,10 @@
     "telecom/medium": {
         "key": "telecom:medium",
         "type": "combo"
+    },
+    "tents": {
+        "key": "tents",
+        "type": "check"
     },
     "tidal": {
         "key": "tidal",
@@ -4461,7 +4803,13 @@
     },
     "waste": {
         "key": "waste",
-        "type": "semiCombo"
+        "type": "semiCombo",
+        "options": [
+            "cigarettes",
+            "dog_excrement",
+            "organic",
+            "trash"
+        ]
     },
     "water_point": {
         "key": "water_point",
