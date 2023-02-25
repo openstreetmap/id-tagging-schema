@@ -1,0 +1,47 @@
+name: Build Preview
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: npm run dist
+      - uses: actions/checkout@v3
+        with:
+          repository: openstreetmap/iD
+          path: './iD'
+      - run: npm install
+        working-directory: './iD'
+      - run: npm run all
+        working-directory: './iD'
+      - run: npm run dist
+        working-directory: './iD'
+        env:
+          ID_PRESETS_CDN_URL: '../../'
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: preview
+          path: |
+            dist
+            iD/dist
+
+      - name: Store pull request number for later use
+        run: |
+          echo ${{github.event.number}} > ./pr_number
+      - uses: actions/upload-artifact@v3
+        with:
+          name: pr
+          path: ./pr_number

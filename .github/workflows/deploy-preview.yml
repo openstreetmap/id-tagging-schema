@@ -1,0 +1,85 @@
+name: Deploy Preview
+
+on:
+  workflow_run:
+    workflows: ["Build Preview"]
+    types:
+      - completed
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    if: ${{github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success'}}
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm install --global netlify-cli@6
+      - run: npm install unzipper@0.10
+
+      - name: Get pull request number
+        uses: actions/github-script@v6
+        id: pull-request-number
+        with:
+          result-encoding: string
+          script: |
+            const unzipper = require('unzipper');
+            const artifacts = await github.rest.actions.listWorkflowRunArtifacts({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: ${{github.event.workflow_run.id}}
+            });
+            const artifact = artifacts.data.artifacts.filter(
+              artifact => artifact.name === 'pr'
+            )[0];
+            if (!artifact) {
+              throw new Error('No pr artifact found');
+            }
+            const download = await github.rest.actions.downloadArtifact({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              artifact_id: artifact.id,
+              archive_format: 'zip'
+            });
+            const directory = await unzipper.Open.buffer(Buffer.from(download.data));
+            const file = directory.files.find(d => d.path === 'pr_number');
+            const content = await file.buffer();
+            return content.toString();
+      - uses: dawidd6/action-download-artifact@v2
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          workflow: build-preview.yml
+          pr: ${{steps.pull-request-number.outputs.result}}
+          name: preview
+
+      - name: Deploy to Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{secrets.NETLIFY_AUTH_TOKEN}}
+          NETLIFY_SITE_ID: ${{secrets.NETLIFY_SITE_ID}}
+        run: netlify deploy --dir=. --alias=pr-${{steps.pull-request-number.outputs.result}}
+
+      - name: Add comment to pull request
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const pullRequestNumber = parseInt(${{steps.pull-request-number.outputs.result}}, 10);
+            const start = ':bento:';
+            const author = 'github-actions[bot]';
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pullRequestNumber
+            });
+            const commentExists = comments.data.some(
+              comment => comment.user.login === author && comment.body.startsWith(start)
+            );
+            if (!commentExists) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pullRequestNumber,
+                body: `${start} Preview the tagging presets of this pull request here: https://pr-${pullRequestNumber}--ideditor-presets-preview.netlify.app/id/dist/.`
+              });
+            } else {
+              console.log(`Preview URL comment already added to PR #${pullRequestNumber}`);
+            }
