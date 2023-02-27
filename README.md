@@ -38,6 +38,10 @@ The [westnordost/osmfeatures](https://github.com/westnordost/osmfeatures) projec
 a component of [StreetComplete](https://github.com/westnordost/StreetComplete),
 makes it easier to use this data with Android or other Java platforms.
 
+### Use by other editors
+
+iD tagging schema is used not only by iD. It is also powering [Go Map!!](https://github.com/bryceco/GoMap#external-assets) and some functionalities in [StreetComplete](https://github.com/streetcomplete/StreetComplete/blob/master/CONTRIBUTING.md#dependencies).
+
 ## Related Projects
 
 * The [OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Map_features) documents the current usage of tags, and hosts discussions about proposed new tags.
