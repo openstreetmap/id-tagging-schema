@@ -442,18 +442,37 @@
         },
         "matchScore": 0.15
     },
-    "advertising/billboard": {
+    "advertising": {
         "icon": "temaki-billboard",
         "fields": [
+            "advertising",
             "operator",
             "lit",
-            "support",
             "visibility"
         ],
         "moreFields": [
             "access_simple",
-            "direction",
-            "height"
+            "height",
+            "message"
+        ],
+        "geometry": [
+            "point",
+            "line",
+            "area"
+        ],
+        "tags": {
+            "advertising": "*"
+        }
+    },
+    "advertising/billboard": {
+        "icon": "temaki-billboard",
+        "fields": [
+            "{advertising}",
+            "support"
+        ],
+        "moreFields": [
+            "{advertising}",
+            "direction"
         ],
         "geometry": [
             "point",
@@ -467,15 +486,12 @@
     "advertising/board": {
         "icon": "temaki-bulletin_board",
         "fields": [
-            "operator",
-            "lit",
-            "support",
-            "visibility"
+            "{advertising}",
+            "support"
         ],
         "moreFields": [
-            "access_simple",
-            "direction",
-            "height"
+            "{advertising}",
+            "direction"
         ],
         "geometry": [
             "point",
@@ -488,13 +504,10 @@
     "advertising/column": {
         "icon": "temaki-storage_tank",
         "fields": [
-            "operator",
-            "lit",
-            "visibility"
+            "{advertising}"
         ],
         "moreFields": [
-            "access_simple",
-            "height"
+            "{advertising}"
         ],
         "geometry": [
             "point",
@@ -507,18 +520,16 @@
     "advertising/poster_box": {
         "icon": "temaki-poster_box",
         "fields": [
-            "operator",
-            "lit",
-            "support",
-            "visibility"
+            "{advertising}",
+            "support"
         ],
         "moreFields": [
-            "access_simple",
-            "direction",
-            "height"
+            "{advertising}",
+            "direction"
         ],
         "geometry": [
-            "point"
+            "point",
+            "line"
         ],
         "tags": {
             "advertising": "poster_box"
@@ -526,17 +537,15 @@
     },
     "advertising/totem": {
         "fields": [
-            "operator",
-            "lit",
-            "visibility"
+            "{advertising}"
         ],
         "moreFields": [
-            "access_simple",
-            "direction",
-            "height"
+            "{advertising}",
+            "direction"
         ],
         "geometry": [
-            "point"
+            "point",
+            "line"
         ],
         "tags": {
             "advertising": "totem"
@@ -2042,6 +2051,25 @@
             "value": "clinic"
         }
     },
+    "amenity/clinic/dialysis": {
+        "icon": "maki-doctor",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "healthcare": "dialysis"
+        },
+        "addTags": {
+            "amenity": "clinic",
+            "healthcare": "dialysis",
+            "healthcare:speciality": "nephrology"
+        },
+        "reference": {
+            "key": "healthcare",
+            "value": "dialysis"
+        }
+    },
     "amenity/clinic/fertility": {
         "icon": "maki-hospital",
         "geometry": [
@@ -2443,6 +2471,26 @@
             "value": "cardiology"
         }
     },
+    "amenity/doctors/child_psychiatry": {
+        "icon": "maki-doctor",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "doctors",
+            "healthcare:speciality": "child_psychiatry"
+        },
+        "addTags": {
+            "amenity": "doctors",
+            "healthcare:speciality": "child_psychiatry",
+            "healthcare": "doctor"
+        },
+        "reference": {
+            "key": "healthcare:speciality",
+            "value": "child_psychiatry"
+        }
+    },
     "amenity/doctors/dermatology": {
         "icon": "maki-doctor",
         "geometry": [
@@ -2801,6 +2849,26 @@
         "reference": {
             "key": "healthcare:speciality",
             "value": "proctology"
+        }
+    },
+    "amenity/doctors/psychiatrist": {
+        "icon": "maki-doctor",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "doctors",
+            "healthcare:speciality": "psychiatry"
+        },
+        "addTags": {
+            "amenity": "doctors",
+            "healthcare:speciality": "psychiatry",
+            "healthcare": "doctor"
+        },
+        "reference": {
+            "key": "healthcare:speciality",
+            "value": "psychiatry"
         }
     },
     "amenity/doctors/pulmonology": {
@@ -4831,7 +4899,7 @@
         "fields": [
             "operator",
             "collection_times",
-            "drive_through",
+            "post_box/type",
             "ref"
         ],
         "moreFields": [
@@ -4840,7 +4908,7 @@
             "brand",
             "colour",
             "covered",
-            "gnis/feature_id-US",
+            "drive_through",
             "height",
             "indoor",
             "level",
@@ -4855,7 +4923,62 @@
         ],
         "tags": {
             "amenity": "post_box"
+        },
+        "locationSet": {
+            "exclude": [
+                "gb",
+                "us"
+            ]
         }
+    },
+    "amenity/post_box/post_box-GB": {
+        "icon": "temaki-post_box",
+        "locationSet": {
+            "include": [
+                "gb"
+            ]
+        },
+        "fields": [
+            "{amenity/post_box}",
+            "post_box/type-GB",
+            "royal_cypher"
+        ],
+        "moreFields": [
+            "{amenity/post_box}",
+            "drive_through"
+        ],
+        "geometry": [
+            "point",
+            "vertex"
+        ],
+        "tags": {
+            "amenity": "post_box"
+        },
+        "name": "{amenity/post_box}"
+    },
+    "amenity/post_box/post_box-US": {
+        "icon": "temaki-post_box",
+        "locationSet": {
+            "include": [
+                "us"
+            ]
+        },
+        "fields": [
+            "{amenity/post_box}",
+            "drive_through"
+        ],
+        "moreFields": [
+            "{amenity/post_box}",
+            "gnis/feature_id-US"
+        ],
+        "geometry": [
+            "point",
+            "vertex"
+        ],
+        "tags": {
+            "amenity": "post_box"
+        },
+        "name": "{amenity/post_box}"
     },
     "amenity/post_depot": {
         "icon": "fas-mail-bulk",
@@ -5945,6 +6068,26 @@
             "value": "ambulatory_care"
         }
     },
+    "amenity/social_facility/assisted_living": {
+        "icon": "maki-wheelchair",
+        "fields": [
+            "{amenity/social_facility}",
+            "wheelchair"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "social_facility",
+            "social_facility": "assisted_living",
+            "social_facility:for": "senior"
+        },
+        "reference": {
+            "key": "social_facility",
+            "value": "assisted_living"
+        }
+    },
     "amenity/social_facility/food_bank": {
         "icon": "temaki-social_facility",
         "geometry": [
@@ -6014,6 +6157,38 @@
         "reference": {
             "key": "social_facility",
             "value": "nursing_home"
+        }
+    },
+    "amenity/stripclub": {
+        "icon": "roentgen-pole_dancer",
+        "fields": [
+            "name",
+            "operator",
+            "address",
+            "building_area_yes",
+            "opening_hours",
+            "min_age",
+            "smoking"
+        ],
+        "moreFields": [
+            "air_conditioning",
+            "email",
+            "fax",
+            "gnis/feature_id-US",
+            "level",
+            "payment_multi",
+            "opening_hours/covid19",
+            "phone",
+            "ref/FR/siret-FR",
+            "wheelchair",
+            "fee"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "stripclub"
         }
     },
     "amenity/studio": {
@@ -7400,7 +7575,7 @@
         }
     },
     "attraction/water_slide": {
-        "icon": "temaki-slide",
+        "icon": "roentgen-slide_and_water",
         "fields": [
             "{attraction}",
             "height"
@@ -7436,17 +7611,6 @@
             "level"
         ],
         "matchScore": 0.4
-    },
-    "barrier/ditch": {
-        "icon": "temaki-trench",
-        "geometry": [
-            "line",
-            "area"
-        ],
-        "tags": {
-            "barrier": "ditch"
-        },
-        "matchScore": 0.25
     },
     "barrier/entrance": {
         "icon": "maki-entrance-alt1",
@@ -7674,6 +7838,16 @@
         "tags": {
             "barrier": "cycle_barrier"
         }
+    },
+    "barrier/ditch": {
+        "icon": "temaki-trench",
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "barrier": "ditch"
+        },
+        "matchScore": 0.25
     },
     "barrier/fence": {
         "icon": "maki-fence",
@@ -8246,6 +8420,14 @@
         "tags": {
             "building": "bunker"
         },
+        "fields": [
+            "{military/bunker}",
+            "{building}"
+        ],
+        "moreFields": [
+            "{military/bunker}",
+            "{building}"
+        ],
         "matchScore": 0.5,
         "searchable": false
     },
@@ -9879,12 +10061,12 @@
             "indoor",
             "ref",
             "operator",
-            "defibrillator/location"
+            "defibrillator/location",
+            "access_simple"
         ],
         "moreFields": [
             "level",
-            "opening_hours",
-            "access_simple"
+            "opening_hours"
         ],
         "geometry": [
             "point",
@@ -10263,6 +10445,15 @@
         ],
         "tags": {
             "entrance": "main"
+        }
+    },
+    "entrance/staircase": {
+        "icon": "maki-entrance-alt1",
+        "geometry": [
+            "vertex"
+        ],
+        "tags": {
+            "entrance": "staircase"
         }
     },
     "ford": {
@@ -12371,10 +12562,15 @@
         ],
         "moreFields": [
             "address",
+            "bin",
+            "caravans",
+            "drinking_water_available",
             "email",
             "fax",
             "opening_hours/covid19",
             "phone",
+            "picnic_table",
+            "toilets",
             "wheelchair"
         ],
         "geometry": [
@@ -12946,7 +13142,7 @@
         }
     },
     "highway/turning_circle": {
-        "icon": "maki-circle-stroked",
+        "icon": "maki-circle",
         "geometry": [
             "vertex"
         ],
@@ -12958,7 +13154,7 @@
         }
     },
     "highway/turning_loop": {
-        "icon": "maki-circle",
+        "icon": "roentgen-turning_loop",
         "geometry": [
             "vertex"
         ],
@@ -13677,7 +13873,8 @@
             "phone"
         ],
         "geometry": [
-            "area"
+            "area",
+            "point"
         ],
         "tags": {
             "landuse": "cemetery"
@@ -13942,6 +14139,49 @@
         "searchable": false,
         "matchScore": 0.9,
         "name": "{man_made/works/brewery}"
+    },
+    "landuse/industrial/industrial_point": {
+        "icon": "maki-industry",
+        "fields": [
+            "{landuse/industrial}"
+        ],
+        "moreFields": [
+            "{landuse/industrial}"
+        ],
+        "geometry": [
+            "point"
+        ],
+        "tags": {
+            "landuse": "industrial"
+        },
+        "searchable": false,
+        "name": "{landuse/industrial}"
+    },
+    "landuse/industrial/depot": {
+        "icon": "roentgen-buses",
+        "fields": [
+            "name",
+            "operator",
+            "depot"
+        ],
+        "moreFields": [
+            "{landuse/industrial}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "industrial": "depot"
+        },
+        "addTags": {
+            "landuse": "industrial",
+            "industrial": "depot"
+        },
+        "reference": {
+            "key": "industrial",
+            "value": "depot"
+        }
     },
     "landuse/industrial/scrap_yard": {
         "icon": "temaki-junk_car",
@@ -15504,7 +15744,8 @@
             "sport",
             "access_simple",
             "surface",
-            "lit"
+            "lit",
+            "ref"
         ],
         "moreFields": [
             "address",
@@ -17574,16 +17815,121 @@
         "fields": [
             "ref",
             "operator",
-            "street_cabinet",
             "utility_semi",
             "height",
             "colour"
         ],
         "moreFields": [
-            "model"
+            "model",
+            "street_cabinet"
         ],
         "tags": {
             "man_made": "street_cabinet"
+        }
+    },
+    "man_made/street_cabinet/postal_service": {
+        "icon": "fas-door-closed",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "fields": [
+            "{man_made/street_cabinet}"
+        ],
+        "moreFields": [
+            "{man_made/street_cabinet}"
+        ],
+        "tags": {
+            "man_made": "street_cabinet",
+            "street_cabinet": "postal_service"
+        },
+        "reference": {
+            "key": "street_cabinet",
+            "value": "postal_service"
+        }
+    },
+    "man_made/street_cabinet/traffic_control": {
+        "icon": "fas-door-closed",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "fields": [
+            "{man_made/street_cabinet}"
+        ],
+        "moreFields": [
+            "{man_made/street_cabinet}"
+        ],
+        "tags": {
+            "man_made": "street_cabinet",
+            "street_cabinet": "traffic_control"
+        },
+        "reference": {
+            "key": "man_made",
+            "value": "street_cabinet"
+        }
+    },
+    "man_made/street_cabinet/traffic_monitoring": {
+        "icon": "fas-door-closed",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "fields": [
+            "{man_made/street_cabinet}"
+        ],
+        "moreFields": [
+            "{man_made/street_cabinet}"
+        ],
+        "tags": {
+            "man_made": "street_cabinet",
+            "street_cabinet": "traffic_monitoring"
+        },
+        "reference": {
+            "key": "man_made",
+            "value": "street_cabinet"
+        }
+    },
+    "man_made/street_cabinet/transport_management": {
+        "icon": "fas-door-closed",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "fields": [
+            "{man_made/street_cabinet}"
+        ],
+        "moreFields": [
+            "{man_made/street_cabinet}"
+        ],
+        "tags": {
+            "man_made": "street_cabinet",
+            "street_cabinet": "transport_management"
+        },
+        "reference": {
+            "key": "man_made",
+            "value": "street_cabinet"
+        }
+    },
+    "man_made/street_cabinet/waste": {
+        "icon": "maki-recycling",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "fields": [
+            "{man_made/street_cabinet}"
+        ],
+        "moreFields": [
+            "{man_made/street_cabinet}"
+        ],
+        "tags": {
+            "man_made": "street_cabinet",
+            "street_cabinet": "waste"
+        },
+        "reference": {
+            "key": "man_made",
+            "value": "street_cabinet"
         }
     },
     "man_made/surveillance": {
@@ -17788,7 +18134,7 @@
         }
     },
     "man_made/tower/diving": {
-        "icon": "temaki-diving",
+        "icon": "roentgen-diving_1_platforms",
         "geometry": [
             "point",
             "area"
@@ -18265,22 +18611,23 @@
             "military": "trench"
         }
     },
-    "natural/wood": {
+    "natural/wood_point": {
         "icon": "maki-park-alt1",
         "fields": [
-            "name",
-            "leaf_type",
-            "leaf_cycle"
+            "{natural/wood}"
         ],
         "moreFields": [
-            "species/wikidata"
+            "{natural/wood}"
         ],
         "geometry": [
-            "area"
+            "point"
         ],
         "tags": {
             "natural": "wood"
-        }
+        },
+        "searchable": false,
+        "matchScore": 1.1,
+        "name": "{natural/wood}"
     },
     "natural/bare_rock": {
         "icon": "temaki-boulder3",
@@ -19068,6 +19415,23 @@
             "value": "wet_meadow"
         }
     },
+    "natural/wood": {
+        "icon": "maki-park-alt1",
+        "fields": [
+            "name",
+            "leaf_type",
+            "leaf_cycle"
+        ],
+        "moreFields": [
+            "species/wikidata"
+        ],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "natural": "wood"
+        }
+    },
     "network/type/node_network-DE-NL-BE-LU": {
         "fields": [
             "name",
@@ -19432,6 +19796,16 @@
         ],
         "tags": {
             "office": "energy_supplier"
+        }
+    },
+    "office/engineer": {
+        "icon": "fas-pen-ruler",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "office": "engineer"
         }
     },
     "office/estate_agent": {
@@ -20414,7 +20788,7 @@
         }
     },
     "playground/slide": {
-        "icon": "temaki-slide",
+        "icon": "roentgen-slide",
         "geometry": [
             "point",
             "line",
@@ -21219,6 +21593,7 @@
         "fields": [
             "ref",
             "operator",
+            "design_power_pole",
             "height",
             "material",
             "line_attachment"
@@ -21245,7 +21620,7 @@
         ],
         "moreFields": [
             "colour",
-            "design",
+            "design_power_tower",
             "height",
             "line_management",
             "manufacturer"
@@ -21303,11 +21678,11 @@
         "fields": [
             "ref",
             "operator",
-            "design",
+            "structure_power",
+            "design_power_tower",
             "height",
             "material",
-            "line_attachment",
-            "structure_power"
+            "line_attachment"
         ],
         "moreFields": [
             "line_management",
@@ -22849,6 +23224,19 @@
         ],
         "tags": {
             "railway": "tram"
+        }
+    },
+    "railway/turntable": {
+        "icon": "maki-circle-stroked",
+        "geometry": [
+            "area",
+            "vertex"
+        ],
+        "fields": [
+            "ref"
+        ],
+        "tags": {
+            "railway": "turntable"
         }
     },
     "railway/yard": {
@@ -24416,6 +24804,16 @@
         "tags": {
             "shop": "nutrition_supplements"
         }
+    },
+    "shop/nuts": {
+        "tags": {
+            "shop": "nuts"
+        },
+        "icon": "maki-shop",
+        "geometry": [
+            "point",
+            "area"
+        ]
     },
     "shop/optician": {
         "icon": "maki-optician",
@@ -26308,7 +26706,7 @@
         }
     },
     "traffic_sign/city_limit": {
-        "icon": "maki-square-stroked",
+        "icon": "roentgen-city_limit_sign",
         "fields": [
             "{traffic_sign}",
             "name"
