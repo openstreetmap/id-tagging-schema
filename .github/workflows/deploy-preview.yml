@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version-file: '.nvmrc'
+          node-version: '18'
       - run: npm install --global netlify-cli@6
       - run: npm install unzipper@0.10
 
@@ -78,7 +78,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: pullRequestNumber,
-                body: `${start} Preview the tagging presets of this pull request here: https://pr-${pullRequestNumber}--ideditor-presets-preview.netlify.app/id/dist/.`
+                body: `${start} Preview the tagging presets of this pull request here: https://pr-${pullRequestNumber}--ideditor-presets-preview.netlify.app/id/dist/#locale=en.`
               });
             } else {
               console.log(`Preview URL comment already added to PR #${pullRequestNumber}`);
