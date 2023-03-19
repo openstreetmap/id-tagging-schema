@@ -20,15 +20,25 @@ This Tagging Schema fills that need, but with a number of caveats:
 
 ## Translations
 
-* English translations for the `terms`-key should be added to the JSON data ([Example](https://github.com/openstreetmap/id-tagging-schema/blob/v3.1.0/data/presets/natural/shrub.json#L16-L19)).
+* **English (US) translations** are managed inside the JSON files of this repository. The Transifex translations for "English (en)" are only a reference for other languages but not exported.
 
-* Apart from that, translations are managed [in the Transifex Project of the iD Editor](https://www.transifex.com/openstreetmap/id-editor/) inside the translation resource _'preset'_.
+  Example: To extend the list of English terms for `shrub`, [modify the `terms`-key in the JSON file](https://github.com/openstreetmap/id-tagging-schema/blob/v3.1.0/data/presets/natural/shrub.json#L16-L19)).
 
-  To translate, you can [open the translation page](https://www.transifex.com/openstreetmap/id-editor/translate/), select a language, select _'presets'_ and search for `key:living_street` or `translation_text:'Living Street'` to find and change translations.
+* **All languages** other than English (US) are managed [in the Transifex Project of the iD Editor](https://www.transifex.com/openstreetmap/id-editor/) inside the translation resource _'preset'_.
 
-  To contribute to a language: [Select a language](https://www.transifex.com/openstreetmap/id-editor/languages/) and use 'Join team' to request access. The administrators will approve requests routinely, only rejecting requests for overly specific locales.
+  To to find and update a translation, you can …
+  1. [open the translation page](https://www.transifex.com/openstreetmap/id-editor/translate/)
+  2. select a language
+  3. select _'presets'_
+  4. search for `key:living_street` or `translation_text:'Living Street'`
 
-* All translation changes will be released whenever [a new id-tagging-schema release is created](https://github.com/openstreetmap/id-tagging-schema/releases). They will be visible inside iD and other editors once those editors update their dependencies and release a new version as well.
+* **Request access:** To contribute to a language, [select a language](https://www.transifex.com/openstreetmap/id-editor/languages/) and use 'Join team' to request access. The administrators will approve requests routinely, only rejecting requests for overly specific locales.
+
+* **Base language:** The JSON files in this repository requiere an "English (US)" translation. This includes data, that use the `locationSet` property to reduce the scope of the data to specific countries since users might still select English as an editor language in those countries. Some presets use a (untranslatable) proper name. See also "Developer Notes".
+
+* **Transifex "Developer Notes":** Use the "Developer Notes" section in Transifex to learn more about the context of a given translation string. For example, [looking at `presets.fields.direction_cardinal-US-CA-NZ.label` in Transiflex](https://www.transifex.com/openstreetmap/id-editor/translate/#en_GB/presets/406422633?q=key%3Adirection_cardinal) will give you the "Developer Notes: `direction=* | Local preset for countries "CA", "NZ", "US"`" which helps you understand that, (a) this label describes the key `direction` and (b) it is only visible in three countries, so other languages usually don't need to translate it (leave it blank or add the English translation instead).
+
+* **Release:** All translation changes will be released whenever [a new id-tagging-schema release is created](https://github.com/openstreetmap/id-tagging-schema/releases). They will be visible inside iD and other editors once those editors update their dependencies and release a new version as well.
 
 ## Usage
 
