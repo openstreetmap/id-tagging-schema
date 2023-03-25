@@ -40,6 +40,17 @@ This Tagging Schema fills that need, but with a number of caveats:
 
 * **Release:** All translation changes are released whenever [a new id-tagging-schema release is created](https://github.com/openstreetmap/id-tagging-schema/releases). They will become visible inside iD and other editors once those editors a short while after that (which can vary as different editors have different release schedules and in some cases, e.g. in iD, translations might even be fetched dynamically from the most recent id-tagging-schema release).
 
+## Icons
+
+iD presets are using some openly-licensed icons created by separate projects. Presets may have icon field like `"icon": "maki-roadblock",` referencing an icon.
+
+Currently following referencing is possible:
+
+- `id-` - references icom from https://github.com/openstreetmap/iD/tree/develop/svg/iD-sprite/presets
+- `temaki-`- https://github.com/ideditor/temaki
+- `maki-` - https://github.com/mapbox/maki
+- `fas-` - https://github.com/openstreetmap/iD/tree/develop/svg/fontawesome from https://fontawesome.com/icons
+
 ## Usage
 
 ### Java/Android
