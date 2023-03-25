@@ -46,10 +46,11 @@ iD presets are using some openly-licensed icons created by separate projects. Pr
 
 Currently following referencing is possible:
 
-- `id-` - references icom from https://github.com/openstreetmap/iD/tree/develop/svg/iD-sprite/presets
+- `id-` (and ones with any other prefix than mentioned below) - references icom from https://github.com/openstreetmap/iD/tree/develop/svg/iD-sprite/presets
 - `temaki-`- https://github.com/ideditor/temaki
 - `maki-` - https://github.com/mapbox/maki
-- `fas-` - https://github.com/openstreetmap/iD/tree/develop/svg/fontawesome from https://fontawesome.com/icons
+- `fas-` / `far-` / `fab-` - https://github.com/openstreetmap/iD/tree/develop/svg/fontawesome from https://fontawesome.com/icons
+- `roentgen-` - https://github.com/enzet/map-machine#r%C3%B6ntgen-icon-set
 
 ## Usage
 
