@@ -5,10 +5,17 @@
 This is the directory of OpenStreetMap tagging data used by the [iD editor](https://github.com/openstreetmap/iD).
 It includes presets, fields, deprecations, and more.
 
+## Participate!
+
+* Read up about how you can contribute to the iD Tagging Schema on the [contributing page](CONTRIBUTING.md).
+* [Translate!](CONTRIBUTING.md#Translate).
+* See the [open issues](https://github.com/openstreetmap/id-tagging-schema/issues?state=open) in the issue tracker if you're looking for something to do.
+* Need more help? Ping user `tyr_asd` (Martin Raifer) on [OpenStreetMap Discord](https://discord.gg/openstreetmap) (`#id` channel) or [OpenStreetMap US Slack](https://slack.openstreetmap.us/) (`#id` channel).
+
 ## Background
 
-OpenStreetMap itself does not have a formal rigid [database schema](https://en.wikipedia.org/wiki/Database_schema),
-but relies on a [tagging](https://wiki.openstreetmap.org/wiki/Tags) [folksonomy](https://en.wikipedia.org/wiki/Folksonomy) instead.
+OpenStreetMap itself does not have a formal rigid [database schema](https://en.wikipedia.org/wiki/Database_schema), but relies on a [tagging](https://wiki.openstreetmap.org/wiki/Tags) [folksonomy](https://en.wikipedia.org/wiki/Folksonomy) instead.
+
 Editing tools need to know how tags are used in order to facilitate mapping.
 This Tagging Schema fills that need, but with a number of caveats:
 
@@ -17,28 +24,6 @@ This Tagging Schema fills that need, but with a number of caveats:
 - Our primary aim is to serve the needs of iD mappers (but other tools are welcome to use this too)
 - We support tags based on practicality, usage, and community approval
 - Sometimes there are reasons we can't support a tag even if it's used or approved
-
-## Translations
-
-* **English (US) translations** are managed inside the JSON files of this repository. The Transifex translations for "English (en)" are only a reference for other languages but not exported.
-
-  Example: To extend the list of English terms for `shrub`, [modify the `terms`-key in the JSON file](https://github.com/openstreetmap/id-tagging-schema/blob/v3.1.0/data/presets/natural/shrub.json#L16-L19)).
-
-* **All languages** other than English (US) are managed [in the Transifex Project of the iD Editor](https://www.transifex.com/openstreetmap/id-editor/) inside the translation resource _'preset'_.
-
-  To to find and update a translation, you can …
-  1. [open the translation page](https://www.transifex.com/openstreetmap/id-editor/translate/)
-  2. select a language
-  3. select _'presets'_
-  4. search for `key:living_street` or `translation_text:'Living Street'`
-
-* **Request access:** To contribute to a language, [select a language](https://www.transifex.com/openstreetmap/id-editor/languages/) and use 'Join team' to request access. The administrators will approve requests routinely, only rejecting requests for overly specific locales.
-
-* **Base language:** The JSON files in this repository require an "English (US)" translation. This includes data, that use the `locationSet` property to reduce the scope of the data to specific countries since users might still select English as an editor language in those countries. Some presets use a (untranslatable) proper name. See also "Developer Notes".
-
-* **Transifex "Developer Notes":** Use the "Developer Notes" section in Transifex to learn more about the context of a given translation string. For example, [looking at `presets.fields.direction_cardinal-US-CA-NZ.label` in Transiflex](https://www.transifex.com/openstreetmap/id-editor/translate/#en_GB/presets/406422633?q=key%3Adirection_cardinal) will give you the "Developer Notes: `direction=* | Local preset for countries "CA", "NZ", "US"`" which helps you understand that, (a) this label describes the key `direction` and (b) it is only visible in three countries, so other languages usually don't need to translate it (leave it blank or add the English translation instead).
-
-* **Release:** All translation changes are released whenever [a new id-tagging-schema release is created](https://github.com/openstreetmap/id-tagging-schema/releases). They will become visible inside iD and other editors once those editors a short while after that (which can vary as different editors have different release schedules and in some cases, e.g. in iD, translations might even be fetched dynamically from the most recent id-tagging-schema release).
 
 ## Usage
 
@@ -60,11 +45,4 @@ iD tagging schema is used not only by iD. Here's a [list of projects](https://gi
 
 ## Contributing
 
-iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_CONDUCT.md) and
-[privacy policy](https://github.com/openstreetmap/iD/blob/release/PRIVACY.md) also apply to this project.
-
-### Making Changes
-
-Documentation for the data formats is located with the [schema-builder](https://github.com/ideditor/schema-builder)
-package, which is the technical basis of this project. To make a change, update a
-file within the `data` folder and rebuild by running `npm run build` in your terminal.
+See the dedicated [CONTRIBUTING](CONTRIBUTING.md) page for information about this.
