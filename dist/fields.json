@@ -801,7 +801,13 @@
     },
     "shelter_type": {
         "key": "shelter_type",
-        "type": "combo"
+        "type": "combo",
+        "icons": {
+            "public_transport": "temaki-transit_shelter",
+            "picnic_shelter": "temaki-picnic_shelter",
+            "lean_to": "temaki-sleep_shelter",
+            "field_shelter": "temaki-horse_shelter"
+        }
     },
     "shelter": {
         "key": "shelter",
@@ -867,14 +873,15 @@
         "key": "scuba_diving:",
         "type": "multiCombo",
         "options": [
-            "repair",
-            "courses",
-            "rental",
-            "filling",
             "air_filling",
+            "courses",
+            "filling",
+            "hobby",
             "nitrox_filling",
-            "trimix_filling",
-            "oxygen_filling"
+            "oxygen_filling",
+            "rental",
+            "repair",
+            "trimix_filling"
         ],
         "autoSuggestions": false
     },
@@ -2490,7 +2497,12 @@
     },
     "dock": {
         "key": "dock",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "drydock",
+            "floating",
+            "tidal"
+        ]
     },
     "distance": {
         "key": "distance",
@@ -2584,7 +2596,12 @@
     },
     "diplomatic": {
         "key": "diplomatic",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "consulate",
+            "embassy",
+            "liaison"
+        ]
     },
     "diet_multi": {
         "key": "diet:",
@@ -2626,7 +2643,8 @@
             "key": "oneway",
             "value": "yes"
         },
-        "snake_case": false
+        "snake_case": false,
+        "caseSensitive": true
     },
     "destination": {
         "key": "destination",
@@ -3003,7 +3021,15 @@
     },
     "consulate": {
         "key": "consulate",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "consulate_general",
+            "honorary_consul",
+            "yes",
+            "consular_office",
+            "consular_agency",
+            "residence"
+        ]
     },
     "construction": {
         "key": "construction",
@@ -3028,7 +3054,12 @@
     },
     "collector": {
         "key": "collector",
-        "type": "semiCombo"
+        "type": "semiCombo",
+        "options": [
+            "coins",
+            "stamps",
+            "comics"
+        ]
     },
     "collection_times": {
         "key": "collection_times",
@@ -4459,16 +4490,6 @@
             "extreme"
         ]
     },
-    "parking/orientation": {
-        "key": "parking:orientation",
-        "type": "combo",
-        "autoSuggestions": false,
-        "options": [
-            "parallel",
-            "diagonal",
-            "perpendicular"
-        ]
-    },
     "parking/side/parking": {
         "key": "parking:both",
         "keys": [
@@ -4509,6 +4530,17 @@
             "diagonal",
             "perpendicular"
         ]
+    },
+    "orientation/orientation_parking": {
+        "key": "orientation",
+        "type": "combo",
+        "options": [
+            "parallel",
+            "diagonal",
+            "perpendicular"
+        ],
+        "stringsCrossReference": "{parking/side/orientation}",
+        "autoSuggestions": false
     },
     "operator/type": {
         "key": "operator:type",

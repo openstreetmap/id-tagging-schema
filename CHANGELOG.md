@@ -19,6 +19,100 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.1.0
+##### 2023-Apr-03
+
+#### :mega: Release Highlights
+* On github, automated preview instances of iD will be deployed for tagging PRs
+#### New Presets
+* Add presets for Korean and Spanish Restaurants ([#815], thanks [@andrewharvey])
+* Add preset for `man_made=quay` ([#810], thanks [@jdhoek])
+* Add Track & Field presets ([#817], thanks [@arch0345])
+* Add preset for `natural=peninsula` ([#798], [#844], thanks [@harahu])
+* Add preset for `emergency=fire_service_inlet` ([#806], thanks [@tiptoptom])
+* Add preset for Scout Group ([#836], thanks [@tiptoptom])
+#### Changed Presets
+* Add a field for the tag `website:menu` to amenties like Restaurants, Cafes, etc.  ([#803], thanks [@tognee])
+* Rename `military=danger_area` preset to "Danger Zone, Access Prohibited" ([#792], thanks [@emersonveenstra])
+* Add terms "cat/dog grooming" to Pet Groomer preset ([#811], thanks [@matkoniecz])
+* Use `amenity=dancing_school` tag for Dance Studio preset
+* Add `flashing_lights` field to `crossing=uncontrolled` ([#827], thanks [@Dimitar5555])
+* Make `shop=vacant` preset searchable ([#828], thanks [@Dimitar5555])
+* Hide `shop=hobby` preset and add _hobby_ as search term to related Shop presets ([#24], [#821], [#823], thanks [@matkoniecz])
+* Make `barrier=log` preset searchable ([#615], [#822], thanks [@matkoniecz])
+* More dedicated icon for Sign Maker, `shop=frozen_food` and Castle presets ([#839], [#840], [#849], thanks [@matkoniecz])
+* Add additional search terms to Billboard preset ([#848], thanks [@matkoniecz])
+#### New and Changed Fields
+* Drop value `communtiy` from `postbox:type` field ([#805], thanks [@kjonosm])
+* Add translatable strings for fields: `historic`, `diplomatic`, `consulate`, `dock`, `collector` ([#813], [#841], [#843], [#852], [#853], thanks [@kjonosm])
+* Add field for `dance:teaching=yes/no` tag
+* Add more values of `sport` field ([#812], thanks [@kjonosm])
+* Add fields for `fire_mains` and `fire_sprinkler` ([#806], thanks [@tiptoptom])
+* Update tag of Orientation field for Street Side Parking preset from `parking:orientation` to `orientation` ([#673], thanks [@tordans])
+* Specify cons for some `shelter_type` values ([#851])
+#### Deprecated Tags
+* Add recently deprecated tags ([#807], thanks [@kjonosm]):
+    * ~~`amenity=lifeboat-station`~~ :arrow_right: `emergency=water_rescue`
+    * ~~`emergency=lifeboat_station`~~ :arrow_right: `emergency=water_rescue`
+    * ~~`emergency=marine_rescue`~~ :arrow_right: `emergency=water_rescue`
+    * ~~`emergency_service=air`~~ :arrow_right: `emergency=air_rescue_service`
+    * ~~`emergency=dry_riser_inlet`~~ :arrow_right: `emergency=fire_service_inlet`+ `fire_mains=dry`
+    * ~~`emergency=sprinkler_connection`~~ :arrow_right: `emergency=fire_service_inlet`+ `fire_sprinkler=yes`
+* Remove disputed deprecation of `amenity=dancing_school` ([#814], thanks [@matkoniecz])
+* Update Utility Pole preset and add relevant deprecations ([#830], [#211], thanks [@Dimitar5555]):
+    * ~`communication=pole`~ :arrow_right: `man_made=utility_pole` + `utility=telecom`
+    * ~`telephone=pole`~ :arrow_right: `man_made=utility_pole` + `utility=telecom`
+    * ~`telecom=pole`~ :arrow_right: `man_made=utility_pole` + `utility=telecom`
+    * ~`pstn=pole`~ :arrow_right: `man_made=utility_pole` + `utility=telecom`
+* ~`parking:orientation=*`~ :arrow_right: `orientation=*` ([#673], thanks [@tordans])
+#### Bugfixes
+* Fix tag of (hidden) generic Pipeline Feature preset
+* Avoid lowercasing Destination field on one-ways ([#829], thanks [@1ec5])
+#### Documentation and Other Changes
+* Extend documentation section about translating ([#825], thanks [@tordans])
+* Create [CONTRIBUTING](./CONTRIBUTING.md) page
+* Add a `.nvmrc` file
+* Bump dependencies: `prettier` to v2.8.6, `schema-builder` to v6.2
+
+[#24]: https://github.com/openstreetmap/id-tagging-schema/issues/24
+[#615]: https://github.com/openstreetmap/id-tagging-schema/issues/615
+[#673]: https://github.com/openstreetmap/id-tagging-schema/pull/673
+[#792]: https://github.com/openstreetmap/id-tagging-schema/pull/792
+[#798]: https://github.com/openstreetmap/id-tagging-schema/issues/798
+[#800]: https://github.com/openstreetmap/id-tagging-schema/pull/800
+[#803]: https://github.com/openstreetmap/id-tagging-schema/pull/803
+[#805]: https://github.com/openstreetmap/id-tagging-schema/pull/805
+[#807]: https://github.com/openstreetmap/id-tagging-schema/pull/807
+[#810]: https://github.com/openstreetmap/id-tagging-schema/pull/810
+[#811]: https://github.com/openstreetmap/id-tagging-schema/pull/811
+[#812]: https://github.com/openstreetmap/id-tagging-schema/pull/812
+[#813]: https://github.com/openstreetmap/id-tagging-schema/pull/813
+[#814]: https://github.com/openstreetmap/id-tagging-schema/pull/814
+[#815]: https://github.com/openstreetmap/id-tagging-schema/pull/815
+[#817]: https://github.com/openstreetmap/id-tagging-schema/pull/817
+[#821]: https://github.com/openstreetmap/id-tagging-schema/pull/821
+[#822]: https://github.com/openstreetmap/id-tagging-schema/pull/822
+[#823]: https://github.com/openstreetmap/id-tagging-schema/pull/823
+[#825]: https://github.com/openstreetmap/id-tagging-schema/pull/825
+[#827]: https://github.com/openstreetmap/id-tagging-schema/pull/827
+[#829]: https://github.com/openstreetmap/id-tagging-schema/pull/829
+[#830]: https://github.com/openstreetmap/id-tagging-schema/pull/830
+[#836]: https://github.com/openstreetmap/id-tagging-schema/pull/836
+[#839]: https://github.com/openstreetmap/id-tagging-schema/pull/839
+[#840]: https://github.com/openstreetmap/id-tagging-schema/pull/840
+[#841]: https://github.com/openstreetmap/id-tagging-schema/pull/841
+[#843]: https://github.com/openstreetmap/id-tagging-schema/pull/843
+[#844]: https://github.com/openstreetmap/id-tagging-schema/pull/844
+[#848]: https://github.com/openstreetmap/id-tagging-schema/pull/848
+[#849]: https://github.com/openstreetmap/id-tagging-schema/pull/849
+[#851]: https://github.com/openstreetmap/id-tagging-schema/issues/851
+[#852]: https://github.com/openstreetmap/id-tagging-schema/pull/852
+[#853]: https://github.com/openstreetmap/id-tagging-schema/pull/853
+[@tognee]: https://github.com/tognee
+[@emersonveenstra]: https://github.com/emersonveenstra
+[@tiptoptom]: https://github.com/tiptoptom
+
+
 # 6.0.0
 ##### 2023-Mar-02
 

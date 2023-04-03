@@ -4281,16 +4281,6 @@
             "shop": "household_linen"
         }
     },
-    "shop/hobby": {
-        "icon": "fas-dragon",
-        "geometry": [
-            "point",
-            "area"
-        ],
-        "tags": {
-            "shop": "hobby"
-        }
-    },
     "shop/hifi": {
         "icon": "temaki-speaker",
         "geometry": [
@@ -4476,7 +4466,7 @@
         "matchScore": 0.5
     },
     "shop/frozen_food": {
-        "icon": "maki-shop",
+        "icon": "far-snowflake",
         "geometry": [
             "point",
             "area"
@@ -5215,6 +5205,16 @@
         ],
         "tags": {
             "shop": "vacant"
+        }
+    },
+    "shop/hobby": {
+        "icon": "fas-dragon",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "shop": "hobby"
         },
         "searchable": false
     },
@@ -9543,7 +9543,7 @@
         }
     },
     "natural/peninsula": {
-        "icon": "temaki-beach",
+        "icon": "temaki-cape_landform",
         "geometry": [
             "point",
             "area"
@@ -10401,11 +10401,13 @@
             "operator",
             "utility_semi",
             "height",
-            "material"
+            "material",
+            "line_attachment"
         ],
         "moreFields": [
             "colour",
-            "manufacturer"
+            "manufacturer",
+            "line_management"
         ],
         "geometry": [
             "point",
@@ -15619,7 +15621,7 @@
         }
     },
     "historic/castle": {
-        "icon": "maki-castle",
+        "icon": "roentgen-fort",
         "fields": [
             "name",
             "castle_type",
@@ -17852,6 +17854,9 @@
             "crossing/markings_yes",
             "crossing_raised"
         ],
+        "moreFields": [
+            "flashing_lights"
+        ],
         "geometry": [
             "vertex"
         ],
@@ -19156,7 +19161,7 @@
         }
     },
     "craft/signmaker": {
-        "icon": "temaki-tools",
+        "icon": "fas-sign-hanging",
         "geometry": [
             "point",
             "area"
@@ -19654,6 +19659,23 @@
         ],
         "tags": {
             "club": "sport"
+        }
+    },
+    "club/scout": {
+        "icon": "fas-handshake",
+        "fields": [
+            "{club}"
+        ],
+        "moreFields": [
+            "{club}",
+            "brand"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "club": "scout"
         }
     },
     "cemetery/sector": {
@@ -20633,6 +20655,19 @@
             "barrier": "motorcycle_barrier"
         }
     },
+    "barrier/log": {
+        "icon": "maki-roadblock",
+        "fields": [
+            "access"
+        ],
+        "geometry": [
+            "vertex",
+            "line"
+        ],
+        "tags": {
+            "barrier": "log"
+        }
+    },
     "barrier/lift_gate": {
         "icon": "temaki-lift_gate",
         "fields": [
@@ -21014,20 +21049,6 @@
         "tags": {
             "barrier": "planter",
             "man_made": "planter"
-        },
-        "searchable": false
-    },
-    "barrier/log": {
-        "icon": "maki-roadblock",
-        "fields": [
-            "access"
-        ],
-        "geometry": [
-            "vertex",
-            "line"
-        ],
-        "tags": {
-            "barrier": "log"
         },
         "searchable": false
     },
@@ -26766,7 +26787,7 @@
         "icon": "temaki-car_parked",
         "fields": [
             "{amenity/parking}",
-            "parking/orientation"
+            "orientation/orientation_parking"
         ],
         "geometry": [
             "area",
