@@ -43,7 +43,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 * More dedicated icon for Sign Maker, `shop=frozen_food` and Castle presets ([#839], [#840], [#849], thanks [@matkoniecz])
 * Add additional search terms to Billboard preset ([#848], thanks [@matkoniecz])
 #### New and Changed Fields
-* Drop value `communtiy` from `postbox:type` field ([#805], thanks [@kjonosm])
+* Drop value `community` from `postbox:type` field ([#805], thanks [@kjonosm])
 * Add translatable strings for fields: `historic`, `diplomatic`, `consulate`, `dock`, `collector` ([#813], [#841], [#843], [#852], [#853], thanks [@kjonosm])
 * Add field for `dance:teaching=yes/no` tag
 * Add more values of `sport` field ([#812], thanks [@kjonosm])
