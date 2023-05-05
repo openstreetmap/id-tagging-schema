@@ -52,7 +52,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 * Replace ~~`survey_date`~~ with `survey:date` ([#860], thanks [@Marc-marc-marc])
 * Suggest to remove `highway=crossing` when `crossing=no` ([#863])
 #### Bugfixes
-* Don't assume a `kerb` tag implies beeing a barrier, as it can also be used as an attribute of a `highway=crossing` vertex ([#858], [#862])
+* Don't assume a `kerb` tag implies being a barrier, as it can also be used as an attribute of a `highway=crossing` vertex ([#858], [#862])
 * Allow `highway=elevator` on areas and standalone nodes ([#870])
 * Fix match priorities for Crossing and Speed Table presets ([#863])
 * Upgrade (deprecated) `shop=organic` to `shop=yes + organic=only` (instead of `shop=supermarket + organic=only`) ([#884], thanks [@matkoniecz])
