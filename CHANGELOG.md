@@ -19,6 +19,79 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.2.0
+##### 2023-May-05
+
+#### New Presets
+* Add presets for Georgian and Ukrainian restaurants ([#857], thanks [@matkoniecz])
+* Add preset for `shop=honey` ([#1], [#878], thanks [@matkoniecz])
+* Add Ramen Restaurant preset ([#880], thanks [@arch0345])
+* Add Frozen Yogurt Shop preset ([#881], thanks [@arch0345])
+* Add Chicken Wings Fast Food preset ([#883], thanks [@arch0345])
+* Add Bagel Fast Food preset ([#882], thanks [@arch0345])
+#### Changed Presets
+* Enable tagging unspecific crossings ([#837], [#834], thanks [@matkoniecz])
+* Add contact:facebook field to POI presets ([#859], thanks [@Cj-Malone])
+* Add _white goods_ as search term to `shop=appliance` preset ([#864], thanks [@matkoniecz])
+* Add _Pedestrian Island_ as an alias of the `footway=traffic_island` preset ([#865], thanks [@Dimitar5555])
+* Rename `amenity=kneipp_water_cure` preset to _Kneipp Facility_ ([#866])
+* Improve search terms of `horse_riding` preset ([#868], thanks [@Hufkratzer])
+* Improve search terms of advertisement devices ([#867], thanks [@matkoniecz])
+* Improve search terms of Pulmonologist ([#872], thanks [@matkoniecz])
+* Add "Obstetrician" as synonym to Gynecologist and improve the preset's search terms ([#873], [#789], thanks [@matkoniecz])
+* Add "bus terminal" as search term to Bus Station preset ([#890], thanks [@Dimitar5555])
+* Improve terms and add "Clinical Psychologist" as an alias to Psychotherapist preset ([#877])
+#### New and Changed Fields
+* Rename sport=equestrian to "Equestrian Sports" ([#855], thanks [@Hufkratzer])
+* Add additional cuisine values ([#857], thanks [@matkoniecz])
+* Add strings for values of `kneipp_water_cure:*` subtags ([#866])
+* Change Gender field to a `manyCombo` field ([#895])
+* Restrict values of the Gender field for hairdressers to female/male ([#894])
+* Use translated strings of the `sport` field also in its subfields (e.g. `sport_ice`, `sport_racing*`)
+#### Deprecated Tags
+* Replace ~~`survey_date`~~ with `survey:date` ([#860], thanks [@Marc-marc-marc])
+* Suggest to remove `highway=crossing` when `crossing=no` ([#863])
+#### Bugfixes
+* Don't assume a `kerb` tag implies beeing a barrier, as it can also be used as an attribute of a `highway=crossing` vertex ([#858], [#862])
+* Allow `highway=elevator` on areas and standalone nodes ([#870])
+* Fix match priorities for Crossing and Speed Table presets ([#863])
+* Upgrade (deprecated) `shop=organic` to `shop=yes + organic=only` (instead of `shop=supermarket + organic=only`) ([#884], thanks [@matkoniecz])
+#### Documentation and Other Changes
+* Clean up presets with fields included as both `fields` and `moreFields`
+* Consolidate optional fields of "POI" presets into "template presets"
+
+[#1]: https://github.com/openstreetmap/id-tagging-schema/issues/1
+[#789]: https://github.com/openstreetmap/id-tagging-schema/issues/789
+[#834]: https://github.com/openstreetmap/id-tagging-schema/issues/834
+[#858]: https://github.com/openstreetmap/id-tagging-schema/issues/858
+[#863]: https://github.com/openstreetmap/id-tagging-schema/issues/863
+[#866]: https://github.com/openstreetmap/id-tagging-schema/issues/866
+[#870]: https://github.com/openstreetmap/id-tagging-schema/issues/870
+[#877]: https://github.com/openstreetmap/id-tagging-schema/issues/877
+[#894]: https://github.com/openstreetmap/id-tagging-schema/issues/894
+[#895]: https://github.com/openstreetmap/id-tagging-schema/issues/895
+[#837]: https://github.com/openstreetmap/id-tagging-schema/pull/837
+[#855]: https://github.com/openstreetmap/id-tagging-schema/pull/855
+[#857]: https://github.com/openstreetmap/id-tagging-schema/pull/857
+[#859]: https://github.com/openstreetmap/id-tagging-schema/pull/859
+[#860]: https://github.com/openstreetmap/id-tagging-schema/pull/860
+[#862]: https://github.com/openstreetmap/id-tagging-schema/pull/862
+[#864]: https://github.com/openstreetmap/id-tagging-schema/pull/864
+[#865]: https://github.com/openstreetmap/id-tagging-schema/pull/865
+[#867]: https://github.com/openstreetmap/id-tagging-schema/pull/867
+[#868]: https://github.com/openstreetmap/id-tagging-schema/pull/868
+[#872]: https://github.com/openstreetmap/id-tagging-schema/pull/872
+[#873]: https://github.com/openstreetmap/id-tagging-schema/pull/873
+[#878]: https://github.com/openstreetmap/id-tagging-schema/pull/878
+[#880]: https://github.com/openstreetmap/id-tagging-schema/pull/880
+[#881]: https://github.com/openstreetmap/id-tagging-schema/pull/881
+[#882]: https://github.com/openstreetmap/id-tagging-schema/pull/882
+[#883]: https://github.com/openstreetmap/id-tagging-schema/pull/883
+[#884]: https://github.com/openstreetmap/id-tagging-schema/pull/884
+[#890]: https://github.com/openstreetmap/id-tagging-schema/pull/890
+[@Cj-Malone]: https://github.com/Cj-Malone
+
+
 # 6.1.0
 ##### 2023-Apr-03
 
