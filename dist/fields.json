@@ -65,6 +65,10 @@
     },
     "website": {
         "key": "website",
+        "keys": [
+            "website",
+            "contact:website"
+        ],
         "type": "url",
         "universal": true
     },
@@ -1045,6 +1049,11 @@
         "key": "ref",
         "type": "text"
     },
+    "ref_bridge_number": {
+        "key": "ref",
+        "type": "text",
+        "label": "{bridge/ref}"
+    },
     "ref_aeroway_gate": {
         "key": "ref",
         "type": "text"
@@ -1213,6 +1222,10 @@
     },
     "phone": {
         "key": "phone",
+        "keys": [
+            "phone",
+            "contact:phone"
+        ],
         "type": "tel"
     },
     "phases": {
@@ -1541,6 +1554,14 @@
         "key": "model",
         "type": "combo",
         "caseSensitive": true
+    },
+    "mobile": {
+        "key": "mobile",
+        "keys": [
+            "mobile",
+            "contact:mobile"
+        ],
+        "type": "tel"
     },
     "minspeed": {
         "key": "minspeed",
@@ -2313,6 +2334,10 @@
     },
     "fax": {
         "key": "fax",
+        "keys": [
+            "fax",
+            "contact:fax"
+        ],
         "type": "tel"
     },
     "faces": {
@@ -2395,6 +2420,10 @@
     },
     "email": {
         "key": "email",
+        "keys": [
+            "email",
+            "contact:email"
+        ],
         "type": "email"
     },
     "electrified": {
@@ -2746,6 +2775,18 @@
             "opposite",
             "separate"
         ]
+    },
+    "cyclestreet-BE-NL": {
+        "key": "cyclestreet",
+        "type": "defaultCheck",
+        "label": "{bicycle_road}",
+        "locationSet": {
+            "include": [
+                "BE",
+                "NL"
+            ]
+        },
+        "stringsCrossReference": "{bicycle_road}"
     },
     "cycle_network": {
         "key": "cycle_network",
@@ -3343,6 +3384,20 @@
     "bike_ride": {
         "key": "bike_ride",
         "type": "check"
+    },
+    "bicycle_road": {
+        "key": "bicycle_road",
+        "type": "defaultCheck",
+        "locationSet": {
+            "exclude": [
+                "BE",
+                "NL"
+            ]
+        },
+        "options": [
+            "undefined",
+            "yes"
+        ]
     },
     "bicycle_parking": {
         "key": "bicycle_parking",
@@ -4049,6 +4104,14 @@
     "seamark/mooring/category": {
         "key": "seamark:mooring:category",
         "type": "combo"
+    },
+    "seamark/harbour/category_marina": {
+        "key": "seamark:harbour:category",
+        "type": "check",
+        "options": [
+            "marina",
+            "marina_no_facilities"
+        ]
     },
     "seamark/buoy_lateral/system": {
         "key": "seamark:buoy_lateral:system",
@@ -5090,7 +5153,60 @@
         "label": "{crossing/markings}",
         "stringsCrossReference": "{crossing/markings}",
         "iconsCrossReference": "{crossing/markings}",
+        "default": "yes",
+        "locationSet": {
+            "exclude": [
+                "BG",
+                "DE",
+                "AT",
+                "CH"
+            ]
+        }
+    },
+    "crossing/markings_yes-DE-AT-CH": {
+        "key": "crossing:markings",
+        "type": "combo",
+        "label": "{crossing/markings}",
+        "options": [
+            "zebra",
+            "yes",
+            "no",
+            "dots",
+            "dashes",
+            "surface"
+        ],
+        "autoSuggestions": false,
+        "iconsCrossReference": "{crossing/markings}",
+        "stringsCrossReference": "{crossing/markings}",
+        "locationSet": {
+            "include": [
+                "DE",
+                "AT",
+                "CH"
+            ]
+        },
         "default": "yes"
+    },
+    "crossing/markings_yes-BG": {
+        "key": "crossing:markings",
+        "type": "combo",
+        "label": "{crossing/markings}",
+        "stringsCrossReference": "{crossing/markings}",
+        "iconsCrossReference": "{crossing/markings}",
+        "default": "yes",
+        "options": [
+            "zebra",
+            "no",
+            "dots",
+            "dashes",
+            "yes"
+        ],
+        "locationSet": {
+            "include": [
+                "BG"
+            ]
+        },
+        "autoSuggestions": false
     },
     "crossing/markings": {
         "key": "crossing:markings",
@@ -5109,6 +5225,14 @@
             "zebra:bicolour": "iD-crossing_markings-zebra_bicolour",
             "ladder:paired": "iD-crossing_markings-ladder_paired"
         },
+        "locationSet": {
+            "exclude": [
+                "BG",
+                "DE",
+                "AT",
+                "CH"
+            ]
+        },
         "options": [
             "zebra",
             "lines",
@@ -5126,6 +5250,49 @@
             "zebra:bicolour",
             "ladder:paired"
         ]
+    },
+    "crossing/markings-DE-AT-CH": {
+        "key": "crossing:markings",
+        "type": "combo",
+        "label": "{crossing/markings}",
+        "options": [
+            "zebra",
+            "yes",
+            "no",
+            "dots",
+            "dashes",
+            "surface"
+        ],
+        "autoSuggestions": false,
+        "iconsCrossReference": "{crossing/markings}",
+        "stringsCrossReference": "{crossing/markings}",
+        "locationSet": {
+            "include": [
+                "DE",
+                "AT",
+                "CH"
+            ]
+        }
+    },
+    "crossing/markings-BG": {
+        "key": "crossing:markings",
+        "type": "combo",
+        "label": "{crossing/markings}",
+        "stringsCrossReference": "{crossing/markings}",
+        "iconsCrossReference": "{crossing/markings}",
+        "options": [
+            "zebra",
+            "no",
+            "dots",
+            "dashes",
+            "yes"
+        ],
+        "locationSet": {
+            "include": [
+                "BG"
+            ]
+        },
+        "autoSuggestions": false
     },
     "crossing/light": {
         "key": "crossing:light",
@@ -5261,6 +5428,10 @@
         "type": "number",
         "minValue": 0
     },
+    "building/colour": {
+        "key": "building:colour",
+        "type": "colour"
+    },
     "building/levels/underground": {
         "key": "building:levels:underground",
         "type": "number",
@@ -5269,6 +5440,17 @@
     "bridge/support": {
         "key": "bridge:support",
         "type": "typeCombo"
+    },
+    "bridge/ref": {
+        "key": "bridge:ref",
+        "type": "text",
+        "reference": {
+            "key": "bridge"
+        },
+        "prerequisiteTag": {
+            "key": "bridge",
+            "valueNot": "no"
+        }
     },
     "bath/type": {
         "key": "bath:type",
