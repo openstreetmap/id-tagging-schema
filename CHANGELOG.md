@@ -45,7 +45,6 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 * BG: Only show relevant values for crossing markings ([#891], thanks [@Dimitrar5555])
 * DE,AT,CH: Only show relevant values for crossing markings
 * JP: Update placeholders for Japanese address schema ([#907])
-#### Deprecated Tags
 #### Bugfixes
 * Offer `crossing:markings` field in all relevant `crossing/*/traffic_signals` presets ([#908])
 * Make unspecified Pedestrian Crossing (line preset) searchable ([#889], thanks [@Dimitrar5555])
