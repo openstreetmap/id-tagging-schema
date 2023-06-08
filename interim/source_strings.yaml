@@ -169,20 +169,20 @@ en:
           housenumber: '123'
           housenumber!jp: Building No./Lot No.
           neighbourhood: Neighbourhood
-          neighbourhood!jp: Chōme/Aza/Koaza
+          neighbourhood!jp: Machi/Chōme/Aza/Koaza
           place: Place
           postcode: Postcode
           province: Province
           province!cn: Province/Municipality/AR/SAR
           province!jp: Prefecture
           quarter: Quarter
-          quarter!jp: Ōaza/Machi
+          quarter!jp: Ōaza
           state: State
           street: Street
           subdistrict: Subdistrict
           subdistrict!vn: Ward/Commune/Townlet
           suburb: Suburb
-          suburb!jp: Ward
+          suburb!jp: Ward (政令市)
           unit: Unit
         # 'terms: location'
         terms: '[translate with synonyms or related terms for ''Address'', separated by commas]'
@@ -678,6 +678,10 @@ en:
         label: Type
         # bridge field placeholder
         placeholder: Default
+      bridge/ref:
+        # bridge:ref=*
+        label: Bridge Number
+        terms: '[translate with synonyms or related terms for ''Bridge Number'', separated by commas]'
       bridge/support:
         # bridge:support=*
         label: Type
@@ -808,6 +812,11 @@ en:
           warehouse: Warehouse
         # 'terms: structure'
         terms: '[translate with synonyms or related terms for ''Building'', separated by commas]'
+      building/colour:
+        # building:colour=*
+        label: Façade Color
+        # 'terms: building color,facade color'
+        terms: '[translate with synonyms or related terms for ''Façade Color'', separated by commas]'
       building/flats:
         # building:flats=*
         label: Units
@@ -1851,7 +1860,7 @@ en:
         # 'terms: contact line,powered,third rail'
         terms: '[translate with synonyms or related terms for ''Electrification'', separated by commas]'
       email:
-        # email=*
+        # email=*, contact:email=*
         label: Email
         # email field placeholder
         placeholder: example@example.com
@@ -1935,7 +1944,7 @@ en:
         # faces=*
         label: Faces
       fax:
-        # fax=*
+        # fax=*, contact:fax=*
         label: Fax
         # fax field placeholder
         placeholder: +31 42 123 4567
@@ -2986,10 +2995,19 @@ en:
         label: Maximum Age
         # 'terms: upper age limit'
         terms: '[translate with synonyms or related terms for ''Maximum Age'', separated by commas]'
+      maxaxleload_bridge:
+        # maxaxleload=*
+        label: Axle Weight Limit
+        terms: '[translate with synonyms or related terms for ''Axle Weight Limit'', separated by commas]'
       maxheight:
         # maxheight=*
-        label: Max Height
-        terms: '[translate with synonyms or related terms for ''Max Height'', separated by commas]'
+        label: Height Limit
+        # 'terms: clearance'
+        terms: '[translate with synonyms or related terms for ''Height Limit'', separated by commas]'
+      maxlength:
+        # maxlength=*
+        label: Length Limit
+        terms: '[translate with synonyms or related terms for ''Length Limit'', separated by commas]'
       maxspeed:
         # maxspeed=*
         label: Speed Limit
@@ -3010,18 +3028,18 @@ en:
         terms: '[translate with synonyms or related terms for ''Truck Speed Limit'', separated by commas]'
       maxstay:
         # maxstay=*
-        label: Max Stay
-        terms: '[translate with synonyms or related terms for ''Max Stay'', separated by commas]'
+        label: Time Limit
+        terms: '[translate with synonyms or related terms for ''Time Limit'', separated by commas]'
       maxweight:
         # maxweight=*
-        label: Max Weight
-        terms: '[translate with synonyms or related terms for ''Max Weight'', separated by commas]'
+        label: Weight Limit
+        terms: '[translate with synonyms or related terms for ''Weight Limit'', separated by commas]'
       maxweight_bridge:
         # maxweight=*
       maxwidth:
         # maxwidth=*
-        label: Max Width
-        terms: '[translate with synonyms or related terms for ''Max Width'', separated by commas]'
+        label: Width Limit
+        terms: '[translate with synonyms or related terms for ''Width Limit'', separated by commas]'
       memorial:
         # memorial=*
         label: Type
@@ -3079,6 +3097,13 @@ en:
         # minspeed field placeholder
         placeholder: 20, 30, 40...
         terms: '[translate with synonyms or related terms for ''Minimum Speed Limit'', separated by commas]'
+      mobile:
+        # mobile=*, contact:mobile=*
+        label: Mobile Phone
+        # mobile field placeholder
+        placeholder: +31 42 123 4567
+        # 'terms: phone number'
+        terms: '[translate with synonyms or related terms for ''Mobile Phone'', separated by commas]'
       model:
         # model=*
         label: Model
@@ -3616,7 +3641,7 @@ en:
         # phases field placeholder
         placeholder: 1, 2, 3...
       phone:
-        # phone=*
+        # phone=*, contact:phone=*
         label: Telephone
         # phone field placeholder
         placeholder: +31 42 123 4567
@@ -3995,6 +4020,8 @@ en:
       ref_aeroway_gate:
         # ref=*
         label: Gate Number
+      ref_bridge_number:
+        # ref=*
       ref_disc_golf_hole:
         # ref=*
         label: Hole Number
@@ -4331,6 +4358,15 @@ en:
           iala-b: IALA B
           # seamark:buoy_lateral:system=other
           other: Other
+      seamark/harbour/category_marina:
+        # seamark:harbour:category=*
+        label: Domestic Facilities
+        options:
+          # seamark:harbour:category=marina
+          marina: 'Yes'
+          # seamark:harbour:category=marina_no_facilities
+          marina_no_facilities: 'No'
+        terms: '[translate with synonyms or related terms for ''Domestic Facilities'', separated by commas]'
       seamark/mooring/category:
         # seamark:mooring:category=*
         label: Category
@@ -5437,7 +5473,7 @@ en:
         # waterway=*
         label: Type
       website:
-        # website=*
+        # website=*, contact:website=*
         label: Website
         # website field placeholder
         placeholder: https://example.com
@@ -6703,9 +6739,9 @@ en:
         # 'terms: bar,dine,dining,dinner,drive-in,eat,lunch,table,deep dish,thin crust,slice'
         terms: <translate with synonyms or related terms for 'Pizza Restaurant', separated by commas>
       amenity/restaurant/ramen:
-        # amenity=restaurant + cuisine=ramen | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
+        # amenity=restaurant + cuisine=ramen | Ramen Shop | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Ramen Restaurant
-        # 'terms: bar,dine,dining,dinner,eat,lunch,table,japanese,soup,noodles'
+        # 'terms: japanese,noodles,ramen-ten,ramen-ya,soup'
         terms: <translate with synonyms or related terms for 'Ramen Restaurant', separated by commas>
       amenity/restaurant/seafood:
         # amenity=restaurant + cuisine=seafood | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
@@ -8437,6 +8473,8 @@ en:
       highway/footway/crossing:
         # highway=footway + footway=crossing | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Pedestrian Crossing
+        # 'terms: crosswalk,foot path crossing'
+        terms: <translate with synonyms or related terms for 'Pedestrian Crossing', separated by commas>
       highway/footway/crossing/marked:
         # highway=footway + footway=crossing + crossing=marked | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
       highway/footway/crossing/traffic_signals:
@@ -9295,6 +9333,11 @@ en:
         name: Marina
         # 'terms: boats,docks,harbor,harbour,moorings,yachts'
         terms: <translate with synonyms or related terms for 'Marina', separated by commas>
+      leisure/marina_no_facilities:
+        # seamark:harbour:category=marina_no_facilities | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
+        name: Yacht Berths
+        # 'terms: boats,docks,harbor,harbour,marina,moorings,yachts'
+        terms: <translate with synonyms or related terms for 'Yacht Berths', separated by commas>
       leisure/miniature_golf:
         # leisure=miniature_golf | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Miniature Golf
@@ -10602,7 +10645,7 @@ en:
       office/it:
         # office=it | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).
         name: Information Technology Office
-        # 'terms: computer,information,software,technology'
+        # 'terms: computer,information,it office,software,technology'
         terms: <translate with synonyms or related terms for 'Information Technology Office', separated by commas>
       office/lawyer:
         # office=lawyer | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).

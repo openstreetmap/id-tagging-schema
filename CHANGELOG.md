@@ -13,11 +13,64 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 #### New Presets
 #### Changed Presets
 #### New and Changed Fields
+#### Regional Presets and Fields
+#### Deprecated Tags
+#### Bugfixes
+#### Documentation and Other Changes
 
 [#xxxx]: https://github.com/openstreetmap/id-tagging-schema/issues/xxxx
 [#xxxx]: https://github.com/openstreetmap/id-tagging-schema/pull/xxxx
 [@xxxx]: https://github.com/xxxx
 -->
+
+# 6.3.0
+##### 2023-Jun-02
+#### :mega: Release Highlights
+* Support alternative tagging of Phone, Fax, Email and Website fields using the `contact:*` tagging schema ([#905])
+#### New Presets
+* Add "Yacht Berths" preset ([#899])
+#### Changed Presets
+* Add "Ramen Shop" as alias to Ramen Restaurant, and refine its search terms
+* Use more specific car icons for presets: Driving School, (Used) Car Dealer ([#902], thanks [@tiptoptom])
+* Add additional fields to `man_made=watermill` and `man_made=windmill` presets and show `start_date` field by default
+* Switch to Ford icon from Röntgen icon set
+#### New and Changed Fields
+* Add field for `bicycle_road` tag (see [#888])
+* Add field for `building:colour` tag ([#904])
+* Add field to switch between Yacht Berths and Marina by checkbox (`seamark:harbour:category` tag) ([#899])
+* Add field for Mobile Phone number (`mobile`/`contact:mobile`)
+* Add Bridge Number field ([#912], thanks [@arch0345])
+#### Regional Presets and Fields
+* BE, NL: Add field for `cyclestreet` tag ([#888], thanks [@pietervdvn])
+* BG: Only show relevant values for crossing markings ([#891], thanks [@Dimitrar5555])
+* DE,AT,CH: Only show relevant values for crossing markings
+* JP: Update placeholders for Japanese address schema ([#907])
+#### Bugfixes
+* Offer `crossing:markings` field in all relevant `crossing/*/traffic_signals` presets ([#908])
+* Make unspecified Pedestrian Crossing (line preset) searchable ([#889], thanks [@Dimitrar5555])
+* Drop `construction` subtag when preset is changed away from a Construction preset ([#903])
+* Allow `barrier=log` preset on "standalone" points ([#898])
+* Drop `segregated` tag when changing away from Cycle+Foot Path preset ([#910])
+#### Documentation and Other Changes
+* Create template for regional crossing:markings fields
+* Upgrade to schema-builder [v6.3](https://github.com/ideditor/schema-builder/blob/main/CHANGELOG.md#630): Allows to specify alternative keys for text, number, tel, email and url fields.
+
+[#888]: https://github.com/openstreetmap/id-tagging-schema/pull/888
+[#889]: https://github.com/openstreetmap/id-tagging-schema/pull/889
+[#898]: https://github.com/openstreetmap/id-tagging-schema/issues/898
+[#899]: https://github.com/openstreetmap/id-tagging-schema/pull/899
+[#891]: https://github.com/openstreetmap/id-tagging-schema/pull/891
+[#902]: https://github.com/openstreetmap/id-tagging-schema/pull/902
+[#903]: https://github.com/openstreetmap/id-tagging-schema/issues/903
+[#904]: https://github.com/openstreetmap/id-tagging-schema/issues/904
+[#905]: https://github.com/openstreetmap/id-tagging-schema/issues/905
+[#907]: https://github.com/openstreetmap/id-tagging-schema/issues/907
+[#908]: https://github.com/openstreetmap/id-tagging-schema/issues/908
+[#910]: https://github.com/openstreetmap/id-tagging-schema/issues/910
+[#912]: https://github.com/openstreetmap/id-tagging-schema/pull/912
+[@pietervdvn]: https://github.com/pietervdvn
+[@Dimitrar5555]: https://github.com/Dimitrar5555
+
 
 # 6.2.0
 ##### 2023-May-05
