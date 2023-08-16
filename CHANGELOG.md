@@ -23,6 +23,79 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.4.0
+##### 2023-Aug-16
+
+#### :mega: Release Highlights
+#### New Presets
+* Add EV Charging Point preset for `man_made=charge_point` ([#896], thanks [@arch0345])
+* Add preset for Milk Churn Stands ([#869], thanks [@arch0345])
+* Add preset for Rice Shops ([#944], thanks [@govvin])
+* Add preset for `boundary=hazard` (Hazardous Area) ([#952], thanks [@arch0345])
+* Add preset for Tree Stumps (`natural=tree_stump`) ([#957], thanks [@tordans])
+* Add preset for Hooka Lounge / Shisha Bar (`amenity=hookah_lounge`) ([#961], thanks [@kjonosm])
+* Add preset for Pasta Stores ([#930], thanks [@govvin])
+* Add presets for taxi stands which do not use "regular" cars, like Auto/Cycle Riskshaw Stands and Motorcycle Taxi Stands ([#946], thanks [@govvin])
+* Add specific presets for Trees which have the tags `leaf_cycle`/`leaf_type` mapped ([#956])
+#### Changed Presets
+* Add field to specify the type of a `house` ([#921], thanks [@arch0345])
+* Allow Drinking Water to be mapped on verticed ([#925], thanks [@arch0345])
+* Rename preset for Trash Cans and Recycling Bins ([#938], thanks [@arch0345])
+* Add `direction` field to Emergency Bay preset
+* Add more fields to Parcel Locker preset for the tags: `wheelchair`, `indoor` ([#940]), `collection_times`, `surveillance`
+* Rename preset for `military=danger_area` to Military Danger Area ([#952], thanks [@arch0345])
+* Use generic traffic sign icon for `traffic_sign=maxspeed` ([#968], thanks [@tordans])
+#### New and Changed Fields
+* Add fields for `maxlength` and `maxaxleload` ([#911], thanks [@arch0345]), rename fields for `maxheight`, `maxwidth` and `maxstay` to be consistent with each other
+* Add options (translatable strings) to fields for the following tags: `vending`, `tomb`, `telecom`, `social_facility:for`, `healthcare`, `military_service`, `marker` ([#923], [#924], [#933], [#934], [#935], [#972], [#973], thanks [@kjonosm])
+* Add more values to the `sport` field ([#969], thanks [@kjonosm])
+* Add `fine_gravel` as a value to the `surface` field ([#967], thanks [@kjonosm])
+* Change field for the `ramp` tag from checkbox to `combo`, add option `separate` ([#939], thanks [@arch0345])
+* Add field to specify the type of vehicle at taxi stands ([#946], thanks [@govvin])
+#### Regional Presets and Fields
+* Philippines: Create preset for Barangay Halls ([#932], thanks [@govvin])
+* US, Canada, Liberia: Use _square_ icon for `traffic:sign=maxspeed`
+#### Other Changes
+* Don't always also show the Wikipedia field when the `wikidata` tag is set on an object
+* Drop field for `opening_hours:covid19` ([#963])
+#### Bugfixes
+* Fix tag used for Barbeque Restaurants from the (incorrect) value `cuisine=barbeque` to `cuisine=barbecue` ([#943])
+* Fix documentation _reference_ of `parking:*:orientation` field
+#### Documentation and Other Changes
+* Update `prettier` to v3
+
+[#869]: https://github.com/openstreetmap/id-tagging-schema/issues/869
+[#896]: https://github.com/openstreetmap/id-tagging-schema/issues/896
+[#911]: https://github.com/openstreetmap/id-tagging-schema/pull/911
+[#921]: https://github.com/openstreetmap/id-tagging-schema/pull/921
+[#923]: https://github.com/openstreetmap/id-tagging-schema/pull/923
+[#924]: https://github.com/openstreetmap/id-tagging-schema/pull/924
+[#925]: https://github.com/openstreetmap/id-tagging-schema/pull/925
+[#930]: https://github.com/openstreetmap/id-tagging-schema/issues/930
+[#932]: https://github.com/openstreetmap/id-tagging-schema/pull/932
+[#933]: https://github.com/openstreetmap/id-tagging-schema/pull/933
+[#934]: https://github.com/openstreetmap/id-tagging-schema/pull/934
+[#935]: https://github.com/openstreetmap/id-tagging-schema/pull/935
+[#938]: https://github.com/openstreetmap/id-tagging-schema/pull/938
+[#939]: https://github.com/openstreetmap/id-tagging-schema/pull/939
+[#940]: https://github.com/openstreetmap/id-tagging-schema/issues/940
+[#942]: https://github.com/openstreetmap/id-tagging-schema/issues/942
+[#943]: https://github.com/openstreetmap/id-tagging-schema/issues/943
+[#944]: https://github.com/openstreetmap/id-tagging-schema/pull/944
+[#946]: https://github.com/openstreetmap/id-tagging-schema/pull/946
+[#952]: https://github.com/openstreetmap/id-tagging-schema/pull/952
+[#956]: https://github.com/openstreetmap/id-tagging-schema/pull/956
+[#957]: https://github.com/openstreetmap/id-tagging-schema/pull/957
+[#961]: https://github.com/openstreetmap/id-tagging-schema/pull/961
+[#963]: https://github.com/openstreetmap/id-tagging-schema/issues/963
+[#967]: https://github.com/openstreetmap/id-tagging-schema/pull/967
+[#968]: https://github.com/openstreetmap/id-tagging-schema/pull/968
+[#969]: https://github.com/openstreetmap/id-tagging-schema/pull/969
+[#972]: https://github.com/openstreetmap/id-tagging-schema/pull/972
+[#973]: https://github.com/openstreetmap/id-tagging-schema/pull/973
+[@govvin]: https://github.com/govvin
+
+
 # 6.3.0
 ##### 2023-Jun-02
 #### :mega: Release Highlights
