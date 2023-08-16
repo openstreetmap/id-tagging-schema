@@ -7,8 +7,7 @@
     "wikipedia": {
         "key": "wikipedia",
         "keys": [
-            "wikipedia",
-            "wikidata"
+            "wikipedia"
         ],
         "type": "wikipedia",
         "universal": true
@@ -149,7 +148,32 @@
     },
     "vending": {
         "key": "vending",
-        "type": "semiCombo"
+        "type": "semiCombo",
+        "options": [
+            "bicycle_tube",
+            "bread",
+            "cigarettes",
+            "coffee",
+            "condoms",
+            "drinks",
+            "eggs",
+            "electronics",
+            "elongated_coin",
+            "excrement_bags",
+            "feminine_hygiene",
+            "food",
+            "fuel",
+            "ice_cream",
+            "ice_cubes",
+            "milk",
+            "newspapers",
+            "parking_tickets",
+            "pizza",
+            "public_transport_tickets",
+            "stamps",
+            "sweets",
+            "water"
+        ]
     },
     "vehicles": {
         "keys": [
@@ -362,7 +386,21 @@
     },
     "tomb": {
         "key": "tomb",
-        "type": "typeCombo"
+        "type": "typeCombo",
+        "options": [
+            "columbarium",
+            "crypt",
+            "dolmen",
+            "hypogeum",
+            "mausoleum",
+            "pyramid",
+            "rock-cut",
+            "sarcophagus",
+            "table",
+            "tumulus",
+            "vault",
+            "war_grave"
+        ]
     },
     "toll": {
         "key": "toll",
@@ -386,7 +424,14 @@
     },
     "telecom": {
         "key": "telecom",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "connection_point",
+            "data_center",
+            "distribution_point",
+            "exchange",
+            "service_device"
+        ]
     },
     "tee": {
         "key": "tee",
@@ -401,6 +446,18 @@
         "type": "combo",
         "snake_case": false,
         "caseSensitive": true
+    },
+    "taxi_vehicle": {
+        "key": "taxi_vehicle",
+        "type": "semiCombo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "motorcar",
+            "motorcycle",
+            "auto_rickshaw",
+            "cycle_rickshaw"
+        ]
     },
     "target": {
         "key": "target",
@@ -447,25 +504,26 @@
         "key": "surface",
         "type": "combo",
         "options": [
+            "artificial_turf",
             "asphalt",
-            "unpaved",
-            "paved",
-            "ground",
-            "gravel",
             "compacted",
             "concrete",
-            "paving_stones",
-            "sett",
             "dirt",
+            "fine_gravel",
             "grass",
-            "sand",
-            "wood",
+            "gravel",
+            "ground",
             "metal",
-            "artificial_turf",
-            "unhewn_cobblestone",
             "mud",
-            "woodchips",
-            "salt"
+            "paved",
+            "paving_stones",
+            "salt",
+            "sand",
+            "sett",
+            "unhewn_cobblestone",
+            "unpaved",
+            "wood",
+            "woodchips"
         ]
     },
     "support": {
@@ -616,16 +674,20 @@
         "key": "sport",
         "type": "semiCombo",
         "options": [
+            "10pin",
+            "9pin",
             "american_football",
             "athletics",
             "badminton",
             "baseball",
             "basketball",
             "beachvolleyball",
+            "billiards",
             "bmx",
             "boules",
             "bowls",
             "canoe",
+            "chess",
             "climbing",
             "cricket",
             "curling",
@@ -647,7 +709,9 @@
             "karting",
             "motocross",
             "motor",
+            "multi",
             "netball",
+            "orienteering",
             "padel",
             "pelota",
             "rugby_union",
@@ -663,7 +727,7 @@
             "table_tennis",
             "tennis",
             "volleyball",
-            "multi"
+            "yoga"
         ]
     },
     "species": {
@@ -690,7 +754,29 @@
     },
     "social_facility_for": {
         "key": "social_facility:for",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "abused",
+            "child",
+            "dementia",
+            "disabled",
+            "diseased",
+            "displaced",
+            "drug_addicted",
+            "homeless",
+            "juvenile",
+            "mental_health",
+            "migrant",
+            "orphan",
+            "refugee",
+            "senior",
+            "terminally_ill",
+            "underprivileged",
+            "unemployed",
+            "veteran",
+            "victim",
+            "woman"
+        ]
     },
     "social_facility": {
         "key": "social_facility",
@@ -1116,7 +1202,13 @@
     },
     "ramp": {
         "key": "ramp",
-        "type": "check"
+        "type": "combo",
+        "customValues": false,
+        "options": [
+            "yes",
+            "no",
+            "separate"
+        ]
     },
     "railway": {
         "key": "railway",
@@ -1586,7 +1678,14 @@
     },
     "military_service": {
         "key": "military_service",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "air_force",
+            "army",
+            "coast_guard",
+            "marines",
+            "navy"
+        ]
     },
     "microbrewery": {
         "key": "microbrewery",
@@ -1656,10 +1755,24 @@
         "key": "maxspeed",
         "type": "roadspeed"
     },
+    "maxlength": {
+        "key": "maxlength",
+        "type": "roadheight",
+        "snake_case": false
+    },
     "maxheight": {
         "key": "maxheight",
         "type": "roadheight",
         "snake_case": false
+    },
+    "maxaxleload_bridge": {
+        "key": "maxaxleload",
+        "type": "combo",
+        "snake_case": false,
+        "prerequisiteTag": {
+            "key": "bridge",
+            "valueNot": "no"
+        }
     },
     "max_age": {
         "key": "max_age",
@@ -1700,7 +1813,15 @@
     },
     "marker": {
         "key": "marker",
-        "type": "typeCombo"
+        "type": "typeCombo",
+        "options": [
+            "aerial",
+            "ground",
+            "pedestal",
+            "plate",
+            "post",
+            "stone"
+        ]
     },
     "mapillary": {
         "key": "mapillary",
@@ -1820,7 +1941,7 @@
         "key": "leaf_type",
         "type": "combo",
         "icons": {
-            "broadleaved": "roentgen-tree",
+            "broadleaved": "maki-park",
             "needleleaved": "roentgen-needleleaved_tree"
         },
         "autoSuggestions": false,
@@ -1999,6 +2120,10 @@
         "key": "iata",
         "type": "text"
     },
+    "house": {
+        "key": "house",
+        "type": "combo"
+    },
     "hot_water": {
         "key": "hot_water",
         "type": "check"
@@ -2141,7 +2266,51 @@
     },
     "healthcare": {
         "key": "healthcare",
-        "type": "typeCombo"
+        "type": "typeCombo",
+        "options": [
+            "alternative",
+            "audiologist",
+            "birthing_centre",
+            "blood_bank",
+            "blood_donation",
+            "clinic",
+            "community_health_worker",
+            "counselling",
+            "dentist",
+            "dialysis",
+            "doctor",
+            "hospice",
+            "hospital",
+            "laboratory",
+            "midwife",
+            "nurse",
+            "occupational_therapist",
+            "optometrist",
+            "pharmacy",
+            "physiotherapist",
+            "podiatrist",
+            "psychotherapist",
+            "rehabilitation",
+            "sample_collection",
+            "speech_therapist",
+            "vaccination_centre"
+        ]
+    },
+    "hazard_boundary": {
+        "key": "hazard",
+        "type": "combo",
+        "options": [
+            "archery_range",
+            "avalanche",
+            "biohazard",
+            "contamination",
+            "electricity",
+            "shooting_range",
+            "hole",
+            "minefield",
+            "nuclear",
+            "quicksand"
+        ]
     },
     "hashtags": {
         "key": "hashtags",
@@ -4609,7 +4778,7 @@
             "parking:right:orientation"
         ],
         "reference": {
-            "key": "parking:orientation"
+            "key": "orientation"
         },
         "type": "directionalCombo",
         "autoSuggestions": false,
@@ -4637,12 +4806,6 @@
         "prerequisiteTag": {
             "key": "operator"
         }
-    },
-    "opening_hours/covid19": {
-        "key": "opening_hours:covid19",
-        "type": "combo",
-        "snake_case": false,
-        "caseSensitive": true
     },
     "oneway/bicycle": {
         "key": "oneway:bicycle",
