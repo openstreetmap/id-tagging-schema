@@ -26,7 +26,6 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 # 6.4.0
 ##### 2023-Aug-16
 
-#### :mega: Release Highlights
 #### New Presets
 * Add EV Charging Point preset for `man_made=charge_point` ([#896], thanks [@arch0345])
 * Add preset for Milk Churn Stands ([#869], thanks [@arch0345])
