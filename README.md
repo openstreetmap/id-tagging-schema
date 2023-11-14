@@ -8,7 +8,7 @@ It includes presets, fields, deprecations, and more.
 ## Participate!
 
 * Read up about how you can contribute to the iD Tagging Schema on the [contributing page](CONTRIBUTING.md).
-* [Translate!](CONTRIBUTING.md#Translating).
+* [Translate!](CONTRIBUTING.md#Translating)
 * See the [open issues](https://github.com/openstreetmap/id-tagging-schema/issues?state=open) in the issue tracker if you're looking for something to do.
 * Need more help? Ping user `tyr_asd` (Martin Raifer) on [OpenStreetMap Discord](https://discord.gg/openstreetmap) (`#id` channel) or [OpenStreetMap US Slack](https://slack.openstreetmap.us/) (`#id` channel).
 
