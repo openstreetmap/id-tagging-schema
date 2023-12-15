@@ -23,6 +23,57 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.5.0
+##### 2023-Dec-15
+
+#### New Presets
+* Add preset for `memorial=stolperstein` with `memorial:addr` field ([#964], thanks [@tordans])
+* Add presets for `amenity=baking_oven` and `building=bakehouse` ([#975], thanks [@N-45div])
+* Add preset for `man_made=satellite_dish` ([#976], thanks [@N-45div])
+* Add preset for "Unspecified Traffic Sign" ([#984], thanks [@tordans])
+* Add presets for Optical and Radio Telescopes
+* Add Adventure Park preset for `sport=climbing_adventure` ([#1051], thanks [@arch0345])
+* Add preset for `building=riding_hall` ([#1048], thanks [@Hufkratzer])
+* Add preset for `amenity=loading_dock` and corresponding `dock:*` attribute fields ([#1043], thanks [@arch0345])
+* Add Funeral Service Hall preset ([#1045], thanks [@arch0345])
+* Add Switchgear preset ([#1059], thanks [@arch0345])
+#### Changed Presets
+* Drop undocumented/deprecated fields of the `tourism=trail_riding_station` preset
+* Improve equestrian search terms ([#1055], thanks [@Hufkratzer])
+#### New and Changed Fields
+* Add `riding_hall` as an option to the "building type" field
+* Change label of `brewery` field to "Sold Beer Brands" ([#1047], thanks [@mcliquid])
+#### Regional Presets and Fields
+* Use `highway=path` as base tag for Cycle & Foot Path in Israel ([#1058], thanks [@zstadler])
+#### Deprecated Tags
+* Replace `memorial:type=stolperstein` with `memorial=stolperstein` ([#964], thanks [@tordans])
+* Replace `door=loadingdock` with `amenity=loading_dock` ([#1043], thanks [@arch0345])
+#### Bugfixes
+* Allow Log Flume to be mapped as a line ([#980])
+* Fix icons for `fast_food=bagel` and `fast_food=wings` presets ([#1057], thanks [@arch0345])
+* Fix typo `pancake` in tag value for `cuisine` field ([#1063], thanks [@matkoniecz])
+#### Documentation and Other Changes
+* Upgrade to schema-builder v6.4 (which offers slightly enhanced taginfo output)
+
+[#964]: https://github.com/openstreetmap/id-tagging-schema/pull/964
+[#975]: https://github.com/openstreetmap/id-tagging-schema/issues/975
+[#976]: https://github.com/openstreetmap/id-tagging-schema/issues/976
+[#980]: https://github.com/openstreetmap/id-tagging-schema/issues/980
+[#984]: https://github.com/openstreetmap/id-tagging-schema/pull/984
+[#1043]: https://github.com/openstreetmap/id-tagging-schema/pull/1043
+[#1045]: https://github.com/openstreetmap/id-tagging-schema/pull/1045
+[#1047]: https://github.com/openstreetmap/id-tagging-schema/pull/1047
+[#1048]: https://github.com/openstreetmap/id-tagging-schema/pull/1048
+[#1051]: https://github.com/openstreetmap/id-tagging-schema/pull/1051
+[#1055]: https://github.com/openstreetmap/id-tagging-schema/pull/1055
+[#1057]: https://github.com/openstreetmap/id-tagging-schema/pull/1057
+[#1059]: https://github.com/openstreetmap/id-tagging-schema/pull/1059
+[#1063]: https://github.com/openstreetmap/id-tagging-schema/pull/1063
+[@N-45div]: https://github.com/N-45div
+[@mcliquid]: https://github.com/mcliquid
+[@zstadler]: https://github.com/zstadler
+
+
 # 6.4.1
 ##### 2023-Aug-16
 

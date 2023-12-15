@@ -972,11 +972,16 @@
         "key": "ruins",
         "type": "combo"
     },
-    "royal_cypher": {
+    "royal_cypher-GB": {
         "key": "royal_cypher",
         "type": "typeCombo",
         "autoSuggestions": false,
         "customValues": false,
+        "locationSet": {
+            "include": [
+                "gb"
+            ]
+        },
         "options": [
             "VR",
             "EVIIR",
@@ -2128,18 +2133,6 @@
         "key": "hot_water",
         "type": "check"
     },
-    "horse_stables": {
-        "key": "amenity",
-        "type": "check",
-        "reference": {
-            "key": "amenity",
-            "value": "stables"
-        },
-        "options": [
-            "undefined",
-            "stables"
-        ]
-    },
     "horse_scale": {
         "key": "horse_scale",
         "type": "combo",
@@ -2164,18 +2157,6 @@
         "options": [
             "undefined",
             "horse_riding"
-        ]
-    },
-    "horse_dressage": {
-        "key": "sport",
-        "type": "check",
-        "reference": {
-            "key": "sport",
-            "value": "equestrian"
-        },
-        "options": [
-            "undefined",
-            "equestrian"
         ]
     },
     "hoops": {
@@ -3019,7 +3000,7 @@
             "bubble_tea",
             "hot_dog",
             "cake",
-            "pankcake",
+            "pancake",
             "pasta",
             "salad",
             "chocolate",
@@ -3444,6 +3425,7 @@
             "public",
             "residential",
             "retail",
+            "riding_hall",
             "roof",
             "ruins",
             "school",
@@ -4093,6 +4075,20 @@
             "pitlatrine",
             "chemical",
             "bucket"
+        ]
+    },
+    "telescope/type": {
+        "key": "telescope:type",
+        "type": "combo",
+        "icons": {
+            "optical": "temaki-telescope",
+            "radio": "roentgen-telescope-radio"
+        },
+        "autoSuggestions": true,
+        "customValues": true,
+        "options": [
+            "optical",
+            "radio"
         ]
     },
     "telecom/medium": {
@@ -4869,6 +4865,29 @@
             "4"
         ]
     },
+    "memorial/addr_subtags": {
+        "type": "address",
+        "key": "memorial:addr",
+        "keys": [
+            "memorial:addr:city",
+            "memorial:addr:housename",
+            "memorial:addr:housenumber",
+            "memorial:addr:place",
+            "memorial:addr:postcode",
+            "memorial:addr:street"
+        ],
+        "label": "{memorial/addr}",
+        "prerequisiteTag": {
+            "key": "memorial:addr:street"
+        }
+    },
+    "memorial/addr": {
+        "type": "text",
+        "key": "memorial:addr",
+        "prerequisiteTag": {
+            "keyNot": "memorial:addr:street"
+        }
+    },
     "maxspeed/hgv": {
         "key": "maxspeed:hgv",
         "type": "roadspeed"
@@ -5247,6 +5266,26 @@
         "key": "fire_hydrant:diameter",
         "type": "combo",
         "snake_case": false
+    },
+    "door/width": {
+        "key": "door:width",
+        "minValue": 0,
+        "type": "number"
+    },
+    "door/height": {
+        "key": "door:height",
+        "minValue": 0,
+        "type": "number"
+    },
+    "dock/width": {
+        "key": "dock:width",
+        "minValue": 0,
+        "type": "number"
+    },
+    "dock/height": {
+        "key": "dock:height",
+        "minValue": 0,
+        "type": "number"
     },
     "disused/shop": {
         "key": "disused:shop",
