@@ -40,7 +40,6 @@ iD tagging schema is used not only by iD. Here's a [list of projects](https://gi
 ## Related Projects
 
 * The [OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Map_features) documents the current usage of tags, and hosts discussions about proposed new tags.
-* The [ideditor/schema-builder](https://github.com/ideditor/schema-builder) project holds the documentation for the data format used in this repository
 * iD also incorporates preset data from the [name-suggestion-index](https://github.com/osmlab/name-suggestion-index).
 * Other editors also include their own models of interpretations of OSM tags. See for example [Vespucci's](https://github.com/simonpoole/beautified-JOSM-preset) or [JOSM's](https://josm.openstreetmap.de/wiki/Presets) tagging presets.
 
