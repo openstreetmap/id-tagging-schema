@@ -28,7 +28,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 
 #### New Presets
 * Add preset for `man_made=insect_hotel` ([#1020], thanks [@tordans])
-* Add preset for `highway=cyclist_waiting_aid` ([#1069], thansk [@k-yle])
+* Add preset for `highway=cyclist_waiting_aid` ([#1069], thanks [@k-yle])
 * Add presets for tracks, stations and supports of roller coasters ([#985], thanks [@arch0345])
 * Add new preset for Fuel Pumps and adjust current preset for Fuel Vending Machines ([#988], thanks [@Dimitar5555])
 * Add a preset for Snack Vending Machines (`vending=food` + `food=snacks`) ([#1038], thanks [@arch0345])
@@ -1423,3 +1423,4 @@ Thanks to all contributors: [@1ec5], [@andrewharvey], [@bagage], [@Bertware], [@
 # ≤ 3.0.0
 
 #### For versions ≤ 3.0.0 please visit the [iD changelog](https://github.com/openstreetmap/iD/blob/develop/CHANGELOG.md) :rocket: Presets sections
+ow
