@@ -831,6 +831,15 @@
         "key": "site",
         "type": "combo"
     },
+    "side": {
+        "key": "side",
+        "type": "combo",
+        "autoSuggestions": false,
+        "options": [
+            "left",
+            "right"
+        ]
+    },
     "shower": {
         "key": "shower",
         "type": "check"
@@ -2296,7 +2305,13 @@
     "hashtags": {
         "key": "hashtags",
         "type": "semiCombo",
-        "usage": "changeset"
+        "usage": "changeset",
+        "caseSensitive": true
+    },
+    "handrest": {
+        "key": "handrest",
+        "type": "check",
+        "default": "yes"
     },
     "handrail": {
         "key": "handrail",
@@ -2397,6 +2412,10 @@
         "key": "ford",
         "type": "typeCombo",
         "usage": "group"
+    },
+    "footrest": {
+        "key": "footrest",
+        "type": "check"
     },
     "flood_prone": {
         "key": "flood_prone",
@@ -3153,6 +3172,11 @@
         "snake_case": false,
         "caseSensitive": true
     },
+    "count": {
+        "key": "count",
+        "type": "number",
+        "minValue": 1
+    },
     "conveying_escalator": {
         "key": "conveying",
         "type": "check"
@@ -3482,6 +3506,10 @@
         "key": "booth",
         "type": "combo",
         "caseSensitive": true
+    },
+    "books": {
+        "key": "books",
+        "type": "semiCombo"
     },
     "bollard": {
         "key": "bollard",
@@ -4382,6 +4410,19 @@
         "key": "roof:colour",
         "type": "colour"
     },
+    "roller_coaster/track": {
+        "key": "roller_coaster",
+        "type": "combo",
+        "options": [
+            "lift_hill",
+            "launch_straight",
+            "brake_run",
+            "station",
+            "moving",
+            "waiting",
+            "maintenance"
+        ]
+    },
     "ref/vatin": {
         "key": "ref:vatin",
         "type": "identifier",
@@ -4443,6 +4484,17 @@
     "ref/isil": {
         "key": "ref:isil",
         "type": "text"
+    },
+    "ref/edubase-GB": {
+        "key": "ref:edubase",
+        "type": "identifier",
+        "urlFormat": "https://get-information-schools.service.gov.uk/Establishments/Establishment/Details/{value}",
+        "pattern": "^[0-9]{1,}$",
+        "locationSet": {
+            "include": [
+                "gb"
+            ]
+        }
     },
     "ref/linz/place_id-NZ": {
         "key": "ref:linz:place_id",
@@ -4803,6 +4855,16 @@
             "key": "operator"
         }
     },
+    "opening_hours/drive_through": {
+        "key": "opening_hours:drive_through",
+        "type": "combo",
+        "prerequisiteTag": {
+            "key": "drive_through",
+            "value": "yes"
+        },
+        "snake_case": false,
+        "caseSensitive": true
+    },
     "oneway/bicycle": {
         "key": "oneway:bicycle",
         "type": "check",
@@ -5071,7 +5133,7 @@
         "key": "gnis:feature_id",
         "type": "identifier",
         "urlFormat": "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/{value}",
-        "pattern": "^[0-9]{1,}$",
+        "pattern": "^[1-9][0-9]*$",
         "locationSet": {
             "include": [
                 "us"
@@ -5267,6 +5329,17 @@
         "type": "combo",
         "snake_case": false
     },
+    "fhrs/id-GB": {
+        "key": "fhrs:id",
+        "type": "identifier",
+        "urlFormat": "https://ratings.food.gov.uk/business/en-GB/{value}",
+        "pattern": "^[0-9]{1,}$",
+        "locationSet": {
+            "include": [
+                "gb"
+            ]
+        }
+    },
     "door/width": {
         "key": "door:width",
         "minValue": 0,
@@ -5361,9 +5434,31 @@
                 "BG",
                 "DE",
                 "AT",
-                "CH"
+                "CH",
+                "PL"
             ]
         }
+    },
+    "crossing/markings_yes-PL": {
+        "key": "crossing:markings",
+        "type": "combo",
+        "label": "{crossing/markings}",
+        "options": [
+            "zebra",
+            "dots",
+            "surface",
+            "yes",
+            "no"
+        ],
+        "autoSuggestions": false,
+        "iconsCrossReference": "{crossing/markings}",
+        "stringsCrossReference": "{crossing/markings}",
+        "locationSet": {
+            "include": [
+                "PL"
+            ]
+        },
+        "default": "yes"
     },
     "crossing/markings_yes-DE-AT-CH": {
         "key": "crossing:markings",
@@ -5432,7 +5527,8 @@
                 "BG",
                 "DE",
                 "AT",
-                "CH"
+                "CH",
+                "PL"
             ]
         },
         "options": [
@@ -5452,6 +5548,26 @@
             "zebra:bicolour",
             "ladder:paired"
         ]
+    },
+    "crossing/markings-PL": {
+        "key": "crossing:markings",
+        "type": "combo",
+        "label": "{crossing/markings}",
+        "options": [
+            "zebra",
+            "dots",
+            "surface",
+            "yes",
+            "no"
+        ],
+        "autoSuggestions": false,
+        "iconsCrossReference": "{crossing/markings}",
+        "stringsCrossReference": "{crossing/markings}",
+        "locationSet": {
+            "include": [
+                "PL"
+            ]
+        }
     },
     "crossing/markings-DE-AT-CH": {
         "key": "crossing:markings",

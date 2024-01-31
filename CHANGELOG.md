@@ -23,6 +23,55 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.6.0
+##### 2024-Jan-24
+
+#### New Presets
+* Add preset for `man_made=insect_hotel` ([#1020], thanks [@tordans])
+* Add preset for `highway=cyclist_waiting_aid` ([#1069], thansk [@k-yle])
+* Add presets for tracks, stations and supports of roller coasters ([#985], thanks [@arch0345])
+* Add new preset for Fuel Pumps and adjust current preset for Fuel Vending Machines ([#988], thanks [@Dimitar5555])
+* Add a preset for Snack Vending Machines (`vending=food` + `food=snacks`) ([#1038], thanks [@arch0345])
+#### Changed Presets
+* Add `support` & `colour` fields to Letter Box preset ([#1005], thanks [@mnalis])
+* Rename `vending=sweets` to Candy Vending Machine ([#1038], thanks [@arch0345])
+* Change name of `traffic_calming=island` preset to Traffic Calming Island ([#1074], thanks [@ireun])
+#### New and Changed Fields
+* Add field for the type of roller coaster tracks ([#985], thanks [@arch0345])
+* Add field for `opening_hours:drive_through` ([#999], thanks [@arch0345])
+* Add field to specify types of books available at Public Bookcases ([#1001], thanks [@danieldegroot2]), as well as in Libraries and Book Shops
+#### Regional Presets and Fields
+* Add field for the `fhrs:id` reference code for food establishments in the UK (, thanks [@Cj-Malone])
+* Disallow leading zeros in `gnis:feature_id` field ([#1007], thanks [@watmildon])
+* Specify `crossing:markings` types in Poland ([#1030], thanks [@Zaczero])
+* Add field for `ref:edubase` reference code for schools (and similar facilities) in the UK ([#1000], thanks [@arrival-spring])
+#### Bugfixes
+* Allow Ferris Wheels to be mapped as areas ([#989], thanks [@andreadecorte])
+#### Documentation and Other Changes
+* Don't lowercase hashtags of changesets ([#1080])
+
+[#985]: https://github.com/openstreetmap/id-tagging-schema/pull/985
+[#987]: https://github.com/openstreetmap/id-tagging-schema/pull/987
+[#988]: https://github.com/openstreetmap/id-tagging-schema/pull/988
+[#989]: https://github.com/openstreetmap/id-tagging-schema/pull/989
+[#999]: https://github.com/openstreetmap/id-tagging-schema/pull/999
+[#1000]: https://github.com/openstreetmap/id-tagging-schema/pull/1000
+[#1001]: https://github.com/openstreetmap/id-tagging-schema/pull/1001
+[#1005]: https://github.com/openstreetmap/id-tagging-schema/pull/1005
+[#1007]: https://github.com/openstreetmap/id-tagging-schema/pull/1007
+[#1020]: https://github.com/openstreetmap/id-tagging-schema/pull/1020
+[#1030]: https://github.com/openstreetmap/id-tagging-schema/pull/1030
+[#1038]: https://github.com/openstreetmap/id-tagging-schema/pull/1038
+[#1069]: https://github.com/openstreetmap/id-tagging-schema/pull/1069
+[#1074]: https://github.com/openstreetmap/id-tagging-schema/pull/1074
+[#1080]: https://github.com/openstreetmap/id-tagging-schema/issues/1080
+[@andreadecorte]: https://github.com/andreadecorte
+[@watmildon]: https://github.com/watmildon
+[@mnalis]: https://github.com/mnalis
+[@arrival-spring]: https://github.com/arrival-spring
+[@ireun]: https://github.com/ireun
+
+
 # 6.5.0
 ##### 2023-Dec-15
 
