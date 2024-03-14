@@ -32,7 +32,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 * Add preset for Book Return Drop Boxes (`amenity=library_dropoff`) ([#1037], thanks [@arch0345])
 * Add preset for Hot Tub (`leisure=hot_tub`) ([#1008], thanks [@arch0345])
 * Add preset for `emergency=disaster_response` ([#1108], thanks [@andrewharvey])
-* Add preset for `amentiy=luggage_locker` ([#1121], thanks [@kjonosm])
+* Add preset for `amenity=luggage_locker` ([#1121], thanks [@kjonosm])
 * Add preset for Kitchen Garden (`leisure=garden` + `garden:type=kitchen`) ([#1135], thanks [@imagoiq])
 * Add preset for `historic=cannon` ([#1134], thanks [@qugebert])
 * Add preset for `amenity=bicycle_wash` ([#1032], thanks [@mcliquid])
@@ -74,14 +74,13 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 * Mark `industrial=brickworks` as deprecated in favor of `industrial=brickyard` ([#1105], thanks [@qugebert])
 * Mark `amenity=ses_station` as deprecated in favor of `emergency=disaster_response` ([#1109], thanks [@qugebert])
 * Mark `leisure=maze` as deprecated in favor of `attraction=maze` ([#1102], thanks [@westnordost])
-* Mark `amentity=lockers` as deprecated in favor of `amenity=locker` ([#1124], thanks [@kjonosm])
+* Mark `amenity=lockers` as deprecated in favor of `amenity=locker` ([#1124], thanks [@kjonosm])
 #### Bugfixes
 * Allow Bike Parking features to be mapped as a line ([#1114])
 * Fix wrong description and add missing value for `lpg`/`lng` values of the Fuel field ([#1130], thanks [@k-yle])
 * Don't automatically add `building=yes` on `man_made=works` objects ([#1132])
 * Disallow area geometry type on `traffic_calming=island` preset ([#1076])
 * Allow `historic=ruins` to be mapped as lines ([#1149])
-#### Documentation and Other Changes
 
 [#1067]: https://github.com/openstreetmap/id-tagging-schema/issues/1067
 [#1101]: https://github.com/openstreetmap/id-tagging-schema/issues/1101
@@ -109,6 +108,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#1106]: https://github.com/openstreetmap/id-tagging-schema/pull/1106
 [#1108]: https://github.com/openstreetmap/id-tagging-schema/pull/1108
 [#1109]: https://github.com/openstreetmap/id-tagging-schema/pull/1109
+[#1116]: https://github.com/openstreetmap/id-tagging-schema/pull/1116
 [#1121]: https://github.com/openstreetmap/id-tagging-schema/pull/1121
 [#1123]: https://github.com/openstreetmap/id-tagging-schema/pull/1123
 [#1124]: https://github.com/openstreetmap/id-tagging-schema/pull/1124
@@ -132,6 +132,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@moan0s]: https://github.com/moan0s
 [@imagoiq]: https://github.com/imagoiq
 [@mangerlahn]: https://github.com/mangerlahn
+[@cnotin]: https://github.com/cnotin
 
 
 # 6.6.0
@@ -227,6 +228,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#1051]: https://github.com/openstreetmap/id-tagging-schema/pull/1051
 [#1055]: https://github.com/openstreetmap/id-tagging-schema/pull/1055
 [#1057]: https://github.com/openstreetmap/id-tagging-schema/pull/1057
+[#1058]: https://github.com/openstreetmap/id-tagging-schema/pull/1058
 [#1059]: https://github.com/openstreetmap/id-tagging-schema/pull/1059
 [#1063]: https://github.com/openstreetmap/id-tagging-schema/pull/1063
 [@N-45div]: https://github.com/N-45div
@@ -490,6 +492,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 * Bump dependencies: `prettier` to v2.8.6, `schema-builder` to v6.2
 
 [#24]: https://github.com/openstreetmap/id-tagging-schema/issues/24
+[#211]: https://github.com/openstreetmap/id-tagging-schema/issues/211
 [#615]: https://github.com/openstreetmap/id-tagging-schema/issues/615
 [#673]: https://github.com/openstreetmap/id-tagging-schema/pull/673
 [#792]: https://github.com/openstreetmap/id-tagging-schema/pull/792
@@ -497,6 +500,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#800]: https://github.com/openstreetmap/id-tagging-schema/pull/800
 [#803]: https://github.com/openstreetmap/id-tagging-schema/pull/803
 [#805]: https://github.com/openstreetmap/id-tagging-schema/pull/805
+[#806]: https://github.com/openstreetmap/id-tagging-schema/pull/806
 [#807]: https://github.com/openstreetmap/id-tagging-schema/pull/807
 [#810]: https://github.com/openstreetmap/id-tagging-schema/pull/810
 [#811]: https://github.com/openstreetmap/id-tagging-schema/pull/811
@@ -510,6 +514,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#823]: https://github.com/openstreetmap/id-tagging-schema/pull/823
 [#825]: https://github.com/openstreetmap/id-tagging-schema/pull/825
 [#827]: https://github.com/openstreetmap/id-tagging-schema/pull/827
+[#828]: https://github.com/openstreetmap/id-tagging-schema/pull/828
 [#829]: https://github.com/openstreetmap/id-tagging-schema/pull/829
 [#830]: https://github.com/openstreetmap/id-tagging-schema/pull/830
 [#836]: https://github.com/openstreetmap/id-tagging-schema/pull/836
@@ -526,6 +531,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@tognee]: https://github.com/tognee
 [@emersonveenstra]: https://github.com/emersonveenstra
 [@tiptoptom]: https://github.com/tiptoptom
+[@harahu]: https://github.com/harahu
 
 
 # 6.0.0
@@ -893,6 +899,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#630]: https://github.com/openstreetmap/id-tagging-schema/pull/630
 [#631]: https://github.com/openstreetmap/id-tagging-schema/pull/631
 [#632]: https://github.com/openstreetmap/id-tagging-schema/issues/632
+[#804]: https://github.com/openstreetmap/id-tagging-schema/pull/804
 [iD#9305]: https://github.com/openstreetmap/iD/issues/9305
 [iD#9341]: https://github.com/openstreetmap/iD/issues/9341
 [@EvanCarroll]: https://github.com/EvanCarroll
@@ -900,6 +907,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@kolgza]: https://github.com/kolgza
 [@Morion-Self]: https://github.com/Morion-Self
 [@Marc-marc-marc]: https://github.com/Marc-marc-marc
+[@willemarcel]: https://github.com/willemarcel
 
 
 # 3.5.1
@@ -1194,6 +1202,7 @@ Thanks to all contributors: [@matkoniecz], [@Binnette], [@danieldegroot2], [@arc
 [#382]: https://github.com/openstreetmap/id-tagging-schema/pull/382
 [#383]: https://github.com/openstreetmap/id-tagging-schema/pull/383
 [#385]: https://github.com/openstreetmap/id-tagging-schema/pull/385
+[#389]: https://github.com/openstreetmap/id-tagging-schema/issues/389
 [#390]: https://github.com/openstreetmap/id-tagging-schema/issues/390
 [#391]: https://github.com/openstreetmap/id-tagging-schema/pull/391
 [#398]: https://github.com/openstreetmap/id-tagging-schema/issues/398
@@ -1242,6 +1251,7 @@ Thanks to all contributors: [@matkoniecz], [@Binnette], [@danieldegroot2], [@arc
 [@zymurgic]: https://github.com/zymurgic
 [@rkost]: https://github.com/rkost
 [@HandyHat]: https://github.com/HandyHat
+[@Aniket]: https://github.com/Aniket
 
 
 # 3.2.2
@@ -1439,6 +1449,7 @@ Thanks to all contributors: [@1ec5], [@andrewharvey], [@bagage], [@Bertware], [@
 [#277]: https://github.com/openstreetmap/id-tagging-schema/issues/277
 [#278]: https://github.com/openstreetmap/id-tagging-schema/pull/278
 [#280]: https://github.com/openstreetmap/id-tagging-schema/pull/280
+[#281]: https://github.com/openstreetmap/id-tagging-schema/issues/281
 [#282]: https://github.com/openstreetmap/id-tagging-schema/pull/282
 [#286]: https://github.com/openstreetmap/id-tagging-schema/issues/286
 [#287]: https://github.com/openstreetmap/id-tagging-schema/issues/287
