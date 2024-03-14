@@ -23,6 +23,117 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.7.0
+##### 2024-Mar-14
+
+#### New Presets
+* Add preset for `man_made=clarifier` ([#1091], thanks [@arch0345])
+* Add preset `amenity=dog_toilet` ([#1095], thanks [@cnotin])
+* Add preset for Book Return Drop Boxes (`amenity=library_dropoff`) ([#1037], thanks [@arch0345])
+* Add preset for Hot Tub (`leisure=hot_tub`) ([#1008], thanks [@arch0345])
+* Add preset for `emergency=disaster_response` ([#1108], thanks [@andrewharvey])
+* Add preset for `amentiy=luggage_locker` ([#1121], thanks [@kjonosm])
+* Add preset for Kitchen Garden (`leisure=garden` + `garden:type=kitchen`) ([#1135], thanks [@imagoiq])
+* Add preset for `historic=cannon` ([#1134], thanks [@qugebert])
+* Add preset for `amenity=bicycle_wash` ([#1032], thanks [@mcliquid])
+#### Changed Presets
+* Add `ref` field to `railway=switch` preset ([#1083], thanks [@gy-mate])
+* Improve icon for Thai Restaurant preset ([#1090], thanks [@louwers])
+* Move `bottle` field to optional fields in the Drinking Water preset ([#1101])
+* Add access field to Parking Space preset ([#1123], thanks [@watmildon])
+* Include Informal Path preset in Paths category ([#1131], thanks [@k-yle])
+* Add Structure field to Steps preset to mark them as a bridge for example ([#1128], thanks [@k-yle])
+* Add road-related fields to Busway preset ([#1127], thanks [@k-yle])
+* Add `via` field to Ferry Route preset ([#1127], thanks [@k-yle])
+* Add `changing_table` as optional field to several POI presets ([#1139], thanks [@mangerlahn])
+* Add more search terms to Transit Ticket Vending Machine preset ([#1142], thanks [@matkoniecz])
+* Add more search terms to Public Bookcase preset ([#1150], thanks [@matkoniecz])
+* Add `oneway` as optional field to Crossing ways, Footways, Paths, Steps and Track Roads ([#1143], thanks [@tordans])
+* Make all Tree-type presets searchable ([#1156])
+#### New and Changed Fields
+* Add new `ref` (Line Number) and `railway:track_ref` (Track Number) fields to the `railway=rail` preset ([#1083], thanks [@gy-mate])
+* Add new `railway:switch` (Switch Type) field to `railway=switch` preset ([#1084], thanks [@gy-mate])
+* Add field for `summit:cross` tag on `natural=peak` objects ([#1088], thanks [@qugebert])
+* Add `unleashed` as an option for the `dog` field
+* Add translatable options for swimming pool Type field ([#1008], thanks [@arch0345])
+* Add option `millstone` to the field for the `historic` tag ([#1067])
+* Add field for menstrual products (`toilets:menstrual_products`) on Toilets and POIs with the `toilet` field ([#1116], thanks [@moan0s])
+* Add field to specify the Type of Lifeguard locations
+* Show translated options in `sport_pub` field and add value for `sport=darts` to it as well as the generic `sport` field
+* Add translatable options and descriptions to `kerb` field ([#1029], thanks [@kjonosm])
+* Include icons with the options of the `kerb` field
+* Don't repeat kerb Type field in the type-specific Kerb presets
+* Add field for `fortification_type` tag for features mapped as `archaeological_site=fortification` ([#1129], thanks [@k-yle])
+* Add translatable options to `bridge` field for `man_made=bridge` features ([#1002], thanks [@kjonosm])
+* Clarify that `left`/`right` are meant to be mapped relative to the driving direction for `highway=cyclist_waiting_aid` features ([iD#10128])
+#### Regional Presets and Fields
+#### Deprecated Tags
+* Mark `emergency=lifeguard_tower/lifeguard_base/lifeguard_platform` and `emergency=water_rescue_station` as deprecated in favor of `emergency=lifeguard + lifeguard=*`/`emergency=water_rescue` ([#1098], thanks [@westnordost])
+* Mark `tourism=resort` as deprecated in favor of `leisure=resort` ([#1103], thanks [@westnordost])
+* Mark `tourism=picnic_table` as deprecated in favor of `leisure=picnic_table` ([#1104], thanks [@westnordost])
+* Mark `industrial=brickworks` as deprecated in favor of `industrial=brickyard` ([#1105], thanks [@qugebert])
+* Mark `amenity=ses_station` as deprecated in favor of `emergency=disaster_response` ([#1109], thanks [@qugebert])
+* Mark `leisure=maze` as deprecated in favor of `attraction=maze` ([#1102], thanks [@westnordost])
+* Mark `amentity=lockers` as deprecated in favor of `amenity=locker` ([#1124], thanks [@kjonosm])
+#### Bugfixes
+* Allow Bike Parking features to be mapped as a line ([#1114])
+* Fix wrong description and add missing value for `lpg`/`lng` values of the Fuel field ([#1130], thanks [@k-yle])
+* Don't automatically add `building=yes` on `man_made=works` objects ([#1132])
+* Disallow area geometry type on `traffic_calming=island` preset ([#1076])
+* Allow `historic=ruins` to be mapped as lines ([#1149])
+#### Documentation and Other Changes
+
+[#1067]: https://github.com/openstreetmap/id-tagging-schema/issues/1067
+[#1101]: https://github.com/openstreetmap/id-tagging-schema/issues/1101
+[#1114]: https://github.com/openstreetmap/id-tagging-schema/issues/1114
+[#1132]: https://github.com/openstreetmap/id-tagging-schema/issues/1132
+[#1149]: https://github.com/openstreetmap/id-tagging-schema/issues/1149
+[#1156]: https://github.com/openstreetmap/id-tagging-schema/issues/1156
+[#1002]: https://github.com/openstreetmap/id-tagging-schema/pull/1002
+[#1008]: https://github.com/openstreetmap/id-tagging-schema/pull/1008
+[#1029]: https://github.com/openstreetmap/id-tagging-schema/pull/1029
+[#1032]: https://github.com/openstreetmap/id-tagging-schema/pull/1032
+[#1037]: https://github.com/openstreetmap/id-tagging-schema/pull/1037
+[#1076]: https://github.com/openstreetmap/id-tagging-schema/pull/1076
+[#1083]: https://github.com/openstreetmap/id-tagging-schema/pull/1083
+[#1084]: https://github.com/openstreetmap/id-tagging-schema/pull/1084
+[#1088]: https://github.com/openstreetmap/id-tagging-schema/pull/1088
+[#1090]: https://github.com/openstreetmap/id-tagging-schema/pull/1090
+[#1091]: https://github.com/openstreetmap/id-tagging-schema/pull/1091
+[#1095]: https://github.com/openstreetmap/id-tagging-schema/pull/1095
+[#1098]: https://github.com/openstreetmap/id-tagging-schema/pull/1098
+[#1102]: https://github.com/openstreetmap/id-tagging-schema/pull/1102
+[#1103]: https://github.com/openstreetmap/id-tagging-schema/pull/1103
+[#1104]: https://github.com/openstreetmap/id-tagging-schema/pull/1104
+[#1105]: https://github.com/openstreetmap/id-tagging-schema/pull/1105
+[#1106]: https://github.com/openstreetmap/id-tagging-schema/pull/1106
+[#1108]: https://github.com/openstreetmap/id-tagging-schema/pull/1108
+[#1109]: https://github.com/openstreetmap/id-tagging-schema/pull/1109
+[#1121]: https://github.com/openstreetmap/id-tagging-schema/pull/1121
+[#1123]: https://github.com/openstreetmap/id-tagging-schema/pull/1123
+[#1124]: https://github.com/openstreetmap/id-tagging-schema/pull/1124
+[#1126]: https://github.com/openstreetmap/id-tagging-schema/pull/1126
+[#1127]: https://github.com/openstreetmap/id-tagging-schema/pull/1127
+[#1128]: https://github.com/openstreetmap/id-tagging-schema/pull/1128
+[#1129]: https://github.com/openstreetmap/id-tagging-schema/pull/1129
+[#1130]: https://github.com/openstreetmap/id-tagging-schema/pull/1130
+[#1131]: https://github.com/openstreetmap/id-tagging-schema/pull/1131
+[#1134]: https://github.com/openstreetmap/id-tagging-schema/pull/1134
+[#1135]: https://github.com/openstreetmap/id-tagging-schema/pull/1135
+[#1136]: https://github.com/openstreetmap/id-tagging-schema/pull/1136
+[#1139]: https://github.com/openstreetmap/id-tagging-schema/pull/1139
+[#1142]: https://github.com/openstreetmap/id-tagging-schema/pull/1142
+[#1143]: https://github.com/openstreetmap/id-tagging-schema/pull/1143
+[#1150]: https://github.com/openstreetmap/id-tagging-schema/pull/1150
+[iD#10128]: https://github.com/openstreetmap/iD/issues/10128
+[@gy-mate]: https://github.com/gy-mate
+[@qugebert]: https://github.com/qugebert
+[@louwers]: https://github.com/louwers
+[@moan0s]: https://github.com/moan0s
+[@imagoiq]: https://github.com/imagoiq
+[@mangerlahn]: https://github.com/mangerlahn
+
+
 # 6.6.0
 ##### 2024-Jan-24
 

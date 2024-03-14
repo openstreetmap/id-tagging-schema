@@ -494,7 +494,19 @@
     },
     "swimming_pool": {
         "key": "swimming_pool",
-        "type": "combo"
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": true,
+        "options": [
+            "swimming",
+            "plunge",
+            "wading",
+            "spa",
+            "wave_pool",
+            "lazy_river",
+            "personal",
+            "kids"
+        ]
     },
     "surveillance": {
         "key": "surveillance",
@@ -692,6 +704,7 @@
             "cricket",
             "curling",
             "cycling",
+            "darts",
             "disc_golf",
             "dog_racing",
             "equestrian",
@@ -1130,6 +1143,10 @@
         "type": "text"
     },
     "ref_road_number": {
+        "key": "ref",
+        "type": "text"
+    },
+    "ref_rail": {
         "key": "ref",
         "type": "text"
     },
@@ -1906,9 +1923,17 @@
         "key": "line_attachment",
         "type": "combo"
     },
-    "lifeguard": {
+    "lifeguard_check": {
         "key": "lifeguard",
         "type": "check"
+    },
+    "lifeguard": {
+        "key": "lifeguard",
+        "type": "radio",
+        "options": [
+            "base",
+            "tower"
+        ]
     },
     "license_classes": {
         "key": "license_classes",
@@ -2042,7 +2067,21 @@
     },
     "kerb": {
         "key": "kerb",
-        "type": "combo"
+        "type": "combo",
+        "icons": {
+            "raised": "temaki-kerb-raised",
+            "lowered": "temaki-kerb-lowered",
+            "flush": "temaki-kerb-flush",
+            "rolled": "temaki-kerb-rolled"
+        },
+        "options": [
+            "flush",
+            "lowered",
+            "no",
+            "raised",
+            "rolled",
+            "yes"
+        ]
     },
     "junction_line": {
         "key": "junction",
@@ -2158,7 +2197,7 @@
     },
     "horse_riding": {
         "key": "leisure",
-        "type": "check",
+        "type": "defaultCheck",
         "reference": {
             "key": "leisure",
             "value": "horse_riding"
@@ -2190,6 +2229,7 @@
             "manor",
             "memorial",
             "milestone",
+            "millstone",
             "mine",
             "mine_shaft",
             "monument",
@@ -2407,6 +2447,14 @@
     "fountain": {
         "key": "fountain",
         "type": "combo"
+    },
+    "fortification_type": {
+        "key": "fortification_type",
+        "type": "combo",
+        "prerequisiteTag": {
+            "key": "archaeological_site",
+            "value": "fortification"
+        }
     },
     "ford": {
         "key": "ford",
@@ -2654,6 +2702,18 @@
         "key": "door",
         "type": "combo"
     },
+    "dog_yes": {
+        "key": "dog",
+        "type": "combo",
+        "label": "{dog}",
+        "options": [
+            "leashed",
+            "unleashed"
+        ],
+        "stringsCrossReference": "{dog}",
+        "autoSuggestions": false,
+        "customValues": false
+    },
     "dog": {
         "key": "dog",
         "type": "combo",
@@ -2662,6 +2722,7 @@
         "options": [
             "yes",
             "leashed",
+            "unleashed",
             "no"
         ]
     },
@@ -3471,7 +3532,17 @@
     },
     "bridge_combo": {
         "key": "bridge",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "aqueduct",
+            "boardwalk",
+            "cantilever",
+            "covered",
+            "low_water_crossing",
+            "movable",
+            "trestle",
+            "viaduct"
+        ]
     },
     "bridge": {
         "key": "bridge",
@@ -4089,6 +4160,25 @@
         "key": "toilets:position",
         "type": "semiCombo"
     },
+    "toilets/menstrual_products_poi": {
+        "key": "toilets:menstrual_products",
+        "type": "radio",
+        "stringsCrossReference": "{toilets/menstrual_products}",
+        "label": "{toilets/menstrual_products}",
+        "prerequisiteTag": {
+            "key": "toilets",
+            "valueNot": "no"
+        }
+    },
+    "toilets/menstrual_products": {
+        "key": "toilets:menstrual_products",
+        "type": "radio",
+        "options": [
+            "yes",
+            "limited",
+            "no"
+        ]
+    },
     "toilets/handwashing": {
         "key": "toilets:handwashing",
         "type": "check"
@@ -4173,6 +4263,10 @@
             "ALPR"
         ]
     },
+    "summit/cross": {
+        "key": "summit:cross",
+        "type": "check"
+    },
     "subject/wikidata": {
         "key": "subject:wikidata",
         "keys": [
@@ -4215,6 +4309,7 @@
             "billiards",
             "darts"
         ],
+        "stringsCrossReference": "{sport}",
         "autoSuggestions": false
     },
     "sport/sport_ice": {
@@ -4519,6 +4614,24 @@
                 "fr"
             ]
         }
+    },
+    "railway/track_ref": {
+        "key": "railway:track_ref",
+        "type": "text"
+    },
+    "railway/switch": {
+        "key": "railway:switch",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": true,
+        "options": [
+            "default",
+            "double_slip",
+            "single_slip",
+            "wye",
+            "three_way",
+            "abt"
+        ]
     },
     "railway/position": {
         "key": "railway:position",
@@ -4970,6 +5083,19 @@
             "double"
         ]
     },
+    "kerb/kerb_barrier": {
+        "key": "kerb",
+        "type": "combo",
+        "stringsCrossReference": "{kerb}",
+        "options": [
+            "flush",
+            "lowered",
+            "raised",
+            "rolled"
+        ],
+        "autoSuggestions": false,
+        "iconsCrossReference": "{kerb}"
+    },
     "kerb/height": {
         "key": "kerb:height",
         "type": "combo",
@@ -5248,6 +5374,7 @@
             "e10",
             "e85",
             "lpg",
+            "lng",
             "cng",
             "propane",
             "LH2",
