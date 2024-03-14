@@ -23,6 +23,14 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.7.1
+##### 2024-Mar-14
+
+* Fix URLs to icons from the maki icon set in the taginfo-project output ([schema-builder#119])
+
+[schema-builder#119]: https://github.com/ideditor/schema-builder/pull/119
+
+
 # 6.7.0
 ##### 2024-Mar-14
 
