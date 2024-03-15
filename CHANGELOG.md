@@ -23,6 +23,14 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.7.2
+##### 2024-Mar-15
+
+* Upgrade objects tagged with `traffic_calming=island + area=yes` to `area:highway=traffic_island` ([#1162])
+
+[#1162]: https://github.com/openstreetmap/id-tagging-schema/issues/1162
+
+
 # 6.7.1
 ##### 2024-Mar-14
 
