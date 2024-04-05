@@ -23,6 +23,14 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.7.3
+##### 2024-Apr-5
+
+* Fix error in tag upgrade rule: `traffic_calming=island + area=yes` was falsely upgraded to `area:highway=traffic_calming` instead of `…=traffic_island` ([#1180])
+
+[#1180]: https://github.com/openstreetmap/id-tagging-schema/issues/1180
+
+
 # 6.7.2
 ##### 2024-Mar-15
 
