@@ -7,12 +7,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          notJSONs=`find data/ -type f -not -iname "*.json"`
-          for f in $notJSONs
+          disallowedFiles=`find data/ -type f -not -iname "*.json" -not -iname "*.md"`
+          for f in $disallowedFiles
           do
-            echo "::error file=$f::File $f is not a .json file."
+            echo "::error file=$f::File $f is not a .json or .md file."
           done
-          if [ ! -z "$notJSONs" ]; then exit 1; fi
+          if [ ! -z "$disallowedFiles" ]; then exit 1; fi
 
   prettier:
     name: Check for code formatting mistakes
@@ -23,7 +23,6 @@ jobs:
         with:
           node-version-file: '.nvmrc'
       - run: npm clean-install
-      - run: 'for f in `find data/ -type f -not -iname "*.json"`; do echo "::error File $f is not a .json file."; done'
       - run: npm run lint
 
   codespell:
@@ -37,4 +36,3 @@ jobs:
           skip: ./.git,./dist,./data/deprecated.json
           ignore_words_list: "auxilary,casette,cemetary,chancel,discus,extentions,faiway,generat,goverment,guerilla,guyser,kindergarden,ore,pavillion,sculpter,storys,linz,te"
           only_warn: 1
-
