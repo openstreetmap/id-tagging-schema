@@ -1,10 +1,10 @@
 # About `@templates`
 
-Presets in `@templats` are a convention for a specific type of presets that are only used from inside other presets.
+Presets in `@templates` are a convention for a _virtual_ presets that are only used from inside other presets.
 
-The only fields that really matter for these special presets are the `fields`.
+The only property that really matter for these special presets are the `fields`.
 
-All other properties can be copied from existing presets and ignored. They are default values that are meant to
+All other properties can be copied from existing template presets and ignored. They are default values that are meant to match all cases where they might be referenced.
 
 ## How to use
 
