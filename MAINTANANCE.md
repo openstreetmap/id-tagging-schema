@@ -1,66 +1,60 @@
-
-INSPIRED BY https://github.com/streetcomplete/StreetComplete/blob/master/AUTHORS.md
-
-
-# Roles, people and processes on maintaining the tagging schema
+# Roles, People, and Processes for Maintaining the Tagging Schema
 
 This document outlines how this project is maintained.
 
 ## Roles & People
 
-### Maintainer role
+### Maintainer Role
 
 [Martin](https://github.com/tyrasd) maintains this project as part of his work on the iD Editor project.
 
-The maintainer role includes…
-- a final say in decision for the tagging schema
-- creating releases
-- updating dependencies
+The maintainer role includes:
+- Having the final say in decisions for the tagging schema.
+- Creating releases.
+- Updating dependencies.
 
-and all following roles.
+and all the following roles.
 
-### Contributor role
+### Contributor Role
 
 [Tobias](https://github.com/tordans) contributes to this project as a volunteer.
 
-The contributor role inclues…
-- reviewing PRs
-- merging "simple" PRs
+The contributor role includes:
+- Reviewing PRs.
+- Merging "simple" PRs.
 
-and all following roles.
+and all the following roles.
 
-### Triage role
+### Triage Role
 
-(No one has the triage role ATM. Please reach out if you want to help.)
+(No one has the triage role at the moment. Please reach out if you want to help.)
 
-The triage role inclues…
-- helping to clarify issues and PRs
-- closing issues as duplicate or not planned
+The triage role includes:
+- Helping to clarify issues and PRs.
+- Closing issues as duplicates or not planned.
 
 ### Contributors
 
-To all contributors, thank you so much for your support! ❤
-Especially for…
-- Suggesting new presets and fields or updates to the repo
-- Researching and helping with issues and PRs
-- Translating the tagging schema
+To all contributors, thank you so much for your support! ❤ Especially for:
+- Suggesting new presets and fields or updates to the repository.
+- Researching and helping with issues and PRs.
+- Translating the tagging schema.
 
-Code contributions: [Check this complete list of contributors on GitHub](https://github.com/openstreetmap/id-tagging-schema/graphs/contributors)
+Code contributions: [Check this complete list of contributors on GitHub](https://github.com/openstreetmap/id-tagging-schema/graphs/contributors).
 
 ## Processes
 
-### PR reviews, PR merge
+### PR Reviews and Merges
 
-- PR need two sets of yes, the authors and another contributor role before being merged
-- Non-"simple" changes need to be merged by the maintainer role
-- We might revert merges later
+- PRs need approval from two people: the author and another contributor before being merged.
+- Non-"simple" changes need to be merged by the maintainer.
+- We might revert merges later if necessary.
 
 ### Releases
 
-There is no release shedule at the moment but usually happen every other month.
-After this project was released the projects that rely on the data need to update and release as well.
+There is no set release schedule at the moment, but releases usually occur every other month. After this project is released, the projects that rely on the data need to update and release as well.
 
-## Previous maintainers
+## Previous Maintainers
 
 Many thanks to all previous maintainers! ❤
 
