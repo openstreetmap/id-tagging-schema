@@ -17,11 +17,12 @@ and all the following roles.
 
 ### Contributor Role
 
-[Tobias](https://github.com/tordans) contributes to this project as a volunteer.
+- [Kyle](https://github.com/k-yle) contributes to this project as a volunteer.
+- [Tobias](https://github.com/tordans) contributes to this project as a volunteer.
 
 The contributor role includes:
 - Reviewing PRs.
-- Merging "simple" PRs.
+- Merging "clear-cut" PRs.
 
 and all the following roles.
 
@@ -46,9 +47,14 @@ Code contributions: [Check this complete list of contributors on GitHub](https:/
 
 ### PR Reviews and Merges
 
-- PRs need approval from two people: the author and another contributor before being merged.
-- Non-"simple" changes need to be merged by the maintainer.
+- PRs need approval from two people: the author and one more contributors before being merged.
+- Non-"clear-cut" changes need to be merged by the maintainer.
 - We might revert merges later if necessary.
+
+**What is a clear-cut change?**
+
+- No or minimal controversial discussion on the change.
+- Coding and contribution [guidelines](./GUIDELINES.md) are met.
 
 ### Releases
 
@@ -58,5 +64,6 @@ There is no set release schedule at the moment, but releases usually occur every
 
 Many thanks to all previous maintainers! ❤
 
+- [Milos](https://github.com/mbrzakovic)
 - [Quincy](https://github.com/quincylvania)
 - [Bryan](https://github.com/bhousel)
