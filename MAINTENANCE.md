@@ -56,6 +56,12 @@ Code contributions: [Check this complete list of contributors on GitHub](https:/
 - No or minimal controversial discussion on the change.
 - Coding and contribution [guidelines](./GUIDELINES.md) are met.
 
+**How to merge…**
+
+- Usually sqash merge PRs to make the history simpler
+- Give the Merge a meaningfull description of the change
+- Add labels to the PR to simplify creating the changelog: `new-*`, `add-*`, `bug`
+
 ### Releases
 
 There is no set release schedule at the moment, but releases usually occur every other month. After this project is released, the projects that rely on the data need to update and release as well.
