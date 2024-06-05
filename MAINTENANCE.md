@@ -47,7 +47,7 @@ Code contributions: [Check this complete list of contributors on GitHub](https:/
 
 ### PR Reviews and Merges
 
-- PRs need approval from two people: the author and one more contributors before being merged.
+- PRs need approval from two people: the author and one or more contributors before being merged.
 - Non-"clear-cut" changes need to be merged by the maintainer.
 - We might revert merges later if necessary.
 
@@ -59,7 +59,7 @@ Code contributions: [Check this complete list of contributors on GitHub](https:/
 **How to merge…**
 
 - Usually sqash merge PRs to make the history simpler
-- Give the Merge a meaningfull description of the change
+- Give the merge a meaningful description of the change
 - Add labels to the PR to simplify creating the changelog: `new-*`, `add-*`, `bug`
 
 ### Releases
