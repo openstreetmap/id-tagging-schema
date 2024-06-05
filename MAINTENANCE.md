@@ -66,6 +66,11 @@ Code contributions: [Check this complete list of contributors on GitHub](https:/
 
 There is no set release schedule at the moment, but releases usually occur every other month. After this project is released, the projects that rely on the data need to update and release as well.
 
+### Assigning roles
+
+- The maintenance role is assigned by the OSMF. Historically the maintainer of the iD Editor also maintained this project.
+- Contributor and triage roles are assigned by the current maintainer of the repository.
+
 ## Previous Maintainers
 
 Many thanks to all previous maintainers! ❤
