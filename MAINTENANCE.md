@@ -58,7 +58,7 @@ Code contributions: [Check this complete list of contributors on GitHub](https:/
 
 **How to merge…**
 
-- Usually sqash merge PRs to make the history simpler
+- Usually squash merge PRs to make the history simpler
 - Give the merge a meaningful description of the change
 - Add labels to the PR to simplify creating the changelog: `new-*`, `add-*`, `bug`
 
