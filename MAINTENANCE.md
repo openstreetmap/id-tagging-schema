@@ -69,7 +69,7 @@ There is no set release schedule at the moment, but releases usually occur every
 
 ### Assigning roles
 
-- The maintenance role is assigned by the OSMF. Historically the maintainer of the iD Editor also maintained this project.
+- The maintainer of the iD editor has traditionally and continues to maintain this project.
 - Contributor and triage roles are assigned by the current maintainer of the repository.
 
 ## Previous Maintainers
