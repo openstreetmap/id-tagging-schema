@@ -16,6 +16,8 @@ The maintainer role includes:
 
 and all the following roles.
 
+Github shows a `(Member)` label next to users with full access to this repository and the organisation.
+
 ### Contributor Role
 
 - [Kyle](https://github.com/k-yle) contributes to this project as a volunteer.
@@ -27,6 +29,8 @@ The contributor role includes:
 
 and all the following roles.
 
+Github shows a `(Collaborator)` label next to users with any permission on this repository.
+
 ### Triage Role
 
 (No one has the triage role at the moment. Please reach out if you want to help.)
@@ -34,6 +38,8 @@ and all the following roles.
 The triage role includes:
 - Helping to clarify issues and PRs.
 - Closing issues as duplicates or not planned.
+
+Github shows a `(Collaborator)` label next to users with any permission on this repository.
 
 ### Contributors
 
@@ -43,6 +49,8 @@ To all contributors, thank you so much for your support! ❤ Especially for:
 - Translating the tagging schema.
 
 Code contributions: [Check this complete list of contributors on GitHub](https://github.com/openstreetmap/id-tagging-schema/graphs/contributors).
+
+Github shows a `(Contributor)` label next to users that previously committed to this repository.
 
 ## Processes
 
