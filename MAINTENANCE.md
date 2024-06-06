@@ -12,6 +12,7 @@ The maintainer role includes:
 - Having the final say in decisions for the tagging schema.
 - Creating releases.
 - Updating dependencies.
+- Assign roles.
 
 and all the following roles.
 
