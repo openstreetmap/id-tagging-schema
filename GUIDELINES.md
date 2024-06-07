@@ -1,0 +1,58 @@
+# Guidelines for the Tagging Schema
+
+Do you have an idea for a new preset or field? Read this!
+
+## 1. Evaluate Your Idea for the Tagging Schema Project
+
+Adding a preset or field to the tagging schema is a significant responsibility.
+We must ensure that both new and experienced users can understand the presets and fields,
+thereby contributing high-quality data to OpenStreetMap (OSM).
+
+Consider the following:
+
+### General Guidelines
+
+- 📋 **Established Documentation**: The tagging schema will only consider tags that are well-documented on the OSM wiki. The documentation should be clear and unambiguous.
+- 🏷️ **Established Tags Only**: No new or unestablished tags should be part of presets. Establishing tags must remain a community-driven process, not dictated by software implementation.
+- ✅ **Proposal or Accepted**: A tag is considered established when it has completed the [proposal process](https://wiki.openstreetmap.org/wiki/Proposal_process) or is otherwise accepted by the OSM community. Factors include the tag's duration of use, frequency of use, and whether its usage is increasing over time.
+- 🤷 **Useful Purpose**: Especially for less established tags, presets and fields should have a practical application. OSM allows for the collection of a wide variety of data, but not all of it is useful. For example, the brightness of street lamps might be documented, but it doesn't necessarily warrant a preset or field.
+- 🕓 **Effort vs. Impact**: Consider whether the effort required is justified by the impact the preset or field will have. Assess how many elements this new type will apply to. This is particularly important if you do not plan to contribute the code changes yourself through a pull request (PR).
+
+### User Experience
+
+No preset or field is isolated; they are always presented alongside others in various user interfaces that utilize the tagging schema.
+
+- 🔦 **Easy to Pick**: Users must be able to understand and select the correct preset given the limited information available in the user interfaces. Good presets guide the user with clear names and helpful additional documentation `(i)`.
+- 🔎 **Easy to Search**: When searching, similar presets will appear next to each other. Consider and test typical search scenarios. You might need to adjust the names and documentation of other presets to ensure users can make the best decision.
+- 👨‍💻 **Users Are Not Experts**: No prior knowledge of OpenStreetMap or any other background information should be necessary.
+- 🐿️ **Easy Answer**: Users are often on the go and impatient. Fields should allow for quick, straightforward, and clear answers.
+
+### Situational Presets
+
+- 🙈 **Unsearchable Presets**: The tagging schema is not only for adding information but also for presenting existing information. Consider adding an unsearchable preset for tagging that should be highlighted with a preset on the map and with defined fields. Reasons to make a preset unsearchable include: multiple ways to tag something where one method is preferred, or other reasons to hide commonly used tags from the search and list interface to preserve a good [user experience](#user-experience).
+- 🏝️ **Local Presets and Fields**: Generally, presets and fields in OSM should be globally applicable, and efforts should be made to ensure this. However, when local tagging conventions exist or when presets only make sense for certain regions, presets and fields can be given a local filter. This increases the need for thorough testing and makes it more challenging to maintain a good [user experience](#user-experience).
+
+### Tag Updates and Additions
+
+- ➕ **Suggested Additions**: Presets can suggest additional tags. The wiki and community consensus must clearly support these suggestions.
+- 🔄 **Updates**: Deprecation rules can suggest updating tags. Good documentation and consensus are needed for these deprecations.
+
+## 2. Design the Preset
+
+The user interface must be clear, concise, and easy to use, leaving no room for misunderstandings.
+
+- Define the tags required on an object to trigger the preset.
+- Choose a name, category, and define a list of English search terms.
+- Check the search functionality to ensure other presets do not cause confusion.
+- Select an icon or start the process to create a new one.
+- Define which fields to show (`fields`) and suggest (`moreFields`), considering the order of fields.
+- Check the `(i)` documentation and add or update the Wikidata item if needed to provide a helpful short text.
+- Use the PR preview to add test cases with deep links to OSM objects that demonstrate the preset in use.
+
+## 3. Implement
+
+If you are familiar with `JSON`, you can implement the preset or field yourself. First, create a ticket to introduce your quest idea and discuss it with the community to get feedback on its feasibility and desirability. After implementation, create a pull request to get it merged.
+
+For more details on adding presets, see ["Making changes"](./CONTRIBUTING.md#making-changes).
+
+If you are not familiar with `JSON`, still create a ticket. The more you have considered and prepared from the above steps, the easier it will be for someone else to code it.
