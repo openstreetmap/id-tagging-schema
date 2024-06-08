@@ -49,6 +49,13 @@ To make a change, update the corresponding file within the `data` folder: The `p
 
 Icons from different sources (_icon sets_) can be used in the tagging schema. Head over to the [dedicated page](https://github.com/ideditor/schema-builder/blob/main/ICONS.md#icons) about how to use them.
 
+### Info-`i`
+
+iD and other tools provide users with a way to learn more about the main tag of a preset. It is important to provide good information in this information panel. Here are a few notes on how to do this:
+- Does your tag have a Wikidata entry? Click the small pencil icon next to the text to open the Wikidata item on the OSM wiki. Improve this wording if needed. If the Wikidata item is missing, [learn more about how to add it in "Current methods for creating new items"](https://wiki.openstreetmap.org/wiki/Data_items#Item_creation_process).
+- Does your tag have a Wiki page with a good image?
+- Your preset might need [a `reference` property](https://github.com/ideditor/schema-builder?tab=readme-ov-file#reference) to force the system to use a specific tag for the information section.
+
 ### Code Style
 
 The input files are JSON files which use 4-space indentation. You can use the `npm run lint` command to check whether your files match the expected code style and run `npm run lint:fix` to reformat them if they don't do so.
