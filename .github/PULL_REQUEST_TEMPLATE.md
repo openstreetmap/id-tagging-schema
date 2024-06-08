@@ -17,16 +17,6 @@
 <!-- Eg. Numbers from Taginfo -->
 <!-- Eg. A Link to https://taghistory.raifer.tech -->
 
-### Checklist
-- [ ] Icon: My preset/field has a good [icon](https://github.com/ideditor/schema-builder/blob/main/ICONS.md).
-
-- [ ] Search: My preset works well with other presets when searching for it in the iD preview.
-      <!-- Eg. no similar presents that cause confusion. -->
-      <!-- Add  -->
-
-- [ ] I Check the info `(i)` image and text and both help understand the preset.
-- [ ] There is a Wikidata entry on the OSM Wiki for the core tag of my preset.
-
 ### Checklist and Test-Documentation template.
 
 Once the preview is generate, **copy the following template and create a comment** to add the info.
@@ -51,7 +41,7 @@ If this is your first contribution to this project, the preview will not happen 
      Add relevant **screenshots** of the sidebar of those examples. -->
 
 <!-- FYI: What we will check:
-     - Is the icon well choosen.
+     - Is the [icon](https://github.com/ideditor/schema-builder/blob/main/ICONS.md) well choosen.
      - Are the fields well structured and have good labels.
      - Do the dropdown (etc) work well and show helpful data. -->
 
