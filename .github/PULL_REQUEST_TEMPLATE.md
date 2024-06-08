@@ -53,5 +53,7 @@ If this is your first contribution to this project, the preview will not happen 
 ### Info-`i`
 
 <!-- **Test the info-i** for your fields and preset and share relevant **screenshots** here.
-     The info needs to help mappers understand the preset and when to use it. -->
+     The info needs to help mappers understand the preset and when to use it.
+     [Learn more…](https://github.com/tordans/id-tagging-schema/blob/main/CONTRIBUTING.md#info-i)
+ -->
 ```
