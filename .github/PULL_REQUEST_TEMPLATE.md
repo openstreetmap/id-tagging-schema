@@ -40,7 +40,7 @@ If this is your first contribution to this project, the preview will not happen 
      Add relevant **screenshots** of the sidebar of those examples. -->
 
 <!-- FYI: What we will check:
-     - Is the icon well chosen.
+     - Is the [icon](https://github.com/ideditor/schema-builder/blob/main/ICONS.md) well chosen.
      - Are the fields well-structured and have good labels.
      - Do the dropdowns (etc.) work well and show helpful data. -->
 
