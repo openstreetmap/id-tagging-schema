@@ -34,8 +34,13 @@ No preset or field is isolated; they are always presented alongside others in va
 
 ### Tag Updates and Additions
 
-- ➕ **Suggested Additions**: Presets can suggest additional tags. The wiki and community consensus must clearly support these suggestions.
+- ➕ **Suggested Additions**: Presets can suggest additional tags. These suggestions must be clearly supported by the wiki and community consensus.
 - 🔄 **Updates**: Deprecation rules can suggest updating tags. Good documentation and consensus are needed for these deprecations.
+
+In both cases, _indicators for consensus_ are:
+- The deprecation is documented in the wiki and is either official (resulting from a proposal process) or long-standing (about a year).
+- There is a significant drop in usage compared to current numbers, with a negative trend ([visible in the graph](https://taghistory.raifer.tech/)).
+- Usage of the deprecated tag remains stagnant for a longer period (about a year).
 
 ## 2. Design the Preset
 
