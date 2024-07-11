@@ -14,8 +14,8 @@
 
 **Relevant tag usage stats:**
 > …
-<!-- E.g., Numbers from [Taginfo](https://taginfo.openstreetmap.org/) or [local Taginfo](https://taginfo.geofabrik.de/) -->
-<!-- E.g., A link to https://taghistory.raifer.tech -->
+<!-- E.g., Numbers from Taginfo https://taginfo.openstreetmap.org/ and maybe local Taginfo https://taginfo.geofabrik.de/ -->
+<!-- E.g., a link to https://taghistory.raifer.tech -->
 
 ### Checklist and Test-Documentation template.
 
@@ -56,4 +56,11 @@ If this is your first contribution to this project, the preview will not happen 
      The info needs to help mappers understand the preset and when to use it.
      [Learn more…](https://github.com/tordans/id-tagging-schema/blob/main/CONTRIBUTING.md#info-i)
  -->
+
+### Wording
+
+- [ ] American English
+- [ ] `name`, `aliases` (if present) use Title Case
+- [ ] `terms` (if present) use lower case, sorted A-Z
+<!-- Learn more in https://github.com/openstreetmap/id-tagging-schema/blob/main/GUIDELINES.md#2-design-the-preset -->
 ```
