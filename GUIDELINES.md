@@ -48,6 +48,7 @@ The user interface must be clear, concise, and easy to use, leaving no room for 
 
 - Define the tags required on an object to trigger the preset.
 - Choose a name, category, and define a list of American English search terms.
+- Use Title Case for the the preset `name` and [`aliases`](https://github.com/ideditor/schema-builder?tab=readme-ov-file#aliases) as well as the field [`label`](https://github.com/ideditor/schema-builder?tab=readme-ov-file#label) property. Use lower case for the preset [`terms`](https://github.com/ideditor/schema-builder?tab=readme-ov-file#terms) (sorted A-Z) and Title Case or sentences for preset's [`strings`-`options`](https://github.com/ideditor/schema-builder?tab=readme-ov-file#strings).
 - Check the search functionality to ensure other presets do not cause confusion.
 - Select an icon or start the process to create a new one.
 - Define which fields to show (`fields`) and suggest (`moreFields`), considering the order of fields.
