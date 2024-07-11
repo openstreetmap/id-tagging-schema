@@ -17,7 +17,7 @@
 <!-- E.g., Numbers from Taginfo https://taginfo.openstreetmap.org/ and maybe local Taginfo https://taginfo.geofabrik.de/ -->
 <!-- E.g., a link to https://taghistory.raifer.tech -->
 
-### Checklist and Test-Documentation template.
+### Checklist and Test-Documentation Template
 
 Once the preview is generated, **copy the following template and create a comment** to add the info.
 This will help you check your PR and make it a lot faster to test your changes for the maintainers.
@@ -63,4 +63,3 @@ If this is your first contribution to this project, the preview will not happen 
 - [ ] `name`, `aliases` (if present) use Title Case
 - [ ] `terms` (if present) use lower case, sorted A-Z
 <!-- Learn more in https://github.com/openstreetmap/id-tagging-schema/blob/main/GUIDELINES.md#2-design-the-preset -->
-```
