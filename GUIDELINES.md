@@ -14,7 +14,7 @@ Consider the following:
 
 - 📋 **Established Documentation**: The tagging schema will only consider tags that are well-documented on the OSM wiki. The documentation should be clear and unambiguous.
 - 🏷️ **Established Tags Only**: No new or unestablished tags should be part of presets. Establishing tags must remain a community-driven process, not dictated by software implementation.
-- ✅ **Proposal or Accepted**: A tag is considered established when it has completed the [proposal process](https://wiki.openstreetmap.org/wiki/Proposal_process) or is otherwise accepted by the OSM community. Factors include the tag's duration of use, frequency of use, and whether its usage is increasing over time.
+- ✅ **Proposal or Accepted**: A tag is considered established when it has completed the [proposal process](https://wiki.openstreetmap.org/wiki/Proposal_process) or is otherwise accepted by the OSM community. Factors include the tag's duration and frequency of use, whether its usage is increasing over time and it's usage by mainstream data consumers.
 - 🤷 **Useful Purpose**: Especially for less established tags, presets and fields should have a practical application. OSM allows for the collection of a wide variety of data, but not all of it is useful. For example, the brightness of street lamps might be documented, but it doesn't necessarily warrant a preset or field.
 - 🕓 **Effort vs. Impact**: Consider whether the effort required is justified by the impact the preset or field will have. Assess how many elements this new type will apply to. This is particularly important if you do not plan to contribute the code changes yourself through a pull request (PR).
 
