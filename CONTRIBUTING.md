@@ -9,7 +9,7 @@ iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_
 
 ## General Guidelines
 
-Read the [GUIDLINES](./GUIDELINES.md) to help you understand what fields and tags should be added to the tagging schema.
+Read the [GUIDELINES](./GUIDELINES.md) to help you understand what fields and tags should be added to the tagging schema.
 
 ## Translating
 
