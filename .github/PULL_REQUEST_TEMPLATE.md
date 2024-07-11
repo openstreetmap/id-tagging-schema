@@ -19,16 +19,20 @@
 
 ### Checklist and Test-Documentation Template
 
-Once the preview is generated, **copy the following template and create a comment** to add the info.
-This will help you check your PR and make it a lot faster to test your changes for the maintainers.
+<details><summary>Read on to get your PR merged faster…</summary>
 
-<details><summary>Read more about how this works…</summary>
+Follow these steps to test your PR yourself and make it a lot easier and faster for maintainers to check and approve it.
 
-After you submit your PR, the system will create a preview and comment on your PR:
-> 🍱 You can preview the tagging presets of this pull request here.
+**This is how it works:**
+1. After you submit your PR, the system will create a preview and comment on your PR:
+   > 🍱 You can preview the tagging presets of this pull request here.
+   If this is your first contribution to this project, the preview will not happen right away but requires a click from one of the project members. We will do this ASAP.
 
-If this is your first contribution to this project, the preview will not happen right away but requires a click from one of the project members. We will do this ASAP.
-</details>
+2. Once the preview is ready, use it to test your changes.
+
+3. Now copy the snippet below into a new comment and fill out the blanks.
+
+4. Now your PR is ready to be reviewed.
 
 ```
 ## Test-Documentation
@@ -63,3 +67,6 @@ If this is your first contribution to this project, the preview will not happen 
 - [ ] `name`, `aliases` (if present) use Title Case
 - [ ] `terms` (if present) use lower case, sorted A-Z
 <!-- Learn more in https://github.com/openstreetmap/id-tagging-schema/blob/main/GUIDELINES.md#2-design-the-preset -->
+```
+
+</details>
