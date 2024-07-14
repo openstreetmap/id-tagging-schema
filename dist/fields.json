@@ -494,7 +494,19 @@
     },
     "swimming_pool": {
         "key": "swimming_pool",
-        "type": "combo"
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": true,
+        "options": [
+            "swimming",
+            "plunge",
+            "wading",
+            "spa",
+            "wave_pool",
+            "lazy_river",
+            "personal",
+            "kids"
+        ]
     },
     "surveillance": {
         "key": "surveillance",
@@ -692,6 +704,7 @@
             "cricket",
             "curling",
             "cycling",
+            "darts",
             "disc_golf",
             "dog_racing",
             "equestrian",
@@ -830,6 +843,15 @@
     "site": {
         "key": "site",
         "type": "combo"
+    },
+    "side": {
+        "key": "side",
+        "type": "combo",
+        "autoSuggestions": false,
+        "options": [
+            "left",
+            "right"
+        ]
     },
     "shower": {
         "key": "shower",
@@ -972,11 +994,16 @@
         "key": "ruins",
         "type": "combo"
     },
-    "royal_cypher": {
+    "royal_cypher-GB": {
         "key": "royal_cypher",
         "type": "typeCombo",
         "autoSuggestions": false,
         "customValues": false,
+        "locationSet": {
+            "include": [
+                "gb"
+            ]
+        },
         "options": [
             "VR",
             "EVIIR",
@@ -1116,6 +1143,10 @@
         "type": "text"
     },
     "ref_road_number": {
+        "key": "ref",
+        "type": "text"
+    },
+    "ref_rail": {
         "key": "ref",
         "type": "text"
     },
@@ -1892,9 +1923,17 @@
         "key": "line_attachment",
         "type": "combo"
     },
-    "lifeguard": {
+    "lifeguard_check": {
         "key": "lifeguard",
         "type": "check"
+    },
+    "lifeguard": {
+        "key": "lifeguard",
+        "type": "radio",
+        "options": [
+            "base",
+            "tower"
+        ]
     },
     "license_classes": {
         "key": "license_classes",
@@ -2028,7 +2067,21 @@
     },
     "kerb": {
         "key": "kerb",
-        "type": "combo"
+        "type": "combo",
+        "icons": {
+            "raised": "temaki-kerb-raised",
+            "lowered": "temaki-kerb-lowered",
+            "flush": "temaki-kerb-flush",
+            "rolled": "temaki-kerb-rolled"
+        },
+        "options": [
+            "flush",
+            "lowered",
+            "no",
+            "raised",
+            "rolled",
+            "yes"
+        ]
     },
     "junction_line": {
         "key": "junction",
@@ -2128,18 +2181,6 @@
         "key": "hot_water",
         "type": "check"
     },
-    "horse_stables": {
-        "key": "amenity",
-        "type": "check",
-        "reference": {
-            "key": "amenity",
-            "value": "stables"
-        },
-        "options": [
-            "undefined",
-            "stables"
-        ]
-    },
     "horse_scale": {
         "key": "horse_scale",
         "type": "combo",
@@ -2156,7 +2197,7 @@
     },
     "horse_riding": {
         "key": "leisure",
-        "type": "check",
+        "type": "defaultCheck",
         "reference": {
             "key": "leisure",
             "value": "horse_riding"
@@ -2164,18 +2205,6 @@
         "options": [
             "undefined",
             "horse_riding"
-        ]
-    },
-    "horse_dressage": {
-        "key": "sport",
-        "type": "check",
-        "reference": {
-            "key": "sport",
-            "value": "equestrian"
-        },
-        "options": [
-            "undefined",
-            "equestrian"
         ]
     },
     "hoops": {
@@ -2200,6 +2229,7 @@
             "manor",
             "memorial",
             "milestone",
+            "millstone",
             "mine",
             "mine_shaft",
             "monument",
@@ -2315,7 +2345,13 @@
     "hashtags": {
         "key": "hashtags",
         "type": "semiCombo",
-        "usage": "changeset"
+        "usage": "changeset",
+        "caseSensitive": true
+    },
+    "handrest": {
+        "key": "handrest",
+        "type": "check",
+        "default": "yes"
     },
     "handrail": {
         "key": "handrail",
@@ -2412,10 +2448,22 @@
         "key": "fountain",
         "type": "combo"
     },
+    "fortification_type": {
+        "key": "fortification_type",
+        "type": "combo",
+        "prerequisiteTag": {
+            "key": "archaeological_site",
+            "value": "fortification"
+        }
+    },
     "ford": {
         "key": "ford",
         "type": "typeCombo",
         "usage": "group"
+    },
+    "footrest": {
+        "key": "footrest",
+        "type": "check"
     },
     "flood_prone": {
         "key": "flood_prone",
@@ -2654,6 +2702,18 @@
         "key": "door",
         "type": "combo"
     },
+    "dog_yes": {
+        "key": "dog",
+        "type": "combo",
+        "label": "{dog}",
+        "options": [
+            "leashed",
+            "unleashed"
+        ],
+        "stringsCrossReference": "{dog}",
+        "autoSuggestions": false,
+        "customValues": false
+    },
     "dog": {
         "key": "dog",
         "type": "combo",
@@ -2662,6 +2722,7 @@
         "options": [
             "yes",
             "leashed",
+            "unleashed",
             "no"
         ]
     },
@@ -3019,7 +3080,7 @@
             "bubble_tea",
             "hot_dog",
             "cake",
-            "pankcake",
+            "pancake",
             "pasta",
             "salad",
             "chocolate",
@@ -3171,6 +3232,11 @@
         "type": "combo",
         "snake_case": false,
         "caseSensitive": true
+    },
+    "count": {
+        "key": "count",
+        "type": "number",
+        "minValue": 1
     },
     "conveying_escalator": {
         "key": "conveying",
@@ -3444,6 +3510,7 @@
             "public",
             "residential",
             "retail",
+            "riding_hall",
             "roof",
             "ruins",
             "school",
@@ -3465,7 +3532,17 @@
     },
     "bridge_combo": {
         "key": "bridge",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "aqueduct",
+            "boardwalk",
+            "cantilever",
+            "covered",
+            "low_water_crossing",
+            "movable",
+            "trestle",
+            "viaduct"
+        ]
     },
     "bridge": {
         "key": "bridge",
@@ -3500,6 +3577,10 @@
         "key": "booth",
         "type": "combo",
         "caseSensitive": true
+    },
+    "books": {
+        "key": "books",
+        "type": "semiCombo"
     },
     "bollard": {
         "key": "bollard",
@@ -4079,6 +4160,25 @@
         "key": "toilets:position",
         "type": "semiCombo"
     },
+    "toilets/menstrual_products_poi": {
+        "key": "toilets:menstrual_products",
+        "type": "radio",
+        "stringsCrossReference": "{toilets/menstrual_products}",
+        "label": "{toilets/menstrual_products}",
+        "prerequisiteTag": {
+            "key": "toilets",
+            "valueNot": "no"
+        }
+    },
+    "toilets/menstrual_products": {
+        "key": "toilets:menstrual_products",
+        "type": "radio",
+        "options": [
+            "yes",
+            "limited",
+            "no"
+        ]
+    },
     "toilets/handwashing": {
         "key": "toilets:handwashing",
         "type": "check"
@@ -4093,6 +4193,20 @@
             "pitlatrine",
             "chemical",
             "bucket"
+        ]
+    },
+    "telescope/type": {
+        "key": "telescope:type",
+        "type": "combo",
+        "icons": {
+            "optical": "temaki-telescope",
+            "radio": "roentgen-telescope-radio"
+        },
+        "autoSuggestions": true,
+        "customValues": true,
+        "options": [
+            "optical",
+            "radio"
         ]
     },
     "telecom/medium": {
@@ -4149,6 +4263,10 @@
             "ALPR"
         ]
     },
+    "summit/cross": {
+        "key": "summit:cross",
+        "type": "check"
+    },
     "subject/wikidata": {
         "key": "subject:wikidata",
         "keys": [
@@ -4191,6 +4309,7 @@
             "billiards",
             "darts"
         ],
+        "stringsCrossReference": "{sport}",
         "autoSuggestions": false
     },
     "sport/sport_ice": {
@@ -4386,6 +4505,19 @@
         "key": "roof:colour",
         "type": "colour"
     },
+    "roller_coaster/track": {
+        "key": "roller_coaster",
+        "type": "combo",
+        "options": [
+            "lift_hill",
+            "launch_straight",
+            "brake_run",
+            "station",
+            "moving",
+            "waiting",
+            "maintenance"
+        ]
+    },
     "ref/vatin": {
         "key": "ref:vatin",
         "type": "identifier",
@@ -4448,6 +4580,17 @@
         "key": "ref:isil",
         "type": "text"
     },
+    "ref/edubase-GB": {
+        "key": "ref:edubase",
+        "type": "identifier",
+        "urlFormat": "https://get-information-schools.service.gov.uk/Establishments/Establishment/Details/{value}",
+        "pattern": "^[0-9]{1,}$",
+        "locationSet": {
+            "include": [
+                "gb"
+            ]
+        }
+    },
     "ref/linz/place_id-NZ": {
         "key": "ref:linz:place_id",
         "type": "identifier",
@@ -4471,6 +4614,24 @@
                 "fr"
             ]
         }
+    },
+    "railway/track_ref": {
+        "key": "railway:track_ref",
+        "type": "text"
+    },
+    "railway/switch": {
+        "key": "railway:switch",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": true,
+        "options": [
+            "default",
+            "double_slip",
+            "single_slip",
+            "wye",
+            "three_way",
+            "abt"
+        ]
     },
     "railway/position": {
         "key": "railway:position",
@@ -4807,6 +4968,16 @@
             "key": "operator"
         }
     },
+    "opening_hours/drive_through": {
+        "key": "opening_hours:drive_through",
+        "type": "combo",
+        "prerequisiteTag": {
+            "key": "drive_through",
+            "value": "yes"
+        },
+        "snake_case": false,
+        "caseSensitive": true
+    },
     "oneway/bicycle": {
         "key": "oneway:bicycle",
         "type": "check",
@@ -4869,6 +5040,29 @@
             "4"
         ]
     },
+    "memorial/addr_subtags": {
+        "type": "address",
+        "key": "memorial:addr",
+        "keys": [
+            "memorial:addr:city",
+            "memorial:addr:housename",
+            "memorial:addr:housenumber",
+            "memorial:addr:place",
+            "memorial:addr:postcode",
+            "memorial:addr:street"
+        ],
+        "label": "{memorial/addr}",
+        "prerequisiteTag": {
+            "key": "memorial:addr:street"
+        }
+    },
+    "memorial/addr": {
+        "type": "text",
+        "key": "memorial:addr",
+        "prerequisiteTag": {
+            "keyNot": "memorial:addr:street"
+        }
+    },
     "maxspeed/hgv": {
         "key": "maxspeed:hgv",
         "type": "roadspeed"
@@ -4888,6 +5082,19 @@
             "single",
             "double"
         ]
+    },
+    "kerb/kerb_barrier": {
+        "key": "kerb",
+        "type": "combo",
+        "stringsCrossReference": "{kerb}",
+        "options": [
+            "flush",
+            "lowered",
+            "raised",
+            "rolled"
+        ],
+        "autoSuggestions": false,
+        "iconsCrossReference": "{kerb}"
     },
     "kerb/height": {
         "key": "kerb:height",
@@ -5052,7 +5259,7 @@
         "key": "gnis:feature_id",
         "type": "identifier",
         "urlFormat": "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/{value}",
-        "pattern": "^[0-9]{1,}$",
+        "pattern": "^[1-9][0-9]*$",
         "locationSet": {
             "include": [
                 "us"
@@ -5167,6 +5374,7 @@
             "e10",
             "e85",
             "lpg",
+            "lng",
             "cng",
             "propane",
             "LH2",
@@ -5248,6 +5456,37 @@
         "type": "combo",
         "snake_case": false
     },
+    "fhrs/id-GB": {
+        "key": "fhrs:id",
+        "type": "identifier",
+        "urlFormat": "https://ratings.food.gov.uk/business/en-GB/{value}",
+        "pattern": "^[0-9]{1,}$",
+        "locationSet": {
+            "include": [
+                "gb"
+            ]
+        }
+    },
+    "door/width": {
+        "key": "door:width",
+        "minValue": 0,
+        "type": "number"
+    },
+    "door/height": {
+        "key": "door:height",
+        "minValue": 0,
+        "type": "number"
+    },
+    "dock/width": {
+        "key": "dock:width",
+        "minValue": 0,
+        "type": "number"
+    },
+    "dock/height": {
+        "key": "dock:height",
+        "minValue": 0,
+        "type": "number"
+    },
     "disused/shop": {
         "key": "disused:shop",
         "type": "typeCombo"
@@ -5322,9 +5561,31 @@
                 "BG",
                 "DE",
                 "AT",
-                "CH"
+                "CH",
+                "PL"
             ]
         }
+    },
+    "crossing/markings_yes-PL": {
+        "key": "crossing:markings",
+        "type": "combo",
+        "label": "{crossing/markings}",
+        "options": [
+            "zebra",
+            "dots",
+            "surface",
+            "yes",
+            "no"
+        ],
+        "autoSuggestions": false,
+        "iconsCrossReference": "{crossing/markings}",
+        "stringsCrossReference": "{crossing/markings}",
+        "locationSet": {
+            "include": [
+                "PL"
+            ]
+        },
+        "default": "yes"
     },
     "crossing/markings_yes-DE-AT-CH": {
         "key": "crossing:markings",
@@ -5393,7 +5654,8 @@
                 "BG",
                 "DE",
                 "AT",
-                "CH"
+                "CH",
+                "PL"
             ]
         },
         "options": [
@@ -5413,6 +5675,26 @@
             "zebra:bicolour",
             "ladder:paired"
         ]
+    },
+    "crossing/markings-PL": {
+        "key": "crossing:markings",
+        "type": "combo",
+        "label": "{crossing/markings}",
+        "options": [
+            "zebra",
+            "dots",
+            "surface",
+            "yes",
+            "no"
+        ],
+        "autoSuggestions": false,
+        "iconsCrossReference": "{crossing/markings}",
+        "stringsCrossReference": "{crossing/markings}",
+        "locationSet": {
+            "include": [
+                "PL"
+            ]
+        }
     },
     "crossing/markings-DE-AT-CH": {
         "key": "crossing:markings",

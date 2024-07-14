@@ -60,10 +60,6 @@
     "replace": {"amenity": "community_centre"}
   },
   {
-    "old": {"amenity": "dancing_school"},
-    "replace": {"leisure": "dance", "dance:teaching": "yes" }
-  },
-  {
     "old": {"amenity": "dog_bin"},
     "replace": {"amenity": "waste_basket", "waste": "dog_excrement"}
   },
@@ -80,8 +76,8 @@
     "replace": {"amenity": "charging_station"}
   },
   {
-     "old": {"amenity": "charging_station", "car": "*"},
-     "replace": {"amenity": "charging_station", "motorcar": "$1"}
+    "old": {"amenity": "charging_station", "car": "*"},
+    "replace": {"amenity": "charging_station", "motorcar": "$1"}
   },
   {
     "old": {"amenity": "fire_hydrant"},
@@ -118,6 +114,10 @@
   {
     "old": {"amenity": "lifeboat_station"},
     "replace": {"emergency": "water_rescue"}
+  },
+  {
+    "old": {"amenity": "lockers"},
+    "replace": {"amenity": "locker"}
   },
   {
     "old": {"amenity": "notice_board"},
@@ -547,8 +547,12 @@
     "replace": {"direction": "W"}
   },
   {
-    "old": {"disabled_spaces":"*"},
+    "old": {"disabled_spaces": "*"},
     "replace": {"capacity:disabled": "$1"}
+  },
+  {
+    "old": {"door": "loadingdock"},
+    "replace": {"amenity": "loading_dock"}
   },
   {
     "old": {"drinkable": "*"},
@@ -580,11 +584,31 @@
   },
   {
     "old": {"emergency": "sprinkler_connection"},
-    "replace": {"emergency": "fire_service_inlet", " fire_sprinkler": "yes"}
+    "replace": {"emergency": "fire_service_inlet", "fire_sprinkler": "yes"}
+  },
+  {
+    "old": {"emergency": "lifeguard_base"},
+    "replace": {"emergency": "lifeguard", "lifeguard": "base"}
+  },
+  {
+    "old": {"emergency": "lifeguard_platform"},
+    "replace": {"emergency": "lifeguard", "lifeguard": "tower"}
+  },
+  {
+    "old": {"emergency": "lifeguard_tower"},
+    "replace": {"emergency": "lifeguard", "lifeguard": "tower"}
+  },
+  {
+    "old": {"emergency": "water_rescue_station"},
+    "replace": {"emergency": "water_rescue"}
   },
   {
     "old": {"emergency": "lifeboat_station"},
     "replace": {"emergency": "water_rescue"}
+  },
+  {
+    "old": {"emergency": "ses_station"},
+    "replace": {"emergency": "disaster_response"}
   },
   {
     "old": {"emergency": "marine_rescue"},
@@ -661,6 +685,10 @@
   {
     "old": {"footway": "both"},
     "replace": {"sidewalk": "both"}
+  },
+  {
+    "old": {"sidewalk": "none"},
+    "replace": {"sidewalk": "no"}
   },
   {
     "old": {"footway": "crossing", "highway": "cycleway"},
@@ -763,6 +791,10 @@
     "replace": {"ford": "*"}
   },
   {
+    "old": {"highway": "path", "ladder": "yes"},
+    "replace": {"highway": "ladder"}
+  },
+  {
     "old": {"highway": "platform"},
     "replace": {"highway": "platform", "public_transport": "platform"}
   },
@@ -775,8 +807,8 @@
     "replace": {"highway": "road", "surface": "unpaved"}
   },
   {
-     "old": {"historic": "archaeological_site", "site_type": "*"},
-     "replace": {"historic": "archaeological_site", "archaeological_site": "$1"}
+    "old": {"historic": "archaeological_site", "site_type": "*"},
+    "replace": {"historic": "archaeological_site", "archaeological_site": "$1"}
   },
   {
     "old": {"industrial": "gas"},
@@ -822,11 +854,11 @@
     "old": {"internet_access": "wifi"},
     "replace": {"internet_access": "wlan"}
   },
-{
+  {
     "old": {"internet_access": "wi-fi"},
     "replace": {"internet_access": "wlan"}
   },
-{
+  {
     "old": {"internet_access": "WLAN"},
     "replace": {"internet_access": "wlan"}
   },
@@ -935,12 +967,12 @@
     "replace": {"natural": "water", "water": "reservoir"}
   },
   {
-     "old": {"landuse": "reservoir", "reservoir_type": "tailings", "natural": "water", "water": "reservoir"},
-     "replace": {"man_made": "tailings_pond"}
+    "old": {"landuse": "reservoir", "reservoir_type": "tailings", "natural": "water", "water": "reservoir"},
+    "replace": {"man_made": "tailings_pond"}
   },
   {
-     "old": {"landuse": "reservoir", "reservoir_type": "tailings"},
-     "replace": {"man_made": "tailings_pond"}
+    "old": {"landuse": "reservoir", "reservoir_type": "tailings"},
+    "replace": {"man_made": "tailings_pond"}
   },
   {
     "old": {"landuse": "school"},
@@ -983,8 +1015,16 @@
     "replace": {"leisure": "ice_rink", "sport": "ice_skating"}
   },
   {
+    "old": {"leisure": "maze"},
+    "replace": {"attraction": "maze"}
+  },
+  {
     "old": {"leisure": "recreation_ground"},
     "replace": {"landuse": "recreation_ground"}
+  },
+  {
+    "old": {"leisure": "swimming_pool", "swimming_pool": "hot_tub"},
+    "replace": {"leisure": "hot_tub"}
   },
   {
     "old": {"leisure": "table_tennis_table"},
@@ -1131,8 +1171,8 @@
     "replace": {"natural": "wetland", "wetland": "marsh"}
   },
   {
-     "old": {"natural": "water", "water": "reservoir", "reservoir_type": "tailings"},
-     "replace": {"man_made": "tailings_pond"}
+    "old": {"natural": "water", "water": "reservoir", "reservoir_type": "tailings"},
+    "replace": {"man_made": "tailings_pond"}
   },
   {
     "old": {"natural": "waterfall"},
@@ -1228,6 +1268,9 @@
   {
     "old": {"place_name": "*"},
     "replace": {"name": "$1"}
+  },
+  {
+    "old": {"playground:theme": "playground"}
   },
   {
     "old": {"pole": "transition"},
@@ -1678,6 +1721,14 @@
     "replace": {"tourism": "guest_house", "guest_house": "bed_and_breakfast"}
   },
   {
+    "old": {"tourism": "picnic_table"},
+    "replace": {"leisure": "picnic_table"}
+  },
+  {
+    "old": {"tourism": "resort"},
+    "replace": {"leisure": "resort"}
+  },
+  {
     "old": {"tower:type": "power"},
     "replace": {"power": "tower"}
   },
@@ -1728,6 +1779,10 @@
   {
     "old": {"transformer": "traction"},
     "replace": {"transformer": "main"}
+  },
+  {
+    "old": {"traffic_calming": "island", "area": "yes"},
+    "replace": {"area:highway": "traffic_island"}
   },
   {
     "old": {"tunnel": "1"},
@@ -1822,20 +1877,20 @@
     "replace": {"volcano:status": "extinct"}
   },
   {
-    "old": {"voltage-high": "*", "transformer":"generator"},
-    "replace": {"voltage:secondary":"$1", "transformer":"generator"}
+    "old": {"voltage-high": "*", "transformer": "generator"},
+    "replace": {"voltage:secondary": "$1", "transformer": "generator"}
   },
   {
-    "old": {"voltage-low": "*", "transformer":"generator"},
-    "replace": {"voltage:primary":"$1", "transformer":"generator"}
+    "old": {"voltage-low": "*", "transformer": "generator"},
+    "replace": {"voltage:primary": "$1", "transformer": "generator"}
   },
   {
     "old": {"voltage-high": "*"},
-    "replace": {"voltage:primary":"$1"}
+    "replace": {"voltage:primary": "$1"}
   },
   {
     "old": {"voltage-low": "*"},
-    "replace": {"voltage:secondary":"$1"}
+    "replace": {"voltage:secondary": "$1"}
   },
   {
     "old": {"wall_type": "noise_barrier"},
@@ -1940,5 +1995,9 @@
   {
     "old": {"memorial:text": "*"},
     "replace": {"inscription": "$1"}
+  },
+  {
+    "old": {"industrial": "brickworks"},
+    "replace": {"industrial": "brickyard"}
   }
 ]
