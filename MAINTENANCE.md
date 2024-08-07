@@ -57,7 +57,7 @@ Github shows a `(Contributor)` label next to users that previously committed to 
 
 ### PR Reviews and Merges
 
-- PRs need approval from two people: the author and one or more contributors before being merged.
+- PRs need approval from two people: the author and one or more (co-)maintainers before being merged.
 - Non-"clear-cut" changes need to be merged by the maintainer.
 - We might revert merges later if necessary.
 
@@ -79,7 +79,7 @@ There is no set release schedule at the moment, but releases usually occur every
 ### Assigning roles
 
 - The maintainer of the iD editor has traditionally and continues to maintain this project.
-- Contributor and triage roles are assigned by the current maintainer of the repository.
+- Co-maintainer and triage roles are assigned by the current maintainer of the repository.
 
 ## Previous Maintainers
 
