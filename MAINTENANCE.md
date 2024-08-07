@@ -18,12 +18,12 @@ and all the following roles.
 
 Github shows a `(Member)` label next to users with full access to this repository and the organisation.
 
-### Contributor Role
+### Co-Maintainer Role
 
 - [Kyle](https://github.com/k-yle) contributes to this project as a volunteer.
 - [Tobias](https://github.com/tordans) contributes to this project as a volunteer.
 
-The contributor role includes:
+The co-maintainer role includes:
 - Reviewing PRs.
 - Merging "clear-cut" PRs.
 
@@ -36,8 +36,9 @@ Github shows a `(Collaborator)` label next to users with any permission on this 
 (No one has the triage role at the moment. Please reach out if you want to help.)
 
 The triage role includes:
-- Helping to clarify issues and PRs.
+- Proactively helping to clarify issues and PRs.
 - Closing issues as duplicates or not planned.
+- Assigning labels to issues and PRs.
 
 Github shows a `(Collaborator)` label next to users with any permission on this repository.
 
