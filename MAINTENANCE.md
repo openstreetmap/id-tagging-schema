@@ -25,7 +25,7 @@ Github shows a `(Member)` label next to users with full access to this repositor
 
 The co-maintainer role includes:
 - Reviewing PRs.
-- Merging "clear-cut" PRs.
+- Merging "clear-cut" PRs by others.
 
 and all the following roles.
 
