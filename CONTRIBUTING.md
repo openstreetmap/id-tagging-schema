@@ -1,3 +1,5 @@
+# Contributing to the tagging schema
+
 ## Submitting Issues
 
 Don't hesitate to submit feedback about issues or how the tagging schema could be improved, but please [search existing issues](https://github.com/search?l=&q=repo%3Aopenstreetmap%2Fid-tagging-schema&type=Issues) before [opening a new one](https://github.com/openstreetmap/id-tagging-schema/issues/new/choose).
@@ -7,12 +9,7 @@ iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_
 
 ## General Guidelines
 
-As a general guideline, the tagging schema will only consider tags that are documented on the OSM wiki and have completed a [proposal process](https://wiki.openstreetmap.org/wiki/Proposal_process) or can in some other way be considered as _accepted_ by the OpenStreetMap community.
-
-As the tagging schema is meant to be a general representation of the OSM data for a wide audience of users, some tags might be considered out of scope: for example when a tag requires expert knowledge to be used, or when a tag is extremely rare.
-
-Tags which are not universally applicable globally, can and should be limited to their respective region in the corresponding preset or field of this repository.
-
+Read the [GUIDELINES](./GUIDELINES.md) to help you understand what fields and tags should be added to the tagging schema.
 
 ## Translating
 
