@@ -39,7 +39,7 @@ No preset or field is isolated; they are always presented alongside others in va
 
 In both cases, _indicators for consensus_ are:
 - The deprecation is documented in the wiki and is either official (resulting from a proposal process) or long-standing (about a year).
-- There is a significant drop in usage compared to prevoius numbers, with a negative trend ([visible in the graph](https://taghistory.raifer.tech/)).
+- There is a significant drop in usage compared to previous numbers, with a negative trend ([visible in the graph](https://taghistory.raifer.tech/)).
 - Usage of the deprecated tag remains stagnant for a longer period (about a year).
 
 ## 2. Design the Preset
