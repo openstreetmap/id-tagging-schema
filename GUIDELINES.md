@@ -14,7 +14,7 @@ Consider the following:
 
 - 📋 **Established Documentation**: The tagging schema will only consider tags that are well-documented on the OSM wiki. The documentation should be clear and unambiguous.
 - 🏷️ **Established Tags Only**: No new or unestablished tags should be part of presets. Establishing tags must remain a community-driven process, not dictated by software implementation.
-- ✅ **Proposal or Accepted**: A tag is considered established when it has completed the [proposal process](https://wiki.openstreetmap.org/wiki/Proposal_process) or is otherwise accepted by the OSM community. Factors include the tag's duration and frequency of use, whether its usage is increasing over time and it's usage by mainstream data consumers.
+- ✅ **Proposal or Accepted**: A tag is considered established when it has completed the [proposal process](https://wiki.openstreetmap.org/wiki/Proposal_process) or is otherwise accepted by the OSM community. Factors include the tag's duration and frequency of use, whether its usage is increasing over time and its usage by mainstream data consumers.
 - 🤷 **Useful Purpose**: Especially for less established tags, presets and fields should have a practical application. OSM allows for the collection of a wide variety of data, but not all of it is useful. For example, the brightness of street lamps might be documented, but it doesn't necessarily warrant a preset or field.
 - 🕓 **Effort vs. Impact**: Consider whether the effort required is justified by the impact the preset or field will have. Assess how many elements this new type will apply to. This is particularly important if you do not plan to contribute the code changes yourself through a pull request (PR).
 
@@ -39,7 +39,7 @@ No preset or field is isolated; they are always presented alongside others in va
 
 In both cases, _indicators for consensus_ are:
 - The deprecation is documented in the wiki and is either official (resulting from a proposal process) or long-standing (about a year).
-- There is a significant drop in usage compared to current numbers, with a negative trend ([visible in the graph](https://taghistory.raifer.tech/)).
+- There is a significant drop in usage compared to previous numbers, with a negative trend ([visible in the graph](https://taghistory.raifer.tech/)).
 - Usage of the deprecated tag remains stagnant for a longer period (about a year).
 
 ## 2. Design the Preset
@@ -52,7 +52,7 @@ The user interface must be clear, concise, and easy to use, leaving no room for 
 - Check the search functionality to ensure other presets do not cause confusion.
 - Select an icon or start the process to create a new one.
 - Define which fields to show (`fields`) and suggest (`moreFields`), considering the order of fields.
-- Check the `(i)` documentation and add or update the Wikidata item if needed to provide a helpful short text.
+- Check the `(i)` documentation and add or update the OSM Wikidata item if needed to provide a helpful short text.
 - Use the PR preview to add test cases with deep links to OSM objects that demonstrate the preset in use.
 
 ## 3. Implement
