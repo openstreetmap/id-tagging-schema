@@ -52,7 +52,7 @@ The user interface must be clear, concise, and easy to use, leaving no room for 
 - Check the search functionality to ensure other presets do not cause confusion.
 - Select an icon or start the process to create a new one.
 - Define which fields to show (`fields`) and suggest (`moreFields`), considering the order of fields.
-- Check the `(i)` documentation and add or update the OSM wiki data item if needed to provide a helpful short text.
+- Check the `(i)` documentation and add or update the OSM Wikidata item if needed to provide a helpful short text.
 - Use the PR preview to add test cases with deep links to OSM objects that demonstrate the preset in use.
 
 ## 3. Implement
