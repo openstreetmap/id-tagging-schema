@@ -69,6 +69,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#1197]: https://github.com/openstreetmap/id-tagging-schema/pull/1197
 [#1198]: https://github.com/openstreetmap/id-tagging-schema/pull/1198
 [#1200]: https://github.com/openstreetmap/id-tagging-schema/pull/1200
+[#1219]: https://github.com/openstreetmap/id-tagging-schema/pull/1219
 [#1227]: https://github.com/openstreetmap/id-tagging-schema/pull/1227
 [#1229]: https://github.com/openstreetmap/id-tagging-schema/pull/1229
 [#1230]: https://github.com/openstreetmap/id-tagging-schema/pull/1230
