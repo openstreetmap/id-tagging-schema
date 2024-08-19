@@ -23,6 +23,12 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.8.1
+##### 2024-Aug-19
+
+* Update translations from Transifex
+
+
 # 6.8.0
 ##### 2024-Aug-19
 
