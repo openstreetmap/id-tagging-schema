@@ -47,7 +47,6 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 * Add additional translatable values to the `surface` field: `clay`, `concrete:lanes`, `concrete:plates`, `grass_paver`, `pebblestone`, `tartan` ([#1198], thanks [@michalgwo])
 * Add common name tags as universal fields: `alt_name`, `loc_name`, `nat_name`, `official_name`, `reg_name`, `short_name` ([#215], thanks [@1ec5])
 * Add value `ghost_bike` to the memorial type field ([#1302], thanks [@mnalis])
-#### Regional Presets and Fields
 #### Deprecated Tags
 * Add tag upgrade rule for `sidewalk=none` to `sidewalk=no`
 #### Bugfixes
@@ -85,6 +84,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#1280]: https://github.com/openstreetmap/id-tagging-schema/pull/1280
 [#1281]: https://github.com/openstreetmap/id-tagging-schema/pull/1281
 [#1293]: https://github.com/openstreetmap/id-tagging-schema/pull/1293
+[#1302]: https://github.com/openstreetmap/id-tagging-schema/pull/1302
 [#1307]: https://github.com/openstreetmap/id-tagging-schema/pull/1307
 [@bompstable]: https://github.com/bompstable
 [@michalgwo]: https://github.com/michalgwo
