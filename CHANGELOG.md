@@ -23,6 +23,78 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.8.0
+##### 2024-Aug-19
+
+#### New Presets
+* Add preset for `man_made=flare` ([#1237])
+* Add presets for Ski Jump features ([#1176], thanks [@olafkryus])
+* Add preset for `leisure=bathing_place` ([#1274], thanks [@osmuser63783])
+* Add preset for `hairdresser=barber` ([#1165], thanks [@kjonosm])
+* Add preset for `man_made=footwear_decontamination` ([#1235])
+* Add preset for Go Kart Facility ([#1281], thanks [@arch0345])
+* Add preset for Chinese Fast Food ([#1280], thanks [@arch0345])
+* Add preset for `amenity=swingerclub` ([#1187], thanks [@Asteliks])
+* Add presets for dedicated types of Community Centers ([#1200], thanks [@tiptoptom])
+#### Changed Presets
+* Add `activity` field to Trail Marker preset ([#1197], thanks [@danieldegroot2])
+* Add `maxweight` field to Helipad preset ([#1234])
+* Add `organic` field to the following presets: Cafe, Fast Food, Ice Cream Shop, Restaurant ([#1247], thanks [@ToastHawaii])
+* Allow presets to be mapped as vertices: Ticket Validator, Fuel Pump, Mineshaft, Marker, Sinkhole, Public Transport Stations, Welcome Sign ([#1233])
+* Add `maxheight` field to Parking Garage Entrance/Exit preset ([#232], thanks [@cicku])
+#### New and Changed Fields
+* Add `armrest` field for Bench preset ([#1227], thanks [@bompstable])
+* Add additional translatable values to the `surface` field: `clay`, `concrete:lanes`, `concrete:plates`, `grass_paver`, `pebblestone`, `tartan` ([#1198], thanks [@michalgwo])
+* Add common name tags as universal fields: `alt_name`, `loc_name`, `nat_name`, `official_name`, `reg_name`, `short_name` ([#215], thanks [@1ec5])
+* Add value `ghost_bike` to the memorial type field ([#1302], thanks [@mnalis])
+#### Regional Presets and Fields
+#### Deprecated Tags
+* Add tag upgrade rule for `sidewalk=none` to `sidewalk=no`
+#### Bugfixes
+* Fix typo for tag value `material=reinforced_concrete` ([#1245], thanks [@Dimitar5555])
+* Remove unnecessary `matchScore` property from Kitchen Garden preset ([#1253])
+* Fix tag for roller coaster track type field ([#1293], thanks [@arch0345])
+#### Documentation and Other Changes
+* Skip `dist` directory for searching in VS Code ([#1219])
+* Change _deploy_ workflow to write `interim` data to a dedicated branch, instead of the `main` development branch ([#1307])
+* Add repo governance documentation, including roles (co-maintainers, issue triage helpers, contributors) ([#1230])
+* Document guidelines for presets, fields and tag deprecations ([#1229])
+* Add pull request template ([#1239])
+
+[#215]: https://github.com/openstreetmap/id-tagging-schema/pull/215
+[#222]: https://github.com/openstreetmap/id-tagging-schema/pull/222
+[#232]: https://github.com/openstreetmap/id-tagging-schema/pull/232
+[#1165]: https://github.com/openstreetmap/id-tagging-schema/pull/1165
+[#1167]: https://github.com/openstreetmap/id-tagging-schema/pull/1167
+[#1187]: https://github.com/openstreetmap/id-tagging-schema/pull/1187
+[#1197]: https://github.com/openstreetmap/id-tagging-schema/pull/1197
+[#1198]: https://github.com/openstreetmap/id-tagging-schema/pull/1198
+[#1200]: https://github.com/openstreetmap/id-tagging-schema/pull/1200
+[#1227]: https://github.com/openstreetmap/id-tagging-schema/pull/1227
+[#1229]: https://github.com/openstreetmap/id-tagging-schema/pull/1229
+[#1230]: https://github.com/openstreetmap/id-tagging-schema/pull/1230
+[#1233]: https://github.com/openstreetmap/id-tagging-schema/pull/1233
+[#1234]: https://github.com/openstreetmap/id-tagging-schema/pull/1234
+[#1235]: https://github.com/openstreetmap/id-tagging-schema/pull/1235
+[#1237]: https://github.com/openstreetmap/id-tagging-schema/pull/1237
+[#1239]: https://github.com/openstreetmap/id-tagging-schema/pull/1239
+[#1245]: https://github.com/openstreetmap/id-tagging-schema/pull/1245
+[#1247]: https://github.com/openstreetmap/id-tagging-schema/pull/1247
+[#1253]: https://github.com/openstreetmap/id-tagging-schema/pull/1253
+[#1274]: https://github.com/openstreetmap/id-tagging-schema/pull/1274
+[#1280]: https://github.com/openstreetmap/id-tagging-schema/pull/1280
+[#1281]: https://github.com/openstreetmap/id-tagging-schema/pull/1281
+[#1293]: https://github.com/openstreetmap/id-tagging-schema/pull/1293
+[#1307]: https://github.com/openstreetmap/id-tagging-schema/pull/1307
+[@bompstable]: https://github.com/bompstable
+[@michalgwo]: https://github.com/michalgwo
+[@ToastHawaii]: https://github.com/ToastHawaii
+[@olafkryus]: https://github.com/olafkryus
+[@osmuser63783]: https://github.com/osmuser63783
+[@Asteliks]: https://github.com/Asteliks
+[@cicku]: https://github.com/cicku
+
+
 # 6.7.3
 ##### 2024-Apr-5
 
