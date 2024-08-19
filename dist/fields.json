@@ -335,6 +335,12 @@
         "snake_case": false,
         "caseSensitive": true
     },
+    "traffic_calming_road": {
+        "key": "traffic_calming",
+        "type": "typeCombo",
+        "stringsCrossReference": "{traffic_calming}",
+        "iconsCrossReference": "{traffic_calming}"
+    },
     "traffic_calming": {
         "key": "traffic_calming",
         "type": "typeCombo",
@@ -518,20 +524,26 @@
         "options": [
             "artificial_turf",
             "asphalt",
+            "clay",
             "compacted",
             "concrete",
+            "concrete:lanes",
+            "concrete:plates",
             "dirt",
             "fine_gravel",
             "grass",
+            "grass_paver",
             "gravel",
             "ground",
             "metal",
             "mud",
             "paved",
             "paving_stones",
+            "pebblestone",
             "salt",
             "sand",
             "sett",
+            "tartan",
             "unhewn_cobblestone",
             "unpaved",
             "wood",
@@ -733,6 +745,7 @@
             "shooting",
             "skateboard",
             "skiing",
+            "ski_jumping",
             "soccer",
             "softball",
             "speedway",
@@ -856,6 +869,14 @@
     "shower": {
         "key": "shower",
         "type": "check"
+    },
+    "short_name": {
+        "key": "short_name",
+        "type": "localized",
+        "universal": true,
+        "prerequisiteTag": {
+            "key": "name"
+        }
     },
     "shop": {
         "key": "shop",
@@ -1117,6 +1138,14 @@
     "relation": {
         "key": "type",
         "type": "combo"
+    },
+    "reg_name": {
+        "key": "reg_name",
+        "type": "localized",
+        "universal": true,
+        "prerequisiteTag": {
+            "key": "name"
+        }
     },
     "ref_taxiway": {
         "key": "ref",
@@ -1527,6 +1556,14 @@
             "alternating"
         ]
     },
+    "official_name": {
+        "key": "official_name",
+        "type": "localized",
+        "universal": true,
+        "prerequisiteTag": {
+            "key": "name"
+        }
+    },
     "office": {
         "key": "office",
         "type": "typeCombo",
@@ -1649,6 +1686,14 @@
         "key": "natural",
         "type": "typeCombo"
     },
+    "nat_name": {
+        "key": "nat_name",
+        "type": "localized",
+        "universal": true,
+        "prerequisiteTag": {
+            "key": "name"
+        }
+    },
     "name": {
         "key": "name",
         "type": "localized",
@@ -1733,6 +1778,7 @@
             "blue_plaque",
             "bust",
             "cross",
+            "ghost_bike",
             "obelisk",
             "plaque",
             "sculpture",
@@ -1832,7 +1878,7 @@
             "marble",
             "metal",
             "plastic",
-            "reinforced_conrete",
+            "reinforced_concrete",
             "rock",
             "sand",
             "sandstone",
@@ -1910,6 +1956,14 @@
     "location": {
         "key": "location",
         "type": "combo"
+    },
+    "loc_name": {
+        "key": "loc_name",
+        "type": "localized",
+        "universal": true,
+        "prerequisiteTag": {
+            "key": "name"
+        }
     },
     "lit": {
         "key": "lit",
@@ -3040,53 +3094,93 @@
         "options": [
             "pizza",
             "burger",
-            "regional",
             "coffee_shop",
+            "regional",
             "italian",
-            "chinese",
             "sandwich",
-            "japanese",
-            "mexican",
-            "kebab",
-            "indian",
+            "chinese",
             "chicken",
-            "fish",
-            "asian",
-            "french",
-            "spanish",
-            "portuguese",
-            "russian",
-            "polish",
-            "thai",
-            "korean",
+            "japanese",
+            "kebab",
+            "mexican",
             "american",
-            "seafood",
-            "sushi",
+            "asian",
             "ice_cream",
-            "filipino",
-            "georgian",
+            "indian",
+            "sushi",
+            "seafood",
+            "thai",
+            "french",
             "german",
+            "breakfast",
             "greek",
-            "vietnamese",
-            "turkish",
-            "lebanese",
-            "indonesian",
-            "malaysian",
-            "taiwanese",
-            "ukrainian",
-            "peruvian",
-            "tex-mex",
-            "juice",
-            "bubble_tea",
-            "hot_dog",
-            "cake",
-            "pancake",
-            "pasta",
-            "salad",
-            "chocolate",
-            "dessert",
             "steak_house",
-            "donut"
+            "fish_and_chips",
+            "korean",
+            "barbecue",
+            "donut",
+            "noodle",
+            "vietnamese",
+            "fish",
+            "turkish",
+            "cake",
+            "pasta",
+            "tex-mex",
+            "bubble_tea",
+            "ramen",
+            "mediterranean",
+            "spanish",
+            "friture",
+            "tea",
+            "grill",
+            "juice",
+            "salad",
+            "crepe",
+            "hot_dog",
+            "pancake",
+            "dessert",
+            "diner",
+            "tapas",
+            "portuguese",
+            "beef_bowl",
+            "russian",
+            "indonesian",
+            "wings",
+            "lebanese",
+            "arab",
+            "curry",
+            "malaysian",
+            "bagel",
+            "georgian",
+            "polish",
+            "african",
+            "western",
+            "sausage",
+            "filipino",
+            "caribbean",
+            "soba",
+            "peruvian",
+            "brazilian",
+            "oriental",
+            "fine_dining",
+            "frozen_yogurt",
+            "argentinian",
+            "balkan",
+            "bavarian",
+            "shawarma",
+            "persian",
+            "middle_eastern",
+            "pastry",
+            "soup",
+            "fries",
+            "taiwanese",
+            "bistro",
+            "european",
+            "moroccan",
+            "hawaiian",
+            "brunch",
+            "udon",
+            "ukrainian"
         ]
     },
     "crossing_raised": {
@@ -3225,7 +3319,9 @@
         "prerequisiteTag": {
             "key": "flag:type",
             "value": "national"
-        }
+        },
+        "snake_case": false,
+        "caseSensitive": true
     },
     "country": {
         "key": "country",
@@ -3291,6 +3387,19 @@
     "connectivity": {
         "key": "connectivity",
         "type": "text"
+    },
+    "community_centre": {
+        "key": "community_centre",
+        "type": "combo",
+        "options": [
+            "club_home",
+            "community_hall",
+            "cultural_centre",
+            "family_centre",
+            "parish_hall",
+            "village_hall",
+            "youth_centre"
+        ]
     },
     "communication_multi": {
         "key": "communication:",
@@ -3839,6 +3948,15 @@
         "key": "artist_name",
         "type": "text"
     },
+    "armrest": {
+        "key": "armrest",
+        "type": "check",
+        "options": [
+            "undefined",
+            "yes",
+            "no"
+        ]
+    },
     "architect": {
         "key": "architect",
         "type": "text"
@@ -3877,6 +3995,14 @@
     "amenity": {
         "key": "amenity",
         "type": "typeCombo"
+    },
+    "alt_name": {
+        "key": "alt_name",
+        "type": "localized",
+        "universal": true,
+        "prerequisiteTag": {
+            "key": "name"
+        }
     },
     "air_conditioning": {
         "key": "air_conditioning",
@@ -4506,7 +4632,7 @@
         "type": "colour"
     },
     "roller_coaster/track": {
-        "key": "roller_coaster",
+        "key": "roller_coaster:track",
         "type": "combo",
         "options": [
             "lift_hill",
@@ -4794,7 +4920,8 @@
             "ice_skate",
             "snow_park",
             "playground",
-            "connection"
+            "connection",
+            "ski_jump"
         ]
     },
     "piste/grooming_nordic": {
@@ -5371,6 +5498,7 @@
             "octane_97",
             "octane_98",
             "octane_100",
+            "e5",
             "e10",
             "e85",
             "lpg",
