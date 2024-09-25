@@ -57,7 +57,7 @@ The user interface must be clear, concise, and easy to use, leaving no room for 
 
 ## 3. Implement
 
-If you are familiar with `JSON`, you can implement the preset or field yourself. First, create a ticket to introduce your quest idea and discuss it with the community to get feedback on its feasibility and desirability. After implementation, create a pull request to get it merged.
+If you are familiar with `JSON`, you can implement the preset or field yourself. First, create a ticket to introduce your tagging idea and discuss it with the community to get feedback on its feasibility and desirability. After implementation, create a pull request to get it merged.
 
 For more details on adding presets, see ["Making changes"](./CONTRIBUTING.md#making-changes).
 
