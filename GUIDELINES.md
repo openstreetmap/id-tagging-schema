@@ -42,6 +42,13 @@ In both cases, _indicators for consensus_ are:
 - There is a significant drop in usage compared to previous numbers, with a negative trend ([visible in the graph](https://taghistory.raifer.tech/)).
 - Usage of the deprecated tag remains stagnant for a longer period (about a year).
 
+**Note: Deprecations are not for cleanup** — The way deprecation rules work is, that the User see the message and can take action only when she is editing the given element. This makes them well suited for gradual and human reviewed updates of taggings like crossing. However, that makes them the wrong tool to cleanup miss-tagging from the database, especially low volumen changes.
+
+There are, however, alternatives to consider: 
+- Your cleanup task might be ediable for an automated (bot) edit. [Please learn more on the wiki…](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct)
+- If you task is small enough, a few [editing sessions in JOSM](https://wiki.openstreetmap.org/wiki/JOSM) will often to the trick.
+- A good way to work down a list of tasks is to create [a MapRoulette Challenge](https://maproulette.org/). For small changes, a [Cooperative Challenge](https://learn.maproulette.org/en-us/documentation/creating-cooperative-challenges/) will likely be a good fit which will allow mappers to change the tagging right from MapRoulette.
+
 ## 2. Design the Preset
 
 The user interface must be clear, concise, and easy to use, leaving no room for misunderstandings.
