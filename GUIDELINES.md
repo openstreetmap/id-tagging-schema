@@ -42,16 +42,6 @@ In both cases, _indicators for consensus_ are:
 - There is a significant drop in usage compared to previous numbers, with a negative trend ([visible in the graph](https://taghistory.raifer.tech/)).
 - Usage of the deprecated tag remains stagnant for a longer period (about a year).
 
-### Tag Updates and Additions
-
-- ➕ **Suggested Additions**: Presets can propose additional tags. These proposals must be clearly supported by the wiki and community consensus.
-- 🔄 **Updates**: Deprecation rules may recommend updating tags. Adequate documentation and consensus are necessary for these deprecations.
-
-In both cases, _indicators for consensus_ are:
-- The deprecation is documented in the wiki and is either official (resulting from a proposal process) or long-standing (approximately a year).
-- A significant drop in usage compared to previous figures, with a negative trend ([visible in the graph](https://taghistory.raifer.tech/)).
-- Usage of the deprecated tag remains stagnant for an extended period (about a year).
-
 **Note: Deprecations are not for cleanup** — Deprecation rules work such that the user sees the message and can act only when editing the given element. This makes them well-suited for gradual, human-reviewed updates of taggings like crossings. However, they are not suitable for cleaning up incorrect tagging from the database, especially for low-volume changes.
 
 There are, however, alternatives to consider: 
