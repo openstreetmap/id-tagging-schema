@@ -37,12 +37,15 @@ No preset or field is isolated; they are always presented alongside others in va
 - ➕ **Suggested Additions**: Presets can suggest additional tags. These suggestions must be clearly supported by the wiki and community consensus.
 - 🔄 **Updates**: Deprecation rules can suggest updating tags. Good documentation and consensus are needed for these deprecations.
 
-In both cases, _indicators for consensus_ are:
+**In both cases, _indicators for consensus_ are:**
+
 - The deprecation is documented in the wiki and is either official (resulting from a proposal process) or long-standing (about a year).
 - There is a significant drop in usage compared to previous numbers, with a negative trend ([visible in the graph](https://taghistory.raifer.tech/)).
 - Usage of the deprecated tag remains stagnant for a longer period (about a year).
 
-**Note: Deprecations are not for cleanup** — Deprecation rules work such that the user sees the message and can act only when editing the given element. This makes them well-suited for gradual, human-reviewed updates of taggings like crossings. However, they are not suitable for cleaning up incorrect tagging from the database, especially for low-volume changes.
+**Deprecations are not for cleanup:**
+
+Deprecation rules work such that the user sees a message with suggestions and can act only when editing the given element. This makes them well-suited for gradual, human-reviewed updates of taggings like crossings. However, they are not suitable for cleaning up incorrect tagging from the database, especially for low-volume changes.
 
 There are, however, alternatives to consider: 
 - Your cleanup task might be eligible for an automated (bot) edit. [Please learn more on the wiki…](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct)
