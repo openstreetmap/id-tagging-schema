@@ -58,7 +58,7 @@ Follow these steps to test your PR yourself and make it a lot easier and faster 
 
 <!-- **Test the info-i** for your fields and preset and share relevant **screenshots** here.
      The info needs to help mappers understand the preset and when to use it.
-     [Learn more…](https://github.com/tordans/id-tagging-schema/blob/main/CONTRIBUTING.md#info-i)
+     [Learn more…](https://github.com/openstreetmap/id-tagging-schema/blob/main/CONTRIBUTING.md#info-i)
  -->
 
 ### Wording
