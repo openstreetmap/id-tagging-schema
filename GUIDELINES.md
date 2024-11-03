@@ -51,6 +51,7 @@ There are, however, alternatives to consider:
 - Your cleanup task might be eligible for an automated (bot) edit. [Please learn more on the wiki…](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct)
 - If your task is small enough, a few [editing sessions in JOSM](https://wiki.openstreetmap.org/wiki/JOSM) will often do the trick. However, mass-replacing without checking each object is still considered an automated edit, so the [guidelines apply](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct). Please consult other mappers first.
 - A good way to work down a list of tasks is to create [a MapRoulette Challenge](https://maproulette.org/).
+- Should those options not suit you, you can always suggest such changes in the [OSM community forum](https://community.openstreetmap.org/).
 
 ## 2. Design the Preset
 
