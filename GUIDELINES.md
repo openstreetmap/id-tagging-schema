@@ -49,8 +49,8 @@ Deprecation rules work such that the user sees a message with suggestions and ca
 
 There are, however, alternatives to consider: 
 - Your cleanup task might be eligible for an automated (bot) edit. [Please learn more on the wiki…](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct)
-- If your task is small enough, a few [editing sessions in JOSM](https://wiki.openstreetmap.org/wiki/JOSM) will often do the trick.
-- A good way to work down a list of tasks is to create [a MapRoulette Challenge](https://maproulette.org/). For small changes, a [Cooperative Challenge](https://learn.maproulette.org/en-us/documentation/creating-cooperative-challenges/) will likely be a good fit, allowing mappers to change the tagging directly from MapRoulette.
+- If your task is small enough, a few [editing sessions in JOSM](https://wiki.openstreetmap.org/wiki/JOSM) will often do the trick. This is still an automated edit, though, so the [Guidelines apply](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct). Please talk to other mappers first.
+- A good way to work down a list of tasks is to create [a MapRoulette Challenge](https://maproulette.org/).
 
 ## 2. Design the Preset
 
