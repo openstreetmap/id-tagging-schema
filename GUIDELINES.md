@@ -42,6 +42,8 @@ In both cases, _indicators for consensus_ are:
 - There is a significant drop in usage compared to previous numbers, with a negative trend ([visible in the graph](https://taghistory.raifer.tech/)).
 - Usage of the deprecated tag remains stagnant for a longer period (about a year).
 
+In addition, the deprecated tag must have reasonably high usage to be considered. Low usage tags should be addressed through other cleanup methods, such as a MapRoulette project or similar initiatives.
+
 ## 2. Design the Preset
 
 The user interface must be clear, concise, and easy to use, leaving no room for misunderstandings.
