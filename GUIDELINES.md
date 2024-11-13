@@ -37,12 +37,23 @@ No preset or field is isolated; they are always presented alongside others in va
 - ➕ **Suggested Additions**: Presets can suggest additional tags. These suggestions must be clearly supported by the wiki and community consensus.
 - 🔄 **Updates**: Deprecation rules can suggest updating tags. Good documentation and consensus are needed for these deprecations.
 
-In both cases, _indicators for consensus_ are:
+**In both cases, _indicators for consensus_ are:**
+
 - The deprecation is documented in the wiki and is either official (resulting from a proposal process) or long-standing (about a year).
 - There is a significant drop in usage compared to previous numbers, with a negative trend ([visible in the graph](https://taghistory.raifer.tech/)).
 - Usage of the deprecated tag remains stagnant for a longer period (about a year).
 
-In addition, the deprecated tag must have reasonably high usage to be considered. Low usage tags should be addressed through other cleanup methods, such as a MapRoulette project or similar initiatives.
+In addition, the deprecated tag must have reasonably high usage to be considered. Low usage tags should be addressed through other cleanup methods, such as [MapRoulette](https://maproulette.org/) or similar initiatives.
+
+**Deprecations are not for cleanup:**
+
+Deprecation rules work such that the user sees a message with suggestions and can act only when editing the given element. This makes them well-suited for gradual, human-reviewed updates of taggings like crossings. However, they are not suitable for cleaning up incorrect tagging from the database, especially for low-volume changes.
+
+There are, however, alternatives to consider: 
+- Your cleanup task might be eligible for an automated (bot) edit. [Please learn more on the wiki…](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct)
+- If your task is small enough, a few [editing sessions in JOSM](https://wiki.openstreetmap.org/wiki/JOSM) will often do the trick. However, mass-replacing without checking each object is still considered an automated edit, so the [guidelines apply](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct). Please consult other mappers first.
+- A good way to work down a list of tasks is to create [a MapRoulette Challenge](https://maproulette.org/).
+- Should those options not suit you, you can always suggest such changes in the [OSM community forum](https://community.openstreetmap.org/).
 
 ## 2. Design the Preset
 
