@@ -15,7 +15,7 @@ Consider the following:
 - 📋 **Established Documentation**: The tagging schema will only consider tags that are well-documented on the OSM wiki. The documentation should be clear and unambiguous.
 - 🏷️ **Established Tags Only**: No new or unestablished tags should be part of presets. Establishing tags must remain a community-driven process, not dictated by software implementation.
 - ✅ **Proposal or Accepted**: A tag is considered established when it has completed the [proposal process](https://wiki.openstreetmap.org/wiki/Proposal_process) or is otherwise accepted by the OSM community. Factors include the tag's duration and frequency of use, whether its usage is increasing over time and its usage by mainstream data consumers.
-- 🤷 **Useful Purpose**: Especially for less established tags, presets and fields should have a practical application. OSM allows for the collection of a wide variety of data, but not all of it is useful. For example, the brightness of street lamps might be documented, but it doesn't necessarily warrant a preset or field.
+- 🤷 **Notable Purpose**: Especially for less established tags, presets and fields should have a practical application. OSM allows for the collection of a wide variety of data, some of it for niche purposes. For example, the brightness of street lamps might be documented, but it doesn't necessarily warrant a preset or field.
 - 🕓 **Effort vs. Impact**: Consider whether the effort required is justified by the impact the preset or field will have. Assess how many elements this new type will apply to. This is particularly important if you do not plan to contribute the code changes yourself through a pull request (PR).
 
 ### User Experience
@@ -42,6 +42,8 @@ No preset or field is isolated; they are always presented alongside others in va
 - The deprecation is documented in the wiki and is either official (resulting from a proposal process) or long-standing (about a year).
 - There is a significant drop in usage compared to previous numbers, with a negative trend ([visible in the graph](https://taghistory.raifer.tech/)).
 - Usage of the deprecated tag remains stagnant for a longer period (about a year).
+
+In addition, the deprecated tag must have reasonably high usage to be considered. Low usage tags should be addressed through other cleanup methods, such as [MapRoulette](https://maproulette.org/) or similar initiatives.
 
 **Deprecations are not for cleanup:**
 
