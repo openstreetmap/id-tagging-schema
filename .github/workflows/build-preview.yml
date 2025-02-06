@@ -33,7 +33,7 @@ jobs:
         env:
           ID_PRESETS_CDN_URL: '../../'
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: preview
           path: |
@@ -43,7 +43,7 @@ jobs:
       - name: Store pull request number for later use
         run: |
           echo ${{github.event.number}} > ./pr_number
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: pr
           path: ./pr_number
