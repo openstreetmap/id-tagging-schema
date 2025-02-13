@@ -1,4 +1,4 @@
-![test](https://github.com/openstreetmap/id-tagging-schema/workflows/test/badge.svg) [![npm version](https://badge.fury.io/js/%40openstreetmap%2Fid-tagging-schema.svg)](https://badge.fury.io/js/%40openstreetmap%2Fid-tagging-schema)
+[![test](https://github.com/openstreetmap/id-tagging-schema/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/openstreetmap/id-tagging-schema/actions/workflows/test.yml) [![npm version](https://badge.fury.io/js/%40openstreetmap%2Fid-tagging-schema.svg)](https://badge.fury.io/js/%40openstreetmap%2Fid-tagging-schema)
 
 # iD Tagging Schema
 
@@ -10,7 +10,7 @@ It includes presets, fields, deprecations, and more.
 * Read up about how you can contribute to the iD Tagging Schema on the [contributing page](CONTRIBUTING.md).
 * [Translate!](CONTRIBUTING.md#Translating)
 * See the [open issues](https://github.com/openstreetmap/id-tagging-schema/issues?state=open) in the issue tracker if you're looking for something to do.
-* Need more help? Ping user `tyr_asd` (Martin Raifer) on [OpenStreetMap Discord](https://discord.gg/openstreetmap) (`#id` channel) or [OpenStreetMap US Slack](https://slack.openstreetmap.us/) (`#id` channel).
+* Need more help? Ping user `tyr_asd` (Martin Raifer) on [OpenStreetMap Discord](https://discord.gg/openstreetmap) (`#id-and-rapid` channel) or [OpenStreetMap US Slack](https://slack.openstreetmap.us/) (`#id` channel).
 
 ## Background
 

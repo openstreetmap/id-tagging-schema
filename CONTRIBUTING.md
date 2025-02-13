@@ -40,7 +40,7 @@ Read the [GUIDELINES](./GUIDELINES.md) to help you understand what fields and ta
 
 Detailed documentation for the data format used in this repository is located with the [schema-builder](https://github.com/ideditor/schema-builder) package, which is the technical basis of this project.
 
-To make a change, update the corresponding file within the `data` folder: The `presets` contain a representation of OpenStreetMap's [map features](wiki.openstreetmap.org/wiki/Map_Features), and the `fields` are their properties. In addition, the tagging schema contains a few `categories` of presets and a list of `deprecated` and `discardable` tags.
+To make a change, update the corresponding file within the `data` folder: The `presets` contain a representation of OpenStreetMap's [map features](https://wiki.openstreetmap.org/wiki/Map_Features), and the `fields` are their properties. In addition, the tagging schema contains a few `categories` of presets and a list of `deprecated` and `discardable` tags.
 
 ### Icons
 

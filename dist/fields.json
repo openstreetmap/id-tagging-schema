@@ -156,6 +156,7 @@
             "coffee",
             "condoms",
             "drinks",
+            "e-cigarettes",
             "eggs",
             "electronics",
             "elongated_coin",
@@ -999,6 +1000,7 @@
         "autoSuggestions": false,
         "customValues": false,
         "options": [
+            "strolling",
             "hiking",
             "mountain_hiking",
             "demanding_mountain_hiking",
@@ -1464,14 +1466,14 @@
         "customValues": false,
         "options": [
             "surface",
+            "street_side",
+            "lane",
             "underground",
             "multi-storey",
-            "lane",
+            "rooftop",
             "carports",
             "garage_boxes",
-            "rooftop",
             "sheds",
-            "street_side",
             "layby",
             "on_kerb",
             "half_on_kerb",
@@ -1499,6 +1501,13 @@
         "key": "par",
         "type": "number",
         "minValue": 1
+    },
+    "panoramax": {
+        "key": "panoramax",
+        "type": "identifier",
+        "urlFormat": "https://api.panoramax.xyz/#focus=pic&pic={value}",
+        "pattern": "^[a-zA-Z0-9-]{36,}$",
+        "universal": true
     },
     "outdoor_seating": {
         "key": "outdoor_seating",
@@ -1909,7 +1918,15 @@
     },
     "map_type": {
         "key": "map_type",
-        "type": "typeCombo"
+        "type": "typeCombo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "topo",
+            "street",
+            "scheme",
+            "toposcope"
+        ]
     },
     "map_size": {
         "key": "map_size",
@@ -2072,6 +2089,12 @@
             "semi_deciduous",
             "mixed"
         ]
+    },
+    "layer_1": {
+        "key": "layer",
+        "type": "number",
+        "label": "{layer}",
+        "default": "1"
     },
     "layer": {
         "key": "layer",
@@ -3055,9 +3078,9 @@
             "shared_lane",
             "track",
             "share_busway",
+            "separate",
             "opposite_lane",
-            "opposite",
-            "separate"
+            "opposite"
         ]
     },
     "cyclestreet-BE-NL": {
@@ -3522,6 +3545,17 @@
         "key": "capacity",
         "type": "number",
         "minValue": 0
+    },
+    "camp_site": {
+        "key": "camp_site",
+        "type": "combo",
+        "options": [
+            "basic",
+            "standard",
+            "serviced",
+            "deluxe"
+        ],
+        "autoSuggestions": false
     },
     "cai_scale-IT": {
         "key": "cai_scale",
@@ -4054,6 +4088,7 @@
             "addr:street",
             "addr:subdistrict",
             "addr:suburb",
+            "addr:town",
             "addr:unit"
         ]
     },
@@ -5681,9 +5716,9 @@
         "key": "crossing:markings",
         "type": "combo",
         "label": "{crossing/markings}",
+        "default": "yes",
         "stringsCrossReference": "{crossing/markings}",
         "iconsCrossReference": "{crossing/markings}",
-        "default": "yes",
         "locationSet": {
             "exclude": [
                 "BG",
@@ -5698,6 +5733,10 @@
         "key": "crossing:markings",
         "type": "combo",
         "label": "{crossing/markings}",
+        "autoSuggestions": false,
+        "default": "yes",
+        "stringsCrossReference": "{crossing/markings}",
+        "iconsCrossReference": "{crossing/markings}",
         "options": [
             "zebra",
             "dots",
@@ -5705,20 +5744,20 @@
             "yes",
             "no"
         ],
-        "autoSuggestions": false,
-        "iconsCrossReference": "{crossing/markings}",
-        "stringsCrossReference": "{crossing/markings}",
         "locationSet": {
             "include": [
                 "PL"
             ]
-        },
-        "default": "yes"
+        }
     },
     "crossing/markings_yes-DE-AT-CH": {
         "key": "crossing:markings",
         "type": "combo",
         "label": "{crossing/markings}",
+        "autoSuggestions": false,
+        "default": "yes",
+        "stringsCrossReference": "{crossing/markings}",
+        "iconsCrossReference": "{crossing/markings}",
         "options": [
             "zebra",
             "yes",
@@ -5727,25 +5766,22 @@
             "dashes",
             "surface"
         ],
-        "autoSuggestions": false,
-        "iconsCrossReference": "{crossing/markings}",
-        "stringsCrossReference": "{crossing/markings}",
         "locationSet": {
             "include": [
                 "DE",
                 "AT",
                 "CH"
             ]
-        },
-        "default": "yes"
+        }
     },
     "crossing/markings_yes-BG": {
         "key": "crossing:markings",
         "type": "combo",
         "label": "{crossing/markings}",
+        "autoSuggestions": false,
+        "default": "yes",
         "stringsCrossReference": "{crossing/markings}",
         "iconsCrossReference": "{crossing/markings}",
-        "default": "yes",
         "options": [
             "zebra",
             "no",
@@ -5757,8 +5793,7 @@
             "include": [
                 "BG"
             ]
-        },
-        "autoSuggestions": false
+        }
     },
     "crossing/markings": {
         "key": "crossing:markings",
@@ -5808,6 +5843,9 @@
         "key": "crossing:markings",
         "type": "combo",
         "label": "{crossing/markings}",
+        "autoSuggestions": false,
+        "stringsCrossReference": "{crossing/markings}",
+        "iconsCrossReference": "{crossing/markings}",
         "options": [
             "zebra",
             "dots",
@@ -5815,9 +5853,6 @@
             "yes",
             "no"
         ],
-        "autoSuggestions": false,
-        "iconsCrossReference": "{crossing/markings}",
-        "stringsCrossReference": "{crossing/markings}",
         "locationSet": {
             "include": [
                 "PL"
@@ -5828,6 +5863,9 @@
         "key": "crossing:markings",
         "type": "combo",
         "label": "{crossing/markings}",
+        "autoSuggestions": false,
+        "stringsCrossReference": "{crossing/markings}",
+        "iconsCrossReference": "{crossing/markings}",
         "options": [
             "zebra",
             "yes",
@@ -5836,9 +5874,6 @@
             "dashes",
             "surface"
         ],
-        "autoSuggestions": false,
-        "iconsCrossReference": "{crossing/markings}",
-        "stringsCrossReference": "{crossing/markings}",
         "locationSet": {
             "include": [
                 "DE",
@@ -5851,6 +5886,7 @@
         "key": "crossing:markings",
         "type": "combo",
         "label": "{crossing/markings}",
+        "autoSuggestions": false,
         "stringsCrossReference": "{crossing/markings}",
         "iconsCrossReference": "{crossing/markings}",
         "options": [
@@ -5864,8 +5900,7 @@
             "include": [
                 "BG"
             ]
-        },
-        "autoSuggestions": false
+        }
     },
     "crossing/light": {
         "key": "crossing:light",
