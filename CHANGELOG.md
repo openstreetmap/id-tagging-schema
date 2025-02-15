@@ -437,7 +437,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 * Add specific presets for Trees which have the tags `leaf_cycle`/`leaf_type` mapped ([#956])
 #### Changed Presets
 * Add field to specify the type of a `house` ([#921], thanks [@arch0345])
-* Allow Drinking Water to be mapped on verticed ([#925], thanks [@arch0345])
+* Allow Drinking Water to be mapped on vertices ([#925], thanks [@arch0345])
 * Rename preset for Trash Cans and Recycling Bins ([#938], thanks [@arch0345])
 * Add `direction` field to Emergency Bay preset
 * Add more fields to Parcel Locker preset for the tags: `wheelchair`, `indoor` ([#940]), `collection_times`, `surveillance`
