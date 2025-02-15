@@ -52,6 +52,7 @@ jobs:
           workflow: build-preview.yml
           pr: ${{steps.pull-request-number.outputs.result}}
           name: preview
+          allow_forks: true
 
       - name: Deploy to Netlify
         env:
