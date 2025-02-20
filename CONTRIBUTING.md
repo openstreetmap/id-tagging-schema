@@ -36,7 +36,7 @@ Read the [GUIDELINES](./GUIDELINES.md) to help you understand what fields and ta
 
 ## Making Changes
 
-You are highly welcome to help this project by sending pull requests!
+You are highly welcome to help this project by submitting pull requests!
 
 ### Overview and General Structure
 
