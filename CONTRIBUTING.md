@@ -36,6 +36,8 @@ Read the [GUIDELINES](./GUIDELINES.md) to help you understand what fields and ta
 
 ## Making Changes
 
+You are highly welcome to help this project by submitting pull requests!
+
 ### Overview and General Structure
 
 Detailed documentation for the data format used in this repository is located with the [schema-builder](https://github.com/ideditor/schema-builder) package, which is the technical basis of this project.
