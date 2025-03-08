@@ -23,7 +23,7 @@ Read the [GUIDELINES](./GUIDELINES.md) to help you understand what fields and ta
   1. [open the translation page](https://www.transifex.com/openstreetmap/id-editor/translate/)
   2. select a language
   3. select _'presets'_
-  4. search for `key:living_street` or `translation_text:'Living Street'`
+  4. search for `key:living_street` or `translation_text:'Living Street'` or `key:highway/living_street`
 
 * **Request access:** To contribute to a language, [select a language](https://www.transifex.com/openstreetmap/id-editor/languages/) and use 'Join team' to request access. The administrators will approve requests routinely, only rejecting requests for overly specific locales.
 
