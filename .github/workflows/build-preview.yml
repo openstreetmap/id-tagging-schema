@@ -12,13 +12,13 @@ jobs:
   build-preview:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
       - run: npm clean-install
       - run: npm run dist
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           repository: openstreetmap/iD
           path: './iD'
@@ -33,7 +33,7 @@ jobs:
         env:
           ID_PRESETS_CDN_URL: '../../'
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: preview
           path: |
@@ -43,7 +43,7 @@ jobs:
       - name: Store pull request number for later use
         run: |
           echo ${{github.event.number}} > ./pr_number
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: pr
           path: ./pr_number

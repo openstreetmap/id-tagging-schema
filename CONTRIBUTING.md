@@ -23,7 +23,7 @@ Read the [GUIDELINES](./GUIDELINES.md) to help you understand what fields and ta
   1. [open the translation page](https://www.transifex.com/openstreetmap/id-editor/translate/)
   2. select a language
   3. select _'presets'_
-  4. search for `key:living_street` or `translation_text:'Living Street'`
+  4. search for `key:living_street` or `translation_text:'Living Street'` or `key:highway/living_street`
 
 * **Request access:** To contribute to a language, [select a language](https://www.transifex.com/openstreetmap/id-editor/languages/) and use 'Join team' to request access. The administrators will approve requests routinely, only rejecting requests for overly specific locales.
 
@@ -36,15 +36,26 @@ Read the [GUIDELINES](./GUIDELINES.md) to help you understand what fields and ta
 
 ## Making Changes
 
+You are highly welcome to help this project by submitting pull requests!
+
 ### Overview and General Structure
 
 Detailed documentation for the data format used in this repository is located with the [schema-builder](https://github.com/ideditor/schema-builder) package, which is the technical basis of this project.
 
-To make a change, update the corresponding file within the `data` folder: The `presets` contain a representation of OpenStreetMap's [map features](wiki.openstreetmap.org/wiki/Map_Features), and the `fields` are their properties. In addition, the tagging schema contains a few `categories` of presets and a list of `deprecated` and `discardable` tags.
+To make a change, update the corresponding file within the `data` folder: The `presets` contain a representation of OpenStreetMap's [map features](https://wiki.openstreetmap.org/wiki/Map_Features), and the `fields` are their properties. In addition, the tagging schema contains a few `categories` of presets and a list of `deprecated` and `discardable` tags.
 
 ### Icons
 
 Icons from different sources (_icon sets_) can be used in the tagging schema. Head over to the [dedicated page](https://github.com/ideditor/schema-builder/blob/main/ICONS.md#icons) about how to use them.
+
+### Info-`i`
+
+![Screenshot of a preset in iD with the information details open.](https://github.com/openstreetmap/id-tagging-schema/assets/111561/13549318-cd7c-4dd1-9948-7a2d84662f04)
+
+iD and other tools provide users with a way to learn more about the main tag of a preset. It is important to provide good information in this information panel. Here are a few notes on how to do this:
+- Does your tag have a Wikidata entry? Click the small pencil icon next to the text to open the Wikidata item on the OSM wiki. Improve this wording if needed. If the Wikidata item is missing, [learn more about how to add it in "Current methods for creating new items"](https://wiki.openstreetmap.org/wiki/Data_items#Item_creation_process).
+- Does your tag have a Wiki page with a good image?
+- Your preset might need [a `reference` property](https://github.com/ideditor/schema-builder?tab=readme-ov-file#reference) to force the system to use a specific tag for the information section.
 
 ### Code Style
 

@@ -175,6 +175,7 @@
                         "subdistrict!vn": "Заедница/Паланка",
                         "suburb": "Предградие",
                         "suburb!jp": "Указен град (政令市)",
+                        "town": "Гратче",
                         "unit": "Единица"
                     }
                 },
@@ -605,7 +606,7 @@
                         "pavilion": "Павилјонска градба",
                         "public": "Општествена градба",
                         "residential": "Станбена градба",
-                        "retail": "Проджен објект",
+                        "retail": "Продажен објект",
                         "riding_hall": "Јавачка арена",
                         "roof": "Покрив",
                         "ruins": "Разрушена градба",
@@ -684,6 +685,27 @@
                         "dome": "Купола",
                         "fixed": "Неподвижен",
                         "panning": "Кадровско движење"
+                    }
+                },
+                "camp_site": {
+                    "label": "Вид",
+                    "options": {
+                        "basic": {
+                            "description": "Ништо освен место за ставање шатор или паркирање на возило",
+                            "title": "Прост (само места за шатори/возила)"
+                        },
+                        "deluxe": {
+                            "description": "Наполно опслужуван и има дополнителни содржини како пералница, базен или слични места за разонода",
+                            "title": "Делукс (нуди пералница или базен итн.)"
+                        },
+                        "serviced": {
+                            "description": "Има тоалети, вода, тушеви и струја",
+                            "title": "Опслужуван (нуди тушеви и струја)"
+                        },
+                        "standard": {
+                            "description": "Има тоалети и вода (или се достапни во близина)",
+                            "title": "Стандарден (има тоалети и вода)"
+                        }
                     }
                 },
                 "capacity": {
@@ -1151,12 +1173,12 @@
                             "title": "Ништо"
                         },
                         "opposite": {
-                            "description": "Велосипедска патека што оди во две насоки во еднонасочна улица",
-                            "title": "Спротивозна велосипедска лента"
+                            "description": "Изменете со oneway=yes, oneway:bicycle=no и cycleway:both=no итн.",
+                            "title": "(Застарено) Спротивозна велосипедска лента"
                         },
                         "opposite_lane": {
-                            "description": "Велосипедска патека што оди спротивно од сообраќајот",
-                            "title": "Спротивна велосипедска лента"
+                            "description": "Изменете со oneway, oneway:bicycle и cycleway:left/right=lane итн.",
+                            "title": "(Застарено) Спротивна велосипедска лента"
                         },
                         "separate": {
                             "description": "Укажува дека целосипедската патека е исцртана како посебна геометрија",
@@ -2037,7 +2059,7 @@
                     }
                 },
                 "internet_access/fee": {
-                    "label": "Семрежен пристап",
+                    "label": "Наплата за семрежјето",
                     "options": {
                         "customers": "Само за муштерии",
                         "no": "Бесплатен",
@@ -2131,6 +2153,9 @@
                 },
                 "layer": {
                     "label": "Слој",
+                    "placeholder": "0"
+                },
+                "layer_1": {
                     "placeholder": "0"
                 },
                 "leaf_cycle": {
@@ -2237,7 +2262,13 @@
                     "label": "Покриеност"
                 },
                 "map_type": {
-                    "label": "Вид"
+                    "label": "Вид",
+                    "options": {
+                        "scheme": "Шематска карта",
+                        "street": "Патна карта",
+                        "topo": "Топографска карта",
+                        "toposcope": "Топоскоп"
+                    }
                 },
                 "mapillary": {
                     "label": "Назнака на слика од Mapillary",
@@ -2647,19 +2678,58 @@
                 "parking": {
                     "label": "Вид",
                     "options": {
-                        "carports": "Автомобилски стреи",
-                        "garage_boxes": "Гаражи",
-                        "half_on_kerb": "Половина на тротоар",
-                        "lane": "Крајпатна лента",
-                        "layby": "Одмориште",
-                        "multi-storey": "Катно",
-                        "on_kerb": "На тротоар",
-                        "rooftop": "Покрив",
-                        "sheds": "Шупи",
-                        "shoulder": "Принудна лента",
-                        "street_side": "Крајулично",
-                        "surface": "Надземно",
-                        "underground": "Подземно"
+                        "carports": {
+                            "description": "Градба со ограничена заштита за возилата, обично без ѕидови.",
+                            "title": "Автомобилски стреи"
+                        },
+                        "garage_boxes": {
+                            "description": "Приватна гаража со повеќе поединечни поделоци, секој за по една кола",
+                            "title": "Гаражи"
+                        },
+                        "half_on_kerb": {
+                            "description": "Паркиринг делумно на тротоар",
+                            "title": "Половина на тротоар"
+                        },
+                        "lane": {
+                            "description": "Паркинг на улицата (кој лесно може да се претвори во патека)",
+                            "title": "Крајпатна лента"
+                        },
+                        "layby": {
+                            "description": "Паркинг на одмориште, покрај патот.",
+                            "title": "Одмориште"
+                        },
+                        "multi-storey": {
+                            "description": "Два или повеќе ката за паркирање во зграда.",
+                            "title": "Катно"
+                        },
+                        "on_kerb": {
+                            "description": "Паркинг на тротоар",
+                            "title": "На тротоар"
+                        },
+                        "rooftop": {
+                            "description": "Едено ниво ниво за паркирање врз зграда.",
+                            "title": "Покрив"
+                        },
+                        "sheds": {
+                            "description": "Приватни хангари за возила.",
+                            "title": "Шупи"
+                        },
+                        "shoulder": {
+                            "description": "Паркинг на принудна лента",
+                            "title": "Принудна лента"
+                        },
+                        "street_side": {
+                            "description": "Паркинг веднаш до улица (но не на неа).",
+                            "title": "Крајулично"
+                        },
+                        "surface": {
+                            "description": "Едно ниво за паркирање, наземно.",
+                            "title": "Надземно"
+                        },
+                        "underground": {
+                            "description": "Подземно паркирање.",
+                            "title": "Подземно"
+                        }
                     }
                 },
                 "parking/side/orientation": {
@@ -3232,7 +3302,8 @@
                         "demanding_mountain_hiking": "T3: Посветено планинарење",
                         "difficult_alpine_hiking": "T6: Тешко високогорство",
                         "hiking": "T1: Планинарење",
-                        "mountain_hiking": "T2: Планинарење"
+                        "mountain_hiking": "T2: Планинарење",
+                        "strolling": "Лесна прошетка"
                     },
                     "placeholder": "Планинарење, високогорство..."
                 },
@@ -3684,7 +3755,7 @@
                     "label": "Супстанција",
                     "options": {
                         "fuel": "Гориво",
-                        "gas": "Природно дрво",
+                        "gas": "Земен гас",
                         "hot_water": "Топла вода",
                         "oil": "Сирова нафта",
                         "rainwater": "Дождовница",
@@ -4178,6 +4249,7 @@
                         "coffee": "Кафе",
                         "condoms": "Кондоми",
                         "drinks": "Пијалаци",
+                        "e-cigarettes": "Е-цигари",
                         "eggs": "Јајца",
                         "electronics": "Електроника",
                         "elongated_coin": "Сувенирски монети",
@@ -5728,7 +5800,7 @@
                     "name": "Станбена градба"
                 },
                 "building/retail": {
-                    "name": "Проджен објект"
+                    "name": "Продажен објект"
                 },
                 "building/riding_hall": {
                     "name": "Јавачка арена на затворено",
@@ -6092,6 +6164,9 @@
                 "entrance/main": {
                     "name": "Главен влез"
                 },
+                "entrance/shop": {
+                    "name": "Влез во дуќан"
+                },
                 "entrance/staircase": {
                     "name": "Влез кон скали"
                 },
@@ -6273,6 +6348,12 @@
                 "highway/cycleway/moped_link-NL": {
                     "name": "Мопедска патека"
                 },
+                "highway/cycleway/traffic_island": {
+                    "name": "Велосипедски остров"
+                },
+                "highway/cycleway/traffic_island_shared": {
+                    "name": "Велосипедско-пешачки остров"
+                },
                 "highway/cyclist_waiting_aid": {
                     "name": "Семафорски потпирач за велосипедисти"
                 },
@@ -6353,6 +6434,18 @@
                 },
                 "highway/path/boardwalk": {
                     "name": "Патека од даски"
+                },
+                "highway/path/crossing": {
+                    "name": "Велосипедско-пешачки премин"
+                },
+                "highway/path/crossing/traffic_signals": {
+                    "name": "Велосипедско-пешачки премин со пешачки семафор"
+                },
+                "highway/path/crossing/uncontrolled": {
+                    "name": "Обележан велосипедско-пешачки премин"
+                },
+                "highway/path/crossing/unmarked": {
+                    "name": "Необележан велосипедско-пешачки премин"
                 },
                 "highway/path/informal": {
                     "name": "Неформална патека"
@@ -6650,6 +6743,12 @@
                 },
                 "landuse/meadow": {
                     "name": "Ливада"
+                },
+                "landuse/meadow_orchard/meadow": {
+                    "name": "Ливада со овошни дрва"
+                },
+                "landuse/meadow_orchard/orchard": {
+                    "name": "Овоштарник насаден на ливада"
                 },
                 "landuse/military": {
                     "name": "Воено подрачје"
@@ -7451,6 +7550,9 @@
                 "natural": {
                     "name": "Природен елемент"
                 },
+                "natural/arch": {
+                    "name": "Природен лак"
+                },
                 "natural/bare_rock": {
                     "name": "Гола карпа"
                 },
@@ -7482,7 +7584,7 @@
                     "name": "Ледник"
                 },
                 "natural/grassland": {
-                    "name": "Пасиште"
+                    "name": "Тревиште"
                 },
                 "natural/heath": {
                     "name": "Вресиште"
@@ -7518,7 +7620,7 @@
                     "name": "Сип"
                 },
                 "natural/scrub": {
-                    "name": "Честак"
+                    "name": "Шикара"
                 },
                 "natural/shingle": {
                     "name": "Чакал"
@@ -7638,7 +7740,7 @@
                     "name": "Влажна ливада"
                 },
                 "natural/wood": {
-                    "name": "Природно дрво"
+                    "name": "Природна шума"
                 },
                 "network/type/node_network-DE-NL-BE-LU": {
                     "name": "Јазол за рекреативни мрежи"
@@ -7799,6 +7901,9 @@
                 "office/therapist": {
                     "name": "Терапевт"
                 },
+                "office/translator": {
+                    "name": "Биро за преводи"
+                },
                 "office/travel_agent": {
                     "name": "Туристичка агенција"
                 },
@@ -7836,7 +7941,7 @@
                     "name": "Патека за норидско скијање"
                 },
                 "piste/piste": {
-                    "name": "Патека / писта за зимски спортови"
+                    "name": "Патека / писта за зимски спортови (неукажан вид)"
                 },
                 "piste/ski_jump": {
                     "name": "Писта на скијачка скокалница"
@@ -8599,6 +8704,9 @@
                 },
                 "shop/gift": {
                     "name": "Продавница за подароци"
+                },
+                "shop/gold_buyer": {
+                    "name": "Откупувач на злато"
                 },
                 "shop/greengrocer": {
                     "name": "Пилјарница"

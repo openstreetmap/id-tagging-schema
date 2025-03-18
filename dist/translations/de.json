@@ -177,6 +177,7 @@
                         "subdistrict!vn": "Bezirk/Gemeinde/Städtchen",
                         "suburb": "Stadtteil",
                         "suburb!jp": "Ward (政令市)",
+                        "town": "Stadt",
                         "unit": "Stiege/Bauteil"
                     },
                     "terms": "adresse"
@@ -713,6 +714,27 @@
                         "panning": "schwenkend"
                     }
                 },
+                "camp_site": {
+                    "label": "Art",
+                    "options": {
+                        "basic": {
+                            "description": "Nichts als ein Platz zum Zelten oder Parken eines Fahrzeugs",
+                            "title": "Einfach (nur Zelt-/ Fahrzeugstellplätze)"
+                        },
+                        "deluxe": {
+                            "description": "Vollständig ausgestattet und mit zusätzlichen Annehmlichkeiten wie einer Waschmaschine, einem Schwimmbad oder ähnlichen Freizeiteinrichtungen",
+                            "title": "Luxus (mit Waschmaschine, Schwimmbad usw.)"
+                        },
+                        "serviced": {
+                            "description": "Toiletten, Frischwasser, Duschen und Strom sind vorhanden",
+                            "title": "Bewirtschaftet (bietet Duschen und Strom)"
+                        },
+                        "standard": {
+                            "description": "Toiletten und Frischwasser sind vorhanden oder in der Nähe verfügbar",
+                            "title": "Standard (bietet Toiletten und Frischwasser)"
+                        }
+                    }
+                },
                 "capacity": {
                     "label": "Kapazität",
                     "placeholder": "50, 100, 200...",
@@ -1192,12 +1214,12 @@
                             "title": "Keiner"
                         },
                         "opposite": {
-                            "description": "Ein Zweirichtungs-Fahrradstreifen in einer Einbahnstraße",
-                            "title": "Fahrradstreifen gegen die Einbahnrichtung"
+                            "description": "Bitte aktualisiere mit oneway=yes, oneway:bicycle=no und cycleway:both=no usw.",
+                            "title": "(Veraltet) Fahrradweg im Gegenverkehr"
                         },
                         "opposite_lane": {
-                            "description": "Fahrradstreifen gegen die Verkehrsrichtung",
-                            "title": "Fahrradstreifen gegen die Verkehrsrichtung"
+                            "description": "Bitte aktualisiere mit oneway, oneway:bicycle und cycleway:left/right=lane usw.",
+                            "title": "(Veraltet) Fahrradweg in Gegenrichtung"
                         },
                         "separate": {
                             "description": "Gibt an, dass der Radweg als separate Geometrie kartiert wurde",
@@ -2124,13 +2146,13 @@
                     "terms": "internetzugang,wifi,wlan,internet"
                 },
                 "internet_access/fee": {
-                    "label": "Internetzugangskosten",
+                    "label": "Internetzugangsgebühr",
                     "options": {
                         "customers": "Nur für Kunden",
                         "no": "Gratis",
                         "yes": "Gebühr"
                     },
-                    "terms": "internetkosten,zugangskosten,internetgebühr,internetpreis"
+                    "terms": "internetzugangskosten,internetkosten,zugangskosten,internetgebühr,internetpreis"
                 },
                 "internet_access/ssid": {
                     "label": "Wifi Netzwerkname",
@@ -2229,6 +2251,9 @@
                     "label": "Ebene",
                     "placeholder": "0",
                     "terms": "ebene,layer"
+                },
+                "layer_1": {
+                    "placeholder": "0"
                 },
                 "leaf_cycle": {
                     "label": "Blätterzyklus",
@@ -2345,7 +2370,13 @@
                     "label": "Abdeckung"
                 },
                 "map_type": {
-                    "label": "Typ"
+                    "label": "Typ",
+                    "options": {
+                        "scheme": "Schematische Karte",
+                        "street": "Straßenkarte",
+                        "topo": "Topographische Karte",
+                        "toposcope": "Toposkop"
+                    }
                 },
                 "mapillary": {
                     "label": "Mapillary Image ID",
@@ -2767,6 +2798,10 @@
                     "label": "Außenbestuhlung",
                     "terms": "gastgarten,schanigarten"
                 },
+                "panoramax": {
+                    "label": "Panoramax Bild-ID",
+                    "terms": "panoramax bild id,panoramax foto id"
+                },
                 "par": {
                     "label": "Par",
                     "placeholder": "3, 4, 5, 6"
@@ -2789,19 +2824,58 @@
                 "parking": {
                     "label": "Typ",
                     "options": {
-                        "carports": "Carports",
-                        "garage_boxes": "Garagenboxen",
-                        "half_on_kerb": "Halb auf Gehweg",
-                        "lane": "Parkstreifen am Straßenrand",
-                        "layby": "Rastplatz",
-                        "multi-storey": "Parkhaus",
-                        "on_kerb": "Auf Gehweg",
-                        "rooftop": "Dachfläche",
-                        "sheds": "Schuppen",
-                        "shoulder": "Auf Seitenstreifen",
-                        "street_side": "Straßenrand",
-                        "surface": "Ebenerdig",
-                        "underground": "Tiefgarage"
+                        "carports": {
+                            "description": "Struktur, die Fahrzeugen begrenzten Schutz bietet, in der Regel ohne Wände.",
+                            "title": "Carports"
+                        },
+                        "garage_boxes": {
+                            "description": "Private Garage mit mehreren Einzelboxen für jeweils ein Auto.",
+                            "title": "Garagenboxen"
+                        },
+                        "half_on_kerb": {
+                            "description": "Parken teilweise auf dem Gehweg.",
+                            "title": "Halb auf Gehweg"
+                        },
+                        "lane": {
+                            "description": "Parken auf der Straße (die leicht in eine Fahrspur umgewandelt werden könnte).",
+                            "title": "Parkstreifen am Straßenrand"
+                        },
+                        "layby": {
+                            "description": "Parken auf einem Rastplatz an einer Straße.",
+                            "title": "Haltebucht"
+                        },
+                        "multi-storey": {
+                            "description": "Zwei oder mehr Parkdecks in einem Gebäude.",
+                            "title": "Mehrstöckig"
+                        },
+                        "on_kerb": {
+                            "description": "Parken auf dem Gehweg.",
+                            "title": "Auf Gehweg"
+                        },
+                        "rooftop": {
+                            "description": "Eine Ebene eines Parkdecks auf einem Gebäude.",
+                            "title": "auf dem Dach"
+                        },
+                        "sheds": {
+                            "description": "Private Schuppen für Fahrzeuge.",
+                            "title": "Schuppen"
+                        },
+                        "shoulder": {
+                            "description": "Parken auf dem Seitenstreifen.",
+                            "title": "Seitenstreifen"
+                        },
+                        "street_side": {
+                            "description": "Parken direkt an der Straße (aber nicht auf der Straße).",
+                            "title": "Straßenrand"
+                        },
+                        "surface": {
+                            "description": "Eine Parkebene auf dem Boden.",
+                            "title": "Oberfläche"
+                        },
+                        "underground": {
+                            "description": "Tiefgarage.",
+                            "title": "Unterflurhydrant"
+                        }
                     }
                 },
                 "parking/side/orientation": {
@@ -3397,7 +3471,8 @@
                         "demanding_mountain_hiking": "T3: Anspruchsvolles Bergwandern",
                         "difficult_alpine_hiking": "T6: Schwieriges alpines Bergsteigen",
                         "hiking": "T1: Wandern",
-                        "mountain_hiking": "T2: Bergwandern"
+                        "mountain_hiking": "T2: Bergwandern",
+                        "strolling": "Spazieren"
                     },
                     "placeholder": "Bergwandern, alpines Bergwandern...",
                     "terms": "wanderschwierigkeit,wanderwegschwierigkeit"
@@ -3545,7 +3620,8 @@
                     "terms": "gebrauchtwarenverkauf"
                 },
                 "segregated": {
-                    "label": "Getrennter Rad- und Fußweg"
+                    "label": "Getrennter Rad- und Fußweg",
+                    "terms": "getrennter rad- und gehweg,geteilter rad- und gehweg,getrennter rad- und fußweg,geteilter rad- und fußweg,getrennter geh- und radweg,geteilter geh- und radweg,geteilter fuß- und radweg,getrennter fuß- und radweg"
                 },
                 "self_service": {
                     "label": "Selbstbedienung"
@@ -4385,6 +4461,7 @@
                         "coffee": "Kaffee",
                         "condoms": "Kondome",
                         "drinks": "Getränke",
+                        "e-cigarettes": "E-Zigaretten",
                         "eggs": "Eier",
                         "electronics": "Elektrogeräte",
                         "elongated_coin": "Souvenirmünzen",
@@ -5738,7 +5815,7 @@
                 },
                 "amenity/theatre/type/amphi": {
                     "name": "Amphitheater",
-                    "terms": "amphitheater"
+                    "terms": "amphitheater,naturtheater,rundbau"
                 },
                 "amenity/ticket_validator": {
                     "name": "Entwerter",
@@ -6486,7 +6563,7 @@
                     "terms": "verein,klub"
                 },
                 "club/scout": {
-                    "name": "Pfadfinder",
+                    "name": "Pfadfinderstamm",
                     "terms": "pfadfinderstamm,pfadfindergruppe,pfadfinderabteilung,pfadfinderverein"
                 },
                 "club/sport": {
@@ -6863,6 +6940,10 @@
                     "name": "Haupteingang",
                     "terms": "eingangstür,tür,eingang,hauptzugang,zugang"
                 },
+                "entrance/shop": {
+                    "name": "Ladeneingang",
+                    "terms": "eingangsbereich,eingangstür,zugang"
+                },
                 "entrance/staircase": {
                     "name": "Treppenhauseingang",
                     "terms": "treppe,treppenhaus,stiege,stiegenhaus,treppenaufgang,tür,eingang,zugang,aufgang"
@@ -7064,7 +7145,7 @@
                     "terms": "überweg,übergang,überquerung,querung,fußgängerüberweg,fußgängerübergang,fußgängerüberquerung,fußgängerquerung"
                 },
                 "highway/crossing/traffic_signals": {
-                    "name": "Kreuzung mit Fußgängerampel",
+                    "name": "Überweg mit Ampelregelung",
                     "terms": "fußgängerampel,fußgängerübergang,radübergang"
                 },
                 "highway/crossing/uncontrolled": {
@@ -7106,6 +7187,14 @@
                 "highway/cycleway/moped_link-NL": {
                     "name": "Mopedstraße",
                     "terms": "mopedstraße"
+                },
+                "highway/cycleway/traffic_island": {
+                    "name": "Radfahrerschutzinsel",
+                    "terms": "radfahrerschutzinsel,schutzinsel für radfahrer,radverkehrsinsel,fahrradwartemöglichkeit,radfahrerüberquerungshilfe,radweginsel,verkehrsinsel"
+                },
+                "highway/cycleway/traffic_island_shared": {
+                    "name": "Rad- und Fußgängerschutzinsel",
+                    "terms": "multifunktionsschutzinsel,gemeinsame schutzinsel,überquerungshilfe für radfahrer und fußgänger,verkehrsinsel für radfahrer und fußgänger,fahrrad- und fußgängerinsel,rad- und fußverkehrsinsel,schutzinsel für radfahrer und fußgänger,rad- und fußgängerschutzinsel"
                 },
                 "highway/cyclist_waiting_aid": {
                     "name": "Wartehilfe für Radfahrer",
@@ -7215,6 +7304,18 @@
                 "highway/path/boardwalk": {
                     "name": "Bohlenweg",
                     "terms": "pier,steg,knüppeldamm,erhöhter fußweg aus holz,plankenweg,prügelweg,holzsteg,knüppelweg,bohlenweg,holzweg"
+                },
+                "highway/path/crossing": {
+                    "name": "Rad- und Gehwegquerung"
+                },
+                "highway/path/crossing/traffic_signals": {
+                    "name": "Rad- und Gehwegquerung mit Ampelregelung"
+                },
+                "highway/path/crossing/uncontrolled": {
+                    "name": "Rad- und Gehwegquerung mit Straßenmarkierung"
+                },
+                "highway/path/crossing/unmarked": {
+                    "name": "Rad- und Gehwegquerung ohne Straßenmarkierung"
                 },
                 "highway/path/informal": {
                     "name": "Trampelpfad",
@@ -7604,6 +7705,14 @@
                 "landuse/meadow": {
                     "name": "Wiese / Weide",
                     "terms": "landwirtschaftlich genutzte wiese oder weide,almweide,almwiese"
+                },
+                "landuse/meadow_orchard/meadow": {
+                    "name": "Streuobstwiese (vereinzelte Obstbäume)",
+                    "terms": "obstwiese,obstgarten,bitz,bangert,bongert,bungert,baumgarten,streuobstbau,obstbau"
+                },
+                "landuse/meadow_orchard/orchard": {
+                    "name": "Streuobstwiese (zahlreiche Obstbäume)",
+                    "terms": "obstwiese,obstgarten,bitz,bangert,bongert,bungert,baumgarten,streuobstbau,obstbau"
                 },
                 "landuse/military": {
                     "name": "Militärgelände",
@@ -8664,6 +8773,10 @@
                 "natural": {
                     "name": "Natürliches..."
                 },
+                "natural/arch": {
+                    "name": "Natursteinbogen",
+                    "terms": "natürlicher bogen,felsbogen,natursteinbogen,naturbrücke,felstor,steinbogen,felsdurchbruch,steinbrücke"
+                },
                 "natural/bare_rock": {
                     "name": "Felsgestein",
                     "terms": "blanker fels,anstehender fels,nackter felsen"
@@ -9124,6 +9237,10 @@
                     "name": "Therapeut",
                     "terms": "therapeut"
                 },
+                "office/translator": {
+                    "name": "Übersetzer",
+                    "terms": "übersetzungsbüro,übersetzungsagentur,übersetzungsdienst,übersetzungsdienste,übersetzungsdienstleister,dolmetscher,sprachdienstleister,lektorat,sprachmittler"
+                },
                 "office/travel_agent": {
                     "name": "Reisebüro"
                 },
@@ -9142,11 +9259,11 @@
                     "name": "Pipeline Objekt"
                 },
                 "pipeline/substation": {
-                    "name": "Unterstation",
+                    "name": "Pipeline-Unterstation",
                     "terms": "unterstation"
                 },
                 "pipeline/valve": {
-                    "name": "Durchlussregelung",
+                    "name": "Durchflussregelung",
                     "terms": "durchflussregelung"
                 },
                 "piste/downhill": {
@@ -9170,8 +9287,7 @@
                     "terms": "langlauf,loipe,biathlon"
                 },
                 "piste/piste": {
-                    "name": "Wintersport Piste / Strecke",
-                    "terms": "wintersport,winterwandern,schneesport,alpin,skisport,skiwanderung,skiwanderweg,piste,loipe,abfahrt,schlitten,schlittenhund,eislauf,eisbahn,schneeschuh"
+                    "name": "Schneesportstrecke / Piste (nicht spezifizierter Typ)"
                 },
                 "piste/ski_jump": {
                     "name": "Skisprungpiste",
@@ -10173,6 +10289,10 @@
                     "name": "Geschenkeladen",
                     "terms": "geschenkeladen,geschenkehandlung,geschenkartikelladen,souvenirladen,souvenirgeschäft"
                 },
+                "shop/gold_buyer": {
+                    "name": "Goldankauf",
+                    "terms": "goldankaufstelle,goldhandel,edelmetallhandel,goldbörse,goldhändler,altgoldankauf,schmuckankauf"
+                },
                 "shop/greengrocer": {
                     "name": "Obst- und Gemüseladen",
                     "terms": "obsthandlung,gemüsehändler,gemüsehandlung,obst- und gemüsehandlung"
@@ -10643,8 +10763,8 @@
                     "terms": "jugencampingplatz,scoutcampingplatz,camping"
                 },
                 "tourism/caravan_site": {
-                    "name": "Wohnwagen-Campingplatz",
-                    "terms": "wohnwagenpark,wohnmobil-stellplätze"
+                    "name": "Wohnmobil-Stellplatz",
+                    "terms": "wohnmobilstellplatz,wohnwagenpark,wohnmobil-stellplätze,reisemobilstellplatz,wohnmobilpark,wohnmobil-campingplatz,reisemobilpark,wohnmobilhafen,reisemobilplatz,reisemobilhafen"
                 },
                 "tourism/chalet": {
                     "name": "Ferienhaus",
