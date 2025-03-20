@@ -292,7 +292,9 @@
                         "painting": "Pintura",
                         "relief": "Relevo",
                         "sculpture": "Escultura",
-                        "statue": "Estátua"
+                        "statue": "Estátua",
+                        "stone": "Pedra trabalhada artisticamente",
+                        "tilework": "Painel de azulejos"
                     }
                 },
                 "ascent": {
@@ -1190,6 +1192,25 @@
                     "label": "Tipo",
                     "placeholder": "Padrão"
                 },
+                "cycle_barrier": {
+                    "label": "Tipo",
+                    "options": {
+                        "diagonal": "Diagonal",
+                        "double": "Dupla",
+                        "single": "Única",
+                        "tilted": "Inclinada",
+                        "triple": "Tripla"
+                    }
+                },
+                "cycle_barrier/installation": {
+                    "label": "Instalação",
+                    "options": {
+                        "fixed": "Fixa",
+                        "openable": "Abrível",
+                        "removable": "Removível"
+                    },
+                    "terms": "instalação,barra,barreira,tipo,estrutura"
+                },
                 "cycle_network": {
                     "label": "Rede"
                 },
@@ -1206,11 +1227,11 @@
                         },
                         "opposite": {
                             "description": "Atualizar com oneway=yes, oneway:bicycle=no e cycleway:both=no etc.",
-                            "title": "(Depreciado) Ciclofaixa no contrafluxo"
+                            "title": "(Obsoleto) Em contramão"
                         },
                         "opposite_lane": {
                             "description": "Atualizar com oneway, oneway:bicycle e cycleway:left/right=lane etc.",
-                            "title": "(Depreciado) Via em sentido contrário"
+                            "title": "(Obsoleto) Em sentido contrário"
                         },
                         "separate": {
                             "description": "Indica que a ciclovia foi mapeada como geometria separada",
@@ -1247,6 +1268,9 @@
                 },
                 "defibrillator/location": {
                     "label": "Descrição da localização"
+                },
+                "deflection": {
+                    "label": "Ângulo"
                 },
                 "delivery": {
                     "label": "Entrega ao domicílio",
@@ -1517,6 +1541,7 @@
                         "main": "Principal",
                         "secondary": "Secundária",
                         "service": "Serviço",
+                        "shop": "Entrada de loja",
                         "staircase": "Escadaria",
                         "yes": "Não especificada"
                     },
@@ -1546,9 +1571,6 @@
                 "fence_type": {
                     "label": "Tipo"
                 },
-                "fhrs/id-GB": {
-                    "terms": "higiene,anvisa,sanitário,padrão"
-                },
                 "fire_hydrant/diameter": {
                     "label": "Diâmetro (mm, polegadas ou letras)",
                     "terms": "diâmetros"
@@ -1560,8 +1582,7 @@
                         "lane": "Via rodoviária",
                         "parking_lot": "Lugar de estacionamento",
                         "sidewalk": "Passeio"
-                    },
-                    "terms": "posição,posicionamento,localização"
+                    }
                 },
                 "fire_hydrant/pressure": {
                     "label": "Pressão (bar)",
@@ -2144,6 +2165,14 @@
                     "label": "Intervalo",
                     "terms": "intervalos"
                 },
+                "irrigation_pivot": {
+                    "label": "Irrigação com pivô central",
+                    "options": {
+                        "pivot": "Sim",
+                        "undefined": "Não"
+                    },
+                    "terms": "pivot,centrado,fulcro,fulcral"
+                },
                 "junction/ref_oneway": {
                     "label": "Número da saída",
                     "terms": "número de saída,referência"
@@ -2468,6 +2497,9 @@
                     "label": "Largura máxima",
                     "terms": "largura,largo,máx.,max.,máximo,metros,cm,width,limite"
                 },
+                "maxwidth/physical": {
+                    "label": "Largura máxima"
+                },
                 "memorial": {
                     "label": "Tipo",
                     "options": {
@@ -2743,6 +2775,9 @@
                     "label": "Permitido fazer fogueira",
                     "terms": "fogo,fogueira,labaredas,churrasco,brasas,chamas,fósforos,acendalhas"
                 },
+                "opening": {
+                    "label": "Largura de abertura (metros)"
+                },
                 "opening_date": {
                     "label": "Data de abertura esperada",
                     "placeholder": "AAAA-MM-DD"
@@ -2780,9 +2815,12 @@
                     "label": "Cadeiras exteriores",
                     "terms": "lugares externos,esplanada,bancos,ar livre"
                 },
+                "overlap": {
+                    "label": "Largura de sobreposição (metros)"
+                },
                 "panoramax": {
                     "label": "ID da imagem do Panoramax",
-                    "terms": "panoramax,id,imagem,nível de rua,360"
+                    "terms": "panoramax,id,imagem,nível de rua,360,foto,fotografia"
                 },
                 "par": {
                     "label": "Par",
@@ -3753,6 +3791,9 @@
                 },
                 "source/population": {
                     "label": "Fonte"
+                },
+                "spacing": {
+                    "label": "Distância entre barreiras (metros)"
                 },
                 "species": {
                     "label": "Espécie",
@@ -5777,7 +5818,8 @@
                     "terms": "junta,câmara,paços,centro administrativo,capital de concelho,capital de freguesia,capital de distrito,capital de região"
                 },
                 "amenity/townhall/barangay-PH": {
-                    "name": "Barangay"
+                    "name": "Barangay",
+                    "terms": "barangay"
                 },
                 "amenity/townhall/city": {
                     "name": "Câmara Municipal",
@@ -5902,6 +5944,10 @@
                 "amenity/veterinary": {
                     "name": "Veterinário",
                     "terms": "veterinary,veterinária,animais,médico,médicos,médica,médicas,animais de companhia,animais de estimação"
+                },
+                "amenity/veterinary_pharmacy": {
+                    "name": "Farmácia veterinária",
+                    "terms": "animais,animal,pet,veterinário,medicação,medicamentos,remédios,estimação,animais de estimação,gado"
                 },
                 "amenity/waste/dog_excrement": {
                     "name": "Balde para excrementos de cães",
@@ -7161,6 +7207,9 @@
                     "name": "Passadeira sem marcações",
                     "terms": "passadeira,peões,pedestres,estrada,trânsito,travessia,faixa de segurança"
                 },
+                "highway/footway/informal": {
+                    "name": "Caminho pedonal informal"
+                },
                 "highway/footway/sidewalk": {
                     "name": "Passeio",
                     "terms": "calçada,passeios,bermas,berma"
@@ -7304,6 +7353,9 @@
                 "highway/service/parking_aisle": {
                     "name": "Corredor de estacionamento",
                     "terms": "pista de estacionamento,estacionar,estacionamento,estrada,parquear,parqueamento"
+                },
+                "highway/service_area": {
+                    "name": "Área de serviço para manobras"
                 },
                 "highway/services": {
                     "name": "Área de serviço",
@@ -9837,7 +9889,7 @@
                 },
                 "shop": {
                     "name": "Loja",
-                    "terms": "venda,vendedor,estabelecimento,grossista"
+                    "terms": "venda,vendedor,estabelecimento,grossista,store,shop"
                 },
                 "shop/agrarian": {
                     "name": "Loja de produtos agrícolas",
@@ -9878,6 +9930,10 @@
                 "shop/bathroom_furnishing": {
                     "name": "Loja de assessórios para casas de banho",
                     "terms": "bathroom furnishing store,casa de banho,casas de banho,wc,w.c.,banheiro,lavabos"
+                },
+                "shop/bbq": {
+                    "name": "Loja de material para churrasco",
+                    "terms": "grill,bbq,barbecue,barbeque"
                 },
                 "shop/beauty": {
                     "name": "Centro de estética",
@@ -10168,6 +10224,10 @@
                 "shop/greengrocer": {
                     "name": "Loja de frutas e verduras",
                     "terms": "greengrocer,frutaria,frutas,fruta,verduras,hortícolas,vegetais,frutos"
+                },
+                "shop/groundskeeping": {
+                    "name": "Loja de material para pisos",
+                    "terms": "manutenção,ferramentas,relvados,gramados,corte,abate,limpeza"
                 },
                 "shop/hairdresser": {
                     "name": "Cabeleireiro(a)",

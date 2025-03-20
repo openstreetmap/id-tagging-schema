@@ -23,6 +23,63 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.10.0
+##### 2025-Mar-20
+
+#### New Presets
+* Add preset for `amenity=veterinary_pharmacy` ([#1451], thanks [@Avan2021])
+* Add preset for `shop=groundskeeping` ([#1448], thanks [@Avan2021])
+* Add preset for `shop=bbq` ([#1430], thanks [@andrewharvey])
+#### Changed Presets
+* Show `fire_hydrant/position` field by default for all Hydrants ([#1441], thanks [@sun-geo])
+* Add `wheelchair` field to Cycle Barrier preset ([#1232], thanks [@k-yle])
+* Add `operator` field to `highway=street_lamp` ([#1327], thanks [@CorruptComputer])
+* Use couch icon for `craft=upholsterer` ([#1462], thanks [@westnordost])
+* Update icons for some shop presets: (`vacant` [#1457], `art` [#1458], `craft` [#1459], `e-cigarette` [#1460], `amenity=marketplace` [#1461], thanks [@westnordost])
+#### New and Changed Fields
+* Add fields for Cycle Barrier properties: `cycle_barrier` type, `cycle_barrier:installation`, `deflection` angle, `maxwidth:physical`, `opening` width, `overlap` width and `spacing` distance ([#1232], thanks [@k-yle])
+* Add field for Center-Pivot Irrigation `irrigation=pivot` ([#1320], thanks [@arch0345])
+* Add `entrance=shop` value also to Entrance Type field ([#1446])
+* Add field toilets to `amenity=fast_food` as `moreFileds` ([#1454], thanks [@Avan2021])
+* Use translated strings for `bridge`  and `tunnel` values also in `structure` fields
+* Add values `stone` and `tilework` to Artwork Type field ([#1443], thanks [@okainov])
+#### Bugfixes
+* Remove tag deprecation rule for `shop=photo_studio` ([#1407])
+#### Documentation and Other Changes
+* Remove `interim` directory in main branch (it's now available in a dedicated branch called `interim`) ([#1307])
+
+[#1232]: https://github.com/openstreetmap/id-tagging-schema/pull/1232
+[#1232]: https://github.com/openstreetmap/id-tagging-schema/pull/1232
+[#1320]: https://github.com/openstreetmap/id-tagging-schema/pull/1320
+[#1327]: https://github.com/openstreetmap/id-tagging-schema/pull/1327
+[#1307]: https://github.com/openstreetmap/id-tagging-schema/pull/1307
+[#1407]: https://github.com/openstreetmap/id-tagging-schema/issues/1407
+[#1430]: https://github.com/openstreetmap/id-tagging-schema/pull/1430
+[#1441]: https://github.com/openstreetmap/id-tagging-schema/pull/1441
+[#1443]: https://github.com/openstreetmap/id-tagging-schema/pull/1443
+[#1446]: https://github.com/openstreetmap/id-tagging-schema/pull/1446
+[#1448]: https://github.com/openstreetmap/id-tagging-schema/pull/1448
+[#1451]: https://github.com/openstreetmap/id-tagging-schema/pull/1451
+[#1454]: https://github.com/openstreetmap/id-tagging-schema/pull/1454
+[#1457]: https://github.com/openstreetmap/id-tagging-schema/pull/1457
+[#1458]: https://github.com/openstreetmap/id-tagging-schema/pull/1458
+[#1459]: https://github.com/openstreetmap/id-tagging-schema/pull/1459
+[#1460]: https://github.com/openstreetmap/id-tagging-schema/pull/1460
+[#1461]: https://github.com/openstreetmap/id-tagging-schema/pull/1461
+[#1462]: https://github.com/openstreetmap/id-tagging-schema/pull/1462
+[@Avan2021]: https://github.com/Avan2021
+[@sun-geo]: https://github.com/sun-geo
+[@CorruptComputer]: https://github.com/CorruptComputer
+
+
+# 6.9.1
+##### 2025-Feb-18
+
+* fix "Detached House" translation in en-GB ([#1438])
+
+[#1438]: https://github.com/openstreetmap/id-tagging-schema/issues/1438
+
+
 # 6.9.0
 ##### 2025-Feb-06
 

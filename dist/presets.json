@@ -4334,6 +4334,16 @@
             "shop": "hairdresser"
         }
     },
+    "shop/groundskeeping": {
+        "icon": "fas-tractor",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "shop": "groundskeeping"
+        }
+    },
     "shop/greengrocer": {
         "icon": "fas-carrot",
         "fields": [
@@ -4594,7 +4604,7 @@
         }
     },
     "shop/e-cigarette": {
-        "icon": "maki-shop",
+        "icon": "fas-smoking",
         "moreFields": [
             "{shop}",
             "min_age"
@@ -4684,7 +4694,7 @@
         }
     },
     "shop/craft": {
-        "icon": "fas-cut",
+        "icon": "fas-palette",
         "geometry": [
             "point",
             "area"
@@ -5078,6 +5088,22 @@
             "shop": "beauty"
         }
     },
+    "shop/bbq": {
+        "icon": "maki-bbq",
+        "fields": [
+            "{shop}"
+        ],
+        "moreFields": [
+            "{shop}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "shop": "bbq"
+        }
+    },
     "shop/bathroom_furnishing": {
         "icon": "fas-bath",
         "geometry": [
@@ -5122,7 +5148,7 @@
         }
     },
     "shop/art": {
-        "icon": "maki-shop",
+        "icon": "maki-art-gallery",
         "geometry": [
             "point",
             "area"
@@ -5213,7 +5239,7 @@
         "matchScore": 0.8
     },
     "shop/vacant": {
-        "icon": "maki-shop",
+        "icon": "fas-store-alt-slash",
         "fields": [
             "name",
             "address",
@@ -15176,7 +15202,8 @@
         ],
         "moreFields": [
             "{@templates/contact}",
-            "address"
+            "address",
+            "irrigation_pivot"
         ],
         "geometry": [
             "area"
@@ -16623,6 +16650,7 @@
             "lamp_mount",
             "direction",
             "height",
+            "operator",
             "ref"
         ]
     },
@@ -19761,13 +19789,13 @@
             "ref",
             "fire_hydrant/type",
             "colour",
+            "fire_hydrant/position",
             "water_source",
             "couplings"
         ],
         "moreFields": [
             "fire_hydrant/diameter",
             "fire_hydrant/pressure",
-            "fire_hydrant/position",
             "level",
             "survey/date"
         ],
@@ -20159,7 +20187,7 @@
         }
     },
     "craft/upholsterer": {
-        "icon": "temaki-tools",
+        "icon": "fas-couch",
         "geometry": [
             "point",
             "area"
@@ -22021,7 +22049,17 @@
     "barrier/cycle_barrier": {
         "icon": "temaki-cycle_barrier",
         "fields": [
-            "access"
+            "access",
+            "wheelchair",
+            "cycle_barrier",
+            "maxwidth/physical",
+            "opening",
+            "spacing",
+            "overlap",
+            "deflection"
+        ],
+        "moreFields": [
+            "cycle_barrier/installation"
         ],
         "geometry": [
             "vertex"
@@ -22810,6 +22848,22 @@
         ],
         "tags": {
             "amenity": "waste_basket"
+        }
+    },
+    "amenity/veterinary_pharmacy": {
+        "icon": "temaki-veterinary_care",
+        "fields": [
+            "{amenity/pharmacy}"
+        ],
+        "moreFields": [
+            "{amenity/pharmacy}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "veterinary_pharmacy"
         }
     },
     "amenity/veterinary": {
@@ -24241,7 +24295,7 @@
         }
     },
     "amenity/marketplace": {
-        "icon": "maki-shop",
+        "icon": "fas-store",
         "fields": [
             "name",
             "operator",
@@ -24924,6 +24978,7 @@
             "outdoor_seating",
             "smoking",
             "takeaway",
+            "toilets",
             "fhrs/id-GB",
             "website/menu"
         ],
