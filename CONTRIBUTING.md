@@ -53,7 +53,7 @@ Icons from different sources (_icon sets_) can be used in the tagging schema. He
 ![Screenshot of a preset in iD with the information details open.](https://github.com/openstreetmap/id-tagging-schema/assets/111561/13549318-cd7c-4dd1-9948-7a2d84662f04)
 
 iD and other tools provide users with a way to learn more about the main tag of a preset. It is important to provide good information in this information panel. Here are a few notes on how to do this:
-- Does your tag have a Wikidata entry? Click the small pencil icon next to the text to open the Wikidata item on the OSM wiki. Improve this wording if needed. If the Wikidata item is missing, [learn more about how to add it in "Current methods for creating new items"](https://wiki.openstreetmap.org/wiki/Data_items#Item_creation_process).
+- Does your tag have a Wikibase entry? Click the small pencil icon next to the text to open the Wikibase item on the OSM wiki. Improve this wording if needed. If the Wikibase item is missing, [learn more about how to add it in "Current methods for creating new items"](https://wiki.openstreetmap.org/wiki/Data_items#Item_creation_process).
 - Does your tag have a Wiki page with a good image?
 - Your preset might need [a `reference` property](https://github.com/ideditor/schema-builder?tab=readme-ov-file#reference) to force the system to use a specific tag for the information section.
 
