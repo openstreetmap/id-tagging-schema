@@ -49,7 +49,7 @@ In addition, the deprecated tag must have reasonably high usage to be considered
 
 Deprecation rules work such that the user sees a message with suggestions and can act only when editing the given element. This makes them well-suited for gradual, human-reviewed updates of taggings like crossings. However, they are not suitable for cleaning up incorrect tagging from the database, especially for low-volume changes.
 
-There are, however, alternatives to consider: 
+There are, however, alternatives to consider:
 - Your cleanup task might be eligible for an automated (bot) edit. [Please learn more on the wiki…](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct)
 - If your task is small enough, a few [editing sessions in JOSM](https://wiki.openstreetmap.org/wiki/JOSM) will often do the trick. However, mass-replacing without checking each object is still considered an automated edit, so the [guidelines apply](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct). Please consult other mappers first.
 - A good way to work down a list of tasks is to create [a MapRoulette Challenge](https://maproulette.org/).
@@ -65,7 +65,7 @@ The user interface must be clear, concise, and easy to use, leaving no room for 
 - Check the search functionality to ensure other presets do not cause confusion.
 - Select an icon or start the process to create a new one.
 - Define which fields to show (`fields`) and suggest (`moreFields`), considering the order of fields.
-- Check the `(i)` documentation and add or update the [OSM Wikibase item](https://wiki.openstreetmap.org/wiki/Data_items) if needed to provide a helpful short text.
+- Check the [`(i)` documentation](./CONTRIBUTING.md#info-i) and add or update the OSM Wiki data item if needed to provide a helpful short text.
 - Use the PR preview to add test cases with deep links to OSM objects that demonstrate the preset in use.
 
 ## 3. Implement
