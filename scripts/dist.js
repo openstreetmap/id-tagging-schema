@@ -11,6 +11,7 @@ if (process.argv.includes('translations')) {
 }
 
 schemaBuilder.buildDist({
+  inDirectory: "./og_data",
   taginfoProjectInfo: {
     name: 'iD Tagging Schema',
     description: 'Presets available in the iD editor, Rapid, StreetComplete, Go Map!!, Every Door, and other applications',

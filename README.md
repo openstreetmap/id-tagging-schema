@@ -1,6 +1,36 @@
-[![test](https://github.com/openstreetmap/id-tagging-schema/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/openstreetmap/id-tagging-schema/actions/workflows/test.yml) [![npm version](https://badge.fury.io/js/%40openstreetmap%2Fid-tagging-schema.svg)](https://badge.fury.io/js/%40openstreetmap%2Fid-tagging-schema)
-
 # iD Tagging Schema
+
+**This is a custom distribution of id-tagging-schema for openglide. This distribution is to be used with og-id-editor, the custom build of open street maps iD editor for free flight editing.**
+
+
+# og iD Tagging Schema
+
+**This is a custom distribution of Open Street Maps `id-tagging-schema` for openglide.club. This distribution is to be used with [og-id-editor](https://github.com/openglide/og-id-editor), the custom build of open street maps iD editor for free flight editing.**
+
+This project defines a custom tagging schema for Open Street Map's iD editor. The iD editor is a general-purpose open street map editor which has far more features than what is necessary for editing OSM free flight data. This schema helps editors who are unfamiliar with OSM focus on free-flight-only features and tags.
+
+## Changes from upstream
+
+The following are the known changes from upstream. One priority for this project is to retain as few differences with upstream as possible, so they can be kept in sync without conflict.
+
+- Primary data directory changed: `data` -> `og_data`
+- To account for the above change: `scripts/build.js` and `scripts/dist.js` have `inDirectory` set to `og_data`.
+
+## Development
+
+Begin by running `npm install` to install dependencies.
+
+`og-id-editor` uses the environment variable `ID_PRESETS_CDN_URL` to define the URL where it fetches `og-id-tagging-schema`.
+
+To make changes to this schema, run through the following procedure:
+1. Make the changes you want in [data](./data)
+2. Run `npm run build && npm run dist` to build your changes
+3. Run `npx serve --cors` to make your changes available at https://localhost:3000
+4. Point `og-id-editor` at your local server: `ID_PRESETS_CDN_URL=http://localhost:3000`
+5. Open `og-id-editor` in a browser: http://localhost:8080
+
+
+# id-tagging-schema
 
 This is the directory of OpenStreetMap tagging data used by the [iD editor](https://github.com/openstreetmap/iD).
 It includes presets, fields, deprecations, and more.
