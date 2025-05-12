@@ -23,6 +23,39 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.11.0
+##### 2025-May-12
+
+#### New Presets
+* Add `crossing=informal` as unsearchable preset for point and line geometries ([#1140], thanks [@mikaeldui])
+#### New and Changed Fields
+* Remove `source` field by marking it as a field to be used on changesets (only) ([#1508], thanks [@tordans])
+#### Changed Presets
+* Add `ref` field to `amenity=bicycle_rental` ([#1519], thanks [@kjonosm])
+* Update reference tags for recycling containers and centres ([#1497], thanks [@Dimitar5555])
+* Add search term "empty" to Vacant Shop preset ([#1499], thanks [@matkoniecz])
+#### Deprecated Tags
+* Remove `highway=ford` deprecation ([#1492], thanks [@quincylvania])
+#### Bug Fixes
+* Fix broken "Address" documentation link ([#1489], thanks [@Vectorial1024])
+#### Documentation and Other Changes
+* Consistently use term "Wikibase" for data items also in contribution guidelines ([#1504], thanks [@matkoniecz])
+* Clarify term "Wikibase" for data items in the OSM wiki ([#1502], thanks [@matkoniecz])
+* Set up `release-drafter` ([#1503])
+
+[#1140]: https://github.com/openstreetmap/id-tagging-schema/pull/1140
+[#1508]: https://github.com/openstreetmap/id-tagging-schema/pull/1508
+[#1519]: https://github.com/openstreetmap/id-tagging-schema/pull/1519
+[#1497]: https://github.com/openstreetmap/id-tagging-schema/pull/1497
+[#1499]: https://github.com/openstreetmap/id-tagging-schema/pull/1499
+[#1492]: https://github.com/openstreetmap/id-tagging-schema/pull/1492
+[#1489]: https://github.com/openstreetmap/id-tagging-schema/pull/1489
+[#1504]: https://github.com/openstreetmap/id-tagging-schema/pull/1504
+[#1502]: https://github.com/openstreetmap/id-tagging-schema/pull/1502
+[#1503]: https://github.com/openstreetmap/id-tagging-schema/pull/1503
+[@Vectorial1024]: https://github.com/Vectorial1024
+
+
 # 6.10.0
 ##### 2025-Mar-20
 

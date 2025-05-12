@@ -53,22 +53,22 @@
             },
             "fields": {
                 "access": {
-                    "label": "Erlaubter Zugang",
+                    "label": "Zugang erlaubt",
                     "options": {
                         "customers": {
-                            "description": "Beschränkt auf Kunden am Zielort",
+                            "description": "Zugang beschränkt auf Kunden des Zielortes",
                             "title": "Kunden"
                         },
                         "designated": {
-                            "description": "Zugang entsprechend lokaler Vorschriften oder Schildern erlaubt",
-                            "title": "rechtsverbindlich vorgesehen / gewidmet"
+                            "description": "Zugang entsprechend lokaler Vorschriften oder Schildern vorgesehen",
+                            "title": "Vorgesehen / Gewidmet"
                         },
                         "destination": {
                             "description": "Zugang erlaubt, Durchgang verboten",
-                            "title": "Ziel"
+                            "title": "Anlieger"
                         },
                         "dismount": {
-                            "description": "Zugang erlaubt, für Fahrräder nur schiebend",
+                            "description": "Zugang erlaubt, Radfahrer müssen absteigen",
                             "title": "Absteigen"
                         },
                         "no": {
@@ -80,11 +80,11 @@
                             "title": "Geduldet"
                         },
                         "permit": {
-                            "description": "Zugang nur mit Erlaubnis nach Zustimmung zu allgemeinen Bedingungen",
-                            "title": "Zugang nur nach Zustimmung zu Nutzungsbedingungen"
+                            "description": "Zugang nur nach Genehmigung oder Ausweis",
+                            "title": "Nach Genehmigung"
                         },
                         "private": {
-                            "description": "Zugang nur nach Zustimmung des Eigentümers auf individueller Basis",
+                            "description": "Zugang nur nach individueller Zustimmung des Eigentümers",
                             "title": "Privat"
                         },
                         "unknown": {
@@ -103,7 +103,7 @@
                         "bicycle": "Fahrräder",
                         "foot": "Fußgänger",
                         "horse": "Pferde",
-                        "motor_vehicle": "Motorfahrzeuge"
+                        "motor_vehicle": "Kraftfahrzeuge"
                     }
                 },
                 "access_aisle": {
@@ -115,7 +115,7 @@
                         "customers": "Nur für Kunden",
                         "no": "Kein Zugang",
                         "permissive": "Bis auf Widerruf",
-                        "permit": "Nur für Berechtigte, Berechtigung wird i. d. R. erteilt",
+                        "permit": "Nur nach Genehmigung",
                         "private": "Privat",
                         "unknown": "Unbekannt",
                         "yes": "Öffentlich"
@@ -1046,7 +1046,7 @@
                 "crossing": {
                     "label": "Typ",
                     "options": {
-                        "traffic_signals": "Gehweh-Querung mit Ampel",
+                        "traffic_signals": "Querung mit Ampelregelung",
                         "uncontrolled": "Nur Fahrbahnmarkierung",
                         "unmarked": "Ohne Fahrbahnmarkierung oder Ampel"
                     }
@@ -3818,8 +3818,7 @@
                         "osm notes": "OpenStreetMap Hinweise",
                         "streetlevel imagery": "Straßenfotos",
                         "survey": "Erhebung vor Ort"
-                    },
-                    "terms": "quellen,referenz"
+                    }
                 },
                 "source/population": {
                     "label": "Quelle der Bevölkerungszahl"
@@ -4704,24 +4703,29 @@
                     "terms": "adresse"
                 },
                 "advertising": {
-                    "name": "Werbeträger",
-                    "terms": "werbeträger,werbemittel,werbung,werbeschild,schild,poster"
+                    "name": "Werbung",
+                    "terms": "werbeschild,schild,poster,neon,fahne,flagge,spam,werbebildschirm",
+                    "aliases": "Werbeträger\nWerbemittel\nReklame\nReklamefläche"
                 },
                 "advertising/billboard": {
                     "name": "Plakatwand",
-                    "terms": "werbetafel,anschlagtafel,reklametafel,anschlagbrett"
+                    "terms": "werbung,spam",
+                    "aliases": "Plakattafel\nWerbetafel\nReklametafel"
                 },
                 "advertising/board": {
-                    "name": "Anschlagtafel",
-                    "terms": "anschlagtafel,anschlagbrett,plakatwand"
+                    "name": "Anschlagbrett",
+                    "terms": "schwarzes brett,flyer,bulletin,kork,pinnwand,ankündigung",
+                    "aliases": "Anschlagtafel"
                 },
                 "advertising/column": {
                     "name": "Litfaßsäule",
-                    "terms": "litfaßsäule,anschlagsäule,plakatsäule,anzeigeständer,plakatträger,werbung"
+                    "terms": "werbung,spam",
+                    "aliases": "Anschlagsäule\nPlakatsäule"
                 },
                 "advertising/poster_box": {
                     "name": "Plakatbox",
-                    "terms": "plakatbox,city-light-poster,city light,city-light,posterbox"
+                    "terms": "city-light-poster,city light,city-light",
+                    "aliases": "Posterbox"
                 },
                 "advertising/totem": {
                     "name": "Werbemast",
@@ -4731,115 +4735,133 @@
                     "name": "Seilbahnen ..."
                 },
                 "aerialway/cable_car": {
-                    "name": "Seilbahn",
-                    "terms": "seilbahn,gondelbahn,kabinenbahn"
+                    "name": "Pendelbahn",
+                    "terms": "seilbahn,gondeln,gondelbahn",
+                    "aliases": "Kabinenbahn\nSeilbahn"
                 },
                 "aerialway/chair_lift": {
                     "name": "Sessellift",
-                    "terms": "sessellift,sesselbahn,sitzlift"
+                    "terms": "sessellift",
+                    "aliases": "Sesselbahn\nSitzlift"
                 },
                 "aerialway/drag_lift": {
                     "name": "Schlepplift",
-                    "terms": "schlepplift,tellerlift,bügelschlepplift"
+                    "terms": "schlepplift,tellerlift,bügelschlepplift,ankerlift"
                 },
                 "aerialway/gondola": {
                     "name": "Gondelbahn",
-                    "terms": "liftkabel,lift,schifahren,snowboarden"
+                    "terms": "liftkabel,lift,schifahren,snowboarden,gondeln"
                 },
                 "aerialway/goods": {
                     "name": "Materialseilbahn",
-                    "terms": "materialseilbahn,lastenseilbahn"
+                    "terms": "materialseilbahn",
+                    "aliases": "Lastenseilbahn\nGüterseilbahn"
                 },
                 "aerialway/j-bar": {
                     "name": "Einerschlepplift",
-                    "terms": "einerschlepplift,j-bar"
+                    "terms": "j-bar",
+                    "aliases": "J-Bügel-Lift\nL-Bügel-Lift"
                 },
                 "aerialway/magic_carpet": {
-                    "name": "Kinderskilift",
-                    "terms": "kinderskilift,zauberteppichlift,babylift,kinderschilift"
+                    "name": "Laufbandlift",
+                    "terms": "zauberteppich,babylift",
+                    "aliases": "Teppichlift\nKinderskilift\nKinderschilift"
                 },
                 "aerialway/mixed_lift": {
                     "name": "Kombiseilbahn",
-                    "terms": "kombiseilbahn,kombinationseilbahn,material- und personenseilbahn"
+                    "terms": "material- und personenseilbahn",
+                    "aliases": "Kombibahn\nKombinationseilbahn"
                 },
                 "aerialway/platter": {
                     "name": "Tellerlift",
-                    "terms": "tellerlift,teller-skilift,tellerschilift"
+                    "terms": "ski,schi",
+                    "aliases": "Teller-Skilift\nTellerschilift"
                 },
                 "aerialway/pylon": {
                     "name": "Seilbahnmast",
-                    "terms": "seilbahnmast,liftmast,liftstütze"
+                    "terms": "mast,liftmast,liftstütze"
                 },
                 "aerialway/rope_tow": {
                     "name": "Schlepptaulift",
-                    "terms": "schlepptaulift,seilschlepplift,übungslift"
+                    "terms": "seilschlepplift,übungslift,nussknackerlift,babylift"
                 },
                 "aerialway/t-bar": {
                     "name": "Zweierschlepplift",
-                    "terms": "zweierschlepplift,t-bar"
+                    "terms": "t-bar",
+                    "aliases": "Ankerlift\nT-Bügel-Lift"
                 },
                 "aerialway/zip_line": {
                     "name": "Seilrutsche",
-                    "terms": "seilrutsche,flying fox,seilbahn,tirolienne,tyrolienne,guerillarutsche"
+                    "terms": "zipline,flying fox",
+                    "aliases": "Guerillarutsche\nTirolienne\nTyrolienne"
                 },
                 "aeroway": {
                     "name": "Flugverkehr ..."
                 },
                 "aeroway/aerodrome": {
                     "name": "Flughafen",
-                    "terms": "flughafen,flugplatz,airport"
+                    "terms": "flugzeug,jet",
+                    "aliases": "Flugplatz\nAirport"
                 },
                 "aeroway/apron": {
                     "name": "Vorfeld",
-                    "terms": "vorfeld,flugzeugparken,fluglinie,tarmac,taxiway,hardstand"
+                    "terms": "flugzeugparken,rangieren,abstellfläche"
                 },
                 "aeroway/gate": {
                     "name": "Flugsteig",
-                    "terms": "flugsteig,flughafengate,gate"
+                    "terms": "flughafengate,wartebereich",
+                    "aliases": "Gate"
                 },
                 "aeroway/hangar": {
                     "name": "Hangar",
-                    "terms": "hangar,flugzeughalle"
+                    "terms": "halle,flugzeug",
+                    "aliases": "Flugzeughalle"
                 },
                 "aeroway/helipad": {
                     "name": "Hubschrauberlandeplatz",
-                    "terms": "hubschrauberlandeplatz,helikopterlandeplatz,heliport"
+                    "terms": "hubschrauber,heli,helikopter,hubschrauberplattform",
+                    "aliases": "Heliport\nHelipad\nHelikopterlandeplatz"
                 },
                 "aeroway/holding_position": {
                     "name": "Rollhalteort",
-                    "terms": "rollhalteort,rollhalt"
+                    "terms": "stop,halt",
+                    "aliases": "Rollhalt"
                 },
                 "aeroway/jet_bridge": {
                     "name": "Fluggastbrücke",
-                    "terms": "fluggastbrücke,fluggaststeig,fluggaststeg,flugzeugbrücke,flugzeugsteg,flugzeugsteig,passagierbrücke,passagiersteig,passagiersteg,gangway,laufbrücke,laufsteig,laufsteg,jetbrücke"
+                    "terms": "fluggastbrücke,finger,rüssel,gangway,passagierbrücke,fluggaststeig,fluggaststeg,flugzeugbrücke,flugzeugsteg,flugzeugsteig,passagiersteig,passagiersteg,laufbrücke,laufsteig,laufsteg,jetbrücke"
                 },
                 "aeroway/parking_position": {
                     "name": "Flugzeugparkposition",
-                    "terms": "flugzeugparkposition"
+                    "terms": "parken"
                 },
                 "aeroway/runway": {
                     "name": "Start- und Landebahn",
-                    "terms": "start- und landebahn,start-/landebahn,startbahn,landebahn"
+                    "terms": "runway,piste,startbahn,landebahn"
                 },
                 "aeroway/spaceport": {
                     "name": "Weltraumbahnhof",
-                    "terms": "weltraumbahnhof,raketenstartbasis,raketenstartkomplex,raketenstartanlage"
+                    "terms": "spaceport,raketenstartbasis,raketenstartkomplex,raketenstartanlage,raketen,kosmodrom",
+                    "aliases": "Raumhafen"
                 },
                 "aeroway/taxiway": {
                     "name": "Rollbahn",
-                    "terms": "rollbahn,rollweg"
+                    "terms": "taxi",
+                    "aliases": "Rollweg"
                 },
                 "aeroway/terminal": {
                     "name": "Flughafenterminal",
-                    "terms": "flughafenterminal,flughafen-abfertigungs-gebäude,flughafen-empfangs-gebäude,terminal"
+                    "terms": "abfertigung,terminal",
+                    "aliases": "Abfertigungshalle"
                 },
                 "aeroway/windsock": {
                     "name": "Windsack",
-                    "terms": "windsack"
+                    "terms": "windhose,windsocke,windbeutel"
                 },
                 "allotments/plot": {
                     "name": "Gemeinschaftsgartenparzelle",
-                    "terms": "gemeinschaftsgartenparzelle,gartenparzelle,kleingartenparzelle,schrebergartenparzelle,heimgartenparzelle,bünt,pünt,beunde"
+                    "terms": "parzelle,bünt,pünt,beunde,datsche,laube,garten",
+                    "aliases": "Kleingartenparzelle\nSchrebergartenparzelle\nHeimgartenparzelle\nFamiliengartenparzelle"
                 },
                 "amenity": {
                     "name": "Einrichtung"
@@ -4909,7 +4931,7 @@
                     "terms": "fahrradverleih,fahrradmietstation"
                 },
                 "amenity/bicycle_repair_station": {
-                    "name": "Fahrradreparatur-Werkzeugkasten",
+                    "name": "Fahrradreparaturstation",
                     "terms": "fahrradreparatur-werkzeugkasten,fahrradreparatur-werkzeug-standplatz,fahrrad-stützpunkt,fahrrad-station,fahrrad-servicestationen"
                 },
                 "amenity/bicycle_wash": {
@@ -7190,6 +7212,9 @@
                 "highway/crossing": {
                     "name": "Übergang",
                     "terms": "überweg,übergang,überquerung,querung,fußgängerüberweg,fußgängerübergang,fußgängerüberquerung,fußgängerquerung"
+                },
+                "highway/crossing/informal": {
+                    "name": "Informeller Übergang"
                 },
                 "highway/crossing/traffic_signals": {
                     "name": "Überweg mit Ampelregelung",

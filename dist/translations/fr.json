@@ -294,12 +294,13 @@
                         "graffiti": "Graffiti",
                         "installation": "Installation artistique",
                         "mosaic": "Mosaïque",
-                        "mural": "Murale",
+                        "mural": "Peinture ou fresque murale",
                         "painting": "Peinture",
                         "relief": "Relief",
                         "sculpture": "Sculpture",
                         "statue": "Statue",
-                        "stone": "Pierre travaillée par un artiste"
+                        "stone": "Pierre travaillée par un artiste",
+                        "tilework": "Carrelage"
                     }
                 },
                 "ascent": {
@@ -615,7 +616,7 @@
                         "hangar": "Hangar",
                         "hospital": "Bâtiment d'hôpital",
                         "hotel": "Bâtiment d'hôtel",
-                        "house": "Maison mitoyenne",
+                        "house": "Maison",
                         "houseboat": "Bateau habitable",
                         "hut": "Hutte",
                         "industrial": "Bâtiment industriel",
@@ -633,7 +634,7 @@
                         "ruins": "Bâtiment en ruine",
                         "school": "Bâtiment scolaire - élémentaire ou secondaire",
                         "semidetached_house": "Maison mitoyenne\nMaison jumelée",
-                        "service": "Bâtiment de service (technique)",
+                        "service": "Bâtiment de service",
                         "shed": "Cabanon",
                         "stable": "Écurie",
                         "stadium": "Bâtiment du stade",
@@ -1203,13 +1204,18 @@
                 "cycle_barrier": {
                     "label": "Type",
                     "options": {
-                        "double": "Double"
+                        "diagonal": "En diagonal",
+                        "double": "Double",
+                        "single": "Simple",
+                        "tilted": "Inclinée",
+                        "triple": "Triple"
                     }
                 },
                 "cycle_barrier/installation": {
                     "label": "Installation",
                     "options": {
                         "fixed": "Fixée",
+                        "openable": "Ouvrable",
                         "removable": "Détachable"
                     }
                 },
@@ -1228,10 +1234,12 @@
                             "title": "Aucune"
                         },
                         "opposite": {
-                            "description": "Veuillez mettre à jour avec oneway=yes, oneway:bicycle=no, et cycleway:both=no etc."
+                            "description": "Veuillez mettre à jour avec oneway=yes, oneway:bicycle=no, et cycleway:both=no etc.",
+                            "title": "(Déprecié) Circulation cyclable à contre-sens sans voie dédiée"
                         },
                         "opposite_lane": {
-                            "description": "Veuillez mettre à jour avec oneway, oneway:bicycle, et cycleway:left/right=lane etc."
+                            "description": "Veuillez mettre à jour avec oneway, oneway:bicycle, et cycleway:left/right=lane etc.",
+                            "title": "(Déprecié) Bande cyclable à contre-sens"
                         },
                         "separate": {
                             "description": "Indique que la piste cyclable à été cartographiée comme une géométrie séparée",
@@ -2787,6 +2795,9 @@
                     "label": "Feux ouverts autorisés",
                     "terms": "feu de camp"
                 },
+                "opening": {
+                    "label": "Largeur d'ouverture (mètres)"
+                },
                 "opening_date": {
                     "label": "Date d'ouverture prévue",
                     "placeholder": "AAAA-MM-JJ"
@@ -2823,6 +2834,9 @@
                 "outdoor_seating": {
                     "label": "Places en terrasse",
                     "terms": "places en terrase,terrasse,beer garden,biergarten,restaurant,bar"
+                },
+                "overlap": {
+                    "label": "Largeur de recouvrement (mètres)"
                 },
                 "panoramax": {
                     "label": "ID d'image Panoramax",
@@ -2896,7 +2910,7 @@
                         },
                         "surface": {
                             "description": "Un niveau de parking au sol",
-                            "title": "Revêtement"
+                            "title": "En surface"
                         },
                         "underground": {
                             "description": "Parking souterrain",
@@ -3802,11 +3816,13 @@
                         "osm notes": "Notes OpenStreetMap",
                         "streetlevel imagery": "Photos de la rue",
                         "survey": "Vérifié sur le terrain"
-                    },
-                    "terms": "sources,références"
+                    }
                 },
                 "source/population": {
                     "label": "Population: source"
+                },
+                "spacing": {
+                    "label": "Distance entre les barrières (mètres)"
                 },
                 "species": {
                     "label": "Espèces",
@@ -5982,6 +5998,9 @@
                     "name": "Vétérinaire",
                     "terms": "vétérinaire"
                 },
+                "amenity/veterinary_pharmacy": {
+                    "name": "Pharmacie véterinaire"
+                },
                 "amenity/waste/dog_excrement": {
                     "name": "Bac à excrément de chien",
                     "terms": "bac à excrément de chien,poubelle,déchets,crottes,chien"
@@ -6182,7 +6201,7 @@
                     "terms": "barrière,portail,accès,fil,fer,barré,barbelé"
                 },
                 "barrier/handrail": {
-                    "name": "Rampe"
+                    "name": "Rampe, Main courante"
                 },
                 "barrier/hedge": {
                     "name": "Haie",
@@ -6504,7 +6523,7 @@
                     "aliases": "Maison jumelée"
                 },
                 "building/service": {
-                    "name": "Bâtiment de service (technique)",
+                    "name": "Bâtiment de service",
                     "terms": "bâtiment de services,batiment de services,services"
                 },
                 "building/shed": {
@@ -7143,6 +7162,9 @@
                 "highway/crossing": {
                     "name": "Passage piéton",
                     "terms": "passage piéton"
+                },
+                "highway/crossing/informal": {
+                    "name": "Passage piéton informel"
                 },
                 "highway/crossing/traffic_signals": {
                     "name": "Passage piéton avec feux de signalisation",
@@ -9979,6 +10001,9 @@
                     "name": "Fournitures pour salles de bain",
                     "terms": "fournitures pour salles de bain"
                 },
+                "shop/bbq": {
+                    "name": "Magasin pour barbecues"
+                },
                 "shop/beauty": {
                     "name": "Salon de beauté",
                     "terms": "salon de beauté,institut de beauté,épilation"
@@ -10267,6 +10292,9 @@
                 "shop/greengrocer": {
                     "name": "Primeur",
                     "terms": "fruiterie,marchand de fruits et légumes,maraicher,maraîcher,primeur"
+                },
+                "shop/groundskeeping": {
+                    "name": "Magasin d'entretien du jardin"
                 },
                 "shop/hairdresser": {
                     "name": "Salon de coiffure",
@@ -10774,7 +10802,8 @@
                 },
                 "tourism/information/map": {
                     "name": "Carte",
-                    "terms": "plan"
+                    "terms": "plan",
+                    "aliases": "Plan\nTable d'orientation"
                 },
                 "tourism/information/office": {
                     "name": "Centre d'accueil des visiteurs",
