@@ -1,8 +1,7 @@
 {
     "icon": "temaki-pedestrian_crosswalk",
     "fields": [
-        "crossing",
-        "{@templates/crossing/markings}",
+        "crossing/markings_zebra",
         "{@templates/crossing/defaults}",
         "surface"
     ],
@@ -16,12 +15,31 @@
     "tags": {
         "highway": "footway",
         "footway": "crossing",
-        "crossing": "zebra"
+        "crossing": "uncontrolled",
+        "crossing_ref": "zebra"
+    },
+    "addTags": {
+        "highway": "footway",
+        "footway": "crossing",
+        "crossing": "uncontrolled",
+        "crossing_ref": "zebra",
+        "crossing:markings": "zebra"
     },
     "reference": {
-        "key": "crossing",
+        "key": "crossing_ref",
         "value": "zebra"
     },
-    "name": "{highway/footway/crossing/uncontrolled}",
-    "searchable": false
+    "name": "{highway/crossing/zebra}",
+    "locationSet": {
+        "include": [
+            "AU",
+            "HK",
+            "JP",
+            "NZ",
+            "Q46",
+            "RU",
+            "SG"
+        ]
+    },
+    "matchScore": 1.01
 }
