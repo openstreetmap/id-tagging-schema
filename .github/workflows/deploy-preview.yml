@@ -58,7 +58,7 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{secrets.NETLIFY_AUTH_TOKEN}}
           NETLIFY_SITE_ID: ${{secrets.NETLIFY_SITE_ID}}
-        run: ./node_modules/.bin/netlify deploy --dir=. --alias=pr-${{steps.pull-request-number.outputs.result}}
+        run: ./node_modules/.bin/netlify deploy --no-build --dir=. --alias=pr-${{steps.pull-request-number.outputs.result}}
 
       - name: Add comment to pull request
         uses: actions/github-script@v7
