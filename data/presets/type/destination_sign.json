@@ -15,5 +15,64 @@
     "terms": [
         "exit sign"
     ],
-    "name": "Destination Sign"
+    "name": "Destination Sign",
+    "relation": {
+        "allowDuplicateMembers": true,
+        "members": [
+            {
+                "roles": {
+                    "from": "From"
+                },
+                "geometry": [
+                    "vertex",
+                    "line"
+                ],
+                "matchTags": [
+                    {
+                        "highway": "*"
+                    }
+                ]
+            },
+            {
+                "roles": {
+                    "intersection": "Intersection"
+                },
+                "geometry": [
+                    "vertex"
+                ],
+                "matchTags": [
+                    {}
+                ],
+                "max": 1
+            },
+            {
+                "roles": {
+                    "to": "To"
+                },
+                "geometry": [
+                    "vertex",
+                    "line"
+                ],
+                "matchTags": [
+                    {
+                        "highway": "*"
+                    }
+                ],
+                "min": 1,
+                "max": 1
+            },
+            {
+                "roles": {
+                    "sign": "Physical Sign"
+                },
+                "geometry": [
+                    "point",
+                    "vertex"
+                ],
+                "matchTags": [
+                    {}
+                ]
+            }
+        ]
+    }
 }

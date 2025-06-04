@@ -17,5 +17,68 @@
     "tags": {
         "type": "route"
     },
-    "name": "Route"
+    "name": "Route",
+    "relation": {
+        "optionalTags": {
+            "route": "$1"
+        },
+        "allowDuplicateMembers": true,
+        "members": [
+            {
+                "roles": {
+                    "stop": "Stop",
+                    "stop_exit_only": "Stop (Exit Only)",
+                    "stop_entry_only": "Stop (Entry Only)",
+                    "stop_on_demand": "Stop (only stops on request)",
+                    "stop_on_demand_exit_only": "Stop (Exit Only) (only stops on request)",
+                    "stop_on_demand_entry_only": "Stop (Entry Only) (only stops on request)"
+                },
+                "geometry": [
+                    "point",
+                    "vertex"
+                ],
+                "matchTags": [
+                    {
+                        "public_transport": "stop_position",
+                        "$1": "yes"
+                    }
+                ]
+            },
+            {
+                "roles": {
+                    "platform": "Platform",
+                    "platform_exit_only": "Platform (Exit Only)",
+                    "platform_entry_only": "Platform (Entry Only)",
+                    "platform_on_demand": "Platform (only stops on request)",
+                    "platform_on_demand_exit_only": "Platform (Exit Only) (only stops on request)",
+                    "platform_on_demand_entry_only": "Platform (Entry Only) (only stops on request)"
+                },
+                "geometry": [
+                    "point",
+                    "vertex",
+                    "line",
+                    "area"
+                ],
+                "matchTags": [
+                    {
+                        "public_transport": "platform",
+                        "$1": "yes"
+                    }
+                ]
+            },
+            {
+                "roles": {
+                    "": "",
+                    "forward": "Forwards",
+                    "backward": "Backwards"
+                },
+                "geometry": [
+                    "line"
+                ],
+                "matchTags": [
+                    {}
+                ]
+            }
+        ]
+    }
 }
