@@ -71,4 +71,11 @@ The following `npm` commands are used in this repository:
 * `npm run dist` – validates the source data and compiles output files for iD
 * `npm run translations` – fetches translations from transifex and compiles the translations files for iD
 
-If you have [set up](https://github.com/openstreetmap/iD#installation) your own local instance of the iD editor, you can [configure](https://github.com/openstreetmap/iD/blob/develop/API.md#environment-variables) it to use your local set of tagging presets by setting the `ID_PRESETS_CDN_URL` environment variable. If you do that, don't forget to run `npm run dist` to compile the tagging schema output, as iD will otherwise not see the changes you made.
+### Integration Testing With iD
+When making changes to the schema, you would usually want to visually inspect how your changes would affect the user experience in the iD editor. There are two ways to do this.
+
+You could create a PR to this repository, and we will automatically create an iD instance for you with your changes in effect.
+
+Alternatively, if you have [set up](https://github.com/openstreetmap/iD#installation) your own local instance of the iD editor, you can [configure](https://github.com/openstreetmap/iD/blob/develop/API.md#environment-variables) it to use your local set of tagging presets by setting the `ID_PRESETS_CDN_URL` environment variable.
+* First build and serve the schema:`npm run build && npm run dist && npx serve -Cp 1234`. Remember that you need to run `npm run dist` again should you make further changes.
+* Now, in your iD repository, start an iD instance using your custom schema: `ID_PRESETS_CDN_URL=http://localhost:1234/ npm start`
