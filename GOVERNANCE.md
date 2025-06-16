@@ -38,6 +38,7 @@ Github shows a `(Collaborator)` label next to users with any permission on this 
 The triage role includes:
 - Proactively helping to clarify issues and PRs.
 - Closing issues as duplicates or not planned.
+- Closing abandoned, duplicated or invalid PRs.
 - Assigning labels to issues and PRs.
 
 Github shows a `(Collaborator)` label next to users with any permission on this repository.
