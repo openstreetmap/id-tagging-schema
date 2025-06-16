@@ -38,7 +38,7 @@ Github shows a `(Collaborator)` label next to users with any permission on this 
 The triage role includes:
 - Proactively helping to clarify issues and PRs.
 - Closing issues as duplicates or not planned.
-- Closing abandoned, duplicated or invalid PRs. Note that it is preferable to ping PR author first.
+- Closing abandoned, duplicated or invalid PRs.
 - Assigning labels to issues and PRs.
 
 Github shows a `(Collaborator)` label next to users with any permission on this repository.
@@ -72,6 +72,10 @@ Github shows a `(Contributor)` label next to users that previously committed to 
 - Usually squash merge PRs to make the history simpler
 - Give the merge a meaningful description of the change
 - Add labels to the PR to simplify creating the changelog: `new-*`, `add-*`, `bug`
+
+**How to close…**
+
+-  Note that it is preferable to ping PR or issue author first, if reason for closing can be fixed
 
 ### Releases
 
