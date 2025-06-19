@@ -59,7 +59,7 @@ iD and other tools provide users with a way to learn more about the main tag of 
 
 ### Integration Testing With iD
 
-There are two ways to inspect how the your changes to the schmea affect the user experience in the iD editor:
+There are two ways to inspect how your changes to the schema affect the user experience in the iD editor:
 
 **a. Use the PR preview:**
 
