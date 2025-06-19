@@ -157,7 +157,7 @@
                         "district": "Dystrykt",
                         "district!cn": "Dzielnica/Powiat/Chorągiew",
                         "district!vn": "Okręg/Miejscowość/Dystrykt",
-                        "floor": "Nr piętra",
+                        "floor": "Piętro",
                         "hamlet": "Przysiółek/Kolonia/Osada",
                         "housename": "Nazwa domu",
                         "housenumber": "123",
@@ -177,6 +177,7 @@
                         "subdistrict!vn": "Osiedle/Wspólnota/Miasteczko",
                         "suburb": "Dzielnica",
                         "suburb!jp": "Dzielnica (w mieście wyznaczonym rozporządzeniem)",
+                        "town": "Miejscowość",
                         "unit": "Blok/Oddział"
                     },
                     "terms": "adres"
@@ -297,7 +298,9 @@
                         "painting": "Malowidło",
                         "relief": "Płaskorzeźba",
                         "sculpture": "Rzeźba",
-                        "statue": "Posąg"
+                        "statue": "Posąg",
+                        "stone": "Kamień",
+                        "tilework": "Kafle"
                     }
                 },
                 "ascent": {
@@ -346,7 +349,7 @@
                         "drop_tower": "Wieża swobodnego spadania",
                         "kiddie_ride": "Bujak",
                         "log_flume": "Spływ kłodą",
-                        "maze": "Labirtynt",
+                        "maze": "Labirynt",
                         "pirate_ship": "Statek piracki",
                         "river_rafting": "Spływ pontonowy",
                         "roller_coaster": "Kolejka górska",
@@ -390,7 +393,7 @@
                         "cattle_grid": "Przeszkoda dla bydła",
                         "chain": "Łańcuch",
                         "city_wall": "Mur miejski",
-                        "cycle_barrier": "Bariera rowerowa",
+                        "cycle_barrier": "Przeszkoda antyrowerowa",
                         "ditch": "Rów",
                         "entrance": "Przejście\nPrzerwa",
                         "fence": "Ogrodzenie",
@@ -713,6 +716,27 @@
                         "panning": "Obrotowa"
                     }
                 },
+                "camp_site": {
+                    "label": "Rodzaj",
+                    "options": {
+                        "basic": {
+                            "description": "Wyłącznie miejsce na namiot lub pojazd",
+                            "title": "Podstawowy (wyłącznie miejsce na namiot/pojazd)"
+                        },
+                        "deluxe": {
+                            "description": "Zapewnione są wszystkie typowe udogodnienia, a ponadto pralnia, basen kąpielowy albo inne podobne urządzenia rekreacyjne",
+                            "title": "Deluxe (dostęp do pralni, basenu kąpielowego itd.)"
+                        },
+                        "serviced": {
+                            "description": "Zapewniony jest dostęp do wody, toalet, pryszniców i elektryczności",
+                            "title": "Z udogodnieniami (dostęp do pryszniców i elektryczności)"
+                        },
+                        "standard": {
+                            "description": "Zapewniony jest dostęp do wody i toalet na terenie lub w pobliżu",
+                            "title": "Standardowy (dostęp do wody i toalet)"
+                        }
+                    }
+                },
                 "capacity": {
                     "label": "Liczba miejsc",
                     "placeholder": "50, 100, 200...",
@@ -739,7 +763,7 @@
                     "placeholder": "10, 20, 30..."
                 },
                 "capacity_volume": {
-                    "label": "Objętość (m³)",
+                    "label": "Objętość (metry sześcienne)",
                     "placeholder": "50, 100, 200..."
                 },
                 "caravans": {
@@ -1177,6 +1201,25 @@
                     "label": "Rodzaj",
                     "placeholder": "Domyślny"
                 },
+                "cycle_barrier": {
+                    "label": "Rodzaj",
+                    "options": {
+                        "diagonal": "Ukośna",
+                        "double": "Podwójna",
+                        "single": "Pojedyncza",
+                        "tilted": "Nachylona",
+                        "triple": "Potrójna"
+                    }
+                },
+                "cycle_barrier/installation": {
+                    "label": "Mocowanie",
+                    "options": {
+                        "fixed": "Stała",
+                        "openable": "Otwierana",
+                        "removable": "Zdejmowalna"
+                    },
+                    "terms": "mocowanie,instalacja"
+                },
                 "cycle_network": {
                     "label": "Sieć"
                 },
@@ -1192,12 +1235,12 @@
                             "title": "Brak"
                         },
                         "opposite": {
-                            "description": "Ruch rowerowy dopuszczony \"pod prąd\" na drodze jednokierunkowej, bez wyznaczonego pasa",
-                            "title": "Kontraruch"
+                            "description": "Zastąp tagami oneway=yes, oneway:bicycle=no, cycleway:both=no itd.",
+                            "title": "(Wycofane z użycia) Kontraruch"
                         },
                         "opposite_lane": {
-                            "description": "Wyznaczony pas rowerowy prowadzący \"pod prąd\" na drodze jednokierunkowej",
-                            "title": "Kontrapas"
+                            "description": "Zastąp tagami oneway, oneway:bicycle, cycleway:left/right=lane itd.",
+                            "title": "(Wycofane z użycia) Kontrapas"
                         },
                         "separate": {
                             "description": "Droga dla rowerów fizycznie oddzielona od jezdni, zaznaczona na mapie jako osobna ścieżka",
@@ -1234,6 +1277,9 @@
                 },
                 "defibrillator/location": {
                     "label": "Opis położenia"
+                },
+                "deflection": {
+                    "label": "Kąt"
                 },
                 "delivery": {
                     "label": "Dostawa",
@@ -1505,6 +1551,7 @@
                         "main": "Główne",
                         "secondary": "Boczne",
                         "service": "Techniczne",
+                        "shop": "Wejście do sklepu",
                         "staircase": "Klatka schodowa",
                         "yes": "Nieokreślone"
                     },
@@ -1553,8 +1600,7 @@
                         "lane": "Pas jezdni",
                         "parking_lot": "Miejsce parkingowe",
                         "sidewalk": "Chodnik"
-                    },
-                    "terms": "położenie,lokalizacja"
+                    }
                 },
                 "fire_hydrant/pressure": {
                     "label": "Ciśnienie (bar)",
@@ -2010,7 +2056,7 @@
                         "railway": "Linia kolejowa",
                         "ruins": "Ruiny",
                         "shieling": "Shieling",
-                        "tomb": "Grób",
+                        "tomb": "Grobowiec",
                         "wayside_cross": "Krzyż przydrożny",
                         "wayside_shrine": "Kapliczka przydrożna",
                         "wreck": "Wrak statku"
@@ -2124,7 +2170,7 @@
                     "terms": "dostęp do internetu,internet,wifi,wi-fi"
                 },
                 "internet_access/fee": {
-                    "label": "Dostęp do Internetu (opłata)",
+                    "label": "Opłata za dostęp do internetu",
                     "options": {
                         "customers": "Tylko dla klientów",
                         "no": "Darmowy",
@@ -2139,6 +2185,14 @@
                 "interval": {
                     "label": "Częstotliwość",
                     "terms": "częstotliwość,czas między odjazdami"
+                },
+                "irrigation_pivot": {
+                    "label": "Deszczownia centryczna",
+                    "options": {
+                        "pivot": "Tak",
+                        "undefined": "Nie"
+                    },
+                    "terms": "deszczownia centryczna,deszczownia obrotowa,deszczownia pivot,nawadnianie,irygacja"
                 },
                 "junction/ref_oneway": {
                     "label": "Numer węzła",
@@ -2229,6 +2283,9 @@
                     "label": "Warstwa",
                     "placeholder": "0",
                     "terms": "warstwa"
+                },
+                "layer_1": {
+                    "placeholder": "0"
                 },
                 "leaf_cycle": {
                     "label": "Cykl życiowy",
@@ -2345,11 +2402,17 @@
                     "label": "Zasięg mapy"
                 },
                 "map_type": {
-                    "label": "Rodzaj mapy"
+                    "label": "Rodzaj mapy",
+                    "options": {
+                        "scheme": "Schemat",
+                        "street": "Ulic",
+                        "topo": "Topograficzna",
+                        "toposcope": "Róża kierunków"
+                    }
                 },
                 "mapillary": {
-                    "label": "ID zdjęcia Mapillary",
-                    "terms": "mapillary"
+                    "label": "Identyfikator zdjęcia Mapillary",
+                    "terms": "identyfikator zdjęcia mapillary"
                 },
                 "marker": {
                     "label": "Rodzaj",
@@ -2454,6 +2517,9 @@
                 "maxwidth": {
                     "label": "Maksymalna szerokość pojazdu",
                     "terms": "maksymalna szerokość pojazdu"
+                },
+                "maxwidth/physical": {
+                    "label": "Szerokość przejścia/przejazdu"
                 },
                 "memorial": {
                     "label": "Rodzaj",
@@ -2730,6 +2796,9 @@
                     "label": "Rozpalanie ognia dozwolone",
                     "terms": "rozpalanie ognia,ognisko,grill"
                 },
+                "opening": {
+                    "label": "Szerokość otwarcia (metry)"
+                },
                 "opening_date": {
                     "label": "Oczekiwana data otwarcia",
                     "placeholder": "YYYY-MM-DD"
@@ -2746,7 +2815,7 @@
                 },
                 "operator": {
                     "label": "Zarządca",
-                    "terms": "zarządca,zarządzający,organ prowadzący"
+                    "terms": "zarządca,zarządzający,organ prowadzący,operator"
                 },
                 "operator/type": {
                     "label": "Zarządca (rodzaj)"
@@ -2766,6 +2835,13 @@
                 "outdoor_seating": {
                     "label": "Ogródek restauracyjny",
                     "terms": "ogródek restauracyjny,stoliki na zewnątrz"
+                },
+                "overlap": {
+                    "label": "Szerokość zachodzenia barierek (metry)"
+                },
+                "panoramax": {
+                    "label": "Identyfikator zdjęcia Panoramax",
+                    "terms": "identyfikator zdjęcia panoramax"
                 },
                 "par": {
                     "label": "Par",
@@ -2789,19 +2865,58 @@
                 "parking": {
                     "label": "Rodzaj",
                     "options": {
-                        "carports": "Zadaszenia",
-                        "garage_boxes": "Boksy garażowe",
-                        "half_on_kerb": "W połowie na chodniku",
-                        "lane": "Pas na jezdni",
-                        "layby": "Zatoczka",
-                        "multi-storey": "Wielopoziomowy",
-                        "on_kerb": "Na chodniku",
-                        "rooftop": "Na dachu",
-                        "sheds": "Wiaty",
-                        "shoulder": "Na poboczu",
-                        "street_side": "Obok jezdni",
-                        "surface": "Naziemny",
-                        "underground": "Podziemny"
+                        "carports": {
+                            "description": "Budowla zapewniająca pojazdom ograniczoną osłonę, przeważnie pozbawiona ścian.",
+                            "title": "Zadaszenia"
+                        },
+                        "garage_boxes": {
+                            "description": "Zespół prywatnych boksów garażowych mieszczących po jednym pojeździe.",
+                            "title": "Boksy garażowe"
+                        },
+                        "half_on_kerb": {
+                            "description": "Parkowanie częściowo na chodniku.",
+                            "title": "W połowie na chodniku"
+                        },
+                        "lane": {
+                            "description": "Parkowanie na części jezdni, która może być łatwo przekształcona w pas ruchu.",
+                            "title": "Pas na jezdni"
+                        },
+                        "layby": {
+                            "description": "Parkowanie w zatoczce wzdłuż drogi, przewidziany dla odpoczynku podróżnych.",
+                            "title": "Zatoczka"
+                        },
+                        "multi-storey": {
+                            "description": "Budynek o dwu lub więcej poziomach przeznaczony do parkowania pojazdów.",
+                            "title": "Wielopoziomowy"
+                        },
+                        "on_kerb": {
+                            "description": "Parkowanie w całości na chodniku.",
+                            "title": "Na chodniku"
+                        },
+                        "rooftop": {
+                            "description": "Pojedynczy poziom parkingowy na dachu budynku.",
+                            "title": "Na dachu"
+                        },
+                        "sheds": {
+                            "description": "Prywatne garaże.",
+                            "title": "Garaże"
+                        },
+                        "shoulder": {
+                            "description": "Parkowanie na poboczu drogi.",
+                            "title": "Na poboczu"
+                        },
+                        "street_side": {
+                            "description": "Parkowanie bezpośrednio przy jezdni (lecz nie na niej).",
+                            "title": "Obok jezdni"
+                        },
+                        "surface": {
+                            "description": "Jednopoziomowy parking na powierzchni.",
+                            "title": "Na powierzchni"
+                        },
+                        "underground": {
+                            "description": "Parking podziemny.",
+                            "title": "Podziemny"
+                        }
                     }
                 },
                 "parking/side/orientation": {
@@ -3397,7 +3512,8 @@
                         "demanding_mountain_hiking": "T3: Wymagająca Wędrówka Górska",
                         "difficult_alpine_hiking": "T6: Trudna Wędrówka Alpejska",
                         "hiking": "T1: Wędrówka",
-                        "mountain_hiking": "T2: Wędrówka Górska"
+                        "mountain_hiking": "T2: Wędrówka Górska",
+                        "strolling": "Spacer"
                     },
                     "placeholder": "Wędrówka górska, Wędrówka alpejska...",
                     "terms": "stopień trudności turystyki pieszej"
@@ -3545,7 +3661,8 @@
                     "terms": "sprzedaż używanych,second-hand,second hand"
                 },
                 "segregated": {
-                    "label": "Rozdzielona"
+                    "label": "Rozdzielona",
+                    "terms": "rozdzielona,rozdzielenie,segregacja"
                 },
                 "self_service": {
                     "label": "Samoobsługowa"
@@ -3701,11 +3818,13 @@
                         "osm notes": "Uwagi OpenStreetMap",
                         "streetlevel imagery": "Zdjęcia z poziomu ulicy",
                         "survey": "Wizyta w terenie"
-                    },
-                    "terms": "źródła"
+                    }
                 },
                 "source/population": {
                     "label": "Źródło liczby ludności"
+                },
+                "spacing": {
+                    "label": "Odległość między barierkami (metry)"
                 },
                 "species": {
                     "label": "Gatunek",
@@ -4385,6 +4504,7 @@
                         "coffee": "Kawa",
                         "condoms": "Prezerwatywy",
                         "drinks": "Napoje",
+                        "e-cigarettes": "E-papierosy",
                         "eggs": "Jajka",
                         "electronics": "Urządzenia elektroniczne",
                         "elongated_coin": "Monety pamiątkowe",
@@ -4866,7 +4986,7 @@
                 },
                 "amenity/clinic": {
                     "name": "Przychodnia/poliklinika",
-                    "terms": "przychodnia zdrowia,poliklinika,ośrodek zdrowia,zoz,nzoz,nocna opieka lekarska"
+                    "terms": "przychodnia zdrowia,poliklinika,ośrodek zdrowia,klinika,zoz,nzoz,nocna opieka lekarska"
                 },
                 "amenity/clinic/abortion": {
                     "name": "Klinika aborcyjna",
@@ -5895,6 +6015,10 @@
                     "name": "Weterynarz",
                     "terms": "weterynarz,zakład weterynaryjny,gabinet weterynaryjny,przychodnia weterynaryjna,klinika weterynaryjna,lecznica dla zwierząt,leczenie,zwierzęta"
                 },
+                "amenity/veterinary_pharmacy": {
+                    "name": "Apteka weterynaryjna",
+                    "terms": "apteka weterynaryjna,sklep weterynaryjny,apteka dla zwierząt"
+                },
                 "amenity/waste/dog_excrement": {
                     "name": "Kosz na psie odchody",
                     "terms": "kosz na psie odchody"
@@ -6197,7 +6321,7 @@
                     "terms": "ekrany akustyczne,ekran akustyczny,ekran dźwiękochłonny,bariera"
                 },
                 "barrier/wicket_gate": {
-                    "name": "Furtka (towarzysząca głównej bramie)",
+                    "name": "Furtka",
                     "terms": "furtka,furta"
                 },
                 "barrier/yes": {
@@ -6462,8 +6586,8 @@
                     "name": "Budynek dworca kolejowego"
                 },
                 "building/transportation": {
-                    "name": "Budynek dworca kolejowego",
-                    "terms": "budynek dworca kolejowego,budynek stacji kolejowej,dworzec kolejowy,transport,dworzec,stacja"
+                    "name": "Budynek transportu publicznego",
+                    "terms": "budynek dworca,budynek stacji,budynek centrum przesiadkowego,budynek węzła przesiadkowego,transport,dworzec,stacja,centrum przesiadkowe,węzeł przesiadkowy"
                 },
                 "building/university": {
                     "name": "Budynek uczelni",
@@ -6873,6 +6997,10 @@
                     "name": "Wejście główne",
                     "terms": "wejście główne,główne wejście,drzwi"
                 },
+                "entrance/shop": {
+                    "name": "Wejście do sklepu",
+                    "terms": "wejście do sklepu,wejście do lokalu usługowego,sklep,lokal usługowy"
+                },
                 "entrance/staircase": {
                     "name": "Wejście do klatki schodowej",
                     "terms": "wejście do klatki schodowej,wejście na klatkę schodową,klatka schodowa"
@@ -7069,6 +7197,9 @@
                     "name": "Przejście dla pieszych",
                     "terms": "przejście dla pieszych,przejście,zebra,pasy"
                 },
+                "highway/crossing/informal": {
+                    "name": "Nieformalne przejście przez jezdnię"
+                },
                 "highway/crossing/traffic_signals": {
                     "name": "Przejście dla pieszych z sygnalizacją świetlną",
                     "terms": "przejście dla pieszych z sygnalizacją świetlną,zebra z sygnalizacją świetlną,pasy z sygnalizacją świetlną,przejście dla pieszych ze światłami,zebra ze światłami,pasy ze światłami"
@@ -7079,7 +7210,7 @@
                 },
                 "highway/crossing/unmarked": {
                     "name": "Nieoznakowane przejście dla pieszych",
-                    "terms": "nieoznakowane przejście dla pieszych"
+                    "terms": "nieoznakowane przejście dla pieszych,sugerowane przejście dla pieszych,przejście sugerowane"
                 },
                 "highway/cycleway": {
                     "name": "Droga rowerowa",
@@ -7112,6 +7243,14 @@
                 "highway/cycleway/moped_link-NL": {
                     "name": "Łącznik dla motorowerów",
                     "terms": "łącznik dla motorowerów"
+                },
+                "highway/cycleway/traffic_island": {
+                    "name": "Droga rowerowa na wyspie azylu",
+                    "terms": "droga rowerowa na wyspie azylu,wyspa azylu"
+                },
+                "highway/cycleway/traffic_island_shared": {
+                    "name": "Ciąg pieszo-rowerowy na wyspie azylu",
+                    "terms": "ciąg pieszo-rowerowy na wyspie azylu,wyspa azylu"
                 },
                 "highway/cyclist_waiting_aid": {
                     "name": "Podpórka dla rowerzystów",
@@ -7198,7 +7337,7 @@
                 },
                 "highway/motorway": {
                     "name": "Droga autostradowa",
-                    "terms": "droga autostradowa"
+                    "terms": "droga autostradowa,dwujezdniowa droga ekspresowa"
                 },
                 "highway/motorway_junction": {
                     "name": "Węzeł dróg autostradowych",
@@ -7219,6 +7358,22 @@
                 "highway/path/boardwalk": {
                     "name": "Kładka drewniana",
                     "terms": "kładka drewniana,chodnik z desek,drewniany chodnik,mostek dla pieszych,ścieżka dla pieszych,pomost"
+                },
+                "highway/path/crossing": {
+                    "name": "Przejazd pieszo-rowerowy",
+                    "aliases": "Przejście pieszo-rowerowe"
+                },
+                "highway/path/crossing/traffic_signals": {
+                    "name": "Przejazd pieszo-rowerowy z sygnalizacją świetlną",
+                    "aliases": "Przejście pieszo-rowerowe z sygnalizacją świetlną"
+                },
+                "highway/path/crossing/uncontrolled": {
+                    "name": "Oznakowany przejazd pieszo-rowerowy",
+                    "aliases": "Oznakowane przejście pieszo-rowerowe"
+                },
+                "highway/path/crossing/unmarked": {
+                    "name": "Nieoznakowany przejazd pieszo-rowerowy",
+                    "aliases": "Nieoznakowane przejście pieszo-rowerowe"
                 },
                 "highway/path/informal": {
                     "name": "Nieformalna ścieżka",
@@ -7454,8 +7609,8 @@
                     "terms": "ruiny,ruina"
                 },
                 "historic/tomb": {
-                    "name": "Grób",
-                    "terms": "grób,grobowiec,mogiła,tumulus,kurhan,mauzoleum,kolumbarium,piramida,sarkofag,nagrobek"
+                    "name": "Grobowiec",
+                    "terms": "grobowiec,grób,mogiła,tumulus,kurhan,mauzoleum,kolumbarium,piramida,sarkofag,nagrobek"
                 },
                 "historic/wayside_cross": {
                     "name": "Krzyż przydrożny",
@@ -7610,6 +7765,14 @@
                 "landuse/meadow": {
                     "name": "Łąka/pastwisko",
                     "terms": "łąka,pastwisko,rozłóg,wygon,nieużytki,polana,pole,zieleń"
+                },
+                "landuse/meadow_orchard/meadow": {
+                    "name": "Łąka z drzewami owocowymi",
+                    "terms": "łąka z drzewami owocowymi,streuobstwiese"
+                },
+                "landuse/meadow_orchard/orchard": {
+                    "name": "Sad w obrębie łąki",
+                    "terms": "sad w obrębie łąki,streuobstwiese"
                 },
                 "landuse/military": {
                     "name": "Teren wojskowy",
@@ -8496,7 +8659,7 @@
                     "terms": "zbiornik na wodę,cysterna na wodę,zbiornik wody,woda"
                 },
                 "man_made/street_cabinet": {
-                    "name": "Skrzynka elektryczna",
+                    "name": "Skrzynka uliczna",
                     "terms": "skrzynka elektryczna,szafka elektryczna,szafka uliczna,rozdzielnica elektryczna,szafka instalacyjna,bzbwi"
                 },
                 "man_made/street_cabinet/postal_service": {
@@ -8589,8 +8752,9 @@
                     "terms": "pagoda,wieża"
                 },
                 "man_made/tunnel": {
-                    "name": "Tunel",
-                    "terms": "tunel,podziemna,podziemny,podziemne"
+                    "name": "Obszar tunelu",
+                    "terms": "obszar tunelu,tunel,podziemna,podziemny,podziemne",
+                    "aliases": "Tunel"
                 },
                 "man_made/utility_pole": {
                     "name": "Słup",
@@ -8678,6 +8842,10 @@
                 },
                 "natural": {
                     "name": "Obiekt geograficzny"
+                },
+                "natural/arch": {
+                    "name": "Most skalny",
+                    "terms": "most skalny,łuk skalny"
                 },
                 "natural/bare_rock": {
                     "name": "Odkryte skały",
@@ -8789,7 +8957,7 @@
                 },
                 "natural/stone": {
                     "name": "Kamień",
-                    "terms": "kamień,głaz"
+                    "terms": "kamień,głaz,głaz narzutowy"
                 },
                 "natural/strait": {
                     "name": "Cieśnina",
@@ -9141,6 +9309,10 @@
                     "name": "Terapeuta",
                     "terms": "terapeuta,fizjoterapeuta"
                 },
+                "office/translator": {
+                    "name": "Tłumacz",
+                    "terms": "tłumacz,biuro tłumaczeniowe"
+                },
                 "office/travel_agent": {
                     "name": "Biuro podróży"
                 },
@@ -9187,8 +9359,7 @@
                     "terms": "trasa narciarska,szlak narciarstwa klasycznego,szlak narciarstwa przełajowego,narty,klasyczne,przełajowe,narciarstwo"
                 },
                 "piste/piste": {
-                    "name": "Szlak sportów zimowych",
-                    "terms": "szlaki sportów zimowych,trasa sportów zimowych,narty,klasyczne,przełajowe,downhill,alpejskie,snowboard,wycieczki narciarskie,sanki,saneczki,sanie,kulig,skijöring,husky,koń,zimowa wspinaczka,rakiety śniegowe,lód,łyżwiarstwo"
+                    "name": "Trasa do sportów zimowych (nieokreślonych)"
                 },
                 "piste/ski_jump": {
                     "name": "Skocznia narciarska (najazd/zeskok)",
@@ -9605,7 +9776,7 @@
                 },
                 "public_transport/station": {
                     "name": "Dworzec",
-                    "terms": "dworzec,stacja,transport publiczny,terminal,transport,przewozy"
+                    "terms": "dworzec,stacja,transport publiczny,terminal,transport,przewozy,centrum przesiadkowe,węzeł przesiadkowy"
                 },
                 "public_transport/station_aerialway": {
                     "name": "Stacja wyciągu / kolei linowej",
@@ -9910,6 +10081,10 @@
                     "name": "Sklep z wyposażeniem łazienek",
                     "terms": "sklep z wyposażeniem łazienek,łazienki,wyposażenie łazienek,meble łazienkowe,akcesoria łazienkowe,armatura sanitarna,wanny,prysznice,baterie,brodziki,zlewy,zlewozmywaki,umywalki"
                 },
+                "shop/bbq": {
+                    "name": "Sklep z grillami",
+                    "terms": "sklep z grillami,sklep z akcesoriami do grillowania"
+                },
                 "shop/beauty": {
                     "name": "Salon urody",
                     "terms": "salon urody,salon piękności,salon kosmetyczny,gabinet kosmetyczny,zakład kosmetyczny,kosmetyka,kosmetyczka,makijażystka,wizażystka,depilacja,medycyna estetyczna,laseroterapia,spa",
@@ -10193,9 +10368,17 @@
                     "name": "Sklep z pamiątkami",
                     "terms": "sklep z pamiątkami,sklep z prezentami,pamiątki,prezenty,gadżety,pocztówki,magnesy,figurki"
                 },
+                "shop/gold_buyer": {
+                    "name": "Skup złota",
+                    "terms": "skup złota"
+                },
                 "shop/greengrocer": {
                     "name": "Warzywniak",
                     "terms": "warzywniak,zieleniak,sklep warzywny,sklep z warzywami,sklep z owocami,stoisko z warzywami,stragan z warzywami,owoce,warzywa"
+                },
+                "shop/groundskeeping": {
+                    "name": "Sklep ze sprzętem do utrzymywania terenów zieleni",
+                    "terms": "sklep ze sprzętem do utrzymywania terenów zieleni"
                 },
                 "shop/hairdresser": {
                     "name": "Fryzjer",
@@ -10700,7 +10883,7 @@
                 },
                 "tourism/information/guidepost": {
                     "name": "Drogowskaz",
-                    "terms": "drogowskaz"
+                    "terms": "drogowskaz,kierunkowskaz"
                 },
                 "tourism/information/map": {
                     "name": "Mapa",

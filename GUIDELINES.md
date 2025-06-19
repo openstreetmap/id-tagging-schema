@@ -15,7 +15,7 @@ Consider the following:
 - 📋 **Established Documentation**: The tagging schema will only consider tags that are well-documented on the OSM wiki. The documentation should be clear and unambiguous.
 - 🏷️ **Established Tags Only**: No new or unestablished tags should be part of presets. Establishing tags must remain a community-driven process, not dictated by software implementation.
 - ✅ **Proposal or Accepted**: A tag is considered established when it has completed the [proposal process](https://wiki.openstreetmap.org/wiki/Proposal_process) or is otherwise accepted by the OSM community. Factors include the tag's duration and frequency of use, whether its usage is increasing over time and its usage by mainstream data consumers.
-- 🤷 **Useful Purpose**: Especially for less established tags, presets and fields should have a practical application. OSM allows for the collection of a wide variety of data, but not all of it is useful. For example, the brightness of street lamps might be documented, but it doesn't necessarily warrant a preset or field.
+- 🤷 **Notable Purpose**: Especially for less established tags, presets and fields should have a practical application. OSM allows for the collection of a wide variety of data, some of it for niche purposes. For example, the brightness of street lamps might be documented, but it doesn't necessarily warrant a preset or field.
 - 🕓 **Effort vs. Impact**: Consider whether the effort required is justified by the impact the preset or field will have. Assess how many elements this new type will apply to. This is particularly important if you do not plan to contribute the code changes yourself through a pull request (PR).
 
 ### User Experience
@@ -37,10 +37,23 @@ No preset or field is isolated; they are always presented alongside others in va
 - ➕ **Suggested Additions**: Presets can suggest additional tags. These suggestions must be clearly supported by the wiki and community consensus.
 - 🔄 **Updates**: Deprecation rules can suggest updating tags. Good documentation and consensus are needed for these deprecations.
 
-In both cases, _indicators for consensus_ are:
+**In both cases, _indicators for consensus_ are:**
+
 - The deprecation is documented in the wiki and is either official (resulting from a proposal process) or long-standing (about a year).
 - There is a significant drop in usage compared to previous numbers, with a negative trend ([visible in the graph](https://taghistory.raifer.tech/)).
 - Usage of the deprecated tag remains stagnant for a longer period (about a year).
+
+In addition, the deprecated tag must have reasonably high usage to be considered. Low usage tags should be addressed through other cleanup methods, such as [MapRoulette](https://maproulette.org/) or similar initiatives.
+
+**Deprecations are not for cleanup:**
+
+Deprecation rules work such that the user sees a message with suggestions and can act only when editing the given element. This makes them well-suited for gradual, human-reviewed updates of taggings like crossings. However, they are not suitable for cleaning up incorrect tagging from the database, especially for low-volume changes.
+
+There are, however, alternatives to consider: 
+- Your cleanup task might be eligible for an automated (bot) edit. [Please learn more on the wiki…](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct)
+- If your task is small enough, a few [editing sessions in JOSM](https://wiki.openstreetmap.org/wiki/JOSM) will often do the trick. However, mass-replacing without checking each object is still considered an automated edit, so the [guidelines apply](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct). Please consult other mappers first.
+- A good way to work down a list of tasks is to create [a MapRoulette Challenge](https://maproulette.org/).
+- Should those options not suit you, you can always suggest such changes in the [OSM community forum](https://community.openstreetmap.org/).
 
 ## 2. Design the Preset
 
@@ -52,12 +65,12 @@ The user interface must be clear, concise, and easy to use, leaving no room for 
 - Check the search functionality to ensure other presets do not cause confusion.
 - Select an icon or start the process to create a new one.
 - Define which fields to show (`fields`) and suggest (`moreFields`), considering the order of fields.
-- Check the `(i)` documentation and add or update the OSM Wikidata item if needed to provide a helpful short text.
+- Check the `(i)` documentation and add or update the [OSM Wikibase item](https://wiki.openstreetmap.org/wiki/Data_items) if needed to provide a helpful short text.
 - Use the PR preview to add test cases with deep links to OSM objects that demonstrate the preset in use.
 
 ## 3. Implement
 
-If you are familiar with `JSON`, you can implement the preset or field yourself. First, create a ticket to introduce your quest idea and discuss it with the community to get feedback on its feasibility and desirability. After implementation, create a pull request to get it merged.
+If you are familiar with `JSON`, you can implement the preset or field yourself. First, create a ticket to introduce your tagging idea and discuss it with the community to get feedback on its feasibility and desirability. After implementation, create a pull request to get it merged.
 
 For more details on adding presets, see ["Making changes"](./CONTRIBUTING.md#making-changes).
 

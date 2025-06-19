@@ -5,36 +5,34 @@ jobs:
     name: Check file endings
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: |
-          notJSONs=`find data/ -type f -not -iname "*.json"`
-          for f in $notJSONs
+          disallowedFiles=`find data/ -type f -not -iname "*.json" -not -iname "*.md"`
+          for f in $disallowedFiles
           do
-            echo "::error file=$f::File $f is not a .json file."
+            echo "::error file=$f::File $f is not a .json or .md file."
           done
-          if [ ! -z "$notJSONs" ]; then exit 1; fi
+          if [ ! -z "$disallowedFiles" ]; then exit 1; fi
 
   prettier:
     name: Check for code formatting mistakes
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
       - run: npm clean-install
-      - run: 'for f in `find data/ -type f -not -iname "*.json"`; do echo "::error File $f is not a .json file."; done'
       - run: npm run lint
 
   codespell:
     name: Check for spelling errors
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: codespell-project/actions-codespell@master
+      - uses: actions/checkout@v4
+      - uses: codespell-project/actions-codespell@v2
         with:
           check_filenames: true
-          skip: ./.git,./dist,./data/deprecated.json,./data/discarded.json
-          ignore_words_list: "auxilary,casette,cemetary,chancel,discus,extentions,faiway,generat,goverment,guerilla,guyser,kindergarden,ore,pavillion,sculpter,storys,linz,te"
+          skip: ./.git,./dist,./data/deprecated.json,./data/discarded.json,package.json,package-lock.json,./scripts
+          ignore_words_list: "auxilary,casette,cemetary,chancel,discus,extentions,faiway,generat,goverment,guerilla,guyser,kindergarden,ore,pavillion,sculpter,storys,linz,te,brunch"
           only_warn: 1
-

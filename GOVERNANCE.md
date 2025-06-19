@@ -33,7 +33,7 @@ Github shows a `(Collaborator)` label next to users with any permission on this 
 
 ### Triage Role
 
-(No one has the triage role at the moment. Please reach out if you want to help.)
+* [Mateusz](https://github.com/matkoniecz) contributes to this project as a volunteer.
 
 The triage role includes:
 - Proactively helping to clarify issues and PRs.
