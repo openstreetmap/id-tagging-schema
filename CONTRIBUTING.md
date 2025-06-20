@@ -57,9 +57,26 @@ iD and other tools provide users with a way to learn more about the main tag of 
 - Does your tag have a Wiki page with a good image?
 - Your preset might need [a `reference` property](https://github.com/ideditor/schema-builder?tab=readme-ov-file#reference) to force the system to use a specific tag for the information section.
 
-### Code Style
+### Integration Testing With iD
 
-The input files are JSON files which use 4-space indentation. You can use the `npm run lint` command to check whether your files match the expected code style and run `npm run lint:fix` to reformat them if they don't do so.
+There are two ways to inspect how your changes to the schema affect the user experience in the iD editor:
+
+**a. Use the PR preview:**
+
+After you submit your PR, the system will create a preview and comment on your PR:
+
+> 🍱 Your pull request preview is ready.
+
+If this is your first contribution to this project, the preview will not happen right away but requires a click from one of the project members. We will do this ASAP.
+
+**b. Use a local instance of the iD editor:**
+
+If you have [set up](https://github.com/openstreetmap/iD#installation) your own local instance of the iD editor, you can [configure](https://github.com/openstreetmap/iD/blob/develop/API.md#environment-variables) it to use your local set of tagging presets by setting the `ID_PRESETS_CDN_URL` environment variable.
+
+1. First build and serve the schema: `npm run build && npm run dist && npx serve -Cp 1234`. Remember that you need to run this command again should you make further changes.
+2. Now, in your iD repository, start an iD instance using your custom schema:
+   - on macOS & Linux: `npx cross-env ID_PRESETS_CDN_URL=http://localhost:1234/ npm start`
+   - on Windows: `set ID_PRESETS_CDN_URL=http://localhost:1234/ && npm start`
 
 ### Installation and Testing
 
@@ -71,4 +88,6 @@ The following `npm` commands are used in this repository:
 * `npm run dist` – validates the source data and compiles output files for iD
 * `npm run translations` – fetches translations from transifex and compiles the translations files for iD
 
-If you have [set up](https://github.com/openstreetmap/iD#installation) your own local instance of the iD editor, you can [configure](https://github.com/openstreetmap/iD/blob/develop/API.md#environment-variables) it to use your local set of tagging presets by setting the `ID_PRESETS_CDN_URL` environment variable. If you do that, don't forget to run `npm run dist` to compile the tagging schema output, as iD will otherwise not see the changes you made.
+### Code Style
+
+The input files are JSON files which use 4-space indentation. You can use the `npm run lint` command to check whether your files match the expected code style and run `npm run lint:fix` to reformat them if they don't do so.
