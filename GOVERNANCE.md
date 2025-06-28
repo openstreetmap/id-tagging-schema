@@ -75,7 +75,9 @@ Github shows a `(Contributor)` label next to users that previously committed to 
 
 **How to close…**
 
--  Note that it is preferable to ping PR or issue author first, if reason for closing can be fixed
+- Provide context and an explanation for the chosen action
+- Consider reaching out to the author before taking action
+- We're happy to reopen PRs if opinions change.
 
 ### Releases
 
