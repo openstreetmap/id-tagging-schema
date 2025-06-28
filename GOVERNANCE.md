@@ -71,7 +71,7 @@ Github shows a `(Contributor)` label next to users that previously committed to 
 
 - Usually squash merge PRs to make the history simpler
 - Give the merge a meaningful description of the change
-- Add labels to the PR to simplify creating the changelog: `new-*`, `add-*`, `bug`
+- Add labels to the PR before merging which get picked up by our [release drafter](https://github.com/openstreetmap/id-tagging-schema/blob/main/.github/release-drafter.yml)
 
 **How to close…**
 
