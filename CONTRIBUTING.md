@@ -21,7 +21,7 @@ Read the [GUIDELINES](./GUIDELINES.md) to help you understand what fields and ta
 
   To to find and update a translation, you can …
   1. [open the translation page](https://app.transifex.com/openstreetmap/id-editor/translate/)
-  2. select a language
+  2. select a language at the top
   3. select _'presets'_
   4. search for `key:living_street` or `translation_text:'Living Street'` or `key:highway/living_street`
 
