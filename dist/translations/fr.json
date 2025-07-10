@@ -294,11 +294,13 @@
                         "graffiti": "Graffiti",
                         "installation": "Installation artistique",
                         "mosaic": "Mosaïque",
-                        "mural": "Murale",
+                        "mural": "Peinture ou fresque murale",
                         "painting": "Peinture",
                         "relief": "Relief",
                         "sculpture": "Sculpture",
-                        "statue": "Statue"
+                        "statue": "Statue",
+                        "stone": "Pierre travaillée par un artiste",
+                        "tilework": "Carrelage"
                     }
                 },
                 "ascent": {
@@ -395,7 +397,7 @@
                         "ditch": "Fossé",
                         "entrance": "Entrée",
                         "fence": "Clôture",
-                        "gate": "Porte",
+                        "gate": "Portail",
                         "guard_rail": "Barrière de sécurité",
                         "hedge": "Haie",
                         "height_restrictor": "Limite de hauteur",
@@ -614,7 +616,7 @@
                         "hangar": "Hangar",
                         "hospital": "Bâtiment d'hôpital",
                         "hotel": "Bâtiment d'hôtel",
-                        "house": "Maison mitoyenne",
+                        "house": "Maison",
                         "houseboat": "Bateau habitable",
                         "hut": "Hutte",
                         "industrial": "Bâtiment industriel",
@@ -632,7 +634,7 @@
                         "ruins": "Bâtiment en ruine",
                         "school": "Bâtiment scolaire - élémentaire ou secondaire",
                         "semidetached_house": "Maison mitoyenne\nMaison jumelée",
-                        "service": "Bâtiment de service (technique)",
+                        "service": "Bâtiment de service",
                         "shed": "Cabanon",
                         "stable": "Écurie",
                         "stadium": "Bâtiment du stade",
@@ -1045,7 +1047,7 @@
                     "label": "Type",
                     "options": {
                         "traffic_signals": "Passage avec feux de signalisation",
-                        "uncontrolled": "Traversée non marquée",
+                        "uncontrolled": "Traversée non protégée",
                         "unmarked": "Pas de marquage routiers ni de feux de signalisation"
                     }
                 },
@@ -1090,7 +1092,7 @@
                     "terms": "marquage,peinture,sol,traversée,voie,voirie"
                 },
                 "crossing_raised": {
-                    "label": "Relevé",
+                    "label": "Surélevé",
                     "options": {
                         "table": "Oui",
                         "undefined": "Non"
@@ -1199,6 +1201,24 @@
                     "label": "Type",
                     "placeholder": "Défaut"
                 },
+                "cycle_barrier": {
+                    "label": "Type",
+                    "options": {
+                        "diagonal": "En diagonal",
+                        "double": "Double",
+                        "single": "Simple",
+                        "tilted": "Inclinée",
+                        "triple": "Triple"
+                    }
+                },
+                "cycle_barrier/installation": {
+                    "label": "Installation",
+                    "options": {
+                        "fixed": "Fixée",
+                        "openable": "Ouvrable",
+                        "removable": "Détachable"
+                    }
+                },
                 "cycle_network": {
                     "label": "Réseau"
                 },
@@ -1214,10 +1234,12 @@
                             "title": "Aucune"
                         },
                         "opposite": {
-                            "description": "Veuillez mettre à jour avec oneway=yes, oneway:bicycle=no, et cycleway:both=no etc."
+                            "description": "Veuillez mettre à jour avec oneway=yes, oneway:bicycle=no, et cycleway:both=no etc.",
+                            "title": "(Déprecié) Circulation cyclable à contre-sens sans voie dédiée"
                         },
                         "opposite_lane": {
-                            "description": "Veuillez mettre à jour avec oneway, oneway:bicycle, et cycleway:left/right=lane etc."
+                            "description": "Veuillez mettre à jour avec oneway, oneway:bicycle, et cycleway:left/right=lane etc.",
+                            "title": "(Déprecié) Bande cyclable à contre-sens"
                         },
                         "separate": {
                             "description": "Indique que la piste cyclable à été cartographiée comme une géométrie séparée",
@@ -1254,6 +1276,9 @@
                 },
                 "defibrillator/location": {
                     "label": "Localisation précise"
+                },
+                "deflection": {
+                    "label": "Angle"
                 },
                 "delivery": {
                     "label": "Livraison",
@@ -1525,6 +1550,7 @@
                         "main": "Principale",
                         "secondary": "Secondaire",
                         "service": "Service",
+                        "shop": "Entrée de commerce",
                         "staircase": "Cage d'escalier",
                         "yes": "Non précisé"
                     },
@@ -1573,8 +1599,7 @@
                         "lane": "Chaussée",
                         "parking_lot": "Parking",
                         "sidewalk": "Trottoir"
-                    },
-                    "terms": "position,localisation,installation"
+                    }
                 },
                 "fire_hydrant/pressure": {
                     "label": "Pression (bar)",
@@ -2160,6 +2185,14 @@
                     "label": "Intervalle",
                     "terms": "interval"
                 },
+                "irrigation_pivot": {
+                    "label": "Irrigation à pivot central",
+                    "options": {
+                        "pivot": "Oui",
+                        "undefined": "Non"
+                    },
+                    "terms": "pivot,irrigation sous pivots,arroseur à pivot,asperseur"
+                },
                 "junction/ref_oneway": {
                     "label": "Identifiant de l'embranchement",
                     "terms": "numéro de jonction,carrefour,jonction,intersection,référence"
@@ -2190,11 +2223,11 @@
                         },
                         "raised": {
                             "description": "Un trottoir surélevé qui ne peut pas être utilisé par des utilisateurs en fauteuil roulant, élevé de plus que quelques centimètres.",
-                            "title": "Relevé"
+                            "title": "Surélevé"
                         },
                         "rolled": {
-                            "description": "Un trottoir relevé avec un bord arrondi, ce qui le rend plus facile à franchir par les véhicules, mais pas par les fauteuils roulants.",
-                            "title": "Arrondi et relevé"
+                            "description": "Un trottoir surélevé avec un bord arrondi, ce qui le rend plus facile à franchir par les véhicules, mais pas par les fauteuils roulants.",
+                            "title": "Arrondi et surélevé"
                         },
                         "yes": {
                             "description": "Une sorte de bordure est présente à cet endroit, on ne sait pas si elle est surélevée, abaissée, à fleur, etc.",
@@ -2484,6 +2517,9 @@
                     "label": "Largeur maximale",
                     "terms": "largeur maximale,maximum,limite de largeur"
                 },
+                "maxwidth/physical": {
+                    "label": "Largeur maximale"
+                },
                 "memorial": {
                     "label": "Type",
                     "options": {
@@ -2759,6 +2795,9 @@
                     "label": "Feux ouverts autorisés",
                     "terms": "feu de camp"
                 },
+                "opening": {
+                    "label": "Largeur d'ouverture (mètres)"
+                },
                 "opening_date": {
                     "label": "Date d'ouverture prévue",
                     "placeholder": "AAAA-MM-JJ"
@@ -2796,8 +2835,12 @@
                     "label": "Places en terrasse",
                     "terms": "places en terrase,terrasse,beer garden,biergarten,restaurant,bar"
                 },
+                "overlap": {
+                    "label": "Largeur de recouvrement (mètres)"
+                },
                 "panoramax": {
-                    "label": "ID d'image Panoramax"
+                    "label": "ID d'image Panoramax",
+                    "terms": "panoramax,image panoramax,identifiant de l'image panoramax"
                 },
                 "par": {
                     "label": "Par",
@@ -3733,7 +3776,7 @@
                         "day_care": "Soins de jour",
                         "food_bank": "Banque alimentaire",
                         "group_home": "Résidence collective",
-                        "nursing_home": "Maison de repos",
+                        "nursing_home": "Maison de soin",
                         "outreach": "Service de conseil",
                         "shelter": "Abri",
                         "workshop": "Entreprise de travail adapté"
@@ -3773,11 +3816,13 @@
                         "osm notes": "Notes OpenStreetMap",
                         "streetlevel imagery": "Photos de la rue",
                         "survey": "Vérifié sur le terrain"
-                    },
-                    "terms": "sources,références"
+                    }
                 },
                 "source/population": {
                     "label": "Population: source"
+                },
+                "spacing": {
+                    "label": "Distance entre les barrières (mètres)"
                 },
                 "species": {
                     "label": "Espèces",
@@ -4379,7 +4424,7 @@
                     "options": {
                         "avalanche_protector": "Dispositif anti-avalanche",
                         "building_passage": "Passerelle",
-                        "culvert": "Caniveau",
+                        "culvert": "Canalisation",
                         "flooded": "Tunnel inondé"
                     }
                 },
@@ -5388,7 +5433,7 @@
                     "terms": "boîte de nuit,discothèque,lgbtq,gay,lesbien"
                 },
                 "amenity/nursing_home": {
-                    "name": "Maison de repos"
+                    "name": "Maison de soin, handicapé,longue durée"
                 },
                 "amenity/parcel_locker": {
                     "name": "Casier à colis",
@@ -5742,8 +5787,8 @@
                     "terms": "foyer pour sans-abri"
                 },
                 "amenity/social_facility/nursing_home": {
-                    "name": "Maison de repos",
-                    "terms": "maison de repos,maison de convalescence,maison de retraite médicalisée,ehpad"
+                    "name": "EHPAD",
+                    "terms": "maison de retraite médicalisée,personnes âgées,médicalisé"
                 },
                 "amenity/stripclub": {
                     "name": "Club de strip-tease",
@@ -5953,6 +5998,9 @@
                     "name": "Vétérinaire",
                     "terms": "vétérinaire"
                 },
+                "amenity/veterinary_pharmacy": {
+                    "name": "Pharmacie véterinaire"
+                },
                 "amenity/waste/dog_excrement": {
                     "name": "Bac à excrément de chien",
                     "terms": "bac à excrément de chien,poubelle,déchets,crottes,chien"
@@ -6153,7 +6201,7 @@
                     "terms": "barrière,portail,accès,fil,fer,barré,barbelé"
                 },
                 "barrier/handrail": {
-                    "name": "Rampe"
+                    "name": "Rampe, Main courante"
                 },
                 "barrier/hedge": {
                     "name": "Haie",
@@ -6180,8 +6228,8 @@
                     "terms": "abaissement de trottoir,bateau,bordure abaissée,rampe d'accès,plan incliné,charretière"
                 },
                 "barrier/kerb/raised": {
-                    "name": "Bordure de trottoir relevée",
-                    "terms": "trottoir,bord,relèvement de trottoir,trottoir relevé"
+                    "name": "Bordure de trottoir surélevée",
+                    "terms": "trottoir,bord,relèvement de trottoir,trottoir surélevé"
                 },
                 "barrier/kerb/rolled": {
                     "name": "Bordure de trottoir creusée",
@@ -6475,7 +6523,7 @@
                     "aliases": "Maison jumelée"
                 },
                 "building/service": {
-                    "name": "Bâtiment de service (technique)",
+                    "name": "Bâtiment de service",
                     "terms": "bâtiment de services,batiment de services,services"
                 },
                 "building/shed": {
@@ -6832,9 +6880,9 @@
                     "terms": "tuyau d'incendie,lance à incendie,canon à eau"
                 },
                 "emergency/fire_hydrant": {
-                    "name": "Point d'eau incendie",
+                    "name": "Borne d'incendie",
                     "terms": "borne incendie,borne-fontaine,borne fontaine,bouche d'incendie,poteau incendie,hydrant,fire hydrant,point d'eau incendie",
-                    "aliases": "Borne incendie"
+                    "aliases": "Bouche d'incendie\nPoint d'eau incendie"
                 },
                 "emergency/fire_hydrant/pillar": {
                     "name": "Poteau incendie",
@@ -7112,9 +7160,11 @@
                     "terms": "corridor intérieur"
                 },
                 "highway/crossing": {
-                    "name": "Passage",
-                    "terms": "passage piéton",
-                    "aliases": "Traversée"
+                    "name": "Passage piéton",
+                    "terms": "passage piéton"
+                },
+                "highway/crossing/informal": {
+                    "name": "Passage piéton informel"
                 },
                 "highway/crossing/traffic_signals": {
                     "name": "Passage piéton avec feux de signalisation",
@@ -7148,7 +7198,7 @@
                     "terms": "passage,traversée,cycliste,protégé,signalisation,lumineuse,feux"
                 },
                 "highway/cycleway/crossing/uncontrolled": {
-                    "name": "Passage cycliste marqué",
+                    "name": "Passage cycliste non protégé",
                     "terms": "passage cycliste,passage piéton,passage clouté"
                 },
                 "highway/cycleway/crossing/unmarked": {
@@ -7166,7 +7216,7 @@
                     "name": "Îlot central"
                 },
                 "highway/cyclist_waiting_aid": {
-                    "name": "Sas vélo",
+                    "name": "Support d'attente cycliste",
                     "terms": "sas à vélo,sas cycliste,sas pour vélo"
                 },
                 "highway/elevator": {
@@ -7419,8 +7469,8 @@
                     "terms": "miroir de sécurité"
                 },
                 "highway/traffic_signals": {
-                    "name": "Feux tricolores",
-                    "terms": "feux de circulation,feux tricolores,feux rouges"
+                    "name": "Feux de signalisation routière",
+                    "terms": "feux de circulation,feux tricolores,feux rouges,feux de signalisation"
                 },
                 "highway/trailhead": {
                     "name": "Début du sentier",
@@ -7436,7 +7486,7 @@
                 },
                 "highway/turning_circle": {
                     "name": "Zone de manœuvre",
-                    "terms": "point de retournement"
+                    "terms": "point de retournement;zone de manœuvre"
                 },
                 "highway/turning_loop": {
                     "name": "Boucle de retournement (îlot central)",
@@ -8332,7 +8382,7 @@
                     "terms": "cheminée"
                 },
                 "man_made/clarifier": {
-                    "name": "Décanteur d'eaux usées",
+                    "name": "Clarificateur d'eaux usées",
                     "terms": "clarificateur d'eaux usées,clarificateur,décanteur"
                 },
                 "man_made/clearcut": {
@@ -8770,8 +8820,8 @@
                     "terms": "glacier"
                 },
                 "natural/grassland": {
-                    "name": "Zone naturelle à dominance herbacée",
-                    "terms": "prairie"
+                    "name": "Prairie naturelle",
+                    "terms": "prairie,zone naturelle à dominance herbacée"
                 },
                 "natural/heath": {
                     "name": "Lande",
@@ -9461,7 +9511,7 @@
                     "terms": "câble électrique souterrain"
                 },
                 "power/catenary_mast": {
-                    "name": "Caténaire",
+                    "name": "Mât de caténaire",
                     "terms": "caténaire,câble,éléctrique,alimentation,train,tramway,trolley"
                 },
                 "power/generator": {
@@ -9816,8 +9866,8 @@
                     "terms": "croisement rail-rail,croisement à niveau de voies ferrées"
                 },
                 "railway/signal": {
-                    "name": "Feux tricolores ferroviaires",
-                    "terms": "feux tricolores ferroviaires,signalisation ferroviaire"
+                    "name": "Feux de signalisation ferroviaire",
+                    "terms": "feux de signalisation ferroviaire,feux ferroviaires"
                 },
                 "railway/station": {
                     "name": "Gare ferroviaire"
@@ -9950,6 +10000,9 @@
                 "shop/bathroom_furnishing": {
                     "name": "Fournitures pour salles de bain",
                     "terms": "fournitures pour salles de bain"
+                },
+                "shop/bbq": {
+                    "name": "Magasin pour barbecues"
                 },
                 "shop/beauty": {
                     "name": "Salon de beauté",
@@ -10239,6 +10292,9 @@
                 "shop/greengrocer": {
                     "name": "Primeur",
                     "terms": "fruiterie,marchand de fruits et légumes,maraicher,maraîcher,primeur"
+                },
+                "shop/groundskeeping": {
+                    "name": "Magasin d'entretien du jardin"
                 },
                 "shop/hairdresser": {
                     "name": "Salon de coiffure",
@@ -10746,7 +10802,8 @@
                 },
                 "tourism/information/map": {
                     "name": "Carte",
-                    "terms": "plan"
+                    "terms": "plan",
+                    "aliases": "Plan\nTable d'orientation"
                 },
                 "tourism/information/office": {
                     "name": "Centre d'accueil des visiteurs",

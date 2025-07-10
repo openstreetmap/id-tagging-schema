@@ -157,7 +157,7 @@
                         "district": "Dystrykt",
                         "district!cn": "Dzielnica/Powiat/Chorągiew",
                         "district!vn": "Okręg/Miejscowość/Dystrykt",
-                        "floor": "Nr piętra",
+                        "floor": "Piętro",
                         "hamlet": "Przysiółek/Kolonia/Osada",
                         "housename": "Nazwa domu",
                         "housenumber": "123",
@@ -177,7 +177,7 @@
                         "subdistrict!vn": "Osiedle/Wspólnota/Miasteczko",
                         "suburb": "Dzielnica",
                         "suburb!jp": "Dzielnica (w mieście wyznaczonym rozporządzeniem)",
-                        "town": "Małe miasto\nMiasteczko",
+                        "town": "Miejscowość",
                         "unit": "Blok/Oddział"
                     },
                     "terms": "adres"
@@ -298,7 +298,9 @@
                         "painting": "Malowidło",
                         "relief": "Płaskorzeźba",
                         "sculpture": "Rzeźba",
-                        "statue": "Posąg"
+                        "statue": "Posąg",
+                        "stone": "Kamień",
+                        "tilework": "Kafle"
                     }
                 },
                 "ascent": {
@@ -391,7 +393,7 @@
                         "cattle_grid": "Przeszkoda dla bydła",
                         "chain": "Łańcuch",
                         "city_wall": "Mur miejski",
-                        "cycle_barrier": "Bariera rowerowa",
+                        "cycle_barrier": "Przeszkoda antyrowerowa",
                         "ditch": "Rów",
                         "entrance": "Przejście\nPrzerwa",
                         "fence": "Ogrodzenie",
@@ -761,7 +763,7 @@
                     "placeholder": "10, 20, 30..."
                 },
                 "capacity_volume": {
-                    "label": "Objętość (m³)",
+                    "label": "Objętość (metry sześcienne)",
                     "placeholder": "50, 100, 200..."
                 },
                 "caravans": {
@@ -1199,6 +1201,25 @@
                     "label": "Rodzaj",
                     "placeholder": "Domyślny"
                 },
+                "cycle_barrier": {
+                    "label": "Rodzaj",
+                    "options": {
+                        "diagonal": "Ukośna",
+                        "double": "Podwójna",
+                        "single": "Pojedyncza",
+                        "tilted": "Nachylona",
+                        "triple": "Potrójna"
+                    }
+                },
+                "cycle_barrier/installation": {
+                    "label": "Mocowanie",
+                    "options": {
+                        "fixed": "Stała",
+                        "openable": "Otwierana",
+                        "removable": "Zdejmowalna"
+                    },
+                    "terms": "mocowanie,instalacja"
+                },
                 "cycle_network": {
                     "label": "Sieć"
                 },
@@ -1256,6 +1277,9 @@
                 },
                 "defibrillator/location": {
                     "label": "Opis położenia"
+                },
+                "deflection": {
+                    "label": "Kąt"
                 },
                 "delivery": {
                     "label": "Dostawa",
@@ -1527,6 +1551,7 @@
                         "main": "Główne",
                         "secondary": "Boczne",
                         "service": "Techniczne",
+                        "shop": "Wejście do sklepu",
                         "staircase": "Klatka schodowa",
                         "yes": "Nieokreślone"
                     },
@@ -1575,8 +1600,7 @@
                         "lane": "Pas jezdni",
                         "parking_lot": "Miejsce parkingowe",
                         "sidewalk": "Chodnik"
-                    },
-                    "terms": "położenie,lokalizacja"
+                    }
                 },
                 "fire_hydrant/pressure": {
                     "label": "Ciśnienie (bar)",
@@ -2162,6 +2186,14 @@
                     "label": "Częstotliwość",
                     "terms": "częstotliwość,czas między odjazdami"
                 },
+                "irrigation_pivot": {
+                    "label": "Deszczownia centryczna",
+                    "options": {
+                        "pivot": "Tak",
+                        "undefined": "Nie"
+                    },
+                    "terms": "deszczownia centryczna,deszczownia obrotowa,deszczownia pivot,nawadnianie,irygacja"
+                },
                 "junction/ref_oneway": {
                     "label": "Numer węzła",
                     "terms": "numer węzła"
@@ -2486,6 +2518,9 @@
                     "label": "Maksymalna szerokość pojazdu",
                     "terms": "maksymalna szerokość pojazdu"
                 },
+                "maxwidth/physical": {
+                    "label": "Szerokość przejścia/przejazdu"
+                },
                 "memorial": {
                     "label": "Rodzaj",
                     "options": {
@@ -2761,6 +2796,9 @@
                     "label": "Rozpalanie ognia dozwolone",
                     "terms": "rozpalanie ognia,ognisko,grill"
                 },
+                "opening": {
+                    "label": "Szerokość otwarcia (metry)"
+                },
                 "opening_date": {
                     "label": "Oczekiwana data otwarcia",
                     "placeholder": "YYYY-MM-DD"
@@ -2797,6 +2835,9 @@
                 "outdoor_seating": {
                     "label": "Ogródek restauracyjny",
                     "terms": "ogródek restauracyjny,stoliki na zewnątrz"
+                },
+                "overlap": {
+                    "label": "Szerokość zachodzenia barierek (metry)"
                 },
                 "panoramax": {
                     "label": "Identyfikator zdjęcia Panoramax",
@@ -3777,11 +3818,13 @@
                         "osm notes": "Uwagi OpenStreetMap",
                         "streetlevel imagery": "Zdjęcia z poziomu ulicy",
                         "survey": "Wizyta w terenie"
-                    },
-                    "terms": "źródła"
+                    }
                 },
                 "source/population": {
                     "label": "Źródło liczby ludności"
+                },
+                "spacing": {
+                    "label": "Odległość między barierkami (metry)"
                 },
                 "species": {
                     "label": "Gatunek",
@@ -5972,6 +6015,10 @@
                     "name": "Weterynarz",
                     "terms": "weterynarz,zakład weterynaryjny,gabinet weterynaryjny,przychodnia weterynaryjna,klinika weterynaryjna,lecznica dla zwierząt,leczenie,zwierzęta"
                 },
+                "amenity/veterinary_pharmacy": {
+                    "name": "Apteka weterynaryjna",
+                    "terms": "apteka weterynaryjna,sklep weterynaryjny,apteka dla zwierząt"
+                },
                 "amenity/waste/dog_excrement": {
                     "name": "Kosz na psie odchody",
                     "terms": "kosz na psie odchody"
@@ -7150,6 +7197,9 @@
                     "name": "Przejście dla pieszych",
                     "terms": "przejście dla pieszych,przejście,zebra,pasy"
                 },
+                "highway/crossing/informal": {
+                    "name": "Nieformalne przejście przez jezdnię"
+                },
                 "highway/crossing/traffic_signals": {
                     "name": "Przejście dla pieszych z sygnalizacją świetlną",
                     "terms": "przejście dla pieszych z sygnalizacją świetlną,zebra z sygnalizacją świetlną,pasy z sygnalizacją świetlną,przejście dla pieszych ze światłami,zebra ze światłami,pasy ze światłami"
@@ -7160,7 +7210,7 @@
                 },
                 "highway/crossing/unmarked": {
                     "name": "Nieoznakowane przejście dla pieszych",
-                    "terms": "nieoznakowane przejście dla pieszych"
+                    "terms": "nieoznakowane przejście dla pieszych,sugerowane przejście dla pieszych,przejście sugerowane"
                 },
                 "highway/cycleway": {
                     "name": "Droga rowerowa",
@@ -7287,7 +7337,7 @@
                 },
                 "highway/motorway": {
                     "name": "Droga autostradowa",
-                    "terms": "droga autostradowa"
+                    "terms": "droga autostradowa,dwujezdniowa droga ekspresowa"
                 },
                 "highway/motorway_junction": {
                     "name": "Węzeł dróg autostradowych",
@@ -8609,7 +8659,7 @@
                     "terms": "zbiornik na wodę,cysterna na wodę,zbiornik wody,woda"
                 },
                 "man_made/street_cabinet": {
-                    "name": "Skrzynka elektryczna",
+                    "name": "Skrzynka uliczna",
                     "terms": "skrzynka elektryczna,szafka elektryczna,szafka uliczna,rozdzielnica elektryczna,szafka instalacyjna,bzbwi"
                 },
                 "man_made/street_cabinet/postal_service": {
@@ -8702,8 +8752,9 @@
                     "terms": "pagoda,wieża"
                 },
                 "man_made/tunnel": {
-                    "name": "Tunel",
-                    "terms": "tunel,podziemna,podziemny,podziemne"
+                    "name": "Obszar tunelu",
+                    "terms": "obszar tunelu,tunel,podziemna,podziemny,podziemne",
+                    "aliases": "Tunel"
                 },
                 "man_made/utility_pole": {
                     "name": "Słup",
@@ -10030,6 +10081,10 @@
                     "name": "Sklep z wyposażeniem łazienek",
                     "terms": "sklep z wyposażeniem łazienek,łazienki,wyposażenie łazienek,meble łazienkowe,akcesoria łazienkowe,armatura sanitarna,wanny,prysznice,baterie,brodziki,zlewy,zlewozmywaki,umywalki"
                 },
+                "shop/bbq": {
+                    "name": "Sklep z grillami",
+                    "terms": "sklep z grillami,sklep z akcesoriami do grillowania"
+                },
                 "shop/beauty": {
                     "name": "Salon urody",
                     "terms": "salon urody,salon piękności,salon kosmetyczny,gabinet kosmetyczny,zakład kosmetyczny,kosmetyka,kosmetyczka,makijażystka,wizażystka,depilacja,medycyna estetyczna,laseroterapia,spa",
@@ -10320,6 +10375,10 @@
                 "shop/greengrocer": {
                     "name": "Warzywniak",
                     "terms": "warzywniak,zieleniak,sklep warzywny,sklep z warzywami,sklep z owocami,stoisko z warzywami,stragan z warzywami,owoce,warzywa"
+                },
+                "shop/groundskeeping": {
+                    "name": "Sklep ze sprzętem do utrzymywania terenów zieleni",
+                    "terms": "sklep ze sprzętem do utrzymywania terenów zieleni"
                 },
                 "shop/hairdresser": {
                     "name": "Fryzjer",

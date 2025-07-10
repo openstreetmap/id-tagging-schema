@@ -50,6 +50,7 @@
             },
             "fields": {
                 "access": {
+                    "label": "Zugang erlaubt",
                     "options": {
                         "customers": {
                             "description": "Beschränkt auf Kunden am Zielort",
@@ -106,6 +107,7 @@
                     "label": "Art"
                 },
                 "access_simple": {
+                    "label": "Zugang erlaubt",
                     "options": {
                         "customers": "Nur für Kunden",
                         "no": "Keiner",
@@ -293,7 +295,9 @@
                         "painting": "Gemälde",
                         "relief": "Relief",
                         "sculpture": "Skulptur",
-                        "statue": "Statue"
+                        "statue": "Statue",
+                        "stone": "Kunstvoll bearbeiteter Stein",
+                        "tilework": "Fliesenarbeiten"
                     }
                 },
                 "ascent": {
@@ -1194,6 +1198,25 @@
                     "label": "Art",
                     "placeholder": "Standard"
                 },
+                "cycle_barrier": {
+                    "label": "Art",
+                    "options": {
+                        "diagonal": "Diagonal",
+                        "double": "Doppelt",
+                        "single": "Einflüglig",
+                        "tilted": "Gekippt",
+                        "triple": "Dreifach"
+                    }
+                },
+                "cycle_barrier/installation": {
+                    "label": "Installation",
+                    "options": {
+                        "fixed": "Fest ausgerichtet",
+                        "openable": "zu Öffnen",
+                        "removable": "Entfernbar"
+                    },
+                    "terms": "einrichtung,installation"
+                },
                 "cycle_network": {
                     "label": "Netzwerk"
                 },
@@ -1250,6 +1273,9 @@
                 },
                 "defibrillator/location": {
                     "label": "Standortbeschreibung"
+                },
+                "deflection": {
+                    "label": "Winkel"
                 },
                 "delivery": {
                     "label": "Lieferung",
@@ -1521,6 +1547,7 @@
                         "main": "Haupteingang",
                         "secondary": "Landesstrasse",
                         "service": "Erschließungsweg",
+                        "shop": "Ladeneingang",
                         "staircase": "Treppenhaus",
                         "yes": "Allgemeiner Eingang"
                     },
@@ -1569,8 +1596,7 @@
                         "lane": "Straßenfläche",
                         "parking_lot": "Stellplatzfläche",
                         "sidewalk": "Bürgersteig\nGehsteig\nTrottoir"
-                    },
-                    "terms": "standort,lage"
+                    }
                 },
                 "fire_hydrant/pressure": {
                     "label": "Druck (bar)",
@@ -2156,6 +2182,14 @@
                     "label": "Interval",
                     "terms": "intervall,takt"
                 },
+                "irrigation_pivot": {
+                    "label": "Kreisberegnungssystem",
+                    "options": {
+                        "pivot": "Ja",
+                        "undefined": "Nein"
+                    },
+                    "terms": "kreisberegnungssystem,pivotberegnungssystem"
+                },
                 "junction/ref_oneway": {
                     "label": "Nummer der Ausfahrt",
                     "terms": "kreuzungsnummer"
@@ -2480,6 +2514,9 @@
                     "label": "Breitenbeschränkung",
                     "terms": "maximalbreite,breite,maximal zulässige breite"
                 },
+                "maxwidth/physical": {
+                    "label": "Breitenbeschränkung"
+                },
                 "memorial": {
                     "label": "Art",
                     "options": {
@@ -2755,6 +2792,9 @@
                     "label": "offenes Feuer erlaubt",
                     "terms": "offenes feuer erlaubt"
                 },
+                "opening": {
+                    "label": "Offene Breite (Meter)"
+                },
                 "opening_date": {
                     "label": "Erwartetes Öffnungsdatum",
                     "placeholder": "JJJJ-MM-TT"
@@ -2791,6 +2831,9 @@
                 "outdoor_seating": {
                     "label": "Außenbestuhlung",
                     "terms": "gastgarten,schanigarten"
+                },
+                "overlap": {
+                    "label": "Überlappende Breite (Meter)"
                 },
                 "panoramax": {
                     "label": "Panoramax Bild-ID",
@@ -3769,11 +3812,13 @@
                         "osm notes": "OpenStreetMap Hinweise",
                         "streetlevel imagery": "Straßenfotos",
                         "survey": "Erhebung vor Ort"
-                    },
-                    "terms": "quellen,referenz"
+                    }
                 },
                 "source/population": {
                     "label": "Quelle der Bevölkerungszahl"
+                },
+                "spacing": {
+                    "label": "Abstand zwischen Barrieren (Meter)"
                 },
                 "species": {
                     "label": "Species",
@@ -5956,6 +6001,10 @@
                     "name": "Tierarztpraxis",
                     "terms": "tierarzt,tierärztin,veterinär,tierklinik,tierarztpraxis"
                 },
+                "amenity/veterinary_pharmacy": {
+                    "name": "Tierapotheke",
+                    "terms": "veterinärapotheke,veterinär-apotheke,tierärztliche apotheke,apotheke für tierarzneimittel"
+                },
                 "amenity/waste/dog_excrement": {
                     "name": "Hundekotabfalleimer",
                     "terms": "hundekotbeutel,hundekotbeutelspender,hundetütenspender,hundekottüte,robidog,säckli,sackerl"
@@ -7122,6 +7171,9 @@
                     "name": "Bahnübergang (Fußgänger)",
                     "terms": "überweg,übergang,überquerung,querung,fußgängerüberweg,fußgängerübergang,fußgängerüberquerung,fußgängerquerung"
                 },
+                "highway/crossing/informal": {
+                    "name": "Informeller Übergang"
+                },
                 "highway/crossing/traffic_signals": {
                     "name": "Überweg mit Ampelregelung",
                     "terms": "fußgängerampel,fußgängergang,fußgängerüberweg (ampel),fahrradüberweg (ampel),zebrastreifen (ampel)"
@@ -8169,7 +8221,7 @@
                     "terms": "volleyballplatz,volleyballfeld"
                 },
                 "leisure/playground": {
-                    "name": "Ski-Kinderland",
+                    "name": "Spielplatz",
                     "terms": "spielplatz,kinderspielplatz"
                 },
                 "leisure/playground/indoor": {
@@ -9966,6 +10018,10 @@
                     "name": "Badeinrichtungsgeschäft",
                     "terms": "badezimmereinrichtungsgeschäft,badeinrichtungsgeschäft"
                 },
+                "shop/bbq": {
+                    "name": "Grillgeschäft",
+                    "terms": "grill-shop,barbecue shop,grillladen,bbq-shop"
+                },
                 "shop/beauty": {
                     "name": "Schönheitssalon",
                     "terms": "schönheits-salon,nagelstudio"
@@ -10254,6 +10310,10 @@
                 "shop/greengrocer": {
                     "name": "Obst- und Gemüseladen",
                     "terms": "obsthandlung,gemüsehändler,gemüsehandlung,obst- und gemüsehandlung"
+                },
+                "shop/groundskeeping": {
+                    "name": "Geschäft für Gartengeräte",
+                    "terms": "geschäft für rasen- und gartengeräte,geschäft für rasen- und gartenbedarf,rasen- und gartengeräte-geschäft,gartenfachgeschäft,baumarkt für gartengeräte"
                 },
                 "shop/hairdresser": {
                     "name": "Friseur",

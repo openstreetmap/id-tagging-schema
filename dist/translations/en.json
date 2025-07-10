@@ -661,9 +661,11 @@
                     "label": "Species",
                     "placeholder": "Acer platanoides, Quercus robur, …"
                 },
+                "spacing": {
+                    "label": "Distance Between Barriers (Meters)"
+                },
                 "source": {
                     "label": "Sources",
-                    "terms": "reference",
                     "options": {
                         "survey": "Survey",
                         "local knowledge": "Local Knowledge",
@@ -1242,6 +1244,9 @@
                 "panoramax": {
                     "label": "Panoramax Image ID"
                 },
+                "overlap": {
+                    "label": "Overlap Width (Meters)"
+                },
                 "outdoor_seating": {
                     "label": "Outdoor Seating"
                 },
@@ -1264,6 +1269,9 @@
                 "opening_date": {
                     "label": "Expected Opening Date",
                     "placeholder": "YYYY-MM-DD"
+                },
+                "opening": {
+                    "label": "Opening Width (Meters)"
                 },
                 "openfire": {
                     "label": "Open Fires Allowed"
@@ -1756,6 +1764,14 @@
                         "jughandle": "Jughandle"
                     }
                 },
+                "irrigation_pivot": {
+                    "label": "Center-Pivot Irrigation",
+                    "terms": "central pivot irrigation,water wheel,circle irrigation",
+                    "options": {
+                        "undefined": "No",
+                        "pivot": "Yes"
+                    }
+                },
                 "interval": {
                     "label": "Interval"
                 },
@@ -2119,6 +2135,7 @@
                         "main": "Main",
                         "secondary": "Secondary",
                         "service": "Service",
+                        "shop": "Shop Entrance",
                         "exit": "Exit Only",
                         "entrance": "Entrance Only",
                         "emergency": "Emergency Exit",
@@ -2346,6 +2363,9 @@
                 "delivery": {
                     "label": "Delivery"
                 },
+                "deflection": {
+                    "label": "Angle"
+                },
                 "date": {
                     "label": "Date"
                 },
@@ -2394,6 +2414,16 @@
                 "cyclestreet-BE-NL": {},
                 "cycle_network": {
                     "label": "Network"
+                },
+                "cycle_barrier": {
+                    "label": "Type",
+                    "options": {
+                        "single": "Single",
+                        "double": "Double",
+                        "triple": "Triple",
+                        "diagonal": "Diagonal",
+                        "tilted": "Tilted"
+                    }
                 },
                 "cutting": {
                     "label": "Type",
@@ -3146,7 +3176,9 @@
                         "bust": "Bust",
                         "painting": "Painting",
                         "mosaic": "Mosaic",
-                        "relief": "Relief"
+                        "relief": "Relief",
+                        "stone": "Artistically Worked Stone",
+                        "tilework": "Tile Work"
                     }
                 },
                 "artist": {
@@ -3995,6 +4027,9 @@
                 "memorial/addr": {
                     "label": "Nearest Building Address"
                 },
+                "maxwidth/physical": {
+                    "label": "Width Limit"
+                },
                 "maxspeed/hgv": {
                     "label": "Truck Speed Limit",
                     "placeholder": "40, 50, 60..."
@@ -4317,6 +4352,14 @@
                 },
                 "dance/style": {
                     "label": "Dance Styles"
+                },
+                "cycle_barrier/installation": {
+                    "label": "Installation",
+                    "options": {
+                        "fixed": "Fixed",
+                        "openable": "Openable",
+                        "removable": "Removable"
+                    }
                 },
                 "crossing/markings_yes": {},
                 "crossing/markings_yes-PL": {},
@@ -5445,6 +5488,10 @@
                     "aliases": "Hair Salon\nHair Stylist",
                     "terms": "haircut"
                 },
+                "shop/groundskeeping": {
+                    "name": "Lawn & Garden Equipment Store",
+                    "terms": "chainsaw,cultivator,garden machinery,garden power tools,groundskeeping,mower, string trimmer,snow blower"
+                },
                 "shop/greengrocer": {
                     "name": "Greengrocer",
                     "aliases": "Produce Store\nProduce Shop",
@@ -5700,6 +5747,10 @@
                     "name": "Beauty Shop",
                     "terms": "spa,salon,tanning"
                 },
+                "shop/bbq": {
+                    "name": "Barbecue Shop",
+                    "terms": "barbecue,barbeque,bbq,grill"
+                },
                 "shop/bathroom_furnishing": {
                     "name": "Bathroom Furnishing Store"
                 },
@@ -5742,7 +5793,8 @@
                     "name": "Shop (Unspecified Type)"
                 },
                 "shop/vacant": {
-                    "name": "Vacant Shop"
+                    "name": "Vacant Shop",
+                    "terms": "empty"
                 },
                 "shop/hobby": {
                     "name": "Hobby Shop"
@@ -8418,6 +8470,7 @@
                     "name": "Cycle & Foot Crossing With Pedestrian Signals"
                 },
                 "highway/path/crossing/marked": {},
+                "highway/path/crossing/informal": {},
                 "highway/footway/traffic_island": {
                     "name": "Refuge Island",
                     "aliases": "Crosswalk Island\nTraffic Island\nPedestrian Island",
@@ -8456,6 +8509,7 @@
                 },
                 "highway/footway/crossing/zebra": {},
                 "highway/footway/crossing/marked": {},
+                "highway/footway/crossing/informal": {},
                 "highway/cycleway/traffic_island_shared": {
                     "name": "Cycle & Foot Refuge Island",
                     "aliases": "Crosswalk Island\nTraffic Island\nPedestrian Island",
@@ -8507,6 +8561,9 @@
                 },
                 "highway/crossing/zebra": {},
                 "highway/crossing/marked": {},
+                "highway/crossing/informal": {
+                    "name": "Informal Crossing"
+                },
                 "healthcare/speech_therapist": {
                     "name": "Speech Therapist",
                     "terms": "speech,therapist,therapy,voice"
@@ -9311,7 +9368,7 @@
                 },
                 "barrier/cycle_barrier": {
                     "name": "Cycle Barrier",
-                    "terms": "bicycle barrier,bicycling barrier,bike gates,cycling barrier"
+                    "terms": "chicane,bike chicane,bike barrier,bicycle barrier,bicycling barrier,bike gates,cycling barrier"
                 },
                 "barrier/city_wall": {
                     "name": "City Wall"
@@ -9490,6 +9547,11 @@
                     "name": "Trash Can",
                     "aliases": "Waste Basket",
                     "terms": "bin,garbage,rubbish,litter,trash"
+                },
+                "amenity/veterinary_pharmacy": {
+                    "name": "Veterinary Pharmacy",
+                    "aliases": "Animal Pharmacy",
+                    "terms": "animal medication,pet clinic,pet doctor,pet meds,pet pharmacy,pet prescriptions,veterinarian,veterinary compounding,veterinary supplies,vet pharmacy"
                 },
                 "amenity/veterinary": {
                     "name": "Veterinary",

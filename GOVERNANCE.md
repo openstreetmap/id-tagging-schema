@@ -33,11 +33,12 @@ Github shows a `(Collaborator)` label next to users with any permission on this 
 
 ### Triage Role
 
-(No one has the triage role at the moment. Please reach out if you want to help.)
+* [Mateusz](https://github.com/matkoniecz) contributes to this project as a volunteer.
 
 The triage role includes:
 - Proactively helping to clarify issues and PRs.
 - Closing issues as duplicates or not planned.
+- Closing abandoned, duplicated or invalid PRs.
 - Assigning labels to issues and PRs.
 
 Github shows a `(Collaborator)` label next to users with any permission on this repository.
@@ -70,7 +71,13 @@ Github shows a `(Contributor)` label next to users that previously committed to 
 
 - Usually squash merge PRs to make the history simpler
 - Give the merge a meaningful description of the change
-- Add labels to the PR to simplify creating the changelog: `new-*`, `add-*`, `bug`
+- Add labels to the PR before merging which get picked up by our [release drafter](https://github.com/openstreetmap/id-tagging-schema/blob/main/.github/release-drafter.yml)
+
+**How to close…**
+
+- Provide context and an explanation for the chosen action
+- Consider reaching out to the author before taking action
+- We're happy to reopen PRs if opinions change.
 
 ### Releases
 
