@@ -158,18 +158,18 @@
                         "district!cn": "시할구/현/기",
                         "district!vn": "구/시사/현",
                         "floor": "층",
-                        "hamlet": "반",
+                        "hamlet": "반/마을",
                         "housename": "집이름",
                         "housenumber": "123",
                         "housenumber!jp": "주거 번호",
-                        "neighbourhood": "동",
+                        "neighbourhood": "행정리",
                         "neighbourhood!jp": "마치/초메/아자/코아자",
                         "place": "장소",
                         "postcode": "우편번호",
                         "province": "도",
                         "province!cn": "성/직할시/자치구/특별행정구",
                         "province!jp": "도도부현",
-                        "quarter": "지구",
+                        "quarter": "동",
                         "quarter!jp": "오아자",
                         "state": "주",
                         "street": "도로명",
@@ -234,6 +234,18 @@
                 "air_conditioning": {
                     "label": "에어컨",
                     "terms": "냉방기,에어컨,쿨링 시스템"
+                },
+                "aircraft/type": {
+                    "label": "유형",
+                    "options": {
+                        "airliner": "여객기",
+                        "cargo": "화물기",
+                        "fixed_wing": "고정익기",
+                        "glider": "글라이더",
+                        "helicopter": "헬리콥터",
+                        "jet": "제트기",
+                        "military": "군사용"
+                    }
                 },
                 "alt_name": {
                     "label": "다른 이름",
@@ -809,6 +821,10 @@
                     "placeholder": "1 m, 20 cm, 30 in…",
                     "terms": "둘레 (가슴 높이)"
                 },
+                "climbing/length": {
+                    "label": "길이(미터)",
+                    "terms": "길이(미터),길이(m)"
+                },
                 "clothes": {
                     "label": "옷",
                     "options": {
@@ -864,6 +880,7 @@
                     "label": "유형",
                     "options": {
                         "cultural_centre": "문화 센터",
+                        "village_hall": "마을 회관",
                         "youth_centre": "청소년 복지시설"
                     }
                 },
@@ -1215,6 +1232,12 @@
                         "no": {
                             "description": "자전거 차로 없음",
                             "title": "없음"
+                        },
+                        "opposite": {
+                            "description": "oneway=yes, oneway:bicycle=no, cycleway:both=no 등으로 수정하세요."
+                        },
+                        "opposite_lane": {
+                            "description": "oneway, oneway:bicycle, cycleway:left/right=lane 등으로 수정하세요."
                         },
                         "separate": {
                             "description": "별도의 도로로 매핑된 자전거 도로임을 나타냄",
@@ -2366,6 +2389,9 @@
                     "label": "제조사",
                     "terms": "제조업체,제조원"
                 },
+                "manufacturer/wikidata": {
+                    "label": "제조사 위키데이터"
+                },
                 "map_size": {
                     "label": "적용범위"
                 },
@@ -2820,6 +2846,7 @@
                             "title": "차고 상자"
                         },
                         "half_on_kerb": {
+                            "description": "차량 일부를 보도 위에 걸쳐 주차함.",
                             "title": "연석에 걸친 주차"
                         },
                         "lane": {
@@ -2832,22 +2859,31 @@
                             "title": "다층"
                         },
                         "on_kerb": {
+                            "description": "보도 위에 주차함.",
                             "title": "보도 주차"
                         },
                         "rooftop": {
+                            "description": "건물 옥상층을 주차장으로 사용함.",
                             "title": "옥상 주차장"
                         },
                         "sheds": {
+                            "description": "차량용 개인 격납고",
                             "title": "개인 차고"
                         },
                         "shoulder": {
+                            "description": "노견에 주차함.",
                             "title": "갓길 주차"
                         },
                         "street_side": {
                             "title": "갓길 주차장"
                         },
+                        "surface": {
+                            "description": "지면 위에 있는 단층 주차장",
+                            "title": "지상"
+                        },
                         "underground": {
-                            "title": "지하식 소화전"
+                            "description": "지하 주차장",
+                            "title": "지하 주차장"
                         }
                     }
                 },
@@ -3158,14 +3194,14 @@
                     }
                 },
                 "railway/switch": {
-                    "label": "스위치 유형",
+                    "label": "분기기 유형",
                     "options": {
-                        "abt": "Abt 스위치",
-                        "default": "일반 스위치",
+                        "abt": "Abt 분기기",
+                        "default": "일반 분기기",
                         "double_slip": "더블 슬립 스위치",
                         "single_slip": "싱글 슬립 스위치",
-                        "three_way": "3로 스위치",
-                        "wye": "와이 스위치"
+                        "three_way": "삼지분기기",
+                        "wye": "양개분기기"
                     }
                 },
                 "railway/track_ref": {
@@ -3394,6 +3430,16 @@
                 "roof/colour": {
                     "label": "지붕 색",
                     "terms": "지붕색,지붕색상,지붕색깔"
+                },
+                "roof/height": {
+                    "label": "지붕 높이 (미터)"
+                },
+                "roof/shape": {
+                    "label": "지붕 형태",
+                    "options": {
+                        "dome": "돔",
+                        "flat": "평평함"
+                    }
                 },
                 "room": {
                     "label": "유형"
@@ -3884,6 +3930,14 @@
                     "placeholder": "알 수 없음",
                     "terms": "구조물"
                 },
+                "structure_canal": {
+                    "label": "구조",
+                    "options": {
+                        "bridge": "다리",
+                        "tunnel": "터널"
+                    },
+                    "placeholder": "알 수 없음"
+                },
                 "structure_power": {
                     "label": "구조",
                     "options": {
@@ -4238,7 +4292,7 @@
                         "chicane": "시케인",
                         "choked_table": "초커 테이블",
                         "choker": "초커",
-                        "cushion": "차별 과속방지턱",
+                        "cushion": "패드형 과속방지턱 (스피드 쿠션)",
                         "dip": "딥",
                         "double_dip": "더블 딥",
                         "hump": "과속방지턱",
@@ -4426,6 +4480,7 @@
                         "coffee": "커피",
                         "condoms": "콘돔",
                         "drinks": "음료",
+                        "e-cigarettes": "전자담배",
                         "eggs": "달걀",
                         "electronics": "전자제품",
                         "elongated_coin": "기념주화",
@@ -4870,6 +4925,9 @@
                 "amenity/cafe/coffee_shop": {
                     "name": "커피숍",
                     "terms": "커피숍,다방"
+                },
+                "amenity/cafe/teahouse": {
+                    "name": "찻집"
                 },
                 "amenity/car_pooling": {
                     "name": "카풀링 스테이션",
@@ -7024,8 +7082,8 @@
                     "terms": "승마 도로,마도,마로"
                 },
                 "highway/bus_guideway": {
-                    "name": "버스 전용 안내로",
-                    "terms": "버스 가이드웨이,버스 안내로"
+                    "name": "버스 유도로",
+                    "terms": "버스 가이드웨이,버스 전용궤도,버스 유도로,구속유도형,유도 버스"
                 },
                 "highway/bus_stop": {
                     "name": "버스 정류장"
@@ -7045,6 +7103,9 @@
                 "highway/crossing": {
                     "name": "횡단보도",
                     "terms": "횡단보도,횡단도,횡단로"
+                },
+                "highway/crossing/informal": {
+                    "name": "비공식적인 횡단보도"
                 },
                 "highway/crossing/traffic_signals": {
                     "name": "보행자 신호등이 있는 횡단보도",
@@ -7169,8 +7230,8 @@
                     "terms": "사다리"
                 },
                 "highway/living_street": {
-                    "name": "주택가 거리",
-                    "terms": "생활도로,보행자 우선도로"
+                    "name": "보행자 우선도로",
+                    "terms": "생활도로,보행자 우선도로,주택가 거리"
                 },
                 "highway/milestone": {
                     "name": "거리 이정표",
@@ -7356,12 +7417,12 @@
                     "terms": "코스 시작/끝"
                 },
                 "highway/trunk": {
-                    "name": "도시고속도로",
+                    "name": "간선 도로",
                     "terms": "고속화도로,도시고속도로"
                 },
                 "highway/trunk_link": {
-                    "name": "고속화도로 연결로",
-                    "terms": "고속화도로 연결로"
+                    "name": "간선 도로 연결로",
+                    "terms": "고속화도로 연결로,도시고속도로 연결로"
                 },
                 "highway/turning_circle": {
                     "name": "쿨데삭 (컬드색)",
@@ -7426,6 +7487,9 @@
                 "historic/memorial": {
                     "name": "기념물",
                     "terms": "기념관"
+                },
+                "historic/memorial/blue_plaque-GB-IE": {
+                    "name": "파란색 명판"
                 },
                 "historic/memorial/plaque": {
                     "name": "기념 명판",
@@ -7520,8 +7584,8 @@
                     "name": "웅덩이"
                 },
                 "landuse/brownfield": {
-                    "name": "재개발 부지",
-                    "terms": "재개발 부지"
+                    "name": "버려진 부지",
+                    "terms": "버려진 부지"
                 },
                 "landuse/cemetery": {
                     "name": "묘역",
@@ -8890,7 +8954,7 @@
                     "terms": "젖은 초원"
                 },
                 "natural/wood": {
-                    "name": "자연림",
+                    "name": "숲",
                     "terms": "숲"
                 },
                 "network/type/node_network-DE-NL-BE-LU": {
@@ -9102,6 +9166,9 @@
                     "name": "치료사 사무소",
                     "terms": "치료사 사무실"
                 },
+                "office/translator": {
+                    "name": "번역 사무소"
+                },
                 "office/travel_agent": {
                     "name": "여행사"
                 },
@@ -9174,7 +9241,7 @@
                     "name": "농장"
                 },
                 "place/hamlet": {
-                    "name": "반",
+                    "name": "자연마을 · 반",
                     "terms": "작은 마을"
                 },
                 "place/island": {
@@ -9202,8 +9269,8 @@
                     "terms": "필지"
                 },
                 "place/quarter": {
-                    "name": "하위 자치구 / 지구",
-                    "terms": "하위 자치구 / 지구"
+                    "name": "동",
+                    "terms": "동"
                 },
                 "place/square": {
                     "name": "광장",
@@ -9538,11 +9605,11 @@
                 },
                 "public_transport/platform/trolleybus": {
                     "name": "트롤리버스 승강장",
-                    "terms": "트롤리버스 승강장"
+                    "terms": "트롤리버스 승강장,무궤도전차 승강장"
                 },
                 "public_transport/platform/trolleybus_point": {
                     "name": "트롤리버스 정류소",
-                    "terms": "트롤리버스 정류소,트롤리버스 정류장,트롤리버스 정거장"
+                    "terms": "트롤리버스 정류소,트롤리버스 정류장,트롤리버스 정거장,무궤도전차 정류장"
                 },
                 "public_transport/platform_point": {
                     "name": "대중교통 정거장 / 승강장",
@@ -9733,8 +9800,8 @@
                     "terms": "지하철역 입구"
                 },
                 "railway/switch": {
-                    "name": "철도 스위치",
-                    "terms": "철도 스위치"
+                    "name": "철도 분기기",
+                    "terms": "스위치,분기기,선로변환기,선로전환기"
                 },
                 "railway/train_wash": {
                     "name": "기차 세차장",
@@ -10143,6 +10210,9 @@
                 "shop/hairdresser": {
                     "name": "미용실",
                     "terms": "이발소,미장원"
+                },
+                "shop/hairdresser/barber": {
+                    "name": "미용실"
                 },
                 "shop/hairdresser_supply": {
                     "name": "미용실 용품 가게",
@@ -10721,8 +10791,8 @@
                     "terms": "초커"
                 },
                 "traffic_calming/cushion": {
-                    "name": "차별 과속방지턱",
-                    "terms": "차별 과속방지턱"
+                    "name": "패드형 과속방지턱 (스피드 쿠션)",
+                    "terms": "스피드 쿠션,과속방지쿠션,패드형 과속방지턱"
                 },
                 "traffic_calming/dip": {
                     "name": "딥",
