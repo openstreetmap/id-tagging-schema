@@ -10,5 +10,65 @@
     "tags": {
         "type": "boundary"
     },
-    "name": "Boundary"
+    "name": "Boundary",
+    "relation": {
+        "allowDuplicateMembers": false,
+        "members": [
+            {
+                "roles": {
+                    "inner": "Inner"
+                },
+                "geometry": [
+                    "line",
+                    "area"
+                ],
+                "matchTags": [
+                    {}
+                ]
+            },
+            {
+                "roles": {
+                    "outer": "Outer"
+                },
+                "geometry": [
+                    "line",
+                    "area"
+                ],
+                "matchTags": [
+                    {}
+                ],
+                "min": 1
+            },
+            {
+                "roles": {
+                    "admin_centre": "Admin Center",
+                    "label": "Label"
+                },
+                "geometry": [
+                    "point",
+                    "vertex"
+                ],
+                "matchTags": [
+                    {
+                        "place": "*"
+                    }
+                ],
+                "max": 1
+            },
+            {
+                "roles": {
+                    "subarea": "Sub-Area"
+                },
+                "geometry": [
+                    "area",
+                    "relation"
+                ],
+                "matchTags": [
+                    {
+                        "type": "boundary"
+                    }
+                ]
+            }
+        ]
+    }
 }
