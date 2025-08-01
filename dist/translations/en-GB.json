@@ -8,6 +8,9 @@
                 "category-building": {
                     "name": "Building Features"
                 },
+                "category-climbing": {
+                    "name": "Climbing Feature"
+                },
                 "category-golf": {
                     "name": "Golf Features"
                 },
@@ -232,6 +235,21 @@
                     "label": "Air Conditioning",
                     "terms": "cooling system,refrigeration"
                 },
+                "aircraft/type": {
+                    "label": "Type",
+                    "options": {
+                        "airliner": "Airliner",
+                        "cargo": "Cargo",
+                        "fixed_wing": "Fixed Wing",
+                        "glider": "Glider",
+                        "helicopter": "Helicopter",
+                        "jet": "Jet",
+                        "military": "Military"
+                    }
+                },
+                "alt_name": {
+                    "label": "Alternative Name"
+                },
                 "amenity": {
                     "label": "Type"
                 },
@@ -290,7 +308,8 @@
                         "painting": "Painting",
                         "relief": "Relief",
                         "sculpture": "Sculpture",
-                        "statue": "Statue"
+                        "statue": "Statue",
+                        "stone": "Artistically Worked Stone"
                     }
                 },
                 "ascent": {
@@ -549,7 +568,11 @@
                     "label": "Type",
                     "options": {
                         "aqueduct": "Aqueduct",
-                        "boardwalk": "Boardwalk"
+                        "boardwalk": "Boardwalk",
+                        "cantilever": "Cantilever Bridge",
+                        "low_water_crossing": "Low Water Crossing",
+                        "movable": "Moveable Bridge",
+                        "viaduct": "Viaduct"
                     }
                 },
                 "building": {
@@ -682,10 +705,19 @@
                     "label": "Type",
                     "options": {
                         "basic": {
-                            "description": "Nothing but a place to pitch a tent or park a vehicle"
+                            "description": "Nothing but a place to pitch a tent or park a vehicle",
+                            "title": "Basic (only tent/vehicle spots)"
+                        },
+                        "deluxe": {
+                            "description": "Fully serviced and has additional amenities like a laundry, swimming pool or similar recreation facilities",
+                            "title": "Deluxe (offers laundry or swimming pool, etc.)"
                         },
                         "serviced": {
-                            "description": "Toilets, water, showers, and electricity are provided"
+                            "description": "Toilets, water, showers, and electricity are provided",
+                            "title": "Serviced (offers showers and electricity)"
+                        },
+                        "standard": {
+                            "description": "Toilets and water are provided or available nearby"
                         }
                     }
                 },
@@ -755,6 +787,18 @@
                     "label": "Circumference (at Breast Height)",
                     "placeholder": "1 m, 20 cm, 30\"…"
                 },
+                "climbing/bolts": {
+                    "label": "Number of Bolts"
+                },
+                "climbing/length": {
+                    "label": "Length (Metres)"
+                },
+                "climbing/sport": {
+                    "label": "Sport climbing (bolted climbing)"
+                },
+                "climbing/trad": {
+                    "label": "Traditional climbing"
+                },
                 "clothes": {
                     "label": "Clothes",
                     "options": {
@@ -805,6 +849,12 @@
                 "community_centre": {
                     "label": "Type",
                     "options": {
+                        "club_home": "Club Home",
+                        "community_hall": "Community Hall",
+                        "cultural_centre": "Cultural Centre",
+                        "family_centre": "Family Centre",
+                        "parish_hall": "Parish Hall",
+                        "village_hall": "Village Hall",
                         "youth_centre": "Youth Centre"
                     }
                 },
@@ -984,6 +1034,7 @@
                     }
                 },
                 "crossing/barrier": {
+                    "label": "Barrier Arm",
                     "options": {
                         "double_half": "Double Half",
                         "full": "Full",
@@ -1055,14 +1106,18 @@
                         "curry": "Curry",
                         "dessert": "Dessert",
                         "donut": "Doughnut",
+                        "european": "European",
                         "filipino": "Filipino",
                         "fish": "Fish",
                         "fish_and_chips": "Fish and Chips",
                         "french": "French",
+                        "fries": "Chips",
+                        "frozen_yogurt": "Frozen Yoghurt",
                         "georgian": "Georgian",
                         "german": "German",
                         "greek": "Greek",
                         "grill": "Bar and Grill",
+                        "hawaiian": "Hawaiian",
                         "hot_dog": "Hot Dog",
                         "ice_cream": "Ice Cream",
                         "indian": "Indian",
@@ -1076,8 +1131,10 @@
                         "malaysian": "Malaysian",
                         "mediterranean": "Mediterranean",
                         "mexican": "Mexican",
+                        "middle_eastern": "Middle Eastern",
                         "moroccan": "Moroccan",
                         "noodle": "Noodle",
+                        "oriental": "Oriental",
                         "pancake": "Pancake",
                         "pasta": "Pasta",
                         "pastry": "Pastry",
@@ -1093,6 +1150,7 @@
                         "sandwich": "Sandwich",
                         "sausage": "Sausage",
                         "seafood": "Seafood",
+                        "shawarma": "Shawarma",
                         "soba": "Soba",
                         "soup": "Soup",
                         "spanish": "Spanish",
@@ -1104,8 +1162,11 @@
                         "tex-mex": "Tex-Mex",
                         "thai": "Thai",
                         "turkish": "Turkish",
+                        "udon": "Udon",
                         "ukrainian": "Ukrainian",
-                        "vietnamese": "Vietnamese"
+                        "vietnamese": "Vietnamese",
+                        "western": "Western",
+                        "wings": "Chicken Wings"
                     },
                     "terms": "fare,food types"
                 },
@@ -1122,6 +1183,7 @@
                         "diagonal": "Diagonal",
                         "double": "Double",
                         "single": "Single",
+                        "tilted": "Tilted",
                         "triple": "Triple"
                     }
                 },
@@ -1129,6 +1191,7 @@
                     "label": "Installation",
                     "options": {
                         "fixed": "Fixed",
+                        "openable": "Openable",
                         "removable": "Removable"
                     }
                 },
@@ -1145,6 +1208,13 @@
                         "no": {
                             "description": "No bike lane",
                             "title": "None"
+                        },
+                        "opposite": {
+                            "title": "(Deprecated) Contraflow Bicycle Lane"
+                        },
+                        "opposite_lane": {
+                            "description": "Please update with oneway, oneway:bicycle, and cycleway:left/right=lane etc.",
+                            "title": "(Deprecated) Opposite Bicycle Lane"
                         },
                         "separate": {
                             "description": "Indicates that cycleway was mapped as a separate geometry",
@@ -1180,6 +1250,9 @@
                 },
                 "defibrillator/location": {
                     "label": "Location Description"
+                },
+                "deflection": {
+                    "label": "Angle"
                 },
                 "delivery": {
                     "label": "Delivery"
@@ -1344,6 +1417,9 @@
                     },
                     "terms": "animals,pets"
                 },
+                "dog_check": {
+                    "label": "Suitable For Dogs"
+                },
                 "door": {
                     "label": "Door"
                 },
@@ -1431,6 +1507,7 @@
                         "main": "Main",
                         "secondary": "Secondary",
                         "service": "Service",
+                        "shop": "Shop Entrance",
                         "staircase": "Staircase",
                         "yes": "Unspecified"
                     }
@@ -3109,6 +3186,11 @@
                 "roof/colour": {
                     "label": "Roof Colour"
                 },
+                "roof/shape": {
+                    "options": {
+                        "dome": "Dome"
+                    }
+                },
                 "room": {
                     "label": "Type"
                 },
@@ -3553,6 +3635,14 @@
                         "cutting": "Cutting",
                         "embankment": "Embankment",
                         "ford": "Ford",
+                        "tunnel": "Tunnel"
+                    },
+                    "placeholder": "Unknown"
+                },
+                "structure_canal": {
+                    "label": "Structure",
+                    "options": {
+                        "bridge": "Bridge",
                         "tunnel": "Tunnel"
                     },
                     "placeholder": "Unknown"
@@ -6316,6 +6406,9 @@
                 },
                 "historic/memorial": {
                     "name": "Memorial"
+                },
+                "historic/memorial/blue_plaque-GB-IE": {
+                    "name": "Blue Plaque"
                 },
                 "historic/memorial/plaque": {
                     "name": "Commemorative Plaque"

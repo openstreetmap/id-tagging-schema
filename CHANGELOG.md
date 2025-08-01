@@ -23,6 +23,73 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+
+# 6.12.0
+##### 2025-Jul-23
+
+#### New Presets
+* Add preset for `climbing=route` point, way and relation ([#1598], thanks [@harahu])
+* Add preset for `climbing=crag` point and relation ([#1597], thanks [@harahu])
+* Add preset for `memorial=blue_plaque` ([#1601], thanks [@hb0nd])
+* Add preset for `climbing=route_bottom` ([#1590], thanks [@zbycz])
+* Add historic=aircraft Preset ([#1556], thanks [@novolife])
+* Create teahouse preset ([#1555], thanks [@novolife])
+#### New and Changed Fields
+* Add bridge to the structure field of canal ([#1587], thanks [@novolife])
+* Add preset for `climbing=area` ([#1596], thanks [@harahu])
+* Add "Suitable For Dogs" field to `amenity=drinking_water` preset ([#1584], thanks [@codeinabox])
+* Add roof shape and roof height fields to building presets ([#1552], thanks [@trs998])
+* Fix fields of `historic=aircraft` ([#1566], thanks [@novolife])
+#### Changed Presets
+* Add terms to `shop=fabric` ([#1619], thanks [@matkoniecz])
+* Add term "solicitor" to  lawyer preset ([#1604], thanks [@hb0nd])
+* Add terms to `amenity=toilets` preset ([#1583], thanks [@matkoniecz])
+* Add `direction` field to Observation Tower preset ([#1575], thanks [@zbycz])
+* Add terms to `amenity=telephone` ([#1574], thanks [@matkoniecz])
+* Make `social_facility` more findable ([#1576], thanks [@matkoniecz])
+* Add term "apparel" to `shop=clothes` preset ([#1382], thanks [@matkoniecz])
+* Add term to `shop=stationery` to prevent misspelling ([#1514], thanks [@matkoniecz])
+* Add `ref` key to `natural=tree` `moreFields` ([#1398], thanks [@gy-mate])
+#### Regional Presets and Fields
+* Add preset for `memorial=blue_plaque` ([#1601], thanks [@hb0nd])
+#### Documentation and Other Changes
+* Docs: Update broken transifex links ([#1630], thanks [@homersimpsons])
+* Docs/Governance: Add closing of abandoned PRs to responsibilities of the the triage role ([#1603], thanks [@matkoniecz])
+* Docs: Add detailed information on integration testing ([#1593], thanks [@harahu])
+* Docs: Streamline wording of PR preview ([#1606], thanks [@tordans])
+
+[#1382]: https://github.com/openstreetmap/id-tagging-schema/pull/1382
+[#1398]: https://github.com/openstreetmap/id-tagging-schema/pull/1398
+[#1514]: https://github.com/openstreetmap/id-tagging-schema/pull/1514
+[#1552]: https://github.com/openstreetmap/id-tagging-schema/pull/1552
+[#1555]: https://github.com/openstreetmap/id-tagging-schema/pull/1555
+[#1556]: https://github.com/openstreetmap/id-tagging-schema/pull/1556
+[#1566]: https://github.com/openstreetmap/id-tagging-schema/pull/1566
+[#1574]: https://github.com/openstreetmap/id-tagging-schema/pull/1574
+[#1575]: https://github.com/openstreetmap/id-tagging-schema/pull/1575
+[#1576]: https://github.com/openstreetmap/id-tagging-schema/pull/1576
+[#1583]: https://github.com/openstreetmap/id-tagging-schema/pull/1583
+[#1584]: https://github.com/openstreetmap/id-tagging-schema/pull/1584
+[#1587]: https://github.com/openstreetmap/id-tagging-schema/pull/1587
+[#1590]: https://github.com/openstreetmap/id-tagging-schema/pull/1590
+[#1593]: https://github.com/openstreetmap/id-tagging-schema/pull/1593
+[#1596]: https://github.com/openstreetmap/id-tagging-schema/pull/1596
+[#1597]: https://github.com/openstreetmap/id-tagging-schema/pull/1597
+[#1598]: https://github.com/openstreetmap/id-tagging-schema/pull/1598
+[#1601]: https://github.com/openstreetmap/id-tagging-schema/pull/1601
+[#1603]: https://github.com/openstreetmap/id-tagging-schema/pull/1603
+[#1604]: https://github.com/openstreetmap/id-tagging-schema/pull/1604
+[#1606]: https://github.com/openstreetmap/id-tagging-schema/pull/1606
+[#1619]: https://github.com/openstreetmap/id-tagging-schema/pull/1619
+[#1630]: https://github.com/openstreetmap/id-tagging-schema/pull/1630
+[@homersimpsons]: https://github.com/@homersimpsons
+[@hb0nd]: https://github.com/@hb0nd
+[@novolife]: https://github.com/@novolife
+[@codeinabox]: https://github.com/@codeinabox
+[@trs998]: https://github.com/@trs998
+[@zbycz]: https://github.com/@zbycz
+
+
 # 6.11.0
 ##### 2025-May-12
 
