@@ -10,7 +10,7 @@ jobs:
   deploy-preview:
     environment: pr-previews
     runs-on: ubuntu-latest
-    if: ${{github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success'}}
+    if: ${{(github.event.workflow_run.event == 'pull_request' || github.event.workflow_run.event == 'workflow_dispatch') && github.event.workflow_run.conclusion == 'success'}}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
