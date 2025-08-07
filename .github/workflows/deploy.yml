@@ -12,15 +12,15 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'Deploy') && github.repository == 'openstreetmap/id-tagging-schema'"
+    if: github.repository == 'openstreetmap/id-tagging-schema'
     steps:
       - name: Checkout
-        uses: actions/checkout@v3 # If you're using actions/checkout@v3 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        uses: actions/checkout@v4 # If you're using actions/checkout@v3 you must set persist-credentials to false in most cases for the deployment to work correctly.
         with:
           persist-credentials: false
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
 
@@ -31,8 +31,7 @@ jobs:
         run: npm run build
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.6.1
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          BRANCH: main # The branch the action should deploy to.
-          FOLDER: . # The folder the action should deploy.
-          CLEAN: false # Automatically remove deleted files from the deploy branch
+          branch: interim # The branch the action should deploy to.
+          folder: interim # The folder the action should deploy.

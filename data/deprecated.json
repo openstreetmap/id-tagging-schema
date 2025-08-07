@@ -76,8 +76,8 @@
     "replace": {"amenity": "charging_station"}
   },
   {
-     "old": {"amenity": "charging_station", "car": "*"},
-     "replace": {"amenity": "charging_station", "motorcar": "$1"}
+    "old": {"amenity": "charging_station", "car": "*"},
+    "replace": {"amenity": "charging_station", "motorcar": "$1"}
   },
   {
     "old": {"amenity": "fire_hydrant"},
@@ -547,7 +547,7 @@
     "replace": {"direction": "W"}
   },
   {
-    "old": {"disabled_spaces":"*"},
+    "old": {"disabled_spaces": "*"},
     "replace": {"capacity:disabled": "$1"}
   },
   {
@@ -687,6 +687,10 @@
     "replace": {"sidewalk": "both"}
   },
   {
+    "old": {"sidewalk": "none"},
+    "replace": {"sidewalk": "no"}
+  },
+  {
     "old": {"footway": "crossing", "highway": "cycleway"},
     "replace": {"cycleway": "crossing", "highway": "cycleway"}
   },
@@ -783,10 +787,6 @@
     "replace": {"highway": "path", "foot": "no"}
   },
   {
-    "old": {"highway": "ford"},
-    "replace": {"ford": "*"}
-  },
-  {
     "old": {"highway": "path", "ladder": "yes"},
     "replace": {"highway": "ladder"}
   },
@@ -803,8 +803,8 @@
     "replace": {"highway": "road", "surface": "unpaved"}
   },
   {
-     "old": {"historic": "archaeological_site", "site_type": "*"},
-     "replace": {"historic": "archaeological_site", "archaeological_site": "$1"}
+    "old": {"historic": "archaeological_site", "site_type": "*"},
+    "replace": {"historic": "archaeological_site", "archaeological_site": "$1"}
   },
   {
     "old": {"industrial": "gas"},
@@ -850,11 +850,11 @@
     "old": {"internet_access": "wifi"},
     "replace": {"internet_access": "wlan"}
   },
-{
+  {
     "old": {"internet_access": "wi-fi"},
     "replace": {"internet_access": "wlan"}
   },
-{
+  {
     "old": {"internet_access": "WLAN"},
     "replace": {"internet_access": "wlan"}
   },
@@ -963,12 +963,12 @@
     "replace": {"natural": "water", "water": "reservoir"}
   },
   {
-     "old": {"landuse": "reservoir", "reservoir_type": "tailings", "natural": "water", "water": "reservoir"},
-     "replace": {"man_made": "tailings_pond"}
+    "old": {"landuse": "reservoir", "reservoir_type": "tailings", "natural": "water", "water": "reservoir"},
+    "replace": {"man_made": "tailings_pond"}
   },
   {
-     "old": {"landuse": "reservoir", "reservoir_type": "tailings"},
-     "replace": {"man_made": "tailings_pond"}
+    "old": {"landuse": "reservoir", "reservoir_type": "tailings"},
+    "replace": {"man_made": "tailings_pond"}
   },
   {
     "old": {"landuse": "school"},
@@ -1131,6 +1131,14 @@
     "replace": {"craft": "winery"}
   },
   {
+    "old": {"map_type": "tactile_map", "information": "map"},
+    "replace": {"information": "tactile_map"}
+  },
+  {
+    "old": {"map_type": "tactile_model", "information": "map"},
+    "replace": {"information": "tactile_model"}
+  },
+  {
     "old": {"maxage": "*"},
     "replace": {"max_age": "$1"}
   },
@@ -1167,8 +1175,8 @@
     "replace": {"natural": "wetland", "wetland": "marsh"}
   },
   {
-     "old": {"natural": "water", "water": "reservoir", "reservoir_type": "tailings"},
-     "replace": {"man_made": "tailings_pond"}
+    "old": {"natural": "water", "water": "reservoir", "reservoir_type": "tailings"},
+    "replace": {"man_made": "tailings_pond"}
   },
   {
     "old": {"natural": "waterfall"},
@@ -1248,6 +1256,102 @@
   {
     "old": {"parking": "street"},
     "replace": {"parking": "lane"}
+  },
+  {
+    "old": {"parking:lane:both": "no"},
+    "replace": {"parking:both": "no"}
+  },
+  {
+    "old": {"parking:lane:both": "no_parking"},
+    "replace": {"parking:both": "no", "parking:both:restriction": "no_parking"}
+  },
+  {
+    "old": {"parking:lane:both": "no_stopping"},
+    "replace": {"parking:both": "no", "parking:both:restriction": "no_stopping"}
+  },
+  {
+    "old": {"parking:lane:both": "fire_lane"},
+    "replace": {"parking:both": "no", "parking:both:restriction": "no_stopping", "parking:both:restriction:reason": "fire_lane"}
+  },
+  {
+    "old": {"parking:lane:both": "separate"},
+    "replace": {"parking:both": "separate"}
+  },
+  {
+    "old": {"parking:lane:both": "diagonal"},
+    "replace": {"parking:both": "yes", "parking:both:orientation": "diagonal"}
+  },
+  {
+    "old": {"parking:lane:both": "parallel"},
+    "replace": {"parking:both": "yes", "parking:both:orientation": "parallel"}
+  },
+  {
+    "old": {"parking:lane:both": "perpendicular"},
+    "replace": {"parking:both": "yes", "parking:both:orientation": "perpendicular"}
+  },
+  {
+    "old": {"parking:lane:both:parallel": "on_street"},
+    "replace": {"parking:both": "lane"}
+  },
+  {
+    "old": {"parking:lane:left": "no"},
+    "replace": {"parking:left": "no"}
+  },
+  {
+    "old": {"parking:lane:left": "no_parking"},
+    "replace": {"parking:left": "no", "parking:left:restriction": "no_parking"}
+  },
+  {
+    "old": {"parking:lane:left": "no_stopping"},
+    "replace": {"parking:left": "no", "parking:left:restriction": "no_stopping"}
+  },
+  {
+    "old": {"parking:lane:left": "separate"},
+    "replace": {"parking:left": "separate"}
+  },
+  {
+    "old": {"parking:lane:left": "diagonal"},
+    "replace": {"parking:left": "yes", "parking:left:orientation": "diagonal"}
+  },
+  {
+    "old": {"parking:lane:left": "parallel"},
+    "replace": {"parking:left": "yes", "parking:left:orientation": "parallel"}
+  },
+  {
+    "old": {"parking:lane:left": "perpendicular"},
+    "replace": {"parking:left": "yes", "parking:left:orientation": "perpendicular"}
+  },
+  {
+    "old": {"parking:lane:right": "no"},
+    "replace": {"parking:right": "no"}
+  },
+  {
+    "old": {"parking:lane:right": "no_parking"},
+    "replace": {"parking:right": "no", "parking:right:restriction": "no_parking"}
+  },
+  {
+    "old": {"parking:lane:right": "no_stopping"},
+    "replace": {"parking:right": "no", "parking:right:restriction": "no_stopping"}
+  },
+  {
+    "old": {"parking:lane:right": "separate"},
+    "replace": {"parking:right": "separate"}
+  },
+  {
+    "old": {"parking:lane:right": "diagonal"},
+    "replace": {"parking:right": "yes", "parking:right:orientation": "diagonal"}
+  },
+  {
+    "old": {"parking:lane:right": "parallel"},
+    "replace": {"parking:right": "yes", "parking:right:orientation": "parallel"}
+  },
+  {
+    "old": {"parking:lane:right": "perpendicular"},
+    "replace": {"parking:right": "yes", "parking:right:orientation": "perpendicular"}
+  },
+  {
+    "old": {"parking:lane:right:parallel": "on_street"},
+    "replace": {"parking:right": "lane"}
   },
   {
     "old": {"parking:orientation": "*"},
@@ -1523,10 +1627,6 @@
   {
     "old": {"shop": "perfume"},
     "replace": {"shop": "perfumery"}
-  },
-  {
-    "old": {"shop": "photo_studio"},
-    "replace": {"craft": "photographer"}
   },
   {
     "old": {"shop": "real_estate"},
@@ -1873,20 +1973,20 @@
     "replace": {"volcano:status": "extinct"}
   },
   {
-    "old": {"voltage-high": "*", "transformer":"generator"},
-    "replace": {"voltage:secondary":"$1", "transformer":"generator"}
+    "old": {"voltage-high": "*", "transformer": "generator"},
+    "replace": {"voltage:secondary": "$1", "transformer": "generator"}
   },
   {
-    "old": {"voltage-low": "*", "transformer":"generator"},
-    "replace": {"voltage:primary":"$1", "transformer":"generator"}
+    "old": {"voltage-low": "*", "transformer": "generator"},
+    "replace": {"voltage:primary": "$1", "transformer": "generator"}
   },
   {
     "old": {"voltage-high": "*"},
-    "replace": {"voltage:primary":"$1"}
+    "replace": {"voltage:primary": "$1"}
   },
   {
     "old": {"voltage-low": "*"},
-    "replace": {"voltage:secondary":"$1"}
+    "replace": {"voltage:secondary": "$1"}
   },
   {
     "old": {"wall_type": "noise_barrier"},
@@ -1995,5 +2095,13 @@
   {
     "old": {"industrial": "brickworks"},
     "replace": {"industrial": "brickyard"}
+  },
+  {
+     "old": {"cycleway": "opposite"},
+     "replace": {"oneway:bicycle": "no", "cycleway:both": "no"}
+  },
+  {
+     "old": {"cycleway:left": "opposite"},
+     "replace": {"oneway:bicycle": "no", "cycleway:left": "no"}
   }
 ]

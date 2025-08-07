@@ -22,8 +22,7 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex",
-            "line"
+            "vertex"
         ],
         "tags": {
             "traffic_calming": "*"
@@ -172,7 +171,8 @@
             "manufacturer"
         ],
         "geometry": [
-            "point"
+            "point",
+            "vertex"
         ],
         "tags": {
             "marker": "*"
@@ -355,7 +355,9 @@
             "height",
             "building/material",
             "building/colour",
-            "roof/colour"
+            "roof/colour",
+            "roof/height",
+            "roof/shape"
         ],
         "moreFields": [
             "layer"
@@ -389,6 +391,8 @@
             "not/name",
             "operator",
             "roof/colour",
+            "roof/shape",
+            "roof/height",
             "smoking",
             "wheelchair"
         ],
@@ -1212,7 +1216,7 @@
         "icon": "iD-waterway-canal",
         "fields": [
             "name",
-            "structure_waterway",
+            "structure_canal",
             "width",
             "usage_waterway",
             "intermittent",
@@ -1420,6 +1424,58 @@
         ],
         "tags": {
             "type": "boundary"
+        }
+    },
+    "type/site/climbing/crag": {
+        "icon": "temaki-climbing",
+        "fields": [
+            "{climbing/crag}"
+        ],
+        "moreFields": [
+            "{climbing/crag}"
+        ],
+        "geometry": [
+            "relation"
+        ],
+        "tags": {
+            "type": "site",
+            "climbing": "crag"
+        },
+        "addTags": {
+            "climbing": "crag",
+            "site": "climbing",
+            "sport": "climbing",
+            "type": "site"
+        },
+        "reference": {
+            "key": "climbing",
+            "value": "crag"
+        }
+    },
+    "type/site/climbing/area": {
+        "icon": "temaki-climbing",
+        "fields": [
+            "name"
+        ],
+        "moreFields": [
+            "website"
+        ],
+        "geometry": [
+            "relation"
+        ],
+        "tags": {
+            "climbing": "area",
+            "type": "site"
+        },
+        "addTags": {
+            "climbing": "area",
+            "site": "climbing",
+            "sport": "climbing",
+            "type": "site"
+        },
+        "reference": {
+            "key": "climbing",
+            "value": "crag"
         }
     },
     "type/route/trolleybus": {
@@ -1825,6 +1881,32 @@
             "value": "detour"
         }
     },
+    "type/route/climbing": {
+        "icon": "temaki-climbing",
+        "geometry": [
+            "relation"
+        ],
+        "fields": [
+            "{climbing/route_bottom}"
+        ],
+        "moreFields": [
+            "{climbing/route_bottom}"
+        ],
+        "tags": {
+            "type": "route",
+            "route": "climbing"
+        },
+        "addTags": {
+            "climbing": "route",
+            "route": "climbing",
+            "sport": "climbing",
+            "type": "route"
+        },
+        "reference": {
+            "key": "climbing",
+            "value": "route"
+        }
+    },
     "type/route/bus": {
         "icon": "temaki-bus",
         "fields": [
@@ -2160,8 +2242,7 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex",
-            "line"
+            "vertex"
         ],
         "tags": {
             "traffic_calming": "rumble_strip"
@@ -2173,8 +2254,7 @@
             "traffic_calming": "mini_bumps"
         },
         "geometry": [
-            "vertex",
-            "line"
+            "vertex"
         ],
         "fields": [
             "surface",
@@ -2187,8 +2267,7 @@
             "surface"
         ],
         "geometry": [
-            "vertex",
-            "line"
+            "vertex"
         ],
         "tags": {
             "traffic_calming": "island"
@@ -2201,8 +2280,7 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex",
-            "line"
+            "vertex"
         ],
         "tags": {
             "traffic_calming": "hump"
@@ -2215,8 +2293,7 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex",
-            "line"
+            "vertex"
         ],
         "tags": {
             "traffic_calming": "dip"
@@ -2229,8 +2306,7 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex",
-            "line"
+            "vertex"
         ],
         "tags": {
             "traffic_calming": "cushion"
@@ -2243,9 +2319,7 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex",
-            "line",
-            "area"
+            "vertex"
         ],
         "tags": {
             "traffic_calming": "choker"
@@ -2258,9 +2332,7 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex",
-            "line",
-            "area"
+            "vertex"
         ],
         "tags": {
             "traffic_calming": "chicane"
@@ -2273,8 +2345,7 @@
             "direction_vertex"
         ],
         "geometry": [
-            "vertex",
-            "line"
+            "vertex"
         ],
         "tags": {
             "traffic_calming": "bump"
@@ -2287,9 +2358,7 @@
             "{traffic_calming}"
         ],
         "geometry": [
-            "vertex",
-            "line",
-            "area"
+            "vertex"
         ],
         "tags": {
             "traffic_calming": "yes"
@@ -2691,6 +2760,7 @@
         "fields": [
             "name",
             "operator",
+            "camp_site",
             "address",
             "access_simple",
             "capacity/persons",
@@ -2958,7 +3028,8 @@
             "operator",
             "colour",
             "material",
-            "ele_node"
+            "ele_node",
+            "activity"
         ],
         "geometry": [
             "point",
@@ -3077,7 +3148,8 @@
     "tourism/information/board/welcome_sign": {
         "icon": "maki-embassy",
         "geometry": [
-            "point"
+            "point",
+            "vertex"
         ],
         "tags": {
             "tourism": "information",
@@ -4111,7 +4183,7 @@
         }
     },
     "shop/mall": {
-        "icon": "maki-shop",
+        "icon": "temaki-shopping_mall",
         "geometry": [
             "point",
             "area"
@@ -4344,6 +4416,16 @@
             "shop": "hairdresser"
         }
     },
+    "shop/groundskeeping": {
+        "icon": "fas-tractor",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "shop": "groundskeeping"
+        }
+    },
     "shop/greengrocer": {
         "icon": "fas-carrot",
         "fields": [
@@ -4359,6 +4441,19 @@
         ],
         "tags": {
             "shop": "greengrocer"
+        }
+    },
+    "shop/gold_buyer": {
+        "icon": "fas-hand-holding",
+        "fields": [
+            "{shop}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "shop": "gold_buyer"
         }
     },
     "shop/gift": {
@@ -4465,7 +4560,7 @@
         }
     },
     "shop/frame": {
-        "icon": "fas-vector-square",
+        "icon": "temaki-portrait-framed",
         "geometry": [
             "point",
             "area"
@@ -4591,7 +4686,7 @@
         }
     },
     "shop/e-cigarette": {
-        "icon": "maki-shop",
+        "icon": "fas-smoking",
         "moreFields": [
             "{shop}",
             "min_age"
@@ -4681,7 +4776,7 @@
         }
     },
     "shop/craft": {
-        "icon": "fas-cut",
+        "icon": "fas-palette",
         "geometry": [
             "point",
             "area"
@@ -5075,6 +5170,22 @@
             "shop": "beauty"
         }
     },
+    "shop/bbq": {
+        "icon": "maki-bbq",
+        "fields": [
+            "{shop}"
+        ],
+        "moreFields": [
+            "{shop}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "shop": "bbq"
+        }
+    },
     "shop/bathroom_furnishing": {
         "icon": "fas-bath",
         "geometry": [
@@ -5119,7 +5230,7 @@
         }
     },
     "shop/art": {
-        "icon": "maki-shop",
+        "icon": "maki-art-gallery",
         "geometry": [
             "point",
             "area"
@@ -5210,7 +5321,7 @@
         "matchScore": 0.8
     },
     "shop/vacant": {
-        "icon": "maki-shop",
+        "icon": "fas-store-alt-slash",
         "fields": [
             "name",
             "address",
@@ -5290,6 +5401,31 @@
         "tags": {
             "shop": "laundry",
             "self_service": "yes"
+        }
+    },
+    "shop/hairdresser/barber": {
+        "icon": "temaki-beauty_salon",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "fields": [
+            "name",
+            "operator",
+            "address",
+            "building_area_yes",
+            "opening_hours",
+            "payment_multi",
+            "phone",
+            "gender_simple"
+        ],
+        "tags": {
+            "shop": "hairdresser",
+            "hairdresser": "barber"
+        },
+        "reference": {
+            "key": "hairdresser",
+            "value": "barber"
         }
     },
     "shop/erotic/lgbtq": {
@@ -6017,7 +6153,7 @@
         "searchable": false
     },
     "railway/station": {
-        "icon": "temaki-train",
+        "icon": "temaki-board_train",
         "fields": [
             "{public_transport/station}"
         ],
@@ -6360,7 +6496,7 @@
         }
     },
     "public_transport/station_tram": {
-        "icon": "temaki-tram",
+        "icon": "temaki-board_tram",
         "fields": [
             "{public_transport/station}"
         ],
@@ -6403,7 +6539,7 @@
         }
     },
     "public_transport/station_train": {
-        "icon": "temaki-train",
+        "icon": "temaki-board_train",
         "fields": [
             "{public_transport/station}"
         ],
@@ -6430,7 +6566,7 @@
         }
     },
     "public_transport/station_subway": {
-        "icon": "temaki-subway",
+        "icon": "temaki-board_subway",
         "fields": [
             "{public_transport/station}"
         ],
@@ -6439,6 +6575,7 @@
         ],
         "geometry": [
             "point",
+            "vertex",
             "area"
         ],
         "tags": {
@@ -6457,7 +6594,7 @@
         }
     },
     "public_transport/station_monorail": {
-        "icon": "temaki-monorail",
+        "icon": "temaki-board_monorail",
         "fields": [
             "{public_transport/station}"
         ],
@@ -6466,6 +6603,7 @@
         ],
         "geometry": [
             "point",
+            "vertex",
             "area"
         ],
         "tags": {
@@ -6483,7 +6621,7 @@
         }
     },
     "public_transport/station_light_rail": {
-        "icon": "temaki-light_rail",
+        "icon": "temaki-board_light_rail",
         "fields": [
             "{public_transport/station}"
         ],
@@ -6492,6 +6630,7 @@
         ],
         "geometry": [
             "point",
+            "vertex",
             "area"
         ],
         "tags": {
@@ -6510,7 +6649,7 @@
         }
     },
     "public_transport/station_ferry": {
-        "icon": "temaki-ferry",
+        "icon": "temaki-board_ferry",
         "fields": [
             "{public_transport/station}"
         ],
@@ -6537,7 +6676,7 @@
         }
     },
     "public_transport/station_bus": {
-        "icon": "temaki-bus",
+        "icon": "temaki-board_bus",
         "fields": [
             "{public_transport/station}"
         ],
@@ -7844,7 +7983,8 @@
     "power/generator/method/photovoltaic/building/roof": {
         "icon": "fas-solar-panel",
         "fields": [
-            "{power/generator/method/photovoltaic}"
+            "{power/generator/method/photovoltaic}",
+            "layer_1"
         ],
         "moreFields": [
             "{power/generator}"
@@ -7865,8 +8005,7 @@
             "generator:method": "photovoltaic",
             "generator:type": "solar_photovoltaic_panel",
             "generator:output:electricity": "*",
-            "building": "roof",
-            "layer": "1"
+            "building": "roof"
         },
         "reference": {
             "key": "generator:method",
@@ -8108,7 +8247,7 @@
         }
     },
     "playground/hopscotch": {
-        "icon": "maki-playground",
+        "icon": "roentgen-hopscotch",
         "geometry": [
             "point",
             "line",
@@ -8420,6 +8559,18 @@
         },
         "searchable": false
     },
+    "piste/take_off": {
+        "icon": "temaki-ski_jumping",
+        "fields": [
+            "height"
+        ],
+        "geometry": [
+            "vertex"
+        ],
+        "tags": {
+            "piste:takeoff": "yes"
+        }
+    },
     "piste/sleigh": {
         "icon": "fas-sleigh",
         "fields": [
@@ -8474,14 +8625,13 @@
             "piste:type": "skitour"
         }
     },
-    "piste/piste": {
-        "icon": "fas-skiing",
+    "piste/ski_jump": {
+        "icon": "temaki-ski_jumping",
         "fields": [
             "name",
             "piste/type",
-            "piste/difficulty",
-            "piste/grooming",
-            "oneway",
+            "ref",
+            "oneway_yes",
             "lit"
         ],
         "geometry": [
@@ -8489,7 +8639,7 @@
             "area"
         ],
         "tags": {
-            "piste:type": "*"
+            "piste:type": "ski_jump"
         }
     },
     "piste/nordic": {
@@ -8562,6 +8712,25 @@
         "tags": {
             "piste:type": "downhill"
         }
+    },
+    "piste/piste": {
+        "icon": "fas-skiing",
+        "fields": [
+            "name",
+            "piste/type",
+            "piste/difficulty",
+            "piste/grooming",
+            "oneway",
+            "lit"
+        ],
+        "geometry": [
+            "line",
+            "area"
+        ],
+        "tags": {
+            "piste:type": "*"
+        },
+        "searchable": false
     },
     "piste/downhill/halfpipe": {
         "icon": "fas-snowboarding",
@@ -8642,6 +8811,16 @@
         ],
         "tags": {
             "office": "union"
+        }
+    },
+    "office/translator": {
+        "icon": "fas-language",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "office": "translator"
         }
     },
     "office/therapist": {
@@ -9470,7 +9649,8 @@
             "species/wikidata",
             "taxon",
             "diameter_crown",
-            "diameter"
+            "diameter",
+            "ref"
         ],
         "geometry": [
             "point",
@@ -9521,6 +9701,20 @@
         ],
         "tags": {
             "natural": "spring"
+        }
+    },
+    "natural/sinkhole": {
+        "icon": "temaki-trench",
+        "fields": [
+            "name"
+        ],
+        "geometry": [
+            "point",
+            "vertex",
+            "area"
+        ],
+        "tags": {
+            "natural": "sinkhole"
         }
     },
     "natural/shrub": {
@@ -9746,8 +9940,7 @@
         "geometry": [
             "point",
             "vertex",
-            "line",
-            "area"
+            "line"
         ],
         "tags": {
             "natural": "cliff"
@@ -9824,6 +10017,19 @@
         ],
         "tags": {
             "natural": "bare_rock"
+        }
+    },
+    "natural/arch": {
+        "icon": "temaki-natural_arch",
+        "fields": [
+            "name"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "natural": "arch"
         }
     },
     "natural/wood_point": {
@@ -10798,6 +11004,23 @@
             "man_made": "storage_tank"
         }
     },
+    "man_made/ski_jump": {
+        "icon": "temaki-ski_jumping",
+        "fields": [
+            "name",
+            "operator"
+        ],
+        "moreFields": [
+            "building"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "man_made": "ski_jump"
+        }
+    },
     "man_made/silo": {
         "icon": "temaki-silo",
         "fields": [
@@ -11019,6 +11242,7 @@
         "icon": "temaki-mineshaft_cage",
         "geometry": [
             "point",
+            "vertex",
             "area"
         ],
         "fields": [
@@ -11202,10 +11426,53 @@
             "self_service"
         ],
         "geometry": [
-            "point"
+            "point",
+            "vertex"
         ],
         "tags": {
             "man_made": "fuel_pump"
+        }
+    },
+    "man_made/footwear_decontamination-AU-NZ": {
+        "icon": "temaki-footwear_decontamination",
+        "fields": [
+            "operator",
+            "capacity"
+        ],
+        "moreFields": [
+            "{@templates/poi}",
+            "covered"
+        ],
+        "geometry": [
+            "point",
+            "vertex",
+            "area"
+        ],
+        "tags": {
+            "man_made": "footwear_decontamination"
+        },
+        "locationSet": {
+            "include": [
+                "AU",
+                "NZ"
+            ]
+        }
+    },
+    "man_made/flare": {
+        "icon": "temaki-chimney",
+        "fields": [
+            "height"
+        ],
+        "moreFields": [
+            "ref",
+            "visibility"
+        ],
+        "geometry": [
+            "point",
+            "vertex"
+        ],
+        "tags": {
+            "man_made": "flare"
         }
     },
     "man_made/flagpole": {
@@ -11631,7 +11898,8 @@
         "icon": "maki-observation-tower",
         "moreFields": [
             "{man_made/tower}",
-            "opening_hours"
+            "opening_hours",
+            "direction"
         ],
         "geometry": [
             "point",
@@ -12485,13 +12753,13 @@
         "fields": [
             "name",
             "operator",
-            "playground/theme",
             "surface",
             "access_simple",
             "min_age",
             "max_age"
         ],
         "moreFields": [
+            "playground/theme",
             "blind",
             "dog",
             "gnis/feature_id-US",
@@ -13191,6 +13459,25 @@
             "leisure": "beach_resort"
         }
     },
+    "leisure/bathing_place": {
+        "icon": "maki-water",
+        "fields": [
+            "name",
+            "access_simple",
+            "informal",
+            "shower",
+            "toilets",
+            "drinking_water_available",
+            "picnic_table"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "leisure": "bathing_place"
+        }
+    },
     "leisure/bandstand": {
         "icon": "fas-music",
         "fields": [
@@ -13490,6 +13777,21 @@
         "reference": {
             "key": "sport",
             "value": "shooting"
+        }
+    },
+    "leisure/sports_centre/karting": {
+        "icon": "fas-flag-checkered",
+        "geometry": [
+            "area",
+            "point"
+        ],
+        "tags": {
+            "leisure": "sports_centre",
+            "sport": "karting"
+        },
+        "reference": {
+            "key": "sport",
+            "value": "karting"
         }
     },
     "leisure/sports_centre/horse_racing": {
@@ -14307,12 +14609,26 @@
         "geometry": [
             "area"
         ],
+        "fields": [
+            "name",
+            "garden/type",
+            "operator",
+            "operator/type"
+        ],
+        "moreFields": [
+            "{@templates/contact}",
+            "access_simple",
+            "charge_fee",
+            "fee",
+            "gnis/feature_id-US",
+            "payment_multi_fee"
+        ],
         "tags": {
             "leisure": "garden",
-            "garden:type": "kitchen"
+            "garden:style": "kitchen"
         },
         "reference": {
-            "key": "garden:type"
+            "key": "garden:style"
         }
     },
     "leisure/garden/community": {
@@ -14406,7 +14722,7 @@
         }
     },
     "leisure/fitness_station/rings": {
-        "icon": "maki-pitch",
+        "icon": "roentgen-rings",
         "geometry": [
             "point",
             "area"
@@ -14486,7 +14802,7 @@
         }
     },
     "leisure/fitness_station/horizontal_ladder": {
-        "icon": "maki-pitch",
+        "icon": "roentgen-horizontal_ladder",
         "geometry": [
             "point",
             "area"
@@ -14970,7 +15286,8 @@
         ],
         "moreFields": [
             "{@templates/contact}",
-            "address"
+            "address",
+            "irrigation_pivot"
         ],
         "geometry": [
             "area"
@@ -15381,6 +15698,70 @@
             "landuse": "military",
             "military": "base",
             "military_service": "navy"
+        }
+    },
+    "landuse/meadow_orchard/orchard": {
+        "icon": "maki-park",
+        "fields": [
+            "name",
+            "operator",
+            "trees"
+        ],
+        "moreFields": [
+            "{@templates/contact}",
+            "address",
+            "species/wikidata",
+            "surface",
+            "description"
+        ],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "landuse": "orchard",
+            "orchard": "meadow_orchard"
+        },
+        "reference": {
+            "key": "orchard",
+            "value": "meadow_orchard"
+        },
+        "matchScore": 0.9,
+        "locationSet": {
+            "include": [
+                "Q46"
+            ]
+        }
+    },
+    "landuse/meadow_orchard/meadow": {
+        "icon": "maki-park",
+        "fields": [
+            "name",
+            "operator",
+            "trees"
+        ],
+        "moreFields": [
+            "{@templates/contact}",
+            "address",
+            "species/wikidata",
+            "surface",
+            "description"
+        ],
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "landuse": "meadow",
+            "meadow": "meadow_orchard"
+        },
+        "reference": {
+            "key": "meadow",
+            "value": "meadow_orchard"
+        },
+        "matchScore": 0.9,
+        "locationSet": {
+            "include": [
+                "Q46"
+            ]
         }
     },
     "landuse/industrial/slaughterhouse": {
@@ -15969,6 +16350,29 @@
             "historic": "archaeological_site"
         }
     },
+    "historic/aircraft": {
+        "icon": "roentgen-plane",
+        "fields": [
+            "name",
+            "start_date",
+            "aircraft/type",
+            "model"
+        ],
+        "moreFields": [
+            "ref",
+            "model/wikidata",
+            "manufacturer",
+            "manufacturer/wikidata",
+            "description"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "historic": "aircraft"
+        }
+    },
     "historic/memorial/stolperstein-EU": {
         "icon": "temaki-plaque",
         "fields": [
@@ -16015,6 +16419,35 @@
         "reference": {
             "key": "memorial",
             "value": "plaque"
+        }
+    },
+    "historic/memorial/blue_plaque-GB-IE": {
+        "icon": "temaki-plaque",
+        "fields": [
+            "name",
+            "inscription",
+            "subject/wikidata"
+        ],
+        "moreFields": [
+            "direction",
+            "image",
+            "wikimedia_commons"
+        ],
+        "geometry": [
+            "point",
+            "vertex"
+        ],
+        "tags": {
+            "memorial": "blue_plaque"
+        },
+        "addTags": {
+            "historic": "memorial"
+        },
+        "locationSet": {
+            "include": [
+                "gb",
+                "ie"
+            ]
         }
     },
     "historic/castle/stately": {
@@ -16353,6 +16786,7 @@
             "lamp_mount",
             "direction",
             "height",
+            "operator",
             "ref"
         ]
     },
@@ -16625,6 +17059,7 @@
             "parking/side/parking",
             "parking/side/orientation",
             "smoothness",
+            "traffic_calming_road",
             "trolley_wire",
             "width"
         ],
@@ -16796,6 +17231,7 @@
             "parking/side/orientation",
             "smoothness",
             "toll",
+            "traffic_calming_road",
             "trolley_wire",
             "width"
         ],
@@ -17108,6 +17544,33 @@
             "highway": "living_street"
         }
     },
+    "highway/ladder": {
+        "icon": "temaki-crossing_markings-ladder",
+        "fields": [
+            "name",
+            "incline_steps",
+            "access_simple",
+            "handrail",
+            "step_count",
+            "material",
+            "width",
+            "height"
+        ],
+        "moreFields": [
+            "covered_no",
+            "level_semi",
+            "lit",
+            "oneway",
+            "ref"
+        ],
+        "geometry": [
+            "vertex",
+            "line"
+        ],
+        "tags": {
+            "highway": "ladder"
+        }
+    },
     "highway/give_way": {
         "icon": "temaki-yield",
         "fields": [
@@ -17281,15 +17744,13 @@
     "highway/crossing": {
         "fields": [
             "crossing",
-            "tactile_paving",
-            "crossing/island",
             "{@templates/crossing/markings}",
-            "crossing_raised"
+            "{@templates/crossing/defaults}",
+            "tactile_paving"
         ],
         "moreFields": [
-            "flashing_lights",
             "kerb",
-            "oneway"
+            "flashing_lights"
         ],
         "geometry": [
             "vertex"
@@ -17617,6 +18078,36 @@
             "value": "karting"
         }
     },
+    "highway/path/traffic_island_shared": {
+        "locationSet": {
+            "include": [
+                "fr",
+                "lt",
+                "pl",
+                "de",
+                "il",
+                "ps"
+            ]
+        },
+        "icon": "temaki-pedestrian_and_cyclist",
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "highway": "path",
+            "path": "traffic_island",
+            "foot": "designated",
+            "bicycle": "designated"
+        },
+        "reference": {
+            "key": "path",
+            "value": "traffic_island"
+        },
+        "fields": [
+            "{highway/cycleway/traffic_island_shared}"
+        ],
+        "name": "{highway/cycleway/traffic_island_shared}"
+    },
     "highway/path/informal": {
         "icon": "fas-shoe-prints",
         "fields": [
@@ -17672,15 +18163,257 @@
             "value": "boardwalk"
         }
     },
+    "highway/path/bicycle_foot": {
+        "locationSet": {
+            "include": [
+                "fr",
+                "lt",
+                "pl",
+                "de",
+                "il",
+                "ps"
+            ]
+        },
+        "icon": "temaki-pedestrian_and_cyclist",
+        "fields": [
+            "{highway/cycleway/bicycle_foot}"
+        ],
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "highway": "path",
+            "foot": "designated",
+            "bicycle": "designated"
+        },
+        "removeTags": {
+            "highway": "path",
+            "foot": "designated",
+            "bicycle": "designated",
+            "segregated": "*"
+        },
+        "matchScore": 0.9,
+        "name": "{highway/cycleway/bicycle_foot}"
+    },
+    "highway/path/crossing": {
+        "icon": "temaki-cyclist_crosswalk",
+        "fields": [
+            "crossing",
+            "{@templates/crossing/markings}",
+            "{@templates/crossing/defaults}",
+            "surface"
+        ],
+        "moreFields": [
+            "{@templates/crossing/geometry_way_more}",
+            "{@templates/crossing/bicycle_more}",
+            "flashing_lights"
+        ],
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "path": "crossing"
+        },
+        "addTags": {
+            "highway": "path",
+            "path": "crossing"
+        },
+        "reference": {
+            "key": "path",
+            "value": "crossing"
+        },
+        "searchable": false
+    },
+    "highway/path/crossing/bicycle_foot": {
+        "locationSet": {
+            "include": [
+                "fr",
+                "lt",
+                "pl",
+                "de",
+                "il",
+                "ps"
+            ]
+        },
+        "icon": "temaki-ped_cyclist_crosswalk",
+        "fields": [
+            "{highway/cycleway/crossing/bicycle_foot}"
+        ],
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "highway": "path",
+            "path": "crossing",
+            "foot": "designated",
+            "bicycle": "designated"
+        },
+        "removeTags": {
+            "highway": "path",
+            "path": "crossing",
+            "foot": "designated",
+            "bicycle": "designated",
+            "segregated": "*"
+        },
+        "reference": {
+            "key": "path",
+            "value": "crossing"
+        },
+        "matchScore": 0.9,
+        "name": "{highway/cycleway/crossing/bicycle_foot}"
+    },
+    "highway/path/crossing/unmarked": {
+        "icon": "temaki-pedestrian",
+        "fields": [
+            "crossing",
+            "{@templates/crossing/defaults}",
+            "surface"
+        ],
+        "moreFields": [
+            "{@templates/crossing/geometry_way_more}",
+            "{@templates/crossing/bicycle_more}",
+            "flashing_lights"
+        ],
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "highway": "path",
+            "path": "crossing",
+            "crossing": "unmarked"
+        },
+        "addTags": {
+            "highway": "path",
+            "path": "crossing",
+            "crossing": "unmarked",
+            "crossing:markings": "no"
+        },
+        "reference": {
+            "key": "crossing",
+            "value": "unmarked"
+        },
+        "searchable": false
+    },
+    "highway/path/crossing/uncontrolled": {
+        "icon": "temaki-pedestrian",
+        "fields": [
+            "crossing",
+            "{@templates/crossing/markings_yes}",
+            "{@templates/crossing/defaults}",
+            "surface"
+        ],
+        "moreFields": [
+            "{@templates/crossing/geometry_way_more}",
+            "{@templates/crossing/bicycle_more}",
+            "flashing_lights"
+        ],
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "highway": "path",
+            "path": "crossing",
+            "crossing": "uncontrolled"
+        },
+        "reference": {
+            "key": "crossing",
+            "value": "uncontrolled"
+        },
+        "searchable": false
+    },
+    "highway/path/crossing/traffic_signals": {
+        "icon": "temaki-railway_signals",
+        "fields": [
+            "crossing",
+            "{@templates/crossing/traffic_signal}",
+            "{@templates/crossing/markings}",
+            "{@templates/crossing/defaults}",
+            "surface"
+        ],
+        "moreFields": [
+            "{@templates/crossing/traffic_signal_more}",
+            "{@templates/crossing/geometry_way_more}",
+            "{@templates/crossing/bicycle_more}",
+            "flashing_lights"
+        ],
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "highway": "path",
+            "path": "crossing",
+            "crossing": "traffic_signals"
+        },
+        "reference": {
+            "key": "crossing",
+            "value": "traffic_signals"
+        },
+        "searchable": false
+    },
+    "highway/path/crossing/marked": {
+        "icon": "temaki-pedestrian_crosswalk",
+        "fields": [
+            "crossing",
+            "{@templates/crossing/markings}",
+            "{@templates/crossing/defaults}",
+            "surface"
+        ],
+        "moreFields": [
+            "{@templates/crossing/geometry_way_more}",
+            "{@templates/crossing/bicycle_more}",
+            "flashing_lights"
+        ],
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "highway": "path",
+            "path": "crossing",
+            "crossing": "marked"
+        },
+        "addTags": {
+            "highway": "path",
+            "path": "crossing",
+            "crossing": "marked",
+            "crossing:markings": "yes"
+        },
+        "reference": {
+            "key": "crossing",
+            "value": "marked"
+        },
+        "name": "{highway/path/crossing/uncontrolled}",
+        "searchable": false
+    },
+    "highway/path/crossing/informal": {
+        "icon": "temaki-pedestrian",
+        "fields": [
+            "crossing",
+            "surface"
+        ],
+        "moreFields": [
+            "{@templates/crossing/geometry_way_more}"
+        ],
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "highway": "path",
+            "path": "crossing",
+            "crossing": "informal"
+        },
+        "reference": {
+            "key": "crossing",
+            "value": "informal"
+        },
+        "name": "{highway/crossing/informal}",
+        "searchable": false
+    },
     "highway/footway/traffic_island": {
         "icon": "temaki-pedestrian",
         "geometry": [
             "line"
         ],
         "tags": {
-            "footway": "traffic_island"
-        },
-        "addTags": {
             "highway": "footway",
             "footway": "traffic_island"
         },
@@ -17709,14 +18442,12 @@
     "highway/footway/crossing": {
         "fields": [
             "crossing",
-            "surface",
-            "tactile_paving",
-            "crossing/island",
             "{@templates/crossing/markings}",
-            "crossing_raised",
-            "access"
+            "{@templates/crossing/defaults}",
+            "surface"
         ],
         "moreFields": [
+            "{@templates/crossing/geometry_way_more}",
             "flashing_lights"
         ],
         "geometry": [
@@ -17822,13 +18553,11 @@
         "icon": "temaki-pedestrian",
         "fields": [
             "crossing",
-            "surface",
-            "tactile_paving",
-            "crossing/island",
-            "crossing_raised",
-            "access"
+            "{@templates/crossing/defaults}",
+            "surface"
         ],
         "moreFields": [
+            "{@templates/crossing/geometry_way_more}",
             "flashing_lights"
         ],
         "geometry": [
@@ -17854,14 +18583,12 @@
         "icon": "temaki-pedestrian",
         "fields": [
             "crossing",
-            "surface",
-            "tactile_paving",
-            "crossing/island",
             "{@templates/crossing/markings_yes}",
-            "crossing_raised",
-            "access"
+            "{@templates/crossing/defaults}",
+            "surface"
         ],
         "moreFields": [
+            "{@templates/crossing/geometry_way_more}",
             "flashing_lights"
         ],
         "geometry": [
@@ -17881,20 +18608,15 @@
         "icon": "temaki-railway_signals",
         "fields": [
             "crossing",
-            "surface",
-            "tactile_paving",
-            "crossing/island",
+            "{@templates/crossing/traffic_signal}",
             "{@templates/crossing/markings}",
-            "crossing_raised",
-            "button_operated",
-            "traffic_signals/sound",
-            "traffic_signals/vibration",
-            "access"
+            "{@templates/crossing/defaults}",
+            "surface"
         ],
         "moreFields": [
-            "traffic_signals/arrow",
-            "traffic_signals/countdown",
-            "traffic_signals/minimap"
+            "{@templates/crossing/traffic_signal_more}",
+            "{@templates/crossing/geometry_way_more}",
+            "flashing_lights"
         ],
         "geometry": [
             "line"
@@ -17913,12 +18635,13 @@
         "icon": "temaki-pedestrian_crosswalk",
         "fields": [
             "crossing",
-            "surface",
-            "tactile_paving",
-            "crossing/island",
             "{@templates/crossing/markings}",
-            "crossing_raised",
-            "access"
+            "{@templates/crossing/defaults}",
+            "surface"
+        ],
+        "moreFields": [
+            "{@templates/crossing/geometry_way_more}",
+            "flashing_lights"
         ],
         "geometry": [
             "line"
@@ -17939,14 +18662,12 @@
         "icon": "temaki-pedestrian_crosswalk",
         "fields": [
             "crossing",
-            "surface",
-            "tactile_paving",
-            "crossing/island",
             "{@templates/crossing/markings}",
-            "crossing_raised",
-            "access"
+            "{@templates/crossing/defaults}",
+            "surface"
         ],
         "moreFields": [
+            "{@templates/crossing/geometry_way_more}",
             "flashing_lights"
         ],
         "geometry": [
@@ -17969,6 +18690,70 @@
         },
         "name": "{highway/footway/crossing/uncontrolled}",
         "searchable": false
+    },
+    "highway/footway/crossing/informal": {
+        "icon": "temaki-pedestrian",
+        "fields": [
+            "crossing",
+            "surface"
+        ],
+        "moreFields": [
+            "{@templates/crossing/geometry_way_more}"
+        ],
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "highway": "footway",
+            "footway": "crossing",
+            "crossing": "informal"
+        },
+        "reference": {
+            "key": "crossing",
+            "value": "informal"
+        },
+        "name": "{highway/crossing/informal}",
+        "searchable": false
+    },
+    "highway/cycleway/traffic_island_shared": {
+        "locationSet": {
+            "exclude": [
+                "fr",
+                "lt",
+                "pl",
+                "de",
+                "il",
+                "ps"
+            ]
+        },
+        "icon": "temaki-pedestrian_and_cyclist",
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "highway": "cycleway",
+            "cycleway": "traffic_island",
+            "foot": "designated",
+            "bicycle": "designated"
+        },
+        "reference": {
+            "key": "cycleway",
+            "value": "traffic_island"
+        }
+    },
+    "highway/cycleway/traffic_island": {
+        "icon": "fas-biking",
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "highway": "cycleway",
+            "cycleway": "traffic_island"
+        },
+        "reference": {
+            "key": "cycleway",
+            "value": "traffic_island"
+        }
     },
     "highway/cycleway/moped_link-NL": {
         "locationSet": {
@@ -18051,11 +18836,13 @@
         "icon": "temaki-cyclist_crosswalk",
         "fields": [
             "crossing",
-            "surface",
-            "tactile_paving",
-            "crossing/island",
             "{@templates/crossing/markings}",
-            "access"
+            "{@templates/crossing/defaults}",
+            "surface"
+        ],
+        "moreFields": [
+            "{@templates/crossing/geometry_way_more}",
+            "{@templates/crossing/bicycle_more}"
         ],
         "geometry": [
             "line"
@@ -18078,11 +18865,12 @@
         "icon": "fas-biking",
         "fields": [
             "crossing",
-            "surface",
-            "tactile_paving",
-            "crossing/island",
-            "crossing_raised",
-            "access"
+            "{@templates/crossing/defaults}",
+            "surface"
+        ],
+        "moreFields": [
+            "{@templates/crossing/geometry_way_more}",
+            "{@templates/crossing/bicycle_more}"
         ],
         "geometry": [
             "line"
@@ -18107,14 +18895,14 @@
     "highway/cycleway/crossing/uncontrolled": {
         "icon": "temaki-cyclist_crosswalk",
         "fields": [
-            "oneway",
             "crossing",
-            "surface",
-            "tactile_paving",
-            "crossing/island",
+            "{@templates/crossing/defaults}",
             "{@templates/crossing/markings_yes}",
-            "crossing_raised",
-            "access"
+            "surface"
+        ],
+        "moreFields": [
+            "{@templates/crossing/geometry_way_more}",
+            "{@templates/crossing/bicycle_more}"
         ],
         "geometry": [
             "line"
@@ -18133,19 +18921,16 @@
     "highway/cycleway/crossing/traffic_signals": {
         "icon": "fas-biking",
         "fields": [
-            "oneway",
             "crossing",
-            "surface",
-            "crossing/island",
+            "{@templates/crossing/traffic_signal}",
             "{@templates/crossing/markings}",
-            "crossing_raised",
-            "button_operated",
-            "traffic_signals/sound",
-            "traffic_signals/vibration",
-            "access"
+            "{@templates/crossing/defaults}",
+            "surface"
         ],
         "moreFields": [
-            "tactile_paving"
+            "{@templates/crossing/traffic_signal_more}",
+            "{@templates/crossing/geometry_way_more}",
+            "{@templates/crossing/bicycle_more}"
         ],
         "geometry": [
             "line"
@@ -18167,6 +18952,7 @@
                 "fr",
                 "lt",
                 "pl",
+                "de",
                 "il",
                 "ps"
             ]
@@ -18174,13 +18960,13 @@
         "icon": "temaki-ped_cyclist_crosswalk",
         "fields": [
             "crossing",
-            "surface",
-            "smoothness",
-            "tactile_paving",
-            "crossing/island",
             "{@templates/crossing/markings}",
-            "crossing_raised",
-            "access"
+            "{@templates/crossing/defaults}",
+            "surface"
+        ],
+        "moreFields": [
+            "{@templates/crossing/geometry_way_more}",
+            "{@templates/crossing/bicycle_more}"
         ],
         "geometry": [
             "line"
@@ -18206,12 +18992,13 @@
         "icon": "temaki-cyclist_crosswalk",
         "fields": [
             "crossing",
-            "surface",
-            "tactile_paving",
-            "crossing/island",
             "{@templates/crossing/markings}",
-            "crossing_raised",
-            "access"
+            "{@templates/crossing/defaults}",
+            "surface"
+        ],
+        "moreFields": [
+            "{@templates/crossing/geometry_way_more}",
+            "{@templates/crossing/bicycle_more}"
         ],
         "geometry": [
             "line"
@@ -18239,9 +19026,12 @@
         "icon": "temaki-pedestrian",
         "fields": [
             "crossing",
-            "tactile_paving",
-            "crossing/island",
-            "crossing_raised"
+            "{@templates/crossing/defaults}",
+            "tactile_paving"
+        ],
+        "moreFields": [
+            "kerb",
+            "flashing_lights"
         ],
         "geometry": [
             "vertex"
@@ -18264,10 +19054,13 @@
         "icon": "temaki-pedestrian_crosswalk",
         "fields": [
             "crossing",
-            "tactile_paving",
-            "crossing/island",
             "{@templates/crossing/markings_yes}",
-            "crossing_raised"
+            "{@templates/crossing/defaults}",
+            "tactile_paving"
+        ],
+        "moreFields": [
+            "kerb",
+            "flashing_lights"
         ],
         "geometry": [
             "vertex"
@@ -18285,19 +19078,15 @@
         "icon": "temaki-railway_signals",
         "fields": [
             "crossing",
-            "tactile_paving",
-            "crossing/island",
+            "{@templates/crossing/traffic_signal}",
             "{@templates/crossing/markings}",
-            "crossing_raised",
-            "button_operated",
-            "traffic_signals/sound",
-            "traffic_signals/vibration"
+            "{@templates/crossing/defaults}",
+            "tactile_paving"
         ],
         "moreFields": [
+            "{@templates/crossing/traffic_signal_more}",
             "kerb",
-            "traffic_signals/arrow",
-            "traffic_signals/countdown",
-            "traffic_signals/minimap"
+            "flashing_lights"
         ],
         "geometry": [
             "vertex"
@@ -18315,10 +19104,13 @@
         "icon": "temaki-pedestrian_crosswalk",
         "fields": [
             "crossing",
-            "tactile_paving",
-            "crossing/island",
             "{@templates/crossing/markings}",
-            "crossing_raised"
+            "{@templates/crossing/defaults}",
+            "tactile_paving"
+        ],
+        "moreFields": [
+            "kerb",
+            "flashing_lights"
         ],
         "geometry": [
             "vertex"
@@ -18338,10 +19130,13 @@
         "icon": "temaki-pedestrian_crosswalk",
         "fields": [
             "crossing",
-            "tactile_paving",
-            "crossing/island",
             "{@templates/crossing/markings}",
-            "crossing_raised"
+            "{@templates/crossing/defaults}",
+            "tactile_paving"
+        ],
+        "moreFields": [
+            "kerb",
+            "flashing_lights"
         ],
         "geometry": [
             "vertex"
@@ -18360,6 +19155,23 @@
             "value": "marked"
         },
         "name": "{highway/crossing/uncontrolled}",
+        "searchable": false
+    },
+    "highway/crossing/informal": {
+        "icon": "temaki-pedestrian",
+        "fields": [
+            "crossing"
+        ],
+        "geometry": [
+            "vertex"
+        ],
+        "tags": {
+            "crossing": "informal"
+        },
+        "reference": {
+            "key": "crossing",
+            "value": "informal"
+        },
         "searchable": false
     },
     "healthcare/speech_therapist": {
@@ -18686,7 +19498,7 @@
         }
     },
     "golf/tee": {
-        "icon": "maki-golf",
+        "icon": "roentgen-golf_tee",
         "fields": [
             "tee",
             "surface"
@@ -18868,6 +19680,15 @@
         ],
         "tags": {
             "entrance": "staircase"
+        }
+    },
+    "entrance/shop": {
+        "icon": "maki-entrance-alt1",
+        "geometry": [
+            "vertex"
+        ],
+        "tags": {
+            "entrance": "shop"
         }
     },
     "entrance/main": {
@@ -19169,13 +19990,13 @@
             "ref",
             "fire_hydrant/type",
             "colour",
+            "fire_hydrant/position",
             "water_source",
             "couplings"
         ],
         "moreFields": [
             "fire_hydrant/diameter",
             "fire_hydrant/pressure",
-            "fire_hydrant/position",
             "level",
             "survey/date"
         ],
@@ -19397,6 +20218,28 @@
         "searchable": false,
         "matchScore": 0.01
     },
+    "emergency/fire_hydrant/underground": {
+        "icon": "temaki-fire_hydrant_underground",
+        "geometry": [
+            "point",
+            "vertex"
+        ],
+        "tags": {
+            "emergency": "fire_hydrant",
+            "fire_hydrant:type": "underground"
+        }
+    },
+    "emergency/fire_hydrant/pillar": {
+        "icon": "temaki-fire_hydrant",
+        "geometry": [
+            "point",
+            "vertex"
+        ],
+        "tags": {
+            "emergency": "fire_hydrant",
+            "fire_hydrant:type": "pillar"
+        }
+    },
     "disused/shop": {
         "icon": "fas-store-alt-slash",
         "fields": [
@@ -19545,7 +20388,7 @@
         }
     },
     "craft/upholsterer": {
-        "icon": "temaki-tools",
+        "icon": "fas-couch",
         "geometry": [
             "point",
             "area"
@@ -20109,6 +20952,74 @@
             "club": "scout"
         }
     },
+    "climbing/route_bottom": {
+        "icon": "temaki-abseiling",
+        "geometry": [
+            "point",
+            "vertex"
+        ],
+        "fields": [
+            "name",
+            "climbing/sport",
+            "climbing/trad",
+            "climbing/bolts"
+        ],
+        "moreFields": [
+            "climbing/grade/uiaa",
+            "climbing/grade/french",
+            "climbing/grade/saxon",
+            "climbing/grade/yds_class",
+            "website",
+            "climbing/length",
+            "description"
+        ],
+        "tags": {
+            "climbing": "route_bottom"
+        },
+        "addTags": {
+            "sport": "climbing",
+            "climbing": "route_bottom"
+        }
+    },
+    "climbing/route": {
+        "icon": "temaki-climbing",
+        "geometry": [
+            "line",
+            "point"
+        ],
+        "fields": [
+            "{climbing/route_bottom}"
+        ],
+        "moreFields": [
+            "{climbing/route_bottom}"
+        ],
+        "tags": {
+            "climbing": "route"
+        },
+        "addTags": {
+            "climbing": "route",
+            "sport": "climbing"
+        }
+    },
+    "climbing/crag": {
+        "icon": "temaki-climbing",
+        "fields": [
+            "name"
+        ],
+        "moreFields": [
+            "website"
+        ],
+        "geometry": [
+            "point"
+        ],
+        "tags": {
+            "climbing": "crag"
+        },
+        "addTags": {
+            "sport": "climbing",
+            "climbing": "crag"
+        }
+    },
     "cemetery/sector": {
         "icon": "maki-cemetery",
         "fields": [
@@ -20317,18 +21228,31 @@
     "building/roof": {
         "icon": "maki-shelter",
         "fields": [
-            "{building}",
-            "layer"
+            "building",
+            "height",
+            "layer_1"
+        ],
+        "moreFields": [
+            "address",
+            "architect",
+            "building/colour",
+            "building/levels",
+            "building/levels/underground",
+            "building/material",
+            "building/prefabricated",
+            "ele",
+            "gnis/feature_id-US",
+            "not/name",
+            "operator",
+            "roof/colour",
+            "roof/shape",
+            "roof/height"
         ],
         "geometry": [
             "area"
         ],
         "tags": {
             "building": "roof"
-        },
-        "addTags": {
-            "building": "roof",
-            "layer": "1"
         },
         "matchScore": 0.5
     },
@@ -21235,7 +22159,7 @@
         }
     },
     "barrier/kerb": {
-        "icon": "temaki-kerb-raised",
+        "icon": "temaki-kerb-unspecified",
         "fields": [
             "kerb/kerb_barrier",
             "tactile_paving",
@@ -21396,7 +22320,17 @@
     "barrier/cycle_barrier": {
         "icon": "temaki-cycle_barrier",
         "fields": [
-            "access"
+            "access",
+            "wheelchair",
+            "cycle_barrier",
+            "maxwidth/physical",
+            "opening",
+            "spacing",
+            "overlap",
+            "deflection"
+        ],
+        "moreFields": [
+            "cycle_barrier/installation"
         ],
         "geometry": [
             "vertex"
@@ -22038,6 +22972,14 @@
             "area:highway": "footway"
         }
     },
+    "area/highway/traffic_island": {
+        "geometry": [
+            "area"
+        ],
+        "tags": {
+            "area:highway": "traffic_island"
+        }
+    },
     "amenity/weighbridge": {
         "icon": "fas-weight",
         "fields": [
@@ -22177,6 +23119,22 @@
         ],
         "tags": {
             "amenity": "waste_basket"
+        }
+    },
+    "amenity/veterinary_pharmacy": {
+        "icon": "temaki-veterinary_care",
+        "fields": [
+            "{amenity/pharmacy}"
+        ],
+        "moreFields": [
+            "{amenity/pharmacy}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "veterinary_pharmacy"
         }
     },
     "amenity/veterinary": {
@@ -22391,7 +23349,7 @@
         }
     },
     "amenity/ticket_validator": {
-        "icon": "temaki-vending_machine",
+        "icon": "temaki-vending_tickets",
         "fields": [
             "ref",
             "operator"
@@ -22405,7 +23363,8 @@
             "support"
         ],
         "geometry": [
-            "point"
+            "point",
+            "vertex"
         ],
         "tags": {
             "amenity": "ticket_validator"
@@ -22486,6 +23445,25 @@
         ],
         "tags": {
             "amenity": "taxi"
+        }
+    },
+    "amenity/swingerclub": {
+        "icon": "maki-heart",
+        "fields": [
+            "{amenity/nightclub}",
+            "smoking"
+        ],
+        "moreFields": [
+            "{@templates/poi}",
+            "air_conditioning",
+            "fee"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "swingerclub"
         }
     },
     "amenity/studio": {
@@ -22749,6 +23727,7 @@
             "highchair",
             "microbrewery",
             "min_age",
+            "organic",
             "outdoor_seating",
             "reservation",
             "smoking",
@@ -22845,8 +23824,8 @@
             "recycling_type": "container"
         },
         "reference": {
-            "key": "amenity",
-            "value": "recycling"
+            "key": "recycling_type",
+            "value": "container"
         }
     },
     "amenity/recycling_centre": {
@@ -22877,7 +23856,7 @@
         },
         "reference": {
             "key": "recycling_type",
-            "value": "*"
+            "value": "centre"
         }
     },
     "amenity/ranger_station": {
@@ -22941,7 +23920,7 @@
         }
     },
     "amenity/public_bath": {
-        "icon": "maki-water",
+        "icon": "fas-water-ladder",
         "fields": [
             "name",
             "bath/type",
@@ -23364,7 +24343,8 @@
             "ref",
             "access_simple",
             "address",
-            "level"
+            "level",
+            "maxheight"
         ],
         "geometry": [
             "vertex"
@@ -23586,7 +24566,7 @@
         }
     },
     "amenity/marketplace": {
-        "icon": "maki-shop",
+        "icon": "fas-store",
         "fields": [
             "name",
             "operator",
@@ -23954,6 +24934,7 @@
             "diet_multi",
             "drive_through",
             "opening_hours/drive_through",
+            "organic",
             "takeaway",
             "fhrs/id-GB",
             "website/menu"
@@ -24127,6 +25108,7 @@
         "fields": [
             "name",
             "operator",
+            "building_area_yes",
             "address"
         ],
         "moreFields": [
@@ -24190,7 +25172,7 @@
         }
     },
     "amenity/food_court": {
-        "icon": "maki-restaurant",
+        "icon": "roentgen-food_court",
         "fields": [
             "name",
             "operator",
@@ -24263,9 +25245,11 @@
             "capacity",
             "delivery",
             "highchair",
+            "organic",
             "outdoor_seating",
             "smoking",
             "takeaway",
+            "toilets",
             "fhrs/id-GB",
             "website/menu"
         ],
@@ -24384,6 +25368,7 @@
         "moreFields": [
             "bottle",
             "covered",
+            "dog_check",
             "indoor",
             "level",
             "lit"
@@ -24644,6 +25629,7 @@
     "amenity/community_centre": {
         "icon": "maki-town-hall",
         "fields": [
+            "community_centre",
             "name",
             "operator",
             "operator/type",
@@ -24985,6 +25971,7 @@
             "drive_through",
             "highchair",
             "min_age",
+            "organic",
             "reservation",
             "smoking",
             "takeaway",
@@ -25176,7 +26163,8 @@
         "moreFields": [
             "{@templates/poi}",
             "address",
-            "covered"
+            "covered",
+            "ref"
         ],
         "geometry": [
             "point",
@@ -25221,11 +26209,12 @@
         "icon": "temaki-bench",
         "fields": [
             "backrest",
+            "armrest",
             "material",
-            "seats",
-            "colour"
+            "seats"
         ],
         "moreFields": [
+            "colour",
             "access_simple",
             "direction",
             "height",
@@ -27376,6 +28365,21 @@
             "value": "donut"
         }
     },
+    "amenity/fast_food/chinese": {
+        "icon": "maki-restaurant-noodle",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "fast_food",
+            "cuisine": "chinese"
+        },
+        "reference": {
+            "key": "cuisine",
+            "value": "chinese"
+        }
+    },
     "amenity/fast_food/chicken": {
         "icon": "fas-drumstick-bite",
         "geometry": [
@@ -28014,6 +29018,13 @@
     },
     "amenity/community_centre/youth_centre": {
         "icon": "maki-town-hall",
+        "fields": [
+            "community_centre",
+            "{amenity/community_centre}"
+        ],
+        "moreFields": [
+            "{amenity/community_centre}"
+        ],
         "geometry": [
             "point",
             "area"
@@ -28021,10 +29032,65 @@
         "tags": {
             "amenity": "community_centre",
             "community_centre": "youth_centre"
+        },
+        "reference": {
+            "key": "community_centre",
+            "value": "youth_centre"
+        }
+    },
+    "amenity/community_centre/village_hall": {
+        "icon": "maki-town-hall",
+        "fields": [
+            "community_centre",
+            "{amenity/community_centre}"
+        ],
+        "moreFields": [
+            "{amenity/community_centre}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "community_centre",
+            "community_centre": "village_hall"
+        },
+        "reference": {
+            "key": "community_centre",
+            "value": "village_hall"
+        }
+    },
+    "amenity/community_centre/parish_hall": {
+        "icon": "maki-town-hall",
+        "fields": [
+            "community_centre",
+            "{amenity/community_centre}"
+        ],
+        "moreFields": [
+            "{amenity/community_centre}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "community_centre",
+            "community_centre": "parish_hall"
+        },
+        "reference": {
+            "key": "community_centre",
+            "value": "parish_hall"
         }
     },
     "amenity/community_centre/lgbtq": {
         "icon": "maki-town-hall",
+        "fields": [
+            "community_centre",
+            "{amenity/community_centre}"
+        ],
+        "moreFields": [
+            "{amenity/community_centre}"
+        ],
         "geometry": [
             "point",
             "area"
@@ -28037,6 +29103,95 @@
             "amenity": "community_centre",
             "lgbtq": "primary",
             "community_centre:for": "lgbtq"
+        }
+    },
+    "amenity/community_centre/family_centre": {
+        "icon": "maki-town-hall",
+        "fields": [
+            "community_centre",
+            "{amenity/community_centre}"
+        ],
+        "moreFields": [
+            "{amenity/community_centre}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "community_centre",
+            "community_centre": "family_centre"
+        },
+        "reference": {
+            "key": "community_centre",
+            "value": "family_centre"
+        }
+    },
+    "amenity/community_centre/cultural_centre": {
+        "icon": "maki-town-hall",
+        "fields": [
+            "community_centre",
+            "{amenity/community_centre}"
+        ],
+        "moreFields": [
+            "{amenity/community_centre}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "community_centre",
+            "community_centre": "cultural_centre"
+        },
+        "reference": {
+            "key": "community_centre",
+            "value": "cultural_centre"
+        }
+    },
+    "amenity/community_centre/community_hall": {
+        "icon": "maki-town-hall",
+        "fields": [
+            "community_centre",
+            "{amenity/community_centre}"
+        ],
+        "moreFields": [
+            "{amenity/community_centre}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "community_centre",
+            "community_centre": "community_hall"
+        },
+        "reference": {
+            "key": "community_centre",
+            "value": "community_hall"
+        }
+    },
+    "amenity/community_centre/club_home": {
+        "icon": "maki-town-hall",
+        "fields": [
+            "community_centre",
+            "club",
+            "{amenity/community_centre}"
+        ],
+        "moreFields": [
+            "{amenity/community_centre}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "community_centre",
+            "community_centre": "club_home"
+        },
+        "reference": {
+            "key": "community_centre",
+            "value": "club_home"
         }
     },
     "amenity/clock/sundial": {
@@ -28110,6 +29265,21 @@
         "reference": {
             "key": "amenity",
             "value": "clinic"
+        }
+    },
+    "amenity/cafe/teahouse": {
+        "icon": "maki-cafe",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "cafe",
+            "cuisine": "tea"
+        },
+        "reference": {
+            "key": "amenity",
+            "value": "cafe"
         }
     },
     "amenity/cafe/coffee_shop": {
@@ -28374,6 +29544,7 @@
             "ref",
             "operator",
             "surface",
+            "maxweight",
             "lit"
         ],
         "moreFields": [
@@ -28690,7 +29861,7 @@
         }
     },
     "advertising/column": {
-        "icon": "temaki-storage_tank",
+        "icon": "roentgen-advertising_column",
         "fields": [
             "{advertising}"
         ],
@@ -28840,6 +30011,76 @@
         },
         "name": "{point}"
     },
+    "@templates/crossing/traffic_signal_more": {
+        "moreFields": [
+            "traffic_signals/arrow",
+            "traffic_signals/countdown",
+            "traffic_signals/minimap"
+        ],
+        "geometry": [
+            "point",
+            "line"
+        ],
+        "tags": {
+            "@template": "crossing/traffic_signal_more"
+        },
+        "searchable": false,
+        "locationSet": {
+            "include": [
+                "999"
+            ],
+            "exclude": [
+                "999"
+            ]
+        },
+        "name": "{point}"
+    },
+    "@templates/crossing/traffic_signal": {
+        "fields": [
+            "button_operated",
+            "traffic_signals/sound",
+            "traffic_signals/vibration"
+        ],
+        "geometry": [
+            "point",
+            "line"
+        ],
+        "tags": {
+            "@template": "crossing/traffic_signal"
+        },
+        "searchable": false,
+        "locationSet": {
+            "include": [
+                "999"
+            ],
+            "exclude": [
+                "999"
+            ]
+        },
+        "name": "{point}"
+    },
+    "@templates/crossing/surfacequality": {
+        "fields": [
+            "surface",
+            "smoothness"
+        ],
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "@template": "crossing/surfacequality"
+        },
+        "searchable": false,
+        "locationSet": {
+            "include": [
+                "999"
+            ],
+            "exclude": [
+                "999"
+            ]
+        },
+        "name": "{point}"
+    },
     "@templates/crossing/markings_yes": {
         "fields": [
             "crossing/markings_yes",
@@ -28848,7 +30089,8 @@
             "crossing/markings_yes-PL"
         ],
         "geometry": [
-            "point"
+            "point",
+            "line"
         ],
         "tags": {
             "@template": "crossing/markings_yes"
@@ -28872,10 +30114,79 @@
             "crossing/markings-PL"
         ],
         "geometry": [
-            "point"
+            "point",
+            "line"
         ],
         "tags": {
             "@template": "crossing/markings"
+        },
+        "searchable": false,
+        "locationSet": {
+            "include": [
+                "999"
+            ],
+            "exclude": [
+                "999"
+            ]
+        },
+        "name": "{point}"
+    },
+    "@templates/crossing/geometry_way_more": {
+        "moreFields": [
+            "smoothness",
+            "lit"
+        ],
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "@template": "crossing/geometry_way_more"
+        },
+        "searchable": false,
+        "locationSet": {
+            "include": [
+                "999"
+            ],
+            "exclude": [
+                "999"
+            ]
+        },
+        "name": "{point}"
+    },
+    "@templates/crossing/defaults": {
+        "fields": [
+            "crossing/island",
+            "crossing_raised"
+        ],
+        "geometry": [
+            "point",
+            "line"
+        ],
+        "tags": {
+            "@template": "crossing/defaults"
+        },
+        "searchable": false,
+        "locationSet": {
+            "include": [
+                "999"
+            ],
+            "exclude": [
+                "999"
+            ]
+        },
+        "name": "{point}"
+    },
+    "@templates/crossing/bicycle_more": {
+        "moreFields": [
+            "oneway",
+            "access",
+            "segregated"
+        ],
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "@template": "crossing/bicycle_more"
         },
         "searchable": false,
         "locationSet": {
