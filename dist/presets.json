@@ -290,6 +290,38 @@
             "entrance": "*"
         }
     },
+    "education": {
+        "icon": "temaki-school",
+        "fields": [
+            "name",
+            "education",
+            "operator",
+            "address",
+            "building_area",
+            "phone",
+            "website"
+        ],
+        "moreFields": [
+            "{@templates/contact}",
+            "branch_brand",
+            "brand",
+            "building/levels_building",
+            "gnis/feature_id-US",
+            "height_building",
+            "level",
+            "opening_hours",
+            "payment_multi",
+            "wheelchair"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "education": "*"
+        },
+        "matchScore": 0.7
+    },
     "craft": {
         "icon": "temaki-tools",
         "fields": [
@@ -1425,6 +1457,19 @@
         "tags": {
             "type": "boundary"
         }
+    },
+    "type/associatedStreet": {
+        "icon": "iD-relation",
+        "fields": [
+            "name"
+        ],
+        "geometry": [
+            "relation"
+        ],
+        "tags": {
+            "type": "associatedStreet"
+        },
+        "searchable": false
     },
     "type/site/climbing/crag": {
         "icon": "temaki-climbing",
@@ -2781,6 +2826,7 @@
             "drinking_water_available",
             "gnis/feature_id-US",
             "group_only",
+            "cabins",
             "nudism",
             "openfire",
             "opening_hours",
@@ -2825,7 +2871,10 @@
             "address"
         ],
         "moreFields": [
-            "gnis/feature_id-US"
+            "fee",
+            "gnis/feature_id-US",
+            "level",
+            "opening_hours"
         ],
         "geometry": [
             "point",
@@ -2848,7 +2897,8 @@
         "moreFields": [
             "level",
             "material",
-            "subject/wikidata"
+            "subject/wikidata",
+            "inscription"
         ],
         "geometry": [
             "point",
@@ -3649,6 +3699,7 @@
         "icon": "maki-grocery",
         "moreFields": [
             "{shop}",
+            "self_checkout",
             "diet_multi",
             "fhrs/id-GB",
             "organic"
@@ -4142,6 +4193,16 @@
             "shop": "model"
         }
     },
+    "shop/mobile_phone_accessories": {
+        "icon": "fas-mobile-screen",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "shop": "mobile_phone_accessories"
+        }
+    },
     "shop/mobile_phone": {
         "icon": "fas-mobile-alt",
         "geometry": [
@@ -4184,6 +4245,10 @@
     },
     "shop/mall": {
         "icon": "temaki-shopping_mall",
+        "moreFields": [
+            "{shop}",
+            "baby_feeding"
+        ],
         "geometry": [
             "point",
             "area"
@@ -4560,7 +4625,7 @@
         }
     },
     "shop/frame": {
-        "icon": "temaki-portrait-framed",
+        "icon": "temaki-portrait_framed",
         "geometry": [
             "point",
             "area"
@@ -5206,6 +5271,7 @@
             "shop": "bakery"
         },
         "moreFields": [
+            "{shop}",
             "fhrs/id-GB"
         ]
     },
@@ -6440,7 +6506,6 @@
             "operator",
             "vehicles"
         ],
-        "moreFields": [],
         "geometry": [
             "vertex"
         ],
@@ -6744,8 +6809,12 @@
             "{@templates/internet_access}",
             "air_conditioning",
             "baby_feeding",
+            "changing_table",
             "gnis/feature_id-US",
             "level",
+            "toilets",
+            "toilets/wheelchair",
+            "toilets/menstrual_products_poi",
             "wheelchair"
         ],
         "geometry": [
@@ -10052,7 +10121,6 @@
     },
     "natural/wetland/wet_meadow": {
         "icon": "maki-wetland",
-        "fields": [],
         "geometry": [
             "area"
         ],
@@ -10085,7 +10153,6 @@
     },
     "natural/wetland/swamp": {
         "icon": "temaki-swamp",
-        "fields": [],
         "moreFields": [
             "tidal"
         ],
@@ -10103,7 +10170,6 @@
     },
     "natural/wetland/string_bog": {
         "icon": "maki-wetland",
-        "fields": [],
         "geometry": [
             "area"
         ],
@@ -10136,7 +10202,6 @@
     },
     "natural/wetland/reedbed": {
         "icon": "maki-wetland",
-        "fields": [],
         "geometry": [
             "area"
         ],
@@ -10151,7 +10216,6 @@
     },
     "natural/wetland/marsh": {
         "icon": "maki-wetland",
-        "fields": [],
         "geometry": [
             "area"
         ],
@@ -10184,7 +10248,6 @@
     },
     "natural/wetland/fen": {
         "icon": "maki-wetland",
-        "fields": [],
         "geometry": [
             "area"
         ],
@@ -10199,7 +10262,6 @@
     },
     "natural/wetland/bog": {
         "icon": "maki-wetland",
-        "fields": [],
         "geometry": [
             "area"
         ],
@@ -10232,7 +10294,6 @@
             "water",
             "intermittent"
         ],
-        "moreFields": [],
         "geometry": [
             "area"
         ],
@@ -10252,7 +10313,6 @@
             "intermittent",
             "tidal"
         ],
-        "moreFields": [],
         "geometry": [
             "area"
         ],
@@ -10866,27 +10926,6 @@
         ],
         "tags": {
             "man_made": "tower"
-        }
-    },
-    "man_made/torii": {
-        "icon": "temaki-shinto",
-        "fields": [
-            "height",
-            "material",
-            "colour",
-            "lit"
-        ],
-        "moreFields": [
-            "operator",
-            "ref"
-        ],
-        "geometry": [
-            "point",
-            "vertex",
-            "line"
-        ],
-        "tags": {
-            "man_made": "torii"
         }
     },
     "man_made/telescope": {
@@ -11645,6 +11684,32 @@
             "man_made": "charge_point"
         }
     },
+    "man_made/ceremonial_gate": {
+        "icon": "fas-archway",
+        "fields": [
+            "ceremonial_gate",
+            "height",
+            "material",
+            "religion"
+        ],
+        "moreFields": [
+            "name",
+            "inscription",
+            "operator",
+            "access",
+            "ref",
+            "lit"
+        ],
+        "geometry": [
+            "point",
+            "vertex",
+            "line",
+            "area"
+        ],
+        "tags": {
+            "man_made": "ceremonial_gate"
+        }
+    },
     "man_made/carpet_hanger": {
         "icon": "maki-picnic-site",
         "fields": [
@@ -11843,7 +11908,6 @@
         "fields": [
             "name"
         ],
-        "moreFields": [],
         "geometry": [
             "area"
         ],
@@ -11896,6 +11960,11 @@
     },
     "man_made/tower/observation": {
         "icon": "maki-observation-tower",
+        "fields": [
+            "{man_made/tower}",
+            "access_simple",
+            "fee"
+        ],
         "moreFields": [
             "{man_made/tower}",
             "opening_hours",
@@ -12462,6 +12531,58 @@
         "reference": {
             "key": "crane:type",
             "value": "gantry_crane"
+        }
+    },
+    "man_made/ceremonial_gate/torii": {
+        "icon": "temaki-shinto",
+        "fields": [
+            "{man_made/ceremonial_gate}",
+            "colour"
+        ],
+        "moreFields": [
+            "{man_made/ceremonial_gate}"
+        ],
+        "geometry": [
+            "point",
+            "vertex",
+            "line"
+        ],
+        "tags": {
+            "ceremonial_gate": "torii"
+        },
+        "addTags": {
+            "man_made": "ceremonial_gate",
+            "ceremonial_gate": "torii"
+        },
+        "reference": {
+            "key": "ceremonial_gate",
+            "value": "torii"
+        }
+    },
+    "man_made/ceremonial_gate/paifang": {
+        "icon": "temaki-paifang",
+        "fields": [
+            "{man_made/ceremonial_gate}"
+        ],
+        "moreFields": [
+            "{man_made/ceremonial_gate}"
+        ],
+        "geometry": [
+            "point",
+            "vertex",
+            "line",
+            "area"
+        ],
+        "tags": {
+            "ceremonial_gate": "paifang"
+        },
+        "addTags": {
+            "man_made": "ceremonial_gate",
+            "ceremonial_gate": "paifang"
+        },
+        "reference": {
+            "key": "ceremonial_gate",
+            "value": "paifang"
         }
     },
     "leisure/water_park": {
@@ -13232,7 +13353,8 @@
             "width"
         ],
         "moreFields": [
-            "ref"
+            "ref",
+            "wood_provided"
         ],
         "geometry": [
             "point",
@@ -13319,31 +13441,6 @@
         ],
         "tags": {
             "leisure": "disc_golf_course"
-        },
-        "addTags": {
-            "leisure": "disc_golf_course",
-            "sport": "disc_golf"
-        }
-    },
-    "leisure/dancing_school": {
-        "icon": "fas-music",
-        "fields": [
-            "name",
-            "operator",
-            "address",
-            "building_area_yes",
-            "opening_hours",
-            "dance/style"
-        ],
-        "moreFields": [
-            "{@templates/poi}"
-        ],
-        "geometry": [
-            "point",
-            "area"
-        ],
-        "tags": {
-            "amenity": "dancing_school"
         }
     },
     "leisure/dance": {
@@ -13427,7 +13524,6 @@
             "address",
             "opening_hours"
         ],
-        "moreFields": [],
         "geometry": [
             "point",
             "area"
@@ -14702,7 +14798,7 @@
         }
     },
     "leisure/fitness_station/sign": {
-        "icon": "maki-pitch",
+        "icon": "roentgen-i_in_square",
         "geometry": [
             "point",
             "area"
@@ -14742,7 +14838,7 @@
         }
     },
     "leisure/fitness_station/push-up": {
-        "icon": "maki-pitch",
+        "icon": "roentgen-bench",
         "geometry": [
             "point",
             "area"
@@ -14762,7 +14858,7 @@
         }
     },
     "leisure/fitness_station/parallel_bars": {
-        "icon": "maki-pitch",
+        "icon": "temaki-horizontal_bar",
         "geometry": [
             "point",
             "area"
@@ -15302,7 +15398,6 @@
             "name",
             "operator"
         ],
-        "moreFields": [],
         "geometry": [
             "area"
         ],
@@ -15397,6 +15492,7 @@
             "address"
         ],
         "geometry": [
+            "point",
             "area"
         ],
         "tags": {
@@ -15889,6 +15985,23 @@
         "matchScore": 0.9,
         "name": "{man_made/works/brewery}"
     },
+    "landuse/aquaculture/fish": {
+        "icon": "fas-fish",
+        "fields": [
+            "{landuse/aquaculture}"
+        ],
+        "moreFields": [
+            "{landuse/aquaculture}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "landuse": "aquaculture",
+            "produce": "fish"
+        }
+    },
     "internet_access/wlan": {
         "icon": "fas-wifi",
         "geometry": [
@@ -16301,9 +16414,6 @@
             "area"
         ],
         "tags": {
-            "historic": "building"
-        },
-        "addTags": {
             "historic": "building",
             "building": "*"
         },
@@ -16441,7 +16551,8 @@
             "memorial": "blue_plaque"
         },
         "addTags": {
-            "historic": "memorial"
+            "historic": "memorial",
+            "memorial": "blue_plaque"
         },
         "locationSet": {
             "include": [
@@ -16731,7 +16842,6 @@
             "opening_hours",
             "payment_multi"
         ],
-        "moreFields": [],
         "geometry": [
             "vertex"
         ],
@@ -17500,7 +17610,6 @@
             "ref",
             "direction_vertex"
         ],
-        "moreFields": [],
         "tags": {
             "highway": "milestone"
         }
@@ -19485,7 +19594,6 @@
     },
     "golf/water_hazard": {
         "icon": "maki-golf",
-        "fields": [],
         "geometry": [
             "area"
         ],
@@ -19549,7 +19657,6 @@
     },
     "golf/lateral_water_hazard": {
         "icon": "maki-golf",
-        "fields": [],
         "geometry": [
             "area"
         ],
@@ -19879,7 +19986,6 @@
             "building_area_yes",
             "opening_hours"
         ],
-        "moreFields": [],
         "geometry": [
             "point",
             "area"
@@ -20150,6 +20256,7 @@
         "tags": {
             "emergency": "yes"
         },
+        "name": "{emergency}",
         "searchable": false,
         "matchScore": 0.01
     },
@@ -20163,6 +20270,7 @@
         "tags": {
             "emergency": "private"
         },
+        "name": "{emergency}",
         "searchable": false,
         "matchScore": 0.01
     },
@@ -20176,6 +20284,7 @@
         "tags": {
             "emergency": "official"
         },
+        "name": "{emergency}",
         "searchable": false,
         "matchScore": 0.01
     },
@@ -20189,6 +20298,7 @@
         "tags": {
             "emergency": "no"
         },
+        "name": "{emergency}",
         "searchable": false,
         "matchScore": 0.01
     },
@@ -20202,6 +20312,7 @@
         "tags": {
             "emergency": "destination"
         },
+        "name": "{emergency}",
         "searchable": false,
         "matchScore": 0.01
     },
@@ -20215,6 +20326,7 @@
         "tags": {
             "emergency": "designated"
         },
+        "name": "{emergency}",
         "searchable": false,
         "matchScore": 0.01
     },
@@ -20239,6 +20351,316 @@
             "emergency": "fire_hydrant",
             "fire_hydrant:type": "pillar"
         }
+    },
+    "education/university": {
+        "icon": "maki-college",
+        "fields": [
+            "{education/college}"
+        ],
+        "moreFields": [
+            "{education/college}"
+        ],
+        "geometry": [
+            "area",
+            "point"
+        ],
+        "tags": {
+            "amenity": "university"
+        },
+        "addTags": {
+            "amenity": "university",
+            "education": "university"
+        },
+        "reference": {
+            "key": "amenity",
+            "value": "university"
+        }
+    },
+    "education/school": {
+        "icon": "temaki-school",
+        "fields": [
+            "name",
+            "operator",
+            "operator/type",
+            "address",
+            "grades",
+            "religion",
+            "denomination",
+            "website",
+            "building_area"
+        ],
+        "moreFields": [
+            "{@templates/contact}",
+            "{@templates/internet_access}",
+            "capacity",
+            "charge_fee",
+            "fee",
+            "fhrs/id-GB",
+            "gnis/feature_id-US",
+            "ref/edubase-GB",
+            "internet_access",
+            "internet_access/ssid",
+            "level",
+            "polling_station",
+            "wheelchair"
+        ],
+        "geometry": [
+            "area",
+            "point"
+        ],
+        "tags": {
+            "amenity": "school"
+        },
+        "addTags": {
+            "amenity": "school",
+            "education": "school"
+        },
+        "reference": {
+            "key": "amenity",
+            "value": "school"
+        }
+    },
+    "education/prep_school": {
+        "icon": "temaki-school",
+        "fields": [
+            "name",
+            "operator",
+            "address",
+            "building_area_yes",
+            "opening_hours"
+        ],
+        "moreFields": [
+            "{@templates/poi}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "prep_school"
+        },
+        "addTags": {
+            "amenity": "prep_school",
+            "education": "prep_school"
+        },
+        "reference": {
+            "key": "amenity",
+            "value": "prep_school"
+        }
+    },
+    "education/music_school": {
+        "icon": "fas-music",
+        "fields": [
+            "name",
+            "operator",
+            "address",
+            "building_area_yes",
+            "opening_hours"
+        ],
+        "moreFields": [
+            "{@templates/poi}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "music_school"
+        },
+        "addTags": {
+            "amenity": "music_school",
+            "education": "music_school"
+        },
+        "reference": {
+            "key": "amenity",
+            "value": "music_school"
+        }
+    },
+    "education/language_school": {
+        "icon": "temaki-school",
+        "fields": [
+            "name",
+            "operator",
+            "operator/type",
+            "address",
+            "building_area_yes",
+            "opening_hours",
+            "language_multi"
+        ],
+        "moreFields": [
+            "{@templates/contact}",
+            "{@templates/internet_access}",
+            "gnis/feature_id-US",
+            "level",
+            "payment_multi",
+            "wheelchair"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "language_school"
+        },
+        "addTags": {
+            "amenity": "language_school",
+            "education": "language_school"
+        },
+        "reference": {
+            "key": "amenity",
+            "value": "language_school"
+        }
+    },
+    "education/kindergarten": {
+        "icon": "temaki-school",
+        "fields": [
+            "name",
+            "operator",
+            "operator/type",
+            "address",
+            "phone",
+            "preschool"
+        ],
+        "moreFields": [
+            "{@templates/contact}",
+            "capacity",
+            "fhrs/id-GB",
+            "gnis/feature_id-US",
+            "ref/edubase-GB",
+            "internet_access",
+            "internet_access/ssid",
+            "level",
+            "max_age",
+            "min_age",
+            "not/name",
+            "opening_hours",
+            "payment_multi",
+            "wheelchair"
+        ],
+        "geometry": [
+            "area",
+            "point"
+        ],
+        "tags": {
+            "amenity": "kindergarten"
+        },
+        "addTags": {
+            "amenity": "kindergarten",
+            "education": "kindergarten"
+        },
+        "reference": {
+            "key": "amenity",
+            "value": "kindergarten"
+        }
+    },
+    "education/driving_school": {
+        "icon": "temaki-car_pool",
+        "fields": [
+            "name",
+            "operator",
+            "operator/type",
+            "address",
+            "building_area",
+            "opening_hours"
+        ],
+        "moreFields": [
+            "{@templates/poi}",
+            "license_classes"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "driving_school"
+        },
+        "addTags": {
+            "amenity": "driving_school",
+            "education": "driving_school"
+        },
+        "reference": {
+            "key": "amenity",
+            "value": "driving_school"
+        }
+    },
+    "education/dancing_school": {
+        "icon": "fas-music",
+        "fields": [
+            "name",
+            "operator",
+            "address",
+            "building_area_yes",
+            "opening_hours",
+            "dance/style"
+        ],
+        "moreFields": [
+            "{@templates/poi}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "dancing_school"
+        },
+        "addTags": {
+            "amenity": "dancing_school",
+            "education": "dancing_school"
+        },
+        "reference": {
+            "key": "amenity",
+            "value": "dancing_school"
+        }
+    },
+    "education/college": {
+        "icon": "maki-college",
+        "fields": [
+            "name",
+            "operator",
+            "operator/type",
+            "address",
+            "website",
+            "{@templates/internet_access}"
+        ],
+        "moreFields": [
+            "{@templates/internet_access}",
+            "{@templates/poi}",
+            "denomination",
+            "ref/edubase-GB",
+            "religion"
+        ],
+        "geometry": [
+            "area",
+            "point"
+        ],
+        "tags": {
+            "amenity": "college"
+        },
+        "addTags": {
+            "amenity": "college",
+            "education": "college"
+        },
+        "reference": {
+            "key": "amenity",
+            "value": "college"
+        }
+    },
+    "education/yes": {
+        "icon": "temaki-school",
+        "fields": [
+            "name",
+            "education",
+            "{education}"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "education": "yes"
+        },
+        "searchable": false,
+        "matchScore": 0.5
     },
     "disused/shop": {
         "icon": "fas-store-alt-slash",
@@ -21396,8 +21818,8 @@
             "area"
         ],
         "fields": [
-            "{building}",
-            "house"
+            "house",
+            "{building}"
         ],
         "tags": {
             "building": "house"
@@ -21796,8 +22218,6 @@
     },
     "building/entrance": {
         "icon": "maki-entrance-alt1",
-        "fields": [],
-        "moreFields": [],
         "geometry": [
             "vertex"
         ],
@@ -21830,6 +22250,10 @@
         "geometry": [
             "area"
         ],
+        "fields": [
+            "house",
+            "{building}"
+        ],
         "tags": {
             "building": "house",
             "house": "terraced"
@@ -21844,6 +22268,10 @@
         "icon": "temaki-row_houses",
         "geometry": [
             "area"
+        ],
+        "fields": [
+            "house",
+            "{building}"
         ],
         "tags": {
             "building": "house",
@@ -21862,6 +22290,10 @@
         "geometry": [
             "area"
         ],
+        "fields": [
+            "house",
+            "{building}"
+        ],
         "tags": {
             "building": "house",
             "house": "semi-detached"
@@ -21878,6 +22310,10 @@
         "icon": "maki-home",
         "geometry": [
             "area"
+        ],
+        "fields": [
+            "house",
+            "{building}"
         ],
         "tags": {
             "building": "house",
@@ -23014,7 +23450,6 @@
             "charge_fee",
             "opening_hours"
         ],
-        "moreFields": [],
         "geometry": [
             "point",
             "vertex",
@@ -23231,22 +23666,6 @@
         ],
         "tags": {
             "amenity": "vacuum_cleaner"
-        }
-    },
-    "amenity/university": {
-        "icon": "maki-college",
-        "fields": [
-            "{amenity/college}"
-        ],
-        "moreFields": [
-            "{amenity/college}"
-        ],
-        "geometry": [
-            "area",
-            "point"
-        ],
-        "tags": {
-            "amenity": "university"
         }
     },
     "amenity/trolley_bay": {
@@ -23642,42 +24061,6 @@
             "amenity": "shelter"
         }
     },
-    "amenity/school": {
-        "icon": "temaki-school",
-        "fields": [
-            "name",
-            "operator",
-            "operator/type",
-            "address",
-            "grades",
-            "religion",
-            "denomination",
-            "website",
-            "building_area"
-        ],
-        "moreFields": [
-            "{@templates/contact}",
-            "{@templates/internet_access}",
-            "capacity",
-            "charge_fee",
-            "fee",
-            "fhrs/id-GB",
-            "gnis/feature_id-US",
-            "ref/edubase-GB",
-            "internet_access",
-            "internet_access/ssid",
-            "level",
-            "polling_station",
-            "wheelchair"
-        ],
-        "geometry": [
-            "area",
-            "point"
-        ],
-        "tags": {
-            "amenity": "school"
-        }
-    },
     "amenity/sanitary_dump_station": {
         "icon": "temaki-camper_trailer_dump",
         "fields": [
@@ -23925,7 +24308,6 @@
             "name",
             "bath/type",
             "bath/open_air",
-            "bath/sand_bath",
             "address",
             "building_area",
             "fee",
@@ -23933,7 +24315,8 @@
         ],
         "moreFields": [
             "{@templates/internet_access}",
-            "{@templates/poi}"
+            "{@templates/poi}",
+            "bath/sand_bath-JP"
         ],
         "geometry": [
             "point",
@@ -23997,26 +24380,6 @@
         ],
         "tags": {
             "amenity": "prison"
-        }
-    },
-    "amenity/prep_school": {
-        "icon": "temaki-school",
-        "fields": [
-            "name",
-            "operator",
-            "address",
-            "building_area_yes",
-            "opening_hours"
-        ],
-        "moreFields": [
-            "{@templates/poi}"
-        ],
-        "geometry": [
-            "point",
-            "area"
-        ],
-        "tags": {
-            "amenity": "prep_school"
         }
     },
     "amenity/post_office": {
@@ -24443,26 +24806,6 @@
             "amenity": "nightclub"
         }
     },
-    "amenity/music_school": {
-        "icon": "fas-music",
-        "fields": [
-            "name",
-            "operator",
-            "address",
-            "building_area_yes",
-            "opening_hours"
-        ],
-        "moreFields": [
-            "{@templates/poi}"
-        ],
-        "geometry": [
-            "point",
-            "area"
-        ],
-        "tags": {
-            "amenity": "music_school"
-        }
-    },
     "amenity/motorcycle_rental": {
         "icon": "temaki-motorcycle_rental",
         "fields": [
@@ -24722,7 +25065,9 @@
             "air_conditioning",
             "baby_feeding",
             "books",
-            "polling_station"
+            "changing_table",
+            "polling_station",
+            "toilets"
         ],
         "geometry": [
             "point",
@@ -24783,33 +25128,6 @@
             "amenity": "lavoir"
         }
     },
-    "amenity/language_school": {
-        "icon": "temaki-school",
-        "fields": [
-            "name",
-            "operator",
-            "operator/type",
-            "address",
-            "building_area_yes",
-            "opening_hours",
-            "language_multi"
-        ],
-        "moreFields": [
-            "{@templates/contact}",
-            "{@templates/internet_access}",
-            "gnis/feature_id-US",
-            "level",
-            "payment_multi",
-            "wheelchair"
-        ],
-        "geometry": [
-            "point",
-            "area"
-        ],
-        "tags": {
-            "amenity": "language_school"
-        }
-    },
     "amenity/kneipp_water_cure": {
         "icon": "maki-hospital",
         "fields": [
@@ -24830,40 +25148,6 @@
         ],
         "tags": {
             "amenity": "kneipp_water_cure"
-        }
-    },
-    "amenity/kindergarten": {
-        "icon": "temaki-school",
-        "fields": [
-            "name",
-            "operator",
-            "operator/type",
-            "address",
-            "phone",
-            "preschool"
-        ],
-        "moreFields": [
-            "{@templates/contact}",
-            "capacity",
-            "fhrs/id-GB",
-            "gnis/feature_id-US",
-            "ref/edubase-GB",
-            "internet_access",
-            "internet_access/ssid",
-            "level",
-            "max_age",
-            "min_age",
-            "not/name",
-            "opening_hours",
-            "payment_multi",
-            "wheelchair"
-        ],
-        "geometry": [
-            "area",
-            "point"
-        ],
-        "tags": {
-            "amenity": "kindergarten"
         }
     },
     "amenity/karaoke_box": {
@@ -24936,6 +25220,7 @@
             "opening_hours/drive_through",
             "organic",
             "takeaway",
+            "toilets",
             "fhrs/id-GB",
             "website/menu"
         ],
@@ -25137,7 +25422,8 @@
         ],
         "moreFields": [
             "{@templates/poi}",
-            "branch_brand"
+            "branch_brand",
+            "toilets"
         ],
         "geometry": [
             "point",
@@ -25243,13 +25529,17 @@
             "branch_brand",
             "brand",
             "capacity",
+            "changing_table",
             "delivery",
             "highchair",
             "organic",
             "outdoor_seating",
             "smoking",
+            "stroller",
             "takeaway",
             "toilets",
+            "toilets/wheelchair",
+            "toilets/menstrual_products_poi",
             "fhrs/id-GB",
             "website/menu"
         ],
@@ -25310,28 +25600,6 @@
         ],
         "tags": {
             "amenity": "events_venue"
-        }
-    },
-    "amenity/driving_school": {
-        "icon": "temaki-car_pool",
-        "fields": [
-            "name",
-            "operator",
-            "operator/type",
-            "address",
-            "building_area",
-            "opening_hours"
-        ],
-        "moreFields": [
-            "{@templates/poi}",
-            "license_classes"
-        ],
-        "geometry": [
-            "point",
-            "area"
-        ],
-        "tags": {
-            "amenity": "driving_school"
         }
     },
     "amenity/driver_training": {
@@ -25500,6 +25768,29 @@
             "amenity": "dive_centre"
         }
     },
+    "amenity/device_charging_station": {
+        "icon": "temaki-electronic",
+        "fields": [
+            "access_simple",
+            "capacity",
+            "fee",
+            "payment_multi",
+            "level",
+            "lockable",
+            "opening_hours"
+        ],
+        "moreFields": [
+            "wheelchair",
+            "operator",
+            "indoor"
+        ],
+        "geometry": [
+            "point"
+        ],
+        "tags": {
+            "amenity": "device_charging_station"
+        }
+    },
     "amenity/dentist": {
         "icon": "maki-dentist",
         "fields": [
@@ -25650,31 +25941,6 @@
         ],
         "tags": {
             "amenity": "community_centre"
-        }
-    },
-    "amenity/college": {
-        "icon": "maki-college",
-        "fields": [
-            "name",
-            "operator",
-            "operator/type",
-            "address",
-            "website",
-            "{@templates/internet_access}"
-        ],
-        "moreFields": [
-            "{@templates/internet_access}",
-            "{@templates/poi}",
-            "denomination",
-            "ref/edubase-GB",
-            "religion"
-        ],
-        "geometry": [
-            "area",
-            "point"
-        ],
-        "tags": {
-            "amenity": "college"
         }
     },
     "amenity/clock": {
@@ -27092,6 +27358,10 @@
         "tags": {
             "amenity": "theatre",
             "theatre:type": "amphi"
+        },
+        "reference": {
+            "key": "theatre:type",
+            "value": "amphi"
         }
     },
     "amenity/taxi/motorcycle_taxi": {
@@ -29202,7 +29472,6 @@
             "visibility",
             "inscription"
         ],
-        "moreFields": [],
         "geometry": [
             "point",
             "vertex"
@@ -29613,8 +29882,7 @@
             "icao",
             "address",
             "operator",
-            "operator/type",
-            "{@templates/internet_access}"
+            "operator/type"
         ],
         "moreFields": [
             "{@templates/contact}",
@@ -29927,7 +30195,6 @@
         "matchScore": 0.2
     },
     "@templates/poi": {
-        "fields": [],
         "moreFields": [
             "{@templates/contact}",
             "address",
@@ -29986,7 +30253,6 @@
         "name": "{point}"
     },
     "@templates/contact": {
-        "fields": [],
         "moreFields": [
             "email",
             "fax",
