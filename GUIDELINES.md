@@ -75,3 +75,19 @@ If you are familiar with `JSON`, you can implement the preset or field yourself.
 For more details on adding presets, see ["Making changes"](./CONTRIBUTING.md#making-changes).
 
 If you are not familiar with `JSON`, still create a ticket. The more you have considered and prepared from the above steps, the easier it will be for someone else to code it.
+
+### File Name Conventions and Directory Structure
+
+The folder structure and file names of the presets and fields closely follows the main `tags` of the respective files.
+* For example, the preset for `natural=tree` is defined in the file `tree.json` in the directory `data/presets/natural`.
+* For presets with more than one tag, the directory structure is nested: e.g. the preset for `highway=service + service=driveway` is included as `highway/service/driveway.json`.
+* Unsearchable presets are defined in a file name starting with an underscore.
+* Regional presets or fields should be suffixed with a dash and the respective region codes where they are applied, the "default" preset for the rest of the world is kept without a suffix (e.g. `royal_cypher-GB.json`).
+* If reasonable, avoid renaming or moving files when altering the tags of a presets: because translations and some external datasets (e.g. [NSI](https://github.com/osmlab/name-suggestion-index)) are referencing presets by their file and directory name as an identifier, every time a preset or field file is renamed or moved, existing translations are lost and external references potentially broken. If a file name really need to be changed, consider the following approach to limit the impact of the identifier change: 
+  1. add a placeholder preset with the file name and directory as the preset's previous version that is:
+    * not searchable
+    * references the strings and fields of the new preset or field
+    * has a low matchscore
+  2. after the id-tagging-schema release that includes the id change: notify upstream consumers of the data (e.g. NSI) about the change and ask them to update their ids to the new ids
+  3. delete the placeholder presets some time after all relevant upstream data was updated and released
+
