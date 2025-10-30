@@ -23,6 +23,71 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.13.3
+##### 2025-Oct-30
+
+* Introduce placeholder presets for still upstream-referenced presets
+
+
+# 6.13.1
+##### 2025-Oct-23
+
+#### New Presets
+* Create unsearchable preset for associatedStreet (#997, thanks @serhii-muchychka)
+* Preset: shop=mobile\_phone\_accessories (#1406, thanks @UKChris-osm)
+* Add Fish Farm / Hatchery preset and `aquaculture=*` field (#1517, thanks @arch0345)
+* Add Ceremonial Gate and related presets (#1693, thanks @novolife)
+* Add preset for `device_charging_station` (#1611, thanks @paulklie)
+#### New and Changed Fields
+* Add "Cabins" field to Camp Site preset (#1683, thanks @kjonosm)
+* added wood provided field (#1738, thanks @paulklie)
+* Update roof shape field to add missing wiki suggestions (#1654, thanks @Shrinks99)
+* Add option `container` to `building`field (#1524, thanks @tordans)
+* Add `self_checkout` field to shop=supermarket (#1649, thanks @Dimitar5555)
+* Add translatable strings to playground field (#1004, thanks @kjonosm)
+* Support education tag per approved proposal (#1472, thanks @quincylvania)
+* Add strings for `house=` field and disable Taginfo suggestions (#1412, thanks @Dimitar5555)
+* Add `groundwater` option to `water_source` field (#1561, thanks @chaos-baum)
+* Reference payment\_multi to 'payment:\*' for correct wiki link (#1701, thanks @srujanaelicherla)
+#### Changed Presets
+* use temaki-paifang icon for Paifang preset (#1767, thanks @novolife)
+* add access and fee field to observation tower (#1726, thanks @paulklie)
+* Restore optional fields of Bakery preset (#1554, thanks @novolife)
+* Standardize `aerialway` preset terms (#1753, thanks @FloEdelmann)
+* Add fields to attraction preset (#1713, thanks @srujanaelicherla)
+* add terms to shop=water (#1740, thanks @matkoniecz)
+* Add toilets related fields to different presets (#1533, thanks @andrewharvey)
+* Add term "street fitness" for `leisure=fitness_station` preset (#1660, thanks @Dimitar5555)
+* add icon for `tower:construction=dish` (#1716, thanks @k-yle)
+* Add icon for fitness station sign preset (#1709, thanks @paulklie)
+* Add icon to fitness parallel bars preset (#1710, thanks @paulklie)
+* Add icon to push up station preset (#1711, thanks @paulklie)
+* Fix missing tag for `memorial=blue_plaque` preset (#1689, thanks @hb0nd)
+* Fix icon for Framing Shop preset (#1707, thanks @arch0345)
+* Make Kebab Fast Food findable by terms "Doner/Döner" (#1640, thanks @matkoniecz)
+* Do not add implicit `sport=disc_golf` to `leisure=disc_golf_course` features (#1639, thanks @Hufkratzer)
+* More strictly match historic=building preset (#1677, thanks @tyrasd)
+* Remove redundant `internet_access` from preset `aerodrome` (#1676, thanks @tordans)
+* Add `inscription` field to `tourism=artwork` (#1664, thanks @kjonosm)
+* Add river preset to water category (#1567, thanks @novolife)
+* Improve reference for Amphitheater preset (#1647, thanks @arch0345)
+#### Regional Presets and Fields
+* Restrict Sand Bath field to Japan (#1754, thanks @novolife)
+* added wood provided field (#1738, thanks @paulklie)
+* Change the default placeholder for `phone` numbers to a country code that no other country uses. (#1491, thanks @youssefelzedy)
+* Add charging point terms to charging station (#1698, thanks @FloEdelmann)
+#### Bug Fixes
+* Fix missing tag for `memorial=blue_plaque` preset (#1689, thanks @hb0nd)
+* Do not add implicit `sport=disc_golf` to `leisure=disc_golf_course` features (#1639, thanks @Hufkratzer)
+#### Documentation and Other Changes
+* CI: Configure dependabot to update package.json (#1255, thanks @tordans)
+* Docs: Update wording "Data item", "OSM Wiki data item" (#1506, thanks @tordans)
+* Standardize field terms (#1760, thanks @FloEdelmann)
+* Cleanup presets and fields to adhere to stricter schema (#1759, thanks @FloEdelmann)
+* Standardize preset terms (#1758, thanks @FloEdelmann)
+#### Dependencies
+* Bump netlify-cli from 22.3.0 to 23.9.3 (#1771, thanks @[dependabot[bot]](https://github.com/apps/dependabot))
+
 
 # 6.12.0
 ##### 2025-Jul-23
