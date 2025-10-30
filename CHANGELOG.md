@@ -23,7 +23,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
-# 6.13.2
+# 6.13.3
 ##### 2025-Oct-30
 
 * Introduce placeholder presets for still upstream-referenced presets
