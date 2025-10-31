@@ -19,5 +19,29 @@
     "tags": {
         "type": "route_master"
     },
-    "name": "Route Master"
+    "name": "Route Master",
+    "relation": {
+        "id": "route_master",
+        "optionalTags": {
+            "route_master": "$1",
+            "ref": "$2"
+        },
+        "allowDuplicateMembers": false,
+        "members": [
+            {
+                "role": "",
+                "roleLabel": "",
+                "geometry": [
+                    "relation"
+                ],
+                "matchTags": [
+                    {
+                        "type": "route",
+                        "route": "$1",
+                        "ref": "$2"
+                    }
+                ]
+            }
+        ]
+    }
 }
