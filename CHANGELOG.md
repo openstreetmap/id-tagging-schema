@@ -23,7 +23,14 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
-# 6.13.3
+# 6.13.4
+##### 2025-Oct-31
+
+* Make placeholder presets (from v6.13.3) hidden
+* Fix broken `source` field in deployed `dist` files in version 6.13.3
+
+
+# 6.13.2
 ##### 2025-Oct-30
 
 * Introduce placeholder presets for still upstream-referenced presets
