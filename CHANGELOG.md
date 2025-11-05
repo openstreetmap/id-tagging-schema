@@ -23,6 +23,305 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.13.3
+##### 2025-Oct-30
+
+* Introduce placeholder presets for still upstream-referenced presets
+
+
+# 6.13.1
+##### 2025-Oct-23
+
+#### New Presets
+* Create unsearchable preset for associatedStreet (#997, thanks @serhii-muchychka)
+* Preset: shop=mobile\_phone\_accessories (#1406, thanks @UKChris-osm)
+* Add Fish Farm / Hatchery preset and `aquaculture=*` field (#1517, thanks @arch0345)
+* Add Ceremonial Gate and related presets (#1693, thanks @novolife)
+* Add preset for `device_charging_station` (#1611, thanks @paulklie)
+#### New and Changed Fields
+* Add "Cabins" field to Camp Site preset (#1683, thanks @kjonosm)
+* added wood provided field (#1738, thanks @paulklie)
+* Update roof shape field to add missing wiki suggestions (#1654, thanks @Shrinks99)
+* Add option `container` to `building`field (#1524, thanks @tordans)
+* Add `self_checkout` field to shop=supermarket (#1649, thanks @Dimitar5555)
+* Add translatable strings to playground field (#1004, thanks @kjonosm)
+* Support education tag per approved proposal (#1472, thanks @quincylvania)
+* Add strings for `house=` field and disable Taginfo suggestions (#1412, thanks @Dimitar5555)
+* Add `groundwater` option to `water_source` field (#1561, thanks @chaos-baum)
+* Reference payment\_multi to 'payment:\*' for correct wiki link (#1701, thanks @srujanaelicherla)
+#### Changed Presets
+* use temaki-paifang icon for Paifang preset (#1767, thanks @novolife)
+* add access and fee field to observation tower (#1726, thanks @paulklie)
+* Restore optional fields of Bakery preset (#1554, thanks @novolife)
+* Standardize `aerialway` preset terms (#1753, thanks @FloEdelmann)
+* Add fields to attraction preset (#1713, thanks @srujanaelicherla)
+* add terms to shop=water (#1740, thanks @matkoniecz)
+* Add toilets related fields to different presets (#1533, thanks @andrewharvey)
+* Add term "street fitness" for `leisure=fitness_station` preset (#1660, thanks @Dimitar5555)
+* add icon for `tower:construction=dish` (#1716, thanks @k-yle)
+* Add icon for fitness station sign preset (#1709, thanks @paulklie)
+* Add icon to fitness parallel bars preset (#1710, thanks @paulklie)
+* Add icon to push up station preset (#1711, thanks @paulklie)
+* Fix missing tag for `memorial=blue_plaque` preset (#1689, thanks @hb0nd)
+* Fix icon for Framing Shop preset (#1707, thanks @arch0345)
+* Make Kebab Fast Food findable by terms "Doner/Döner" (#1640, thanks @matkoniecz)
+* Do not add implicit `sport=disc_golf` to `leisure=disc_golf_course` features (#1639, thanks @Hufkratzer)
+* More strictly match historic=building preset (#1677, thanks @tyrasd)
+* Remove redundant `internet_access` from preset `aerodrome` (#1676, thanks @tordans)
+* Add `inscription` field to `tourism=artwork` (#1664, thanks @kjonosm)
+* Add river preset to water category (#1567, thanks @novolife)
+* Improve reference for Amphitheater preset (#1647, thanks @arch0345)
+#### Regional Presets and Fields
+* Restrict Sand Bath field to Japan (#1754, thanks @novolife)
+* added wood provided field (#1738, thanks @paulklie)
+* Change the default placeholder for `phone` numbers to a country code that no other country uses. (#1491, thanks @youssefelzedy)
+* Add charging point terms to charging station (#1698, thanks @FloEdelmann)
+#### Bug Fixes
+* Fix missing tag for `memorial=blue_plaque` preset (#1689, thanks @hb0nd)
+* Do not add implicit `sport=disc_golf` to `leisure=disc_golf_course` features (#1639, thanks @Hufkratzer)
+#### Documentation and Other Changes
+* CI: Configure dependabot to update package.json (#1255, thanks @tordans)
+* Docs: Update wording "Data item", "OSM Wiki data item" (#1506, thanks @tordans)
+* Standardize field terms (#1760, thanks @FloEdelmann)
+* Cleanup presets and fields to adhere to stricter schema (#1759, thanks @FloEdelmann)
+* Standardize preset terms (#1758, thanks @FloEdelmann)
+#### Dependencies
+* Bump netlify-cli from 22.3.0 to 23.9.3 (#1771, thanks @[dependabot[bot]](https://github.com/apps/dependabot))
+
+
+
+# 6.12.0
+##### 2025-Jul-23
+
+#### New Presets
+* Add preset for `climbing=route` point, way and relation ([#1598], thanks [@harahu])
+* Add preset for `climbing=crag` point and relation ([#1597], thanks [@harahu])
+* Add preset for `memorial=blue_plaque` ([#1601], thanks [@hb0nd])
+* Add preset for `climbing=route_bottom` ([#1590], thanks [@zbycz])
+* Add historic=aircraft Preset ([#1556], thanks [@novolife])
+* Create teahouse preset ([#1555], thanks [@novolife])
+#### New and Changed Fields
+* Add bridge to the structure field of canal ([#1587], thanks [@novolife])
+* Add preset for `climbing=area` ([#1596], thanks [@harahu])
+* Add "Suitable For Dogs" field to `amenity=drinking_water` preset ([#1584], thanks [@codeinabox])
+* Add roof shape and roof height fields to building presets ([#1552], thanks [@trs998])
+* Fix fields of `historic=aircraft` ([#1566], thanks [@novolife])
+#### Changed Presets
+* Add terms to `shop=fabric` ([#1619], thanks [@matkoniecz])
+* Add term "solicitor" to  lawyer preset ([#1604], thanks [@hb0nd])
+* Add terms to `amenity=toilets` preset ([#1583], thanks [@matkoniecz])
+* Add `direction` field to Observation Tower preset ([#1575], thanks [@zbycz])
+* Add terms to `amenity=telephone` ([#1574], thanks [@matkoniecz])
+* Make `social_facility` more findable ([#1576], thanks [@matkoniecz])
+* Add term "apparel" to `shop=clothes` preset ([#1382], thanks [@matkoniecz])
+* Add term to `shop=stationery` to prevent misspelling ([#1514], thanks [@matkoniecz])
+* Add `ref` key to `natural=tree` `moreFields` ([#1398], thanks [@gy-mate])
+#### Regional Presets and Fields
+* Add preset for `memorial=blue_plaque` ([#1601], thanks [@hb0nd])
+#### Documentation and Other Changes
+* Docs: Update broken transifex links ([#1630], thanks [@homersimpsons])
+* Docs/Governance: Add closing of abandoned PRs to responsibilities of the the triage role ([#1603], thanks [@matkoniecz])
+* Docs: Add detailed information on integration testing ([#1593], thanks [@harahu])
+* Docs: Streamline wording of PR preview ([#1606], thanks [@tordans])
+
+[#1382]: https://github.com/openstreetmap/id-tagging-schema/pull/1382
+[#1398]: https://github.com/openstreetmap/id-tagging-schema/pull/1398
+[#1514]: https://github.com/openstreetmap/id-tagging-schema/pull/1514
+[#1552]: https://github.com/openstreetmap/id-tagging-schema/pull/1552
+[#1555]: https://github.com/openstreetmap/id-tagging-schema/pull/1555
+[#1556]: https://github.com/openstreetmap/id-tagging-schema/pull/1556
+[#1566]: https://github.com/openstreetmap/id-tagging-schema/pull/1566
+[#1574]: https://github.com/openstreetmap/id-tagging-schema/pull/1574
+[#1575]: https://github.com/openstreetmap/id-tagging-schema/pull/1575
+[#1576]: https://github.com/openstreetmap/id-tagging-schema/pull/1576
+[#1583]: https://github.com/openstreetmap/id-tagging-schema/pull/1583
+[#1584]: https://github.com/openstreetmap/id-tagging-schema/pull/1584
+[#1587]: https://github.com/openstreetmap/id-tagging-schema/pull/1587
+[#1590]: https://github.com/openstreetmap/id-tagging-schema/pull/1590
+[#1593]: https://github.com/openstreetmap/id-tagging-schema/pull/1593
+[#1596]: https://github.com/openstreetmap/id-tagging-schema/pull/1596
+[#1597]: https://github.com/openstreetmap/id-tagging-schema/pull/1597
+[#1598]: https://github.com/openstreetmap/id-tagging-schema/pull/1598
+[#1601]: https://github.com/openstreetmap/id-tagging-schema/pull/1601
+[#1603]: https://github.com/openstreetmap/id-tagging-schema/pull/1603
+[#1604]: https://github.com/openstreetmap/id-tagging-schema/pull/1604
+[#1606]: https://github.com/openstreetmap/id-tagging-schema/pull/1606
+[#1619]: https://github.com/openstreetmap/id-tagging-schema/pull/1619
+[#1630]: https://github.com/openstreetmap/id-tagging-schema/pull/1630
+[@homersimpsons]: https://github.com/@homersimpsons
+[@hb0nd]: https://github.com/@hb0nd
+[@novolife]: https://github.com/@novolife
+[@codeinabox]: https://github.com/@codeinabox
+[@trs998]: https://github.com/@trs998
+[@zbycz]: https://github.com/@zbycz
+
+
+# 6.11.0
+##### 2025-May-12
+
+#### New Presets
+* Add `crossing=informal` as unsearchable preset for point and line geometries ([#1140], thanks [@mikaeldui])
+#### New and Changed Fields
+* Remove `source` field by marking it as a field to be used on changesets (only) ([#1508], thanks [@tordans])
+#### Changed Presets
+* Add `ref` field to `amenity=bicycle_rental` ([#1519], thanks [@kjonosm])
+* Update reference tags for recycling containers and centres ([#1497], thanks [@Dimitar5555])
+* Add search term "empty" to Vacant Shop preset ([#1499], thanks [@matkoniecz])
+#### Deprecated Tags
+* Remove `highway=ford` deprecation ([#1492], thanks [@quincylvania])
+#### Bug Fixes
+* Fix broken "Address" documentation link ([#1489], thanks [@Vectorial1024])
+#### Documentation and Other Changes
+* Consistently use term "Wikibase" for data items also in contribution guidelines ([#1504], thanks [@matkoniecz])
+* Clarify term "Wikibase" for data items in the OSM wiki ([#1502], thanks [@matkoniecz])
+* Set up `release-drafter` ([#1503])
+
+[#1140]: https://github.com/openstreetmap/id-tagging-schema/pull/1140
+[#1508]: https://github.com/openstreetmap/id-tagging-schema/pull/1508
+[#1519]: https://github.com/openstreetmap/id-tagging-schema/pull/1519
+[#1497]: https://github.com/openstreetmap/id-tagging-schema/pull/1497
+[#1499]: https://github.com/openstreetmap/id-tagging-schema/pull/1499
+[#1492]: https://github.com/openstreetmap/id-tagging-schema/pull/1492
+[#1489]: https://github.com/openstreetmap/id-tagging-schema/pull/1489
+[#1504]: https://github.com/openstreetmap/id-tagging-schema/pull/1504
+[#1502]: https://github.com/openstreetmap/id-tagging-schema/pull/1502
+[#1503]: https://github.com/openstreetmap/id-tagging-schema/pull/1503
+[@Vectorial1024]: https://github.com/Vectorial1024
+
+
+# 6.10.0
+##### 2025-Mar-20
+
+#### New Presets
+* Add preset for `amenity=veterinary_pharmacy` ([#1451], thanks [@Avan2021])
+* Add preset for `shop=groundskeeping` ([#1448], thanks [@Avan2021])
+* Add preset for `shop=bbq` ([#1430], thanks [@andrewharvey])
+#### Changed Presets
+* Show `fire_hydrant/position` field by default for all Hydrants ([#1441], thanks [@sun-geo])
+* Add `wheelchair` field to Cycle Barrier preset ([#1232], thanks [@k-yle])
+* Add `operator` field to `highway=street_lamp` ([#1327], thanks [@CorruptComputer])
+* Use couch icon for `craft=upholsterer` ([#1462], thanks [@westnordost])
+* Update icons for some shop presets: (`vacant` [#1457], `art` [#1458], `craft` [#1459], `e-cigarette` [#1460], `amenity=marketplace` [#1461], thanks [@westnordost])
+#### New and Changed Fields
+* Add fields for Cycle Barrier properties: `cycle_barrier` type, `cycle_barrier:installation`, `deflection` angle, `maxwidth:physical`, `opening` width, `overlap` width and `spacing` distance ([#1232], thanks [@k-yle])
+* Add field for Center-Pivot Irrigation `irrigation=pivot` ([#1320], thanks [@arch0345])
+* Add `entrance=shop` value also to Entrance Type field ([#1446])
+* Add field toilets to `amenity=fast_food` as `moreFileds` ([#1454], thanks [@Avan2021])
+* Use translated strings for `bridge`  and `tunnel` values also in `structure` fields
+* Add values `stone` and `tilework` to Artwork Type field ([#1443], thanks [@okainov])
+#### Bugfixes
+* Remove tag deprecation rule for `shop=photo_studio` ([#1407])
+#### Documentation and Other Changes
+* Remove `interim` directory in main branch (it's now available in a dedicated branch called `interim`) ([#1307])
+
+[#1232]: https://github.com/openstreetmap/id-tagging-schema/pull/1232
+[#1232]: https://github.com/openstreetmap/id-tagging-schema/pull/1232
+[#1320]: https://github.com/openstreetmap/id-tagging-schema/pull/1320
+[#1327]: https://github.com/openstreetmap/id-tagging-schema/pull/1327
+[#1307]: https://github.com/openstreetmap/id-tagging-schema/pull/1307
+[#1407]: https://github.com/openstreetmap/id-tagging-schema/issues/1407
+[#1430]: https://github.com/openstreetmap/id-tagging-schema/pull/1430
+[#1441]: https://github.com/openstreetmap/id-tagging-schema/pull/1441
+[#1443]: https://github.com/openstreetmap/id-tagging-schema/pull/1443
+[#1446]: https://github.com/openstreetmap/id-tagging-schema/pull/1446
+[#1448]: https://github.com/openstreetmap/id-tagging-schema/pull/1448
+[#1451]: https://github.com/openstreetmap/id-tagging-schema/pull/1451
+[#1454]: https://github.com/openstreetmap/id-tagging-schema/pull/1454
+[#1457]: https://github.com/openstreetmap/id-tagging-schema/pull/1457
+[#1458]: https://github.com/openstreetmap/id-tagging-schema/pull/1458
+[#1459]: https://github.com/openstreetmap/id-tagging-schema/pull/1459
+[#1460]: https://github.com/openstreetmap/id-tagging-schema/pull/1460
+[#1461]: https://github.com/openstreetmap/id-tagging-schema/pull/1461
+[#1462]: https://github.com/openstreetmap/id-tagging-schema/pull/1462
+[@Avan2021]: https://github.com/Avan2021
+[@sun-geo]: https://github.com/sun-geo
+[@CorruptComputer]: https://github.com/CorruptComputer
+
+
+# 6.9.1
+##### 2025-Feb-18
+
+* fix "Detached House" translation in en-GB ([#1438])
+
+[#1438]: https://github.com/openstreetmap/id-tagging-schema/issues/1438
+
+
+# 6.9.0
+##### 2025-Feb-06
+
+#### New Presets
+* Add preset for `office=translator` ([#1298], thanks [@deevroman])
+* Add hidden presets for `highway=path + path=crossing` ([#1201], thanks [@tordans])
+* Add preset for `shop=gold_buyer` ([#1374], thanks [@matkoniecz])
+* Add preset for `natural=arch` ([#1352], thanks [@jake-low])
+* Add preset for `entrance=shop` ([#1299], thanks [@deevroman])
+* Add presets for `cycleway=traffic_island` ([#1068], thanks [@k-yle])
+* Rework crossing presets to be better structured and easier to work with ([#1201], thanks [@tordans])
+#### Changed Presets
+* Add `building` (with default value `yes`) field to Funeral Service Hall preset ([#1324], thanks [@arch0345])
+* Add additional search terms to Monitoring Station preset ([#1347], thanks [@mnalis])
+* Add additional search terms to Public Bookcase Station preset ([#1333], [#1354], thanks [@Coehill] and [@danieldegroot2])
+* Change icon of Ticket Validator preset ([#1388], thanks [@matkoniecz])
+* Rename `shop=yes` to reuse the name "Shop (Unspecified type)" ([#1415], thanks [@Dimitar5555])
+* Only apply `layer=1` on newly created `building=roof` objects ([#1342]) and tweak fields of roof preset
+#### New and Changed Fields
+* Add `camp_site` (type) field to Campground preset ([#1286], thanks [@osmuser63783])
+* Improve label of `internet_access` field ([#1346], thanks [@mnalis])
+* Add value `e-cigarettes` to `vending` field of Vending Machine preset ([#1371], thanks [@tiuck])
+* Add translatable strings for values of the `map_type` tag ([#1373], thanks [@tiuck])
+* Add value `sac_scale=strolling` to Hiking Path Difficulty field ([#1383], thanks [@felagund])
+* Add descriptions to options for `parking` field ([#1402], thanks [@Nekzuris])
+* Add universal field for `panoramax` photo ids ([#1344], thanks [@mnalis])
+* Include `addr:town` in list of tags of the Address field ([#1433])
+#### Regional Presets and Fields
+* Add presets for `meadow=meadow_orchard`, `orchard=meadow_orchard` ([#1218], thanks [@tordans])
+* Add presets for `highway=path-`based bicycle-foot path tagging in some European countries ([#1384], thanks [@olafkryus])
+#### Deprecated Tags
+* Replace ~~`information=map + map_type=tactile_map`~~ with information=tactile_map ([#1373], thanks [@tiuck])
+* Replace ~~`information=map + map_type=tactile_model`~~ with information=tactile_model ([#1373], thanks [@tiuck])
+* Replace ~~`parking:lane:*=*`~~ with `parking:*` tags ([#1390], thanks [@tiptoptom])
+* Replace ~~`cycleway*=opposite`~~ with `oneway:bicycle=no` ([#1295], thanks [@tordans])
+#### Bugfixes
+* Fix spelling of Amphitheater preset to American English ([#1366], thanks [@1ec5])
+#### Documentation and Other Changes
+* Improve documentation about how ℹ️ icon works in iD ([#1257], thanks [@tordans])
+* Clarify guidelines about deprecation rules ([#1309], thanks [@tordans])
+* Add question about potential preset icon to github issue template ([#1377], thanks [@tordans])
+* Synchronize list of discardable tags with JOSM ([#1423])
+
+[#1201]: https://github.com/openstreetmap/id-tagging-schema/pull/1201
+[#1218]: https://github.com/openstreetmap/id-tagging-schema/pull/1218
+[#1257]: https://github.com/openstreetmap/id-tagging-schema/pull/1257
+[#1286]: https://github.com/openstreetmap/id-tagging-schema/pull/1286
+[#1295]: https://github.com/openstreetmap/id-tagging-schema/pull/1295
+[#1309]: https://github.com/openstreetmap/id-tagging-schema/pull/1309
+[#1324]: https://github.com/openstreetmap/id-tagging-schema/pull/1324
+[#1333]: https://github.com/openstreetmap/id-tagging-schema/pull/1333
+[#1342]: https://github.com/openstreetmap/id-tagging-schema/issues/1342
+[#1344]: https://github.com/openstreetmap/id-tagging-schema/pull/1344
+[#1346]: https://github.com/openstreetmap/id-tagging-schema/pull/1346
+[#1347]: https://github.com/openstreetmap/id-tagging-schema/pull/1347
+[#1354]: https://github.com/openstreetmap/id-tagging-schema/pull/1354
+[#1366]: https://github.com/openstreetmap/id-tagging-schema/pull/1366
+[#1371]: https://github.com/openstreetmap/id-tagging-schema/pull/1371
+[#1373]: https://github.com/openstreetmap/id-tagging-schema/pull/1373
+[#1373]: https://github.com/openstreetmap/id-tagging-schema/pull/1373
+[#1377]: https://github.com/openstreetmap/id-tagging-schema/pull/1377
+[#1383]: https://github.com/openstreetmap/id-tagging-schema/pull/1383
+[#1384]: https://github.com/openstreetmap/id-tagging-schema/pull/1384
+[#1388]: https://github.com/openstreetmap/id-tagging-schema/pull/1388
+[#1390]: https://github.com/openstreetmap/id-tagging-schema/pull/1390
+[#1402]: https://github.com/openstreetmap/id-tagging-schema/pull/1402
+[#1415]: https://github.com/openstreetmap/id-tagging-schema/pull/1415
+[#1423]: https://github.com/openstreetmap/id-tagging-schema/issues/1423
+[#1433]: https://github.com/openstreetmap/id-tagging-schema/pull/1433
+[@deevroman]: https://github.com/deevroman
+[@jake-low]: https://github.com/jake-low
+[@Coehill]: https://github.com/Coehill
+[@tiuck]: https://github.com/tiuck
+[@felagund]: https://github.com/felagund
+
+
 # 6.8.1
 ##### 2024-Aug-19
 
@@ -361,7 +660,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 * Add specific presets for Trees which have the tags `leaf_cycle`/`leaf_type` mapped ([#956])
 #### Changed Presets
 * Add field to specify the type of a `house` ([#921], thanks [@arch0345])
-* Allow Drinking Water to be mapped on verticed ([#925], thanks [@arch0345])
+* Allow Drinking Water to be mapped on vertices ([#925], thanks [@arch0345])
 * Rename preset for Trash Cans and Recycling Bins ([#938], thanks [@arch0345])
 * Add `direction` field to Emergency Bay preset
 * Add more fields to Parcel Locker preset for the tags: `wheelchair`, `indoor` ([#940]), `collection_times`, `surveillance`
