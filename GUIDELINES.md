@@ -68,7 +68,37 @@ The user interface must be clear, concise, and easy to use, leaving no room for 
 - Check the [`(i)` documentation](./CONTRIBUTING.md#info-i) and add or update the OSM Wiki data item if needed to provide a helpful short text.
 - Use the PR preview to add test cases with deep links to OSM objects that demonstrate the preset in use.
 
-## 3. Implement
+## 3. When to use removeTags
+
+The `removeTags` property specifies tags that should be explicitly removed when switching to a preset. This is necessary when the default tag removal logic isn't sufficient.
+
+### Cases where presets need explicit removeTags
+
+- **Switching between related presets**: When changing from one preset to another that shares some tags but needs specific subtags removed
+- **Hierarchical tag structures**: When a parent tag has multiple possible subtags that conflict with each other
+- **Complex tagging schemes**: When presets involve multiple interdependent tags that need coordinated updates
+
+### How to test whether removeTags are required
+
+1. **Create a test object** with the source preset's tags
+2. **Switch to the target preset** in iD editor
+3. **Check for unwanted tags**: Look for tags that should have been removed but remain
+4. **Add removeTags** for any tags that persist incorrectly
+
+### Examples of switching between presets
+
+- **Crossing types**: `highway=crossing + crossing=traffic_signals` → `highway=crossing + crossing=uncontrolled`
+  - Needs `removeTags: ["crossing=traffic_signals"]` on the uncontrolled preset
+- **Service roads**: `highway=service + service=parking_aisle` → `highway=service + service=driveway`
+  - Needs `removeTags: ["service=parking_aisle"]` on the driveway preset
+- **Building types**: `building=house + house=detached` → `building=house + house=semi_detached`
+  - Needs `removeTags: ["house=detached"]` on the semi-detached preset
+
+### Why some subtags must be manually removed
+
+The default preset switching logic only removes tags that are explicitly set by the source preset. Subtags or related tags that were added separately (either by other presets or manual editing) won't be automatically removed, potentially creating invalid tag combinations.
+
+## 4. Implement
 
 If you are familiar with `JSON`, you can implement the preset or field yourself. First, create a ticket to introduce your tagging idea and discuss it with the community to get feedback on its feasibility and desirability. After implementation, create a pull request to get it merged.
 
