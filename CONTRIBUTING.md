@@ -91,3 +91,11 @@ The following `npm` commands are used in this repository:
 ### Code Style
 
 The input files are JSON files which use 4-space indentation. You can use the `npm run lint` command to check whether your files match the expected code style and run `npm run lint:fix` to reformat them if they don't do so.
+
+### LLMs
+
+Submitting LLM output is in general not useful. If Copilot / ChatGPT / Claude / Gemini / DeepSeek would be capable of generating useful presets, then project maintainer would simply run it on waiting issues.
+
+In theory human-reviewed LLM-generated content could be useful, but it is dubious is it feasible to achieve it. Anyone submitting such content should disclose their AI use and carefully review all of it and undestand what they are submitting.
+
+Issues, comments, pull requests and so on may be rejected, closed and deleted/hidden on sight if they are AI slop. In particular long text, formatted in AI style, with factual inacuracies scattered across it and sections not adding anything useful will be treated as AI slop. The same applies also if content was human-written but has the same problems.
