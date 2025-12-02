@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
         with:
           node-version-file: '.nvmrc'
       # install and build development version of id-tagging-schema
@@ -25,7 +25,7 @@ jobs:
         if: env.transifex_password != null
       - run: npm run dist
       # install and build development version of iD using freshest version of presets and ELI
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           repository: openstreetmap/id
           path: './iD'
