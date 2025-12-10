@@ -15,12 +15,10 @@ jobs:
     if: github.repository == 'openstreetmap/id-tagging-schema'
     steps:
       - name: Checkout
-        uses: actions/checkout@v4 # If you're using actions/checkout@v3 you must set persist-credentials to false in most cases for the deployment to work correctly.
-        with:
-          persist-credentials: false
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
         with:
           node-version-file: '.nvmrc'
 
@@ -31,7 +29,7 @@ jobs:
         run: npm run build
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@4a3abc783e1a24aeb44c16e869ad83caf6b4cc23 # v4.7.4
         with:
-          branch: interim # The branch the action should deploy to.
-          folder: interim # The folder the action should deploy.
+          branch: interim
+          folder: interim
