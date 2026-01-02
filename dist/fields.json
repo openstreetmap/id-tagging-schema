@@ -1,4 +1,16 @@
 {
+    "wood_provided": {
+        "key": "wood_provided",
+        "type": "check",
+        "locationSet": {
+            "include": [
+                "ch",
+                "dk",
+                "fi",
+                "se"
+            ]
+        }
+    },
     "windings": {
         "key": "windings",
         "type": "number",
@@ -83,7 +95,8 @@
             "water_tank",
             "pond",
             "river",
-            "stream"
+            "stream",
+            "groundwater"
         ]
     },
     "water_point": {
@@ -787,18 +800,14 @@
     "source": {
         "key": "source",
         "type": "semiCombo",
-        "usage": "changeset",
         "snake_case": false,
         "caseSensitive": true,
+        "stringsCrossReference": "{source}",
         "autoSuggestions": false,
-        "options": [
-            "survey",
-            "local knowledge",
-            "aerial imagery",
-            "gps",
-            "streetlevel imagery",
-            "osm notes"
-        ]
+        "universal": true,
+        "prerequisiteTag": {
+            "key": "source"
+        }
     },
     "social_facility_for": {
         "key": "social_facility:for",
@@ -953,6 +962,15 @@
     "self_service": {
         "key": "self_service",
         "type": "check"
+    },
+    "self_checkout": {
+        "key": "self_checkout",
+        "type": "radio",
+        "options": [
+            "yes",
+            "only",
+            "no"
+        ]
     },
     "segregated": {
         "key": "segregated",
@@ -1335,11 +1353,9 @@
         "keys": [
             "post:block_number",
             "post:city",
-            "post:block_number",
             "post:conscriptionnumber",
             "post:county",
             "post:country",
-            "post:county",
             "post:district",
             "post:floor",
             "post:hamlet",
@@ -1377,7 +1393,94 @@
     },
     "playground": {
         "key": "playground",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "activitypanel",
+            "aerialrotator",
+            "archimedes_screw",
+            "balance",
+            "balancebeam",
+            "ball_pool",
+            "bannister_bars",
+            "basketrotator",
+            "basketswing",
+            "belt_bridge",
+            "blackboard",
+            "bridge",
+            "cushion",
+            "chute",
+            "climbing",
+            "climbing_pole",
+            "climbing_slope",
+            "climbingframe",
+            "climbingwall",
+            "dome",
+            "excavator",
+            "exercise",
+            "funnel_ball",
+            "hammock",
+            "hamster_wheel",
+            "hopscotch",
+            "horizontal_bar",
+            "ladder",
+            "map",
+            "maze",
+            "marble_run",
+            "monkey_bars",
+            "mound",
+            "musical_instrument",
+            "parallel_bars",
+            "platform",
+            "playhouse",
+            "pump",
+            "ride_on",
+            "rope_swing",
+            "rope_traverse",
+            "rotator",
+            "roundabout",
+            "sand",
+            "sand_pulley",
+            "sand_seesaw",
+            "sand_wheel",
+            "sandpit",
+            "seat",
+            "seesaw",
+            "sieve",
+            "sledding",
+            "slide",
+            "speaking_tube",
+            "spinner",
+            "spinner_bowl",
+            "spinning_circle",
+            "spinning_disc",
+            "spring_board",
+            "springy",
+            "splash_pad",
+            "stepping_post",
+            "stepping_stone",
+            "steps",
+            "structure",
+            "swing",
+            "baby_swing",
+            "tire_swing",
+            "table",
+            "teenshelter",
+            "track",
+            "trampoline",
+            "tunnel_tube",
+            "water",
+            "water_barrier",
+            "water_basin",
+            "water_cannon",
+            "water_channel",
+            "water_seesaw",
+            "water_sprayer",
+            "water_stream",
+            "water_wheel",
+            "wobble_bridge",
+            "youth_bench",
+            "zipwire"
+        ]
     },
     "plant": {
         "key": "plant",
@@ -1421,6 +1524,9 @@
     "payment_multi": {
         "key": "payment:",
         "type": "multiCombo",
+        "reference": {
+            "key": "payment:*"
+        },
         "options": [
             "account_cards",
             "app",
@@ -2299,7 +2405,17 @@
     },
     "house": {
         "key": "house",
-        "type": "combo"
+        "type": "combo",
+        "autoSuggestions": false,
+        "options": [
+            "bungalow",
+            "detached",
+            "link-detached",
+            "maisonette",
+            "semi-detached",
+            "terrace",
+            "terraced"
+        ]
     },
     "hot_water": {
         "key": "hot_water",
@@ -2798,6 +2914,21 @@
             "line",
             "area",
             "relation"
+        ]
+    },
+    "education": {
+        "key": "education",
+        "type": "typeCombo",
+        "options": [
+            "college",
+            "dancing_school",
+            "driving_school",
+            "kindergarten",
+            "language_school",
+            "music_school",
+            "prep_school",
+            "school",
+            "university"
         ]
     },
     "duration": {
@@ -3583,6 +3714,16 @@
         "key": "changing_table",
         "type": "check"
     },
+    "ceremonial_gate": {
+        "key": "ceremonial_gate",
+        "type": "combo",
+        "options": [
+            "torii",
+            "paifang",
+            "hongsalmun",
+            "iljumun"
+        ]
+    },
     "castle_type": {
         "key": "castle_type",
         "type": "combo",
@@ -3656,6 +3797,10 @@
         "key": "cables",
         "type": "number",
         "minValue": 1
+    },
+    "cabins": {
+        "key": "cabins",
+        "type": "check"
     },
     "button_operated": {
         "key": "button_operated",
@@ -3745,7 +3890,8 @@
             "train_station",
             "transportation",
             "university",
-            "warehouse"
+            "warehouse",
+            "container"
         ]
     },
     "bridge_combo": {
@@ -4150,7 +4296,6 @@
         "keys": [
             "addr:block_number",
             "addr:city",
-            "addr:block_number",
             "addr:conscriptionnumber",
             "addr:country",
             "addr:county",
@@ -4381,7 +4526,8 @@
             "freestanding": "roentgen-tube",
             "guyed_lattice": "roentgen-lattice_guyed",
             "guyed_tube": "roentgen-tube_guyed",
-            "lattice": "roentgen-lattice"
+            "lattice": "roentgen-lattice",
+            "dish": "fas-satellite-dish"
         }
     },
     "toilets/wheelchair": {
@@ -4750,12 +4896,19 @@
         "options": [
             "flat",
             "gabled",
+            "gabled_height_moved",
             "skillion",
             "hipped",
             "half-hipped",
+            "side_hipped",
+            "side_half-hipped",
             "mansard",
             "gambrel",
+            "hipped-and-gabled",
             "pyramidal",
+            "crosspitched",
+            "sawtooth",
+            "butterfly",
             "cone",
             "dome",
             "onion",
@@ -6405,9 +6558,14 @@
             "thermal"
         ]
     },
-    "bath/sand_bath": {
+    "bath/sand_bath-JP": {
         "key": "bath:sand_bath",
-        "type": "check"
+        "type": "check",
+        "locationSet": {
+            "include": [
+                "JP"
+            ]
+        }
     },
     "bath/open_air": {
         "key": "bath:open_air",
