@@ -232,6 +232,13 @@
                     "label": "Légkondicionálás",
                     "terms": "légkondicionálás,légkondi,hűtés,klíma,klímás"
                 },
+                "aircraft/type": {
+                    "label": "Típus",
+                    "options": {
+                        "helicopter": "Helikopter",
+                        "military": "Katonai"
+                    }
+                },
                 "alt_name": {
                     "label": "Alternatív név",
                     "terms": "más név,egyéb név,további név"
@@ -422,9 +429,6 @@
                 },
                 "bath/open_air": {
                     "label": "Szabadtéri"
-                },
-                "bath/sand_bath": {
-                    "label": "Homokfürdő"
                 },
                 "bath/type": {
                     "label": "Fürdőtípus",
@@ -789,6 +793,12 @@
                 "circumference": {
                     "label": "Kerület mellmagasságban",
                     "placeholder": "1 m, 20 cm, …"
+                },
+                "climbing/length": {
+                    "label": "Hosszúság (méter)"
+                },
+                "climbing/trad": {
+                    "label": "Hagyományos mászás"
                 },
                 "clothes": {
                     "label": "Ruha",
@@ -2885,7 +2895,6 @@
                 },
                 "phone": {
                     "label": "Telefon",
-                    "placeholder": "+36-1 123-4567",
                     "terms": "hívószám,távbeszélő,telefonszám"
                 },
                 "picnic_table": {
@@ -3304,6 +3313,11 @@
                     "label": "Tető színe",
                     "terms": "cserép,pala,háztető"
                 },
+                "roof/shape": {
+                    "options": {
+                        "dome": "Kupola"
+                    }
+                },
                 "room": {
                     "label": "Típus"
                 },
@@ -3649,7 +3663,7 @@
                     "options": {
                         "aerial imagery": "Légi felvétel",
                         "gps": "GPS",
-                        "local knowledge": "Helyismeret",
+                        "local knowledge": "Helyi ismeret",
                         "osm notes": "OpenStreetMap megjegyzések",
                         "streetlevel imagery": "Utcaszintű fényképek",
                         "survey": "Felmérés"
@@ -3788,6 +3802,14 @@
                     },
                     "placeholder": "Ismeretlen",
                     "terms": "struktúra,felépítés"
+                },
+                "structure_canal": {
+                    "label": "Szerkezet",
+                    "options": {
+                        "bridge": "Híd",
+                        "tunnel": "Alagút"
+                    },
+                    "placeholder": "Ismeretlen"
                 },
                 "structure_power": {
                     "label": "Szerkezet",
@@ -4816,10 +4838,6 @@
                     "name": "Napóra",
                     "terms": "árnyékóra,gnomón"
                 },
-                "amenity/college": {
-                    "name": "Főiskola területe",
-                    "terms": "főiskola,felsőoktatás,fősuli"
-                },
                 "amenity/community_centre": {
                     "name": "Közösségi ház",
                     "terms": "művelődési ház,kultúrház,művház,faluház"
@@ -4926,10 +4944,6 @@
                     "name": "Autós gyakorlópálya",
                     "terms": "kresz pálya,autós iskola",
                     "aliases": "kresz pálya"
-                },
-                "amenity/driving_school": {
-                    "name": "Autósiskola",
-                    "terms": "jogosítvány,kresz,tanpálya,rutinpálya"
                 },
                 "amenity/embassy": {
                     "name": "Külképviselet"
@@ -5052,18 +5066,10 @@
                     "name": "Karaoke-bár",
                     "terms": "éneklés,dalolás"
                 },
-                "amenity/kindergarten": {
-                    "name": "Óvoda / óvodai terület",
-                    "terms": "iskolai előkészítő területe,óvoda terület,ovi terület,bölcsőde terület,kisdedóvó terület"
-                },
                 "amenity/kneipp_water_cure": {
                     "name": "Kneipp-kúra",
                     "terms": "kneipp-taposó",
                     "aliases": "Kneipp-taposó"
-                },
-                "amenity/language_school": {
-                    "name": "Nyelviskola",
-                    "terms": "nyelvtanulás,nyelvoktatás,idegen nyelv"
                 },
                 "amenity/lavoir": {
                     "name": "Ruhamosó hely",
@@ -5115,10 +5121,6 @@
                 "amenity/motorcycle_rental": {
                     "name": "Motorkerékpár-kölcsönző",
                     "terms": "chopper,cruiser,motor,moped,kismotor,robogó"
-                },
-                "amenity/music_school": {
-                    "name": "Zeneiskola",
-                    "terms": "muzsika"
                 },
                 "amenity/nightclub": {
                     "name": "Diszkó",
@@ -5251,10 +5253,6 @@
                 "amenity/post_office": {
                     "name": "Posta",
                     "terms": "postahivatal,postaközpont"
-                },
-                "amenity/prep_school": {
-                    "name": "Tesztpálya, tanulópálya",
-                    "terms": "tesztpálya,tanulópálya,autós iskola"
                 },
                 "amenity/prison": {
                     "name": "Börtön területe",
@@ -5413,10 +5411,6 @@
                     "name": "Szaniterürítő hely (lakóautóknak)",
                     "terms": "lakóautó,lakókocsi,wc,szaniter,tartály,ürítés,szennyvíz,ürülék"
                 },
-                "amenity/school": {
-                    "name": "Iskola területe",
-                    "terms": "iskola,tanítás,oktatás,nevelés,közoktatás,köznevelés,akadémia,általános iskola,középiskola,gimnázium'"
-                },
                 "amenity/shelter": {
                     "name": "Esőbeálló",
                     "terms": "fedett,fedél,esőház,esőkunyhó,menedékház,menedék,tető",
@@ -5550,10 +5544,6 @@
                 },
                 "amenity/toy_library": {
                     "name": "Játékkölcsönző"
-                },
-                "amenity/university": {
-                    "name": "Egyetem területe",
-                    "terms": "kampusz,campus,felsőoktatás,unversitas"
                 },
                 "amenity/vacuum_cleaner": {
                     "name": "Porszívó",
@@ -6438,12 +6428,6 @@
                     "name": "Defibrillátor",
                     "terms": "újraélesztés"
                 },
-                "emergency/designated": {
-                    "name": "Kifejezetten vészhelyzeti használatra"
-                },
-                "emergency/destination": {
-                    "name": "Kivéve célforgalom, vészhelyzetben"
-                },
                 "emergency/fire_alarm": {
                     "name": "Tűzriasztó"
                 },
@@ -6486,18 +6470,9 @@
                 "emergency/mountain_rescue": {
                     "name": "Hegyi mentők"
                 },
-                "emergency/no": {
-                    "name": "Vészhelyzeti használat tilos"
-                },
-                "emergency/official": {
-                    "name": "Hivatalosan vészhelyzeti használatra"
-                },
                 "emergency/phone": {
                     "name": "Segélyhívó telefon",
                     "terms": "vészhelyzeti telefon,vészhívó"
-                },
-                "emergency/private": {
-                    "name": "Vészhelyzeti használat: magántulajdon"
                 },
                 "emergency/siren": {
                     "name": "Sziréna",
@@ -6512,9 +6487,6 @@
                 "emergency/water_tank": {
                     "name": "Tűzivíztartály",
                     "terms": "tűzoltóvíz"
-                },
-                "emergency/yes": {
-                    "name": "Vészhelyzeti használat"
                 },
                 "entrance": {
                     "name": "Bejárat / Kijárat",
@@ -7020,6 +6992,9 @@
                     "name": "Emlékmű",
                     "terms": "emlékhely"
                 },
+                "historic/memorial/blue_plaque-GB-IE": {
+                    "name": "Kék tábla"
+                },
                 "historic/memorial/plaque": {
                     "name": "Emléktábla"
                 },
@@ -7315,9 +7290,6 @@
                 "leisure/dance": {
                     "name": "Táncterem",
                     "terms": "bálterem,társastánc,táncterem,tánchelyiség"
-                },
-                "leisure/dancing_school": {
-                    "name": "Tánciskola"
                 },
                 "leisure/disc_golf_course": {
                     "name": "Koronggolf pálya",
@@ -7918,9 +7890,6 @@
                 },
                 "man_made/telescope/radio": {
                     "name": "Rádióteleszkóp"
-                },
-                "man_made/torii": {
-                    "name": "Sinto templomkapu"
                 },
                 "man_made/tower": {
                     "name": "Torony",
