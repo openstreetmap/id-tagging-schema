@@ -447,6 +447,10 @@
                 "bath/open_air": {
                     "label": "露天風呂"
                 },
+                "bath/sand_bath-JP": {
+                    "label": "砂湯",
+                    "terms": "砂湯,砂蒸し,砂風呂"
+                },
                 "bath/type": {
                     "label": "タイプ",
                     "options": {
@@ -602,7 +606,7 @@
                         "allotment_house": "分譲住宅",
                         "apartments": "集合住宅（個々の建物）",
                         "barn": "納屋",
-                        "boathouse": "ボートハウス",
+                        "boathouse": "艇庫",
                         "bungalow": "バンガロー（建物）",
                         "bunker": "バンカー",
                         "cabin": "ログハウス（建物）",
@@ -614,6 +618,7 @@
                         "college": "短大・高専・専門学校（建物）",
                         "commercial": "商業全般用の建物",
                         "construction": "建設中の建物",
+                        "container": "コンテナ",
                         "cowshed": "牛小屋",
                         "detached": "一戸建て住宅",
                         "dormitory": "寮",
@@ -696,6 +701,10 @@
                 },
                 "button_operated": {
                     "label": "押しボタン式"
+                },
+                "cabins": {
+                    "label": "キャビン",
+                    "terms": "キャビン,バンガロー,ロッジ,コテージ,ログハウス"
                 },
                 "cables": {
                     "label": "ケーブル",
@@ -799,6 +808,15 @@
                         "stately": "大邸宅"
                     }
                 },
+                "ceremonial_gate": {
+                    "label": "門の種類",
+                    "options": {
+                        "hongsalmun": "紅箭門",
+                        "iljumun": "一柱門",
+                        "paifang": "牌坊",
+                        "torii": "鳥居"
+                    }
+                },
                 "changing_table": {
                     "label": "おむつ交換台",
                     "terms": "オムツ交換台,おむつ替え台,オムツ替え台"
@@ -826,9 +844,35 @@
                 "climbing/bolts": {
                     "label": "ボルトの数"
                 },
+                "climbing/grade/french": {
+                    "label": "フレンチグレード",
+                    "placeholder": "5c",
+                    "terms": "フレンチグレード"
+                },
+                "climbing/grade/saxon": {
+                    "label": "サクソングレード",
+                    "placeholder": "VIIa",
+                    "terms": "サクソングレード"
+                },
+                "climbing/grade/uiaa": {
+                    "label": "UIAAグレード",
+                    "placeholder": "6-",
+                    "terms": "uiaaグレード"
+                },
+                "climbing/grade/yds_class": {
+                    "label": "デシマルグレード",
+                    "placeholder": "5.10a",
+                    "terms": "デシマルグレード,ヨセミテデシマルグレード,ヨセミテデシマルシステム,ヨセミテデシマルスケール"
+                },
                 "climbing/length": {
                     "label": "長さ (m)",
                     "terms": "長さ(メートル),長さ"
+                },
+                "climbing/sport": {
+                    "label": "スポーツクライミング"
+                },
+                "climbing/trad": {
+                    "label": "トラッドクライミング"
                 },
                 "clothes": {
                     "label": "服",
@@ -1161,6 +1205,7 @@
                         "grill": "グリル",
                         "hawaiian": "ハワイ料理",
                         "hot_dog": "ホットドッグ",
+                        "hotpot": "鍋",
                         "ice_cream": "アイスクリーム",
                         "indian": "インド料理",
                         "indonesian": "インドネシア料理",
@@ -1366,7 +1411,7 @@
                     "terms": "樹冠幅,枝張り"
                 },
                 "diet_multi": {
-                    "label": "食事制限の種類",
+                    "label": "食事制限",
                     "options": {
                         "gluten_free": "グルテンフリー",
                         "halal": "ハラール",
@@ -1376,7 +1421,7 @@
                         "vegan": "ビーガン",
                         "vegetarian": "ベジタリアン"
                     },
-                    "terms": "食事制限の種類,食事制限,ビーガン,ベジタビリアン,菜食"
+                    "terms": "グルテンフリー,ハラル,ハラール,コーシャ,ヴィーガン,ベジタリアン"
                 },
                 "diplomatic": {
                     "label": "外交組織の種類",
@@ -1747,7 +1792,7 @@
                     "label": "噴水の種類"
                 },
                 "frequency": {
-                    "label": "動作周波数",
+                    "label": "周波数 (直流は0)",
                     "terms": "周波数"
                 },
                 "from": {
@@ -2145,7 +2190,35 @@
                     "label": "温水"
                 },
                 "house": {
-                    "label": "住居の種類"
+                    "label": "住居の種類",
+                    "options": {
+                        "bungalow": {
+                            "description": "平屋の小さな住居",
+                            "title": "バンガロー"
+                        },
+                        "detached": {
+                            "description": "他の住居とつながっていない住居",
+                            "title": "一戸建て"
+                        },
+                        "link-detached": {
+                            "description": "ガレージなど非居住区画で他の住居とつながった住居"
+                        },
+                        "maisonette": {
+                            "description": "共用ではなく各戸別の出入口があって2階層に分かれた住居",
+                            "title": "メゾネット"
+                        },
+                        "semi-detached": {
+                            "description": "1面で他の住居とつながった2戸1組の住居"
+                        },
+                        "terrace": {
+                            "description": "隣と繋がって並んでいる住居列（各戸ごと別のエリアとしてのマッピングを推奨）",
+                            "title": "連続住宅"
+                        },
+                        "terraced": {
+                            "description": "連続住宅の各戸",
+                            "title": "連続住宅の各戸"
+                        }
+                    }
                 },
                 "iata": {
                     "label": "IATA空港コード"
@@ -2159,7 +2232,7 @@
                     "terms": "画像,写真,イメージ"
                 },
                 "incline": {
-                    "label": "傾斜",
+                    "label": "勾配",
                     "terms": "傾き,傾斜,斜度,向き"
                 },
                 "incline_steps": {
@@ -3051,6 +3124,7 @@
                 },
                 "phone": {
                     "label": "電話番号",
+                    "placeholder": "+000 0000 0000 0000",
                     "terms": "電話番号,電話,携帯番号"
                 },
                 "picnic_table": {
@@ -3186,7 +3260,61 @@
                     "label": "動力源"
                 },
                 "playground": {
-                    "label": "種類"
+                    "label": "種類",
+                    "options": {
+                        "activitypanel": "パネル遊具",
+                        "aerialrotator": "回旋塔",
+                        "archimedes_screw": "アルキメデスのらせん",
+                        "baby_swing": "乳児ブランコ",
+                        "balance": "平衡遊具",
+                        "balancebeam": "平均台",
+                        "ball_pool": "ボールプール",
+                        "bannister_bars": "パイプ滑り",
+                        "basketrotator": "回転かご",
+                        "basketswing": "かごブランコ",
+                        "blackboard": "黒板",
+                        "bridge": "橋",
+                        "climbing": "登り遊具",
+                        "climbing_pole": "登り棒",
+                        "climbing_slope": "坂登り",
+                        "climbingframe": "ジャングルジム",
+                        "climbingwall": "クライミングウォール(子供用)",
+                        "cushion": "クッション",
+                        "exercise": "健康遊具",
+                        "funnel_ball": "ファンネルボール",
+                        "hammock": "ハンモック",
+                        "hamster_wheel": "回し車",
+                        "hopscotch": "ホップスコッチ",
+                        "horizontal_bar": "鉄棒",
+                        "ladder": "はしご",
+                        "map": "地図",
+                        "maze": "迷路",
+                        "monkey_bars": "うんてい",
+                        "mound": "マウンド",
+                        "musical_instrument": "楽器",
+                        "parallel_bars": "平行棒",
+                        "pump": "ポンプ",
+                        "rope_traverse": "綱渡り",
+                        "rotator": "旋回遊具",
+                        "sand": "砂場遊具",
+                        "sandpit": "砂場",
+                        "seesaw": "シーソー",
+                        "sledding": "そり滑り丘",
+                        "slide": "滑り台",
+                        "speaking_tube": "伝声管",
+                        "splash_pad": "水遊び場",
+                        "springy": "スプリング遊具",
+                        "steps": "階段",
+                        "structure": "コンビネーション遊具",
+                        "swing": "ブランコ",
+                        "teenshelter": "ティーンシェルター",
+                        "tire_swing": "タイヤブランコ",
+                        "trampoline": "トランポリン",
+                        "water": "水遊び遊具",
+                        "water_stream": "流れ",
+                        "water_wheel": "水車",
+                        "zipwire": "ジップライン"
+                    }
                 },
                 "playground/theme": {
                     "label": "テーマ",
@@ -3309,6 +3437,7 @@
                         "clothes": "衣類",
                         "cooking_oil": "食用油",
                         "engine_oil": "機械油",
+                        "food_waste": "食品ゴミ",
                         "glass": "ガラス",
                         "glass_bottles": "ガラスびん",
                         "green_waste": "植物性コンポスト",
@@ -3507,24 +3636,30 @@
                     "terms": "屋根の色,屋根のカラー,色,カラー"
                 },
                 "roof/height": {
-                    "label": "屋根の高さ (メートル)"
+                    "label": "屋根部分の高さ (メートル)",
+                    "terms": "屋根の高さ"
                 },
                 "roof/shape": {
                     "label": "屋根の形状",
                     "options": {
+                        "butterfly": "バタフライ型",
                         "cone": "コーン型",
                         "dome": "ドーム型",
                         "flat": "平屋根",
                         "gabled": "切妻屋根",
+                        "gabled_height_moved": "差掛屋根",
                         "gambrel": "ギャンブレル屋根",
                         "half-hipped": "半切妻屋根（はかま腰）",
                         "hipped": "寄棟屋根",
+                        "hipped-and-gabled": "錣屋根",
                         "mansard": "マンサード屋根",
                         "onion": "たまねぎ型",
                         "pyramidal": "方形屋根（ピラミッド型）",
                         "round": "かまぼこ型",
+                        "sawtooth": "鋸屋根",
                         "skillion": "片流れ"
-                    }
+                    },
+                    "terms": "屋根形状"
                 },
                 "room": {
                     "label": "部屋の種類"
@@ -3725,6 +3860,15 @@
                 "segregated": {
                     "label": "レーン分離",
                     "terms": "歩行者レーン,自転車用レーン,共用レーン"
+                },
+                "self_checkout": {
+                    "label": "セルフレジ",
+                    "options": {
+                        "no": "なし",
+                        "only": "のみ",
+                        "yes": "あり"
+                    },
+                    "terms": "自動精算機,無人レジ"
                 },
                 "self_service": {
                     "label": "セルフサービス"
@@ -4368,11 +4512,11 @@
                 "tracktype": {
                     "label": "トラックの種類",
                     "options": {
-                        "grade1": "グレード1(硬い舗装)",
-                        "grade2": "grade2-大部分が硬質: 砂利・岩と柔らかい物質の混合",
-                        "grade3": "grade3-硬軟の物質の混合",
-                        "grade4": "grade4-大部分が軟質: 土／砂／草と硬い物質の混合",
-                        "grade5": "grade5-軟質: 土／砂／草"
+                        "grade1": "グレード1-硬い舗装",
+                        "grade2": "グレード2-大部分が硬質: 砂利・岩と柔らかい物質の混合",
+                        "grade3": "グレード3-硬軟の物質の混合",
+                        "grade4": "グレード4-大部分が軟質: 土／砂／草と硬い物質の混合",
+                        "grade5": "グレード5-軟質: 土／砂／草"
                     },
                     "placeholder": "硬質, 大部分が硬質, 軟質…"
                 },
@@ -4494,7 +4638,7 @@
                 "tunnel_combo": {
                     "label": "トンネルの種類",
                     "options": {
-                        "avalanche_protector": "雪崩防護施設",
+                        "avalanche_protector": "ロック・スノーシェッド",
                         "building_passage": "建物貫通路",
                         "culvert": "暗渠"
                     }
@@ -4666,6 +4810,7 @@
                 "water_source": {
                     "label": "水源",
                     "options": {
+                        "groundwater": "地下水",
                         "main": "水道",
                         "pond": "池",
                         "river": "河川",
@@ -4761,6 +4906,10 @@
                         "zigzag": "千鳥結線"
                     },
                     "terms": "コイル形状"
+                },
+                "wood_provided": {
+                    "label": "薪の提供",
+                    "terms": "薪"
                 }
             },
             "presets": {
@@ -5138,6 +5287,10 @@
                 "amenity/dentist": {
                     "name": "歯医者",
                     "terms": "歯科,歯医者,歯科医,病院,医療,医者,歯,矯正歯科,インプラント"
+                },
+                "amenity/device_charging_station": {
+                    "name": "デバイス充電スポット",
+                    "terms": "携帯充電スポット"
                 },
                 "amenity/dive_centre": {
                     "name": "ダイブセンター",
@@ -6235,7 +6388,7 @@
                 },
                 "barrier/gate": {
                     "name": "門",
-                    "terms": "門,ゲート,鳥居,障害物,バリア"
+                    "terms": "門,ゲート,障害物,バリア"
                 },
                 "barrier/guard_rail": {
                     "name": "ガードレール（車両用、方向あり）",
@@ -6632,6 +6785,18 @@
                     "name": "霊園区画",
                     "terms": "霊園区画,墓地区画,霊園,墓地"
                 },
+                "climbing/crag": {
+                    "name": "クラッグ",
+                    "terms": "岩場"
+                },
+                "climbing/route": {
+                    "name": "クライミングルート",
+                    "terms": "クライミングルート,ロッククライミング"
+                },
+                "climbing/route_bottom": {
+                    "name": "クライミングルートの始点",
+                    "terms": "始点,開始点,起点,クライミングルート"
+                },
                 "club": {
                     "name": "クラブ",
                     "terms": "クラブ"
@@ -6921,6 +7086,9 @@
                 "education/university": {
                     "name": "大学（代表点または敷地）",
                     "terms": "大学の敷地,キャンパス,大学,教育,学校"
+                },
+                "education/yes": {
+                    "name": "教育機関(全般)"
                 },
                 "embankment": {
                     "name": "土手"
@@ -7369,10 +7537,6 @@
                     "name": "自動車専用道路",
                     "terms": "自動車専用道路,高速道路,車道,幹線,公道"
                 },
-                "highway/motorway_junction": {
-                    "name": "自動車道のIC/JCT",
-                    "terms": "自動車道のic/jct,インターチェンジ,ジャンクション,ic,jct"
-                },
                 "highway/motorway_link": {
                     "name": "自動車専用道路の接続路",
                     "terms": "自動車専用道路,接続路,車道,幹線,公道"
@@ -7708,6 +7872,9 @@
                     "name": "養殖場（水域）",
                     "terms": "養殖場,養魚場,いけす,生簀"
                 },
+                "landuse/aquaculture/fish": {
+                    "name": "養殖場"
+                },
                 "landuse/basin": {
                     "name": "遊水地"
                 },
@@ -7729,10 +7896,6 @@
                 "landuse/construction": {
                     "name": "建設用地",
                     "terms": "工事中用地,建設用地,工事現場,建設予定地"
-                },
-                "landuse/education": {
-                    "name": "教育機関の敷地",
-                    "terms": "学校,大学,高等学校,高校,中学校,小学校,幼稚園,キャンパス"
                 },
                 "landuse/farm": {
                     "name": "農地（非推奨）"
@@ -8441,6 +8604,18 @@
                 "man_made/carpet_hanger": {
                     "name": "カーペットハンガー",
                     "terms": "カーペットハンガー,カーペット干し台,カーペット台,カーペットラック"
+                },
+                "man_made/ceremonial_gate": {
+                    "name": "象徴的な門",
+                    "terms": "門,ゲート"
+                },
+                "man_made/ceremonial_gate/paifang": {
+                    "name": "牌坊",
+                    "terms": "牌坊,牌楼,門"
+                },
+                "man_made/ceremonial_gate/torii": {
+                    "name": "鳥居",
+                    "terms": "鳥居,神社,門"
                 },
                 "man_made/charge_point": {
                     "name": "自動車用充電器",
@@ -9549,10 +9724,6 @@
                     "name": "トンネル(遊具)",
                     "terms": "トンネル(遊具),遊具,トンネル,子供,児童,公園,子ども,児童遊園,児童公園,遊び,キッズ"
                 },
-                "playground/water": {
-                    "name": "アルキメディアン・スクリュー遊具",
-                    "terms": "アルキメディアン・スクリュー 遊具,遊具,アルキメディアン・スクリュー,公園,児童,子供,水遊び,泥遊び,児童公園,児童遊園,子ども,キッズ"
-                },
                 "playground/zipwire": {
                     "name": "ジップライン",
                     "terms": "ジップライン,ロープ,アウトドア,遊具,児童,子供,子ども,児童遊園,児童公園,遊び,キッズ"
@@ -10480,6 +10651,10 @@
                     "name": "携帯電話店",
                     "terms": "携帯電話店,ケータイショップ,携帯ショップ,携帯,電話"
                 },
+                "shop/mobile_phone_accessories": {
+                    "name": "スマートフォンアクセサリー店",
+                    "terms": "携帯電話アクセサリー店,携帯アクセサリー店"
+                },
                 "shop/model": {
                     "name": "模型店",
                     "terms": "模型店,プラモデル,プラモ,店舗,お店,ショッピング,小売,趣味,ホビー"
@@ -10877,10 +11052,6 @@
                     "name": "地図板",
                     "terms": "地図板,案内地図"
                 },
-                "tourism/information/office": {
-                    "name": "観光案内所",
-                    "terms": "観光案内所,ビジターセンター"
-                },
                 "tourism/information/route_marker": {
                     "name": "経路マーカー",
                     "terms": "経路マーカー,マーカー,目印,ハイキング"
@@ -11084,6 +11255,10 @@
                     "name": "バスルート",
                     "terms": "バスルート,バス路線,バス系統"
                 },
+                "type/route/climbing": {
+                    "name": "クライミングルート",
+                    "terms": "クライミングルート,ロッククライミング"
+                },
                 "type/route/detour": {
                     "name": "迂回ルート",
                     "terms": "迂回ルート"
@@ -11159,6 +11334,10 @@
                 "type/site": {
                     "name": "区域",
                     "terms": "区域"
+                },
+                "type/site/climbing/crag": {
+                    "name": "クラッグ",
+                    "terms": "岩場"
                 },
                 "type/waterway": {
                     "name": "水路",

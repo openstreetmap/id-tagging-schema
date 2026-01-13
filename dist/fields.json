@@ -53,6 +53,7 @@
         "key": "wheelchair",
         "type": "radio",
         "options": [
+            "designated",
             "yes",
             "limited",
             "no"
@@ -325,6 +326,10 @@
             "yes"
         ]
     },
+    "trailer": {
+        "key": "trailer",
+        "type": "combo"
+    },
     "trail_visibility": {
         "key": "trail_visibility",
         "type": "combo",
@@ -529,6 +534,10 @@
             "kids"
         ]
     },
+    "swimming": {
+        "key": "swimming",
+        "type": "combo"
+    },
     "surveillance": {
         "key": "surveillance",
         "type": "combo"
@@ -630,10 +639,12 @@
     "structure_waterway": {
         "type": "structureRadio",
         "keys": [
-            "tunnel"
+            "tunnel",
+            "bridge"
         ],
         "options": [
-            "tunnel"
+            "tunnel",
+            "bridge"
         ]
     },
     "structure_power": {
@@ -800,14 +811,18 @@
     "source": {
         "key": "source",
         "type": "semiCombo",
+        "usage": "changeset",
         "snake_case": false,
         "caseSensitive": true,
-        "stringsCrossReference": "{source}",
         "autoSuggestions": false,
-        "universal": true,
-        "prerequisiteTag": {
-            "key": "source"
-        }
+        "options": [
+            "survey",
+            "local knowledge",
+            "aerial imagery",
+            "gps",
+            "streetlevel imagery",
+            "osm notes"
+        ]
     },
     "social_facility_for": {
         "key": "social_facility:for",
@@ -849,6 +864,10 @@
             "shelter",
             "workshop"
         ]
+    },
+    "snowmobile": {
+        "key": "snowmobile",
+        "type": "combo"
     },
     "sms": {
         "key": "sms",
@@ -1278,7 +1297,8 @@
             "cardboard",
             "scrap_metal",
             "cooking_oil",
-            "engine_oil"
+            "engine_oil",
+            "food_waste"
         ]
     },
     "real_fire-GB-IE": {
@@ -1397,6 +1417,7 @@
         "options": [
             "activitypanel",
             "aerialrotator",
+            "agility_trail",
             "archimedes_screw",
             "balance",
             "balancebeam",
@@ -1445,6 +1466,7 @@
             "sandpit",
             "seat",
             "seesaw",
+            "rotating_seesaw",
             "sieve",
             "sledding",
             "slide",
@@ -1567,7 +1589,8 @@
             "visa",
             "visa_debit",
             "visa_electron",
-            "wechat"
+            "wechat",
+            "upi"
         ]
     },
     "parking_space": {
@@ -1855,6 +1878,10 @@
     },
     "museum": {
         "key": "museum",
+        "type": "combo"
+    },
+    "motorboat": {
+        "key": "motorboat",
         "type": "combo"
     },
     "mooring": {
@@ -3366,6 +3393,7 @@
             "salad",
             "crepe",
             "hot_dog",
+            "hotpot",
             "pancake",
             "dessert",
             "diner",
@@ -3762,6 +3790,14 @@
         "type": "number",
         "minValue": 0
     },
+    "canoe": {
+        "key": "canoe",
+        "type": "combo"
+    },
+    "camping": {
+        "key": "camping",
+        "type": "combo"
+    },
     "camp_site": {
         "key": "camp_site",
         "type": "combo",
@@ -3957,6 +3993,10 @@
             "removable",
             "rising"
         ]
+    },
+    "boat": {
+        "key": "boat",
+        "type": "combo"
     },
     "board_type": {
         "key": "board_type",
@@ -4452,6 +4492,13 @@
             "dormant",
             "extinct"
         ]
+    },
+    "tunnel/name": {
+        "key": "tunnel:name",
+        "type": "localized",
+        "prerequisiteTag": {
+            "key": "tunnel"
+        }
     },
     "traffic_signals/vibration": {
         "key": "traffic_signals:vibration",
@@ -5034,6 +5081,25 @@
             ]
         }
     },
+    "ref/EU/EVSE-EU": {
+        "key": "ref:EU:EVSE",
+        "type": "identifier",
+        "locationSet": {
+            "include": [
+                "EU"
+            ]
+        }
+    },
+    "railway/turnout_side": {
+        "key": "railway:turnout_side",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": true,
+        "options": [
+            "left",
+            "right"
+        ]
+    },
     "railway/track_ref": {
         "key": "railway:track_ref",
         "type": "text"
@@ -5052,9 +5118,43 @@
             "abt"
         ]
     },
+    "railway/signal_box": {
+        "key": "railway:signal_box",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "mechanical",
+            "electric",
+            "track_diagram",
+            "electronic"
+        ]
+    },
+    "railway/ref": {
+        "key": "railway:ref",
+        "type": "text",
+        "label": "{ref}"
+    },
     "railway/position": {
         "key": "railway:position",
         "type": "text"
+    },
+    "railway/local_operated": {
+        "key": "railway:local_operated",
+        "type": "check"
+    },
+    "railway/signal/position": {
+        "key": "railway:signal:position",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "left",
+            "right",
+            "in_track",
+            "bridge",
+            "overhead"
+        ]
     },
     "railway/signal/direction": {
         "key": "railway:signal:direction",
@@ -6539,6 +6639,17 @@
     "bridge/ref": {
         "key": "bridge:ref",
         "type": "text",
+        "reference": {
+            "key": "bridge"
+        },
+        "prerequisiteTag": {
+            "key": "bridge",
+            "valueNot": "no"
+        }
+    },
+    "bridge/name": {
+        "key": "bridge:name",
+        "type": "localized",
         "reference": {
             "key": "bridge"
         },

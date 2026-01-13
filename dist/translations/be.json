@@ -8,6 +8,9 @@
                 "category-building": {
                     "name": "Будынкі"
                 },
+                "category-climbing": {
+                    "name": "Скалалазныя аб'екты"
+                },
                 "category-golf": {
                     "name": "Аб'екты на полі для гольфа"
                 },
@@ -24,7 +27,7 @@
                     "name": "Абсталяванне дзіцячай пляцоўкі"
                 },
                 "category-rail": {
-                    "name": "Рэйкі"
+                    "name": "Чыгунка"
                 },
                 "category-restriction": {
                     "name": "Забароненыя аб'екты"
@@ -54,8 +57,56 @@
             "fields": {
                 "access": {
                     "label": "Агульны доступ",
+                    "options": {
+                        "customers": {
+                            "description": "Толькі наведвальнікам",
+                            "title": "Наведвальнікі"
+                        },
+                        "designated": {
+                            "description": "Доступ дазволены паводле знакаў ці мясцовых правілаў",
+                            "title": "Прызначаны"
+                        },
+                        "destination": {
+                            "description": "Дазваляецца толькі для прыбыцця ў пункт прызначэння.",
+                            "title": "Пункт прызначэння"
+                        },
+                        "dismount": {
+                            "description": "Доступ дазволены, але трэба спешыцца",
+                            "title": "Спешыцца"
+                        },
+                        "no": {
+                            "description": "Доступ забаронены для шырокай публікі",
+                            "title": "Забаронена"
+                        },
+                        "permissive": {
+                            "description": "Доступ дазволены, пакуль гаспадар дае згоду",
+                            "title": "Дазваляецца"
+                        },
+                        "permit": {
+                            "description": "Доступ дазволены пры наяўнасці дзейнага дазволу",
+                            "title": "Дазволена"
+                        },
+                        "private": {
+                            "description": "Доступ магчымы толькі з дазволу ўласніка",
+                            "title": "Прыватны"
+                        },
+                        "unknown": {
+                            "description": "Магчымасць доступу невядомая або незразумелая",
+                            "title": "Невядома"
+                        },
+                        "yes": {
+                            "description": "Рух дазволены паводле законаў",
+                            "title": "Дазволена"
+                        }
+                    },
+                    "placeholder": "Не вызначана",
+                    "terms": "дазволена,даступна,адчынена",
                     "types": {
-                        "access": "Усе"
+                        "access": "Усе",
+                        "bicycle": "Ровары",
+                        "foot": "Пешаходы",
+                        "horse": "Коні",
+                        "motor_vehicle": "Механізаваны транспарт"
                     }
                 },
                 "access_aisle": {
@@ -64,22 +115,65 @@
                 "access_simple": {
                     "label": "Агульны доступ",
                     "options": {
-                        "no": "Няма"
+                        "customers": "Толькі наведальнікам",
+                        "no": "Няма",
+                        "permissive": "Дазволена",
+                        "permit": "Толькі з дазволу",
+                        "private": "Уласнік",
+                        "unknown": "Невядома",
+                        "yes": "Усім"
+                    },
+                    "terms": "дазволена,даступна,адчынена"
+                },
+                "activity": {
+                    "label": "Актыўнасць",
+                    "options": {
+                        "bicycle": "Ровар",
+                        "hiking": "Паход",
+                        "horse": "Верхам на кані",
+                        "mtb": "Горны ровар",
+                        "ski": "Лыжы"
                     }
                 },
                 "addr/interpolation": {
                     "label": "Тып",
                     "options": {
-                        "all": "Усе"
+                        "all": "Усе",
+                        "alphabetic": "Альфабэтны",
+                        "even": "Цотны",
+                        "odd": "Няцотны"
                     }
                 },
                 "address": {
                     "label": "Адрас",
                     "placeholders": {
+                        "block_number": "Квартал",
+                        "block_number!jp": "Квартал №",
                         "city": "Горад",
+                        "city!vn": "Горад",
+                        "country": "Краіна",
+                        "county": "Краіна",
+                        "county!jp": "Раён",
+                        "district": "Раён",
+                        "floor": "Паверх",
+                        "hamlet": "Хутар",
+                        "housename": "Назва дома",
+                        "neighbourhood": "Мікрараён",
+                        "place": "Месца",
                         "postcode": "Паштовы індэкс",
-                        "street": "Вуліца"
-                    }
+                        "province": "Правінцыя",
+                        "province!jp": "Прэфектура",
+                        "quarter": "Квартал",
+                        "state": "Штат",
+                        "street": "Вуліца",
+                        "subdistrict": "Мікрараён",
+                        "suburb": "Прыгарад",
+                        "town": "Аграгарадок"
+                    },
+                    "terms": "мясцовасць,месцазнаходжанне"
+                },
+                "admin_level": {
+                    "label": "Адміністратыўны паверх"
                 },
                 "advertising": {
                     "label": "Тып"
@@ -87,29 +181,162 @@
                 "aerialway": {
                     "label": "Тып"
                 },
+                "aerialway/access": {
+                    "label": "Доступ",
+                    "options": {
+                        "both": "Абодва",
+                        "entry": "Уваход",
+                        "exit": "Выхад"
+                    }
+                },
+                "aerialway/bubble": {
+                    "label": "Ветраахоўны шчыт"
+                },
+                "aerialway/capacity": {
+                    "label": "Прапускная здольнасць (за гадзіну)"
+                },
+                "aerialway/duration": {
+                    "label": "Працягласць (хвіліны)"
+                },
+                "aerialway/heating": {
+                    "label": "Падагрэў"
+                },
+                "aerialway/occupancy": {
+                    "label": "Колькасць месцаў"
+                },
+                "aerialway/summer/access": {
+                    "label": "Доступ улетку",
+                    "options": {
+                        "both": "Абодва",
+                        "entry": "Уваход",
+                        "exit": "Выхад"
+                    }
+                },
                 "aeroway": {
                     "label": "Тып"
+                },
+                "agrarian": {
+                    "label": "Прадукцыя"
+                },
+                "air_conditioning": {
+                    "label": "Кандыцыянэр",
+                    "terms": "кандыцыянэр паветра,ахладжэнне паветра"
                 },
                 "aircraft/type": {
                     "label": "Тып"
                 },
+                "alt_name": {
+                    "label": "Альтэрнатыўная назва",
+                    "terms": "мясцовая назва,неафіцыйная назва,дадатковая назва,варыянт назвы"
+                },
                 "amenity": {
                     "label": "Тып"
                 },
+                "animal_boarding": {
+                    "label": "Для жывёлы"
+                },
+                "animal_breeding": {
+                    "label": "Для жывёлы"
+                },
+                "animal_shelter": {
+                    "label": "Для жывёлы"
+                },
                 "archaeological_site": {
-                    "label": "Тып"
+                    "label": "Тып",
+                    "options": {
+                        "baths": "Лазьні",
+                        "city": "Стары горад",
+                        "enclosure": "Агароджа",
+                        "fortification": "Умацаванне",
+                        "hut_circle": "Кругавы падмурак",
+                        "megalith": "Мегаліт",
+                        "necropolis": "Некропаль",
+                        "petroglyph": "Наскальны малюнак",
+                        "roman_circus": "Рымскі цырк",
+                        "roman_villa": "Рымскі маёнтак",
+                        "settlement": "Старажытнае паселішча",
+                        "tumulus": "Курган"
+                    }
+                },
+                "architect": {
+                    "label": "Архітэктар",
+                    "terms": "будаўнічы майстар,зодчы,будаўнік,праектант"
                 },
                 "area/highway": {
                     "label": "Тып"
                 },
+                "armrest": {
+                    "label": "Падлакотнікі",
+                    "options": {
+                        "no": "Няма падлакотнікаў",
+                        "undefined": "Невядома",
+                        "yes": "Адзін ці болей падлакотнікаў"
+                    }
+                },
+                "artist": {
+                    "label": "Мастак"
+                },
                 "artwork_type": {
-                    "label": "Тып"
+                    "label": "Тып",
+                    "options": {
+                        "bust": "Бюст",
+                        "graffiti": "Графіці",
+                        "installation": "Мастацкая інсталяцыя",
+                        "mosaic": "Мазаіка",
+                        "mural": "Мурал",
+                        "painting": "Жывапіс",
+                        "relief": "Рэльеф",
+                        "sculpture": "Скульптура",
+                        "statue": "Статуя",
+                        "stone": "Каменнае мастацтва",
+                        "tilework": "Пліткавае мастацтва"
+                    }
+                },
+                "ascent": {
+                    "label": "Агульны пад'ём",
+                    "terms": "набор высаты"
+                },
+                "athletics_pitch": {
+                    "label": "Падзея",
+                    "options": {
+                        "discus_throw": "Кіданне дыска",
+                        "hammer_throw": "Кіданне молата",
+                        "high_jump": "Скокі на вышыню",
+                        "javelin_throw": "Кіданне дзіды",
+                        "long_jump": "Скокі на даўжыню",
+                        "pole_vault": "Скокі з шастом",
+                        "shot_put": "Штурханне ядра",
+                        "triple_jump": "Патройны скачок"
+                    }
+                },
+                "athletics_track": {
+                    "label": "Дысцыпліна",
+                    "options": {
+                        "javelin_throw": "Кіданне дзіды",
+                        "long_jump": "Скокі на даўжыню",
+                        "pole_vault": "Скокі з шастом",
+                        "running": "Бег",
+                        "sprint": "Спрынт",
+                        "steeplechase": "Бег з перашкодамі",
+                        "triple_jump": "Патройны скачок"
+                    }
                 },
                 "atm": {
                     "label": "Банкамат"
                 },
                 "attraction": {
-                    "label": "Тып"
+                    "label": "Тып",
+                    "options": {
+                        "alpine_coaster": "Альпійскія амерыканскія горкі",
+                        "amusement_ride": "Атракцыён",
+                        "animal": "Звярынец",
+                        "big_wheel": "Кола агляду",
+                        "bumper_car": "Аўтадром",
+                        "bungee_jumping": "Скок на банджы",
+                        "carousel": "Карусель",
+                        "dark_ride": "Прывідны цягнік",
+                        "drop_tower": "Вежа падзення"
+                    }
                 },
                 "baby_feeding": {
                     "options": {
@@ -232,12 +459,45 @@
                     "label": "Тып"
                 },
                 "crossing": {
-                    "label": "Тып"
+                    "label": "Тып",
+                    "options": {
+                        "traffic_signals": "Пераход з святлафорам",
+                        "uncontrolled": "Толькі дарожная разметка",
+                        "unmarked": "Непазначана"
+                    }
                 },
                 "crossing/barrier": {
+                    "label": "Шлагбаум",
                     "options": {
+                        "double_half": "Кароткі двухбаковы",
+                        "full": "Доўгі",
+                        "half": "Кароткі",
                         "no": "Не",
                         "yes": "Так"
+                    }
+                },
+                "crossing/bell": {
+                    "label": "Гукавы сігнал"
+                },
+                "crossing/island": {
+                    "label": "Астравок бяспекі"
+                },
+                "crossing/light": {
+                    "label": "Святлавы сігнал"
+                },
+                "crossing/markings": {
+                    "label": "Пазнакі пераходу",
+                    "options": {
+                        "dashes": "Кароткія штрыхі",
+                        "dots": "Пункцірная лінія",
+                        "ladder": "Разметка-драбіна ",
+                        "ladder:paired": "Разметка-драбіна з двайнымі палосамі",
+                        "ladder:skewed": "Разметка-драбіна з касымі палосамі",
+                        "lines": "Прамыя лініі",
+                        "lines:paired": "Падвойныя прамыя лініі",
+                        "no": "Не пазначана",
+                        "pictograms": "Намаляваныя піктаграмы",
+                        "surface": "Асаблівае пакрыццё"
                     }
                 },
                 "crossing_raised": {
@@ -357,6 +617,9 @@
                 },
                 "highway": {
                     "label": "Тып"
+                },
+                "highway_cartpath": {
+                    "label": "Тып шляху"
                 },
                 "historic": {
                     "label": "Тып"
@@ -787,11 +1050,65 @@
                 "area": {
                     "name": "Мясцовасць"
                 },
+                "highway/bridleway": {
+                    "name": "Шлях для вершнікаў"
+                },
+                "highway/crossing": {
+                    "name": "Пераход"
+                },
+                "highway/crossing/traffic_signals": {
+                    "name": "Пераход зь сьвятлафорам"
+                },
+                "highway/crossing/uncontrolled": {
+                    "name": "Пазначаны пераход"
+                },
+                "highway/crossing/unmarked": {
+                    "name": "Непазначаны пераход"
+                },
+                "highway/cycleway": {
+                    "name": "Роварны шлях"
+                },
+                "highway/cycleway/bicycle_foot": {
+                    "name": "Роварны і пешаходны шлях"
+                },
+                "highway/cycleway/crossing": {
+                    "name": "Роварны пераезд"
+                },
+                "highway/cycleway/crossing/bicycle_foot": {
+                    "name": "Роварны і пешаходны пераход"
+                },
+                "highway/cycleway/crossing/traffic_signals": {
+                    "name": "Роварны пераезд зь сьвятлафорам"
+                },
+                "highway/cycleway/crossing/uncontrolled": {
+                    "name": "Пазначаны роварны пераезд"
+                },
+                "highway/cycleway/crossing/unmarked": {
+                    "name": "Не пазначаны роварны пераезд"
+                },
+                "highway/cycleway/traffic_island": {
+                    "name": "Роварны астравок бяспекі"
+                },
+                "highway/cycleway/traffic_island_shared": {
+                    "name": "Роварны і пешаходны астравок бяспекі"
+                },
+                "highway/footway": {
+                    "name": "Пешаходны шлях"
+                },
+                "highway/footway/traffic_island": {
+                    "name": "Астравок бяспекі"
+                },
+                "highway/path": {
+                    "name": "Шлях"
+                },
                 "line": {
                     "name": "Лінія"
                 },
                 "place/city": {
                     "name": "Горад"
+                },
+                "place/island": {
+                    "name": "Выспа"
                 },
                 "place/square": {
                     "name": "Выраўняць вуглы"
