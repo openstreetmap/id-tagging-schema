@@ -84,6 +84,10 @@
         "type": "url",
         "universal": true
     },
+    "waterway": {
+        "key": "waterway",
+        "type": "typeCombo"
+    },
     "water_source": {
         "key": "water_source",
         "type": "combo",
@@ -99,10 +103,6 @@
     "water_point": {
         "key": "water_point",
         "type": "check"
-    },
-    "waterway": {
-        "key": "waterway",
-        "type": "typeCombo"
     },
     "water": {
         "key": "water",
@@ -326,6 +326,10 @@
             "yes"
         ]
     },
+    "trailer": {
+        "key": "trailer",
+        "type": "combo"
+    },
     "trail_visibility": {
         "key": "trail_visibility",
         "type": "combo",
@@ -339,10 +343,6 @@
             "horrible",
             "no"
         ]
-    },
-    "trailer": {
-        "key": "trailer",
-        "type": "combo"
     },
     "traffic_signals": {
         "key": "traffic_signals",
@@ -1593,10 +1593,6 @@
             "upi"
         ]
     },
-    "park_ride": {
-        "key": "park_ride",
-        "type": "check"
-    },
     "parking_space": {
         "key": "parking_space",
         "type": "combo"
@@ -1633,6 +1629,10 @@
             "half_on_kerb",
             "shoulder"
         ]
+    },
+    "park_ride": {
+        "key": "park_ride",
+        "type": "check"
     },
     "parcel_pickup": {
         "key": "parcel_pickup",
@@ -1859,6 +1859,10 @@
         "key": "network",
         "type": "text"
     },
+    "natural": {
+        "key": "natural",
+        "type": "typeCombo"
+    },
     "nat_name": {
         "key": "nat_name",
         "type": "localized",
@@ -1866,10 +1870,6 @@
         "prerequisiteTag": {
             "key": "name"
         }
-    },
-    "natural": {
-        "key": "natural",
-        "type": "typeCombo"
     },
     "name": {
         "key": "name",
@@ -1912,6 +1912,10 @@
         ],
         "type": "tel"
     },
+    "minspeed": {
+        "key": "minspeed",
+        "type": "roadspeed"
+    },
     "min_height": {
         "key": "min_height",
         "minValue": 0,
@@ -1924,10 +1928,6 @@
         "key": "min_age",
         "type": "number",
         "minValue": 0
-    },
-    "minspeed": {
-        "key": "minspeed",
-        "type": "roadspeed"
     },
     "mimics": {
         "key": "mimics",
@@ -1969,11 +1969,6 @@
             "stone",
             "war_memorial"
         ]
-    },
-    "max_age": {
-        "key": "max_age",
-        "type": "number",
-        "minValue": 0
     },
     "maxwidth": {
         "key": "maxwidth",
@@ -2037,6 +2032,11 @@
             "valueNot": "no"
         }
     },
+    "max_age": {
+        "key": "max_age",
+        "type": "number",
+        "minValue": 0
+    },
     "mattress": {
         "key": "mattress",
         "type": "check"
@@ -2081,6 +2081,13 @@
             "stone"
         ]
     },
+    "mapillary": {
+        "key": "mapillary",
+        "type": "identifier",
+        "urlFormat": "https://mapillary.com/app/?focus=photo&pKey={value}",
+        "pattern": "^[a-zA-Z0-9-_]{1,}$",
+        "universal": true
+    },
     "map_type": {
         "key": "map_type",
         "type": "typeCombo",
@@ -2097,17 +2104,6 @@
         "key": "map_size",
         "type": "typeCombo"
     },
-    "mapillary": {
-        "key": "mapillary",
-        "type": "identifier",
-        "urlFormat": "https://mapillary.com/app/?focus=photo&pKey={value}",
-        "pattern": "^[a-zA-Z0-9-_]{1,}$",
-        "universal": true
-    },
-    "man_made": {
-        "key": "man_made",
-        "type": "typeCombo"
-    },
     "manufacturer": {
         "key": "manufacturer",
         "type": "combo",
@@ -2118,13 +2114,9 @@
         "key": "manhole",
         "type": "typeCombo"
     },
-    "loc_name": {
-        "key": "loc_name",
-        "type": "localized",
-        "universal": true,
-        "prerequisiteTag": {
-            "key": "name"
-        }
+    "man_made": {
+        "key": "man_made",
+        "type": "typeCombo"
     },
     "locked": {
         "key": "locked",
@@ -2153,6 +2145,14 @@
     "location": {
         "key": "location",
         "type": "combo"
+    },
+    "loc_name": {
+        "key": "loc_name",
+        "type": "localized",
+        "universal": true,
+        "prerequisiteTag": {
+            "key": "name"
+        }
     },
     "lit": {
         "key": "lit",
@@ -2276,14 +2276,14 @@
         "key": "language:",
         "type": "multiCombo"
     },
-    "lane_markings": {
-        "key": "lane_markings",
-        "type": "check"
-    },
     "lanes": {
         "key": "lanes",
         "type": "number",
         "minValue": 0
+    },
+    "lane_markings": {
+        "key": "lane_markings",
+        "type": "check"
     },
     "landuse": {
         "key": "landuse",
@@ -2593,34 +2593,6 @@
             "vaccination_centre"
         ]
     },
-    "hazard_highway": {
-        "key": "hazard",
-        "type": "combo",
-        "options": [
-            "animal_crossing",
-            "bump",
-            "children",
-            "curve",
-            "curves",
-            "cyclists",
-            "dangerous_junction",
-            "dip",
-            "falling_rocks",
-            "frost_heave",
-            "horse_riders",
-            "ice",
-            "landslide",
-            "loose_gravel",
-            "low_flying_aircraft",
-            "pedestrians",
-            "queues_likely",
-            "school_zone",
-            "side_winds",
-            "slippery",
-            "turn",
-            "turns"
-        ]
-    },
     "hazard_boundary": {
         "key": "hazard",
         "type": "combo",
@@ -2796,6 +2768,10 @@
         "key": "fishing",
         "type": "combo"
     },
+    "fireplace": {
+        "key": "fireplace",
+        "type": "check"
+    },
     "fire_sprinkler": {
         "key": "fire_sprinkler",
         "type": "combo",
@@ -2832,10 +2808,6 @@
             "yes",
             "no"
         ]
-    },
-    "fireplace": {
-        "key": "fireplace",
-        "type": "check"
     },
     "fence_type": {
         "key": "fence_type",
@@ -2940,16 +2912,6 @@
         ],
         "type": "email"
     },
-    "ele_node": {
-        "key": "ele",
-        "type": "number",
-        "label": "{ele}",
-        "universal": true,
-        "geometry": [
-            "point",
-            "vertex"
-        ]
-    },
     "electrified": {
         "key": "electrified",
         "type": "combo",
@@ -2960,6 +2922,16 @@
             "rail",
             "yes",
             "no"
+        ]
+    },
+    "ele_node": {
+        "key": "ele",
+        "type": "number",
+        "label": "{ele}",
+        "universal": true,
+        "geometry": [
+            "point",
+            "vertex"
         ]
     },
     "ele": {
@@ -2994,10 +2966,6 @@
         "key": "drive_through",
         "type": "check"
     },
-    "drink_multi": {
-        "key": "drink:",
-        "type": "multiCombo"
-    },
     "drinking_water_available": {
         "key": "drinking_water",
         "type": "check"
@@ -3005,6 +2973,10 @@
     "drinking_water": {
         "key": "drinking_water",
         "type": "check"
+    },
+    "drink_multi": {
+        "key": "drink:",
+        "type": "multiCombo"
     },
     "door_type": {
         "key": "door",
@@ -3309,25 +3281,6 @@
         "key": "date",
         "type": "check"
     },
-    "cycle_network": {
-        "key": "cycle_network",
-        "type": "networkCombo",
-        "snake_case": false,
-        "caseSensitive": true
-    },
-    "cycle_barrier": {
-        "key": "cycle_barrier",
-        "type": "combo",
-        "customValues": false,
-        "autoSuggestions": false,
-        "options": [
-            "single",
-            "double",
-            "triple",
-            "diagonal",
-            "tilted"
-        ]
-    },
     "cycleway": {
         "key": "cycleway",
         "keys": [
@@ -3361,6 +3314,25 @@
             ]
         },
         "stringsCrossReference": "{bicycle_road}"
+    },
+    "cycle_network": {
+        "key": "cycle_network",
+        "type": "networkCombo",
+        "snake_case": false,
+        "caseSensitive": true
+    },
+    "cycle_barrier": {
+        "key": "cycle_barrier",
+        "type": "combo",
+        "customValues": false,
+        "autoSuggestions": false,
+        "options": [
+            "single",
+            "double",
+            "triple",
+            "diagonal",
+            "tilted"
+        ]
     },
     "cutting": {
         "key": "cutting",
@@ -3822,6 +3794,10 @@
         "key": "canoe",
         "type": "combo"
     },
+    "camping": {
+        "key": "camping",
+        "type": "combo"
+    },
     "camp_site": {
         "key": "camp_site",
         "type": "combo",
@@ -3832,10 +3808,6 @@
             "deluxe"
         ],
         "autoSuggestions": false
-    },
-    "camping": {
-        "key": "camping",
-        "type": "combo"
     },
     "cai_scale-IT": {
         "key": "cai_scale",
