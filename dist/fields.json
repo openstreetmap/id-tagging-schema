@@ -1,4 +1,16 @@
 {
+    "wood_provided": {
+        "key": "wood_provided",
+        "type": "check",
+        "locationSet": {
+            "include": [
+                "ch",
+                "dk",
+                "fi",
+                "se"
+            ]
+        }
+    },
     "windings": {
         "key": "windings",
         "type": "number",
@@ -41,6 +53,7 @@
         "key": "wheelchair",
         "type": "radio",
         "options": [
+            "designated",
             "yes",
             "limited",
             "no"
@@ -83,7 +96,8 @@
             "water_tank",
             "pond",
             "river",
-            "stream"
+            "stream",
+            "groundwater"
         ]
     },
     "water_point": {
@@ -156,6 +170,7 @@
             "coffee",
             "condoms",
             "drinks",
+            "e-cigarettes",
             "eggs",
             "electronics",
             "elongated_coin",
@@ -281,7 +296,8 @@
     "tunnel": {
         "key": "tunnel",
         "type": "typeCombo",
-        "usage": "group"
+        "usage": "group",
+        "stringsCrossReference": "{tunnel_combo}"
     },
     "trolley_wire": {
         "key": "trolley_wire",
@@ -310,6 +326,10 @@
             "yes"
         ]
     },
+    "trailer": {
+        "key": "trailer",
+        "type": "combo"
+    },
     "trail_visibility": {
         "key": "trail_visibility",
         "type": "combo",
@@ -334,6 +354,12 @@
         "type": "typeCombo",
         "snake_case": false,
         "caseSensitive": true
+    },
+    "traffic_calming_road": {
+        "key": "traffic_calming",
+        "type": "typeCombo",
+        "stringsCrossReference": "{traffic_calming}",
+        "iconsCrossReference": "{traffic_calming}"
     },
     "traffic_calming": {
         "key": "traffic_calming",
@@ -494,6 +520,22 @@
     },
     "swimming_pool": {
         "key": "swimming_pool",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": true,
+        "options": [
+            "swimming",
+            "plunge",
+            "wading",
+            "spa",
+            "wave_pool",
+            "lazy_river",
+            "personal",
+            "kids"
+        ]
+    },
+    "swimming": {
+        "key": "swimming",
         "type": "combo"
     },
     "surveillance": {
@@ -506,20 +548,26 @@
         "options": [
             "artificial_turf",
             "asphalt",
+            "clay",
             "compacted",
             "concrete",
+            "concrete:lanes",
+            "concrete:plates",
             "dirt",
             "fine_gravel",
             "grass",
+            "grass_paver",
             "gravel",
             "ground",
             "metal",
             "mud",
             "paved",
             "paving_stones",
+            "pebblestone",
             "salt",
             "sand",
             "sett",
+            "tartan",
             "unhewn_cobblestone",
             "unpaved",
             "wood",
@@ -591,10 +639,12 @@
     "structure_waterway": {
         "type": "structureRadio",
         "keys": [
-            "tunnel"
+            "tunnel",
+            "bridge"
         ],
         "options": [
-            "tunnel"
+            "tunnel",
+            "bridge"
         ]
     },
     "structure_power": {
@@ -606,6 +656,17 @@
             "lattice",
             "solid",
             "tubular"
+        ]
+    },
+    "structure_canal": {
+        "type": "structureRadio",
+        "keys": [
+            "bridge",
+            "tunnel"
+        ],
+        "options": [
+            "bridge",
+            "tunnel"
         ]
     },
     "structure": {
@@ -692,6 +753,7 @@
             "cricket",
             "curling",
             "cycling",
+            "darts",
             "disc_golf",
             "dog_racing",
             "equestrian",
@@ -720,6 +782,7 @@
             "shooting",
             "skateboard",
             "skiing",
+            "ski_jumping",
             "soccer",
             "softball",
             "speedway",
@@ -736,10 +799,19 @@
         "snake_case": false,
         "caseSensitive": true
     },
+    "spacing": {
+        "key": "spacing",
+        "type": "number",
+        "snake_case": false,
+        "prerequisiteTag": {
+            "key": "cycle_barrier",
+            "valueNot": "single"
+        }
+    },
     "source": {
         "key": "source",
         "type": "semiCombo",
-        "universal": true,
+        "usage": "changeset",
         "snake_case": false,
         "caseSensitive": true,
         "autoSuggestions": false,
@@ -793,6 +865,10 @@
             "workshop"
         ]
     },
+    "snowmobile": {
+        "key": "snowmobile",
+        "type": "combo"
+    },
     "sms": {
         "key": "sms",
         "type": "check"
@@ -843,6 +919,14 @@
     "shower": {
         "key": "shower",
         "type": "check"
+    },
+    "short_name": {
+        "key": "short_name",
+        "type": "localized",
+        "universal": true,
+        "prerequisiteTag": {
+            "key": "name"
+        }
     },
     "shop": {
         "key": "shop",
@@ -897,6 +981,15 @@
     "self_service": {
         "key": "self_service",
         "type": "check"
+    },
+    "self_checkout": {
+        "key": "self_checkout",
+        "type": "radio",
+        "options": [
+            "yes",
+            "only",
+            "no"
+        ]
     },
     "segregated": {
         "key": "segregated",
@@ -965,6 +1058,7 @@
         "autoSuggestions": false,
         "customValues": false,
         "options": [
+            "strolling",
             "hiking",
             "mountain_hiking",
             "demanding_mountain_hiking",
@@ -1105,6 +1199,14 @@
         "key": "type",
         "type": "combo"
     },
+    "reg_name": {
+        "key": "reg_name",
+        "type": "localized",
+        "universal": true,
+        "prerequisiteTag": {
+            "key": "name"
+        }
+    },
     "ref_taxiway": {
         "key": "ref",
         "type": "text"
@@ -1130,6 +1232,10 @@
         "type": "text"
     },
     "ref_road_number": {
+        "key": "ref",
+        "type": "text"
+    },
+    "ref_rail": {
         "key": "ref",
         "type": "text"
     },
@@ -1191,7 +1297,8 @@
             "cardboard",
             "scrap_metal",
             "cooking_oil",
-            "engine_oil"
+            "engine_oil",
+            "food_waste"
         ]
     },
     "real_fire-GB-IE": {
@@ -1266,11 +1373,9 @@
         "keys": [
             "post:block_number",
             "post:city",
-            "post:block_number",
             "post:conscriptionnumber",
             "post:county",
             "post:country",
-            "post:county",
             "post:district",
             "post:floor",
             "post:hamlet",
@@ -1308,7 +1413,96 @@
     },
     "playground": {
         "key": "playground",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "activitypanel",
+            "aerialrotator",
+            "agility_trail",
+            "archimedes_screw",
+            "balance",
+            "balancebeam",
+            "ball_pool",
+            "bannister_bars",
+            "basketrotator",
+            "basketswing",
+            "belt_bridge",
+            "blackboard",
+            "bridge",
+            "cushion",
+            "chute",
+            "climbing",
+            "climbing_pole",
+            "climbing_slope",
+            "climbingframe",
+            "climbingwall",
+            "dome",
+            "excavator",
+            "exercise",
+            "funnel_ball",
+            "hammock",
+            "hamster_wheel",
+            "hopscotch",
+            "horizontal_bar",
+            "ladder",
+            "map",
+            "maze",
+            "marble_run",
+            "monkey_bars",
+            "mound",
+            "musical_instrument",
+            "parallel_bars",
+            "platform",
+            "playhouse",
+            "pump",
+            "ride_on",
+            "rope_swing",
+            "rope_traverse",
+            "rotator",
+            "roundabout",
+            "sand",
+            "sand_pulley",
+            "sand_seesaw",
+            "sand_wheel",
+            "sandpit",
+            "seat",
+            "seesaw",
+            "rotating_seesaw",
+            "sieve",
+            "sledding",
+            "slide",
+            "speaking_tube",
+            "spinner",
+            "spinner_bowl",
+            "spinning_circle",
+            "spinning_disc",
+            "spring_board",
+            "springy",
+            "splash_pad",
+            "stepping_post",
+            "stepping_stone",
+            "steps",
+            "structure",
+            "swing",
+            "baby_swing",
+            "tire_swing",
+            "table",
+            "teenshelter",
+            "track",
+            "trampoline",
+            "tunnel_tube",
+            "water",
+            "water_barrier",
+            "water_basin",
+            "water_cannon",
+            "water_channel",
+            "water_seesaw",
+            "water_sprayer",
+            "water_stream",
+            "water_wheel",
+            "wobble_bridge",
+            "youth_bench",
+            "zipwire"
+        ]
     },
     "plant": {
         "key": "plant",
@@ -1352,6 +1546,9 @@
     "payment_multi": {
         "key": "payment:",
         "type": "multiCombo",
+        "reference": {
+            "key": "payment:*"
+        },
         "options": [
             "account_cards",
             "app",
@@ -1392,7 +1589,8 @@
             "visa",
             "visa_debit",
             "visa_electron",
-            "wechat"
+            "wechat",
+            "upi"
         ]
     },
     "parking_space": {
@@ -1418,14 +1616,14 @@
         "customValues": false,
         "options": [
             "surface",
+            "street_side",
+            "lane",
             "underground",
             "multi-storey",
-            "lane",
+            "rooftop",
             "carports",
             "garage_boxes",
-            "rooftop",
             "sheds",
-            "street_side",
             "layby",
             "on_kerb",
             "half_on_kerb",
@@ -1453,6 +1651,22 @@
         "key": "par",
         "type": "number",
         "minValue": 1
+    },
+    "panoramax": {
+        "key": "panoramax",
+        "type": "identifier",
+        "urlFormat": "https://api.panoramax.xyz/#focus=pic&pic={value}",
+        "pattern": "^[a-zA-Z0-9-]{36,}$",
+        "universal": true
+    },
+    "overlap": {
+        "key": "overlap",
+        "type": "number",
+        "snake_case": false,
+        "prerequisiteTag": {
+            "key": "cycle_barrier",
+            "valueNot": "single"
+        }
     },
     "outdoor_seating": {
         "key": "outdoor_seating",
@@ -1483,6 +1697,15 @@
         "key": "opening_date",
         "type": "date"
     },
+    "opening": {
+        "key": "opening",
+        "type": "number",
+        "snake_case": false,
+        "prerequisiteTag": {
+            "key": "cycle_barrier",
+            "valueNot": "single"
+        }
+    },
     "openfire": {
         "key": "openfire",
         "type": "check"
@@ -1509,6 +1732,14 @@
             "reversible",
             "alternating"
         ]
+    },
+    "official_name": {
+        "key": "official_name",
+        "type": "localized",
+        "universal": true,
+        "prerequisiteTag": {
+            "key": "name"
+        }
     },
     "office": {
         "key": "office",
@@ -1632,6 +1863,14 @@
         "key": "natural",
         "type": "typeCombo"
     },
+    "nat_name": {
+        "key": "nat_name",
+        "type": "localized",
+        "universal": true,
+        "prerequisiteTag": {
+            "key": "name"
+        }
+    },
     "name": {
         "key": "name",
         "type": "localized",
@@ -1639,6 +1878,10 @@
     },
     "museum": {
         "key": "museum",
+        "type": "combo"
+    },
+    "motorboat": {
+        "key": "motorboat",
         "type": "combo"
     },
     "mooring": {
@@ -1716,6 +1959,7 @@
             "blue_plaque",
             "bust",
             "cross",
+            "ghost_bike",
             "obelisk",
             "plaque",
             "sculpture",
@@ -1815,7 +2059,7 @@
             "marble",
             "metal",
             "plastic",
-            "reinforced_conrete",
+            "reinforced_concrete",
             "rock",
             "sand",
             "sandstone",
@@ -1846,7 +2090,15 @@
     },
     "map_type": {
         "key": "map_type",
-        "type": "typeCombo"
+        "type": "typeCombo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "topo",
+            "street",
+            "scheme",
+            "toposcope"
+        ]
     },
     "map_size": {
         "key": "map_size",
@@ -1894,6 +2146,14 @@
         "key": "location",
         "type": "combo"
     },
+    "loc_name": {
+        "key": "loc_name",
+        "type": "localized",
+        "universal": true,
+        "prerequisiteTag": {
+            "key": "name"
+        }
+    },
     "lit": {
         "key": "lit",
         "type": "check"
@@ -1906,9 +2166,17 @@
         "key": "line_attachment",
         "type": "combo"
     },
-    "lifeguard": {
+    "lifeguard_check": {
         "key": "lifeguard",
         "type": "check"
+    },
+    "lifeguard": {
+        "key": "lifeguard",
+        "type": "radio",
+        "options": [
+            "base",
+            "tower"
+        ]
     },
     "license_classes": {
         "key": "license_classes",
@@ -1994,6 +2262,12 @@
             "mixed"
         ]
     },
+    "layer_1": {
+        "key": "layer",
+        "type": "number",
+        "label": "{layer}",
+        "default": "1"
+    },
     "layer": {
         "key": "layer",
         "type": "number"
@@ -2042,7 +2316,21 @@
     },
     "kerb": {
         "key": "kerb",
-        "type": "combo"
+        "type": "combo",
+        "icons": {
+            "raised": "temaki-kerb-raised",
+            "lowered": "temaki-kerb-lowered",
+            "flush": "temaki-kerb-flush",
+            "rolled": "temaki-kerb-rolled"
+        },
+        "options": [
+            "flush",
+            "lowered",
+            "no",
+            "raised",
+            "rolled",
+            "yes"
+        ]
     },
     "junction_line": {
         "key": "junction",
@@ -2053,6 +2341,14 @@
             "roundabout",
             "circular",
             "jughandle"
+        ]
+    },
+    "irrigation_pivot": {
+        "key": "irrigation",
+        "type": "defaultCheck",
+        "options": [
+            "undefined",
+            "pivot"
         ]
     },
     "interval": {
@@ -2136,7 +2432,17 @@
     },
     "house": {
         "key": "house",
-        "type": "combo"
+        "type": "combo",
+        "autoSuggestions": false,
+        "options": [
+            "bungalow",
+            "detached",
+            "link-detached",
+            "maisonette",
+            "semi-detached",
+            "terrace",
+            "terraced"
+        ]
     },
     "hot_water": {
         "key": "hot_water",
@@ -2158,7 +2464,7 @@
     },
     "horse_riding": {
         "key": "leisure",
-        "type": "check",
+        "type": "defaultCheck",
         "reference": {
             "key": "leisure",
             "value": "horse_riding"
@@ -2190,6 +2496,7 @@
             "manor",
             "memorial",
             "milestone",
+            "millstone",
             "mine",
             "mine_shaft",
             "monument",
@@ -2306,6 +2613,7 @@
         "key": "hashtags",
         "type": "semiCombo",
         "usage": "changeset",
+        "autoSuggestions": false,
         "caseSensitive": true
     },
     "handrest": {
@@ -2407,6 +2715,14 @@
     "fountain": {
         "key": "fountain",
         "type": "combo"
+    },
+    "fortification_type": {
+        "key": "fortification_type",
+        "type": "combo",
+        "prerequisiteTag": {
+            "key": "archaeological_site",
+            "value": "fortification"
+        }
     },
     "ford": {
         "key": "ford",
@@ -2543,6 +2859,7 @@
             "main",
             "secondary",
             "service",
+            "shop",
             "exit",
             "entrance",
             "emergency",
@@ -2626,6 +2943,21 @@
             "relation"
         ]
     },
+    "education": {
+        "key": "education",
+        "type": "typeCombo",
+        "options": [
+            "college",
+            "dancing_school",
+            "driving_school",
+            "kindergarten",
+            "language_school",
+            "music_school",
+            "prep_school",
+            "school",
+            "university"
+        ]
+    },
     "duration": {
         "key": "duration",
         "type": "text"
@@ -2654,6 +2986,22 @@
         "key": "door",
         "type": "combo"
     },
+    "dog_yes": {
+        "key": "dog",
+        "type": "combo",
+        "label": "{dog}",
+        "options": [
+            "leashed",
+            "unleashed"
+        ],
+        "stringsCrossReference": "{dog}",
+        "autoSuggestions": false,
+        "customValues": false
+    },
+    "dog_check": {
+        "key": "dog",
+        "type": "check"
+    },
     "dog": {
         "key": "dog",
         "type": "combo",
@@ -2662,6 +3010,7 @@
         "options": [
             "yes",
             "leashed",
+            "unleashed",
             "no"
         ]
     },
@@ -2919,6 +3268,15 @@
         "key": "delivery",
         "type": "check"
     },
+    "deflection": {
+        "key": "deflection",
+        "type": "number",
+        "increment": 5,
+        "prerequisiteTag": {
+            "key": "cycle_barrier",
+            "value": "diagonal"
+        }
+    },
     "date": {
         "key": "date",
         "type": "check"
@@ -2940,9 +3298,9 @@
             "shared_lane",
             "track",
             "share_busway",
+            "separate",
             "opposite_lane",
-            "opposite",
-            "separate"
+            "opposite"
         ]
     },
     "cyclestreet-BE-NL": {
@@ -2963,6 +3321,19 @@
         "snake_case": false,
         "caseSensitive": true
     },
+    "cycle_barrier": {
+        "key": "cycle_barrier",
+        "type": "combo",
+        "customValues": false,
+        "autoSuggestions": false,
+        "options": [
+            "single",
+            "double",
+            "triple",
+            "diagonal",
+            "tilted"
+        ]
+    },
     "cutting": {
         "key": "cutting",
         "type": "typeCombo",
@@ -2979,53 +3350,94 @@
         "options": [
             "pizza",
             "burger",
-            "regional",
             "coffee_shop",
+            "regional",
             "italian",
-            "chinese",
             "sandwich",
-            "japanese",
-            "mexican",
-            "kebab",
-            "indian",
+            "chinese",
             "chicken",
-            "fish",
-            "asian",
-            "french",
-            "spanish",
-            "portuguese",
-            "russian",
-            "polish",
-            "thai",
-            "korean",
+            "japanese",
+            "kebab",
+            "mexican",
             "american",
-            "seafood",
-            "sushi",
+            "asian",
             "ice_cream",
-            "filipino",
-            "georgian",
+            "indian",
+            "sushi",
+            "seafood",
+            "thai",
+            "french",
             "german",
+            "breakfast",
             "greek",
-            "vietnamese",
-            "turkish",
-            "lebanese",
-            "indonesian",
-            "malaysian",
-            "taiwanese",
-            "ukrainian",
-            "peruvian",
-            "tex-mex",
-            "juice",
-            "bubble_tea",
-            "hot_dog",
-            "cake",
-            "pancake",
-            "pasta",
-            "salad",
-            "chocolate",
-            "dessert",
             "steak_house",
-            "donut"
+            "fish_and_chips",
+            "korean",
+            "barbecue",
+            "donut",
+            "noodle",
+            "vietnamese",
+            "fish",
+            "turkish",
+            "cake",
+            "pasta",
+            "tex-mex",
+            "bubble_tea",
+            "ramen",
+            "mediterranean",
+            "spanish",
+            "friture",
+            "tea",
+            "grill",
+            "juice",
+            "salad",
+            "crepe",
+            "hot_dog",
+            "hotpot",
+            "pancake",
+            "dessert",
+            "diner",
+            "tapas",
+            "portuguese",
+            "beef_bowl",
+            "russian",
+            "indonesian",
+            "wings",
+            "lebanese",
+            "arab",
+            "curry",
+            "malaysian",
+            "bagel",
+            "georgian",
+            "polish",
+            "african",
+            "western",
+            "sausage",
+            "filipino",
+            "caribbean",
+            "soba",
+            "peruvian",
+            "brazilian",
+            "oriental",
+            "fine_dining",
+            "frozen_yogurt",
+            "argentinian",
+            "balkan",
+            "bavarian",
+            "shawarma",
+            "persian",
+            "middle_eastern",
+            "pastry",
+            "soup",
+            "fries",
+            "taiwanese",
+            "bistro",
+            "european",
+            "moroccan",
+            "hawaiian",
+            "brunch",
+            "udon",
+            "ukrainian"
         ]
     },
     "crossing_raised": {
@@ -3164,7 +3576,9 @@
         "prerequisiteTag": {
             "key": "flag:type",
             "value": "national"
-        }
+        },
+        "snake_case": false,
+        "caseSensitive": true
     },
     "country": {
         "key": "country",
@@ -3230,6 +3644,19 @@
     "connectivity": {
         "key": "connectivity",
         "type": "text"
+    },
+    "community_centre": {
+        "key": "community_centre",
+        "type": "combo",
+        "options": [
+            "club_home",
+            "community_hall",
+            "cultural_centre",
+            "family_centre",
+            "parish_hall",
+            "village_hall",
+            "youth_centre"
+        ]
     },
     "communication_multi": {
         "key": "communication:",
@@ -3315,6 +3742,16 @@
         "key": "changing_table",
         "type": "check"
     },
+    "ceremonial_gate": {
+        "key": "ceremonial_gate",
+        "type": "combo",
+        "options": [
+            "torii",
+            "paifang",
+            "hongsalmun",
+            "iljumun"
+        ]
+    },
     "castle_type": {
         "key": "castle_type",
         "type": "combo",
@@ -3353,6 +3790,25 @@
         "type": "number",
         "minValue": 0
     },
+    "canoe": {
+        "key": "canoe",
+        "type": "combo"
+    },
+    "camping": {
+        "key": "camping",
+        "type": "combo"
+    },
+    "camp_site": {
+        "key": "camp_site",
+        "type": "combo",
+        "options": [
+            "basic",
+            "standard",
+            "serviced",
+            "deluxe"
+        ],
+        "autoSuggestions": false
+    },
     "cai_scale-IT": {
         "key": "cai_scale",
         "type": "combo",
@@ -3377,6 +3833,10 @@
         "key": "cables",
         "type": "number",
         "minValue": 1
+    },
+    "cabins": {
+        "key": "cabins",
+        "type": "check"
     },
     "button_operated": {
         "key": "button_operated",
@@ -3466,17 +3926,29 @@
             "train_station",
             "transportation",
             "university",
-            "warehouse"
+            "warehouse",
+            "container"
         ]
     },
     "bridge_combo": {
         "key": "bridge",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "aqueduct",
+            "boardwalk",
+            "cantilever",
+            "covered",
+            "low_water_crossing",
+            "movable",
+            "trestle",
+            "viaduct"
+        ]
     },
     "bridge": {
         "key": "bridge",
         "type": "typeCombo",
-        "usage": "group"
+        "usage": "group",
+        "stringsCrossReference": "{bridge_combo}"
     },
     "brewery": {
         "key": "brewery",
@@ -3521,6 +3993,10 @@
             "removable",
             "rising"
         ]
+    },
+    "boat": {
+        "key": "boat",
+        "type": "combo"
     },
     "board_type": {
         "key": "board_type",
@@ -3761,12 +4237,23 @@
             "bust",
             "painting",
             "mosaic",
-            "relief"
+            "relief",
+            "stone",
+            "tilework"
         ]
     },
     "artist": {
         "key": "artist_name",
         "type": "text"
+    },
+    "armrest": {
+        "key": "armrest",
+        "type": "check",
+        "options": [
+            "undefined",
+            "yes",
+            "no"
+        ]
     },
     "architect": {
         "key": "architect",
@@ -3807,6 +4294,14 @@
         "key": "amenity",
         "type": "typeCombo"
     },
+    "alt_name": {
+        "key": "alt_name",
+        "type": "localized",
+        "universal": true,
+        "prerequisiteTag": {
+            "key": "name"
+        }
+    },
     "air_conditioning": {
         "key": "air_conditioning",
         "type": "check"
@@ -3835,12 +4330,13 @@
     "address": {
         "type": "address",
         "key": "addr",
+        "reference": {
+            "key": "addr:*"
+        },
         "keys": [
             "addr:block_number",
             "addr:city",
-            "addr:block_number",
             "addr:conscriptionnumber",
-            "addr:county",
             "addr:country",
             "addr:county",
             "addr:district",
@@ -3857,6 +4353,7 @@
             "addr:street",
             "addr:subdistrict",
             "addr:suburb",
+            "addr:town",
             "addr:unit"
         ]
     },
@@ -3996,6 +4493,13 @@
             "extinct"
         ]
     },
+    "tunnel/name": {
+        "key": "tunnel:name",
+        "type": "localized",
+        "prerequisiteTag": {
+            "key": "tunnel"
+        }
+    },
     "traffic_signals/vibration": {
         "key": "traffic_signals:vibration",
         "type": "check"
@@ -4069,7 +4573,8 @@
             "freestanding": "roentgen-tube",
             "guyed_lattice": "roentgen-lattice_guyed",
             "guyed_tube": "roentgen-tube_guyed",
-            "lattice": "roentgen-lattice"
+            "lattice": "roentgen-lattice",
+            "dish": "fas-satellite-dish"
         }
     },
     "toilets/wheelchair": {
@@ -4088,6 +4593,25 @@
     "toilets/position": {
         "key": "toilets:position",
         "type": "semiCombo"
+    },
+    "toilets/menstrual_products_poi": {
+        "key": "toilets:menstrual_products",
+        "type": "radio",
+        "stringsCrossReference": "{toilets/menstrual_products}",
+        "label": "{toilets/menstrual_products}",
+        "prerequisiteTag": {
+            "key": "toilets",
+            "valueNot": "no"
+        }
+    },
+    "toilets/menstrual_products": {
+        "key": "toilets:menstrual_products",
+        "type": "radio",
+        "options": [
+            "yes",
+            "limited",
+            "no"
+        ]
     },
     "toilets/handwashing": {
         "key": "toilets:handwashing",
@@ -4173,6 +4697,10 @@
             "ALPR"
         ]
     },
+    "summit/cross": {
+        "key": "summit:cross",
+        "type": "check"
+    },
     "subject/wikidata": {
         "key": "subject:wikidata",
         "keys": [
@@ -4215,6 +4743,7 @@
             "billiards",
             "darts"
         ],
+        "stringsCrossReference": "{sport}",
         "autoSuggestions": false
     },
     "sport/sport_ice": {
@@ -4406,12 +4935,44 @@
         "minValue": 0,
         "type": "number"
     },
+    "roof/shape": {
+        "key": "roof:shape",
+        "type": "combo",
+        "autoSuggestions": true,
+        "customValues": false,
+        "options": [
+            "flat",
+            "gabled",
+            "gabled_height_moved",
+            "skillion",
+            "hipped",
+            "half-hipped",
+            "side_hipped",
+            "side_half-hipped",
+            "mansard",
+            "gambrel",
+            "hipped-and-gabled",
+            "pyramidal",
+            "crosspitched",
+            "sawtooth",
+            "butterfly",
+            "cone",
+            "dome",
+            "onion",
+            "round"
+        ]
+    },
+    "roof/height": {
+        "key": "roof:height",
+        "minValue": 0,
+        "type": "number"
+    },
     "roof/colour": {
         "key": "roof:colour",
         "type": "colour"
     },
     "roller_coaster/track": {
-        "key": "roller_coaster",
+        "key": "roller_coaster:track",
         "type": "combo",
         "options": [
             "lift_hill",
@@ -4513,16 +5074,87 @@
         "key": "ref:FR:SIRET",
         "type": "identifier",
         "urlFormat": "https://annuaire-entreprises.data.gouv.fr/etablissement/{value}",
-        "pattern": "^[0-9]{9}([1-7][0-9]{3}|0[1-9][0-9]{2}|00[1-9][0-9]|000[1-9])[0-9]$",
+        "pattern": "^MONACO[A-Z\\d]{5}001|\\d{9}([1-7]\\d{3}|0[1-9]\\d{2}|00[1-9]\\d|000[1-9])\\d$",
         "locationSet": {
             "include": [
                 "fr"
             ]
         }
     },
+    "ref/EU/EVSE-EU": {
+        "key": "ref:EU:EVSE",
+        "type": "identifier",
+        "locationSet": {
+            "include": [
+                "EU"
+            ]
+        }
+    },
+    "railway/turnout_side": {
+        "key": "railway:turnout_side",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": true,
+        "options": [
+            "left",
+            "right"
+        ]
+    },
+    "railway/track_ref": {
+        "key": "railway:track_ref",
+        "type": "text"
+    },
+    "railway/switch": {
+        "key": "railway:switch",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": true,
+        "options": [
+            "default",
+            "double_slip",
+            "single_slip",
+            "wye",
+            "three_way",
+            "abt"
+        ]
+    },
+    "railway/signal_box": {
+        "key": "railway:signal_box",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "mechanical",
+            "electric",
+            "track_diagram",
+            "electronic"
+        ]
+    },
+    "railway/ref": {
+        "key": "railway:ref",
+        "type": "text",
+        "label": "{ref}"
+    },
     "railway/position": {
         "key": "railway:position",
         "type": "text"
+    },
+    "railway/local_operated": {
+        "key": "railway:local_operated",
+        "type": "check"
+    },
+    "railway/signal/position": {
+        "key": "railway:signal:position",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "left",
+            "right",
+            "in_track",
+            "bridge",
+            "overhead"
+        ]
     },
     "railway/signal/direction": {
         "key": "railway:signal:direction",
@@ -4681,7 +5313,8 @@
             "ice_skate",
             "snow_park",
             "playground",
-            "connection"
+            "connection",
+            "ski_jump"
         ]
     },
     "piste/grooming_nordic": {
@@ -4927,6 +5560,14 @@
             "4"
         ]
     },
+    "model/wikidata": {
+        "key": "model:wikidata",
+        "keys": [
+            "model:wikidata",
+            "model:wikipedia"
+        ],
+        "type": "wikidata"
+    },
     "memorial/addr_subtags": {
         "type": "address",
         "key": "memorial:addr",
@@ -4950,6 +5591,11 @@
             "keyNot": "memorial:addr:street"
         }
     },
+    "maxwidth/physical": {
+        "key": "maxwidth:physical",
+        "type": "roadheight",
+        "snake_case": false
+    },
     "maxspeed/hgv": {
         "key": "maxspeed:hgv",
         "type": "roadspeed"
@@ -4957,6 +5603,14 @@
     "maxspeed/advisory": {
         "key": "maxspeed:advisory",
         "type": "roadspeed"
+    },
+    "manufacturer/wikidata": {
+        "key": "manufacturer:wikidata",
+        "keys": [
+            "manufacturer:wikidata",
+            "manufacturer:wikipedia"
+        ],
+        "type": "wikidata"
     },
     "lift_gate/type": {
         "key": "lift_gate:type",
@@ -4969,6 +5623,19 @@
             "single",
             "double"
         ]
+    },
+    "kerb/kerb_barrier": {
+        "key": "kerb",
+        "type": "combo",
+        "stringsCrossReference": "{kerb}",
+        "options": [
+            "flush",
+            "lowered",
+            "raised",
+            "rolled"
+        ],
+        "autoSuggestions": false,
+        "iconsCrossReference": "{kerb}"
     },
     "kerb/height": {
         "key": "kerb:height",
@@ -5245,9 +5912,11 @@
             "octane_97",
             "octane_98",
             "octane_100",
+            "e5",
             "e10",
             "e85",
             "lpg",
+            "lng",
             "cng",
             "propane",
             "LH2",
@@ -5422,13 +6091,24 @@
         "key": "dance:style",
         "type": "semiCombo"
     },
+    "cycle_barrier/installation": {
+        "key": "cycle_barrier:installation",
+        "type": "combo",
+        "customValues": false,
+        "autoSuggestions": false,
+        "options": [
+            "fixed",
+            "openable",
+            "removable"
+        ]
+    },
     "crossing/markings_yes": {
         "key": "crossing:markings",
         "type": "combo",
         "label": "{crossing/markings}",
+        "default": "yes",
         "stringsCrossReference": "{crossing/markings}",
         "iconsCrossReference": "{crossing/markings}",
-        "default": "yes",
         "locationSet": {
             "exclude": [
                 "BG",
@@ -5443,6 +6123,10 @@
         "key": "crossing:markings",
         "type": "combo",
         "label": "{crossing/markings}",
+        "autoSuggestions": false,
+        "default": "yes",
+        "stringsCrossReference": "{crossing/markings}",
+        "iconsCrossReference": "{crossing/markings}",
         "options": [
             "zebra",
             "dots",
@@ -5450,20 +6134,20 @@
             "yes",
             "no"
         ],
-        "autoSuggestions": false,
-        "iconsCrossReference": "{crossing/markings}",
-        "stringsCrossReference": "{crossing/markings}",
         "locationSet": {
             "include": [
                 "PL"
             ]
-        },
-        "default": "yes"
+        }
     },
     "crossing/markings_yes-DE-AT-CH": {
         "key": "crossing:markings",
         "type": "combo",
         "label": "{crossing/markings}",
+        "autoSuggestions": false,
+        "default": "yes",
+        "stringsCrossReference": "{crossing/markings}",
+        "iconsCrossReference": "{crossing/markings}",
         "options": [
             "zebra",
             "yes",
@@ -5472,25 +6156,22 @@
             "dashes",
             "surface"
         ],
-        "autoSuggestions": false,
-        "iconsCrossReference": "{crossing/markings}",
-        "stringsCrossReference": "{crossing/markings}",
         "locationSet": {
             "include": [
                 "DE",
                 "AT",
                 "CH"
             ]
-        },
-        "default": "yes"
+        }
     },
     "crossing/markings_yes-BG": {
         "key": "crossing:markings",
         "type": "combo",
         "label": "{crossing/markings}",
+        "autoSuggestions": false,
+        "default": "yes",
         "stringsCrossReference": "{crossing/markings}",
         "iconsCrossReference": "{crossing/markings}",
-        "default": "yes",
         "options": [
             "zebra",
             "no",
@@ -5502,8 +6183,7 @@
             "include": [
                 "BG"
             ]
-        },
-        "autoSuggestions": false
+        }
     },
     "crossing/markings": {
         "key": "crossing:markings",
@@ -5553,6 +6233,9 @@
         "key": "crossing:markings",
         "type": "combo",
         "label": "{crossing/markings}",
+        "autoSuggestions": false,
+        "stringsCrossReference": "{crossing/markings}",
+        "iconsCrossReference": "{crossing/markings}",
         "options": [
             "zebra",
             "dots",
@@ -5560,9 +6243,6 @@
             "yes",
             "no"
         ],
-        "autoSuggestions": false,
-        "iconsCrossReference": "{crossing/markings}",
-        "stringsCrossReference": "{crossing/markings}",
         "locationSet": {
             "include": [
                 "PL"
@@ -5573,6 +6253,9 @@
         "key": "crossing:markings",
         "type": "combo",
         "label": "{crossing/markings}",
+        "autoSuggestions": false,
+        "stringsCrossReference": "{crossing/markings}",
+        "iconsCrossReference": "{crossing/markings}",
         "options": [
             "zebra",
             "yes",
@@ -5581,9 +6264,6 @@
             "dashes",
             "surface"
         ],
-        "autoSuggestions": false,
-        "iconsCrossReference": "{crossing/markings}",
-        "stringsCrossReference": "{crossing/markings}",
         "locationSet": {
             "include": [
                 "DE",
@@ -5596,6 +6276,7 @@
         "key": "crossing:markings",
         "type": "combo",
         "label": "{crossing/markings}",
+        "autoSuggestions": false,
         "stringsCrossReference": "{crossing/markings}",
         "iconsCrossReference": "{crossing/markings}",
         "options": [
@@ -5609,8 +6290,7 @@
             "include": [
                 "BG"
             ]
-        },
-        "autoSuggestions": false
+        }
     },
     "crossing/light": {
         "key": "crossing:light",
@@ -5663,6 +6343,203 @@
     "contact/facebook": {
         "key": "contact:facebook",
         "type": "url"
+    },
+    "climbing/trad": {
+        "key": "climbing:trad",
+        "type": "check"
+    },
+    "climbing/sport": {
+        "key": "climbing:sport",
+        "type": "check"
+    },
+    "climbing/length": {
+        "key": "climbing:length",
+        "type": "number",
+        "minValue": 0
+    },
+    "climbing/bolts": {
+        "key": "climbing:bolts",
+        "type": "number",
+        "minValue": 0,
+        "prerequisiteTag": {
+            "key": "climbing:sport",
+            "value": "yes"
+        }
+    },
+    "climbing/grade/yds_class": {
+        "key": "climbing:grade:yds_class",
+        "type": "combo",
+        "caseSensitive": false,
+        "customValues": true,
+        "autoSuggestions": false,
+        "options": [
+            "5",
+            "5.1",
+            "5.2",
+            "5.3",
+            "5.4",
+            "5.5",
+            "5.6",
+            "5.7",
+            "5.8",
+            "5.9",
+            "5.10a",
+            "5.10b",
+            "5.10c",
+            "5.10d",
+            "5.11a",
+            "5.11b",
+            "5.11c",
+            "5.11d",
+            "5.12a",
+            "5.12b",
+            "5.12c",
+            "5.12d",
+            "5.13a",
+            "5.13b",
+            "5.13c",
+            "5.13d",
+            "5.14a",
+            "5.14b",
+            "5.14c",
+            "5.14d",
+            "5.15a",
+            "5.15b",
+            "5.15c",
+            "5.15d"
+        ]
+    },
+    "climbing/grade/uiaa": {
+        "key": "climbing:grade:uiaa",
+        "type": "combo",
+        "caseSensitive": false,
+        "customValues": true,
+        "autoSuggestions": false,
+        "options": [
+            "1-",
+            "1",
+            "1+",
+            "2-",
+            "2",
+            "2+",
+            "3-",
+            "3",
+            "3+",
+            "4-",
+            "4",
+            "4+",
+            "5-",
+            "5",
+            "5+",
+            "6-",
+            "6",
+            "6+",
+            "7-",
+            "7",
+            "7+",
+            "8-",
+            "8",
+            "8+",
+            "9-",
+            "9",
+            "9+",
+            "10-",
+            "10",
+            "10+",
+            "11-",
+            "11",
+            "11+",
+            "12-",
+            "12",
+            "12+",
+            "13-",
+            "13",
+            "13+",
+            "14-"
+        ]
+    },
+    "climbing/grade/saxon": {
+        "key": "climbing:grade:saxon",
+        "type": "combo",
+        "caseSensitive": true,
+        "customValues": true,
+        "autoSuggestions": false,
+        "options": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V",
+            "VI",
+            "VIIa",
+            "VIIb",
+            "VII",
+            "VIIc",
+            "VIIIa",
+            "VIIIb",
+            "VIIIc",
+            "IXa",
+            "IXb",
+            "IXc",
+            "Xa",
+            "Xb",
+            "Xc",
+            "XIa",
+            "XIb",
+            "XIc",
+            "XIIa",
+            "XIIb",
+            "XIIc",
+            "XIIIa",
+            "XIIIb",
+            "XIIIc"
+        ]
+    },
+    "climbing/grade/french": {
+        "key": "climbing:grade:french",
+        "type": "combo",
+        "caseSensitive": false,
+        "customValues": true,
+        "autoSuggestions": false,
+        "options": [
+            "1",
+            "2",
+            "3-",
+            "3",
+            "3+",
+            "4a",
+            "4b",
+            "4c",
+            "5a",
+            "5b",
+            "5c",
+            "5c+",
+            "6a",
+            "6a+",
+            "6b",
+            "6b+",
+            "6c",
+            "6c+",
+            "7a",
+            "7a+",
+            "7b",
+            "7b+",
+            "7c",
+            "7c+",
+            "8a",
+            "8a+",
+            "8b",
+            "8b+",
+            "8c",
+            "8c+",
+            "9a",
+            "9a+",
+            "9b",
+            "9b+",
+            "9c",
+            "9c+",
+            "10a"
+        ]
     },
     "capacity/tents": {
         "key": "capacity:tents",
@@ -5770,6 +6647,17 @@
             "valueNot": "no"
         }
     },
+    "bridge/name": {
+        "key": "bridge:name",
+        "type": "localized",
+        "reference": {
+            "key": "bridge"
+        },
+        "prerequisiteTag": {
+            "key": "bridge",
+            "valueNot": "no"
+        }
+    },
     "bath/type": {
         "key": "bath:type",
         "type": "combo",
@@ -5781,9 +6669,14 @@
             "thermal"
         ]
     },
-    "bath/sand_bath": {
+    "bath/sand_bath-JP": {
         "key": "bath:sand_bath",
-        "type": "check"
+        "type": "check",
+        "locationSet": {
+            "include": [
+                "JP"
+            ]
+        }
     },
     "bath/open_air": {
         "key": "bath:open_air",
@@ -5792,6 +6685,19 @@
     "area/highway": {
         "key": "area:highway",
         "type": "typeCombo"
+    },
+    "aircraft/type": {
+        "key": "aircraft:type",
+        "type": "semiCombo",
+        "options": [
+            "military",
+            "helicopter",
+            "airliner",
+            "jet",
+            "fixed_wing",
+            "cargo",
+            "glider"
+        ]
     },
     "aerialway/occupancy": {
         "key": "aerialway:occupancy",
