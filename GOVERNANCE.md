@@ -6,7 +6,7 @@ This document outlines how this project is maintained.
 
 ### Maintainer Role
 
-[Martin](https://github.com/tyrasd) maintains this project as part of his work on the iD Editor project.
+[Martin](https://github.com/tyrasd) maintains this project as part of his work on the iD Editor project, with work funded by OpenStreetMap Foundation.
 
 The maintainer role includes:
 - Having the final say in decisions for the tagging schema.
@@ -33,7 +33,7 @@ Github shows a `(Collaborator)` label next to users with any permission on this 
 
 ### Triage Role
 
-* [Mateusz](https://github.com/matkoniecz) contributes to this project as a volunteer.
+* [Mateusz](https://github.com/matkoniecz) contributed to this project as a volunteer, with [current work](https://github.com/osmfoundation/ewg_bidding/pull/58) funded by OpenStreetMap Foundation.
 
 The triage role includes:
 - Proactively helping to clarify issues and PRs.
