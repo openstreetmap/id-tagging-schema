@@ -53,7 +53,10 @@ Icons from different sources (_icon sets_) can be used in the tagging schema. He
 <img alt="Screenshot of a preset in iD with the information details open." src="https://github.com/openstreetmap/id-tagging-schema/assets/111561/13549318-cd7c-4dd1-9948-7a2d84662f04" width="400" />
 
 iD and other tools provide users with a way to learn more about the main tag of a preset. It is important to provide good information in this information panel. Here are a few notes on how to do this:
-- Does your tag have a OSM Wiki data item? Click the small pencil icon next to the text to open the data item on the OSM Wiki. Improve this wording if needed. If the data item is missing, [learn more about how to add it in "Current methods for creating new items"](https://wiki.openstreetmap.org/wiki/Data_items#Item_creation_process).
+- Does your tag have a OSM Wiki data item? Click the small pencil icon next to the text to open the data item on the OSM Wiki. Improve this wording if needed.
+  - If the data item is missing, [learn more about how to add it in "Current methods for creating new items"](https://wiki.openstreetmap.org/wiki/Data_items#Item_creation_process).
+  - iD queries the `Tag:<key>=<value>` page or `Key:<key>` page and prefers the more specific variant. It then uses "wiki sitelinks" to get the data item from the page. These can be set [here](https://wiki.openstreetmap.org/wiki/Special:SetSiteLink//wiki), see the documentation in link above.
+  - See, for example: [building key](https://wiki.openstreetmap.org/wiki/Item:Q108) and [building=yes tag](https://wiki.openstreetmap.org/wiki/Item:Q6135)
 - Does your tag have a Wiki page with a good image?
 - Your preset might need [a `reference` property](https://github.com/ideditor/schema-builder?tab=readme-ov-file#reference) to force the system to use a specific tag for the information section.
 
