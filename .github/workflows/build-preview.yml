@@ -12,13 +12,13 @@ jobs:
   build-preview:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         with:
           node-version-file: '.nvmrc'
       - run: npm clean-install
       - run: npm run dist
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           repository: openstreetmap/iD
           path: './iD'
@@ -33,7 +33,7 @@ jobs:
         env:
           ID_PRESETS_CDN_URL: '../../'
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: preview
           path: |
@@ -43,7 +43,7 @@ jobs:
       - name: Store pull request number for later use
         run: |
           echo ${{github.event.number}} > ./pr_number
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: pr
           path: ./pr_number
