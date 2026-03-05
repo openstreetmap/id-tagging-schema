@@ -1,4 +1,14 @@
 export type Geometry = ("point" | "vertex" | "line" | "area" | "relation")
+/**
+ * The corresponding 'dimension' from CLDR
+ */
+export type Dimension = ("area" | "concentration" | "consumption" | "duration" | "energy" | "length" | "mass" | "mass-density" | "power" | "pressure" | "speed" | "temperature" | "volume" | "year-duration" | "acceleration" | "angle" | "concentr" | "digital" | "electric" | "force" | "frequency" | "graphics" | "light" | "torque" | "magnetic")
+export type Usage = {
+  [k: string]: unknown
+}
+export type UnitTypes = {
+  [k: string]: unknown
+}
 
 /**
  * A reusable form element for presets
@@ -35,7 +45,7 @@ export interface Field {
   /**
    * Type of field
    */
-  type: ("access" | "address" | "check" | "colour" | "combo" | "date" | "defaultCheck" | "directionalCombo" | "email" | "identifier" | "integer" | "lanes" | "localized" | "manyCombo" | "multiCombo" | "networkCombo" | "number" | "onewayCheck" | "radio" | "restrictions" | "roadheight" | "roadspeed" | "schedule" | "semiCombo" | "structureRadio" | "tel" | "text" | "textarea" | "typeCombo" | "url" | "wikidata" | "wikipedia")
+  type: ("access" | "address" | "check" | "colour" | "combo" | "date" | "defaultCheck" | "directionalCombo" | "email" | "identifier" | "integer" | "lanes" | "localized" | "manyCombo" | "measurement" | "multiCombo" | "networkCombo" | "number" | "onewayCheck" | "radio" | "restrictions" | "schedule" | "semiCombo" | "structureRadio" | "tel" | "text" | "textarea" | "typeCombo" | "url" | "wikidata" | "wikipedia")
   /**
    * English label for the field caption. A field can reference the label of another by using that field's identifier contained in brackets (e.g. {field}), in which case also the field's terms will be referenced from that field.
    */
@@ -181,6 +191,26 @@ export interface Field {
    * A field can reference icons of another by using that field's identifier contained in brackets, like {field}.
    */
   iconsCrossReference?: string
+  /**
+   * defines the units of measurement that this field uses. Only supported by the 'measurement' field type.
+   */
+  measurement?: ({
+    dimension: Dimension
+    /**
+     * The corresponding 'usage' from CLDR
+     */
+    usage: string
+    /**
+     * Optional, if only some units are allowed for this tag, then list the permitted units here, using the unit IDs from CLDR (see https://cdn.jsdelivr.net/npm/cldr-core/supplemental/unitPreferenceData.json).
+     *
+     * @minItems 1
+     */
+    units?: string[]
+    /**
+     * Some OSM tags have a default unit, which does not need to be explicitly included in the tag value. This field defines how to interpret a unit-less value.
+     */
+    impliedUnit?: string
+  } & Usage & UnitTypes)
 }
 export interface RequiresKeyAnyValue {
   /**
