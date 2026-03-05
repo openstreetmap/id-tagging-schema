@@ -396,8 +396,7 @@ A string specifying the UI and behavior of the field. Must be one of the followi
 
 * `access` - Block of dropdowns for defining the `access=*` tags on a highway
 * `address` - Block of text and dropdown fields for entering address information (localized for editing location)
-* `roadspeed` - Numeric text field for speed and dropdown for "mph" / "km/h", defaulting to the speed unit used for roads in the feature's region
-* `roadheight` - Numeric text field for height and dropdowns for "m" / "ft" and "in", defaulting to the height unit used for roads in the feature's region
+* `measurement` - Numeric text field with associated unit of measurement, such as inches or kilometers-per-hour. The field may have multiple units. See [#measurement](#measurement) for details.
 * `restrictions` - Graphical field for editing turn restrictions
 * `wikidata` - Search field for selecting a Wikidata entity
 * `wikipedia` - Block of fields for selecting a wiki language and Wikipedia page
@@ -677,6 +676,56 @@ Combo field types can accept key-label pairs in the `options` value of the `stri
 ##### `iconsCrossReference`
 
 An optional property to reference to the icons of another field, indicated  by using that field's name contained in brackets, like `{field}`. This is for example useful when there are multiple variants of fields for the same tag, which should all use the same icons.
+
+##### `measurement`
+
+`measurement` is used when `type = measurement`. It defines the unit of measurements that are supported by this field. For example:
+
+```jsonc
+{
+  "key": "diameter",
+  "type": "measurement",
+  "measurement": {
+    // The dimension being measured. This constrains the permitted units.
+    // The value is the ID defined by CLDR.
+    "dimension": "length",
+
+    // The corresponding 'usage' from CLDR.
+    "usage": "default",
+
+    // If the field only allows some units, you can list them here
+    // using CLDR's unit names. If not specified, then, all units from
+    // this dimension are allowed.
+    "units": ["meter", "centimeter", "foot-and-inch"],
+
+    // Some OSM tags have a default unit, which does not need to be explicitly included in the tag value.
+    // This field defines how to interpret a value with no unit:
+    "impliedUnit": "meter"
+  }
+}
+```
+
+To convert the unit IDs into the values used by OSM, see [§Units](#Units).
+
+Translations for the [`narrow` and `long` form](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat) of each unit are bundled into iD-tagging-schema's locale files.
+
+### Units
+
+Use `units.json` ([Example](https://github.com/openstreetmap/id-tagging-schema/blob/main/data/units.json)) to define the suffixes used in OSM tag values.
+
+For example:
+
+```json
+{
+  "duration": {
+    "minute": ["minutes", "minute", "mins", "min", "m"]
+  }
+}
+```
+- The object key (`minute`) is the unit ID as defined by CLDR.
+- The object values (such as `mins`) are the values that are accepted in OSM tag values.
+  The first array item is the preferred value.
+  The other array items are alternative notations, which OSM editors should accept, but not encourage.
 
 ### Deprecations
 
