@@ -629,7 +629,7 @@ An optional property to reference to the strings of another field, indicated  by
   ]
 ```
 
-This would inherit all translations from the `gender` field but keep only the defined options.
+This would inherit all translations from the `sport` field but keep only the defined options.
 
 ##### `autoSuggestions`
 
