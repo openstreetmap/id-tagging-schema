@@ -34,3 +34,5 @@ In addition to the [design](https://github.com/rapideditor/temaki#design-guideli
 For presets, it is possible to define an icon via the `imageURL` property in addition to an `icon`. The referenced image _might_ be displayed by an editor instead of the `icon`. For example, iD displays icons from `imageURL` only when users have not disabled to _show third party icons_.
 
 `imageURL` is extensively used to specify the logos of brand presets by the [name-suggestion-index](https://github.com/osmlab/name-suggestion-index) project.
+
+It must not be used for regular preset entries in [iD tagging schema](https://github.com/openstreetmap/id-tagging-schema).
