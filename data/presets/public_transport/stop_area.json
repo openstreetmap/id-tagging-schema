@@ -17,5 +17,67 @@
         "key": "public_transport",
         "value": "stop_area"
     },
-    "name": "Transit Stop Area"
+    "name": "Transit Stop Area",
+    "relation": {
+        "id": "public_transport",
+        "allowDuplicateMembers": false,
+        "members": [
+            {
+                "role": "stop",
+                "roleLabel": "Stop",
+                "geometry": [
+                    "point",
+                    "vertex"
+                ],
+                "matchTags": [
+                    {
+                        "public_transport": "stop_position"
+                    }
+                ]
+            },
+            {
+                "role": "platform",
+                "roleLabel": "Platform",
+                "geometry": [
+                    "point",
+                    "vertex",
+                    "line",
+                    "area"
+                ],
+                "matchTags": [
+                    {
+                        "public_transport": "platform"
+                    }
+                ]
+            },
+            {
+                "role": "entrance",
+                "roleLabel": "Entrance",
+                "matchTags": [
+                    {
+                        "entrance": "*"
+                    }
+                ],
+                "geometry": [
+                    "vertex"
+                ]
+            },
+            {
+                "role": "subway_entrance",
+                "roleLabel": "Subway Entrance",
+                "matchTags": [
+                    {
+                        "railway": "subway_entrance"
+                    }
+                ],
+                "geometry": [
+                    "vertex"
+                ]
+            },
+            {
+                "role": "",
+                "roleLabel": ""
+            }
+        ]
+    }
 }
