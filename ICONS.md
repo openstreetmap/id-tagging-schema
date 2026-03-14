@@ -11,9 +11,9 @@ Icons from the below listed sources can be used. When specifying an icon, use th
 | [Maki](https://labs.mapbox.com/maki-icons/) | `maki-` | Map-specific icons from Mapbox | [Preview](https://icones.js.org/collection/maki) |
 | [Temaki](https://rapideditor.github.io/temaki/docs/) | `temaki-` | An expansion pack for Maki | [Preview](https://icones.js.org/collection/temaki) |
 | [Röntgen](https://github.com/enzet/map-machine#r%C3%B6ntgen-icon-set) | `roentgen-` | Part of the Map Machine project | [Preview](https://icones.js.org/collection/roentgen) |
-| [Font Awesome Solid](https://fontawesome.com/search?o=r&ic=free&s=solid) | `fas-` | Solid style icons from Font Awesome (free tier) | [Preview](https://icones.js.org/collection/fa-solid) |
-| [Font Awesome Regular](https://fontawesome.com/search?o=r&ic=free&s=regular) | `far-` | Regular style icons from Font Awesome (free tier) | [Preview](https://icones.js.org/collection/fa-regular) |
-| [Font Awesome Brands](https://fontawesome.com/search?o=r&ic=free&ip=brands) | `fab-` | Brand icons from Font Awesome (free tier) | [Preview](https://icones.js.org/collection/fa-brands) |
+| [Font Awesome Solid](https://fontawesome.com/search?o=r&ic=free&s=solid) | `fas-` | Solid style icons from Font Awesome (free tier) | [Preview](https://icones.js.org/collection/fa7-solid) |
+| [Font Awesome Regular](https://fontawesome.com/search?o=r&ic=free&s=regular) | `far-` | Regular style icons from Font Awesome (free tier) | [Preview](https://icones.js.org/collection/fa7-regular) |
+| [Font Awesome Brands](https://fontawesome.com/search?o=r&ic=free&ip=brands) | `fab-` | Brand icons from Font Awesome (free tier) | [Preview](https://icones.js.org/collection/fa7-brands) |
 | [iD Presets](https://github.com/openstreetmap/iD/tree/develop/svg/iD-sprite/presets) | `iD-` | iD's presets-icons | - |
 | [iD Fields](https://github.com/openstreetmap/iD/tree/develop/svg/iD-sprite/fields) | `iD-` | iD's fields-icons | - |
 
