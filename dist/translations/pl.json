@@ -146,6 +146,10 @@
                 },
                 "address": {
                     "label": "Adres",
+                    "labels": {
+                        "conscriptionnumber": "Numer konskrypcyjny",
+                        "housenumber": "Numer domu"
+                    },
                     "placeholders": {
                         "block_number": "Kwartał",
                         "block_number!jp": "Kwartał",
@@ -160,6 +164,7 @@
                         "district": "Dystrykt",
                         "district!cn": "Dzielnica/Powiat/Chorągiew",
                         "district!vn": "Okręg/Miejscowość/Dystrykt",
+                        "door": "Lokal",
                         "floor": "Piętro",
                         "hamlet": "Przysiółek/Kolonia/Osada",
                         "housename": "Nazwa domu",
@@ -792,7 +797,8 @@
                 },
                 "capacity/tents": {
                     "label": "Liczba miejsc (namioty)",
-                    "placeholder": "10, 20, 50..."
+                    "placeholder": "10, 20, 50...",
+                    "terms": "liczba miejsc na namioty,liczba namiotów"
                 },
                 "capacity_parking": {
                     "label": "Całkowita liczba miejsc",
@@ -976,6 +982,11 @@
                     "label": "Nazwa lub adres strony na Facebooku",
                     "placeholder": "https://www.facebook.com/NazwaStrony",
                     "terms": "nazwa strony na facebooku,adres strony na facebooku,strona na facebooku,nazwa profilu na facebooku,adres profilu na facebooku,profil na facebooku,facebook"
+                },
+                "contact/instagram": {
+                    "label": "Nazwa lub adres profilu na Instagramie",
+                    "placeholder": "https://www.instagram.com/openstreetmap/",
+                    "terms": "nazwa profilu na instagramie,adres profilu na instagramie,profil na instagramie,nazwa strony na instagramie,adres strony na instagramie,strona na instagramie,instagram"
                 },
                 "contact/webcam": {
                     "label": "Adres kamery internetowej",
@@ -1205,6 +1216,7 @@
                         "dessert": "Desery",
                         "diner": "Diner",
                         "donut": "Pączki / Donuty",
+                        "ethiopian": "Etiopska",
                         "european": "Europejska",
                         "filipino": "Filipińska",
                         "fine_dining": "Fine dining",
@@ -1323,7 +1335,7 @@
                         },
                         "separate": {
                             "description": "Droga dla rowerów fizycznie oddzielona od jezdni, zaznaczona na mapie jako osobna ścieżka",
-                            "title": "Droga dla rowerów zaznaczona osobno"
+                            "title": "Droga dla rowerów oznaczona osobno"
                         },
                         "share_busway": {
                             "description": "Pas współdzielony przez rowery i autobusy",
@@ -1759,7 +1771,20 @@
                     "label": "Nazwa flagi"
                 },
                 "flag/type": {
-                    "label": "Rodzaj flagi"
+                    "label": "Rodzaj flagi",
+                    "options": {
+                        "advertising": "Reklamowa",
+                        "athletic": "Klubu sportowego",
+                        "cultural": "Organizacji kulturalnej",
+                        "governmental": "Rządowa",
+                        "indigenous": "Rdzennych mieszkańców",
+                        "military": "Wojskowa",
+                        "municipal": "Gminna",
+                        "national": "Narodowa",
+                        "organisation": "Organizacji pozarządowej",
+                        "regional": "Regionalna",
+                        "religious": "Religijna"
+                    }
                 },
                 "flag/wikidata": {
                     "label": "Wikidata flagi"
@@ -1974,6 +1999,34 @@
                         "quicksand": "Ruchome piaski",
                         "shooting_range": "Strzały z broni palnej"
                     }
+                },
+                "hazard_highway": {
+                    "label": "Oznakowane niebezpieczeństwo",
+                    "options": {
+                        "animal_crossing": "Zwierzęta gospodarskie",
+                        "bump": "Próg zwalniający",
+                        "children": "Dzieci",
+                        "curve": "Łuk",
+                        "curves": "Łuki",
+                        "cyclists": "Rowerzyści",
+                        "dangerous_junction": "Skrzyżowanie",
+                        "dip": "Zagłębienie w jezdni",
+                        "falling_rocks": "Spadające odłamki skalne",
+                        "frost_heave": "Podniesienie mrozowe",
+                        "horse_riders": "Jeźdźcy konni",
+                        "ice": "Lód",
+                        "landslide": "Osuwiska",
+                        "loose_gravel": "Sypki żwir",
+                        "low_flying_aircraft": "Nisko przelatujące samoloty",
+                        "pedestrians": "Piesi",
+                        "queues_likely": "Zator drogowy",
+                        "school_zone": "Strefa szkolna",
+                        "side_winds": "Boczny wiatr",
+                        "slippery": "Śliska jezdnia",
+                        "turn": "Zakręt",
+                        "turns": "Zakręty"
+                    },
+                    "terms": "oznakowanie niebezpieczeństwo,oznakowane ostrzeżenie"
                 },
                 "healthcare": {
                     "label": "Rodzaj",
@@ -4027,6 +4080,29 @@
                         "right": "Po prawej (dla rowerzysty)"
                     }
                 },
+                "sidewalk": {
+                    "label": "Chodniki",
+                    "options": {
+                        "no": {
+                            "description": "Brak chodnika",
+                            "title": "Brak"
+                        },
+                        "separate": {
+                            "description": "Chodnik oznaczony jest osobną linią",
+                            "title": "Oznaczony osobno"
+                        },
+                        "yes": {
+                            "description": "Chodnik istnieje",
+                            "title": "Tak"
+                        }
+                    },
+                    "placeholder": "Tak, Brak, Oznaczony osobno",
+                    "terms": "chodniki,chodnik",
+                    "types": {
+                        "sidewalk:left": "Po lewej",
+                        "sidewalk:right": "Po prawej"
+                    }
+                },
                 "siren/purpose": {
                     "label": "Przeznaczenie"
                 },
@@ -4507,6 +4583,18 @@
                 },
                 "tee": {
                     "label": "Kolor/nazwa tee"
+                },
+                "tee_disc_golf": {
+                    "label": "Kolor tee",
+                    "options": {
+                        "blue": "Niebieskie",
+                        "gold": "Złote",
+                        "green": "Zielone",
+                        "purple": "Purpurowe",
+                        "red": "Czerwone",
+                        "white": "Białe"
+                    },
+                    "placeholder": "Niebieskie, Białe, Czerwone..."
                 },
                 "telecom": {
                     "label": "Rodzaj",
@@ -6364,6 +6452,10 @@
                     "name": "Waga samochodowa",
                     "terms": "waga samochodowa,waga dla pojazdów"
                 },
+                "animal/horse_walker": {
+                    "name": "Karuzela dla koni",
+                    "terms": "karuzela dla koni"
+                },
                 "area": {
                     "name": "Obszar",
                     "terms": "obszar,obręb,powierzchnia"
@@ -6743,7 +6835,7 @@
                     "terms": "dom studencki,akademik,bursa,internat,student"
                 },
                 "building/entrance": {
-                    "name": "Wejście/Wyjście"
+                    "name": "Wejście / Wyjście"
                 },
                 "building/farm": {
                     "name": "Dom mieszkalny gospodarstwa rolnego",
@@ -8508,6 +8600,10 @@
                 "leisure/pitch/beachvolleyball": {
                     "name": "Boisko do siatkówki plażowej",
                     "terms": "boisko do siatkówki plażowej,siatkówka plażowa"
+                },
+                "leisure/pitch/biathlon": {
+                    "name": "Strzelnica biatlonowa",
+                    "terms": "strzelnica biatlonowa"
                 },
                 "leisure/pitch/boules": {
                     "name": "Bulodrom",
@@ -10453,7 +10549,7 @@
                     "terms": "sklep z artykułami dla dzieci i niemowląt,akcesoria dla dzieci i niemowląt,sklep dziecięcy,artykuły dziecięce,wózki dziecięce,dzieci"
                 },
                 "shop/bag": {
-                    "name": "Sklep z torebkami/walizkami",
+                    "name": "Sklep z torebkami / walizkami",
                     "terms": "sklep z torebkami,sklep z walizkami,torebki,torby,walizki,galanteria"
                 },
                 "shop/bakery": {
@@ -10482,8 +10578,8 @@
                     "terms": "solarium"
                 },
                 "shop/bed": {
-                    "name": "Sklep z łóżkami/materacami",
-                    "terms": "sklep z łóżkami/materacami,łóżka,materace,pościel,poduszki,sypialnia,sypialnie"
+                    "name": "Sklep z łóżkami / materacami",
+                    "terms": "sklep z łóżkami,sklep z materacami,łóżka,materace,pościel,poduszki,sypialnia,sypialnie"
                 },
                 "shop/beverages": {
                     "name": "Sklep z napojami",

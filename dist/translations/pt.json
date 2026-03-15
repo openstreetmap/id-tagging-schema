@@ -146,6 +146,10 @@
                 },
                 "address": {
                     "label": "Morada",
+                    "labels": {
+                        "conscriptionnumber": "Número de recrutamento",
+                        "housenumber": "Número da casa"
+                    },
                     "placeholders": {
                         "block_number": "Número do bloco",
                         "block_number!jp": "Bloco n.º",
@@ -158,6 +162,7 @@
                         "county!jp": "Distrito",
                         "district": "Distrito",
                         "district!vn": "Freguesia/Concelho/Distrito",
+                        "door": "Número da porta",
                         "floor": "Piso",
                         "hamlet": "Aldeia",
                         "housename": "Nome da habitação",
@@ -784,7 +789,8 @@
                 },
                 "capacity/tents": {
                     "label": "Capacidade (tendas)",
-                    "placeholder": "5, 20, 50..."
+                    "placeholder": "5, 20, 50...",
+                    "terms": "capacidade,lotação,número máximo,total,pessoas"
                 },
                 "capacity_parking": {
                     "label": "Capacidade total",
@@ -967,6 +973,11 @@
                     "label": "Nome de utilizador ou URL do Facebook",
                     "placeholder": "https://www.facebook.com/empresa",
                     "terms": "facebook,meta,rede social,redes sociais,contacto,contato"
+                },
+                "contact/instagram": {
+                    "label": "Nome ou URL da conta de Instagram",
+                    "placeholder": "https://www.instagram.com/openstreetmap/",
+                    "terms": "instagram,meta,rede social,redes sociais,contacto,contato,social,network"
                 },
                 "contact/webcam": {
                     "label": "URL da câmara web",
@@ -1196,6 +1207,7 @@
                         "dessert": "Sobremesas",
                         "diner": "Diner",
                         "donut": "Donuts",
+                        "ethiopian": "Etíope",
                         "european": "Europeia",
                         "filipino": "Filipina",
                         "fine_dining": "Cozinha de autor",
@@ -1741,7 +1753,20 @@
                     "label": "Nome da bandeira"
                 },
                 "flag/type": {
-                    "label": "Tipo de bandeira"
+                    "label": "Tipo de bandeira",
+                    "options": {
+                        "advertising": "Publicidade",
+                        "athletic": "Desportiva",
+                        "cultural": "Cultural",
+                        "governmental": "Governamental",
+                        "indigenous": "Indígena",
+                        "military": "Militar",
+                        "municipal": "Municipal",
+                        "national": "Nacional",
+                        "organisation": "Organização",
+                        "regional": "Regional",
+                        "religious": "Religiosa"
+                    }
                 },
                 "flag/wikidata": {
                     "label": "Wikidata da bandeira"
@@ -1956,6 +1981,34 @@
                         "quicksand": "Areias movediças",
                         "shooting_range": "Carreira de tiro"
                     }
+                },
+                "hazard_highway": {
+                    "label": "Perigo assinalado",
+                    "options": {
+                        "animal_crossing": "Travessia de animais",
+                        "bump": "Lomba",
+                        "children": "Crianças",
+                        "curve": "Curva perigosa",
+                        "curves": "Sucessão de curvas",
+                        "cyclists": "Ciclistas",
+                        "dangerous_junction": "Cruzamento perigoso",
+                        "dip": "Depressão",
+                        "falling_rocks": "Queda de pedras",
+                        "frost_heave": "Elevações de gelo",
+                        "horse_riders": "Cavaleiros",
+                        "ice": "Neve ou gelo",
+                        "landslide": "Deslizamento de terra",
+                        "loose_gravel": "Projeção de gravilha",
+                        "low_flying_aircraft": "Pista de aviação",
+                        "pedestrians": "Travessia de peões",
+                        "queues_likely": "Congestionamento",
+                        "school_zone": "Escola",
+                        "side_winds": "Vento lateral",
+                        "slippery": "Pavimento escorregadio",
+                        "turn": "Viragem",
+                        "turns": "Viragens em sequência"
+                    },
+                    "terms": "perigoso,risco,riscos,perigos,sinalização,sinais,sinalizado,signed,hazard"
                 },
                 "healthcare": {
                     "label": "Tipo",
@@ -3944,6 +3997,29 @@
                         "right": "Lado direito"
                     }
                 },
+                "sidewalk": {
+                    "label": "Passeios",
+                    "options": {
+                        "no": {
+                            "description": "Sem passeios",
+                            "title": "Não"
+                        },
+                        "separate": {
+                            "description": "O passeio é mapeado usado vias separadas",
+                            "title": "Mapeado em separado"
+                        },
+                        "yes": {
+                            "description": "Há um passeio",
+                            "title": "Sim"
+                        }
+                    },
+                    "placeholder": "Sim, Não, Mapeado em separado",
+                    "terms": "passeios,sidewalk,caminho,pedestre,peão",
+                    "types": {
+                        "sidewalk:left": "Lado esquerdo",
+                        "sidewalk:right": "Lado direito"
+                    }
+                },
                 "siren/purpose": {
                     "label": "Propósito"
                 },
@@ -4423,6 +4499,17 @@
                 },
                 "tee": {
                     "label": "Cor/Tipo"
+                },
+                "tee_disc_golf": {
+                    "options": {
+                        "blue": "Azul",
+                        "gold": "Dourado",
+                        "green": "Verde",
+                        "purple": "Roxo",
+                        "red": "Vermelho",
+                        "white": "Branco"
+                    },
+                    "placeholder": "Azul, Branco, Vermelho..."
                 },
                 "telecom": {
                     "label": "Tipo",
@@ -5125,11 +5212,6 @@
                     "name": "Bar LGBTQ+",
                     "terms": "bar gay,bar lésbico,bar lgbt,bar lgbtq,bar lgb,bar homosexual,bar homossexual,homossexuais,lésbicas"
                 },
-                "amenity/bbq": {
-                    "name": "Grelhador",
-                    "terms": "grill,barbacue,carne assada,churrasqueira,churrasco",
-                    "aliases": "Assador\nChurrasqueira\nBarbecue\nGrill\nBBQ"
-                },
                 "amenity/bench": {
                     "name": "Banco",
                     "terms": "bench,assento,sentar,lugar"
@@ -5227,7 +5309,7 @@
                 },
                 "amenity/childcare": {
                     "name": "Berçário / Creche",
-                    "terms": "nursery,childcare,cuidados infantis,berçário,jardim infantil,infantil,crianças"
+                    "terms": "nursery,childcare,cuidados infantis,berçário,jardim infantil,infantil,crianças,children"
                 },
                 "amenity/cinema": {
                     "name": "Cinema",
@@ -5333,7 +5415,7 @@
                     "terms": "cuidados de saúde primários,atenção primária à saúde,cuidados primários,médico de cuidados primários"
                 },
                 "amenity/doctors/gynaecology": {
-                    "name": "Ginecologista / Obstetra",
+                    "name": "Obstetra / Ginecologista",
                     "terms": "medicina,médico,ginecológico,ginecologia,médica,consultório,reprodutivo,reprodução,obstétrico"
                 },
                 "amenity/doctors/haematology": {
@@ -7729,8 +7811,7 @@
                     "terms": "inversão de marcha,ilha,manobra,beco,sem saída,sem-saída"
                 },
                 "highway/unclassified": {
-                    "name": "Estrada menor / sem classificação",
-                    "terms": "estrada não-classificada,sem referência,rua"
+                    "name": "Estrada menor / sem classificação"
                 },
                 "historic": {
                     "name": "Local histórico",
@@ -7906,6 +7987,10 @@
                 "landuse/construction": {
                     "name": "Área de construção",
                     "terms": "obras,em curso,construir,reconstrução,renovações,renovação,construção civil,demolição"
+                },
+                "landuse/education": {
+                    "name": "Complexo educativo",
+                    "terms": "campus,escolas,educacional,educação,centro,área"
                 },
                 "landuse/farm": {
                     "name": "Terreno agrícola"
@@ -8337,6 +8422,10 @@
                 "leisure/pitch/beachvolleyball": {
                     "name": "Campo de voleibol de praia",
                     "terms": "vólei,campo,praia,voleibol,volley,areia,desporto,exercício,bola"
+                },
+                "leisure/pitch/biathlon": {
+                    "name": "Campo de tiro de biatlo",
+                    "terms": "biathlon firing range,biathlon shooting gallery,biathlon shooting range,desporto"
                 },
                 "leisure/pitch/boules": {
                     "name": "Campo de boccia",
@@ -10231,8 +10320,7 @@
                     "terms": "baby goods store,loja de roupa,carrinho,brinquedos,bébé,bébe,bebe,bébés"
                 },
                 "shop/bag": {
-                    "name": "Loja de malas / bagagem",
-                    "terms": "bag,luggage,mala,malas,bolsa,bolsas"
+                    "name": "Loja de malas / bagagem"
                 },
                 "shop/bakery": {
                     "name": "Padaria",
@@ -11311,8 +11399,8 @@
                     "terms": "rota de gasoduto,tubo,tubos,tubagem,pipeline,gasoduto,oleoduto,canalização,canos"
                 },
                 "type/route/piste": {
-                    "name": "Rota de pista de desporto de inverno",
-                    "terms": "esqui,sky,trilhos,ski,neve,esquiar,downhill"
+                    "name": "Rota / pista de esqui",
+                    "terms": "esqui,sky,trilhos,ski,neve,esquiar,downhill,route,piste,snow"
                 },
                 "type/route/power": {
                     "name": "Rota de transmissão de energia",
