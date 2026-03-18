@@ -9,3 +9,16 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      semver-minor-days: 7
+      semver-patch-days: 7
+    versioning-strategy: increase-if-necessary
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+        applies-to: version-updates
