@@ -439,7 +439,7 @@ A string specifying the UI and behavior of the field. Must be one of the followi
 * `url` - Text field for entering URLs
 * `identifier` - Text field for foreign IDs (e.g. `gnis:feature_id`)
 * `colour` - Text field for entering colours
-* `schedule` - Field for entering a recurring schedule (e.g., `opening_hours=*`, `service_times=*`)
+* `schedule` - Field for entering a [recurring schedule](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) (e.g., `opening_hours=*`, `service_times=*`)
 * `textarea` - Multi-line text area (e.g. `description=*`)
 * `date` - Text field for entering dates in ISO 8601 format.
 
