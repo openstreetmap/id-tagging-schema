@@ -1,0 +1,28 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/ideditor/schema-builder/raw/main/schemas/preset_category.json",
+    "title": "Preset category",
+    "description": "An ordered grouping of presets",
+    "type": "object",
+    "properties": {
+        "name": {
+            "description": "The title of this category in US English",
+            "type": "string"
+        },
+        "icon": {
+            "description": "Name of preset icon which represents this preset",
+            "type": "string"
+        },
+        "members": {
+            "description": "The IDs of the presets in this category",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": ["name", "icon", "members"],
+    "additionalProperties": false
+}

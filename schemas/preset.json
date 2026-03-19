@@ -1,0 +1,142 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/ideditor/schema-builder/raw/main/schemas/preset.json",
+    "title": "Preset",
+    "description": "Associates an icon, form fields, and other UI with a set of OSM tags",
+    "type": "object",
+    "properties": {
+        "name": {
+            "description": "The English name for the feature. A preset can reference the label of another by using that preset's identifier contained in brackets (e.g. {preset}), in which case also the preset's aliases and terms will also be referenced from that preset.",
+            "type": "string"
+        },
+        "geometry": {
+            "description": "Valid geometry types for the feature, in order of preference",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string",
+                "enum": ["point", "vertex", "line", "area", "relation"]
+            }
+        },
+        "tags": {
+            "description": "Tags that must be present for the preset to match",
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "addTags": {
+            "description": "Tags that are added when changing to the preset (default is the same value as 'tags')",
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "removeTags": {
+            "description": "Tags that are removed when changing to another preset (default is the same value as 'addTags' which in turn defaults to 'tags')",
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "fields": {
+            "description": "Default form fields that are displayed for the preset. A preset can reference the fields of another by using that preset's identifier contained in brackets, like {preset}.",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
+        },
+        "moreFields": {
+            "description": "Additional form fields that can be attached with the 'Add field' dropdown. A preset can reference the \"moreFields\" of another by using that preset's identifier contained in brackets, like {preset}.",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
+        },
+        "icon": {
+            "description": "Name of preset icon which represents this preset",
+            "type": "string"
+        },
+        "imageURL": {
+            "description": "The URL of a remote image that is more specific than 'icon'",
+            "type": "string"
+        },
+        "terms": {
+            "description": "English search terms or related keywords",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
+        },
+        "aliases": {
+            "description": "Display-ready English synonyms for the `name`",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
+        },
+        "searchable": {
+            "description": "Whether or not the preset will be suggested via search",
+            "type": "boolean",
+            "default": true
+        },
+        "matchScore": {
+            "description": "The quality score this preset will receive when being compared with other matches (higher is better)",
+            "type": "number",
+            "default": 1.0
+        },
+        "reference": {
+            "description": "Taginfo documentation parameters (to be used when a preset manages multiple tags)",
+            "type": "object",
+            "properties": {
+                "key": {
+                    "description": "For documentation of a key",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "For documentation of a tag (key and value)",
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "required": ["key"]
+        },
+        "replacement": {
+            "description": "The ID of a preset that is preferable to this one",
+            "type": "string"
+        },
+        "locationSet": {
+            "description": "An object specifying the IDs of regions where this preset is or isn't valid. See: https://github.com/ideditor/location-conflation",
+            "type": "object",
+            "properties": {
+                "include": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "exclude": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "minProperties": 1,
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false,
+    "required": ["name", "geometry", "tags"]
+}

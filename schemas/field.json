@@ -1,0 +1,386 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/ideditor/schema-builder/raw/main/schemas/field.json",
+    "title": "Field",
+    "description": "A reusable form element for presets",
+    "type": "object",
+    "properties": {
+        "key": {
+            "description": "Tag key whose value is to be displayed",
+            "type": "string"
+        },
+        "keys": {
+            "description": "Tag keys whose value is to be displayed",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
+        },
+        "reference": {
+            "description": "Taginfo documentation parameters (to be used when a field manages multiple tags)",
+            "anyOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "key": {
+                            "description": "For documentation of a key",
+                            "type": "string"
+                        },
+                        "value": {
+                            "description": "For documentation of a tag (key and value)",
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": ["key"]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "rtype": {
+                            "description": "For documentation of a relation type",
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": ["rtype"]
+                }
+            ]
+        },
+        "type": {
+            "description": "Type of field",
+            "type": "string",
+            "enum": [
+                "access",
+                "address",
+                "check",
+                "colour",
+                "combo",
+                "date",
+                "defaultCheck",
+                "directionalCombo",
+                "email",
+                "identifier",
+                "integer",
+                "lanes",
+                "localized",
+                "manyCombo",
+                "multiCombo",
+                "networkCombo",
+                "number",
+                "onewayCheck",
+                "radio",
+                "restrictions",
+                "roadheight",
+                "roadspeed",
+                "schedule",
+                "semiCombo",
+                "structureRadio",
+                "tel",
+                "text",
+                "textarea",
+                "typeCombo",
+                "url",
+                "wikidata",
+                "wikipedia"
+            ]
+        },
+        "label": {
+            "description": "English label for the field caption. A field can reference the label of another by using that field's identifier contained in brackets (e.g. {field}), in which case also the field's terms will be referenced from that field.",
+            "type": "string"
+        },
+        "geometry": {
+            "description": "If specified, only show the field for these kinds of geometry",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string",
+                "enum": ["point", "vertex", "line", "area", "relation"]
+            }
+        },
+        "default": {
+            "description": "The default value for this field",
+            "type": "string"
+        },
+        "options": {
+            "description": "List of untranslatable string suggestions (combo fields)",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
+        },
+        "autoSuggestions": {
+            "description": "If true, the top values from TagInfo will be suggested in the dropdown (combo fields only)",
+            "type": "boolean",
+            "default": true
+        },
+        "customValues": {
+            "description": "If true, the user can type their own value in addition to any listed in `options` or `strings.options` (combo fields only)",
+            "type": "boolean",
+            "default": true
+        },
+        "universal": {
+            "description": "If true, this field will appear in the Add Field list for all presets",
+            "type": "boolean",
+            "default": false
+        },
+        "placeholder": {
+            "description": "Placeholder text for this field. A field can reference the placeholder text of another by using that field's identifier contained in brackets, like {field}.",
+            "type": "string"
+        },
+        "strings": {
+            "description": "Strings sent to transifex for translation",
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": false,
+            "properties": {
+                "options": {
+                    "description": "Translatable options (combo fields).",
+                    "type": "object",
+                    "minProperties": 1,
+                    "additionalProperties": {
+                        "oneOf": [
+                            { "type": "string" },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "title": { "type": "string" },
+                                    "description": { "type": "string" }
+                                },
+                                "required": ["title", "description"],
+                                "additionalProperties": false
+                            }
+                        ]
+                    }
+                },
+                "types": {
+                    "description": "Translatable types (directionalCombo and access only).",
+                    "type": "object",
+                    "minProperties": 1,
+                    "additionalProperties": { "type": "string" }
+                },
+                "placeholders": {
+                    "description": "Translatable placeholders of fields with subfields (address only).",
+                    "type": "object",
+                    "minProperties": 1,
+                    "additionalProperties": { "type": "string" }
+                },
+                "labels": {
+                    "description": "Translatable labels of fields with subfields (address only).",
+                    "type": "object",
+                    "minProperties": 1,
+                    "additionalProperties": { "type": "string" }
+                }
+            }
+        },
+        "stringsCrossReference": {
+            "description": "A field can reference strings of another by using that field's identifier contained in brackets, like {field}.",
+            "type": "string"
+        },
+        "snake_case": {
+            "description": "If true, replace spaces with underscores in the tag value (combo fields only)",
+            "type": "boolean",
+            "default": true
+        },
+        "caseSensitive": {
+            "description": "If true, allow case sensitive field values (combo fields only)",
+            "type": "boolean",
+            "default": false
+        },
+        "allowDuplicates": {
+            "description": "If true, duplicate values are allowed (semiCombo fields only)",
+            "type": "boolean",
+            "default": false
+        },
+        "minValue": {
+            "description": "Minimum field value (number fields only)",
+            "type": "integer"
+        },
+        "maxValue": {
+            "description": "Maximum field value (number fields only)",
+            "type": "integer"
+        },
+        "increment": {
+            "description": "The amount the stepper control should add or subtract (number fields only)",
+            "minimum": 1,
+            "type": "integer"
+        },
+        "prerequisiteTag": {
+            "description": "Tagging constraint for showing this field in the editor",
+            "oneOf": [
+                {
+                    "$id": "requires-key-any-value",
+                    "type": "object",
+                    "properties": {
+                        "key": {
+                            "description": "The key of the required tag",
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": ["key"]
+                },
+                {
+                    "$id": "requires-key-equals-value",
+                    "type": "object",
+                    "properties": {
+                        "key": {
+                            "description": "The key of the required tag",
+                            "type": "string"
+                        },
+                        "value": {
+                            "description": "The value that the tag must have. (alternative to 'valueNot')",
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": ["key", "value"]
+                },
+                {
+                    "$id": "requires-key-equals-values",
+                    "type": "object",
+                    "properties": {
+                        "key": {
+                            "description": "The key of the required tag",
+                            "type": "string"
+                        },
+                        "values": {
+                            "description": "The values that the tag must have. (alternative to 'valuesNot')",
+                            "type": "array",
+                            "items": { "type": "string" },
+                            "minItems": 1
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": ["key", "values"]
+                },
+                {
+                    "$id": "requires-key-not-value",
+                    "type": "object",
+                    "properties": {
+                        "key": {
+                            "description": "The key of the required tag",
+                            "type": "string"
+                        },
+                        "valueNot": {
+                            "description": "The value that the tag cannot have. (alternative to 'value')",
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": ["key", "valueNot"]
+                },
+                {
+                    "$id": "requires-key-not-values",
+                    "type": "object",
+                    "properties": {
+                        "key": {
+                            "description": "The key of the required tag",
+                            "type": "string"
+                        },
+                        "valuesNot": {
+                            "description": "The values that the tag cannot have. (alternative to 'values')",
+                            "type": "array",
+                            "items": { "type": "string" },
+                            "minItems": 1
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": ["key", "valuesNot"]
+                },
+                {
+                    "$id": "requires-not-key",
+                    "type": "object",
+                    "properties": {
+                        "keyNot": {
+                            "description": "A key that must not be present",
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": ["keyNot"]
+                }
+            ]
+        },
+        "terms": {
+            "description": "English synonyms or related search terms",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
+        },
+        "locationSet": {
+            "description": "An object specifying the IDs of regions where this field is or isn't valid. See: https://github.com/ideditor/location-conflation",
+            "type": "object",
+            "minProperties": 1,
+            "properties": {
+                "include": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "exclude": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "urlFormat":  {
+            "description": "Permalink URL for `identifier` fields. Must contain a {value} placeholder",
+            "type": "string"
+        },
+        "pattern":  {
+            "description": "Regular expression that a valid `identifier` value is expected to match",
+            "type": "string"
+        },
+        "usage": {
+            "description": "The manner and context in which the field is used",
+            "type": "string",
+            "enum": ["preset", "changeset", "manual", "group"]
+        },
+        "icons": {
+            "description": "For combo fields: Name of icons which represents different values of this field",
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "iconsCrossReference": {
+            "description": "A field can reference icons of another by using that field's identifier contained in brackets, like {field}.",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "required": ["type", "label"],
+    "anyOf": [
+        { "$id": "field-type-without-key-nor-keys", "properties": { "type": { "enum": ["restrictions"] } }, "allOf": [
+            { "not": { "required": ["key"] }},
+            { "not": { "required": ["keys"] }}
+        ]},
+        { "$id": "field-type-with-key-optional-keys", "properties": { "type": { "enum": ["email", "url", "tel", "text", "number"] } }, "required": ["key"] },
+        { "$id": "field-type-with-key-and-keys", "properties": { "type": { "enum": ["address", "wikipedia", "wikidata", "directionalCombo"] } }, "required": ["key", "keys"] },
+        { "$id": "field-type-with-key-or-keys", "allOf": [
+            { "not": { "properties": { "type": { "enum": ["restriction", "email", "url", "tel", "text", "number", "address", "wikipedia", "wikidata", "directionalCombo"] } } } },
+            { "oneOf": [
+                { "required": ["key"] },
+                { "required": ["keys"] }
+            ]}
+        ]}
+    ]
+}
