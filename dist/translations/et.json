@@ -607,7 +607,17 @@
                 },
                 "bridge": {
                     "label": "Tüüp",
-                    "placeholder": "Vaikimisi"
+                    "placeholder": "Vaikimisi",
+                    "options": {
+                        "aqueduct": "Akvedukt",
+                        "boardwalk": "Laudtee",
+                        "cantilever": "Konsoolsild",
+                        "covered": "Katustatud sild",
+                        "low_water_crossing": "Üleujutatav sild",
+                        "movable": "Liikuv sild",
+                        "trestle": "Toestatud sild",
+                        "viaduct": "Viadukt"
+                    }
                 },
                 "bridge/name": {
                     "label": "Silla nimi",
@@ -1121,7 +1131,11 @@
                         "no": "Katmata",
                         "undefined": "Pole teada, pigem katmata",
                         "yes": "Kaetud"
-                    }
+                    },
+                    "label": "Kaetud",
+                    "terms": [
+                        "katusealune"
+                    ]
                 },
                 "craft": {
                     "label": "Tüüp",
@@ -1594,7 +1608,8 @@
                     }
                 },
                 "direction_point": {
-                    "placeholder": "45, 90, 180, 270"
+                    "placeholder": "45, 90, 180, 270",
+                    "label": "Suund (kraade päripäeva)"
                 },
                 "direction_vertex": {
                     "label": "Mis suunas toimib",
@@ -2469,7 +2484,15 @@
                     "options": {
                         "down": "Alla",
                         "up": "Üles"
-                    }
+                    },
+                    "label": "Kalle",
+                    "terms": [
+                        "kallakus",
+                        "nurk",
+                        "kaldenurk",
+                        "tõus",
+                        "langus"
+                    ]
                 },
                 "indoor": {
                     "label": "Siseruum",
@@ -2615,7 +2638,36 @@
                     "label": "Ääre kõrgus"
                 },
                 "kerb/kerb_barrier": {
-                    "label": "Tüüp"
+                    "label": "Tüüp",
+                    "options": {
+                        "flush": {
+                            "description": "Kas muu teeosaga samas tasapinnas või üliväikese kaldega äärekivi või kaldtee.",
+                            "title": "Tasane äärekivi"
+                        },
+                        "lowered": {
+                            "description": "Kuni kui 3 sentimeetrit kõrge kaldu äärekivi, kust saab üle ratastooliga.",
+                            "title": "Madaldatud äärekivi"
+                        },
+                        "no": {
+                            "description": "Antud asukohas äärekivi puudub.",
+                            "title": "Puudub"
+                        },
+                        "raised": {
+                            "description": "Enam kui 3 sentimeetrit kõrge kandiline äärekivi, kust ei saa üle ratastooliga.",
+                            "title": "Tõstetud äärekivi"
+                        },
+                        "rolled": {
+                            "description": "Üldjuhul nõgus, mõnel puhul ka kumer äärekivi tavaliselt elamupiirkonnas, kust saab üle auto või jalgrattaga, aga mitte ratastooliga.",
+                            "title": "Nõgus äärekivi"
+                        },
+                        "yes": {
+                            "description": "Mingit sorti äärekivi on olemas, kuid täpne tüüp pole teada",
+                            "title": "Olemas"
+                        }
+                    },
+                    "terms": [
+                        "äärekivi"
+                    ]
                 },
                 "kitchen": {
                     "label": "Köök"
@@ -2655,7 +2707,8 @@
                     "placeholder": "0"
                 },
                 "layer_1": {
-                    "placeholder": "0"
+                    "placeholder": "0",
+                    "label": "Kiht"
                 },
                 "leaf_cycle": {
                     "label": "Lehisus",
@@ -2677,7 +2730,13 @@
                     }
                 },
                 "leaf_type_singular": {
-                    "label": "Lehe tüüp"
+                    "label": "Lehe tüüp",
+                    "options": {
+                        "broadleaved": "Lehtpuu",
+                        "leafless": "Lehed puuduvad",
+                        "mixed": "Segamets",
+                        "needleleaved": "Okaspuu"
+                    }
                 },
                 "leisure": {
                     "label": "Tüüp"
@@ -2745,7 +2804,8 @@
                         "indoor": "Siseruumis",
                         "outdoor": "Õues",
                         "roof": "Katusel"
-                    }
+                    },
+                    "label": "Asukoht"
                 },
                 "lock": {
                     "label": "Lüüs"
@@ -3232,7 +3292,8 @@
                         "reversible": "Muutsuunaga",
                         "undefined": "Eeldatavasti Jah",
                         "yes": "Jah"
-                    }
+                    },
+                    "label": "Ühesuunaline"
                 },
                 "openfire": {
                     "label": "Lahtine tuli on lubatud",
@@ -3290,7 +3351,21 @@
                     ]
                 },
                 "orientation/orientation_parking": {
-                    "label": "Suund"
+                    "label": "Suund",
+                    "options": {
+                        "diagonal": "Diagonaalis",
+                        "parallel": "Paralleelselt",
+                        "perpendicular": "Risti teega"
+                    },
+                    "terms": [
+                        "parkimise paigutus",
+                        "parkimiskord",
+                        "parkimise kord"
+                    ],
+                    "types": {
+                        "parking:left:orientation": "Vasakus servas",
+                        "parking:right:orientation": "Paremas servas"
+                    }
                 },
                 "outdoor_seating": {
                     "label": "Väliistekohad",
@@ -3434,7 +3509,61 @@
                     }
                 },
                 "parking_entrance": {
-                    "label": "Tüüp"
+                    "label": "Tüüp",
+                    "options": {
+                        "carports": {
+                            "description": "Tavaliselt ilma seinteta varikatus, mis pakub autole osalist kaitset välise keskkonna eest.",
+                            "title": "Auto varjualused"
+                        },
+                        "garage_boxes": {
+                            "description": "Hoone, kus asub palju tavaliselt eri omanikele kuuluvaid garaaže, millest igaüks on mõeldud ühele autole.",
+                            "title": "Garaažiboksid"
+                        },
+                        "half_on_kerb": {
+                            "description": "Tänavaäärne parkimiskorraldus, kus parkiv sõiduk võib osaliselt paikneda kõnniteel.",
+                            "title": "Parkimine mõlemal pool poolenisti kõnniteel"
+                        },
+                        "lane": {
+                            "description": "Tänavaäärne parkimiskorraldus, kus parkiv sõiduk võib asuda sõiduteel (ja parkimisala saab vajadusel kergesti muuta sõidurajaks).",
+                            "title": "Teeäärne parkimisrada mõlemal pool"
+                        },
+                        "layby": {
+                            "description": "Tee ääres või kõrval paiknev väike ilma teepoolse piirdeta eraldi ala mõne auto parkimiseks.",
+                            "title": "Parkimistasku"
+                        },
+                        "multi-storey": {
+                            "description": "Kaks või enam parkimiskorrust hoones.",
+                            "title": "Mitmekorruseline"
+                        },
+                        "on_kerb": {
+                            "description": "Tänavaäärne parkimiskorraldus, kus parkiv sõiduk võib paikneda kõnniteel.",
+                            "title": "Parkimine mõlemal pool kõnniteel"
+                        },
+                        "rooftop": {
+                            "description": "Üks parkimiskorrus hoone või ehitise katusel.",
+                            "title": "Katusel"
+                        },
+                        "sheds": {
+                            "description": "Väike, sageli kaarjas angaarilaadne rajatis ühe või mõne auto jaoks.",
+                            "title": "Väike parkimisangaar"
+                        },
+                        "shoulder": {
+                            "description": "Teeäärne parkimiskorraldus, kus parkiv sõiduk võib paikneda tee õlal.",
+                            "title": "Tee õlal"
+                        },
+                        "street_side": {
+                            "description": "Tänavaäärne parkimiskorraldus, kus parkiv sõiduk võib paikneda otse tee kõrval (kuid mitte tee sõidurea peal).",
+                            "title": "Teeäärne parkimisrada mõlemal pool"
+                        },
+                        "surface": {
+                            "description": "Ühetasandiline parkimine maapinnal.",
+                            "title": "Maapealne"
+                        },
+                        "underground": {
+                            "description": "Parkimine asub maa all kas hoone vastavas osas või eraldi rajatises.",
+                            "title": "maa all"
+                        }
+                    }
                 },
                 "parking_space": {
                     "label": "Tüüp"
@@ -3533,7 +3662,8 @@
                         "intermediate": "Keskmine (sinine ruut)",
                         "novice": "Algajatele (õppimiseks)"
                     },
-                    "placeholder": "Lihtne, keskmine, oskajatele..."
+                    "placeholder": "Lihtne, keskmine, oskajatele...",
+                    "label": "Keerukus"
                 },
                 "piste/difficulty_nordic": {
                     "options": {
@@ -3543,7 +3673,8 @@
                         "intermediate": "Keskmine – järsk lõik",
                         "novice": "Algajatele – tasane ega vaja jõupingutust"
                     },
-                    "placeholder": "Lihtne, keskmine, oskajatele..."
+                    "placeholder": "Lihtne, keskmine, oskajatele...",
+                    "label": "Keerukus"
                 },
                 "piste/difficulty_skitour": {
                     "options": {
@@ -3555,7 +3686,8 @@
                         "intermediate": "Keskmine – ZS: 35-40° kalle",
                         "novice": "Algajatele – L: <30° kalle"
                     },
-                    "placeholder": "Lihtne, keskmine, oskajatele..."
+                    "placeholder": "Lihtne, keskmine, oskajatele...",
+                    "label": "Keerukus"
                 },
                 "piste/grooming": {
                     "label": "Raja töötlus",
@@ -3573,13 +3705,15 @@
                         "backcountry": "Suusatamine ettevalmistamata alal",
                         "classic": "Klassikarada",
                         "mogul": "Küngaslaskumise rada"
-                    }
+                    },
+                    "label": "Raja töötlus"
                 },
                 "piste/grooming_hike": {
                     "options": {
                         "backcountry": "Räätsamatk kõnnumaal",
                         "classic": "Klassikarada talimatkamiseks"
-                    }
+                    },
+                    "label": "Raja töötlus"
                 },
                 "piste/grooming_nordic": {
                     "options": {
@@ -3588,7 +3722,8 @@
                         "classic+skating": "Klassika- ja vabastiilirada",
                         "scooter": "Mootorsaanirada",
                         "skating": "Vabastiili ehk uisurada"
-                    }
+                    },
+                    "label": "Raja töötlus"
                 },
                 "piste/type": {
                     "label": "Tüüp",
@@ -3613,7 +3748,22 @@
                     "label": "Kasvatatavad taimed"
                 },
                 "plant/method": {
-                    "label": "Tööpõhimõte"
+                    "label": "Tööpõhimõte",
+                    "options": {
+                        "anaerobic_digestion": "Anaerooble lagundamine",
+                        "barrage": "Tõusulaine pais",
+                        "combustion": "Põletamine",
+                        "fission": "Tuumalõhustumine",
+                        "fusion": "Tuumasüntees",
+                        "gasification": "Gaasistumine",
+                        "photovoltaic": "Päikeseelement",
+                        "run-of-the-river": "Jõevool",
+                        "stream": "Loodete hoovused",
+                        "thermal": "Päikese soojusenergia",
+                        "water-pumped-storage": "Pump-hüdroakumulatsioonienergia",
+                        "water-storage": "Veehoidla",
+                        "wind_turbine": "Tuuleturbiin"
+                    }
                 },
                 "plant/output": {
                     "label": "Jaama väljund",
@@ -3633,7 +3783,26 @@
                     "placeholder": "500 MW, 1000 MW, 2000 MW..."
                 },
                 "plant/source": {
-                    "label": "Energiaallikas"
+                    "label": "Energiaallikas",
+                    "options": {
+                        "battery": "Aku",
+                        "biofuel": "taimede-põhine biokütus",
+                        "biogas": "biogaas",
+                        "biomass": "biomass",
+                        "coal": "süsi",
+                        "diesel": "diiselkütus",
+                        "gas": "maagaas",
+                        "gasoline": "mootoribensiin",
+                        "geothermal": "maapõueenergia",
+                        "hydro": " vee-energia",
+                        "nuclear": "tuumaenergia",
+                        "oil": "kütteõli",
+                        "solar": "päikeseenergia",
+                        "tidal": "loodete energia",
+                        "waste": "jäätmed",
+                        "wave": "lainete energia",
+                        "wind": "tuuleenergia"
+                    }
                 },
                 "playground": {
                     "label": "Tüüp",
@@ -4529,19 +4698,251 @@
                     }
                 },
                 "sport/sport_ice": {
-                    "label": "Spordialad"
+                    "label": "Spordialad",
+                    "options": {
+                        "10pin": "Hobikeegel",
+                        "9pin": "Keegel",
+                        "american_football": "Ameerika jalgpall",
+                        "athletics": "Kergejõustik",
+                        "badminton": "Sulgpall",
+                        "baseball": "Pesapall",
+                        "basketball": "Korvpall",
+                        "beachvolleyball": "Rannavõrkpall",
+                        "billiards": "Piljardi-tüüpi mängud",
+                        "bmx": "BMX",
+                        "boules": "Puu- ja metallkuulimängud",
+                        "bowls": "Murukeegel",
+                        "canoe": "Kanuusõit",
+                        "chess": "Male",
+                        "climbing": "Ronimine",
+                        "cricket": "Kriket",
+                        "curling": "Jääkeegel",
+                        "cycling": "Rattasõit",
+                        "darts": "Nooleviskemäng",
+                        "disc_golf": "Kettagolf",
+                        "dog_racing": "Koerte võidujooks",
+                        "equestrian": "Ratsasport",
+                        "fitness": "Fitness",
+                        "free_flying": "Paraplaaniga või deltaplaaniga lendamine",
+                        "futsal": "Saalijalgpall",
+                        "gaelic_games": "Gaeli spordialad",
+                        "golf": "Golf",
+                        "gymnastics": "Võimlemine",
+                        "handball": "Käsipall",
+                        "horse_racing": "Hobuste võidusõit",
+                        "ice_hockey": "Jäähoki",
+                        "ice_skating": "Iluuisutamine",
+                        "ice_stock": "Saksa jääkeegel",
+                        "karting": "Kardisõit",
+                        "motocross": "Motokross",
+                        "motor": "Mootorisport",
+                        "multi": "Muud täpsustamata spordialad",
+                        "netball": "Kukkurpall",
+                        "orienteering": "Orienteerumine",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Ragbi (liidureeglite alusel)",
+                        "running": "Jooksmine",
+                        "scuba_diving": "Varustusega sukeldumine",
+                        "shooting": "Laskesport",
+                        "skateboard": "Rulasõit",
+                        "ski_jumping": "Suusehüpped",
+                        "skiing": "Suusatamine",
+                        "soccer": "Jalgpall",
+                        "softball": "Pehmepall",
+                        "speedway": "Speedway",
+                        "swimming": "Ujumine",
+                        "table_tennis": "Lauatennis",
+                        "tennis": "Tennis",
+                        "volleyball": "Võrkpall",
+                        "yoga": "Jooga"
+                    }
                 },
                 "sport/sport_pub": {
                     "label": "Spordialad",
                     "terms": [
                         "talispordiala"
-                    ]
+                    ],
+                    "options": {
+                        "10pin": "Hobikeegel",
+                        "9pin": "Keegel",
+                        "american_football": "Ameerika jalgpall",
+                        "athletics": "Kergejõustik",
+                        "badminton": "Sulgpall",
+                        "baseball": "Pesapall",
+                        "basketball": "Korvpall",
+                        "beachvolleyball": "Rannavõrkpall",
+                        "billiards": "Piljardi-tüüpi mängud",
+                        "bmx": "BMX",
+                        "boules": "Puu- ja metallkuulimängud",
+                        "bowls": "Murukeegel",
+                        "canoe": "Kanuusõit",
+                        "chess": "Male",
+                        "climbing": "Ronimine",
+                        "cricket": "Kriket",
+                        "curling": "Jääkeegel",
+                        "cycling": "Rattasõit",
+                        "darts": "Nooleviskemäng",
+                        "disc_golf": "Kettagolf",
+                        "dog_racing": "Koerte võidujooks",
+                        "equestrian": "Ratsasport",
+                        "fitness": "Fitness",
+                        "free_flying": "Paraplaaniga või deltaplaaniga lendamine",
+                        "futsal": "Saalijalgpall",
+                        "gaelic_games": "Gaeli spordialad",
+                        "golf": "Golf",
+                        "gymnastics": "Võimlemine",
+                        "handball": "Käsipall",
+                        "horse_racing": "Hobuste võidusõit",
+                        "ice_hockey": "Jäähoki",
+                        "ice_skating": "Iluuisutamine",
+                        "ice_stock": "Saksa jääkeegel",
+                        "karting": "Kardisõit",
+                        "motocross": "Motokross",
+                        "motor": "Mootorisport",
+                        "multi": "Muud täpsustamata spordialad",
+                        "netball": "Kukkurpall",
+                        "orienteering": "Orienteerumine",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Ragbi (liidureeglite alusel)",
+                        "running": "Jooksmine",
+                        "scuba_diving": "Varustusega sukeldumine",
+                        "shooting": "Laskesport",
+                        "skateboard": "Rulasõit",
+                        "ski_jumping": "Suusehüpped",
+                        "skiing": "Suusatamine",
+                        "soccer": "Jalgpall",
+                        "softball": "Pehmepall",
+                        "speedway": "Speedway",
+                        "swimming": "Ujumine",
+                        "table_tennis": "Lauatennis",
+                        "tennis": "Tennis",
+                        "volleyball": "Võrkpall",
+                        "yoga": "Jooga"
+                    }
                 },
                 "sport/sport_racing_motor": {
-                    "label": "Spordialad"
+                    "label": "Spordialad",
+                    "options": {
+                        "10pin": "Hobikeegel",
+                        "9pin": "Keegel",
+                        "american_football": "Ameerika jalgpall",
+                        "athletics": "Kergejõustik",
+                        "badminton": "Sulgpall",
+                        "baseball": "Pesapall",
+                        "basketball": "Korvpall",
+                        "beachvolleyball": "Rannavõrkpall",
+                        "billiards": "Piljardi-tüüpi mängud",
+                        "bmx": "BMX",
+                        "boules": "Puu- ja metallkuulimängud",
+                        "bowls": "Murukeegel",
+                        "canoe": "Kanuusõit",
+                        "chess": "Male",
+                        "climbing": "Ronimine",
+                        "cricket": "Kriket",
+                        "curling": "Jääkeegel",
+                        "cycling": "Rattasõit",
+                        "darts": "Nooleviskemäng",
+                        "disc_golf": "Kettagolf",
+                        "dog_racing": "Koerte võidujooks",
+                        "equestrian": "Ratsasport",
+                        "fitness": "Fitness",
+                        "free_flying": "Paraplaaniga või deltaplaaniga lendamine",
+                        "futsal": "Saalijalgpall",
+                        "gaelic_games": "Gaeli spordialad",
+                        "golf": "Golf",
+                        "gymnastics": "Võimlemine",
+                        "handball": "Käsipall",
+                        "horse_racing": "Hobuste võidusõit",
+                        "ice_hockey": "Jäähoki",
+                        "ice_skating": "Iluuisutamine",
+                        "ice_stock": "Saksa jääkeegel",
+                        "karting": "Kardisõit",
+                        "motocross": "Motokross",
+                        "motor": "Mootorisport",
+                        "multi": "Muud täpsustamata spordialad",
+                        "netball": "Kukkurpall",
+                        "orienteering": "Orienteerumine",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Ragbi (liidureeglite alusel)",
+                        "running": "Jooksmine",
+                        "scuba_diving": "Varustusega sukeldumine",
+                        "shooting": "Laskesport",
+                        "skateboard": "Rulasõit",
+                        "ski_jumping": "Suusehüpped",
+                        "skiing": "Suusatamine",
+                        "soccer": "Jalgpall",
+                        "softball": "Pehmepall",
+                        "speedway": "Speedway",
+                        "swimming": "Ujumine",
+                        "table_tennis": "Lauatennis",
+                        "tennis": "Tennis",
+                        "volleyball": "Võrkpall",
+                        "yoga": "Jooga"
+                    }
                 },
                 "sport/sport_racing_nonmotor": {
-                    "label": "Spordialad"
+                    "label": "Spordialad",
+                    "options": {
+                        "10pin": "Hobikeegel",
+                        "9pin": "Keegel",
+                        "american_football": "Ameerika jalgpall",
+                        "athletics": "Kergejõustik",
+                        "badminton": "Sulgpall",
+                        "baseball": "Pesapall",
+                        "basketball": "Korvpall",
+                        "beachvolleyball": "Rannavõrkpall",
+                        "billiards": "Piljardi-tüüpi mängud",
+                        "bmx": "BMX",
+                        "boules": "Puu- ja metallkuulimängud",
+                        "bowls": "Murukeegel",
+                        "canoe": "Kanuusõit",
+                        "chess": "Male",
+                        "climbing": "Ronimine",
+                        "cricket": "Kriket",
+                        "curling": "Jääkeegel",
+                        "cycling": "Rattasõit",
+                        "darts": "Nooleviskemäng",
+                        "disc_golf": "Kettagolf",
+                        "dog_racing": "Koerte võidujooks",
+                        "equestrian": "Ratsasport",
+                        "fitness": "Fitness",
+                        "free_flying": "Paraplaaniga või deltaplaaniga lendamine",
+                        "futsal": "Saalijalgpall",
+                        "gaelic_games": "Gaeli spordialad",
+                        "golf": "Golf",
+                        "gymnastics": "Võimlemine",
+                        "handball": "Käsipall",
+                        "horse_racing": "Hobuste võidusõit",
+                        "ice_hockey": "Jäähoki",
+                        "ice_skating": "Iluuisutamine",
+                        "ice_stock": "Saksa jääkeegel",
+                        "karting": "Kardisõit",
+                        "motocross": "Motokross",
+                        "motor": "Mootorisport",
+                        "multi": "Muud täpsustamata spordialad",
+                        "netball": "Kukkurpall",
+                        "orienteering": "Orienteerumine",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Ragbi (liidureeglite alusel)",
+                        "running": "Jooksmine",
+                        "scuba_diving": "Varustusega sukeldumine",
+                        "shooting": "Laskesport",
+                        "skateboard": "Rulasõit",
+                        "ski_jumping": "Suusehüpped",
+                        "skiing": "Suusatamine",
+                        "soccer": "Jalgpall",
+                        "softball": "Pehmepall",
+                        "speedway": "Speedway",
+                        "swimming": "Ujumine",
+                        "table_tennis": "Lauatennis",
+                        "tennis": "Tennis",
+                        "volleyball": "Võrkpall",
+                        "yoga": "Jooga"
+                    }
                 },
                 "stars": {
                     "label": "Tärne",
@@ -5002,7 +5403,21 @@
                     "terms": [
                         "rahustamine",
                         "liikus"
-                    ]
+                    ],
+                    "options": {
+                        "bump": "Teekünnis",
+                        "chicane": "Suunamuutetakistus",
+                        "choked_table": "Teekitsendus koos tõstetud pinnaga",
+                        "choker": "Teekitsendus",
+                        "cushion": "Sõiduautokünnis",
+                        "dip": "Ümberpööratud liikluskünnis",
+                        "double_dip": "Kaks ümberpööratud liikluskünnist",
+                        "hump": "Liikluskünnis",
+                        "island": "Eraldussaar",
+                        "mini_bumps": "Väikesed teekünnised",
+                        "rumble_strip": "Täristi",
+                        "table": "Tõstetud pind"
+                    }
                 },
                 "traffic_sign": {
                     "label": "Liiklusmärk"
@@ -5102,7 +5517,13 @@
                 },
                 "tunnel": {
                     "label": "Tüüp",
-                    "placeholder": "Vaikimisi valik"
+                    "placeholder": "Vaikimisi valik",
+                    "options": {
+                        "avalanche_protector": "Lumelaviini kaitsetunnel",
+                        "building_passage": "Läbikäik hoonest",
+                        "culvert": "Truup",
+                        "flooded": "Üleujutatav tunnel (ei sobi inimestele)"
+                    }
                 },
                 "tunnel/name": {
                     "label": "Tunneli nimi"

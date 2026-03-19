@@ -703,7 +703,17 @@
                 },
                 "bridge": {
                     "label": "Type",
-                    "placeholder": "Défaut"
+                    "placeholder": "Défaut",
+                    "options": {
+                        "aqueduct": "Aqueduc",
+                        "boardwalk": "Promenade",
+                        "cantilever": "Pont à poutres en porte-à-faux",
+                        "covered": "Pont couvert",
+                        "low_water_crossing": "Pont inondable",
+                        "movable": "Pont mobile",
+                        "trestle": "Pont à tréteaux",
+                        "viaduct": "Viaduc"
+                    }
                 },
                 "bridge/name": {
                     "label": "Nom du pont",
@@ -1260,7 +1270,12 @@
                         "no": "Non",
                         "undefined": "Indéfini",
                         "yes": "Oui"
-                    }
+                    },
+                    "label": "Couvert",
+                    "terms": [
+                        "couvert",
+                        "recouvert"
+                    ]
                 },
                 "craft": {
                     "label": "Type",
@@ -1771,7 +1786,12 @@
                     }
                 },
                 "direction_point": {
-                    "placeholder": "45, 90, 180, 270"
+                    "placeholder": "45, 90, 180, 270",
+                    "label": "Direction (en degrés dans le sens horaire)",
+                    "terms": [
+                        "direction",
+                        "orientation"
+                    ]
                 },
                 "direction_vertex": {
                     "label": "Direction concernée",
@@ -2730,7 +2750,12 @@
                     "options": {
                         "down": "Descendante",
                         "up": "Montante"
-                    }
+                    },
+                    "label": "Pente",
+                    "terms": [
+                        "inclinaison",
+                        "direction"
+                    ]
                 },
                 "indoor": {
                     "label": "Intérieur",
@@ -2891,7 +2916,38 @@
                     "label": "Hauteur"
                 },
                 "kerb/kerb_barrier": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "flush": {
+                            "description": "Un trottoir affleurant qui est de niveau avec la zone environnante.",
+                            "title": "Affleurant"
+                        },
+                        "lowered": {
+                            "description": "Trottoir abaissé qui peut être utilisé par des utilisateurs en fauteuil roulant, pas plus de quelques centimètres.",
+                            "title": "Abaissé"
+                        },
+                        "no": {
+                            "description": "Il n'y a aucun trottoir à cet endroit.",
+                            "title": "Non"
+                        },
+                        "raised": {
+                            "description": "Un trottoir surélevé qui ne peut pas être utilisé par des utilisateurs en fauteuil roulant, élevé de plus que quelques centimètres.",
+                            "title": "Surélevé"
+                        },
+                        "rolled": {
+                            "description": "Un trottoir surélevé avec un bord arrondi, ce qui le rend plus facile à franchir par les véhicules, mais pas par les fauteuils roulants.",
+                            "title": "Arrondi et surélevé"
+                        },
+                        "yes": {
+                            "description": "Une sorte de bordure est présente à cet endroit, on ne sait pas si elle est surélevée, abaissée, à fleur, etc.",
+                            "title": "Oui"
+                        }
+                    },
+                    "terms": [
+                        "trottoir",
+                        "bord",
+                        "bordure"
+                    ]
                 },
                 "kitchen": {
                     "label": "Cuisine",
@@ -2947,7 +3003,11 @@
                     ]
                 },
                 "layer_1": {
-                    "placeholder": "0"
+                    "placeholder": "0",
+                    "label": "Couche",
+                    "terms": [
+                        "couche"
+                    ]
                 },
                 "leaf_cycle": {
                     "label": "Phénologie du feuillage",
@@ -2993,9 +3053,14 @@
                         "genre",
                         "feuille",
                         "feuillage",
-                        "aiguille",
-                        "phénologie"
-                    ]
+                        "aiguille"
+                    ],
+                    "options": {
+                        "broadleaved": "Arbres feuillus",
+                        "leafless": "Sans feuilles",
+                        "mixed": "mélangé",
+                        "needleleaved": "Arbres à aiguilles"
+                    }
                 },
                 "leisure": {
                     "label": "Type"
@@ -3105,7 +3170,11 @@
                         "indoor": "Intérieur",
                         "outdoor": "Extérieur",
                         "roof": "Sur le toit"
-                    }
+                    },
+                    "label": "Lieu",
+                    "terms": [
+                        "emplacement"
+                    ]
                 },
                 "lock": {
                     "label": "Écluse"
@@ -3665,7 +3734,14 @@
                         "reversible": "Réversible",
                         "undefined": "Par défaut : Oui",
                         "yes": "Oui"
-                    }
+                    },
+                    "label": "Sens unique",
+                    "terms": [
+                        "une direction",
+                        "unidirectionnel",
+                        "unidirectionnelle",
+                        "sens unique"
+                    ]
                 },
                 "openfire": {
                     "label": "Feux ouverts autorisés",
@@ -3722,7 +3798,19 @@
                     ]
                 },
                 "orientation/orientation_parking": {
-                    "label": "Orientation"
+                    "label": "Orientation",
+                    "options": {
+                        "diagonal": "En épi par rapport à la chaussée (~45°)",
+                        "parallel": "En créneau par rapport à la chaussée",
+                        "perpendicular": "En bataille par rapport à la chaussée (~90°)"
+                    },
+                    "terms": [
+                        "orientation du stationnement"
+                    ],
+                    "types": {
+                        "parking:left:orientation": "Côté gauche",
+                        "parking:right:orientation": "Côté droit"
+                    }
                 },
                 "outdoor_seating": {
                     "label": "Places en terrasse",
@@ -3864,7 +3952,61 @@
                     }
                 },
                 "parking_entrance": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "carports": {
+                            "description": "Structure offrant une protection limitée aux véhicules, généralement sans murs",
+                            "title": "Auvent"
+                        },
+                        "garage_boxes": {
+                            "description": "Garage privé avec de multiples box individuels pour une voiture chacun",
+                            "title": "Box"
+                        },
+                        "half_on_kerb": {
+                            "description": "Parking partiellement sur le trottoir",
+                            "title": "Chevauchement du trottoir"
+                        },
+                        "lane": {
+                            "description": "Stationnement sur la rue (qui pourrait facilement être convertit en voie de circulation)",
+                            "title": "Stationnement de rue"
+                        },
+                        "layby": {
+                            "description": "Parking sur une aire de repos, le long d'une route",
+                            "title": "Bas-côté"
+                        },
+                        "multi-storey": {
+                            "description": "Deux niveau de parking ou plus dans une structure",
+                            "title": "Sur plusieurs niveaux"
+                        },
+                        "on_kerb": {
+                            "description": "Parking sur le trottoir",
+                            "title": "Sur le trottoir"
+                        },
+                        "rooftop": {
+                            "description": "Un niveau de parking en haut d'un bâtiment",
+                            "title": "Toiture"
+                        },
+                        "sheds": {
+                            "description": "Hangars privés pour véhicules",
+                            "title": "Abri privé"
+                        },
+                        "shoulder": {
+                            "description": "Parking sur le trottoir.",
+                            "title": "Accotement"
+                        },
+                        "street_side": {
+                            "description": "Parking directement adjacent à la rue (mais pas dessus)",
+                            "title": "Bordure de voie"
+                        },
+                        "surface": {
+                            "description": "Un niveau de parking au sol",
+                            "title": "En surface"
+                        },
+                        "underground": {
+                            "description": "Parking souterrain",
+                            "title": "Souterrain"
+                        }
+                    }
                 },
                 "parking_space": {
                     "label": "Type"
@@ -3979,7 +4121,8 @@
                         "intermediate": "Piste rouge (EU)",
                         "novice": "Piste verte (EU)"
                     },
-                    "placeholder": "Bleue, rouge, verte ..."
+                    "placeholder": "Bleue, rouge, verte ...",
+                    "label": "Difficulté"
                 },
                 "piste/difficulty_nordic": {
                     "options": {
@@ -3989,7 +4132,8 @@
                         "intermediate": "Intermédiaire - Pente forte ou passage étroit",
                         "novice": "Débutant - Terrain plat"
                     },
-                    "placeholder": "Section facile, intermédiaire, difficile ..."
+                    "placeholder": "Section facile, intermédiaire, difficile ...",
+                    "label": "Difficulté"
                 },
                 "piste/difficulty_skitour": {
                     "options": {
@@ -4001,7 +4145,8 @@
                         "intermediate": "Intermédiaire - ZS: pente 35-40°",
                         "novice": "Débutant - L: pente <30°"
                     },
-                    "placeholder": "Difficulté L, ZS, ... (Club Alpin Suisse)"
+                    "placeholder": "Difficulté L, ZS, ... (Club Alpin Suisse)",
+                    "label": "Difficulté"
                 },
                 "piste/grooming": {
                     "label": "Préparation",
@@ -4019,13 +4164,15 @@
                         "backcountry": "Piste balisée non-damée",
                         "classic": "Piste damée",
                         "mogul": "Bosses"
-                    }
+                    },
+                    "label": "Préparation"
                 },
                 "piste/grooming_hike": {
                     "options": {
                         "backcountry": "Non damée - raquettes",
                         "classic": "Damée - piétons"
-                    }
+                    },
+                    "label": "Préparation"
                 },
                 "piste/grooming_nordic": {
                     "options": {
@@ -4034,7 +4181,8 @@
                         "classic+skating": "Traces classiques et plan lisse",
                         "scooter": "Simple passage à la motoneige",
                         "skating": "Plan lisse pour skating"
-                    }
+                    },
+                    "label": "Préparation"
                 },
                 "piste/type": {
                     "label": "Type",
@@ -4059,7 +4207,22 @@
                     "label": "Type de plante"
                 },
                 "plant/method": {
-                    "label": "Méthode de génération"
+                    "label": "Méthode de génération",
+                    "options": {
+                        "anaerobic_digestion": "Digestion anaérobie",
+                        "barrage": "Usine marémotrice",
+                        "combustion": "Combustion",
+                        "fission": "Fission",
+                        "fusion": "Fusion",
+                        "gasification": "Gazéification",
+                        "photovoltaic": "Photovoltaïque",
+                        "run-of-the-river": "Énergie hydraulique au fil de l'eau",
+                        "stream": "Courant de marée",
+                        "thermal": "Solaire thermique",
+                        "water-pumped-storage": "Stockage par pompage",
+                        "water-storage": "Bassin de retenue",
+                        "wind_turbine": "Éolienne"
+                    }
                 },
                 "plant/output": {
                     "label": "Forme de puissance délivrée",
@@ -4079,7 +4242,26 @@
                     "placeholder": "500 MW, 1000 MW, 2000 MW..."
                 },
                 "plant/source": {
-                    "label": "Source d'énergie"
+                    "label": "Source d'énergie",
+                    "options": {
+                        "battery": "Accumulateur",
+                        "biofuel": "Biocarburants à base végétale",
+                        "biogas": "Biogaz",
+                        "biomass": "Matière végétale",
+                        "coal": "Charbon",
+                        "diesel": "Diésel",
+                        "gas": "Gaz naturel",
+                        "gasoline": "Gasoil",
+                        "geothermal": "Énergie géothermique",
+                        "hydro": "Énergie hydraulique",
+                        "nuclear": "Énergie nucléaire",
+                        "oil": "Pétrole",
+                        "solar": "Rayonnement solaire",
+                        "tidal": "Énergie marémotrice",
+                        "waste": "Déchets",
+                        "wave": "Énergie houlomotrice",
+                        "wind": "Vent"
+                    }
                 },
                 "playground": {
                     "label": "Type",
@@ -5080,7 +5262,65 @@
                     }
                 },
                 "sport/sport_ice": {
-                    "label": "Sports"
+                    "label": "Sports",
+                    "options": {
+                        "10pin": "Bowling",
+                        "9pin": "Bowling à neuf quilles",
+                        "american_football": "Football américain",
+                        "athletics": "Athlétisme",
+                        "badminton": "Badminton",
+                        "baseball": "Baseball",
+                        "basketball": "Basket-ball",
+                        "beachvolleyball": "Beach volley",
+                        "billiards": "Sports à queue (billard, ...)",
+                        "bmx": "BMX",
+                        "boules": "Boules",
+                        "bowls": "Bowling",
+                        "canoe": "Canoë",
+                        "chess": "Échecs",
+                        "climbing": "Escalade",
+                        "cricket": "Cricket",
+                        "curling": "Curling",
+                        "cycling": "Cyclisme",
+                        "darts": "Fléchettes",
+                        "disc_golf": "Disc golf",
+                        "dog_racing": "Course de chiens",
+                        "equestrian": "Sports équestres",
+                        "fitness": "Fitness",
+                        "free_flying": "Parapente",
+                        "futsal": "Futsal",
+                        "gaelic_games": "Sport gaélique",
+                        "golf": "Golf",
+                        "gymnastics": "Gymnastique",
+                        "handball": "Handball",
+                        "horse_racing": "Course hippique",
+                        "ice_hockey": "Hockey sur glace",
+                        "ice_skating": "Patin à glace",
+                        "ice_stock": "Eisstock",
+                        "karting": "Karting",
+                        "motocross": "Motocross",
+                        "motor": "Sports automobiles et mécaniques",
+                        "multi": "Autres sports (non précisé)",
+                        "netball": "Netball",
+                        "orienteering": "Course d'orientation",
+                        "padel": "Padel",
+                        "pelota": "Pelote",
+                        "rugby_union": "Rugby à XV",
+                        "running": "Course à pied",
+                        "scuba_diving": "Plongée",
+                        "shooting": "Tir",
+                        "skateboard": "Skateboard",
+                        "ski_jumping": "Saut à ski",
+                        "skiing": "Ski",
+                        "soccer": "Football",
+                        "softball": "Softball",
+                        "speedway": "Course sur circuit",
+                        "swimming": "Natation",
+                        "table_tennis": "Tennis de table",
+                        "tennis": "Tennis",
+                        "volleyball": "Volley-ball",
+                        "yoga": "Yoga"
+                    }
                 },
                 "sport/sport_pub": {
                     "label": "Sport",
@@ -5090,13 +5330,187 @@
                         "sport",
                         "sports",
                         "eps"
-                    ]
+                    ],
+                    "options": {
+                        "10pin": "Bowling",
+                        "9pin": "Bowling à neuf quilles",
+                        "american_football": "Football américain",
+                        "athletics": "Athlétisme",
+                        "badminton": "Badminton",
+                        "baseball": "Baseball",
+                        "basketball": "Basket-ball",
+                        "beachvolleyball": "Beach volley",
+                        "billiards": "Sports à queue (billard, ...)",
+                        "bmx": "BMX",
+                        "boules": "Boules",
+                        "bowls": "Bowling",
+                        "canoe": "Canoë",
+                        "chess": "Échecs",
+                        "climbing": "Escalade",
+                        "cricket": "Cricket",
+                        "curling": "Curling",
+                        "cycling": "Cyclisme",
+                        "darts": "Fléchettes",
+                        "disc_golf": "Disc golf",
+                        "dog_racing": "Course de chiens",
+                        "equestrian": "Sports équestres",
+                        "fitness": "Fitness",
+                        "free_flying": "Parapente",
+                        "futsal": "Futsal",
+                        "gaelic_games": "Sport gaélique",
+                        "golf": "Golf",
+                        "gymnastics": "Gymnastique",
+                        "handball": "Handball",
+                        "horse_racing": "Course hippique",
+                        "ice_hockey": "Hockey sur glace",
+                        "ice_skating": "Patin à glace",
+                        "ice_stock": "Eisstock",
+                        "karting": "Karting",
+                        "motocross": "Motocross",
+                        "motor": "Sports automobiles et mécaniques",
+                        "multi": "Autres sports (non précisé)",
+                        "netball": "Netball",
+                        "orienteering": "Course d'orientation",
+                        "padel": "Padel",
+                        "pelota": "Pelote",
+                        "rugby_union": "Rugby à XV",
+                        "running": "Course à pied",
+                        "scuba_diving": "Plongée",
+                        "shooting": "Tir",
+                        "skateboard": "Skateboard",
+                        "ski_jumping": "Saut à ski",
+                        "skiing": "Ski",
+                        "soccer": "Football",
+                        "softball": "Softball",
+                        "speedway": "Course sur circuit",
+                        "swimming": "Natation",
+                        "table_tennis": "Tennis de table",
+                        "tennis": "Tennis",
+                        "volleyball": "Volley-ball",
+                        "yoga": "Yoga"
+                    }
                 },
                 "sport/sport_racing_motor": {
-                    "label": "Sports"
+                    "label": "Sports",
+                    "options": {
+                        "10pin": "Bowling",
+                        "9pin": "Bowling à neuf quilles",
+                        "american_football": "Football américain",
+                        "athletics": "Athlétisme",
+                        "badminton": "Badminton",
+                        "baseball": "Baseball",
+                        "basketball": "Basket-ball",
+                        "beachvolleyball": "Beach volley",
+                        "billiards": "Sports à queue (billard, ...)",
+                        "bmx": "BMX",
+                        "boules": "Boules",
+                        "bowls": "Bowling",
+                        "canoe": "Canoë",
+                        "chess": "Échecs",
+                        "climbing": "Escalade",
+                        "cricket": "Cricket",
+                        "curling": "Curling",
+                        "cycling": "Cyclisme",
+                        "darts": "Fléchettes",
+                        "disc_golf": "Disc golf",
+                        "dog_racing": "Course de chiens",
+                        "equestrian": "Sports équestres",
+                        "fitness": "Fitness",
+                        "free_flying": "Parapente",
+                        "futsal": "Futsal",
+                        "gaelic_games": "Sport gaélique",
+                        "golf": "Golf",
+                        "gymnastics": "Gymnastique",
+                        "handball": "Handball",
+                        "horse_racing": "Course hippique",
+                        "ice_hockey": "Hockey sur glace",
+                        "ice_skating": "Patin à glace",
+                        "ice_stock": "Eisstock",
+                        "karting": "Karting",
+                        "motocross": "Motocross",
+                        "motor": "Sports automobiles et mécaniques",
+                        "multi": "Autres sports (non précisé)",
+                        "netball": "Netball",
+                        "orienteering": "Course d'orientation",
+                        "padel": "Padel",
+                        "pelota": "Pelote",
+                        "rugby_union": "Rugby à XV",
+                        "running": "Course à pied",
+                        "scuba_diving": "Plongée",
+                        "shooting": "Tir",
+                        "skateboard": "Skateboard",
+                        "ski_jumping": "Saut à ski",
+                        "skiing": "Ski",
+                        "soccer": "Football",
+                        "softball": "Softball",
+                        "speedway": "Course sur circuit",
+                        "swimming": "Natation",
+                        "table_tennis": "Tennis de table",
+                        "tennis": "Tennis",
+                        "volleyball": "Volley-ball",
+                        "yoga": "Yoga"
+                    }
                 },
                 "sport/sport_racing_nonmotor": {
-                    "label": "Sports"
+                    "label": "Sports",
+                    "options": {
+                        "10pin": "Bowling",
+                        "9pin": "Bowling à neuf quilles",
+                        "american_football": "Football américain",
+                        "athletics": "Athlétisme",
+                        "badminton": "Badminton",
+                        "baseball": "Baseball",
+                        "basketball": "Basket-ball",
+                        "beachvolleyball": "Beach volley",
+                        "billiards": "Sports à queue (billard, ...)",
+                        "bmx": "BMX",
+                        "boules": "Boules",
+                        "bowls": "Bowling",
+                        "canoe": "Canoë",
+                        "chess": "Échecs",
+                        "climbing": "Escalade",
+                        "cricket": "Cricket",
+                        "curling": "Curling",
+                        "cycling": "Cyclisme",
+                        "darts": "Fléchettes",
+                        "disc_golf": "Disc golf",
+                        "dog_racing": "Course de chiens",
+                        "equestrian": "Sports équestres",
+                        "fitness": "Fitness",
+                        "free_flying": "Parapente",
+                        "futsal": "Futsal",
+                        "gaelic_games": "Sport gaélique",
+                        "golf": "Golf",
+                        "gymnastics": "Gymnastique",
+                        "handball": "Handball",
+                        "horse_racing": "Course hippique",
+                        "ice_hockey": "Hockey sur glace",
+                        "ice_skating": "Patin à glace",
+                        "ice_stock": "Eisstock",
+                        "karting": "Karting",
+                        "motocross": "Motocross",
+                        "motor": "Sports automobiles et mécaniques",
+                        "multi": "Autres sports (non précisé)",
+                        "netball": "Netball",
+                        "orienteering": "Course d'orientation",
+                        "padel": "Padel",
+                        "pelota": "Pelote",
+                        "rugby_union": "Rugby à XV",
+                        "running": "Course à pied",
+                        "scuba_diving": "Plongée",
+                        "shooting": "Tir",
+                        "skateboard": "Skateboard",
+                        "ski_jumping": "Saut à ski",
+                        "skiing": "Ski",
+                        "soccer": "Football",
+                        "softball": "Softball",
+                        "speedway": "Course sur circuit",
+                        "swimming": "Natation",
+                        "table_tennis": "Tennis de table",
+                        "tennis": "Tennis",
+                        "volleyball": "Volley-ball",
+                        "yoga": "Yoga"
+                    }
                 },
                 "stars": {
                     "label": "Étoiles",
@@ -5637,7 +6051,21 @@
                     "label": "Apaisement du trafic",
                     "terms": [
                         "ralentisseur"
-                    ]
+                    ],
+                    "options": {
+                        "bump": "Chaussée surélevée",
+                        "chicane": "Chicane",
+                        "choked_table": "Dos d'âne trapézoïdal avec écluse",
+                        "choker": "Écluse (ralentisseur)",
+                        "cushion": "Coussin berlinois",
+                        "dip": "Creux",
+                        "double_dip": "Double creux",
+                        "hump": "Ralentisseur dos d’âne",
+                        "island": "Îlot d'apaisement du trafic",
+                        "mini_bumps": "Mini ralentisseurs",
+                        "rumble_strip": "Bande rugueuse",
+                        "table": "Dos d'âne trapézoïdal"
+                    }
                 },
                 "traffic_sign": {
                     "label": "Panneau de signalisation"
@@ -5757,7 +6185,13 @@
                 },
                 "tunnel": {
                     "label": "Type",
-                    "placeholder": "Défaut"
+                    "placeholder": "Défaut",
+                    "options": {
+                        "avalanche_protector": "Dispositif anti-avalanche",
+                        "building_passage": "Passerelle",
+                        "culvert": "Canalisation",
+                        "flooded": "Tunnel inondé"
+                    }
                 },
                 "tunnel/name": {
                     "label": "Nom du tunnel"

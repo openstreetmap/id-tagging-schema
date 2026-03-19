@@ -634,7 +634,14 @@
                 },
                 "bridge": {
                     "label": "Tipus",
-                    "placeholder": "Predeterminat"
+                    "placeholder": "Predeterminat",
+                    "options": {
+                        "aqueduct": "Aqüeducte",
+                        "cantilever": "Pont en mènsula",
+                        "covered": "Pont cobert",
+                        "movable": "Pont mòbil",
+                        "viaduct": "Viaducte"
+                    }
                 },
                 "bridge/ref": {
                     "label": "Número de pont",
@@ -1117,7 +1124,13 @@
                         "no": "No",
                         "undefined": "Suposat que és No",
                         "yes": "Sí"
-                    }
+                    },
+                    "label": "Cobert",
+                    "terms": [
+                        "cobert",
+                        "sostre",
+                        "resguardat"
+                    ]
                 },
                 "craft": {
                     "label": "Tipus",
@@ -1602,7 +1615,20 @@
                     }
                 },
                 "direction_point": {
-                    "placeholder": "45, 90, 180, 270"
+                    "placeholder": "45, 90, 180, 270",
+                    "label": "Direcció (graus en sentit horari)",
+                    "terms": [
+                        "direcció",
+                        "sentit",
+                        "marxa",
+                        "graus",
+                        "horari",
+                        "radia",
+                        "nord",
+                        "sud",
+                        "est",
+                        "oest"
+                    ]
                 },
                 "direction_vertex": {
                     "label": "Direcció afectada",
@@ -2493,7 +2519,14 @@
                     "options": {
                         "down": "Avall",
                         "up": "Amunt"
-                    }
+                    },
+                    "label": "Pendent",
+                    "terms": [
+                        "inclinació",
+                        "inclinat",
+                        "pendent",
+                        "costera"
+                    ]
                 },
                 "indoor": {
                     "label": "Interior",
@@ -2648,7 +2681,40 @@
                     "label": "Alçada"
                 },
                 "kerb/kerb_barrier": {
-                    "label": "Tipus"
+                    "label": "Tipus",
+                    "options": {
+                        "flush": {
+                            "description": "Una vorada rebaixada que està rasa, a l'altura de l'entorn.",
+                            "title": "Rasa"
+                        },
+                        "lowered": {
+                            "description": "Una vorada rebaixada o gual que pot ser traspassada per usuaris de cadires de rodes, no superior a uns pocs centímetres.",
+                            "title": "Rebaixada"
+                        },
+                        "no": {
+                            "description": "No hi ha cap vorada en aquesta ubicació.",
+                            "title": "No"
+                        },
+                        "raised": {
+                            "description": "Una vorada elevada que no pot ser traspassada fàcilment per usuaris de cadires de rodes, de més d'uns pocs centímetres.",
+                            "title": "Elevada"
+                        },
+                        "rolled": {
+                            "description": "Una vorada elevada amb vora arrodonida que facilita l'accés a cotxes o bicicletes, però no per a cadires de rodes.",
+                            "title": "Forma de canal"
+                        },
+                        "yes": {
+                            "description": "En aquest lloc hi ha algun tipus de vorada, sense saber si està elevada, rebaixada, rasa, etc.",
+                            "title": "Sí"
+                        }
+                    },
+                    "terms": [
+                        "borda",
+                        "vorera",
+                        "marge de la carretera",
+                        "cantó",
+                        "llinatge"
+                    ]
                 },
                 "kitchen": {
                     "label": "Cuina",
@@ -2702,7 +2768,11 @@
                     ]
                 },
                 "layer_1": {
-                    "placeholder": "0"
+                    "placeholder": "0",
+                    "label": "Capa",
+                    "terms": [
+                        "capa"
+                    ]
                 },
                 "leaf_cycle": {
                     "label": "Cicle del fullatge",
@@ -2739,7 +2809,13 @@
                         "tipus",
                         "fulla",
                         "tipus de fulla"
-                    ]
+                    ],
+                    "options": {
+                        "broadleaved": "Fulles amples",
+                        "leafless": "Sense fullatge",
+                        "mixed": "Barrejat",
+                        "needleleaved": "Fulles primes"
+                    }
                 },
                 "leisure": {
                     "label": "Tipus"
@@ -2833,7 +2909,12 @@
                         "indoor": "Interior",
                         "outdoor": "Exterior",
                         "roof": "Terrat"
-                    }
+                    },
+                    "label": "Ubicació",
+                    "terms": [
+                        "ubicació",
+                        "localització"
+                    ]
                 },
                 "lock": {
                     "label": "Resclosa"
@@ -3291,7 +3372,8 @@
                         "reversible": "Reversible",
                         "undefined": "Sobreentès que sí",
                         "yes": "Sí"
-                    }
+                    },
+                    "label": "Sentit únic"
                 },
                 "openfire": {
                     "label": "Focs de camp permesos"
@@ -3328,7 +3410,16 @@
                     ]
                 },
                 "orientation/orientation_parking": {
-                    "label": "Orientació"
+                    "label": "Orientació",
+                    "options": {
+                        "diagonal": "Diagonal en relació al carrer (~45°)",
+                        "parallel": "Paral·lel al carrer",
+                        "perpendicular": "Perpendicular a la carretera (~90°)"
+                    },
+                    "types": {
+                        "parking:left:orientation": "Costat esquerre",
+                        "parking:right:orientation": "Costat dreta"
+                    }
                 },
                 "outdoor_seating": {
                     "label": "Seient a l'aire lliure"
@@ -3439,7 +3530,52 @@
                     }
                 },
                 "parking_entrance": {
-                    "label": "Tipus"
+                    "label": "Tipus",
+                    "options": {
+                        "carports": {
+                            "title": "Aixoplucs"
+                        },
+                        "garage_boxes": {
+                            "title": "Boxs"
+                        },
+                        "half_on_kerb": {
+                            "description": "Aparcament parcialment a la vorera",
+                            "title": "Parcialment en la vorera"
+                        },
+                        "lane": {
+                            "title": "Carril adossat a la calçada"
+                        },
+                        "layby": {
+                            "description": "Aparcament en una àrea de descans, al costat d'una carretera.",
+                            "title": "Apartadero de descans"
+                        },
+                        "multi-storey": {
+                            "title": "Diversos nivells"
+                        },
+                        "on_kerb": {
+                            "description": "Aparcament a la vorera",
+                            "title": "A la vorera"
+                        },
+                        "rooftop": {
+                            "title": "Terrat"
+                        },
+                        "sheds": {
+                            "title": "Garatges"
+                        },
+                        "shoulder": {
+                            "title": "Voral"
+                        },
+                        "street_side": {
+                            "title": "Adjacent a la carretera"
+                        },
+                        "surface": {
+                            "title": "Superfície"
+                        },
+                        "underground": {
+                            "description": "Aparcament subterrani",
+                            "title": "Subterrani"
+                        }
+                    }
                 },
                 "parking_space": {
                     "label": "Tipus"
@@ -3538,7 +3674,8 @@
                         "intermediate": "Intermedi (quadrat blau)",
                         "novice": "Novell (instructiu)"
                     },
-                    "placeholder": "Fàcil, Intermedi, avançat..."
+                    "placeholder": "Fàcil, Intermedi, avançat...",
+                    "label": "Dificultat"
                 },
                 "piste/difficulty_nordic": {
                     "options": {
@@ -3548,10 +3685,12 @@
                         "intermediate": "Intermèdia - Secció escarpada",
                         "novice": "Novella - Pla, sense esforç"
                     },
-                    "placeholder": "Fàcil, intermèdia, avançada..."
+                    "placeholder": "Fàcil, intermèdia, avançada...",
+                    "label": "Dificultat"
                 },
                 "piste/difficulty_skitour": {
-                    "placeholder": "Fàcil, Intermedi, Avançat..."
+                    "placeholder": "Fàcil, Intermedi, Avançat...",
+                    "label": "Dificultat"
                 },
                 "piste/grooming": {
                     "label": "Adequació",
@@ -3569,13 +3708,15 @@
                         "backcountry": "Fora pista - sense adequació",
                         "classic": "Clàssic",
                         "mogul": "Bonys"
-                    }
+                    },
+                    "label": "Adequació"
                 },
                 "piste/grooming_hike": {
                     "options": {
                         "backcountry": "Fora pista - Raquetes de neu",
                         "classic": "Clàssic - excursionisme hivernal"
-                    }
+                    },
+                    "label": "Adequació"
                 },
                 "piste/grooming_nordic": {
                     "options": {
@@ -3584,7 +3725,8 @@
                         "classic+skating": "Clàssic i patinador",
                         "scooter": "Moto de neu",
                         "skating": "Patinador"
-                    }
+                    },
+                    "label": "Adequació"
                 },
                 "piste/type": {
                     "label": "Tipus",
@@ -3608,7 +3750,22 @@
                     "label": "Planta"
                 },
                 "plant/method": {
-                    "label": "Mètode de generació"
+                    "label": "Mètode de generació",
+                    "options": {
+                        "anaerobic_digestion": "Digestió Anaeròbica",
+                        "barrage": "Barrera de marees",
+                        "combustion": "Combustió",
+                        "fission": "Fissió",
+                        "fusion": "Fusió",
+                        "gasification": "Gasificació",
+                        "photovoltaic": "Fotovoltaica",
+                        "run-of-the-river": "Central hidroelèctrica de passada",
+                        "stream": "Corrent de la marea",
+                        "thermal": "Termosolar",
+                        "water-pumped-storage": "Acumulació per bombeig",
+                        "water-storage": "Embassament",
+                        "wind_turbine": "Aerogenerador"
+                    }
                 },
                 "plant/output": {
                     "label": "Forma de sortida de potència",
@@ -3628,7 +3785,26 @@
                     "placeholder": "500 MW, 1000 MW, 2000 MW..."
                 },
                 "plant/source": {
-                    "label": "Font d'energia"
+                    "label": "Font d'energia",
+                    "options": {
+                        "battery": "Bateria",
+                        "biofuel": "Biocomubistible",
+                        "biogas": "Biogas",
+                        "biomass": "Biomassa",
+                        "coal": "Carbó",
+                        "diesel": "Gasoil",
+                        "gas": "Gas Natural",
+                        "gasoline": "Gasolina",
+                        "geothermal": "Energia Geotèrmica",
+                        "hydro": "Energia hídrica",
+                        "nuclear": "Energia Nuclear",
+                        "oil": "Oli",
+                        "solar": "Radiació Solar",
+                        "tidal": "Energia mareomotriu",
+                        "waste": "Rebuig / Basura",
+                        "wave": "Energia de les onades",
+                        "wind": "Vent"
+                    }
                 },
                 "playground": {
                     "label": "Tipus",
@@ -4363,7 +4539,64 @@
                     }
                 },
                 "sport/sport_ice": {
-                    "label": "Esports"
+                    "label": "Esports",
+                    "options": {
+                        "10pin": "Birles de 10",
+                        "9pin": "Birles de 9",
+                        "american_football": "Futbol Americà",
+                        "athletics": "Atletisme",
+                        "badminton": "Bàdminton",
+                        "baseball": "Beisbol",
+                        "basketball": "Bàsquet",
+                        "beachvolleyball": "Voleibol de platja",
+                        "billiards": "Billars",
+                        "bmx": "BMX",
+                        "boules": "Petanca",
+                        "bowls": "Joc de bitlles",
+                        "canoe": "Piragüisme",
+                        "chess": "Escacs",
+                        "climbing": "Escalada",
+                        "cricket": "Criquet",
+                        "curling": "Cúrling",
+                        "cycling": "Ciclisme",
+                        "darts": "Dards",
+                        "disc_golf": "Disc Golf",
+                        "dog_racing": "Curses de gossos",
+                        "equestrian": "Esports eqüestres",
+                        "fitness": "Entrenament físic",
+                        "free_flying": "Parapent / Ala delta",
+                        "futsal": "Futbol sala",
+                        "gaelic_games": "Esports gàelics",
+                        "golf": "Golf",
+                        "gymnastics": "Gimnàstica artística",
+                        "handball": "Handbol",
+                        "horse_racing": "Carrera de cavalls",
+                        "ice_hockey": "Hoquei sobre gel",
+                        "ice_skating": " Patinatge sobre gel",
+                        "ice_stock": "Cúrling austríac",
+                        "karting": "Kàrting",
+                        "motocross": "Motocròs",
+                        "motor": "Esports de motor",
+                        "multi": "Altres esports no especificats",
+                        "netball": "Netbol",
+                        "orienteering": "Orientació",
+                        "padel": "Pàdel",
+                        "pelota": "Pilota",
+                        "rugby_union": "Rugbi",
+                        "running": "Raning",
+                        "scuba_diving": "Submarinisme",
+                        "shooting": "Tir",
+                        "skateboard": "Monopatí de carrer",
+                        "skiing": "Esquí",
+                        "soccer": "Futbol",
+                        "softball": "Softball",
+                        "speedway": "Autòdrom per a moto cicletes",
+                        "swimming": "Natació",
+                        "table_tennis": "Ping-pong",
+                        "tennis": "Tenis",
+                        "volleyball": "Voleibol",
+                        "yoga": "Ioga"
+                    }
                 },
                 "sport/sport_pub": {
                     "label": "Esports",
@@ -4374,13 +4607,184 @@
                         "jocs",
                         "recreacions",
                         "competicions"
-                    ]
+                    ],
+                    "options": {
+                        "10pin": "Birles de 10",
+                        "9pin": "Birles de 9",
+                        "american_football": "Futbol Americà",
+                        "athletics": "Atletisme",
+                        "badminton": "Bàdminton",
+                        "baseball": "Beisbol",
+                        "basketball": "Bàsquet",
+                        "beachvolleyball": "Voleibol de platja",
+                        "billiards": "Billars",
+                        "bmx": "BMX",
+                        "boules": "Petanca",
+                        "bowls": "Joc de bitlles",
+                        "canoe": "Piragüisme",
+                        "chess": "Escacs",
+                        "climbing": "Escalada",
+                        "cricket": "Criquet",
+                        "curling": "Cúrling",
+                        "cycling": "Ciclisme",
+                        "darts": "Dards",
+                        "disc_golf": "Disc Golf",
+                        "dog_racing": "Curses de gossos",
+                        "equestrian": "Esports eqüestres",
+                        "fitness": "Entrenament físic",
+                        "free_flying": "Parapent / Ala delta",
+                        "futsal": "Futbol sala",
+                        "gaelic_games": "Esports gàelics",
+                        "golf": "Golf",
+                        "gymnastics": "Gimnàstica artística",
+                        "handball": "Handbol",
+                        "horse_racing": "Carrera de cavalls",
+                        "ice_hockey": "Hoquei sobre gel",
+                        "ice_skating": " Patinatge sobre gel",
+                        "ice_stock": "Cúrling austríac",
+                        "karting": "Kàrting",
+                        "motocross": "Motocròs",
+                        "motor": "Esports de motor",
+                        "multi": "Altres esports no especificats",
+                        "netball": "Netbol",
+                        "orienteering": "Orientació",
+                        "padel": "Pàdel",
+                        "pelota": "Pilota",
+                        "rugby_union": "Rugbi",
+                        "running": "Raning",
+                        "scuba_diving": "Submarinisme",
+                        "shooting": "Tir",
+                        "skateboard": "Monopatí de carrer",
+                        "skiing": "Esquí",
+                        "soccer": "Futbol",
+                        "softball": "Softball",
+                        "speedway": "Autòdrom per a moto cicletes",
+                        "swimming": "Natació",
+                        "table_tennis": "Ping-pong",
+                        "tennis": "Tenis",
+                        "volleyball": "Voleibol",
+                        "yoga": "Ioga"
+                    }
                 },
                 "sport/sport_racing_motor": {
-                    "label": "Esports"
+                    "label": "Esports",
+                    "options": {
+                        "10pin": "Birles de 10",
+                        "9pin": "Birles de 9",
+                        "american_football": "Futbol Americà",
+                        "athletics": "Atletisme",
+                        "badminton": "Bàdminton",
+                        "baseball": "Beisbol",
+                        "basketball": "Bàsquet",
+                        "beachvolleyball": "Voleibol de platja",
+                        "billiards": "Billars",
+                        "bmx": "BMX",
+                        "boules": "Petanca",
+                        "bowls": "Joc de bitlles",
+                        "canoe": "Piragüisme",
+                        "chess": "Escacs",
+                        "climbing": "Escalada",
+                        "cricket": "Criquet",
+                        "curling": "Cúrling",
+                        "cycling": "Ciclisme",
+                        "darts": "Dards",
+                        "disc_golf": "Disc Golf",
+                        "dog_racing": "Curses de gossos",
+                        "equestrian": "Esports eqüestres",
+                        "fitness": "Entrenament físic",
+                        "free_flying": "Parapent / Ala delta",
+                        "futsal": "Futbol sala",
+                        "gaelic_games": "Esports gàelics",
+                        "golf": "Golf",
+                        "gymnastics": "Gimnàstica artística",
+                        "handball": "Handbol",
+                        "horse_racing": "Carrera de cavalls",
+                        "ice_hockey": "Hoquei sobre gel",
+                        "ice_skating": " Patinatge sobre gel",
+                        "ice_stock": "Cúrling austríac",
+                        "karting": "Kàrting",
+                        "motocross": "Motocròs",
+                        "motor": "Esports de motor",
+                        "multi": "Altres esports no especificats",
+                        "netball": "Netbol",
+                        "orienteering": "Orientació",
+                        "padel": "Pàdel",
+                        "pelota": "Pilota",
+                        "rugby_union": "Rugbi",
+                        "running": "Raning",
+                        "scuba_diving": "Submarinisme",
+                        "shooting": "Tir",
+                        "skateboard": "Monopatí de carrer",
+                        "skiing": "Esquí",
+                        "soccer": "Futbol",
+                        "softball": "Softball",
+                        "speedway": "Autòdrom per a moto cicletes",
+                        "swimming": "Natació",
+                        "table_tennis": "Ping-pong",
+                        "tennis": "Tenis",
+                        "volleyball": "Voleibol",
+                        "yoga": "Ioga"
+                    }
                 },
                 "sport/sport_racing_nonmotor": {
-                    "label": "Esports"
+                    "label": "Esports",
+                    "options": {
+                        "10pin": "Birles de 10",
+                        "9pin": "Birles de 9",
+                        "american_football": "Futbol Americà",
+                        "athletics": "Atletisme",
+                        "badminton": "Bàdminton",
+                        "baseball": "Beisbol",
+                        "basketball": "Bàsquet",
+                        "beachvolleyball": "Voleibol de platja",
+                        "billiards": "Billars",
+                        "bmx": "BMX",
+                        "boules": "Petanca",
+                        "bowls": "Joc de bitlles",
+                        "canoe": "Piragüisme",
+                        "chess": "Escacs",
+                        "climbing": "Escalada",
+                        "cricket": "Criquet",
+                        "curling": "Cúrling",
+                        "cycling": "Ciclisme",
+                        "darts": "Dards",
+                        "disc_golf": "Disc Golf",
+                        "dog_racing": "Curses de gossos",
+                        "equestrian": "Esports eqüestres",
+                        "fitness": "Entrenament físic",
+                        "free_flying": "Parapent / Ala delta",
+                        "futsal": "Futbol sala",
+                        "gaelic_games": "Esports gàelics",
+                        "golf": "Golf",
+                        "gymnastics": "Gimnàstica artística",
+                        "handball": "Handbol",
+                        "horse_racing": "Carrera de cavalls",
+                        "ice_hockey": "Hoquei sobre gel",
+                        "ice_skating": " Patinatge sobre gel",
+                        "ice_stock": "Cúrling austríac",
+                        "karting": "Kàrting",
+                        "motocross": "Motocròs",
+                        "motor": "Esports de motor",
+                        "multi": "Altres esports no especificats",
+                        "netball": "Netbol",
+                        "orienteering": "Orientació",
+                        "padel": "Pàdel",
+                        "pelota": "Pilota",
+                        "rugby_union": "Rugbi",
+                        "running": "Raning",
+                        "scuba_diving": "Submarinisme",
+                        "shooting": "Tir",
+                        "skateboard": "Monopatí de carrer",
+                        "skiing": "Esquí",
+                        "soccer": "Futbol",
+                        "softball": "Softball",
+                        "speedway": "Autòdrom per a moto cicletes",
+                        "swimming": "Natació",
+                        "table_tennis": "Ping-pong",
+                        "tennis": "Tenis",
+                        "volleyball": "Voleibol",
+                        "yoga": "Ioga"
+                    }
                 },
                 "stars": {
                     "label": "Estrelles",
@@ -4772,7 +5176,18 @@
                     }
                 },
                 "traffic_calming_road": {
-                    "label": "Pacificació del trànsit"
+                    "label": "Pacificació del trànsit",
+                    "options": {
+                        "bump": "Ressalt",
+                        "chicane": "Chicane",
+                        "choker": "Reductor d'amplada",
+                        "cushion": "Coixí Berlinès",
+                        "dip": "Gual",
+                        "hump": "Esquena d'ase",
+                        "mini_bumps": "Xinxeta reductora de velocitat",
+                        "rumble_strip": "Bandes rugoses",
+                        "table": "Pas de vianants elevat"
+                    }
                 },
                 "traffic_sign": {
                     "label": "Senyal de trànsit"
@@ -4845,7 +5260,13 @@
                 },
                 "tunnel": {
                     "label": "Tipus",
-                    "placeholder": "Predeterminat"
+                    "placeholder": "Predeterminat",
+                    "options": {
+                        "avalanche_protector": "Protector d'Allaus",
+                        "building_passage": "Passatge per un edifici",
+                        "culvert": "Canonada de drenatge",
+                        "flooded": "Inundat"
+                    }
                 },
                 "tunnel_combo": {
                     "label": "Tipus",

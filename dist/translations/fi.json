@@ -607,7 +607,17 @@
                 },
                 "bridge": {
                     "label": "Tyyppi",
-                    "placeholder": "Oletus"
+                    "placeholder": "Oletus",
+                    "options": {
+                        "aqueduct": "Akvedukti",
+                        "boardwalk": "Pitkospuut",
+                        "cantilever": "Kaarisilta",
+                        "covered": "Katettu silta",
+                        "low_water_crossing": "Tulvasilta",
+                        "movable": "Liikuteltava silta",
+                        "trestle": "Pukkisilta",
+                        "viaduct": "Maasilta"
+                    }
                 },
                 "bridge/name": {
                     "label": "Sillan nimi"
@@ -1040,7 +1050,12 @@
                         "no": "Ei",
                         "undefined": "oletettavasti ei",
                         "yes": "Kyllä"
-                    }
+                    },
+                    "label": "Katettu",
+                    "terms": [
+                        "katettu",
+                        "katos"
+                    ]
                 },
                 "craft": {
                     "label": "Tyyppi",
@@ -1509,7 +1524,8 @@
                     }
                 },
                 "direction_point": {
-                    "placeholder": "45, 90, 180, 270"
+                    "placeholder": "45, 90, 180, 270",
+                    "label": "Suunta (asteina myötäpäivään)"
                 },
                 "direction_vertex": {
                     "label": "Vaikutussuunta",
@@ -2289,7 +2305,8 @@
                     "options": {
                         "down": "Alas",
                         "up": "Ylös"
-                    }
+                    },
+                    "label": "Kaltevuus"
                 },
                 "indoor": {
                     "label": "Sisätila"
@@ -2394,7 +2411,33 @@
                     "label": "Korkeus"
                 },
                 "kerb/kerb_barrier": {
-                    "label": "Tyyppi"
+                    "label": "Tyyppi",
+                    "options": {
+                        "flush": {
+                            "description": "Reunakivi, joka on täysin tasoon upotettu ja täten samalla tasolla ympäröivien pintojen kanssa",
+                            "title": "Tasoon upotettu"
+                        },
+                        "lowered": {
+                            "description": "Matala reunakivi, jonka voi ylittää pyörätuolilla, alle muutaman senttimetrin korkuinen",
+                            "title": "Matala"
+                        },
+                        "no": {
+                            "description": "Ei reunakiveä tässä kohtaa.",
+                            "title": "Ei"
+                        },
+                        "raised": {
+                            "description": "Korkea reunakivi, jota ei voi helposti ylittää pyörätuolilla, yli muutaman senttimetrin korkuinen",
+                            "title": "Korkea"
+                        },
+                        "rolled": {
+                            "description": "Korkea, loivaksi pyöristetty reunakivi, joka on tavallista reunakiveä helpompi ylittää autolla tai polkupyörällä, muttei pyörätuolilla.",
+                            "title": "Pyöristetty"
+                        },
+                        "yes": {
+                            "description": "Jonkinlainen reunakivi tässä kohtaa, ei ole tiedossa, onko se korkea, madallettu, tasoon upotettu jne.",
+                            "title": "Kyllä"
+                        }
+                    }
                 },
                 "kitchen": {
                     "label": "Keittiö"
@@ -2437,7 +2480,11 @@
                     ]
                 },
                 "layer_1": {
-                    "placeholder": "0"
+                    "placeholder": "0",
+                    "label": "Kerros",
+                    "terms": [
+                        "taso"
+                    ]
                 },
                 "leaf_cycle": {
                     "label": "Lehtien pudotuskierto",
@@ -2459,7 +2506,13 @@
                     }
                 },
                 "leaf_type_singular": {
-                    "label": "Lehtien tyyppi"
+                    "label": "Lehtien tyyppi",
+                    "options": {
+                        "broadleaved": "Leveälehtinen",
+                        "leafless": "Lehdetön",
+                        "mixed": "Sekoitus",
+                        "needleleaved": "Neulaset"
+                    }
                 },
                 "leisure": {
                     "label": "Tyyppi"
@@ -2519,7 +2572,8 @@
                         "indoor": "Sisätila",
                         "outdoor": "Ulkotila",
                         "roof": "Katolla"
-                    }
+                    },
+                    "label": "Sijainti"
                 },
                 "lock": {
                     "label": "Sulku"
@@ -2907,7 +2961,8 @@
                         "reversible": "vaihtelee muutaman kerran päivässä",
                         "undefined": "oletettavasti kyllä",
                         "yes": "kyllä"
-                    }
+                    },
+                    "label": "Yksisuuntaisuus"
                 },
                 "openfire": {
                     "label": "Avotuli sallittu",
@@ -2948,7 +3003,21 @@
                     }
                 },
                 "orientation/orientation_parking": {
-                    "label": "Pysäköinnin suunta suhteessa katuun"
+                    "label": "Pysäköinnin suunta suhteessa katuun",
+                    "options": {
+                        "diagonal": "Viistoon suhteessa tiehen (~45°)",
+                        "parallel": "Tiensuuntaisesti",
+                        "perpendicular": "Suorassa kulmassa tiehen nähden (~90°)"
+                    },
+                    "terms": [
+                        "pysäköinnin suunta",
+                        "parkkisuunta",
+                        "parkin suunta"
+                    ],
+                    "types": {
+                        "parking:left:orientation": "vasemmalla puolella",
+                        "parking:right:orientation": "oikealla puolella"
+                    }
                 },
                 "outdoor_seating": {
                     "label": "Ulkoterassi"
@@ -3076,7 +3145,61 @@
                     }
                 },
                 "parking_entrance": {
-                    "label": "Tyyppi"
+                    "label": "Tyyppi",
+                    "options": {
+                        "carports": {
+                            "description": "Rakennelma, joka osittain suojaa ajoneuvoa, yleensä seinätön.",
+                            "title": "Autokatos"
+                        },
+                        "garage_boxes": {
+                            "description": "Yksityinen pysäköintihalli, jossa on useita yksittäisiä pysäköintiruutuja, joihin mahtuu yksi auto.",
+                            "title": "Riviautotalli"
+                        },
+                        "half_on_kerb": {
+                            "description": "Pysäköinti osittain jalkakäytävälle.",
+                            "title": "Puoliksi jalkakäytävällä"
+                        },
+                        "lane": {
+                            "description": "Pysäköinti kadulla (tällainen kaista voitaisiin helposti muuttaa liikennekaistaksi).",
+                            "title": "Kadunvarren pysäköintikaista"
+                        },
+                        "layby": {
+                            "description": "Pysäköinti levähdyspaikalla tien varrella.",
+                            "title": "Levähdysalue"
+                        },
+                        "multi-storey": {
+                            "description": "Vähintään kaksi pysäköintikerrosta rakennuksessa.",
+                            "title": "Monikerroksinen"
+                        },
+                        "on_kerb": {
+                            "description": "Pysäköinti jalkakäytävällä.",
+                            "title": "Jalkakäytävällä"
+                        },
+                        "rooftop": {
+                            "description": "Yksi pysäköintikerros rakennuksen katolla.",
+                            "title": "Katolla"
+                        },
+                        "sheds": {
+                            "description": "Yksityisiä pysäköintikatoksia.",
+                            "title": "Metallikatos"
+                        },
+                        "shoulder": {
+                            "description": "Pysäköinti pientareella.",
+                            "title": "Pientareella"
+                        },
+                        "street_side": {
+                            "description": "Pysäköinti välittömästi kadussa kiinni olevalla paikalla (ei kadulla itsessään).",
+                            "title": "Katuun liitetty pysäköintialue"
+                        },
+                        "surface": {
+                            "description": "Yksi pysäköintikerros maan pinnalla.",
+                            "title": "Kenttä"
+                        },
+                        "underground": {
+                            "description": "Maanalainen pysäköinti.",
+                            "title": "Maan alla"
+                        }
+                    }
                 },
                 "parking_space": {
                     "label": "Tyyppi"
@@ -3172,7 +3295,8 @@
                         "intermediate": "Keskivaikea (punainen)",
                         "novice": "Erittäin helppo (vihreä / opettelu)"
                     },
-                    "placeholder": "Helppo, keskivaikea, vaikea..."
+                    "placeholder": "Helppo, keskivaikea, vaikea...",
+                    "label": "Haastavuus"
                 },
                 "piste/difficulty_nordic": {
                     "options": {
@@ -3182,7 +3306,8 @@
                         "intermediate": "Keskivaikea - Jyrkkiä nousuja",
                         "novice": "Erittäin helppo - Tasainen, ei vaadi kokemusta"
                     },
-                    "placeholder": "Helppo, Keskivaikea, Vaikea..."
+                    "placeholder": "Helppo, Keskivaikea, Vaikea...",
+                    "label": "Haastavuus"
                 },
                 "piste/difficulty_skitour": {
                     "options": {
@@ -3194,7 +3319,8 @@
                         "intermediate": "Keskivaikea - ZS: 35-40° kaltevuus",
                         "novice": "Erittäin helppo - L: <30° kaltevuus"
                     },
-                    "placeholder": "Helppo, keskivaikea, vaikea..."
+                    "placeholder": "Helppo, keskivaikea, vaikea...",
+                    "label": "Haastavuus"
                 },
                 "piste/grooming": {
                     "label": "Rinne/latupohja",
@@ -3212,13 +3338,15 @@
                         "backcountry": "Lanaamaton latu/laskettelureitti",
                         "classic": "Tasainen",
                         "mogul": "Kumpareet"
-                    }
+                    },
+                    "label": "Rinne/latupohja"
                 },
                 "piste/grooming_hike": {
                     "options": {
                         "backcountry": "Lanaamaton latu - lumikenkäily",
                         "classic": "Perinteinen latupohja"
-                    }
+                    },
+                    "label": "Rinne/latupohja"
                 },
                 "piste/grooming_nordic": {
                     "options": {
@@ -3227,7 +3355,8 @@
                         "classic+skating": "Perinteinen ja luistelu",
                         "scooter": "Lumikelkka",
                         "skating": "Luistelu"
-                    }
+                    },
+                    "label": "Rinne/latupohja"
                 },
                 "piste/type": {
                     "label": "Tyyppi",
@@ -3252,7 +3381,22 @@
                     "label": "Kasvi"
                 },
                 "plant/method": {
-                    "label": "Energiantuottomenetelmä"
+                    "label": "Energiantuottomenetelmä",
+                    "options": {
+                        "anaerobic_digestion": "Mädätys",
+                        "barrage": "Vuorovesivoimala",
+                        "combustion": "Poltto",
+                        "fission": "Fissio",
+                        "fusion": "Fuusio",
+                        "gasification": "Kaasuuntuminen",
+                        "photovoltaic": "Fotojännite",
+                        "run-of-the-river": "Jokivoimalaitos",
+                        "stream": "Vuorovesivirtaus",
+                        "thermal": "Aurinkolämpö",
+                        "water-pumped-storage": "Pumppuvoimalaitos",
+                        "water-storage": "Tekojärvi",
+                        "wind_turbine": "Tuuliturbiini"
+                    }
                 },
                 "plant/output": {
                     "label": "Tuotettu energiamuoto",
@@ -3272,7 +3416,26 @@
                     "placeholder": "500 MW, 1000 MW, 2000 MW..."
                 },
                 "plant/source": {
-                    "label": "Energialähde"
+                    "label": "Energialähde",
+                    "options": {
+                        "battery": "Akku",
+                        "biofuel": "Kasviperäiset polttoaineet",
+                        "biogas": "Biokaasu",
+                        "biomass": "Biomassa",
+                        "coal": "Kivihiili",
+                        "diesel": "Dieselöljy",
+                        "gas": "Maakaasu",
+                        "gasoline": "Bensiini",
+                        "geothermal": "Maalämpö",
+                        "hydro": "Vesivoima",
+                        "nuclear": "Ydinvoima",
+                        "oil": "Öljy",
+                        "solar": "Aurinkovoima",
+                        "tidal": "Vuorovesivoima",
+                        "waste": "Jäte",
+                        "wave": "Aaltovoima",
+                        "wind": "Tuuli"
+                    }
                 },
                 "playground": {
                     "label": "Tyyppi",
@@ -4081,20 +4244,236 @@
                     }
                 },
                 "sport/sport_ice": {
-                    "label": "Urheilulaji"
+                    "label": "Urheilulaji",
+                    "options": {
+                        "american_football": "amerikkalainen jalkapallo",
+                        "athletics": "Yleisurheilu",
+                        "badminton": "sulkapallo",
+                        "baseball": "baseball",
+                        "basketball": "koripallo",
+                        "beachvolleyball": "rantalentopallo",
+                        "billiards": "Biljardi",
+                        "bmx": "BMX",
+                        "bowls": "Nurmikeilailu",
+                        "canoe": "melonta",
+                        "chess": "Shakki",
+                        "climbing": "kiipeily",
+                        "cricket": "kriketti",
+                        "curling": "kurling",
+                        "cycling": "pyöräily",
+                        "darts": "Darts",
+                        "disc_golf": "Frisbeegolf",
+                        "equestrian": "hevosurheilu",
+                        "fitness": "kuntoilu",
+                        "free_flying": "Varjoliito / Riippuliito",
+                        "futsal": "futsal",
+                        "gaelic_games": "Gaelilaiset urheilulajit",
+                        "golf": "golf",
+                        "gymnastics": "voimistelu",
+                        "handball": "Käsipallo",
+                        "horse_racing": "ravi",
+                        "ice_hockey": "jääkiekko",
+                        "ice_skating": "luistelu",
+                        "ice_stock": "Jääkolkka",
+                        "karting": "karting",
+                        "motocross": "motocross",
+                        "motor": "moottoriurheilu",
+                        "multi": "Eri urheilulajeja (tarkemmin määrittelemätön)",
+                        "netball": "Verkkopallo",
+                        "orienteering": "Suunnistus",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Rugby Union",
+                        "running": "juoksu",
+                        "scuba_diving": "Laitesukellus",
+                        "shooting": "ammunta",
+                        "skateboard": "skeittilautailu",
+                        "ski_jumping": "Mäkihyppy",
+                        "skiing": "laskettelu",
+                        "soccer": "jalkapallo",
+                        "softball": "Softball",
+                        "speedway": "Speedway",
+                        "swimming": "uinti",
+                        "table_tennis": "pöytätennis",
+                        "tennis": "tennis",
+                        "volleyball": "lentopallo",
+                        "yoga": "Jooga"
+                    }
                 },
                 "sport/sport_pub": {
                     "label": "Urheilulaji",
                     "terms": [
                         "urheilu",
                         "yleisurheilu"
-                    ]
+                    ],
+                    "options": {
+                        "american_football": "amerikkalainen jalkapallo",
+                        "athletics": "Yleisurheilu",
+                        "badminton": "sulkapallo",
+                        "baseball": "baseball",
+                        "basketball": "koripallo",
+                        "beachvolleyball": "rantalentopallo",
+                        "billiards": "Biljardi",
+                        "bmx": "BMX",
+                        "bowls": "Nurmikeilailu",
+                        "canoe": "melonta",
+                        "chess": "Shakki",
+                        "climbing": "kiipeily",
+                        "cricket": "kriketti",
+                        "curling": "kurling",
+                        "cycling": "pyöräily",
+                        "darts": "Darts",
+                        "disc_golf": "Frisbeegolf",
+                        "equestrian": "hevosurheilu",
+                        "fitness": "kuntoilu",
+                        "free_flying": "Varjoliito / Riippuliito",
+                        "futsal": "futsal",
+                        "gaelic_games": "Gaelilaiset urheilulajit",
+                        "golf": "golf",
+                        "gymnastics": "voimistelu",
+                        "handball": "Käsipallo",
+                        "horse_racing": "ravi",
+                        "ice_hockey": "jääkiekko",
+                        "ice_skating": "luistelu",
+                        "ice_stock": "Jääkolkka",
+                        "karting": "karting",
+                        "motocross": "motocross",
+                        "motor": "moottoriurheilu",
+                        "multi": "Eri urheilulajeja (tarkemmin määrittelemätön)",
+                        "netball": "Verkkopallo",
+                        "orienteering": "Suunnistus",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Rugby Union",
+                        "running": "juoksu",
+                        "scuba_diving": "Laitesukellus",
+                        "shooting": "ammunta",
+                        "skateboard": "skeittilautailu",
+                        "ski_jumping": "Mäkihyppy",
+                        "skiing": "laskettelu",
+                        "soccer": "jalkapallo",
+                        "softball": "Softball",
+                        "speedway": "Speedway",
+                        "swimming": "uinti",
+                        "table_tennis": "pöytätennis",
+                        "tennis": "tennis",
+                        "volleyball": "lentopallo",
+                        "yoga": "Jooga"
+                    }
                 },
                 "sport/sport_racing_motor": {
-                    "label": "Urheilulaji"
+                    "label": "Urheilulaji",
+                    "options": {
+                        "american_football": "amerikkalainen jalkapallo",
+                        "athletics": "Yleisurheilu",
+                        "badminton": "sulkapallo",
+                        "baseball": "baseball",
+                        "basketball": "koripallo",
+                        "beachvolleyball": "rantalentopallo",
+                        "billiards": "Biljardi",
+                        "bmx": "BMX",
+                        "bowls": "Nurmikeilailu",
+                        "canoe": "melonta",
+                        "chess": "Shakki",
+                        "climbing": "kiipeily",
+                        "cricket": "kriketti",
+                        "curling": "kurling",
+                        "cycling": "pyöräily",
+                        "darts": "Darts",
+                        "disc_golf": "Frisbeegolf",
+                        "equestrian": "hevosurheilu",
+                        "fitness": "kuntoilu",
+                        "free_flying": "Varjoliito / Riippuliito",
+                        "futsal": "futsal",
+                        "gaelic_games": "Gaelilaiset urheilulajit",
+                        "golf": "golf",
+                        "gymnastics": "voimistelu",
+                        "handball": "Käsipallo",
+                        "horse_racing": "ravi",
+                        "ice_hockey": "jääkiekko",
+                        "ice_skating": "luistelu",
+                        "ice_stock": "Jääkolkka",
+                        "karting": "karting",
+                        "motocross": "motocross",
+                        "motor": "moottoriurheilu",
+                        "multi": "Eri urheilulajeja (tarkemmin määrittelemätön)",
+                        "netball": "Verkkopallo",
+                        "orienteering": "Suunnistus",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Rugby Union",
+                        "running": "juoksu",
+                        "scuba_diving": "Laitesukellus",
+                        "shooting": "ammunta",
+                        "skateboard": "skeittilautailu",
+                        "ski_jumping": "Mäkihyppy",
+                        "skiing": "laskettelu",
+                        "soccer": "jalkapallo",
+                        "softball": "Softball",
+                        "speedway": "Speedway",
+                        "swimming": "uinti",
+                        "table_tennis": "pöytätennis",
+                        "tennis": "tennis",
+                        "volleyball": "lentopallo",
+                        "yoga": "Jooga"
+                    }
                 },
                 "sport/sport_racing_nonmotor": {
-                    "label": "Urheilulaji"
+                    "label": "Urheilulaji",
+                    "options": {
+                        "american_football": "amerikkalainen jalkapallo",
+                        "athletics": "Yleisurheilu",
+                        "badminton": "sulkapallo",
+                        "baseball": "baseball",
+                        "basketball": "koripallo",
+                        "beachvolleyball": "rantalentopallo",
+                        "billiards": "Biljardi",
+                        "bmx": "BMX",
+                        "bowls": "Nurmikeilailu",
+                        "canoe": "melonta",
+                        "chess": "Shakki",
+                        "climbing": "kiipeily",
+                        "cricket": "kriketti",
+                        "curling": "kurling",
+                        "cycling": "pyöräily",
+                        "darts": "Darts",
+                        "disc_golf": "Frisbeegolf",
+                        "equestrian": "hevosurheilu",
+                        "fitness": "kuntoilu",
+                        "free_flying": "Varjoliito / Riippuliito",
+                        "futsal": "futsal",
+                        "gaelic_games": "Gaelilaiset urheilulajit",
+                        "golf": "golf",
+                        "gymnastics": "voimistelu",
+                        "handball": "Käsipallo",
+                        "horse_racing": "ravi",
+                        "ice_hockey": "jääkiekko",
+                        "ice_skating": "luistelu",
+                        "ice_stock": "Jääkolkka",
+                        "karting": "karting",
+                        "motocross": "motocross",
+                        "motor": "moottoriurheilu",
+                        "multi": "Eri urheilulajeja (tarkemmin määrittelemätön)",
+                        "netball": "Verkkopallo",
+                        "orienteering": "Suunnistus",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Rugby Union",
+                        "running": "juoksu",
+                        "scuba_diving": "Laitesukellus",
+                        "shooting": "ammunta",
+                        "skateboard": "skeittilautailu",
+                        "ski_jumping": "Mäkihyppy",
+                        "skiing": "laskettelu",
+                        "soccer": "jalkapallo",
+                        "softball": "Softball",
+                        "speedway": "Speedway",
+                        "swimming": "uinti",
+                        "table_tennis": "pöytätennis",
+                        "tennis": "tennis",
+                        "volleyball": "lentopallo",
+                        "yoga": "Jooga"
+                    }
                 },
                 "stars": {
                     "label": "Tähtiluokitus"
@@ -4511,7 +4890,18 @@
                     }
                 },
                 "traffic_calming_road": {
-                    "label": "Hidaste"
+                    "label": "Hidaste",
+                    "options": {
+                        "bump": "töyssy",
+                        "chicane": "shikaani",
+                        "choker": "Kavennettu tie",
+                        "cushion": "Hidastetyyny",
+                        "dip": "Hidastekuoppa",
+                        "hump": "lievä hidastetöyssy",
+                        "island": "Liikenteenjakaja",
+                        "rumble_strip": "heräteraidat",
+                        "table": "Korotettu risteys"
+                    }
                 },
                 "traffic_sign": {
                     "label": "Liikennemerkki"
@@ -4591,7 +4981,12 @@
                 },
                 "tunnel": {
                     "label": "Tyyppi",
-                    "placeholder": "Oletus"
+                    "placeholder": "Oletus",
+                    "options": {
+                        "building_passage": "kulkee rakennuksen läpi",
+                        "culvert": "Siltarumpu",
+                        "flooded": "Vesitunneli"
+                    }
                 },
                 "tunnel_combo": {
                     "label": "Tyyppi",

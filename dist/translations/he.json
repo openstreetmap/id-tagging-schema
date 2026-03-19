@@ -613,7 +613,15 @@
                 },
                 "bridge": {
                     "label": "סוג",
-                    "placeholder": "בררת מחדל"
+                    "placeholder": "בררת מחדל",
+                    "options": {
+                        "aqueduct": "אמת מים",
+                        "boardwalk": "גשר עץ",
+                        "cantilever": "גשר תמוכות",
+                        "covered": "גשר מקורה",
+                        "movable": "גשר נייד",
+                        "viaduct": "ויאדוקט"
+                    }
                 },
                 "bridge/ref": {
                     "label": "מספר גשר"
@@ -1019,7 +1027,14 @@
                         "no": "לא",
                         "undefined": "כנראה שלא",
                         "yes": "כן"
-                    }
+                    },
+                    "label": "מכוסה",
+                    "terms": [
+                        "מכוסה",
+                        "מוסתר",
+                        "נסתר",
+                        "עם כיסוי"
+                    ]
                 },
                 "craft": {
                     "label": "סוג",
@@ -1426,7 +1441,13 @@
                     }
                 },
                 "direction_point": {
-                    "placeholder": "45, 90, 180, 270"
+                    "placeholder": "45, 90, 180, 270",
+                    "label": "כיוון (מעלות עם כיוון השעון)",
+                    "terms": [
+                        "עם כיוון השעון",
+                        "מעלות",
+                        "כיוון"
+                    ]
                 },
                 "direction_vertex": {
                     "label": "הכיוון המושפע",
@@ -2217,7 +2238,8 @@
                     "options": {
                         "down": "למטה",
                         "up": "למעלה"
-                    }
+                    },
+                    "label": "שיפוע"
                 },
                 "indoor": {
                     "label": "בפנים"
@@ -2330,7 +2352,29 @@
                     "label": "גובה"
                 },
                 "kerb/kerb_barrier": {
-                    "label": "סוג"
+                    "label": "סוג",
+                    "options": {
+                        "flush": {
+                            "title": "הדחה"
+                        },
+                        "lowered": {
+                            "title": "מונמך"
+                        },
+                        "no": {
+                            "description": "אין מדרכה במקום הזה.",
+                            "title": "אין"
+                        },
+                        "raised": {
+                            "description": "שפת מדרכה מוגבהת שלא יכולה לשמש בקלות משתמשי כיסא גלגלים, גבוהה מסנטימטרים בודדים.",
+                            "title": "מוגבה"
+                        },
+                        "rolled": {
+                            "description": "מדרכה מוגבהת עם קצה מעוגל המקל על השימוש במכוניות או אופניים, אך לא לכיסאות גלגלים."
+                        },
+                        "yes": {
+                            "title": "כן"
+                        }
+                    }
                 },
                 "kitchen": {
                     "label": "מטבח"
@@ -2371,7 +2415,14 @@
                     ]
                 },
                 "layer_1": {
-                    "placeholder": "0"
+                    "placeholder": "0",
+                    "label": "שכבה",
+                    "terms": [
+                        "שכבה",
+                        "חיפוי",
+                        "ציפוי",
+                        "כיסוי"
+                    ]
                 },
                 "leaf_cycle": {
                     "label": "מחזור עלים",
@@ -2393,7 +2444,13 @@
                     }
                 },
                 "leaf_type_singular": {
-                    "label": "סוג עלה"
+                    "label": "סוג עלה",
+                    "options": {
+                        "broadleaved": "עלים רחבים",
+                        "leafless": "ללא עלים",
+                        "mixed": "מעורב",
+                        "needleleaved": "עלים מחטניים"
+                    }
                 },
                 "leisure": {
                     "label": "סוג"
@@ -2470,7 +2527,8 @@
                         "indoor": "בפנים",
                         "outdoor": "בחוץ",
                         "roof": "על הגג"
-                    }
+                    },
+                    "label": "מיקום"
                 },
                 "lock": {
                     "label": "נעילה"
@@ -2904,7 +2962,8 @@
                         "reversible": "הפיך",
                         "undefined": "כנראה שכן",
                         "yes": "כן"
-                    }
+                    },
+                    "label": "חד־סטרי"
                 },
                 "openfire": {
                     "label": "מותר אש גלויה",
@@ -2953,7 +3012,16 @@
                     ]
                 },
                 "orientation/orientation_parking": {
-                    "label": "כיוון"
+                    "label": "כיוון",
+                    "options": {
+                        "diagonal": "אלכסון ביחס לרחוב (~45°)",
+                        "parallel": "במקביל לרחוב",
+                        "perpendicular": "פוגש את הרחוב בזווית ישרה (~90°)"
+                    },
+                    "types": {
+                        "parking:left:orientation": "בצד שמאל",
+                        "parking:right:orientation": "בצד ימין"
+                    }
                 },
                 "outdoor_seating": {
                     "label": "ישיבה בחוץ"
@@ -3061,7 +3129,56 @@
                     }
                 },
                 "parking_entrance": {
-                    "label": "סוג"
+                    "label": "סוג",
+                    "options": {
+                        "carports": {
+                            "title": "חניות מקורות"
+                        },
+                        "garage_boxes": {
+                            "title": "מוסך קופסה"
+                        },
+                        "half_on_kerb": {
+                            "description": "חניה חלקית על המדרכה",
+                            "title": "חצי על המדרכה"
+                        },
+                        "lane": {
+                            "title": "לצד הכביש"
+                        },
+                        "layby": {
+                            "description": "חניה באזור מנוחה, לצידי הכביש"
+                        },
+                        "multi-storey": {
+                            "description": "שתי מפלסי חניה או יותר בתוך מבנה",
+                            "title": "רב קומתי"
+                        },
+                        "on_kerb": {
+                            "description": "חניה על המדרכה",
+                            "title": "על המדרכה"
+                        },
+                        "rooftop": {
+                            "description": "מפלס חניה יחיד על גג הבניין",
+                            "title": "גג"
+                        },
+                        "sheds": {
+                            "description": "סככות פרטיות לרכבים",
+                            "title": "מסוכך"
+                        },
+                        "shoulder": {
+                            "description": "חניה בשוליים",
+                            "title": "בשוליים"
+                        },
+                        "street_side": {
+                            "description": "חניה צמודה לרחוב (אך לא ברחוב עצמו).",
+                            "title": "לצידי-הכביש"
+                        },
+                        "surface": {
+                            "title": "משטח"
+                        },
+                        "underground": {
+                            "description": "חניה תת קרקעית.",
+                            "title": "תת־קרקעי"
+                        }
+                    }
                 },
                 "parking_space": {
                     "label": "סוג"
@@ -3136,7 +3253,8 @@
                         "intermediate": "בינוני (ריבוע כחול)",
                         "novice": "מתחילים (למטרות לימוד)"
                     },
-                    "placeholder": "קל, בינוני, מתקדמים…"
+                    "placeholder": "קל, בינוני, מתקדמים…",
+                    "label": "דרגת קושי"
                 },
                 "piste/difficulty_nordic": {
                     "options": {
@@ -3146,7 +3264,8 @@
                         "intermediate": "בינוני - מקטע תלול",
                         "novice": "מתחילים - שטוח, לא נדרש מאמץ"
                     },
-                    "placeholder": "קל, בינוני, מתקדמים…"
+                    "placeholder": "קל, בינוני, מתקדמים…",
+                    "label": "דרגת קושי"
                 },
                 "piste/difficulty_skitour": {
                     "options": {
@@ -3158,7 +3277,8 @@
                         "intermediate": "בינוני - ZS: שיפוע של 35‏-40°",
                         "novice": "מתחילים - L: שיפוע של <30°"
                     },
-                    "placeholder": "קל, בינוני, מתקדמים…"
+                    "placeholder": "קל, בינוני, מתקדמים…",
+                    "label": "דרגת קושי"
                 },
                 "piste/grooming": {
                     "label": "גרומינג",
@@ -3176,13 +3296,15 @@
                         "backcountry": "ללא סימון - בלי גרומינג",
                         "classic": "קלסי",
                         "mogul": "מוגול"
-                    }
+                    },
+                    "label": "גרומינג"
                 },
                 "piste/grooming_hike": {
                     "options": {
                         "backcountry": "ללא סימון - נעלי שלג",
                         "classic": "קלסי - טיולי שלג"
-                    }
+                    },
+                    "label": "גרומינג"
                 },
                 "piste/grooming_nordic": {
                     "options": {
@@ -3191,7 +3313,8 @@
                         "classic+skating": "קלסי ומגלשיים",
                         "scooter": "אופנוע שלג",
                         "skating": "מגלשיים"
-                    }
+                    },
+                    "label": "גרומינג"
                 },
                 "piste/type": {
                     "label": "סוג",
@@ -3215,7 +3338,18 @@
                     "label": "תחנת כוח"
                 },
                 "plant/method": {
-                    "label": "שיטת יצירה"
+                    "label": "שיטת יצירה",
+                    "options": {
+                        "combustion": "בעירה",
+                        "fission": "ביקוע",
+                        "fusion": "היתוך",
+                        "photovoltaic": "פוטו-וולטאיים",
+                        "run-of-the-river": "זרימת הנהר",
+                        "stream": "זרימת הגאות",
+                        "thermal": "תרמי סולארי",
+                        "water-storage": "מאגר",
+                        "wind_turbine": "טורבינת רוח"
+                    }
                 },
                 "plant/output": {
                     "label": "צורת פלט כוח",
@@ -3235,7 +3369,26 @@
                     "placeholder": "500 MW,‏ 1000 MW,‏ 2000 MW…"
                 },
                 "plant/source": {
-                    "label": "מקור חשמל"
+                    "label": "מקור חשמל",
+                    "options": {
+                        "battery": "סוללה",
+                        "biofuel": "דלקים על בסיס צמחי",
+                        "biogas": "ביוגז (דלק על בסיס אורגני)",
+                        "biomass": "חומר צמחי",
+                        "coal": "פחם",
+                        "diesel": "סולר",
+                        "gas": "גז טבעי",
+                        "gasoline": "בנזין",
+                        "geothermal": "אנרגיה גיאותרמית",
+                        "hydro": "כוח הידראולי",
+                        "nuclear": "כוח גרעיני",
+                        "oil": "נפט",
+                        "solar": "קרינה סולארית",
+                        "tidal": "מכוח הגאות והשפל",
+                        "waste": "פסולת",
+                        "wave": "מכוח הגלים",
+                        "wind": "רוח"
+                    }
                 },
                 "playground": {
                     "label": "סוג"
@@ -3950,16 +4103,232 @@
                     }
                 },
                 "sport/sport_ice": {
-                    "label": "ספורט"
+                    "label": "ספורט",
+                    "options": {
+                        "10pin": "כדורת 10-פינים (באולינג)",
+                        "9pin": "כדורת 9-פינים (באולינג)",
+                        "american_football": "פוטבול אמריקאי",
+                        "athletics": "אתלטיקה קלה",
+                        "badminton": "בדמינטון",
+                        "baseball": "בייסבול",
+                        "basketball": "כדורסל",
+                        "beachvolleyball": "כדורעף חופים",
+                        "billiards": "ביליארד",
+                        "bmx": "אופני פעלולים",
+                        "bowls": "כדורת דשא",
+                        "canoe": "שייט בקאנו",
+                        "chess": "שחמט",
+                        "climbing": "טיפוס",
+                        "cricket": "קריקט",
+                        "curling": "קרלינג",
+                        "cycling": "רכיבה על אופניים",
+                        "darts": "חצים",
+                        "disc_golf": "דיסק גולף",
+                        "dog_racing": "מרוץ כלבים",
+                        "equestrian": "רכיבה על סוסים",
+                        "fitness": "אימון כושר",
+                        "free_flying": "מצנחי רחיפה/ גלישת רחיפה",
+                        "futsal": "קטרגל",
+                        "gaelic_games": "משחקים גאליים",
+                        "golf": "גולף",
+                        "gymnastics": "התעמלות",
+                        "handball": "כדוריד קבוצתי",
+                        "horse_racing": "מרוץ סוסים",
+                        "ice_hockey": "הוקי קרח",
+                        "ice_skating": "החלקרח",
+                        "karting": "מרוץ קארטינג",
+                        "motocross": "מוטוקרוס",
+                        "motor": "ספורט מוטורי",
+                        "multi": "ספורט אחר לא מוגדר",
+                        "netball": "כדור רשת",
+                        "orienteering": "התמצאות",
+                        "padel": "פאדל",
+                        "rugby_union": "התאחדות רוגבי",
+                        "running": "ריצה",
+                        "scuba_diving": "צלילה",
+                        "shooting": "ירי",
+                        "skateboard": "סקטבורד",
+                        "skiing": "סקי",
+                        "soccer": "כדורגל",
+                        "softball": "סופטבול",
+                        "speedway": "מסלול אופנועים מהיר",
+                        "swimming": "שחיה",
+                        "table_tennis": "טניס שולחן",
+                        "tennis": "טניס",
+                        "volleyball": "כדורעף",
+                        "yoga": "יוגה"
+                    }
                 },
                 "sport/sport_pub": {
-                    "label": "ספורט"
+                    "label": "ספורט",
+                    "options": {
+                        "10pin": "כדורת 10-פינים (באולינג)",
+                        "9pin": "כדורת 9-פינים (באולינג)",
+                        "american_football": "פוטבול אמריקאי",
+                        "athletics": "אתלטיקה קלה",
+                        "badminton": "בדמינטון",
+                        "baseball": "בייסבול",
+                        "basketball": "כדורסל",
+                        "beachvolleyball": "כדורעף חופים",
+                        "billiards": "ביליארד",
+                        "bmx": "אופני פעלולים",
+                        "bowls": "כדורת דשא",
+                        "canoe": "שייט בקאנו",
+                        "chess": "שחמט",
+                        "climbing": "טיפוס",
+                        "cricket": "קריקט",
+                        "curling": "קרלינג",
+                        "cycling": "רכיבה על אופניים",
+                        "darts": "חצים",
+                        "disc_golf": "דיסק גולף",
+                        "dog_racing": "מרוץ כלבים",
+                        "equestrian": "רכיבה על סוסים",
+                        "fitness": "אימון כושר",
+                        "free_flying": "מצנחי רחיפה/ גלישת רחיפה",
+                        "futsal": "קטרגל",
+                        "gaelic_games": "משחקים גאליים",
+                        "golf": "גולף",
+                        "gymnastics": "התעמלות",
+                        "handball": "כדוריד קבוצתי",
+                        "horse_racing": "מרוץ סוסים",
+                        "ice_hockey": "הוקי קרח",
+                        "ice_skating": "החלקרח",
+                        "karting": "מרוץ קארטינג",
+                        "motocross": "מוטוקרוס",
+                        "motor": "ספורט מוטורי",
+                        "multi": "ספורט אחר לא מוגדר",
+                        "netball": "כדור רשת",
+                        "orienteering": "התמצאות",
+                        "padel": "פאדל",
+                        "rugby_union": "התאחדות רוגבי",
+                        "running": "ריצה",
+                        "scuba_diving": "צלילה",
+                        "shooting": "ירי",
+                        "skateboard": "סקטבורד",
+                        "skiing": "סקי",
+                        "soccer": "כדורגל",
+                        "softball": "סופטבול",
+                        "speedway": "מסלול אופנועים מהיר",
+                        "swimming": "שחיה",
+                        "table_tennis": "טניס שולחן",
+                        "tennis": "טניס",
+                        "volleyball": "כדורעף",
+                        "yoga": "יוגה"
+                    }
                 },
                 "sport/sport_racing_motor": {
-                    "label": "ספורט"
+                    "label": "ספורט",
+                    "options": {
+                        "10pin": "כדורת 10-פינים (באולינג)",
+                        "9pin": "כדורת 9-פינים (באולינג)",
+                        "american_football": "פוטבול אמריקאי",
+                        "athletics": "אתלטיקה קלה",
+                        "badminton": "בדמינטון",
+                        "baseball": "בייסבול",
+                        "basketball": "כדורסל",
+                        "beachvolleyball": "כדורעף חופים",
+                        "billiards": "ביליארד",
+                        "bmx": "אופני פעלולים",
+                        "bowls": "כדורת דשא",
+                        "canoe": "שייט בקאנו",
+                        "chess": "שחמט",
+                        "climbing": "טיפוס",
+                        "cricket": "קריקט",
+                        "curling": "קרלינג",
+                        "cycling": "רכיבה על אופניים",
+                        "darts": "חצים",
+                        "disc_golf": "דיסק גולף",
+                        "dog_racing": "מרוץ כלבים",
+                        "equestrian": "רכיבה על סוסים",
+                        "fitness": "אימון כושר",
+                        "free_flying": "מצנחי רחיפה/ גלישת רחיפה",
+                        "futsal": "קטרגל",
+                        "gaelic_games": "משחקים גאליים",
+                        "golf": "גולף",
+                        "gymnastics": "התעמלות",
+                        "handball": "כדוריד קבוצתי",
+                        "horse_racing": "מרוץ סוסים",
+                        "ice_hockey": "הוקי קרח",
+                        "ice_skating": "החלקרח",
+                        "karting": "מרוץ קארטינג",
+                        "motocross": "מוטוקרוס",
+                        "motor": "ספורט מוטורי",
+                        "multi": "ספורט אחר לא מוגדר",
+                        "netball": "כדור רשת",
+                        "orienteering": "התמצאות",
+                        "padel": "פאדל",
+                        "rugby_union": "התאחדות רוגבי",
+                        "running": "ריצה",
+                        "scuba_diving": "צלילה",
+                        "shooting": "ירי",
+                        "skateboard": "סקטבורד",
+                        "skiing": "סקי",
+                        "soccer": "כדורגל",
+                        "softball": "סופטבול",
+                        "speedway": "מסלול אופנועים מהיר",
+                        "swimming": "שחיה",
+                        "table_tennis": "טניס שולחן",
+                        "tennis": "טניס",
+                        "volleyball": "כדורעף",
+                        "yoga": "יוגה"
+                    }
                 },
                 "sport/sport_racing_nonmotor": {
-                    "label": "ספורט"
+                    "label": "ספורט",
+                    "options": {
+                        "10pin": "כדורת 10-פינים (באולינג)",
+                        "9pin": "כדורת 9-פינים (באולינג)",
+                        "american_football": "פוטבול אמריקאי",
+                        "athletics": "אתלטיקה קלה",
+                        "badminton": "בדמינטון",
+                        "baseball": "בייסבול",
+                        "basketball": "כדורסל",
+                        "beachvolleyball": "כדורעף חופים",
+                        "billiards": "ביליארד",
+                        "bmx": "אופני פעלולים",
+                        "bowls": "כדורת דשא",
+                        "canoe": "שייט בקאנו",
+                        "chess": "שחמט",
+                        "climbing": "טיפוס",
+                        "cricket": "קריקט",
+                        "curling": "קרלינג",
+                        "cycling": "רכיבה על אופניים",
+                        "darts": "חצים",
+                        "disc_golf": "דיסק גולף",
+                        "dog_racing": "מרוץ כלבים",
+                        "equestrian": "רכיבה על סוסים",
+                        "fitness": "אימון כושר",
+                        "free_flying": "מצנחי רחיפה/ גלישת רחיפה",
+                        "futsal": "קטרגל",
+                        "gaelic_games": "משחקים גאליים",
+                        "golf": "גולף",
+                        "gymnastics": "התעמלות",
+                        "handball": "כדוריד קבוצתי",
+                        "horse_racing": "מרוץ סוסים",
+                        "ice_hockey": "הוקי קרח",
+                        "ice_skating": "החלקרח",
+                        "karting": "מרוץ קארטינג",
+                        "motocross": "מוטוקרוס",
+                        "motor": "ספורט מוטורי",
+                        "multi": "ספורט אחר לא מוגדר",
+                        "netball": "כדור רשת",
+                        "orienteering": "התמצאות",
+                        "padel": "פאדל",
+                        "rugby_union": "התאחדות רוגבי",
+                        "running": "ריצה",
+                        "scuba_diving": "צלילה",
+                        "shooting": "ירי",
+                        "skateboard": "סקטבורד",
+                        "skiing": "סקי",
+                        "soccer": "כדורגל",
+                        "softball": "סופטבול",
+                        "speedway": "מסלול אופנועים מהיר",
+                        "swimming": "שחיה",
+                        "table_tennis": "טניס שולחן",
+                        "tennis": "טניס",
+                        "volleyball": "כדורעף",
+                        "yoga": "יוגה"
+                    }
                 },
                 "stars": {
                     "label": "כוכבים",
@@ -4409,7 +4778,19 @@
                     }
                 },
                 "traffic_calming_road": {
-                    "label": "הקלת פקקי תנועה"
+                    "label": "הקלת פקקי תנועה",
+                    "options": {
+                        "bump": "פס האטה",
+                        "chicane": "מאט תנועה",
+                        "choked_table": "פס האטה משוטח",
+                        "choker": "מרסן תנועה",
+                        "cushion": "כרית האטה",
+                        "dip": "שקע",
+                        "hump": "פס האטה ארוך",
+                        "mini_bumps": "פס האטה קטן",
+                        "rumble_strip": "פס רעד",
+                        "table": "פס האטה משוטח"
+                    }
                 },
                 "traffic_sign": {
                     "label": "תמרור"
@@ -4484,7 +4865,13 @@
                 },
                 "tunnel": {
                     "label": "סוג",
-                    "placeholder": "בררת מחדל"
+                    "placeholder": "בררת מחדל",
+                    "options": {
+                        "avalanche_protector": "מגן מפולת שלגים",
+                        "building_passage": "מעבר בניין",
+                        "culvert": "מעבר מים",
+                        "flooded": "מנהרה מוצפת"
+                    }
                 },
                 "tunnel_combo": {
                     "label": "סוג",

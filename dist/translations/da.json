@@ -629,7 +629,16 @@
                 },
                 "bridge": {
                     "label": "Type",
-                    "placeholder": "Standard"
+                    "placeholder": "Standard",
+                    "options": {
+                        "aqueduct": "Akvædukt",
+                        "boardwalk": "Plankebro",
+                        "cantilever": "Cantileverbro",
+                        "covered": "Overdækket bro",
+                        "low_water_crossing": "Vadested",
+                        "movable": "Bevægelig bro",
+                        "viaduct": "Viadukt"
+                    }
                 },
                 "bridge/name": {
                     "label": "Bronavn"
@@ -1082,7 +1091,13 @@
                         "no": "Nej",
                         "undefined": "Antages at være Nej",
                         "yes": "Ja"
-                    }
+                    },
+                    "label": "Overdækket",
+                    "terms": [
+                        "tag",
+                        "overdækning",
+                        "dækning"
+                    ]
                 },
                 "craft": {
                     "label": "Type",
@@ -1501,7 +1516,8 @@
                     }
                 },
                 "direction_point": {
-                    "placeholder": "45, 90, 180, 270"
+                    "placeholder": "45, 90, 180, 270",
+                    "label": "Retning (grader med uret)"
                 },
                 "direction_vertex": {
                     "label": "Påvirket retning",
@@ -2218,7 +2234,14 @@
                     "options": {
                         "down": "Ned",
                         "up": "Op"
-                    }
+                    },
+                    "label": "Stigning",
+                    "terms": [
+                        "stigning",
+                        "høj",
+                        "bjerg",
+                        "op"
+                    ]
                 },
                 "indoor": {
                     "label": "Indendørs",
@@ -2332,7 +2355,35 @@
                     "label": "Højde"
                 },
                 "kerb/kerb_barrier": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "flush": {
+                            "description": "En nedsænket kantsten, der er i niveau med det omkringliggende område.",
+                            "title": "Træk & slip"
+                        },
+                        "lowered": {
+                            "description": "En nedsænket kantsten, som kan bruges af kørestolsbrugere, ikke højere end et par centimeter.",
+                            "title": "Sænket"
+                        },
+                        "no": {
+                            "description": "Der er ingen kantsten på dette sted.",
+                            "title": "Nej"
+                        },
+                        "raised": {
+                            "description": "En hævet kantsten, der er mere end et par centimeter høj, og som er vanskelig at bruge for kørestolsbrugere.",
+                            "title": "Hævet"
+                        },
+                        "rolled": {
+                            "description": "En hævet kantsten med en afrundet kant, som gør den lettere at bruge for biler eller cykler, men ikke for kørestole."
+                        },
+                        "yes": {
+                            "title": "Ja"
+                        }
+                    },
+                    "terms": [
+                        "kantsten",
+                        "fortovskant"
+                    ]
                 },
                 "kitchen": {
                     "label": "Køkken"
@@ -2369,7 +2420,8 @@
                     "placeholder": "0"
                 },
                 "layer_1": {
-                    "placeholder": "0"
+                    "placeholder": "0",
+                    "label": "Lag"
                 },
                 "leaf_cycle": {
                     "label": "Bladcyklus",
@@ -2391,7 +2443,13 @@
                     }
                 },
                 "leaf_type_singular": {
-                    "label": "Bladtype"
+                    "label": "Bladtype",
+                    "options": {
+                        "broadleaved": "Løvtræsblade",
+                        "leafless": "Bladløs",
+                        "mixed": "Blandet",
+                        "needleleaved": "Nåleblade"
+                    }
                 },
                 "leisure": {
                     "label": "Type"
@@ -2448,7 +2506,8 @@
                         "indoor": "Indendørs",
                         "outdoor": "Udendørs",
                         "roof": "Tag"
-                    }
+                    },
+                    "label": "Lokalitet"
                 },
                 "lock": {
                     "label": "Lås"
@@ -2853,7 +2912,8 @@
                         "reversible": "Reversibel",
                         "undefined": "Antages at være Ja",
                         "yes": "Ja"
-                    }
+                    },
+                    "label": "Ensrettet"
                 },
                 "openfire": {
                     "label": "Åben ild tilladt"
@@ -2888,7 +2948,21 @@
                     }
                 },
                 "orientation/orientation_parking": {
-                    "label": "Orientering"
+                    "label": "Orientering",
+                    "options": {
+                        "diagonal": "Diagonal i forhold til vejen (~45°)",
+                        "parallel": "Parallelt med gaden",
+                        "perpendicular": "Møder gaden i en ret vinkel (~90°)"
+                    },
+                    "terms": [
+                        "parkeringsretning",
+                        "parkeringorientering",
+                        "orientering"
+                    ],
+                    "types": {
+                        "parking:left:orientation": "Venstre side",
+                        "parking:right:orientation": "Højre side"
+                    }
                 },
                 "outdoor_seating": {
                     "label": "Udendørssiddepladser"
@@ -3002,7 +3076,49 @@
                     }
                 },
                 "parking_entrance": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "carports": {
+                            "title": "Carporte"
+                        },
+                        "garage_boxes": {
+                            "title": "Garagebokse"
+                        },
+                        "half_on_kerb": {
+                            "description": "Parkering delvist på fortovet.",
+                            "title": "Halvt på fortovet"
+                        },
+                        "lane": {
+                            "title": "Vejsidespor"
+                        },
+                        "layby": {
+                            "title": "Mindre rasteplads"
+                        },
+                        "multi-storey": {
+                            "title": "Multiniveau"
+                        },
+                        "on_kerb": {
+                            "title": "På fortovet"
+                        },
+                        "rooftop": {
+                            "title": "Tag"
+                        },
+                        "sheds": {
+                            "title": "Skure"
+                        },
+                        "shoulder": {
+                            "title": "Nødspor"
+                        },
+                        "street_side": {
+                            "title": "Kantsten"
+                        },
+                        "surface": {
+                            "title": "Overflade"
+                        },
+                        "underground": {
+                            "title": "Underjordisk"
+                        }
+                    }
                 },
                 "parking_space": {
                     "label": "Type"
@@ -3060,13 +3176,16 @@
                     "options": {
                         "easy": "Let (grøn cirkel)"
                     },
-                    "placeholder": "Let, mellemsvær, avanceret..."
+                    "placeholder": "Let, mellemsvær, avanceret...",
+                    "label": "Sværhedsgrad"
                 },
                 "piste/difficulty_nordic": {
-                    "placeholder": "Let, mellemsvær, avanceret..."
+                    "placeholder": "Let, mellemsvær, avanceret...",
+                    "label": "Sværhedsgrad"
                 },
                 "piste/difficulty_skitour": {
-                    "placeholder": "Let, mellemsvær, avanceret..."
+                    "placeholder": "Let, mellemsvær, avanceret...",
+                    "label": "Sværhedsgrad"
                 },
                 "piste/grooming": {
                     "label": "Sikkerhed",
@@ -3084,12 +3203,14 @@
                         "backcountry": "Offpiste - ingen præparering",
                         "classic": "Klassisk",
                         "mogul": "Pukkelpist"
-                    }
+                    },
+                    "label": "Sikkerhed"
                 },
                 "piste/grooming_hike": {
                     "options": {
                         "backcountry": "Offpiste - snesko"
-                    }
+                    },
+                    "label": "Sikkerhed"
                 },
                 "piste/grooming_nordic": {
                     "options": {
@@ -3098,7 +3219,8 @@
                         "classic+skating": "Klassisk og skøjteløb",
                         "scooter": "Snescooter",
                         "skating": "Skøjteløb"
-                    }
+                    },
+                    "label": "Sikkerhed"
                 },
                 "piste/type": {
                     "label": "Type",
@@ -3123,7 +3245,12 @@
                     "label": "Plante"
                 },
                 "plant/method": {
-                    "label": "Fremstillingsmetode"
+                    "label": "Fremstillingsmetode",
+                    "options": {
+                        "thermal": "Solvarme",
+                        "water-storage": "Reservoir",
+                        "wind_turbine": "Vindturbine"
+                    }
                 },
                 "plant/output": {
                     "label": "Form for energiproduktion",
@@ -3143,7 +3270,22 @@
                     "placeholder": "500 MW, 1000 MW, 2000 MW..."
                 },
                 "plant/source": {
-                    "label": "Energikilde"
+                    "label": "Energikilde",
+                    "options": {
+                        "battery": "Batteri",
+                        "coal": "Kul",
+                        "gas": "Naturgas",
+                        "gasoline": "Benzin",
+                        "geothermal": "Geotermisk energi",
+                        "hydro": "Vandkraft",
+                        "nuclear": "Kernekraft",
+                        "oil": "Olie",
+                        "solar": "Solstråling",
+                        "tidal": "Tidevandsenergi",
+                        "waste": "Affald",
+                        "wave": "Bølgekraft",
+                        "wind": "Vind"
+                    }
                 },
                 "playground": {
                     "label": "Type",
@@ -3804,16 +3946,144 @@
                     }
                 },
                 "sport/sport_ice": {
-                    "label": "Sportsgren"
+                    "label": "Sportsgren",
+                    "options": {
+                        "10pin": "Ti-kegle-bowling",
+                        "9pin": "Ni-kegle-bowling",
+                        "american_football": "Amerikansk fodbold",
+                        "athletics": "Atletik",
+                        "billiards": "Billard",
+                        "canoe": "Kanosejlads",
+                        "chess": "Skak",
+                        "climbing": "Klatring",
+                        "cycling": "Cykling",
+                        "dog_racing": "Hundevæddeløb",
+                        "equestrian": "Hestesport",
+                        "fitness": "Fitness-træning",
+                        "golf": "Golf",
+                        "gymnastics": "Gymnastik",
+                        "handball": "Håndbold",
+                        "horse_racing": "Hestevæddeløb",
+                        "ice_hockey": "Ishockey",
+                        "ice_skating": "Skøjteløb",
+                        "karting": "Gokart",
+                        "motor": "Motorsport",
+                        "multi": "Uspecificeret anden sport",
+                        "orienteering": "Orienteringsløb",
+                        "running": "Løb",
+                        "scuba_diving": "Dykning",
+                        "shooting": "Skydning",
+                        "skiing": "Skiløb",
+                        "soccer": "Fodbold",
+                        "speedway": "Motorcykel Speedway",
+                        "swimming": "Svømning",
+                        "table_tennis": "Bordtennis"
+                    }
                 },
                 "sport/sport_pub": {
-                    "label": "Sportsgren"
+                    "label": "Sportsgren",
+                    "options": {
+                        "10pin": "Ti-kegle-bowling",
+                        "9pin": "Ni-kegle-bowling",
+                        "american_football": "Amerikansk fodbold",
+                        "athletics": "Atletik",
+                        "billiards": "Billard",
+                        "canoe": "Kanosejlads",
+                        "chess": "Skak",
+                        "climbing": "Klatring",
+                        "cycling": "Cykling",
+                        "dog_racing": "Hundevæddeløb",
+                        "equestrian": "Hestesport",
+                        "fitness": "Fitness-træning",
+                        "golf": "Golf",
+                        "gymnastics": "Gymnastik",
+                        "handball": "Håndbold",
+                        "horse_racing": "Hestevæddeløb",
+                        "ice_hockey": "Ishockey",
+                        "ice_skating": "Skøjteløb",
+                        "karting": "Gokart",
+                        "motor": "Motorsport",
+                        "multi": "Uspecificeret anden sport",
+                        "orienteering": "Orienteringsløb",
+                        "running": "Løb",
+                        "scuba_diving": "Dykning",
+                        "shooting": "Skydning",
+                        "skiing": "Skiløb",
+                        "soccer": "Fodbold",
+                        "speedway": "Motorcykel Speedway",
+                        "swimming": "Svømning",
+                        "table_tennis": "Bordtennis"
+                    }
                 },
                 "sport/sport_racing_motor": {
-                    "label": "Sportsgren"
+                    "label": "Sportsgren",
+                    "options": {
+                        "10pin": "Ti-kegle-bowling",
+                        "9pin": "Ni-kegle-bowling",
+                        "american_football": "Amerikansk fodbold",
+                        "athletics": "Atletik",
+                        "billiards": "Billard",
+                        "canoe": "Kanosejlads",
+                        "chess": "Skak",
+                        "climbing": "Klatring",
+                        "cycling": "Cykling",
+                        "dog_racing": "Hundevæddeløb",
+                        "equestrian": "Hestesport",
+                        "fitness": "Fitness-træning",
+                        "golf": "Golf",
+                        "gymnastics": "Gymnastik",
+                        "handball": "Håndbold",
+                        "horse_racing": "Hestevæddeløb",
+                        "ice_hockey": "Ishockey",
+                        "ice_skating": "Skøjteløb",
+                        "karting": "Gokart",
+                        "motor": "Motorsport",
+                        "multi": "Uspecificeret anden sport",
+                        "orienteering": "Orienteringsløb",
+                        "running": "Løb",
+                        "scuba_diving": "Dykning",
+                        "shooting": "Skydning",
+                        "skiing": "Skiløb",
+                        "soccer": "Fodbold",
+                        "speedway": "Motorcykel Speedway",
+                        "swimming": "Svømning",
+                        "table_tennis": "Bordtennis"
+                    }
                 },
                 "sport/sport_racing_nonmotor": {
-                    "label": "Sportsgren"
+                    "label": "Sportsgren",
+                    "options": {
+                        "10pin": "Ti-kegle-bowling",
+                        "9pin": "Ni-kegle-bowling",
+                        "american_football": "Amerikansk fodbold",
+                        "athletics": "Atletik",
+                        "billiards": "Billard",
+                        "canoe": "Kanosejlads",
+                        "chess": "Skak",
+                        "climbing": "Klatring",
+                        "cycling": "Cykling",
+                        "dog_racing": "Hundevæddeløb",
+                        "equestrian": "Hestesport",
+                        "fitness": "Fitness-træning",
+                        "golf": "Golf",
+                        "gymnastics": "Gymnastik",
+                        "handball": "Håndbold",
+                        "horse_racing": "Hestevæddeløb",
+                        "ice_hockey": "Ishockey",
+                        "ice_skating": "Skøjteløb",
+                        "karting": "Gokart",
+                        "motor": "Motorsport",
+                        "multi": "Uspecificeret anden sport",
+                        "orienteering": "Orienteringsløb",
+                        "running": "Løb",
+                        "scuba_diving": "Dykning",
+                        "shooting": "Skydning",
+                        "skiing": "Skiløb",
+                        "soccer": "Fodbold",
+                        "speedway": "Motorcykel Speedway",
+                        "swimming": "Svømning",
+                        "table_tennis": "Bordtennis"
+                    }
                 },
                 "stars": {
                     "label": "Stjerner"
@@ -4165,7 +4435,21 @@
                     }
                 },
                 "traffic_calming_road": {
-                    "label": "Trafikdæmpning"
+                    "label": "Trafikdæmpning",
+                    "options": {
+                        "bump": "Vejbump",
+                        "chicane": "Trafikchikane",
+                        "choked_table": "Indsnævret trapezbump",
+                        "choker": "Vejindsnævring",
+                        "cushion": "Pudebump",
+                        "dip": "Fordybning",
+                        "double_dip": "Dobbelt fordybning",
+                        "hump": "Cirkelbump",
+                        "island": "Helleanlæg",
+                        "mini_bumps": "Pukkelbump",
+                        "rumble_strip": "Rumlestribe",
+                        "table": "Trapezbump"
+                    }
                 },
                 "traffic_sign": {
                     "label": "Trafikskilt"
@@ -4243,7 +4527,13 @@
                 },
                 "tunnel": {
                     "label": "Type",
-                    "placeholder": "Standard"
+                    "placeholder": "Standard",
+                    "options": {
+                        "avalanche_protector": "Lavinebeskyttelse",
+                        "building_passage": "Bygningspassage",
+                        "culvert": "Underføring",
+                        "flooded": "Oversvmømmet tunnel"
+                    }
                 },
                 "tunnel/name": {
                     "label": "Tunnelnavn"

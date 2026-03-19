@@ -684,7 +684,17 @@
                 },
                 "bridge": {
                     "label": "Vrsta",
-                    "placeholder": "Predefinirano"
+                    "placeholder": "Predefinirano",
+                    "options": {
+                        "aqueduct": "Akvadukt",
+                        "boardwalk": "Šetnica od dasaka",
+                        "cantilever": "Konzolni most",
+                        "covered": "Pokriveni most",
+                        "low_water_crossing": "Niskovodni prijelaz",
+                        "movable": "Pokretni most",
+                        "trestle": "Rešetkasti most",
+                        "viaduct": "Vijadukt"
+                    }
                 },
                 "bridge/name": {
                     "label": "Naziv mosta",
@@ -1224,7 +1234,11 @@
                         "no": "Ne",
                         "undefined": "Pretpostavka je da nije jednosmjerna",
                         "yes": "Da"
-                    }
+                    },
+                    "label": "Pokriven",
+                    "terms": [
+                        "natkriveno"
+                    ]
                 },
                 "craft": {
                     "label": "Vrsta",
@@ -1750,7 +1764,12 @@
                     }
                 },
                 "direction_point": {
-                    "placeholder": "45, 90, 180, 270"
+                    "placeholder": "45, 90, 180, 270",
+                    "label": "Smjer (stupnjeva u smjeru kazaljke na satu)",
+                    "terms": [
+                        "smjer",
+                        "stupnjevi u smjeru kazaljke na satu"
+                    ]
                 },
                 "direction_vertex": {
                     "label": "Smjer na koji se odnosi",
@@ -2706,7 +2725,11 @@
                     "options": {
                         "down": "Dolje",
                         "up": "Gore"
-                    }
+                    },
+                    "label": "Nagib",
+                    "terms": [
+                        "nizbrdica"
+                    ]
                 },
                 "indoor": {
                     "label": "U zatvorenom prostoru",
@@ -2847,7 +2870,38 @@
                     "label": "Visina"
                 },
                 "kerb/kerb_barrier": {
-                    "label": "Vrsta"
+                    "label": "Vrsta",
+                    "options": {
+                        "flush": {
+                            "description": "Spušteni rubnik koji je u ravnini s okolnim prostorom.",
+                            "title": "Povuci vodu"
+                        },
+                        "lowered": {
+                            "description": "Spušteni rubnjak ne viši od nekoliko centimetara koji mogu koristiti korisnici invalidskih kolica",
+                            "title": "Spušten"
+                        },
+                        "no": {
+                            "description": "Nema rubnika na ovoj lokaciji.",
+                            "title": "Ne"
+                        },
+                        "raised": {
+                            "description": "Povišeni rubnik više od nekoliko centimetara, koji korisnici invalidskih kolica ne mogu lako koristiti.",
+                            "title": "Povišen"
+                        },
+                        "rolled": {
+                            "description": "Povišeni rubnik sa zaobljenim rubom koji olakšava uporabu za automobile ili bicikle, ali ne i za invalidska kolica",
+                            "title": "Zaobljen"
+                        },
+                        "yes": {
+                            "description": "Na ovoj lokaciji postoji neka vrsta rubnika, nepoznato je li podignut, spušten, u ravnini itd.",
+                            "title": "Da"
+                        }
+                    },
+                    "terms": [
+                        "rubnik",
+                        "ivičnjak",
+                        "rubnjak"
+                    ]
                 },
                 "kitchen": {
                     "label": "Kuhinja",
@@ -2900,7 +2954,11 @@
                     ]
                 },
                 "layer_1": {
-                    "placeholder": "0"
+                    "placeholder": "0",
+                    "label": "Sloj",
+                    "terms": [
+                        "sloj"
+                    ]
                 },
                 "leaf_cycle": {
                     "label": "Padanje lišća",
@@ -2931,8 +2989,15 @@
                 "leaf_type_singular": {
                     "label": "Vrsta listova",
                     "terms": [
-                        "tip lista"
-                    ]
+                        "vrsta lista",
+                        "oblik lista"
+                    ],
+                    "options": {
+                        "broadleaved": "Široki list",
+                        "leafless": "Bez lišća",
+                        "mixed": "Mješano",
+                        "needleleaved": "Iglice"
+                    }
                 },
                 "leisure": {
                     "label": "Vrsta"
@@ -3024,7 +3089,12 @@
                         "indoor": "U zatvorenom prostoru",
                         "outdoor": "Na otvorenom",
                         "roof": "Na krovu"
-                    }
+                    },
+                    "label": "Lokacija",
+                    "terms": [
+                        "mjesto",
+                        "lokacija"
+                    ]
                 },
                 "lock": {
                     "label": "Ustava"
@@ -3561,7 +3631,11 @@
                         "reversible": "Izmjenjiv smjer",
                         "undefined": "Pretpostavka je da je jednosmjerna",
                         "yes": "Da"
-                    }
+                    },
+                    "label": "Jednosmjerna",
+                    "terms": [
+                        "jednosmjerno"
+                    ]
                 },
                 "openfire": {
                     "label": "Otvorena vatra je dopuštena",
@@ -3612,7 +3686,19 @@
                     ]
                 },
                 "orientation/orientation_parking": {
-                    "label": "Orijentacija"
+                    "label": "Orijentacija",
+                    "options": {
+                        "diagonal": "Dijagonalno u odnosu na ulicu (~45°)",
+                        "parallel": "Paralelno sa ulicom",
+                        "perpendicular": "Sastaje se s ulicom od poravim kutom (~90°)"
+                    },
+                    "terms": [
+                        "orijentacija parkiranja"
+                    ],
+                    "types": {
+                        "parking:left:orientation": "Lijeva strana",
+                        "parking:right:orientation": "Desna strana"
+                    }
                 },
                 "outdoor_seating": {
                     "label": "Vanjsko sjedenje",
@@ -3749,7 +3835,61 @@
                     }
                 },
                 "parking_entrance": {
-                    "label": "Vrsta"
+                    "label": "Vrsta",
+                    "options": {
+                        "carports": {
+                            "description": "Strukture koje pružaju ograničenu zaštitu za vozila, obično bez zidova",
+                            "title": "Nastrešnica"
+                        },
+                        "garage_boxes": {
+                            "description": "Privatna garaža s više pojedinačnih mjesta za svaki automobil",
+                            "title": "Boks garaža"
+                        },
+                        "half_on_kerb": {
+                            "description": "Parkiralište djelomično na nogostupu",
+                            "title": "Dijelom na rubniku"
+                        },
+                        "lane": {
+                            "description": "Parking na ulici (koja se lako može pretvoriti u prometnu traku)",
+                            "title": "Parking na prometnici"
+                        },
+                        "layby": {
+                            "description": "Parking na odmorištu, uz cestu",
+                            "title": "Na odmorištu"
+                        },
+                        "multi-storey": {
+                            "description": "Dvije ili više etaža parkirališne garaže u građevinskoj konstrukciji",
+                            "title": "Višerazinski"
+                        },
+                        "on_kerb": {
+                            "description": "Parkiralište na nogostupu",
+                            "title": "Na rubnik"
+                        },
+                        "rooftop": {
+                            "description": "Jedna etaža garaže za parkiranje na vrhu zgrade",
+                            "title": "Na krovu"
+                        },
+                        "sheds": {
+                            "description": "Privatni hangar za vozila",
+                            "title": "Šupe"
+                        },
+                        "shoulder": {
+                            "description": "Parkiranje uz rub cete",
+                            "title": "Rub ceste"
+                        },
+                        "street_side": {
+                            "description": "Parkiralište odmah pokraj ceste (ali ne na njoj)",
+                            "title": "Uz kolnik"
+                        },
+                        "surface": {
+                            "description": "Jedna etaža parkirališta na tlu",
+                            "title": "Površinski"
+                        },
+                        "underground": {
+                            "description": "Podzemno parkiralište",
+                            "title": "Podzemni"
+                        }
+                    }
                 },
                 "parking_space": {
                     "label": "Vrsta"
@@ -3848,7 +3988,8 @@
                         "intermediate": "Srednje (plavi kvadrat)",
                         "novice": "Za početnike (učenje)"
                     },
-                    "placeholder": "Lagano, srednje, zahtjevno..."
+                    "placeholder": "Lagano, srednje, zahtjevno...",
+                    "label": "Težina"
                 },
                 "piste/difficulty_nordic": {
                     "options": {
@@ -3858,7 +3999,8 @@
                         "intermediate": "Srednje - strmi dio",
                         "novice": "Za početnike - ravna, bez napora"
                     },
-                    "placeholder": "Lagano, srednje, zahtjevno..."
+                    "placeholder": "Lagano, srednje, zahtjevno...",
+                    "label": "Težina"
                 },
                 "piste/difficulty_skitour": {
                     "options": {
@@ -3870,7 +4012,8 @@
                         "intermediate": "Srednje - ZS: 35-40° nagib",
                         "novice": "Za početnike -  L: <30° nagib"
                     },
-                    "placeholder": "Lagano, srednje, zahtjevno..."
+                    "placeholder": "Lagano, srednje, zahtjevno...",
+                    "label": "Težina"
                 },
                 "piste/grooming": {
                     "label": "Uređenje staze",
@@ -3888,13 +4031,15 @@
                         "backcountry": "Zaleđe - neuređeno",
                         "classic": "Klasično",
                         "mogul": "Hupseri"
-                    }
+                    },
+                    "label": "Uređenje staze"
                 },
                 "piste/grooming_hike": {
                     "options": {
                         "backcountry": "Zaleđe - potrebna obuća za snijeg",
                         "classic": "Klasična - planinarenje po snijegu"
-                    }
+                    },
+                    "label": "Uređenje staze"
                 },
                 "piste/grooming_nordic": {
                     "options": {
@@ -3903,7 +4048,8 @@
                         "classic+skating": "Klasično i riblja kost",
                         "scooter": "Za snježni skuter ili motorne sanjke",
                         "skating": "Riblja kost"
-                    }
+                    },
+                    "label": "Uređenje staze"
                 },
                 "piste/type": {
                     "label": "Vrsta",
@@ -3928,7 +4074,22 @@
                     "label": "Elektrana"
                 },
                 "plant/method": {
-                    "label": "Način generiranja električne energije"
+                    "label": "Način generiranja električne energije",
+                    "options": {
+                        "anaerobic_digestion": "Anaerobna razgradnja",
+                        "barrage": "Plimna brana",
+                        "combustion": "Izgaranje",
+                        "fission": "Fisija",
+                        "fusion": "Fuzija",
+                        "gasification": "Rasplinavanje",
+                        "photovoltaic": "Fotonaponski",
+                        "run-of-the-river": "Protočna",
+                        "stream": "Plimni tok",
+                        "thermal": "Solarna toplinska energija",
+                        "water-pumped-storage": "Crpna hidroelektrana",
+                        "water-storage": "Akumulacija",
+                        "wind_turbine": "Vjetrenjača"
+                    }
                 },
                 "plant/output": {
                     "label": "Oblik izlazne snage",
@@ -3948,7 +4109,26 @@
                     "placeholder": "500 MW, 1000 MW, 2000 MW..."
                 },
                 "plant/source": {
-                    "label": "Izvor energije"
+                    "label": "Izvor energije",
+                    "options": {
+                        "battery": "Baterije",
+                        "biofuel": "Biljna goriva,bio goriva",
+                        "biogas": "Biogorivo",
+                        "biomass": "Bio tvar, biljna tvar",
+                        "coal": "Ugljen",
+                        "diesel": "Dizel",
+                        "gas": "Zemni plin",
+                        "gasoline": "Benzin",
+                        "geothermal": "Geotermalna Energija",
+                        "hydro": "Hidroenergija",
+                        "nuclear": "Nuklearna energija",
+                        "oil": "Ulje,nafta",
+                        "solar": "Sunčevo Zračenje",
+                        "tidal": "Energija plime i oseke",
+                        "waste": "Otpad",
+                        "wave": "Energija valova",
+                        "wind": "Vjetar"
+                    }
                 },
                 "playground": {
                     "label": "Vrsta",
@@ -5023,7 +5203,65 @@
                     }
                 },
                 "sport/sport_ice": {
-                    "label": "Sportovi"
+                    "label": "Sportovi",
+                    "options": {
+                        "10pin": "Kuglanje s deset čunjeva",
+                        "9pin": "Kuglanje s devet čunjeva",
+                        "american_football": "Američki nogomet",
+                        "athletics": "Atletika",
+                        "badminton": "Badminton",
+                        "baseball": "Bejzbol",
+                        "basketball": "Košarka",
+                        "beachvolleyball": "Odbojka na pijesku",
+                        "billiards": "Sportovi sa štapom",
+                        "bmx": "BMX",
+                        "boules": "Boćanje",
+                        "bowls": "Kuglanje",
+                        "canoe": "Vožnja kanuom",
+                        "chess": "Šah",
+                        "climbing": "Penjanje",
+                        "cricket": "Kriket",
+                        "curling": "Curling",
+                        "cycling": "Biciklizam",
+                        "darts": "Pikado",
+                        "disc_golf": "Disk golf igra",
+                        "dog_racing": "Trke pasa",
+                        "equestrian": "Konjički sportovi",
+                        "fitness": "Fitness trening",
+                        "free_flying": "Paragliding/ letenje zamajem",
+                        "futsal": "Futsal",
+                        "gaelic_games": "Galske igre",
+                        "golf": "Golf",
+                        "gymnastics": "Gimnastika",
+                        "handball": "Rukomet",
+                        "horse_racing": "Konjske trke",
+                        "ice_hockey": "Hokej na ledu",
+                        "ice_skating": "Klizanje na ledu",
+                        "ice_stock": "Bavarski curling",
+                        "karting": "Karting",
+                        "motocross": "Motokros",
+                        "motor": "Motosportovi",
+                        "multi": "Nespecificirani ostali sportovi",
+                        "netball": "Netball",
+                        "orienteering": "Orijentacijsko trčanje",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Ragbi savez",
+                        "running": "Trčanje",
+                        "scuba_diving": "Ronjenje",
+                        "shooting": "Streljaštvo",
+                        "skateboard": "Skejtbord",
+                        "ski_jumping": "Skijaški skokovi",
+                        "skiing": "Skijanje",
+                        "soccer": "Nogomet",
+                        "softball": "Softbol",
+                        "speedway": "Motociklistička staza",
+                        "swimming": "Plivanje",
+                        "table_tennis": "Ping pong",
+                        "tennis": "Tenis",
+                        "volleyball": "Odbojka",
+                        "yoga": "Joga"
+                    }
                 },
                 "sport/sport_pub": {
                     "label": "Sportovi",
@@ -5032,13 +5270,187 @@
                         "igre",
                         "sportske aktivnosti",
                         "sportske udruge"
-                    ]
+                    ],
+                    "options": {
+                        "10pin": "Kuglanje s deset čunjeva",
+                        "9pin": "Kuglanje s devet čunjeva",
+                        "american_football": "Američki nogomet",
+                        "athletics": "Atletika",
+                        "badminton": "Badminton",
+                        "baseball": "Bejzbol",
+                        "basketball": "Košarka",
+                        "beachvolleyball": "Odbojka na pijesku",
+                        "billiards": "Sportovi sa štapom",
+                        "bmx": "BMX",
+                        "boules": "Boćanje",
+                        "bowls": "Kuglanje",
+                        "canoe": "Vožnja kanuom",
+                        "chess": "Šah",
+                        "climbing": "Penjanje",
+                        "cricket": "Kriket",
+                        "curling": "Curling",
+                        "cycling": "Biciklizam",
+                        "darts": "Pikado",
+                        "disc_golf": "Disk golf igra",
+                        "dog_racing": "Trke pasa",
+                        "equestrian": "Konjički sportovi",
+                        "fitness": "Fitness trening",
+                        "free_flying": "Paragliding/ letenje zamajem",
+                        "futsal": "Futsal",
+                        "gaelic_games": "Galske igre",
+                        "golf": "Golf",
+                        "gymnastics": "Gimnastika",
+                        "handball": "Rukomet",
+                        "horse_racing": "Konjske trke",
+                        "ice_hockey": "Hokej na ledu",
+                        "ice_skating": "Klizanje na ledu",
+                        "ice_stock": "Bavarski curling",
+                        "karting": "Karting",
+                        "motocross": "Motokros",
+                        "motor": "Motosportovi",
+                        "multi": "Nespecificirani ostali sportovi",
+                        "netball": "Netball",
+                        "orienteering": "Orijentacijsko trčanje",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Ragbi savez",
+                        "running": "Trčanje",
+                        "scuba_diving": "Ronjenje",
+                        "shooting": "Streljaštvo",
+                        "skateboard": "Skejtbord",
+                        "ski_jumping": "Skijaški skokovi",
+                        "skiing": "Skijanje",
+                        "soccer": "Nogomet",
+                        "softball": "Softbol",
+                        "speedway": "Motociklistička staza",
+                        "swimming": "Plivanje",
+                        "table_tennis": "Ping pong",
+                        "tennis": "Tenis",
+                        "volleyball": "Odbojka",
+                        "yoga": "Joga"
+                    }
                 },
                 "sport/sport_racing_motor": {
-                    "label": "Sportovi"
+                    "label": "Sportovi",
+                    "options": {
+                        "10pin": "Kuglanje s deset čunjeva",
+                        "9pin": "Kuglanje s devet čunjeva",
+                        "american_football": "Američki nogomet",
+                        "athletics": "Atletika",
+                        "badminton": "Badminton",
+                        "baseball": "Bejzbol",
+                        "basketball": "Košarka",
+                        "beachvolleyball": "Odbojka na pijesku",
+                        "billiards": "Sportovi sa štapom",
+                        "bmx": "BMX",
+                        "boules": "Boćanje",
+                        "bowls": "Kuglanje",
+                        "canoe": "Vožnja kanuom",
+                        "chess": "Šah",
+                        "climbing": "Penjanje",
+                        "cricket": "Kriket",
+                        "curling": "Curling",
+                        "cycling": "Biciklizam",
+                        "darts": "Pikado",
+                        "disc_golf": "Disk golf igra",
+                        "dog_racing": "Trke pasa",
+                        "equestrian": "Konjički sportovi",
+                        "fitness": "Fitness trening",
+                        "free_flying": "Paragliding/ letenje zamajem",
+                        "futsal": "Futsal",
+                        "gaelic_games": "Galske igre",
+                        "golf": "Golf",
+                        "gymnastics": "Gimnastika",
+                        "handball": "Rukomet",
+                        "horse_racing": "Konjske trke",
+                        "ice_hockey": "Hokej na ledu",
+                        "ice_skating": "Klizanje na ledu",
+                        "ice_stock": "Bavarski curling",
+                        "karting": "Karting",
+                        "motocross": "Motokros",
+                        "motor": "Motosportovi",
+                        "multi": "Nespecificirani ostali sportovi",
+                        "netball": "Netball",
+                        "orienteering": "Orijentacijsko trčanje",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Ragbi savez",
+                        "running": "Trčanje",
+                        "scuba_diving": "Ronjenje",
+                        "shooting": "Streljaštvo",
+                        "skateboard": "Skejtbord",
+                        "ski_jumping": "Skijaški skokovi",
+                        "skiing": "Skijanje",
+                        "soccer": "Nogomet",
+                        "softball": "Softbol",
+                        "speedway": "Motociklistička staza",
+                        "swimming": "Plivanje",
+                        "table_tennis": "Ping pong",
+                        "tennis": "Tenis",
+                        "volleyball": "Odbojka",
+                        "yoga": "Joga"
+                    }
                 },
                 "sport/sport_racing_nonmotor": {
-                    "label": "Sportovi"
+                    "label": "Sportovi",
+                    "options": {
+                        "10pin": "Kuglanje s deset čunjeva",
+                        "9pin": "Kuglanje s devet čunjeva",
+                        "american_football": "Američki nogomet",
+                        "athletics": "Atletika",
+                        "badminton": "Badminton",
+                        "baseball": "Bejzbol",
+                        "basketball": "Košarka",
+                        "beachvolleyball": "Odbojka na pijesku",
+                        "billiards": "Sportovi sa štapom",
+                        "bmx": "BMX",
+                        "boules": "Boćanje",
+                        "bowls": "Kuglanje",
+                        "canoe": "Vožnja kanuom",
+                        "chess": "Šah",
+                        "climbing": "Penjanje",
+                        "cricket": "Kriket",
+                        "curling": "Curling",
+                        "cycling": "Biciklizam",
+                        "darts": "Pikado",
+                        "disc_golf": "Disk golf igra",
+                        "dog_racing": "Trke pasa",
+                        "equestrian": "Konjički sportovi",
+                        "fitness": "Fitness trening",
+                        "free_flying": "Paragliding/ letenje zamajem",
+                        "futsal": "Futsal",
+                        "gaelic_games": "Galske igre",
+                        "golf": "Golf",
+                        "gymnastics": "Gimnastika",
+                        "handball": "Rukomet",
+                        "horse_racing": "Konjske trke",
+                        "ice_hockey": "Hokej na ledu",
+                        "ice_skating": "Klizanje na ledu",
+                        "ice_stock": "Bavarski curling",
+                        "karting": "Karting",
+                        "motocross": "Motokros",
+                        "motor": "Motosportovi",
+                        "multi": "Nespecificirani ostali sportovi",
+                        "netball": "Netball",
+                        "orienteering": "Orijentacijsko trčanje",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Ragbi savez",
+                        "running": "Trčanje",
+                        "scuba_diving": "Ronjenje",
+                        "shooting": "Streljaštvo",
+                        "skateboard": "Skejtbord",
+                        "ski_jumping": "Skijaški skokovi",
+                        "skiing": "Skijanje",
+                        "soccer": "Nogomet",
+                        "softball": "Softbol",
+                        "speedway": "Motociklistička staza",
+                        "swimming": "Plivanje",
+                        "table_tennis": "Ping pong",
+                        "tennis": "Tenis",
+                        "volleyball": "Odbojka",
+                        "yoga": "Joga"
+                    }
                 },
                 "stars": {
                     "label": "Zvjezdice",
@@ -5577,7 +5989,21 @@
                         "tutnjava",
                         "sporo",
                         "brzina"
-                    ]
+                    ],
+                    "options": {
+                        "bump": "Kratki uspornik u širini ceste",
+                        "chicane": "Prometna šikana",
+                        "choked_table": "Uspornik sa suženjem za stambena područja",
+                        "choker": "Suženje ceste",
+                        "cushion": "Uspornik betonski jastuk",
+                        "dip": "Nagibni uspornik sa slivnikom",
+                        "double_dip": "Dvostruki nagibni uspornik sa slivnikom",
+                        "hump": "Duži uspornik u širini ceste",
+                        "island": "Otok za usporavanje prometa",
+                        "mini_bumps": "Mini obli jastuci",
+                        "rumble_strip": "Uspornici vibracijske trake",
+                        "table": "Uspornik za stambena područja"
+                    }
                 },
                 "traffic_sign": {
                     "label": "Prometni znak"
@@ -5689,7 +6115,13 @@
                 },
                 "tunnel": {
                     "label": "Vrsta",
-                    "placeholder": "Predefinirano"
+                    "placeholder": "Predefinirano",
+                    "options": {
+                        "avalanche_protector": "Zaštitnik od lavina",
+                        "building_passage": "građevinski prolaz",
+                        "culvert": "Propust",
+                        "flooded": "poplavljeni tunel"
+                    }
                 },
                 "tunnel/name": {
                     "label": "Naziv tunela"

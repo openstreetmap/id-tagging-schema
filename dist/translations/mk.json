@@ -576,7 +576,17 @@
                 },
                 "bridge": {
                     "label": "Вид",
-                    "placeholder": "По основно"
+                    "placeholder": "По основно",
+                    "options": {
+                        "aqueduct": "Аквадукт",
+                        "boardwalk": "Патека од даски",
+                        "cantilever": "Конзолен мост",
+                        "covered": "Покриен мост",
+                        "low_water_crossing": "Нисководостоен премин",
+                        "movable": "Подвижен мост",
+                        "trestle": "Скелен мост",
+                        "viaduct": "Вијадукт"
+                    }
                 },
                 "bridge/name": {
                     "label": "Име на мостот"
@@ -994,7 +1004,8 @@
                         "no": "Не",
                         "undefined": "Претпоставено дека не е",
                         "yes": "Да"
-                    }
+                    },
+                    "label": "На покриено"
                 },
                 "craft": {
                     "label": "Вид",
@@ -1445,7 +1456,12 @@
                     }
                 },
                 "direction_point": {
-                    "placeholder": "45, 90, 180, 270"
+                    "placeholder": "45, 90, 180, 270",
+                    "label": "Насока (степени вдесно)",
+                    "terms": [
+                        "<преведете со истозначници или сродни поими на „насока (степени вдесно)“",
+                        "одделени со запирки>"
+                    ]
                 },
                 "direction_vertex": {
                     "label": "Засегната насока",
@@ -2264,7 +2280,8 @@
                     "options": {
                         "down": "Надолу",
                         "up": "Нагоре"
-                    }
+                    },
+                    "label": "Наклон"
                 },
                 "indoor": {
                     "label": "На затворено"
@@ -2366,7 +2383,33 @@
                     "label": "Висина"
                 },
                 "kerb/kerb_barrier": {
-                    "label": "Вид"
+                    "label": "Вид",
+                    "options": {
+                        "flush": {
+                            "description": "Спуштен рабник рамен на околината.",
+                            "title": "Рамен"
+                        },
+                        "lowered": {
+                            "description": "Спуштен рабник рамен погоден за луѓе во инвалидски колички, не повисок од неколку сантиметри.",
+                            "title": "Спуштен"
+                        },
+                        "no": {
+                            "description": "На ова место нема рабник.",
+                            "title": "Не"
+                        },
+                        "raised": {
+                            "description": "Подигнат рабник кој не може лесно да се искачи со инвалидска количка, повисок од неколку сантиметри.",
+                            "title": "Подигнат"
+                        },
+                        "rolled": {
+                            "description": "Подигнат рабник со заоблен раб кој им го олеснува искачувањето на колите и велосипедите, но не на лицата во инвалидски колички.",
+                            "title": "Заоблен"
+                        },
+                        "yes": {
+                            "description": "На ова место има некаков рабник, но непознато е дали е подигнат, спуштен, рамен итн.",
+                            "title": "Да"
+                        }
+                    }
                 },
                 "kitchen": {
                     "label": "Кујна"
@@ -2406,7 +2449,8 @@
                     "placeholder": "0"
                 },
                 "layer_1": {
-                    "placeholder": "0"
+                    "placeholder": "0",
+                    "label": "Слој"
                 },
                 "leaf_cycle": {
                     "label": "Листен циклус",
@@ -2428,7 +2472,13 @@
                     }
                 },
                 "leaf_type_singular": {
-                    "label": "Вид листови"
+                    "label": "Вид листови",
+                    "options": {
+                        "broadleaved": "Широколисни",
+                        "leafless": "Безлисни",
+                        "mixed": "Мешани",
+                        "needleleaved": "Иглолисни"
+                    }
                 },
                 "leisure": {
                     "label": "Вид"
@@ -2497,7 +2547,8 @@
                         "indoor": "Внатре",
                         "outdoor": "Надвор",
                         "roof": "На покрив"
-                    }
+                    },
+                    "label": "Место"
                 },
                 "lock": {
                     "label": "Преводница"
@@ -2909,7 +2960,8 @@
                         "reversible": "Променлива насока",
                         "undefined": "Претпоставено дека е",
                         "yes": "Да"
-                    }
+                    },
+                    "label": "Еднонасочно"
                 },
                 "openfire": {
                     "label": "Дозволени отворени огништа"
@@ -2944,7 +2996,16 @@
                     }
                 },
                 "orientation/orientation_parking": {
-                    "label": "Насоченост"
+                    "label": "Насоченост",
+                    "options": {
+                        "diagonal": "Дијагонално на улицата (~45°)",
+                        "parallel": "Напоредно на улицата",
+                        "perpendicular": "Под прав агол на улицата (~90°)"
+                    },
+                    "types": {
+                        "parking:left:orientation": "Лево",
+                        "parking:right:orientation": "Десно"
+                    }
                 },
                 "outdoor_seating": {
                     "label": "Надворешни седишта"
@@ -3064,7 +3125,61 @@
                     }
                 },
                 "parking_entrance": {
-                    "label": "Вид"
+                    "label": "Вид",
+                    "options": {
+                        "carports": {
+                            "description": "Градба со ограничена заштита за возилата, обично без ѕидови.",
+                            "title": "Автомобилски стреи"
+                        },
+                        "garage_boxes": {
+                            "description": "Приватна гаража со повеќе поединечни поделоци, секој за по една кола",
+                            "title": "Гаражи"
+                        },
+                        "half_on_kerb": {
+                            "description": "Паркиринг делумно на тротоар",
+                            "title": "Половина на тротоар"
+                        },
+                        "lane": {
+                            "description": "Паркинг на улицата (кој лесно може да се претвори во патека)",
+                            "title": "Крајпатна лента"
+                        },
+                        "layby": {
+                            "description": "Паркинг на одмориште, покрај патот.",
+                            "title": "Одмориште"
+                        },
+                        "multi-storey": {
+                            "description": "Два или повеќе ката за паркирање во зграда.",
+                            "title": "Катно"
+                        },
+                        "on_kerb": {
+                            "description": "Паркинг на тротоар",
+                            "title": "На тротоар"
+                        },
+                        "rooftop": {
+                            "description": "Едено ниво ниво за паркирање врз зграда.",
+                            "title": "Покрив"
+                        },
+                        "sheds": {
+                            "description": "Приватни хангари за возила.",
+                            "title": "Шупи"
+                        },
+                        "shoulder": {
+                            "description": "Паркинг на принудна лента",
+                            "title": "Принудна лента"
+                        },
+                        "street_side": {
+                            "description": "Паркинг веднаш до улица (но не на неа).",
+                            "title": "Крајулично"
+                        },
+                        "surface": {
+                            "description": "Едно ниво за паркирање, наземно.",
+                            "title": "Надземно"
+                        },
+                        "underground": {
+                            "description": "Подземно паркирање.",
+                            "title": "Подземно"
+                        }
+                    }
                 },
                 "parking_space": {
                     "label": "Вид"
@@ -3156,7 +3271,8 @@
                         "intermediate": "Средно (син квадрат)",
                         "novice": "Почетнички (за учење)"
                     },
-                    "placeholder": "Лесно, Средно, Напредно..."
+                    "placeholder": "Лесно, Средно, Напредно...",
+                    "label": "Тешкотија"
                 },
                 "piste/difficulty_nordic": {
                     "options": {
@@ -3166,7 +3282,8 @@
                         "intermediate": "Средно — стрмен потег",
                         "novice": "Почетнички — Рамно, без напор"
                     },
-                    "placeholder": "Лесно, Средно, Напредно..."
+                    "placeholder": "Лесно, Средно, Напредно...",
+                    "label": "Тешкотија"
                 },
                 "piste/difficulty_skitour": {
                     "options": {
@@ -3178,7 +3295,8 @@
                         "intermediate": "Средно — ZS: наклон 35-40°",
                         "novice": "Почетнички — L: наклон <30°"
                     },
-                    "placeholder": "Лесно, Средно, Напредно..."
+                    "placeholder": "Лесно, Средно, Напредно...",
+                    "label": "Тешкотија"
                 },
                 "piste/grooming": {
                     "label": "Тимарење",
@@ -3196,13 +3314,15 @@
                         "backcountry": "Зафрлени предели — не се одржува",
                         "classic": "Класично",
                         "mogul": "Со грпки"
-                    }
+                    },
+                    "label": "Тимарење"
                 },
                 "piste/grooming_hike": {
                     "options": {
                         "backcountry": "Зафрлено — со снегоодалки",
                         "classic": "Класично — зимско планинарење"
-                    }
+                    },
+                    "label": "Тимарење"
                 },
                 "piste/grooming_nordic": {
                     "options": {
@@ -3211,7 +3331,8 @@
                         "classic+skating": "Класично или лизгање",
                         "scooter": "Моторна санка",
                         "skating": "Лизгање"
-                    }
+                    },
+                    "label": "Тимарење"
                 },
                 "piste/type": {
                     "label": "Вид",
@@ -3236,7 +3357,22 @@
                     "label": "Погон"
                 },
                 "plant/method": {
-                    "label": "Начин на струјосоздавање"
+                    "label": "Начин на струјосоздавање",
+                    "options": {
+                        "anaerobic_digestion": "Анаеробно варење",
+                        "barrage": "Плимна брана",
+                        "combustion": "Согорување",
+                        "fission": "Фисија",
+                        "fusion": "Фузија",
+                        "gasification": "Гасификација",
+                        "photovoltaic": "Светлонапонски",
+                        "run-of-the-river": "Проточно",
+                        "stream": "Плимна струја",
+                        "thermal": "Сончевотоплински",
+                        "water-pumped-storage": "Пумпно складирање",
+                        "water-storage": "Вештачко езеро",
+                        "wind_turbine": "Ветротурбина"
+                    }
                 },
                 "plant/output": {
                     "label": "Облик на произведена енергија",
@@ -3256,7 +3392,26 @@
                     "placeholder": "500 MW, 1000 MW, 2000 MW..."
                 },
                 "plant/source": {
-                    "label": "Извор на енергија"
+                    "label": "Извор на енергија",
+                    "options": {
+                        "battery": "Акумулатор",
+                        "biofuel": "Растителни горива",
+                        "biogas": "Биогас",
+                        "biomass": "Растителна материја",
+                        "coal": "Јаглен",
+                        "diesel": "Нафта",
+                        "gas": "Земен гас",
+                        "gasoline": "Бензин",
+                        "geothermal": "Геотоплинска енергија",
+                        "hydro": "Хидроенергија",
+                        "nuclear": "Нуклеарна енергија",
+                        "oil": "Масло",
+                        "solar": "Сончево зрачење",
+                        "tidal": "Плимна енергија",
+                        "waste": "Отпад",
+                        "wave": "Бранова енергија",
+                        "wind": "Ветер"
+                    }
                 },
                 "playground": {
                     "label": "Вид",
@@ -4184,16 +4339,248 @@
                     }
                 },
                 "sport/sport_ice": {
-                    "label": "Спорт"
+                    "label": "Спорт",
+                    "options": {
+                        "10pin": "Куглање на десет чунови",
+                        "9pin": "Куглање на девет чунови",
+                        "american_football": "Американски фудбал",
+                        "athletics": "Атлетика на патеки",
+                        "badminton": "Бадминтон",
+                        "baseball": "Бејзбол",
+                        "basketball": "Кошарка",
+                        "beachvolleyball": "Одбојка на плажа",
+                        "billiards": "Билијардски игри",
+                        "bmx": "BMX",
+                        "boules": "Боќање",
+                        "bowls": "Боулс",
+                        "canoe": "Кану",
+                        "chess": "Шах",
+                        "climbing": "Искачување",
+                        "cricket": "Крикет",
+                        "curling": "Карлинг",
+                        "cycling": "Велосипедизам",
+                        "darts": "Пикадо",
+                        "disc_golf": "Диск-голф",
+                        "dog_racing": "Кучешка трка",
+                        "equestrian": "Коњички спортови",
+                        "fitness": "Физички вежби",
+                        "free_flying": "Параглајдерство / змејарство",
+                        "futsal": "Футсал",
+                        "gaelic_games": "Гелски игри",
+                        "golf": "Голф",
+                        "gymnastics": "Гимнастика",
+                        "handball": "Ракомет",
+                        "horse_racing": "Коњски трки",
+                        "ice_hockey": "Хокеј на мраз",
+                        "ice_skating": "Лизгање",
+                        "ice_stock": "Ќутуци на мраз",
+                        "karting": "Картинг",
+                        "motocross": "Мотокрос",
+                        "motor": "Мототрки",
+                        "multi": "Други неукажани спортови",
+                        "netball": "Нетбол",
+                        "orienteering": "Спортско ориентирање",
+                        "padel": "Падел",
+                        "pelota": "Пелота",
+                        "rugby_union": "Рагби (сојузно)",
+                        "running": "Трчање",
+                        "scuba_diving": "Нуркање",
+                        "shooting": "Стрелаштво",
+                        "skateboard": "Скејтбординг",
+                        "ski_jumping": "Скијачко скокање",
+                        "skiing": "Сијање",
+                        "soccer": "Фудбал",
+                        "softball": "Софтбол",
+                        "speedway": "Мотоциклистичко тркалиште",
+                        "swimming": "Пливање",
+                        "table_tennis": "Пинг-понг",
+                        "tennis": "Тенис",
+                        "volleyball": "Одбојка",
+                        "yoga": "Јога"
+                    }
                 },
                 "sport/sport_pub": {
-                    "label": "Спорт"
+                    "label": "Спорт",
+                    "options": {
+                        "10pin": "Куглање на десет чунови",
+                        "9pin": "Куглање на девет чунови",
+                        "american_football": "Американски фудбал",
+                        "athletics": "Атлетика на патеки",
+                        "badminton": "Бадминтон",
+                        "baseball": "Бејзбол",
+                        "basketball": "Кошарка",
+                        "beachvolleyball": "Одбојка на плажа",
+                        "billiards": "Билијардски игри",
+                        "bmx": "BMX",
+                        "boules": "Боќање",
+                        "bowls": "Боулс",
+                        "canoe": "Кану",
+                        "chess": "Шах",
+                        "climbing": "Искачување",
+                        "cricket": "Крикет",
+                        "curling": "Карлинг",
+                        "cycling": "Велосипедизам",
+                        "darts": "Пикадо",
+                        "disc_golf": "Диск-голф",
+                        "dog_racing": "Кучешка трка",
+                        "equestrian": "Коњички спортови",
+                        "fitness": "Физички вежби",
+                        "free_flying": "Параглајдерство / змејарство",
+                        "futsal": "Футсал",
+                        "gaelic_games": "Гелски игри",
+                        "golf": "Голф",
+                        "gymnastics": "Гимнастика",
+                        "handball": "Ракомет",
+                        "horse_racing": "Коњски трки",
+                        "ice_hockey": "Хокеј на мраз",
+                        "ice_skating": "Лизгање",
+                        "ice_stock": "Ќутуци на мраз",
+                        "karting": "Картинг",
+                        "motocross": "Мотокрос",
+                        "motor": "Мототрки",
+                        "multi": "Други неукажани спортови",
+                        "netball": "Нетбол",
+                        "orienteering": "Спортско ориентирање",
+                        "padel": "Падел",
+                        "pelota": "Пелота",
+                        "rugby_union": "Рагби (сојузно)",
+                        "running": "Трчање",
+                        "scuba_diving": "Нуркање",
+                        "shooting": "Стрелаштво",
+                        "skateboard": "Скејтбординг",
+                        "ski_jumping": "Скијачко скокање",
+                        "skiing": "Сијање",
+                        "soccer": "Фудбал",
+                        "softball": "Софтбол",
+                        "speedway": "Мотоциклистичко тркалиште",
+                        "swimming": "Пливање",
+                        "table_tennis": "Пинг-понг",
+                        "tennis": "Тенис",
+                        "volleyball": "Одбојка",
+                        "yoga": "Јога"
+                    }
                 },
                 "sport/sport_racing_motor": {
-                    "label": "Спорт"
+                    "label": "Спорт",
+                    "options": {
+                        "10pin": "Куглање на десет чунови",
+                        "9pin": "Куглање на девет чунови",
+                        "american_football": "Американски фудбал",
+                        "athletics": "Атлетика на патеки",
+                        "badminton": "Бадминтон",
+                        "baseball": "Бејзбол",
+                        "basketball": "Кошарка",
+                        "beachvolleyball": "Одбојка на плажа",
+                        "billiards": "Билијардски игри",
+                        "bmx": "BMX",
+                        "boules": "Боќање",
+                        "bowls": "Боулс",
+                        "canoe": "Кану",
+                        "chess": "Шах",
+                        "climbing": "Искачување",
+                        "cricket": "Крикет",
+                        "curling": "Карлинг",
+                        "cycling": "Велосипедизам",
+                        "darts": "Пикадо",
+                        "disc_golf": "Диск-голф",
+                        "dog_racing": "Кучешка трка",
+                        "equestrian": "Коњички спортови",
+                        "fitness": "Физички вежби",
+                        "free_flying": "Параглајдерство / змејарство",
+                        "futsal": "Футсал",
+                        "gaelic_games": "Гелски игри",
+                        "golf": "Голф",
+                        "gymnastics": "Гимнастика",
+                        "handball": "Ракомет",
+                        "horse_racing": "Коњски трки",
+                        "ice_hockey": "Хокеј на мраз",
+                        "ice_skating": "Лизгање",
+                        "ice_stock": "Ќутуци на мраз",
+                        "karting": "Картинг",
+                        "motocross": "Мотокрос",
+                        "motor": "Мототрки",
+                        "multi": "Други неукажани спортови",
+                        "netball": "Нетбол",
+                        "orienteering": "Спортско ориентирање",
+                        "padel": "Падел",
+                        "pelota": "Пелота",
+                        "rugby_union": "Рагби (сојузно)",
+                        "running": "Трчање",
+                        "scuba_diving": "Нуркање",
+                        "shooting": "Стрелаштво",
+                        "skateboard": "Скејтбординг",
+                        "ski_jumping": "Скијачко скокање",
+                        "skiing": "Сијање",
+                        "soccer": "Фудбал",
+                        "softball": "Софтбол",
+                        "speedway": "Мотоциклистичко тркалиште",
+                        "swimming": "Пливање",
+                        "table_tennis": "Пинг-понг",
+                        "tennis": "Тенис",
+                        "volleyball": "Одбојка",
+                        "yoga": "Јога"
+                    }
                 },
                 "sport/sport_racing_nonmotor": {
-                    "label": "Спорт"
+                    "label": "Спорт",
+                    "options": {
+                        "10pin": "Куглање на десет чунови",
+                        "9pin": "Куглање на девет чунови",
+                        "american_football": "Американски фудбал",
+                        "athletics": "Атлетика на патеки",
+                        "badminton": "Бадминтон",
+                        "baseball": "Бејзбол",
+                        "basketball": "Кошарка",
+                        "beachvolleyball": "Одбојка на плажа",
+                        "billiards": "Билијардски игри",
+                        "bmx": "BMX",
+                        "boules": "Боќање",
+                        "bowls": "Боулс",
+                        "canoe": "Кану",
+                        "chess": "Шах",
+                        "climbing": "Искачување",
+                        "cricket": "Крикет",
+                        "curling": "Карлинг",
+                        "cycling": "Велосипедизам",
+                        "darts": "Пикадо",
+                        "disc_golf": "Диск-голф",
+                        "dog_racing": "Кучешка трка",
+                        "equestrian": "Коњички спортови",
+                        "fitness": "Физички вежби",
+                        "free_flying": "Параглајдерство / змејарство",
+                        "futsal": "Футсал",
+                        "gaelic_games": "Гелски игри",
+                        "golf": "Голф",
+                        "gymnastics": "Гимнастика",
+                        "handball": "Ракомет",
+                        "horse_racing": "Коњски трки",
+                        "ice_hockey": "Хокеј на мраз",
+                        "ice_skating": "Лизгање",
+                        "ice_stock": "Ќутуци на мраз",
+                        "karting": "Картинг",
+                        "motocross": "Мотокрос",
+                        "motor": "Мототрки",
+                        "multi": "Други неукажани спортови",
+                        "netball": "Нетбол",
+                        "orienteering": "Спортско ориентирање",
+                        "padel": "Падел",
+                        "pelota": "Пелота",
+                        "rugby_union": "Рагби (сојузно)",
+                        "running": "Трчање",
+                        "scuba_diving": "Нуркање",
+                        "shooting": "Стрелаштво",
+                        "skateboard": "Скејтбординг",
+                        "ski_jumping": "Скијачко скокање",
+                        "skiing": "Сијање",
+                        "soccer": "Фудбал",
+                        "softball": "Софтбол",
+                        "speedway": "Мотоциклистичко тркалиште",
+                        "swimming": "Пливање",
+                        "table_tennis": "Пинг-понг",
+                        "tennis": "Тенис",
+                        "volleyball": "Одбојка",
+                        "yoga": "Јога"
+                    }
                 },
                 "stars": {
                     "label": "Ѕвездички"
@@ -4631,7 +5018,21 @@
                     }
                 },
                 "traffic_calming_road": {
-                    "label": "Намалување на сообраќајот"
+                    "label": "Намалување на сообраќајот",
+                    "options": {
+                        "bump": "Лежечки полицаец",
+                        "chicane": "Шикана",
+                        "choked_table": "Теснец со плоснат успорник",
+                        "choker": "Теснец",
+                        "cushion": "Брзиноублажувач",
+                        "dip": "Улична бразда",
+                        "double_dip": "Двојна улична бразда",
+                        "hump": "Широк лежечки полицаец",
+                        "island": "Остров за намалување на сообраќајот",
+                        "mini_bumps": "Мали лежечки полицајци",
+                        "rumble_strip": "Бучна линија",
+                        "table": "Плоснат успорник"
+                    }
                 },
                 "traffic_sign": {
                     "label": "Сообраќаен знак"
@@ -4728,7 +5129,13 @@
                 },
                 "tunnel": {
                     "label": "Вид",
-                    "placeholder": "По основно"
+                    "placeholder": "По основно",
+                    "options": {
+                        "avalanche_protector": "Лавобран",
+                        "building_passage": "Премин во зграда",
+                        "culvert": "Пропуст",
+                        "flooded": "Поплавен тунел"
+                    }
                 },
                 "tunnel/name": {
                     "label": "Име на тунелот"

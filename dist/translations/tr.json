@@ -669,7 +669,17 @@
                 },
                 "bridge": {
                     "label": "Tür",
-                    "placeholder": "Varsayılan"
+                    "placeholder": "Varsayılan",
+                    "options": {
+                        "aqueduct": "Su Kemeri",
+                        "boardwalk": "Kaldırım",
+                        "cantilever": "Konsol Köprüsü",
+                        "covered": "Üstü Kapalı Köprü",
+                        "low_water_crossing": "Alçak Su Geçişi",
+                        "movable": "Hareketli Köprü",
+                        "trestle": "Sehpa Köprüsü",
+                        "viaduct": "Karayolu Köprüsü"
+                    }
                 },
                 "bridge/name": {
                     "label": "Köprünün Adı",
@@ -1097,7 +1107,8 @@
                         "no": "Hayır",
                         "undefined": "Tahminen Hayır",
                         "yes": "Evet"
-                    }
+                    },
+                    "label": "Üstü Kapalı"
                 },
                 "craft": {
                     "label": "Tür",
@@ -1504,7 +1515,8 @@
                     }
                 },
                 "direction_point": {
-                    "placeholder": "45, 90, 180, 270"
+                    "placeholder": "45, 90, 180, 270",
+                    "label": "Yön (Saat Yönünde Derece)"
                 },
                 "direction_vertex": {
                     "label": "Etkilenen Yön",
@@ -2176,7 +2188,8 @@
                     "options": {
                         "down": "Aşağı",
                         "up": "Yukarı"
-                    }
+                    },
+                    "label": "Meyil"
                 },
                 "indoor": {
                     "label": "Kapalı Mekan"
@@ -2261,7 +2274,21 @@
                     "label": "Yükseklik"
                 },
                 "kerb/kerb_barrier": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "flush": {
+                            "title": "Sifon"
+                        },
+                        "no": {
+                            "title": "Hayır"
+                        },
+                        "raised": {
+                            "title": "Raised"
+                        },
+                        "yes": {
+                            "title": "Evet"
+                        }
+                    }
                 },
                 "kitchen": {
                     "label": "Kitchen"
@@ -2307,7 +2334,8 @@
                     "placeholder": "0"
                 },
                 "layer_1": {
-                    "placeholder": "0"
+                    "placeholder": "0",
+                    "label": "Katman"
                 },
                 "leaf_cycle": {
                     "label": "Yaprak Dönümü",
@@ -2329,7 +2357,13 @@
                     }
                 },
                 "leaf_type_singular": {
-                    "label": "Yaprak Türü"
+                    "label": "Yaprak Türü",
+                    "options": {
+                        "broadleaved": "Geniş Yapraklı",
+                        "leafless": "Yapraksız",
+                        "mixed": "Karışık",
+                        "needleleaved": "İğneli"
+                    }
                 },
                 "leisure": {
                     "label": "Tür"
@@ -2385,7 +2419,8 @@
                         "indoor": "İçeri",
                         "outdoor": "Dışarı",
                         "roof": "Çatı katı"
-                    }
+                    },
+                    "label": "Konum"
                 },
                 "lock": {
                     "label": "Kilit"
@@ -2756,7 +2791,8 @@
                         "reversible": "Geri döndürülebilir",
                         "undefined": "Tahminen Evet",
                         "yes": "Evet"
-                    }
+                    },
+                    "label": "Tek Yön"
                 },
                 "openfire": {
                     "label": "Açık Ateş Yakmak Serbest"
@@ -2784,7 +2820,21 @@
                     }
                 },
                 "orientation/orientation_parking": {
-                    "label": "Orientation"
+                    "label": "Orientation",
+                    "options": {
+                        "diagonal": "Yola Çapraz (~45°)",
+                        "parallel": "Yola Paralel",
+                        "perpendicular": "Yola Dik (~90°) Açıyla"
+                    },
+                    "terms": [
+                        "park yönü",
+                        "park açısı",
+                        "otopark yönü"
+                    ],
+                    "types": {
+                        "parking:left:orientation": "Yolun solu",
+                        "parking:right:orientation": "Yolun sağı"
+                    }
                 },
                 "outdoor_seating": {
                     "label": "Açıkhava Oturma"
@@ -2902,7 +2952,60 @@
                     }
                 },
                 "parking_entrance": {
-                    "label": "Tür"
+                    "label": "Tür",
+                    "options": {
+                        "carports": {
+                            "description": "Çoğunlukla araçların yalnızca üstünü kapatan, duvarları bulunmayan, sundurma benzeri yapı.",
+                            "title": "Sundurmalı Otopark"
+                        },
+                        "garage_boxes": {
+                            "title": "Park Kutuları"
+                        },
+                        "half_on_kerb": {
+                            "description": "Araç park edildiğinde aracın bir bölümünün kaldırımın üstünde kalması durumunda bu seçeneği seçiniz.",
+                            "title": "Kısmen Kaldırımın Üstünde Park"
+                        },
+                        "lane": {
+                            "description": "Araçlar yolun kenarındaki şeride park ediliyorsa(şeride araç park edilmediğinde şerit trafik akışında kullanılabiliyorsa) bunu seçiniz.",
+                            "title": "Yolun Kenarındaki Şerit"
+                        },
+                        "layby": {
+                            "description": "Karayolunun kenarında bulunan dinlenme park alanı.",
+                            "title": "Karayolu Kenarındaki Otopark/Dinlenme Alanı"
+                        },
+                        "multi-storey": {
+                            "description": "İki veya daha fazla kattan oluşan otopark binası.",
+                            "title": "Çok Katlı Otopark"
+                        },
+                        "on_kerb": {
+                            "description": "Araç park edildiğinde aracın tamamının kaldırımın üstünde kalması durumunda bu seçeneği seçiniz.",
+                            "title": "Kaldırımın Üstünde Park"
+                        },
+                        "rooftop": {
+                            "description": "Binanın çatısında bulunan otopark katı.",
+                            "title": "Çatı Katındaki Otopark"
+                        },
+                        "sheds": {
+                            "description": "Genelde özel mülkiyete ait hangar şeklindeki araç garajı yapısı.",
+                            "title": "Garaj Kulübesi / Barakası"
+                        },
+                        "shoulder": {
+                            "description": "Araçların emniyet şeridinde park edilmesi.",
+                            "title": "Emniyet Şeridi"
+                        },
+                        "street_side": {
+                            "description": "Yola bitişik (fakat yolun üzerinde olmayan) park.",
+                            "title": "Yola Bitişik"
+                        },
+                        "surface": {
+                            "description": "Zemin seviyesindeki açık otopark.",
+                            "title": "Açık Otopark"
+                        },
+                        "underground": {
+                            "description": "Yer altındaki otopark",
+                            "title": "Yer Altı Otoparkı"
+                        }
+                    }
                 },
                 "parking_space": {
                     "label": "Tür"
@@ -2993,7 +3096,8 @@
                         "intermediate": "Orta Düzey (mavi kare)",
                         "novice": "Tecrübesiz (eğitici)"
                     },
-                    "placeholder": "Kolay, Orta, İleri Derece..."
+                    "placeholder": "Kolay, Orta, İleri Derece...",
+                    "label": "Zorluk"
                 },
                 "piste/difficulty_nordic": {
                     "options": {
@@ -3003,7 +3107,8 @@
                         "intermediate": "Orta düzey - Dik bölüm",
                         "novice": "Tecrübesiz - Düz, efor gerekli değil"
                     },
-                    "placeholder": "Kolay, Orta, İleri Derece..."
+                    "placeholder": "Kolay, Orta, İleri Derece...",
+                    "label": "Zorluk"
                 },
                 "piste/difficulty_skitour": {
                     "options": {
@@ -3015,7 +3120,8 @@
                         "intermediate": "Orta düzey - ZS: 35-40° eğim",
                         "novice": "Tecrübesiz - L: <30° eğim"
                     },
-                    "placeholder": "Kolay, Orta düzey, Uzman..."
+                    "placeholder": "Kolay, Orta düzey, Uzman...",
+                    "label": "Zorluk"
                 },
                 "piste/grooming": {
                     "label": "Bakımlı",
@@ -3033,13 +3139,15 @@
                         "backcountry": "Taşra - Tımarlama olmaz",
                         "classic": "Klasik",
                         "mogul": "Kar Tümseği"
-                    }
+                    },
+                    "label": "Bakımlı"
                 },
                 "piste/grooming_hike": {
                     "options": {
                         "backcountry": "Taşra - Kar raketi yürüyüşü",
                         "classic": "Klasik - Kış Doğa Yürüyüşü"
-                    }
+                    },
+                    "label": "Bakımlı"
                 },
                 "piste/grooming_nordic": {
                     "options": {
@@ -3048,7 +3156,8 @@
                         "classic+skating": "Klasik ve Paten",
                         "scooter": "Kar Aracı",
                         "skating": "Paten"
-                    }
+                    },
+                    "label": "Bakımlı"
                 },
                 "piste/type": {
                     "label": "Tür",
@@ -3072,7 +3181,22 @@
                     "label": "Enerji Santrali"
                 },
                 "plant/method": {
-                    "label": "Üretim yöntemi"
+                    "label": "Üretim yöntemi",
+                    "options": {
+                        "anaerobic_digestion": "Anaerobic Digestion",
+                        "barrage": "Tidal Barrage",
+                        "combustion": "Yakma",
+                        "fission": "Fizyon",
+                        "fusion": "Füzyon",
+                        "gasification": "Gasification",
+                        "photovoltaic": "Fotovoltaik",
+                        "run-of-the-river": "Run-of-the-River",
+                        "stream": "Tidal Stream",
+                        "thermal": "Solar Thermal",
+                        "water-pumped-storage": "Pumped-Storage",
+                        "water-storage": "Reservoir",
+                        "wind_turbine": "Rüzgar Türbini"
+                    }
                 },
                 "plant/output": {
                     "label": "Form of Power Output",
@@ -3092,7 +3216,26 @@
                     "placeholder": "500 MW, 1000 MW, 2000 MW..."
                 },
                 "plant/source": {
-                    "label": "Enerji Kaynağı"
+                    "label": "Enerji Kaynağı",
+                    "options": {
+                        "battery": "Battery",
+                        "biofuel": "Plant Based Fuels",
+                        "biogas": "Biyogaz",
+                        "biomass": "Biyokütle",
+                        "coal": "Kömür",
+                        "diesel": "Dizel",
+                        "gas": "Doğalgaz",
+                        "gasoline": "Benzin",
+                        "geothermal": "Jeotermal Enerji",
+                        "hydro": "Hidroelektrik",
+                        "nuclear": "Nükleer Enerji",
+                        "oil": "Petrol",
+                        "solar": "Güneş Işınımı",
+                        "tidal": "Tidal Power",
+                        "waste": "Waste",
+                        "wave": "Dalga Enerjisi",
+                        "wind": "Rüzgar"
+                    }
                 },
                 "playground": {
                     "label": "Tür",
@@ -3756,16 +3899,236 @@
                     }
                 },
                 "sport/sport_ice": {
-                    "label": "Sporlar"
+                    "label": "Sporlar",
+                    "options": {
+                        "american_football": "Amerikan Futbolu",
+                        "athletics": "Atletizm",
+                        "badminton": "Badminton",
+                        "baseball": "Beyzbol",
+                        "basketball": "Basketbol",
+                        "beachvolleyball": "Plaj Voleybolu",
+                        "billiards": "Bilardo",
+                        "bmx": "BMX",
+                        "boules": "Boules",
+                        "bowls": "Bowls",
+                        "canoe": "Kano",
+                        "chess": "Satranç",
+                        "climbing": "Climbing",
+                        "cricket": "Kriket",
+                        "curling": "Curling",
+                        "cycling": "Cycling",
+                        "disc_golf": "Disc Golf",
+                        "dog_racing": "Dog Racing",
+                        "equestrian": "Binicilik",
+                        "fitness": "Fitness Training",
+                        "free_flying": "Yamaç Paraşütü / Yelkenkanat",
+                        "futsal": "Futsal",
+                        "gaelic_games": "Gaelic Games",
+                        "golf": "Golf",
+                        "gymnastics": "Jimnastik",
+                        "handball": "Hentbol",
+                        "horse_racing": "At Yarışı",
+                        "ice_hockey": "Buz Hokeyi",
+                        "ice_skating": "Buz Pateni",
+                        "ice_stock": "Ice Stock",
+                        "karting": "Kart Racing",
+                        "motocross": "Motokros",
+                        "motor": "Motor Sporları",
+                        "multi": "Belirtilmeyen Diğer Sporlar",
+                        "netball": "Netball",
+                        "orienteering": "Oryantiring",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Ragbi Birliği",
+                        "running": "Koşu",
+                        "scuba_diving": "Aletli Dalış",
+                        "shooting": "Atıcılık",
+                        "skateboard": "Kaykay",
+                        "ski_jumping": "Kayakla Atlama",
+                        "skiing": "Kayak",
+                        "soccer": "Futbol",
+                        "softball": "Softball",
+                        "speedway": "Motorcycle Speedway",
+                        "swimming": "Yüzme",
+                        "table_tennis": "Masa Tenisi",
+                        "tennis": "Tenis",
+                        "volleyball": "Voleybol",
+                        "yoga": "Yoga"
+                    }
                 },
                 "sport/sport_pub": {
-                    "label": "Sports"
+                    "label": "Sports",
+                    "options": {
+                        "american_football": "Amerikan Futbolu",
+                        "athletics": "Atletizm",
+                        "badminton": "Badminton",
+                        "baseball": "Beyzbol",
+                        "basketball": "Basketbol",
+                        "beachvolleyball": "Plaj Voleybolu",
+                        "billiards": "Bilardo",
+                        "bmx": "BMX",
+                        "boules": "Boules",
+                        "bowls": "Bowls",
+                        "canoe": "Kano",
+                        "chess": "Satranç",
+                        "climbing": "Climbing",
+                        "cricket": "Kriket",
+                        "curling": "Curling",
+                        "cycling": "Cycling",
+                        "disc_golf": "Disc Golf",
+                        "dog_racing": "Dog Racing",
+                        "equestrian": "Binicilik",
+                        "fitness": "Fitness Training",
+                        "free_flying": "Yamaç Paraşütü / Yelkenkanat",
+                        "futsal": "Futsal",
+                        "gaelic_games": "Gaelic Games",
+                        "golf": "Golf",
+                        "gymnastics": "Jimnastik",
+                        "handball": "Hentbol",
+                        "horse_racing": "At Yarışı",
+                        "ice_hockey": "Buz Hokeyi",
+                        "ice_skating": "Buz Pateni",
+                        "ice_stock": "Ice Stock",
+                        "karting": "Kart Racing",
+                        "motocross": "Motokros",
+                        "motor": "Motor Sporları",
+                        "multi": "Belirtilmeyen Diğer Sporlar",
+                        "netball": "Netball",
+                        "orienteering": "Oryantiring",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Ragbi Birliği",
+                        "running": "Koşu",
+                        "scuba_diving": "Aletli Dalış",
+                        "shooting": "Atıcılık",
+                        "skateboard": "Kaykay",
+                        "ski_jumping": "Kayakla Atlama",
+                        "skiing": "Kayak",
+                        "soccer": "Futbol",
+                        "softball": "Softball",
+                        "speedway": "Motorcycle Speedway",
+                        "swimming": "Yüzme",
+                        "table_tennis": "Masa Tenisi",
+                        "tennis": "Tenis",
+                        "volleyball": "Voleybol",
+                        "yoga": "Yoga"
+                    }
                 },
                 "sport/sport_racing_motor": {
-                    "label": "Sports"
+                    "label": "Sports",
+                    "options": {
+                        "american_football": "Amerikan Futbolu",
+                        "athletics": "Atletizm",
+                        "badminton": "Badminton",
+                        "baseball": "Beyzbol",
+                        "basketball": "Basketbol",
+                        "beachvolleyball": "Plaj Voleybolu",
+                        "billiards": "Bilardo",
+                        "bmx": "BMX",
+                        "boules": "Boules",
+                        "bowls": "Bowls",
+                        "canoe": "Kano",
+                        "chess": "Satranç",
+                        "climbing": "Climbing",
+                        "cricket": "Kriket",
+                        "curling": "Curling",
+                        "cycling": "Cycling",
+                        "disc_golf": "Disc Golf",
+                        "dog_racing": "Dog Racing",
+                        "equestrian": "Binicilik",
+                        "fitness": "Fitness Training",
+                        "free_flying": "Yamaç Paraşütü / Yelkenkanat",
+                        "futsal": "Futsal",
+                        "gaelic_games": "Gaelic Games",
+                        "golf": "Golf",
+                        "gymnastics": "Jimnastik",
+                        "handball": "Hentbol",
+                        "horse_racing": "At Yarışı",
+                        "ice_hockey": "Buz Hokeyi",
+                        "ice_skating": "Buz Pateni",
+                        "ice_stock": "Ice Stock",
+                        "karting": "Kart Racing",
+                        "motocross": "Motokros",
+                        "motor": "Motor Sporları",
+                        "multi": "Belirtilmeyen Diğer Sporlar",
+                        "netball": "Netball",
+                        "orienteering": "Oryantiring",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Ragbi Birliği",
+                        "running": "Koşu",
+                        "scuba_diving": "Aletli Dalış",
+                        "shooting": "Atıcılık",
+                        "skateboard": "Kaykay",
+                        "ski_jumping": "Kayakla Atlama",
+                        "skiing": "Kayak",
+                        "soccer": "Futbol",
+                        "softball": "Softball",
+                        "speedway": "Motorcycle Speedway",
+                        "swimming": "Yüzme",
+                        "table_tennis": "Masa Tenisi",
+                        "tennis": "Tenis",
+                        "volleyball": "Voleybol",
+                        "yoga": "Yoga"
+                    }
                 },
                 "sport/sport_racing_nonmotor": {
-                    "label": "Sports"
+                    "label": "Sports",
+                    "options": {
+                        "american_football": "Amerikan Futbolu",
+                        "athletics": "Atletizm",
+                        "badminton": "Badminton",
+                        "baseball": "Beyzbol",
+                        "basketball": "Basketbol",
+                        "beachvolleyball": "Plaj Voleybolu",
+                        "billiards": "Bilardo",
+                        "bmx": "BMX",
+                        "boules": "Boules",
+                        "bowls": "Bowls",
+                        "canoe": "Kano",
+                        "chess": "Satranç",
+                        "climbing": "Climbing",
+                        "cricket": "Kriket",
+                        "curling": "Curling",
+                        "cycling": "Cycling",
+                        "disc_golf": "Disc Golf",
+                        "dog_racing": "Dog Racing",
+                        "equestrian": "Binicilik",
+                        "fitness": "Fitness Training",
+                        "free_flying": "Yamaç Paraşütü / Yelkenkanat",
+                        "futsal": "Futsal",
+                        "gaelic_games": "Gaelic Games",
+                        "golf": "Golf",
+                        "gymnastics": "Jimnastik",
+                        "handball": "Hentbol",
+                        "horse_racing": "At Yarışı",
+                        "ice_hockey": "Buz Hokeyi",
+                        "ice_skating": "Buz Pateni",
+                        "ice_stock": "Ice Stock",
+                        "karting": "Kart Racing",
+                        "motocross": "Motokros",
+                        "motor": "Motor Sporları",
+                        "multi": "Belirtilmeyen Diğer Sporlar",
+                        "netball": "Netball",
+                        "orienteering": "Oryantiring",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Ragbi Birliği",
+                        "running": "Koşu",
+                        "scuba_diving": "Aletli Dalış",
+                        "shooting": "Atıcılık",
+                        "skateboard": "Kaykay",
+                        "ski_jumping": "Kayakla Atlama",
+                        "skiing": "Kayak",
+                        "soccer": "Futbol",
+                        "softball": "Softball",
+                        "speedway": "Motorcycle Speedway",
+                        "swimming": "Yüzme",
+                        "table_tennis": "Masa Tenisi",
+                        "tennis": "Tenis",
+                        "volleyball": "Voleybol",
+                        "yoga": "Yoga"
+                    }
                 },
                 "stars": {
                     "label": "Yıldızlar"
@@ -4126,7 +4489,20 @@
                     }
                 },
                 "traffic_calming_road": {
-                    "label": "Trafiği Yavaşlatma"
+                    "label": "Trafiği Yavaşlatma",
+                    "options": {
+                        "bump": "Speed Bump",
+                        "chicane": "Traffic Chicane",
+                        "choked_table": "Choked Speed Table",
+                        "choker": "Traffic Choker",
+                        "cushion": "Speed Cushion",
+                        "dip": "Dip",
+                        "double_dip": "Double Dip",
+                        "hump": "Speed Hump",
+                        "mini_bumps": "Mini Speed Bumps",
+                        "rumble_strip": "Rumble Strip",
+                        "table": "Speed Table"
+                    }
                 },
                 "traffic_sign": {
                     "label": "Trafik Işığı"
@@ -4212,7 +4588,13 @@
                 },
                 "tunnel": {
                     "label": "Tür",
-                    "placeholder": "Varsayılan"
+                    "placeholder": "Varsayılan",
+                    "options": {
+                        "avalanche_protector": "Avalanche Protector",
+                        "building_passage": "Building Passage",
+                        "culvert": "Culvert",
+                        "flooded": "Flooded Tunnel"
+                    }
                 },
                 "tunnel_combo": {
                     "label": "Tip",

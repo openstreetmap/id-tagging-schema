@@ -657,7 +657,17 @@
                 },
                 "bridge": {
                     "label": "유형",
-                    "placeholder": "보통"
+                    "placeholder": "보통",
+                    "options": {
+                        "aqueduct": "송수교",
+                        "boardwalk": "보드워크",
+                        "cantilever": "캔틸레버교",
+                        "covered": "지붕이 있는 다리",
+                        "low_water_crossing": "저수교",
+                        "movable": "가동교",
+                        "trestle": "트레슬교",
+                        "viaduct": "고가교"
+                    }
                 },
                 "bridge/name": {
                     "label": "다리 이름",
@@ -1119,7 +1129,11 @@
                         "no": "아니오",
                         "undefined": "아니오로 간주",
                         "yes": "예"
-                    }
+                    },
+                    "label": "덮어짐",
+                    "terms": [
+                        "덮어짐"
+                    ]
                 },
                 "craft": {
                     "label": "유형",
@@ -1600,7 +1614,11 @@
                     }
                 },
                 "direction_point": {
-                    "placeholder": "45, 90, 180, 270"
+                    "placeholder": "45, 90, 180, 270",
+                    "label": "방향(시계 방향 각도)",
+                    "terms": [
+                        "방향 (시계방향으로 도)"
+                    ]
                 },
                 "direction_vertex": {
                     "label": "방향",
@@ -2491,7 +2509,11 @@
                     "options": {
                         "down": "내려감",
                         "up": "올라감"
-                    }
+                    },
+                    "label": "경사",
+                    "terms": [
+                        "경사"
+                    ]
                 },
                 "indoor": {
                     "label": "실내",
@@ -2620,7 +2642,37 @@
                     "label": "높이"
                 },
                 "kerb/kerb_barrier": {
-                    "label": "유형"
+                    "label": "유형",
+                    "options": {
+                        "flush": {
+                            "description": "주변 지면과 평평한 낮은 연석입니다.",
+                            "title": "턱 없는 연석"
+                        },
+                        "lowered": {
+                            "description": "휠체어 사용자가 사용할 수 있는 높이의 낮은 연석으로, 몇 센티미터 이하입니다.",
+                            "title": "턱 낮은 연석"
+                        },
+                        "no": {
+                            "description": "이 위치에는 연석이 없습니다.",
+                            "title": "아니오"
+                        },
+                        "raised": {
+                            "description": "턱 높은 연석은 휠체어 사용자가 쉽게 사용할 수 없는 높이의 연석으로, 몇 센티미터가 넘습니다.",
+                            "title": "턱 높은 연석"
+                        },
+                        "rolled": {
+                            "description": "둥근 모서리가 있는 턱 높은 연석은 자동차나 자전거는 사용하기 쉽지만 휠체어는 사용할 수 없는 융기형 연석입니다.",
+                            "title": "둥근 연석"
+                        },
+                        "yes": {
+                            "description": "이 위치에는 일종의 연석이 존재하며, 턱의 유형을 알 수 없습니다.",
+                            "title": "예"
+                        }
+                    },
+                    "terms": [
+                        "연석",
+                        "길 옆 돌"
+                    ]
                 },
                 "kitchen": {
                     "label": "부엌",
@@ -2672,7 +2724,11 @@
                     ]
                 },
                 "layer_1": {
-                    "placeholder": "0"
+                    "placeholder": "0",
+                    "label": "레이어",
+                    "terms": [
+                        "레이어"
+                    ]
                 },
                 "leaf_cycle": {
                     "label": "잎이 떨어지는 주기",
@@ -2703,10 +2759,15 @@
                 "leaf_type_singular": {
                     "label": "잎의 종류",
                     "terms": [
-                        "잎 종류",
                         "잎의 종류",
-                        "나뭇잎 종류"
-                    ]
+                        "잎 종류"
+                    ],
+                    "options": {
+                        "broadleaved": "활엽수",
+                        "leafless": "잎이 없음",
+                        "mixed": "섞인",
+                        "needleleaved": "침엽수"
+                    }
                 },
                 "leisure": {
                     "label": "유형"
@@ -2794,7 +2855,11 @@
                         "indoor": "실내",
                         "outdoor": "실외",
                         "roof": "옥상"
-                    }
+                    },
+                    "label": "위치",
+                    "terms": [
+                        "위치"
+                    ]
                 },
                 "lock": {
                     "label": "잠금"
@@ -3285,7 +3350,11 @@
                         "reversible": "가변",
                         "undefined": "예로 간주",
                         "yes": "예"
-                    }
+                    },
+                    "label": "일방통행",
+                    "terms": [
+                        "일방통행"
+                    ]
                 },
                 "openfire": {
                     "label": "실외 불 허용",
@@ -3335,7 +3404,19 @@
                     ]
                 },
                 "orientation/orientation_parking": {
-                    "label": "방향"
+                    "label": "방향",
+                    "options": {
+                        "diagonal": "도로에 사선 (~45°)",
+                        "parallel": "도로와 평행",
+                        "perpendicular": "도로에 수직"
+                    },
+                    "terms": [
+                        "주차 방향"
+                    ],
+                    "types": {
+                        "parking:left:orientation": "왼쪽",
+                        "parking:right:orientation": "오른쪽"
+                    }
                 },
                 "outdoor_seating": {
                     "label": "야외 좌석",
@@ -3463,7 +3544,60 @@
                     }
                 },
                 "parking_entrance": {
-                    "label": "유형"
+                    "label": "유형",
+                    "options": {
+                        "carports": {
+                            "description": "주로 벽 없이 차량을 제한적으로 보호하기 위해 사용되는 구조물",
+                            "title": "간이 차고"
+                        },
+                        "garage_boxes": {
+                            "title": "차고 상자"
+                        },
+                        "half_on_kerb": {
+                            "description": "차량 일부를 보도 위에 걸쳐 주차함.",
+                            "title": "연석에 걸친 주차"
+                        },
+                        "lane": {
+                            "description": "길가에 주차 (주행 차로가 될 수 있음)",
+                            "title": "가로변 차로"
+                        },
+                        "layby": {
+                            "description": "도로 바깥에 만들어져 있는 주차 공간",
+                            "title": "임시 주차장 / 레이바이"
+                        },
+                        "multi-storey": {
+                            "description": "건물 안에 2층 이상의 주차 공간이 있음",
+                            "title": "다층"
+                        },
+                        "on_kerb": {
+                            "description": "보도 위에 주차함.",
+                            "title": "보도 주차"
+                        },
+                        "rooftop": {
+                            "description": "건물 옥상층을 주차장으로 사용함.",
+                            "title": "옥상 주차장"
+                        },
+                        "sheds": {
+                            "description": "차량용 개인 격납고",
+                            "title": "개인 차고"
+                        },
+                        "shoulder": {
+                            "description": "노견에 주차함.",
+                            "title": "갓길 주차"
+                        },
+                        "street_side": {
+                            "description": "도로 옆에 붙어 있는 (도로 위에 있지는 않은) 주차 공간",
+                            "title": "도로변에 마련된 주차 공간"
+                        },
+                        "surface": {
+                            "description": "지면 위에 있는 단층 주차장",
+                            "title": "지상"
+                        },
+                        "underground": {
+                            "description": "지하 주차장",
+                            "title": "지하 주차장"
+                        }
+                    }
                 },
                 "parking_space": {
                     "label": "유형"
@@ -3559,7 +3693,8 @@
                         "intermediate": "중급 (파란 네모)",
                         "novice": "초보자 (교육)"
                     },
-                    "placeholder": "초급, 중급, 고급..."
+                    "placeholder": "초급, 중급, 고급...",
+                    "label": "난이도"
                 },
                 "piste/difficulty_nordic": {
                     "options": {
@@ -3569,7 +3704,8 @@
                         "intermediate": "중급 - 급경사 구간",
                         "novice": "초보자 - 평평함, 노력이 필요 없음"
                     },
-                    "placeholder": "초급, 중급, 고급..."
+                    "placeholder": "초급, 중급, 고급...",
+                    "label": "난이도"
                 },
                 "piste/difficulty_skitour": {
                     "options": {
@@ -3581,7 +3717,8 @@
                         "intermediate": "중급 - ZS: 경사 35-40°",
                         "novice": "초보자 - L: 경사 30° 미만"
                     },
-                    "placeholder": "초급, 중급, 고급..."
+                    "placeholder": "초급, 중급, 고급...",
+                    "label": "난이도"
                 },
                 "piste/grooming": {
                     "label": "정리",
@@ -3599,13 +3736,15 @@
                         "backcountry": "손질 되지 않음",
                         "classic": "클래식",
                         "mogul": "모굴"
-                    }
+                    },
+                    "label": "정리"
                 },
                 "piste/grooming_hike": {
                     "options": {
                         "backcountry": "손질 되지 않음",
                         "classic": "클래식"
-                    }
+                    },
+                    "label": "정리"
                 },
                 "piste/grooming_nordic": {
                     "options": {
@@ -3614,7 +3753,8 @@
                         "classic+skating": "클래식 및 스케이트",
                         "scooter": "스쿠터/스노모빌",
                         "skating": "스케이팅"
-                    }
+                    },
+                    "label": "정리"
                 },
                 "piste/type": {
                     "label": "유형",
@@ -3639,7 +3779,22 @@
                     "label": "식물"
                 },
                 "plant/method": {
-                    "label": "발전 방식"
+                    "label": "발전 방식",
+                    "options": {
+                        "anaerobic_digestion": "혐기성 소화",
+                        "barrage": "조력 발전",
+                        "combustion": "화력 발전",
+                        "fission": "핵분열 발전",
+                        "fusion": "핵융합 발전",
+                        "gasification": "가스화",
+                        "photovoltaic": "태양광 발전",
+                        "run-of-the-river": "수력 발전",
+                        "stream": "조류 발전",
+                        "thermal": "태양열 발전",
+                        "water-pumped-storage": "양수식 수력 발전",
+                        "water-storage": "댐식 수력 발전",
+                        "wind_turbine": "풍력 발전"
+                    }
                 },
                 "plant/output": {
                     "label": "출력 형태",
@@ -3659,7 +3814,26 @@
                     "placeholder": "500 MW, 1000 MW, 2000 MW..."
                 },
                 "plant/source": {
-                    "label": "에너지원"
+                    "label": "에너지원",
+                    "options": {
+                        "battery": "배터리",
+                        "biofuel": "식물성 연료",
+                        "biogas": "바이오가스",
+                        "biomass": "식물 물질",
+                        "coal": "석탄",
+                        "diesel": "경유",
+                        "gas": "천연가스",
+                        "gasoline": "휘발유",
+                        "geothermal": "지열 에너지",
+                        "hydro": "수력",
+                        "nuclear": "원자력",
+                        "oil": "기름",
+                        "solar": "태양열",
+                        "tidal": "조력 에너지",
+                        "waste": "폐기물",
+                        "wave": "파력 에너지",
+                        "wind": "바람"
+                    }
                 },
                 "playground": {
                     "label": "유형",
@@ -4561,19 +4735,251 @@
                     }
                 },
                 "sport/sport_ice": {
-                    "label": "스포츠"
+                    "label": "스포츠",
+                    "options": {
+                        "10pin": "10핀 볼링",
+                        "9pin": "9핀 볼링",
+                        "american_football": "미식축구",
+                        "athletics": "트랙 & 필드",
+                        "badminton": "배드민턴",
+                        "baseball": "야구",
+                        "basketball": "농구",
+                        "beachvolleyball": "비치발리볼",
+                        "billiards": "당구",
+                        "bmx": "BMX",
+                        "boules": "불",
+                        "bowls": "론볼",
+                        "canoe": "조정",
+                        "chess": "체스",
+                        "climbing": "암벽등반",
+                        "cricket": "크리켓",
+                        "curling": "컬링",
+                        "cycling": "사이클링",
+                        "darts": "다트",
+                        "disc_golf": "디스크 골프",
+                        "dog_racing": "도그 레이싱",
+                        "equestrian": "승마",
+                        "fitness": "피트니스 트레이닝",
+                        "free_flying": "패러글라이딩 / 행글라이딩",
+                        "futsal": "풋살",
+                        "gaelic_games": "게일 게임",
+                        "golf": "골프",
+                        "gymnastics": "체조",
+                        "handball": "팀 핸드볼",
+                        "horse_racing": "경마",
+                        "ice_hockey": "아이스하키",
+                        "ice_skating": "아이스 스케이팅",
+                        "ice_stock": "아이스 스톡",
+                        "karting": "카트 경주",
+                        "motocross": "모터크로스",
+                        "motor": "모터스포츠",
+                        "multi": "명시되지 않은 기타 스포츠",
+                        "netball": "네트볼",
+                        "orienteering": "오리엔티어링",
+                        "padel": "패들",
+                        "pelota": "펠로타",
+                        "rugby_union": "사회인 럭비장",
+                        "running": "달리기",
+                        "scuba_diving": "스쿠버 다이빙",
+                        "shooting": "사격",
+                        "skateboard": "스케이트보드",
+                        "ski_jumping": "스키 점프",
+                        "skiing": "스키",
+                        "soccer": "축구",
+                        "softball": "소프트볼",
+                        "speedway": "스피드웨이",
+                        "swimming": "수영",
+                        "table_tennis": "탁구",
+                        "tennis": "테니스",
+                        "volleyball": "배구",
+                        "yoga": "요가"
+                    }
                 },
                 "sport/sport_pub": {
                     "label": "스포츠",
                     "terms": [
                         "스포츠"
-                    ]
+                    ],
+                    "options": {
+                        "10pin": "10핀 볼링",
+                        "9pin": "9핀 볼링",
+                        "american_football": "미식축구",
+                        "athletics": "트랙 & 필드",
+                        "badminton": "배드민턴",
+                        "baseball": "야구",
+                        "basketball": "농구",
+                        "beachvolleyball": "비치발리볼",
+                        "billiards": "당구",
+                        "bmx": "BMX",
+                        "boules": "불",
+                        "bowls": "론볼",
+                        "canoe": "조정",
+                        "chess": "체스",
+                        "climbing": "암벽등반",
+                        "cricket": "크리켓",
+                        "curling": "컬링",
+                        "cycling": "사이클링",
+                        "darts": "다트",
+                        "disc_golf": "디스크 골프",
+                        "dog_racing": "도그 레이싱",
+                        "equestrian": "승마",
+                        "fitness": "피트니스 트레이닝",
+                        "free_flying": "패러글라이딩 / 행글라이딩",
+                        "futsal": "풋살",
+                        "gaelic_games": "게일 게임",
+                        "golf": "골프",
+                        "gymnastics": "체조",
+                        "handball": "팀 핸드볼",
+                        "horse_racing": "경마",
+                        "ice_hockey": "아이스하키",
+                        "ice_skating": "아이스 스케이팅",
+                        "ice_stock": "아이스 스톡",
+                        "karting": "카트 경주",
+                        "motocross": "모터크로스",
+                        "motor": "모터스포츠",
+                        "multi": "명시되지 않은 기타 스포츠",
+                        "netball": "네트볼",
+                        "orienteering": "오리엔티어링",
+                        "padel": "패들",
+                        "pelota": "펠로타",
+                        "rugby_union": "사회인 럭비장",
+                        "running": "달리기",
+                        "scuba_diving": "스쿠버 다이빙",
+                        "shooting": "사격",
+                        "skateboard": "스케이트보드",
+                        "ski_jumping": "스키 점프",
+                        "skiing": "스키",
+                        "soccer": "축구",
+                        "softball": "소프트볼",
+                        "speedway": "스피드웨이",
+                        "swimming": "수영",
+                        "table_tennis": "탁구",
+                        "tennis": "테니스",
+                        "volleyball": "배구",
+                        "yoga": "요가"
+                    }
                 },
                 "sport/sport_racing_motor": {
-                    "label": "스포츠"
+                    "label": "스포츠",
+                    "options": {
+                        "10pin": "10핀 볼링",
+                        "9pin": "9핀 볼링",
+                        "american_football": "미식축구",
+                        "athletics": "트랙 & 필드",
+                        "badminton": "배드민턴",
+                        "baseball": "야구",
+                        "basketball": "농구",
+                        "beachvolleyball": "비치발리볼",
+                        "billiards": "당구",
+                        "bmx": "BMX",
+                        "boules": "불",
+                        "bowls": "론볼",
+                        "canoe": "조정",
+                        "chess": "체스",
+                        "climbing": "암벽등반",
+                        "cricket": "크리켓",
+                        "curling": "컬링",
+                        "cycling": "사이클링",
+                        "darts": "다트",
+                        "disc_golf": "디스크 골프",
+                        "dog_racing": "도그 레이싱",
+                        "equestrian": "승마",
+                        "fitness": "피트니스 트레이닝",
+                        "free_flying": "패러글라이딩 / 행글라이딩",
+                        "futsal": "풋살",
+                        "gaelic_games": "게일 게임",
+                        "golf": "골프",
+                        "gymnastics": "체조",
+                        "handball": "팀 핸드볼",
+                        "horse_racing": "경마",
+                        "ice_hockey": "아이스하키",
+                        "ice_skating": "아이스 스케이팅",
+                        "ice_stock": "아이스 스톡",
+                        "karting": "카트 경주",
+                        "motocross": "모터크로스",
+                        "motor": "모터스포츠",
+                        "multi": "명시되지 않은 기타 스포츠",
+                        "netball": "네트볼",
+                        "orienteering": "오리엔티어링",
+                        "padel": "패들",
+                        "pelota": "펠로타",
+                        "rugby_union": "사회인 럭비장",
+                        "running": "달리기",
+                        "scuba_diving": "스쿠버 다이빙",
+                        "shooting": "사격",
+                        "skateboard": "스케이트보드",
+                        "ski_jumping": "스키 점프",
+                        "skiing": "스키",
+                        "soccer": "축구",
+                        "softball": "소프트볼",
+                        "speedway": "스피드웨이",
+                        "swimming": "수영",
+                        "table_tennis": "탁구",
+                        "tennis": "테니스",
+                        "volleyball": "배구",
+                        "yoga": "요가"
+                    }
                 },
                 "sport/sport_racing_nonmotor": {
-                    "label": "스포츠"
+                    "label": "스포츠",
+                    "options": {
+                        "10pin": "10핀 볼링",
+                        "9pin": "9핀 볼링",
+                        "american_football": "미식축구",
+                        "athletics": "트랙 & 필드",
+                        "badminton": "배드민턴",
+                        "baseball": "야구",
+                        "basketball": "농구",
+                        "beachvolleyball": "비치발리볼",
+                        "billiards": "당구",
+                        "bmx": "BMX",
+                        "boules": "불",
+                        "bowls": "론볼",
+                        "canoe": "조정",
+                        "chess": "체스",
+                        "climbing": "암벽등반",
+                        "cricket": "크리켓",
+                        "curling": "컬링",
+                        "cycling": "사이클링",
+                        "darts": "다트",
+                        "disc_golf": "디스크 골프",
+                        "dog_racing": "도그 레이싱",
+                        "equestrian": "승마",
+                        "fitness": "피트니스 트레이닝",
+                        "free_flying": "패러글라이딩 / 행글라이딩",
+                        "futsal": "풋살",
+                        "gaelic_games": "게일 게임",
+                        "golf": "골프",
+                        "gymnastics": "체조",
+                        "handball": "팀 핸드볼",
+                        "horse_racing": "경마",
+                        "ice_hockey": "아이스하키",
+                        "ice_skating": "아이스 스케이팅",
+                        "ice_stock": "아이스 스톡",
+                        "karting": "카트 경주",
+                        "motocross": "모터크로스",
+                        "motor": "모터스포츠",
+                        "multi": "명시되지 않은 기타 스포츠",
+                        "netball": "네트볼",
+                        "orienteering": "오리엔티어링",
+                        "padel": "패들",
+                        "pelota": "펠로타",
+                        "rugby_union": "사회인 럭비장",
+                        "running": "달리기",
+                        "scuba_diving": "스쿠버 다이빙",
+                        "shooting": "사격",
+                        "skateboard": "스케이트보드",
+                        "ski_jumping": "스키 점프",
+                        "skiing": "스키",
+                        "soccer": "축구",
+                        "softball": "소프트볼",
+                        "speedway": "스피드웨이",
+                        "swimming": "수영",
+                        "table_tennis": "탁구",
+                        "tennis": "테니스",
+                        "volleyball": "배구",
+                        "yoga": "요가"
+                    }
                 },
                 "stars": {
                     "label": "별점",
@@ -5058,7 +5464,21 @@
                     "terms": [
                         "교통정온화",
                         "교통 진정"
-                    ]
+                    ],
+                    "options": {
+                        "bump": "소형 과속방지턱",
+                        "chicane": "시케인",
+                        "choked_table": "초커 테이블",
+                        "choker": "초커",
+                        "cushion": "패드형 과속방지턱 (스피드 쿠션)",
+                        "dip": "딥",
+                        "double_dip": "더블 딥",
+                        "hump": "과속방지턱",
+                        "island": "교통섬",
+                        "mini_bumps": "소형 과속방지턱들",
+                        "rumble_strip": "요철 구간",
+                        "table": "속도 표"
+                    }
                 },
                 "traffic_sign": {
                     "label": "교통 표지판"
@@ -5159,7 +5579,13 @@
                 },
                 "tunnel": {
                     "label": "유형",
-                    "placeholder": "기본값"
+                    "placeholder": "기본값",
+                    "options": {
+                        "avalanche_protector": "눈사태 방지 갱문",
+                        "building_passage": "건물 통로",
+                        "culvert": "암거",
+                        "flooded": "홍수 터널"
+                    }
                 },
                 "tunnel/name": {
                     "label": "터널 이름"

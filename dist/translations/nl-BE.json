@@ -640,7 +640,17 @@
                 },
                 "bridge": {
                     "label": "Type",
-                    "placeholder": "Standaard"
+                    "placeholder": "Standaard",
+                    "options": {
+                        "aqueduct": "Aquaduct",
+                        "boardwalk": "Vlonderpad",
+                        "cantilever": "Cantileverbrug",
+                        "covered": "Overdekte brug",
+                        "low_water_crossing": "Laagwater oversteek",
+                        "movable": "Beweegbare brug",
+                        "trestle": "Trestlebrug",
+                        "viaduct": "Viaduct"
+                    }
                 },
                 "bridge/ref": {
                     "label": "Brugnummer",
@@ -1108,7 +1118,14 @@
                         "no": "Geen",
                         "undefined": "Aangenomen van niet",
                         "yes": "Aanwezig"
-                    }
+                    },
+                    "label": "Overdekt",
+                    "terms": [
+                        "overdekt",
+                        "dak",
+                        "arcade",
+                        "colonnade"
+                    ]
                 },
                 "craft": {
                     "label": "Type",
@@ -1605,7 +1622,11 @@
                     }
                 },
                 "direction_point": {
-                    "placeholder": "45, 90, 180, 270, ..."
+                    "placeholder": "45, 90, 180, 270, ...",
+                    "label": "Richting (graden wijzerzin)",
+                    "terms": [
+                        "richting kloksgewijs"
+                    ]
                 },
                 "direction_vertex": {
                     "label": "Richting beïnvloed",
@@ -2461,7 +2482,13 @@
                     "options": {
                         "down": "Naar beneden",
                         "up": "Omhoog"
-                    }
+                    },
+                    "label": "Helling",
+                    "terms": [
+                        "hellingsgraad",
+                        "hellingshoek",
+                        "hellingspercentage"
+                    ]
                 },
                 "indoor": {
                     "label": "Binnen",
@@ -2618,7 +2645,40 @@
                     "label": "Hoogte"
                 },
                 "kerb/kerb_barrier": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "flush": {
+                            "description": "Een gelijkgrondse boordsteen die effen is met de omgeving.",
+                            "title": "even,gelijk,gelijkgronds,barrierevrij"
+                        },
+                        "lowered": {
+                            "description": "Een verlaagde boordsteen, niet hoger dan enkele cenimeters, die door rolstoelgebruikers kan gebruikt worden",
+                            "title": "Verlaagd"
+                        },
+                        "no": {
+                            "description": "Er is geen boordsteen op deze locatie.",
+                            "title": "Geen"
+                        },
+                        "raised": {
+                            "description": "Een verhoogde boordsteen, hoger dan enkele centimeters, die niet makkelijk door rolstoelgebruikers kan gebruikt worden.",
+                            "title": "Verhoogd"
+                        },
+                        "rolled": {
+                            "description": "Een verhoogde boordsteen met een afgeronde kant, die het makkelijker maakt voor auto's of fietsers, maar niet voor rolstoelen.",
+                            "title": "Afgerond"
+                        },
+                        "yes": {
+                            "description": "Een boordsteen is aanwezig op deze locatie. Het is niet geweten of de boordsteen verhoogd, verlaagd, gelijkgronds... is.",
+                            "title": "Aanwezig"
+                        }
+                    },
+                    "terms": [
+                        "trottoirrand",
+                        "boordje",
+                        "rand van voetpad",
+                        "borduur",
+                        "boordsteen"
+                    ]
                 },
                 "kitchen": {
                     "label": "Keuken",
@@ -2676,7 +2736,11 @@
                     ]
                 },
                 "layer_1": {
-                    "placeholder": "0"
+                    "placeholder": "0",
+                    "label": "Laag",
+                    "terms": [
+                        "laag"
+                    ]
                 },
                 "leaf_cycle": {
                     "label": "Bladercyclus",
@@ -2709,7 +2773,13 @@
                     "label": "Bladsoort",
                     "terms": [
                         "bladsoort"
-                    ]
+                    ],
+                    "options": {
+                        "broadleaved": "Loofboom",
+                        "leafless": "Bladloos",
+                        "mixed": "Gemengd",
+                        "needleleaved": "Naaldgebladerd"
+                    }
                 },
                 "leisure": {
                     "label": "Type"
@@ -2811,7 +2881,12 @@
                         "indoor": "Binnen",
                         "outdoor": "Buiten",
                         "roof": "Dak"
-                    }
+                    },
+                    "label": "Locatie",
+                    "terms": [
+                        "plaats",
+                        "locatie"
+                    ]
                 },
                 "lock": {
                     "label": "Slot"
@@ -3347,7 +3422,12 @@
                         "reversible": "Omkeerbaar",
                         "undefined": "Aangenomen van wel",
                         "yes": "Aanwezig"
-                    }
+                    },
+                    "label": "Eenrichtingsverkeer",
+                    "terms": [
+                        "eenrichting",
+                        "éénrichting"
+                    ]
                 },
                 "openfire": {
                     "label": "Open vuur toegestaan",
@@ -3410,7 +3490,21 @@
                     ]
                 },
                 "orientation/orientation_parking": {
-                    "label": "Richting"
+                    "label": "Richting",
+                    "options": {
+                        "diagonal": "Diagonaal ten opzichte van de straat (~45°)",
+                        "parallel": "Parallel aan de straat",
+                        "perpendicular": "Haaks op de straat (~90°)"
+                    },
+                    "terms": [
+                        "parkeer",
+                        "richting",
+                        "positie"
+                    ],
+                    "types": {
+                        "parking:left:orientation": "Linkerkant",
+                        "parking:right:orientation": "Rechterkant"
+                    }
                 },
                 "outdoor_seating": {
                     "label": "Terras",
@@ -3548,7 +3642,61 @@
                     }
                 },
                 "parking_entrance": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "carports": {
+                            "description": "Bouwwerk dat wordt gebruikt om beperkte bescherming te bieden aan voertuigen. Vaak zonder muren, maar altijd zonder garagepoort.",
+                            "title": "Carports"
+                        },
+                        "garage_boxes": {
+                            "description": "Private garages met meerdere individuele onderverdelingen, elk voor één auto.",
+                            "title": "Garageboxen"
+                        },
+                        "half_on_kerb": {
+                            "description": "Deels parkeren op het trottoir",
+                            "title": "Half op de borduur"
+                        },
+                        "lane": {
+                            "description": "Parkeren op de straat (waarbij de parkeerstrook makkelijk kan omgevormd worden tot een rijstrook).",
+                            "title": "Parkeerstrook"
+                        },
+                        "layby": {
+                            "description": "Parkeergelegenheid op een stopplaats langsheen een weg (niet op een verzorgingsplaats).",
+                            "title": "Uitwijkplaats"
+                        },
+                        "multi-storey": {
+                            "description": "Parkeergebouw met twee of meer verdiepingen met parkeerplaatsen.",
+                            "title": "Meerdere verdiepingen"
+                        },
+                        "on_kerb": {
+                            "description": "Parkeren op het trottoir.",
+                            "title": "Op de borduur"
+                        },
+                        "rooftop": {
+                            "description": "Parkeren op het dak van een gebouw.",
+                            "title": "Dak"
+                        },
+                        "sheds": {
+                            "description": "Privaat schuurtje voor voertuigen.",
+                            "title": "Stallen"
+                        },
+                        "shoulder": {
+                            "description": "Parkeren op de berm.",
+                            "title": "Berm"
+                        },
+                        "street_side": {
+                            "description": "Parkeren vlak naast de rijbaan (maar niet erop).",
+                            "title": "Straatkant"
+                        },
+                        "surface": {
+                            "description": "Parking op de begane grond.",
+                            "title": "Oppervlak"
+                        },
+                        "underground": {
+                            "description": "Ondergrondse parking.",
+                            "title": "Ondergronds"
+                        }
+                    }
                 },
                 "parking_space": {
                     "label": "Type"
@@ -3649,7 +3797,8 @@
                         "intermediate": "Normaal (blauw vierkant)",
                         "novice": "Beginner (educatief)"
                     },
-                    "placeholder": "Makkelijk, Middelmatig, Moeilijk …"
+                    "placeholder": "Makkelijk, Middelmatig, Moeilijk …",
+                    "label": "Moeilijkheidsgraad"
                 },
                 "piste/difficulty_nordic": {
                     "options": {
@@ -3659,7 +3808,8 @@
                         "intermediate": "Middelmatig – Stijl gedeelte",
                         "novice": "Beginner – Vlak, geen inspanningen nodig"
                     },
-                    "placeholder": "Makkelijk, Middelmatig, Moeilijk …"
+                    "placeholder": "Makkelijk, Middelmatig, Moeilijk …",
+                    "label": "Moeilijkheidsgraad"
                 },
                 "piste/difficulty_skitour": {
                     "options": {
@@ -3671,7 +3821,8 @@
                         "intermediate": "Middelmatig – ZS: 35–40° hellingshoek",
                         "novice": "Beginner – L: < 30° hellingshoek"
                     },
-                    "placeholder": "Makkelijk, Middelmatig, Moeilijk …"
+                    "placeholder": "Makkelijk, Middelmatig, Moeilijk …",
+                    "label": "Moeilijkheidsgraad"
                 },
                 "piste/grooming": {
                     "label": "Preparatie",
@@ -3689,13 +3840,15 @@
                         "backcountry": "Off-piste – niet geprepareerd",
                         "classic": "Klassiek",
                         "mogul": "Buckel"
-                    }
+                    },
+                    "label": "Preparatie"
                 },
                 "piste/grooming_hike": {
                     "options": {
                         "backcountry": "Off-piste – Sneeuwschoenrennen",
                         "classic": "Klassiek – Winterwandelen"
-                    }
+                    },
+                    "label": "Preparatie"
                 },
                 "piste/grooming_nordic": {
                     "options": {
@@ -3704,7 +3857,8 @@
                         "classic+skating": "Klassiek en schaatsen",
                         "scooter": "Sneeuwscooter/-mobiel",
                         "skating": "Schaatsen"
-                    }
+                    },
+                    "label": "Preparatie"
                 },
                 "piste/type": {
                     "label": "Type",
@@ -3729,7 +3883,22 @@
                     "label": "Plant"
                 },
                 "plant/method": {
-                    "label": "Generatiemethode (elektriciteit)"
+                    "label": "Generatiemethode (elektriciteit)",
+                    "options": {
+                        "anaerobic_digestion": "Anaerobe vergisting",
+                        "barrage": "Getijdenstuwdam",
+                        "combustion": "Verbranding",
+                        "fission": "Kernsplijting",
+                        "fusion": "Kernfusie",
+                        "gasification": "Vergassing",
+                        "photovoltaic": "Fotovoltaïsch",
+                        "run-of-the-river": "Run-of-river waterkrachtcentrale",
+                        "stream": "Getijdenstroom",
+                        "thermal": "Thermische zonne-energie",
+                        "water-pumped-storage": "Pompaccumulatie",
+                        "water-storage": "Reservoir",
+                        "wind_turbine": "Windturbine"
+                    }
                 },
                 "plant/output": {
                     "label": "Type energieuitvoer",
@@ -3748,7 +3917,26 @@
                     "label": "Elektrische energieuitvoer"
                 },
                 "plant/source": {
-                    "label": "Energiebron"
+                    "label": "Energiebron",
+                    "options": {
+                        "battery": "Batterij\nAccu",
+                        "biofuel": "Plantaardige brandstoffen",
+                        "biogas": "Biogas",
+                        "biomass": "Plantaardig materiaal",
+                        "coal": "Steenkool",
+                        "diesel": "Diesel",
+                        "gas": "Aardgas",
+                        "gasoline": "Benzine",
+                        "geothermal": "Geothermische Energie",
+                        "hydro": "Waterkracht",
+                        "nuclear": "Nucleaire energie",
+                        "oil": "Olie",
+                        "solar": "Zonnestraling",
+                        "tidal": "Getijdenenergie",
+                        "waste": "Afval",
+                        "wave": "Golfkracht",
+                        "wind": "Wind"
+                    }
                 },
                 "playground": {
                     "label": "Type"
@@ -4663,19 +4851,251 @@
                     }
                 },
                 "sport/sport_ice": {
-                    "label": "Sport"
+                    "label": "Sport",
+                    "options": {
+                        "10pin": "Bowlen",
+                        "9pin": "Kegelen",
+                        "american_football": "Rugby",
+                        "athletics": "Atletiek",
+                        "badminton": "Badminton",
+                        "baseball": "Honkbal",
+                        "basketball": "Basketbal",
+                        "beachvolleyball": "Beachvolleybal",
+                        "billiards": "Biljart",
+                        "bmx": "BMX",
+                        "boules": "Jeu de Boules",
+                        "bowls": "Bowls",
+                        "canoe": "Kanoën",
+                        "chess": "Schaken",
+                        "climbing": "Klimmen",
+                        "cricket": "Cricket",
+                        "curling": "Curling",
+                        "cycling": "Fietsen",
+                        "darts": "Darts",
+                        "disc_golf": "Discgolf",
+                        "dog_racing": "Hondenrennen",
+                        "equestrian": "Paardensport",
+                        "fitness": "Fitness",
+                        "free_flying": "Paragliding\nParapente",
+                        "futsal": "Zaalvoetbal",
+                        "gaelic_games": "Gaelic Games",
+                        "golf": "Golf",
+                        "gymnastics": "Gymnastiek",
+                        "handball": "Handbal",
+                        "horse_racing": "Paardenrennen",
+                        "ice_hockey": "IJshockey",
+                        "ice_skating": "Schaatsen",
+                        "ice_stock": "IJsstokschieten",
+                        "karting": "Karten",
+                        "motocross": "Motorcross",
+                        "motor": "Motorsport",
+                        "multi": "Andere, niet nader gespecificeerde sport",
+                        "netball": "Netball",
+                        "orienteering": "Oriëntatieloop",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Rugby Union",
+                        "running": "Hardlopen",
+                        "scuba_diving": "Duiken",
+                        "shooting": "Schieten",
+                        "skateboard": "Skateboarden",
+                        "ski_jumping": "Schansspringen",
+                        "skiing": "Skiën",
+                        "soccer": "Voetbal",
+                        "softball": "Softbal",
+                        "speedway": "Speedway",
+                        "swimming": "Zwemmen",
+                        "table_tennis": "Tafeltennis",
+                        "tennis": "Tennis",
+                        "volleyball": "Volleybal",
+                        "yoga": "Yoga"
+                    }
                 },
                 "sport/sport_pub": {
                     "label": "Sport",
                     "terms": [
                         "sporten"
-                    ]
+                    ],
+                    "options": {
+                        "10pin": "Bowlen",
+                        "9pin": "Kegelen",
+                        "american_football": "Rugby",
+                        "athletics": "Atletiek",
+                        "badminton": "Badminton",
+                        "baseball": "Honkbal",
+                        "basketball": "Basketbal",
+                        "beachvolleyball": "Beachvolleybal",
+                        "billiards": "Biljart",
+                        "bmx": "BMX",
+                        "boules": "Jeu de Boules",
+                        "bowls": "Bowls",
+                        "canoe": "Kanoën",
+                        "chess": "Schaken",
+                        "climbing": "Klimmen",
+                        "cricket": "Cricket",
+                        "curling": "Curling",
+                        "cycling": "Fietsen",
+                        "darts": "Darts",
+                        "disc_golf": "Discgolf",
+                        "dog_racing": "Hondenrennen",
+                        "equestrian": "Paardensport",
+                        "fitness": "Fitness",
+                        "free_flying": "Paragliding\nParapente",
+                        "futsal": "Zaalvoetbal",
+                        "gaelic_games": "Gaelic Games",
+                        "golf": "Golf",
+                        "gymnastics": "Gymnastiek",
+                        "handball": "Handbal",
+                        "horse_racing": "Paardenrennen",
+                        "ice_hockey": "IJshockey",
+                        "ice_skating": "Schaatsen",
+                        "ice_stock": "IJsstokschieten",
+                        "karting": "Karten",
+                        "motocross": "Motorcross",
+                        "motor": "Motorsport",
+                        "multi": "Andere, niet nader gespecificeerde sport",
+                        "netball": "Netball",
+                        "orienteering": "Oriëntatieloop",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Rugby Union",
+                        "running": "Hardlopen",
+                        "scuba_diving": "Duiken",
+                        "shooting": "Schieten",
+                        "skateboard": "Skateboarden",
+                        "ski_jumping": "Schansspringen",
+                        "skiing": "Skiën",
+                        "soccer": "Voetbal",
+                        "softball": "Softbal",
+                        "speedway": "Speedway",
+                        "swimming": "Zwemmen",
+                        "table_tennis": "Tafeltennis",
+                        "tennis": "Tennis",
+                        "volleyball": "Volleybal",
+                        "yoga": "Yoga"
+                    }
                 },
                 "sport/sport_racing_motor": {
-                    "label": "Sport"
+                    "label": "Sport",
+                    "options": {
+                        "10pin": "Bowlen",
+                        "9pin": "Kegelen",
+                        "american_football": "Rugby",
+                        "athletics": "Atletiek",
+                        "badminton": "Badminton",
+                        "baseball": "Honkbal",
+                        "basketball": "Basketbal",
+                        "beachvolleyball": "Beachvolleybal",
+                        "billiards": "Biljart",
+                        "bmx": "BMX",
+                        "boules": "Jeu de Boules",
+                        "bowls": "Bowls",
+                        "canoe": "Kanoën",
+                        "chess": "Schaken",
+                        "climbing": "Klimmen",
+                        "cricket": "Cricket",
+                        "curling": "Curling",
+                        "cycling": "Fietsen",
+                        "darts": "Darts",
+                        "disc_golf": "Discgolf",
+                        "dog_racing": "Hondenrennen",
+                        "equestrian": "Paardensport",
+                        "fitness": "Fitness",
+                        "free_flying": "Paragliding\nParapente",
+                        "futsal": "Zaalvoetbal",
+                        "gaelic_games": "Gaelic Games",
+                        "golf": "Golf",
+                        "gymnastics": "Gymnastiek",
+                        "handball": "Handbal",
+                        "horse_racing": "Paardenrennen",
+                        "ice_hockey": "IJshockey",
+                        "ice_skating": "Schaatsen",
+                        "ice_stock": "IJsstokschieten",
+                        "karting": "Karten",
+                        "motocross": "Motorcross",
+                        "motor": "Motorsport",
+                        "multi": "Andere, niet nader gespecificeerde sport",
+                        "netball": "Netball",
+                        "orienteering": "Oriëntatieloop",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Rugby Union",
+                        "running": "Hardlopen",
+                        "scuba_diving": "Duiken",
+                        "shooting": "Schieten",
+                        "skateboard": "Skateboarden",
+                        "ski_jumping": "Schansspringen",
+                        "skiing": "Skiën",
+                        "soccer": "Voetbal",
+                        "softball": "Softbal",
+                        "speedway": "Speedway",
+                        "swimming": "Zwemmen",
+                        "table_tennis": "Tafeltennis",
+                        "tennis": "Tennis",
+                        "volleyball": "Volleybal",
+                        "yoga": "Yoga"
+                    }
                 },
                 "sport/sport_racing_nonmotor": {
-                    "label": "Sport"
+                    "label": "Sport",
+                    "options": {
+                        "10pin": "Bowlen",
+                        "9pin": "Kegelen",
+                        "american_football": "Rugby",
+                        "athletics": "Atletiek",
+                        "badminton": "Badminton",
+                        "baseball": "Honkbal",
+                        "basketball": "Basketbal",
+                        "beachvolleyball": "Beachvolleybal",
+                        "billiards": "Biljart",
+                        "bmx": "BMX",
+                        "boules": "Jeu de Boules",
+                        "bowls": "Bowls",
+                        "canoe": "Kanoën",
+                        "chess": "Schaken",
+                        "climbing": "Klimmen",
+                        "cricket": "Cricket",
+                        "curling": "Curling",
+                        "cycling": "Fietsen",
+                        "darts": "Darts",
+                        "disc_golf": "Discgolf",
+                        "dog_racing": "Hondenrennen",
+                        "equestrian": "Paardensport",
+                        "fitness": "Fitness",
+                        "free_flying": "Paragliding\nParapente",
+                        "futsal": "Zaalvoetbal",
+                        "gaelic_games": "Gaelic Games",
+                        "golf": "Golf",
+                        "gymnastics": "Gymnastiek",
+                        "handball": "Handbal",
+                        "horse_racing": "Paardenrennen",
+                        "ice_hockey": "IJshockey",
+                        "ice_skating": "Schaatsen",
+                        "ice_stock": "IJsstokschieten",
+                        "karting": "Karten",
+                        "motocross": "Motorcross",
+                        "motor": "Motorsport",
+                        "multi": "Andere, niet nader gespecificeerde sport",
+                        "netball": "Netball",
+                        "orienteering": "Oriëntatieloop",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Rugby Union",
+                        "running": "Hardlopen",
+                        "scuba_diving": "Duiken",
+                        "shooting": "Schieten",
+                        "skateboard": "Skateboarden",
+                        "ski_jumping": "Schansspringen",
+                        "skiing": "Skiën",
+                        "soccer": "Voetbal",
+                        "softball": "Softbal",
+                        "speedway": "Speedway",
+                        "swimming": "Zwemmen",
+                        "table_tennis": "Tafeltennis",
+                        "tennis": "Tennis",
+                        "volleyball": "Volleybal",
+                        "yoga": "Yoga"
+                    }
                 },
                 "stars": {
                     "label": "Sterren",
@@ -5230,7 +5650,21 @@
                         "vernauwing",
                         "versmalling",
                         "rijbaankussen"
-                    ]
+                    ],
+                    "options": {
+                        "bump": "Kleine verkeersdrempel",
+                        "chicane": "Chicane",
+                        "choked_table": "Vernauwde verkeersplateau",
+                        "choker": "Vernauwing",
+                        "cushion": "Verkeerskussen",
+                        "dip": "Verkeersremmende overdwarse uitholling",
+                        "double_dip": "Dubbele verkeersremmende overdwarse uitholling",
+                        "hump": "Verkeersdrempel, 2 meter of langer",
+                        "island": "Verkeersremmend verkeerseiland",
+                        "mini_bumps": "Kleine verkeersdrempels",
+                        "rumble_strip": "Rammelstrook",
+                        "table": "Verkeersplateau"
+                    }
                 },
                 "traffic_sign": {
                     "label": "Verkeersbord"
@@ -5346,7 +5780,13 @@
                 },
                 "tunnel": {
                     "label": "Type",
-                    "placeholder": "Standaard"
+                    "placeholder": "Standaard",
+                    "options": {
+                        "avalanche_protector": "Lawinebeschermer",
+                        "building_passage": "Gebouwonderdoorgang",
+                        "culvert": "Duiker",
+                        "flooded": "Ondergelopen tunnel"
+                    }
                 },
                 "tunnel_combo": {
                     "label": "Type",

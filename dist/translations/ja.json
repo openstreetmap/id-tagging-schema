@@ -676,7 +676,17 @@
                 },
                 "bridge": {
                     "label": "種類",
-                    "placeholder": "デフォルト"
+                    "placeholder": "デフォルト",
+                    "options": {
+                        "aqueduct": "水路橋",
+                        "boardwalk": "木道",
+                        "cantilever": "カンチレバー橋",
+                        "covered": "屋根付橋",
+                        "low_water_crossing": "沈下橋",
+                        "movable": "可動橋",
+                        "trestle": "トレッスル橋",
+                        "viaduct": "高架橋"
+                    }
                 },
                 "bridge/name": {
                     "label": "橋名",
@@ -1221,7 +1231,13 @@
                         "no": "覆われていない",
                         "undefined": "おそらく覆われていない",
                         "yes": "覆われている"
-                    }
+                    },
+                    "label": "屋根",
+                    "terms": [
+                        "覆い",
+                        "屋根",
+                        "被覆"
+                    ]
                 },
                 "craft": {
                     "label": "種類",
@@ -1736,7 +1752,13 @@
                     }
                 },
                 "direction_point": {
-                    "placeholder": "45, 90, 180, 270"
+                    "placeholder": "45, 90, 180, 270",
+                    "label": "方向(度、時計回り)",
+                    "terms": [
+                        "方向",
+                        "度",
+                        "角度"
+                    ]
                 },
                 "direction_vertex": {
                     "label": "示される方向",
@@ -2691,7 +2713,14 @@
                     "options": {
                         "down": "下",
                         "up": "上"
-                    }
+                    },
+                    "label": "勾配",
+                    "terms": [
+                        "傾き",
+                        "傾斜",
+                        "斜度",
+                        "向き"
+                    ]
                 },
                 "indoor": {
                     "label": "室内",
@@ -2849,7 +2878,37 @@
                     "label": "縁石の高さ"
                 },
                 "kerb/kerb_barrier": {
-                    "label": "縁石の種類"
+                    "label": "縁石の種類",
+                    "options": {
+                        "flush": {
+                            "description": "周囲と同じ高さに切り下げられた縁石",
+                            "title": "平坦"
+                        },
+                        "lowered": {
+                            "description": "車椅子が通れるよう高さ数cm程度に切り下げられた縁石",
+                            "title": "切り下げ"
+                        },
+                        "no": {
+                            "description": "この場所には縁石がありません",
+                            "title": "なし"
+                        },
+                        "raised": {
+                            "description": "車椅子が乗り越えられない数cm以上の高さの縁石",
+                            "title": "段差"
+                        },
+                        "rolled": {
+                            "description": "車椅子ではなく自動車や自転車が通りやすいように丸められた縁石",
+                            "title": "丸め"
+                        },
+                        "yes": {
+                            "description": "何らかの縁石があるがその種別がわからない",
+                            "title": "あり"
+                        }
+                    },
+                    "terms": [
+                        "縁石",
+                        "へり"
+                    ]
                 },
                 "kitchen": {
                     "label": "キッチン",
@@ -2906,7 +2965,11 @@
                     ]
                 },
                 "layer_1": {
-                    "placeholder": "0"
+                    "placeholder": "0",
+                    "label": "レイヤー",
+                    "terms": [
+                        "レイヤ"
+                    ]
                 },
                 "leaf_cycle": {
                     "label": "葉の季節変化",
@@ -2943,7 +3006,13 @@
                         "葉の季節変化",
                         "常緑樹",
                         "落葉樹"
-                    ]
+                    ],
+                    "options": {
+                        "broadleaved": "広葉樹",
+                        "leafless": "葉なし",
+                        "mixed": "混合",
+                        "needleleaved": "針葉樹"
+                    }
                 },
                 "leisure": {
                     "label": "種類"
@@ -3041,7 +3110,15 @@
                         "indoor": "屋内",
                         "outdoor": "屋外",
                         "roof": "屋上"
-                    }
+                    },
+                    "label": "位置",
+                    "terms": [
+                        "位置",
+                        "配置",
+                        "地下",
+                        "水面下",
+                        "地上"
+                    ]
                 },
                 "lock": {
                     "label": "水路上のドック"
@@ -3598,7 +3675,11 @@
                         "reversible": "切替通行",
                         "undefined": "おそらくはい",
                         "yes": "はい"
-                    }
+                    },
+                    "label": "一方通行",
+                    "terms": [
+                        "一方通行"
+                    ]
                 },
                 "openfire": {
                     "label": "焚き火可否",
@@ -3656,7 +3737,19 @@
                     ]
                 },
                 "orientation/orientation_parking": {
-                    "label": "駐車の向き"
+                    "label": "駐車の向き",
+                    "options": {
+                        "diagonal": "斜め",
+                        "parallel": "平行",
+                        "perpendicular": "直角"
+                    },
+                    "terms": [
+                        "駐車の向き"
+                    ],
+                    "types": {
+                        "parking:left:orientation": "左側",
+                        "parking:right:orientation": "右側"
+                    }
                 },
                 "outdoor_seating": {
                     "label": "屋外の席",
@@ -3792,7 +3885,61 @@
                     }
                 },
                 "parking_entrance": {
-                    "label": "種類"
+                    "label": "種類",
+                    "options": {
+                        "carports": {
+                            "description": "車両を限定的ながら風雨から保護するための構造物で、普通は壁がありません。",
+                            "title": "カーポート"
+                        },
+                        "garage_boxes": {
+                            "description": "それぞれ1台の自動車を格納できる複数の格納庫からなるガレージです。",
+                            "title": "箱型ガレージ"
+                        },
+                        "half_on_kerb": {
+                            "description": "歩道縁石へ半分乗り上げての駐車。",
+                            "title": "片輪乗り上げ"
+                        },
+                        "lane": {
+                            "description": "道路上にある駐車施設（容易に通行用レーンに転換できるようなもの）。",
+                            "title": "駐車帯"
+                        },
+                        "layby": {
+                            "description": "道路脇に設けられた休憩用の駐車施設。",
+                            "title": "レイバイ（待避所）"
+                        },
+                        "multi-storey": {
+                            "description": "建造物内にある2階建て以上の駐車デッキ。",
+                            "title": "立体"
+                        },
+                        "on_kerb": {
+                            "description": "歩道縁石上への駐車。",
+                            "title": "歩道縁石上"
+                        },
+                        "rooftop": {
+                            "description": "建物の屋上にある駐車デッキ。",
+                            "title": "屋上"
+                        },
+                        "sheds": {
+                            "description": "個人用の車両格納庫。",
+                            "title": "小屋"
+                        },
+                        "shoulder": {
+                            "description": "路肩への駐車。",
+                            "title": "路肩"
+                        },
+                        "street_side": {
+                            "description": "（道路上ではなく）道路のすぐ脇に設けられた駐車場。",
+                            "title": "道路脇"
+                        },
+                        "surface": {
+                            "description": "地面にある駐車場。 ",
+                            "title": "平面"
+                        },
+                        "underground": {
+                            "description": "地下駐車場。",
+                            "title": "地下式"
+                        }
+                    }
                 },
                 "parking_space": {
                     "label": "駐車区画の種類"
@@ -3896,7 +4043,8 @@
                         "intermediate": "中級 (青色の四角)",
                         "novice": "初心者向け (教習用)"
                     },
-                    "placeholder": "初級者向け、普通、上級者向け"
+                    "placeholder": "初級者向け、普通、上級者向け",
+                    "label": "難易度"
                 },
                 "piste/difficulty_nordic": {
                     "options": {
@@ -3906,7 +4054,8 @@
                         "intermediate": "中級 - 険しい部分あり",
                         "novice": "ノービス - 平坦, 特別な努力は不要"
                     },
-                    "placeholder": "初心者向け、普通、上級者向け"
+                    "placeholder": "初心者向け、普通、上級者向け",
+                    "label": "難易度"
                 },
                 "piste/difficulty_skitour": {
                     "options": {
@@ -3918,7 +4067,8 @@
                         "intermediate": "普通 - ZS: 35-40° の斜度",
                         "novice": "ノービス - L: <30° の斜度"
                     },
-                    "placeholder": "初心者向け、普通、上級者向け"
+                    "placeholder": "初心者向け、普通、上級者向け",
+                    "label": "難易度"
                 },
                 "piste/grooming": {
                     "label": "整備状況",
@@ -3936,13 +4086,15 @@
                         "backcountry": "バックカントリー - 未整備",
                         "classic": "クラシック",
                         "mogul": "モーグル"
-                    }
+                    },
+                    "label": "整備状況"
                 },
                 "piste/grooming_hike": {
                     "options": {
                         "backcountry": "バックカントリー - スノーシュー",
                         "classic": "クラシック - 冬季ハイキング"
-                    }
+                    },
+                    "label": "整備状況"
                 },
                 "piste/grooming_nordic": {
                     "options": {
@@ -3951,7 +4103,8 @@
                         "classic+skating": "クラシックアンドスケーティング",
                         "scooter": "スクーター/スノーモービル",
                         "skating": "スケーティング"
-                    }
+                    },
+                    "label": "整備状況"
                 },
                 "piste/type": {
                     "label": "種類",
@@ -3976,7 +4129,22 @@
                     "label": "植物"
                 },
                 "plant/method": {
-                    "label": "発電方法"
+                    "label": "発電方法",
+                    "options": {
+                        "anaerobic_digestion": "嫌気性消化",
+                        "barrage": "潮汐",
+                        "combustion": "燃焼",
+                        "fission": "核分裂",
+                        "fusion": "核融合",
+                        "gasification": "ガス化",
+                        "photovoltaic": "太陽光発電",
+                        "run-of-the-river": "流れ込み式",
+                        "stream": "潮流",
+                        "thermal": "太陽熱",
+                        "water-pumped-storage": "揚水貯蔵",
+                        "water-storage": "貯水池",
+                        "wind_turbine": "風力"
+                    }
                 },
                 "plant/output": {
                     "label": "出力形態",
@@ -3996,7 +4164,26 @@
                     "placeholder": "500 MW, 1000 MW, 2000 MW..."
                 },
                 "plant/source": {
-                    "label": "動力源"
+                    "label": "動力源",
+                    "options": {
+                        "battery": "バッテリー",
+                        "biofuel": "植物性燃料",
+                        "biogas": "バイオガス",
+                        "biomass": "バイオマス",
+                        "coal": "石炭",
+                        "diesel": "軽油",
+                        "gas": "天然ガス",
+                        "gasoline": "ガソリン",
+                        "geothermal": "地熱",
+                        "hydro": "水力発電",
+                        "nuclear": "原子力発電",
+                        "oil": "石油",
+                        "solar": "太陽光",
+                        "tidal": "潮位",
+                        "waste": "廃棄物",
+                        "wave": "波力発電",
+                        "wind": "風力発電"
+                    }
                 },
                 "playground": {
                     "label": "種類",
@@ -5042,7 +5229,65 @@
                     }
                 },
                 "sport/sport_ice": {
-                    "label": "スポーツ"
+                    "label": "スポーツ",
+                    "options": {
+                        "10pin": "ボウリング",
+                        "9pin": "ケーゲル",
+                        "american_football": "アメリカンフットボール",
+                        "athletics": "陸上競技",
+                        "badminton": "バドミントン",
+                        "baseball": "野球",
+                        "basketball": "バスケットボール",
+                        "beachvolleyball": "ビーチバレー",
+                        "billiards": "ビリヤード",
+                        "bmx": "BMX",
+                        "boules": "ブール、ペタンク",
+                        "bowls": "ローンボウルズ",
+                        "canoe": "カヌー",
+                        "chess": "チェス",
+                        "climbing": "クライミング",
+                        "cricket": "クリケット",
+                        "curling": "カーリング",
+                        "cycling": "サイクリング",
+                        "darts": "ダーツ",
+                        "disc_golf": "ディスクゴルフ",
+                        "dog_racing": "ドッグレース",
+                        "equestrian": "馬術競技",
+                        "fitness": "フィットネス",
+                        "free_flying": "ハンググライダー",
+                        "futsal": "フットサル",
+                        "gaelic_games": "ゲーリック・ゲームス",
+                        "golf": "ゴルフ",
+                        "gymnastics": "体操競技",
+                        "handball": "ハンドボール",
+                        "horse_racing": "競馬",
+                        "ice_hockey": "アイスホッケー",
+                        "ice_skating": "アイススケート",
+                        "ice_stock": "アイスストック",
+                        "karting": "カートレース",
+                        "motocross": "モトクロス",
+                        "motor": "モータースポーツ",
+                        "multi": "不明・その他のスポーツ",
+                        "netball": "ネットボール",
+                        "orienteering": "オリエンテーリング",
+                        "padel": "パデル",
+                        "pelota": "ペロタ",
+                        "rugby_union": "ラグビーユニオン",
+                        "running": "ランニング",
+                        "scuba_diving": "スクーバダイビング",
+                        "shooting": "射撃",
+                        "skateboard": "スケートボード",
+                        "ski_jumping": "スキージャンプ",
+                        "skiing": "スキー",
+                        "soccer": "サッカー",
+                        "softball": "ソフトボール",
+                        "speedway": "スピードウェイ",
+                        "swimming": "水泳",
+                        "table_tennis": "卓球",
+                        "tennis": "テニス",
+                        "volleyball": "バレーボール",
+                        "yoga": "ヨガ"
+                    }
                 },
                 "sport/sport_pub": {
                     "label": "スポーツ",
@@ -5050,13 +5295,187 @@
                         "スポーツ",
                         "運動",
                         "競技"
-                    ]
+                    ],
+                    "options": {
+                        "10pin": "ボウリング",
+                        "9pin": "ケーゲル",
+                        "american_football": "アメリカンフットボール",
+                        "athletics": "陸上競技",
+                        "badminton": "バドミントン",
+                        "baseball": "野球",
+                        "basketball": "バスケットボール",
+                        "beachvolleyball": "ビーチバレー",
+                        "billiards": "ビリヤード",
+                        "bmx": "BMX",
+                        "boules": "ブール、ペタンク",
+                        "bowls": "ローンボウルズ",
+                        "canoe": "カヌー",
+                        "chess": "チェス",
+                        "climbing": "クライミング",
+                        "cricket": "クリケット",
+                        "curling": "カーリング",
+                        "cycling": "サイクリング",
+                        "darts": "ダーツ",
+                        "disc_golf": "ディスクゴルフ",
+                        "dog_racing": "ドッグレース",
+                        "equestrian": "馬術競技",
+                        "fitness": "フィットネス",
+                        "free_flying": "ハンググライダー",
+                        "futsal": "フットサル",
+                        "gaelic_games": "ゲーリック・ゲームス",
+                        "golf": "ゴルフ",
+                        "gymnastics": "体操競技",
+                        "handball": "ハンドボール",
+                        "horse_racing": "競馬",
+                        "ice_hockey": "アイスホッケー",
+                        "ice_skating": "アイススケート",
+                        "ice_stock": "アイスストック",
+                        "karting": "カートレース",
+                        "motocross": "モトクロス",
+                        "motor": "モータースポーツ",
+                        "multi": "不明・その他のスポーツ",
+                        "netball": "ネットボール",
+                        "orienteering": "オリエンテーリング",
+                        "padel": "パデル",
+                        "pelota": "ペロタ",
+                        "rugby_union": "ラグビーユニオン",
+                        "running": "ランニング",
+                        "scuba_diving": "スクーバダイビング",
+                        "shooting": "射撃",
+                        "skateboard": "スケートボード",
+                        "ski_jumping": "スキージャンプ",
+                        "skiing": "スキー",
+                        "soccer": "サッカー",
+                        "softball": "ソフトボール",
+                        "speedway": "スピードウェイ",
+                        "swimming": "水泳",
+                        "table_tennis": "卓球",
+                        "tennis": "テニス",
+                        "volleyball": "バレーボール",
+                        "yoga": "ヨガ"
+                    }
                 },
                 "sport/sport_racing_motor": {
-                    "label": "スポーツ"
+                    "label": "スポーツ",
+                    "options": {
+                        "10pin": "ボウリング",
+                        "9pin": "ケーゲル",
+                        "american_football": "アメリカンフットボール",
+                        "athletics": "陸上競技",
+                        "badminton": "バドミントン",
+                        "baseball": "野球",
+                        "basketball": "バスケットボール",
+                        "beachvolleyball": "ビーチバレー",
+                        "billiards": "ビリヤード",
+                        "bmx": "BMX",
+                        "boules": "ブール、ペタンク",
+                        "bowls": "ローンボウルズ",
+                        "canoe": "カヌー",
+                        "chess": "チェス",
+                        "climbing": "クライミング",
+                        "cricket": "クリケット",
+                        "curling": "カーリング",
+                        "cycling": "サイクリング",
+                        "darts": "ダーツ",
+                        "disc_golf": "ディスクゴルフ",
+                        "dog_racing": "ドッグレース",
+                        "equestrian": "馬術競技",
+                        "fitness": "フィットネス",
+                        "free_flying": "ハンググライダー",
+                        "futsal": "フットサル",
+                        "gaelic_games": "ゲーリック・ゲームス",
+                        "golf": "ゴルフ",
+                        "gymnastics": "体操競技",
+                        "handball": "ハンドボール",
+                        "horse_racing": "競馬",
+                        "ice_hockey": "アイスホッケー",
+                        "ice_skating": "アイススケート",
+                        "ice_stock": "アイスストック",
+                        "karting": "カートレース",
+                        "motocross": "モトクロス",
+                        "motor": "モータースポーツ",
+                        "multi": "不明・その他のスポーツ",
+                        "netball": "ネットボール",
+                        "orienteering": "オリエンテーリング",
+                        "padel": "パデル",
+                        "pelota": "ペロタ",
+                        "rugby_union": "ラグビーユニオン",
+                        "running": "ランニング",
+                        "scuba_diving": "スクーバダイビング",
+                        "shooting": "射撃",
+                        "skateboard": "スケートボード",
+                        "ski_jumping": "スキージャンプ",
+                        "skiing": "スキー",
+                        "soccer": "サッカー",
+                        "softball": "ソフトボール",
+                        "speedway": "スピードウェイ",
+                        "swimming": "水泳",
+                        "table_tennis": "卓球",
+                        "tennis": "テニス",
+                        "volleyball": "バレーボール",
+                        "yoga": "ヨガ"
+                    }
                 },
                 "sport/sport_racing_nonmotor": {
-                    "label": "スポーツ"
+                    "label": "スポーツ",
+                    "options": {
+                        "10pin": "ボウリング",
+                        "9pin": "ケーゲル",
+                        "american_football": "アメリカンフットボール",
+                        "athletics": "陸上競技",
+                        "badminton": "バドミントン",
+                        "baseball": "野球",
+                        "basketball": "バスケットボール",
+                        "beachvolleyball": "ビーチバレー",
+                        "billiards": "ビリヤード",
+                        "bmx": "BMX",
+                        "boules": "ブール、ペタンク",
+                        "bowls": "ローンボウルズ",
+                        "canoe": "カヌー",
+                        "chess": "チェス",
+                        "climbing": "クライミング",
+                        "cricket": "クリケット",
+                        "curling": "カーリング",
+                        "cycling": "サイクリング",
+                        "darts": "ダーツ",
+                        "disc_golf": "ディスクゴルフ",
+                        "dog_racing": "ドッグレース",
+                        "equestrian": "馬術競技",
+                        "fitness": "フィットネス",
+                        "free_flying": "ハンググライダー",
+                        "futsal": "フットサル",
+                        "gaelic_games": "ゲーリック・ゲームス",
+                        "golf": "ゴルフ",
+                        "gymnastics": "体操競技",
+                        "handball": "ハンドボール",
+                        "horse_racing": "競馬",
+                        "ice_hockey": "アイスホッケー",
+                        "ice_skating": "アイススケート",
+                        "ice_stock": "アイスストック",
+                        "karting": "カートレース",
+                        "motocross": "モトクロス",
+                        "motor": "モータースポーツ",
+                        "multi": "不明・その他のスポーツ",
+                        "netball": "ネットボール",
+                        "orienteering": "オリエンテーリング",
+                        "padel": "パデル",
+                        "pelota": "ペロタ",
+                        "rugby_union": "ラグビーユニオン",
+                        "running": "ランニング",
+                        "scuba_diving": "スクーバダイビング",
+                        "shooting": "射撃",
+                        "skateboard": "スケートボード",
+                        "ski_jumping": "スキージャンプ",
+                        "skiing": "スキー",
+                        "soccer": "サッカー",
+                        "softball": "ソフトボール",
+                        "speedway": "スピードウェイ",
+                        "swimming": "水泳",
+                        "table_tennis": "卓球",
+                        "tennis": "テニス",
+                        "volleyball": "バレーボール",
+                        "yoga": "ヨガ"
+                    }
                 },
                 "stars": {
                     "label": "星の数",
@@ -5583,7 +6002,21 @@
                     "label": "交通静穏化設備",
                     "terms": [
                         "交通静穏化"
-                    ]
+                    ],
+                    "options": {
+                        "bump": "スピードバンプ（帯状）",
+                        "chicane": "シケイン（屈曲部）",
+                        "choked_table": "狭窄した台形ハンプ",
+                        "choker": "チョーカー（狭窄部）",
+                        "cushion": "スピードクッション",
+                        "dip": "ディップ（凹部）",
+                        "double_dip": "2連続のディップ（凹部）",
+                        "hump": "弓形ハンプ（凸部）",
+                        "island": "静穏化用交通島",
+                        "mini_bumps": "スピードバンプ（こぶ状）",
+                        "rumble_strip": "ランブルストリップ",
+                        "table": "台形ハンプ（凸部）"
+                    }
                 },
                 "traffic_sign": {
                     "label": "交通標識"
@@ -5699,7 +6132,13 @@
                 },
                 "tunnel": {
                     "label": "種類",
-                    "placeholder": "デフォルト"
+                    "placeholder": "デフォルト",
+                    "options": {
+                        "avalanche_protector": "ロック・スノーシェッド",
+                        "building_passage": "建物貫通路",
+                        "culvert": "暗渠",
+                        "flooded": "冠水したトンネル"
+                    }
                 },
                 "tunnel/name": {
                     "label": "トンネル名"

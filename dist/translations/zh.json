@@ -672,7 +672,17 @@
                 },
                 "bridge": {
                     "label": "类型",
-                    "placeholder": "預設"
+                    "placeholder": "預設",
+                    "options": {
+                        "aqueduct": "水道橋",
+                        "boardwalk": "木棧走道",
+                        "cantilever": "悬臂梁桥",
+                        "covered": "廊桥",
+                        "low_water_crossing": "漫水桥",
+                        "movable": "活動橋",
+                        "trestle": "架柱橋",
+                        "viaduct": "高架桥"
+                    }
                 },
                 "bridge/ref": {
                     "label": "桥梁编号",
@@ -1196,7 +1206,16 @@
                         "no": "否",
                         "undefined": "也許不是",
                         "yes": "是"
-                    }
+                    },
+                    "label": "被遮蓋",
+                    "terms": [
+                        "有遮蓋",
+                        "有遮掩",
+                        "有覆蓋",
+                        "被遮蔽",
+                        "被遮掩",
+                        "被蓋住"
+                    ]
                 },
                 "craft": {
                     "label": "类型",
@@ -1707,7 +1726,12 @@
                     }
                 },
                 "direction_point": {
-                    "placeholder": "45, 90, 180, 270"
+                    "placeholder": "45, 90, 180, 270",
+                    "label": "方向 (順時針)",
+                    "terms": [
+                        "方向 (順時針角度)",
+                        "方位 (順時針角度)"
+                    ]
                 },
                 "direction_vertex": {
                     "label": "指示的方向",
@@ -2580,7 +2604,11 @@
                     "options": {
                         "down": "下坡",
                         "up": "向上"
-                    }
+                    },
+                    "label": "斜度",
+                    "terms": [
+                        "坡度"
+                    ]
                 },
                 "indoor": {
                     "label": "室内",
@@ -2730,7 +2758,38 @@
                     "label": "高度"
                 },
                 "kerb/kerb_barrier": {
-                    "label": "类型"
+                    "label": "类型",
+                    "options": {
+                        "flush": {
+                            "description": "砌上特殊路緣石，但與路面沒有高差。",
+                            "title": "導盲磚"
+                        },
+                        "lowered": {
+                            "description": "砌上路緣石，仍可供輪椅使用者通過、高差不到數公分。",
+                            "title": "较低"
+                        },
+                        "no": {
+                            "description": "此处没有路缘石。",
+                            "title": "否"
+                        },
+                        "raised": {
+                            "description": "輪椅使用者無法輕易通過的突起路緣，高度超過數公分。",
+                            "title": "有高差"
+                        },
+                        "rolled": {
+                            "description": "圓形的突起路緣，讓汽車或自行車更容易通行，但輪椅則較困難。",
+                            "title": "緩圓邊"
+                        },
+                        "yes": {
+                            "description": "該位置有路緣石，不知道是哪一種。",
+                            "title": "是"
+                        }
+                    },
+                    "terms": [
+                        "路緣石",
+                        "路緣",
+                        "人行道邊緣"
+                    ]
                 },
                 "kitchen": {
                     "label": "厨房",
@@ -2784,7 +2843,12 @@
                     ]
                 },
                 "layer_1": {
-                    "placeholder": "0"
+                    "placeholder": "0",
+                    "label": "层",
+                    "terms": [
+                        "層級",
+                        "垂直層級"
+                    ]
                 },
                 "leaf_cycle": {
                     "label": "落葉週期",
@@ -2823,7 +2887,13 @@
                         "葉片類型",
                         "葉子形狀",
                         "葉子類型"
-                    ]
+                    ],
+                    "options": {
+                        "broadleaved": "闊葉",
+                        "leafless": "無葉",
+                        "mixed": "混合",
+                        "needleleaved": "針葉"
+                    }
                 },
                 "leisure": {
                     "label": "类型"
@@ -2923,7 +2993,12 @@
                         "indoor": "室内",
                         "outdoor": "室外",
                         "roof": "天台"
-                    }
+                    },
+                    "label": "位置",
+                    "terms": [
+                        "位置",
+                        "地方"
+                    ]
                 },
                 "lock": {
                     "label": "船闸"
@@ -3494,7 +3569,13 @@
                         "reversible": "偶而變換方向",
                         "undefined": "也許是",
                         "yes": "是"
-                    }
+                    },
+                    "label": "单行",
+                    "terms": [
+                        "單向通行",
+                        "單行道",
+                        "單向管制"
+                    ]
                 },
                 "openfire": {
                     "label": "允許明火",
@@ -3561,7 +3642,23 @@
                     ]
                 },
                 "orientation/orientation_parking": {
-                    "label": "朝向"
+                    "label": "朝向",
+                    "options": {
+                        "diagonal": "與道路成斜角 (約 45°)",
+                        "parallel": "与街道平行",
+                        "perpendicular": "與道路成直角 (約 90°)"
+                    },
+                    "terms": [
+                        "停车朝向",
+                        "停车方向",
+                        "停车面向",
+                        "停车方位",
+                        "停车位置"
+                    ],
+                    "types": {
+                        "parking:left:orientation": "左侧",
+                        "parking:right:orientation": "右侧"
+                    }
                 },
                 "outdoor_seating": {
                     "label": "室外座位",
@@ -3702,7 +3799,61 @@
                     }
                 },
                 "parking_entrance": {
-                    "label": "类型"
+                    "label": "类型",
+                    "options": {
+                        "carports": {
+                            "description": "用來為車輛提供有限保護的結構物，通常沒有牆壁。",
+                            "title": "停車棚"
+                        },
+                        "garage_boxes": {
+                            "description": "有多個獨立區塊的私人車庫，每個區塊一台車。",
+                            "title": "集合車庫"
+                        },
+                        "half_on_kerb": {
+                            "description": "部份停放在人行道上。",
+                            "title": "骑路缘"
+                        },
+                        "lane": {
+                            "description": "在街道上停車（可輕鬆轉換為車道）。",
+                            "title": "路边"
+                        },
+                        "layby": {
+                            "description": "停在路邊的暫時休息區域。",
+                            "title": "停車彎"
+                        },
+                        "multi-storey": {
+                            "description": "建築物結構中的兩層或多層停車場。",
+                            "title": "立體停車場"
+                        },
+                        "on_kerb": {
+                            "description": "在人行道上停車。",
+                            "title": "人行道上"
+                        },
+                        "rooftop": {
+                            "description": "建築物頂部的一層停車場。",
+                            "title": "天台"
+                        },
+                        "sheds": {
+                            "description": "私人停車棚。",
+                            "title": "私人停車棚"
+                        },
+                        "shoulder": {
+                            "description": "路肩停車。",
+                            "title": "路肩"
+                        },
+                        "street_side": {
+                            "description": "直接停在街道旁（但不在街道上）。",
+                            "title": "内凹"
+                        },
+                        "surface": {
+                            "description": "地面上的單層停車場。",
+                            "title": "表面"
+                        },
+                        "underground": {
+                            "description": "地下停車場。",
+                            "title": "地下式"
+                        }
+                    }
                 },
                 "parking_space": {
                     "label": "类型"
@@ -3804,7 +3955,8 @@
                         "intermediate": "中等 (藍方塊) ",
                         "novice": "新手（教學）"
                     },
-                    "placeholder": "簡單、中等、進階... "
+                    "placeholder": "簡單、中等、進階... ",
+                    "label": "難度"
                 },
                 "piste/difficulty_nordic": {
                     "options": {
@@ -3814,7 +3966,8 @@
                         "intermediate": "中等 - 陡路段",
                         "novice": "新手 - 平缓，不需要精力"
                     },
-                    "placeholder": "簡單、中等、進階... "
+                    "placeholder": "簡單、中等、進階... ",
+                    "label": "難度"
                 },
                 "piste/difficulty_skitour": {
                     "options": {
@@ -3826,7 +3979,8 @@
                         "intermediate": "中等 - ZS：35-40° 上坡",
                         "novice": "新手 - L: 坡度 <30°"
                     },
-                    "placeholder": "簡單、中等、進階... "
+                    "placeholder": "簡單、中等、進階... ",
+                    "label": "難度"
                 },
                 "piste/grooming": {
                     "label": "滑雪道平整度",
@@ -3844,13 +3998,15 @@
                         "backcountry": "未經整理",
                         "classic": "傳統",
                         "mogul": "貓跳 (起伏)"
-                    }
+                    },
+                    "label": "滑雪道平整度"
                 },
                 "piste/grooming_hike": {
                     "options": {
                         "backcountry": "未經整理 - 雪鞋健走",
                         "classic": "傳統 - 冬季健行"
-                    }
+                    },
+                    "label": "滑雪道平整度"
                 },
                 "piste/grooming_nordic": {
                     "options": {
@@ -3859,7 +4015,8 @@
                         "classic+skating": "傳統+寬廣",
                         "scooter": "雪上摩托車整平",
                         "skating": "寬廣"
-                    }
+                    },
+                    "label": "滑雪道平整度"
                 },
                 "piste/type": {
                     "label": "类型",
@@ -3884,7 +4041,22 @@
                     "label": "植物"
                 },
                 "plant/method": {
-                    "label": "发电方式"
+                    "label": "发电方式",
+                    "options": {
+                        "anaerobic_digestion": "厌氧消化",
+                        "barrage": "潮汐",
+                        "combustion": "內燃機",
+                        "fission": "核裂变",
+                        "fusion": "核聚变",
+                        "gasification": "發酵",
+                        "photovoltaic": "太陽光電",
+                        "run-of-the-river": "川流",
+                        "stream": "潮汐流",
+                        "thermal": "太陽熱能",
+                        "water-pumped-storage": "抽水蓄能",
+                        "water-storage": "水库",
+                        "wind_turbine": "風力渦輪"
+                    }
                 },
                 "plant/output": {
                     "label": "輸出形式",
@@ -3904,7 +4076,26 @@
                     "placeholder": "500 MW, 1000 MW, 2000 MW..."
                 },
                 "plant/source": {
-                    "label": "发电能源"
+                    "label": "发电能源",
+                    "options": {
+                        "battery": "電池",
+                        "biofuel": "生質燃料",
+                        "biogas": "生質氣體",
+                        "biomass": "生質材料",
+                        "coal": "煤炭",
+                        "diesel": "柴油",
+                        "gas": "天然气",
+                        "gasoline": "汽油",
+                        "geothermal": "地熱",
+                        "hydro": "水力",
+                        "nuclear": "核能",
+                        "oil": "石油",
+                        "solar": "太陽能",
+                        "tidal": "潮汐",
+                        "waste": "廢棄物焚化",
+                        "wave": "波浪",
+                        "wind": "风力"
+                    }
                 },
                 "playground": {
                     "label": "类型"
@@ -4841,20 +5032,252 @@
                     }
                 },
                 "sport/sport_ice": {
-                    "label": "运动"
+                    "label": "运动",
+                    "options": {
+                        "10pin": "保齡球",
+                        "9pin": "九瓶保齡球",
+                        "american_football": "美式橄榄球",
+                        "athletics": "田徑運動",
+                        "badminton": "羽毛球",
+                        "baseball": "棒球",
+                        "basketball": "篮球",
+                        "beachvolleyball": "沙滩排球",
+                        "billiards": "台球",
+                        "bmx": "小轮车",
+                        "boules": "地掷球",
+                        "bowls": "草地滚球",
+                        "canoe": "划艇",
+                        "chess": "棋奕",
+                        "climbing": "攀岩",
+                        "cricket": "板球",
+                        "curling": "冰壶",
+                        "cycling": "自行車",
+                        "darts": "飞镖",
+                        "disc_golf": "掷准飞盘",
+                        "dog_racing": "赛狗",
+                        "equestrian": "马术",
+                        "fitness": "健身",
+                        "free_flying": "飛行傘 / 滑翔翼",
+                        "futsal": "五人制足球",
+                        "gaelic_games": "盖尔式运动",
+                        "golf": "高尔夫球",
+                        "gymnastics": "体操",
+                        "handball": "手球",
+                        "horse_racing": "赛马",
+                        "ice_hockey": "冰球",
+                        "ice_skating": "滑冰",
+                        "ice_stock": "冰上滑盘",
+                        "karting": "卡丁车",
+                        "motocross": "越野機車",
+                        "motor": "賽車",
+                        "multi": "未註明的其他運動",
+                        "netball": "篮网球",
+                        "orienteering": "定向运动",
+                        "padel": "板網球",
+                        "pelota": "回力球",
+                        "rugby_union": "聯合式橄欖球",
+                        "running": "跑步",
+                        "scuba_diving": "水肺潜水",
+                        "shooting": "射击",
+                        "skateboard": "滑板",
+                        "ski_jumping": "跳台滑雪",
+                        "skiing": "滑雪",
+                        "soccer": "足球",
+                        "softball": "垒球",
+                        "speedway": "沙地機車",
+                        "swimming": "游泳",
+                        "table_tennis": "乒乓球",
+                        "tennis": "网球",
+                        "volleyball": "排球",
+                        "yoga": "瑜伽"
+                    }
                 },
                 "sport/sport_pub": {
                     "label": "运动",
                     "terms": [
                         "运动",
                         "运动项目"
-                    ]
+                    ],
+                    "options": {
+                        "10pin": "保齡球",
+                        "9pin": "九瓶保齡球",
+                        "american_football": "美式橄榄球",
+                        "athletics": "田徑運動",
+                        "badminton": "羽毛球",
+                        "baseball": "棒球",
+                        "basketball": "篮球",
+                        "beachvolleyball": "沙滩排球",
+                        "billiards": "台球",
+                        "bmx": "小轮车",
+                        "boules": "地掷球",
+                        "bowls": "草地滚球",
+                        "canoe": "划艇",
+                        "chess": "棋奕",
+                        "climbing": "攀岩",
+                        "cricket": "板球",
+                        "curling": "冰壶",
+                        "cycling": "自行車",
+                        "darts": "飞镖",
+                        "disc_golf": "掷准飞盘",
+                        "dog_racing": "赛狗",
+                        "equestrian": "马术",
+                        "fitness": "健身",
+                        "free_flying": "飛行傘 / 滑翔翼",
+                        "futsal": "五人制足球",
+                        "gaelic_games": "盖尔式运动",
+                        "golf": "高尔夫球",
+                        "gymnastics": "体操",
+                        "handball": "手球",
+                        "horse_racing": "赛马",
+                        "ice_hockey": "冰球",
+                        "ice_skating": "滑冰",
+                        "ice_stock": "冰上滑盘",
+                        "karting": "卡丁车",
+                        "motocross": "越野機車",
+                        "motor": "賽車",
+                        "multi": "未註明的其他運動",
+                        "netball": "篮网球",
+                        "orienteering": "定向运动",
+                        "padel": "板網球",
+                        "pelota": "回力球",
+                        "rugby_union": "聯合式橄欖球",
+                        "running": "跑步",
+                        "scuba_diving": "水肺潜水",
+                        "shooting": "射击",
+                        "skateboard": "滑板",
+                        "ski_jumping": "跳台滑雪",
+                        "skiing": "滑雪",
+                        "soccer": "足球",
+                        "softball": "垒球",
+                        "speedway": "沙地機車",
+                        "swimming": "游泳",
+                        "table_tennis": "乒乓球",
+                        "tennis": "网球",
+                        "volleyball": "排球",
+                        "yoga": "瑜伽"
+                    }
                 },
                 "sport/sport_racing_motor": {
-                    "label": "运动"
+                    "label": "运动",
+                    "options": {
+                        "10pin": "保齡球",
+                        "9pin": "九瓶保齡球",
+                        "american_football": "美式橄榄球",
+                        "athletics": "田徑運動",
+                        "badminton": "羽毛球",
+                        "baseball": "棒球",
+                        "basketball": "篮球",
+                        "beachvolleyball": "沙滩排球",
+                        "billiards": "台球",
+                        "bmx": "小轮车",
+                        "boules": "地掷球",
+                        "bowls": "草地滚球",
+                        "canoe": "划艇",
+                        "chess": "棋奕",
+                        "climbing": "攀岩",
+                        "cricket": "板球",
+                        "curling": "冰壶",
+                        "cycling": "自行車",
+                        "darts": "飞镖",
+                        "disc_golf": "掷准飞盘",
+                        "dog_racing": "赛狗",
+                        "equestrian": "马术",
+                        "fitness": "健身",
+                        "free_flying": "飛行傘 / 滑翔翼",
+                        "futsal": "五人制足球",
+                        "gaelic_games": "盖尔式运动",
+                        "golf": "高尔夫球",
+                        "gymnastics": "体操",
+                        "handball": "手球",
+                        "horse_racing": "赛马",
+                        "ice_hockey": "冰球",
+                        "ice_skating": "滑冰",
+                        "ice_stock": "冰上滑盘",
+                        "karting": "卡丁车",
+                        "motocross": "越野機車",
+                        "motor": "賽車",
+                        "multi": "未註明的其他運動",
+                        "netball": "篮网球",
+                        "orienteering": "定向运动",
+                        "padel": "板網球",
+                        "pelota": "回力球",
+                        "rugby_union": "聯合式橄欖球",
+                        "running": "跑步",
+                        "scuba_diving": "水肺潜水",
+                        "shooting": "射击",
+                        "skateboard": "滑板",
+                        "ski_jumping": "跳台滑雪",
+                        "skiing": "滑雪",
+                        "soccer": "足球",
+                        "softball": "垒球",
+                        "speedway": "沙地機車",
+                        "swimming": "游泳",
+                        "table_tennis": "乒乓球",
+                        "tennis": "网球",
+                        "volleyball": "排球",
+                        "yoga": "瑜伽"
+                    }
                 },
                 "sport/sport_racing_nonmotor": {
-                    "label": "运动"
+                    "label": "运动",
+                    "options": {
+                        "10pin": "保齡球",
+                        "9pin": "九瓶保齡球",
+                        "american_football": "美式橄榄球",
+                        "athletics": "田徑運動",
+                        "badminton": "羽毛球",
+                        "baseball": "棒球",
+                        "basketball": "篮球",
+                        "beachvolleyball": "沙滩排球",
+                        "billiards": "台球",
+                        "bmx": "小轮车",
+                        "boules": "地掷球",
+                        "bowls": "草地滚球",
+                        "canoe": "划艇",
+                        "chess": "棋奕",
+                        "climbing": "攀岩",
+                        "cricket": "板球",
+                        "curling": "冰壶",
+                        "cycling": "自行車",
+                        "darts": "飞镖",
+                        "disc_golf": "掷准飞盘",
+                        "dog_racing": "赛狗",
+                        "equestrian": "马术",
+                        "fitness": "健身",
+                        "free_flying": "飛行傘 / 滑翔翼",
+                        "futsal": "五人制足球",
+                        "gaelic_games": "盖尔式运动",
+                        "golf": "高尔夫球",
+                        "gymnastics": "体操",
+                        "handball": "手球",
+                        "horse_racing": "赛马",
+                        "ice_hockey": "冰球",
+                        "ice_skating": "滑冰",
+                        "ice_stock": "冰上滑盘",
+                        "karting": "卡丁车",
+                        "motocross": "越野機車",
+                        "motor": "賽車",
+                        "multi": "未註明的其他運動",
+                        "netball": "篮网球",
+                        "orienteering": "定向运动",
+                        "padel": "板網球",
+                        "pelota": "回力球",
+                        "rugby_union": "聯合式橄欖球",
+                        "running": "跑步",
+                        "scuba_diving": "水肺潜水",
+                        "shooting": "射击",
+                        "skateboard": "滑板",
+                        "ski_jumping": "跳台滑雪",
+                        "skiing": "滑雪",
+                        "soccer": "足球",
+                        "softball": "垒球",
+                        "speedway": "沙地機車",
+                        "swimming": "游泳",
+                        "table_tennis": "乒乓球",
+                        "tennis": "网球",
+                        "volleyball": "排球",
+                        "yoga": "瑜伽"
+                    }
                 },
                 "stars": {
                     "label": "星級",
@@ -5380,7 +5803,21 @@
                     "terms": [
                         "道路減速設施",
                         "道路緩速設施"
-                    ]
+                    ],
+                    "options": {
+                        "bump": "小型減速丘",
+                        "chicane": "減速彎",
+                        "choked_table": "路寬縮減+減速平面",
+                        "choker": "路寬縮減",
+                        "cushion": "减速垫",
+                        "dip": "橫溝",
+                        "double_dip": "雙重橫溝",
+                        "hump": "減速丘",
+                        "island": "分隔島",
+                        "mini_bumps": "迷你減速丘",
+                        "rumble_strip": "減速標線",
+                        "table": "減速平台"
+                    }
                 },
                 "traffic_sign": {
                     "label": "交通標誌"
@@ -5489,7 +5926,13 @@
                 },
                 "tunnel": {
                     "label": "类型",
-                    "placeholder": "預設"
+                    "placeholder": "預設",
+                    "options": {
+                        "avalanche_protector": "明隧道",
+                        "building_passage": "建築物穿堂",
+                        "culvert": "涵洞",
+                        "flooded": "漫水隧道"
+                    }
                 },
                 "tunnel_combo": {
                     "label": "类型",
