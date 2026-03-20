@@ -144,6 +144,10 @@
                 },
                 "address": {
                     "label": "Aadress",
+                    "labels": {
+                        "conscriptionnumber": "Mobilisatsiooninumber",
+                        "housenumber": "Maja number"
+                    },
                     "placeholders": {
                         "city": "Linn",
                         "city!vn": "Linn",
@@ -152,6 +156,7 @@
                         "county": "Maakond",
                         "county!jp": "Ringkond",
                         "district": "Ringkond",
+                        "door": "Ukse number",
                         "floor": "Korrus",
                         "hamlet": "Väike küla",
                         "housename": "Maja nimetus",
@@ -294,9 +299,9 @@
                         "mosaic": "Mosaiik",
                         "mural": "Seinamaal",
                         "painting": "Maal",
-                        "relief": "Bareljeef",
+                        "relief": "Reljeef/bareljeef",
                         "sculpture": "Skulptuur",
-                        "statue": "Kuju",
+                        "statue": "Kuju/ausammas",
                         "stone": "Kunstilisel eesmärgil töödeldud kivi",
                         "tilework": "Kujundatud plaadid"
                     }
@@ -764,7 +769,8 @@
                 },
                 "capacity/tents": {
                     "label": "Mahutavus (telke)",
-                    "placeholder": "10, 20, 50..."
+                    "placeholder": "10, 20, 50...",
+                    "terms": "telgokoht,telgikohti,laagrikohti"
                 },
                 "capacity_parking": {
                     "label": "Kohti kokku",
@@ -946,6 +952,11 @@
                     "label": "Facebooki kasutajanimi või URL",
                     "placeholder": "https://www.facebook.com/MiskiNimi",
                     "terms": "facebooki aadress"
+                },
+                "contact/instagram": {
+                    "label": "Instagrami konto nimi või aadress",
+                    "placeholder": "https://www.instagram.com/openstreetmap/",
+                    "terms": "instagramm"
                 },
                 "contact/webcam": {
                     "label": "Veebikaamera URL",
@@ -1147,33 +1158,34 @@
                 "cuisine": {
                     "label": "Köök",
                     "options": {
-                        "african": "Aafrika",
+                        "african": "aafrika",
                         "american": "ameerika",
-                        "arab": "Araabia",
-                        "argentinian": "Argentina",
+                        "arab": "araabia",
+                        "argentinian": "argentina",
                         "asian": "aasia",
                         "bagel": "bagel",
-                        "balkan": "Balkani",
+                        "balkan": "balkani",
                         "barbecue": "barbeque",
-                        "bavarian": "Baieri",
+                        "bavarian": "baieri",
                         "beef_bowl": "veise-riisiroad",
                         "bistro": "bistroo",
-                        "brazilian": "Brasiilia",
+                        "brazilian": "brasiilia",
                         "breakfast": "hommikusöögikoht",
                         "brunch": "brantš",
                         "bubble_tea": "mullitee",
                         "burger": "burgerid",
                         "cake": "koogid",
-                        "caribbean": "Kariibi",
+                        "caribbean": "kariibi",
                         "chicken": "kana",
                         "chinese": "hiina",
                         "coffee_shop": "kohvibaar",
                         "crepe": "kreperii",
                         "curry": "karritoidud",
                         "dessert": "magustoidud",
-                        "diner": "Einelaud",
+                        "diner": "einelaud",
                         "donut": "sõõrikud",
-                        "european": "Euroopa",
+                        "ethiopian": "etioopia",
+                        "european": "euroopa",
                         "filipino": "filipiini",
                         "fine_dining": "peen restoran",
                         "fish": "kalaroad",
@@ -1199,16 +1211,16 @@
                         "korean": "korea",
                         "lebanese": "liibanoni",
                         "malaysian": "malai",
-                        "mediterranean": "Vahemere",
+                        "mediterranean": "vahemere",
                         "mexican": "mehhiko",
-                        "middle_eastern": "Lähis-Ida",
-                        "moroccan": "Maroko",
+                        "middle_eastern": "lähis-ida",
+                        "moroccan": "maroko",
                         "noodle": "nuudliroad",
                         "oriental": "idamaine",
                         "pancake": "pannkoogid",
                         "pasta": "pastaroad",
                         "pastry": "koogid ja saiakesed",
-                        "persian": "Pärsia",
+                        "persian": "pärsia",
                         "peruvian": "peruu",
                         "pizza": "pitsa",
                         "polish": "poola",
@@ -1691,7 +1703,20 @@
                     "label": "Lipu nimi"
                 },
                 "flag/type": {
-                    "label": "Lipu tüüp"
+                    "label": "Lipu tüüp",
+                    "options": {
+                        "advertising": "Reklaamlipp",
+                        "athletic": "Spordilipp",
+                        "cultural": "Kultuurilipp",
+                        "governmental": "Valitsuse lipp",
+                        "indigenous": "Põlisrahva lipp",
+                        "military": "Sõjaväe lipp",
+                        "municipal": "Omavalitsuse lipp",
+                        "national": "rahvuslipp",
+                        "organisation": "Organisatsiooni lipp",
+                        "regional": "Piirkondlik lipp",
+                        "religious": "Religioosne lipp"
+                    }
                 },
                 "flag/wikidata": {
                     "label": "Lipp Wikidatas"
@@ -1904,6 +1929,34 @@
                         "quicksand": "vesiliiv",
                         "shooting_range": "lasketiir"
                     }
+                },
+                "hazard_highway": {
+                    "label": "Ohumärgis",
+                    "options": {
+                        "animal_crossing": "loomad teel",
+                        "bump": "teekünnis",
+                        "children": "lapsed teel",
+                        "curve": "kurv",
+                        "curves": "mitu kurvi",
+                        "cyclists": "jalgratturid teel",
+                        "dangerous_junction": "ohtlik ristmik",
+                        "dip": "tee vajumine",
+                        "falling_rocks": "langevad kivid",
+                        "frost_heave": "külmakerge",
+                        "horse_riders": "ratsutajad teel",
+                        "ice": "jää",
+                        "landslide": "maalihke võimalus",
+                        "loose_gravel": "lahtine kruus",
+                        "low_flying_aircraft": "madalal lendavad lennukid",
+                        "pedestrians": "jalakäijad",
+                        "queues_likely": "peatunud liiklus",
+                        "school_zone": "kooli ümbrus",
+                        "side_winds": "külgtuul",
+                        "slippery": "libe teepind",
+                        "turn": "järsk suunamuutus",
+                        "turns": "mitu järsku suunamuutust"
+                    },
+                    "terms": "hoiatussilt,hoiatustahvel,ohutahvel"
                 },
                 "healthcare": {
                     "label": "Tüüp",
@@ -3476,13 +3529,19 @@
                     "label": "Religioon",
                     "options": {
                         "buddhist": "Budism",
+                        "caodaism": "Caodaism",
+                        "chinese_folk": "Hiina rahvausk",
                         "christian": "Kristlus",
+                        "confucian": "Konfutsiaanlus",
                         "hindu": "Hinduism",
                         "jain": "Džainism",
+                        "jewish": "Juudiusk",
                         "muslim": "Islam",
                         "pagan": "Paganlus",
                         "shinto": "Sintoism",
-                        "sikh": "Sikhism"
+                        "sikh": "Sikhism",
+                        "vietnamese_folk": "Vietnami rahvausk",
+                        "voodoo": "Voodoo"
                     },
                     "terms": "usund"
                 },
@@ -3816,6 +3875,29 @@
                         "right": "Ratturist paremal"
                     }
                 },
+                "sidewalk": {
+                    "label": "Kõnniteed",
+                    "options": {
+                        "no": {
+                            "description": "Kõnnitee puudub",
+                            "title": "Ei"
+                        },
+                        "separate": {
+                            "description": "Kõnnitee on kaardistatud eraldi teena",
+                            "title": "Kaardistatud eraldi"
+                        },
+                        "yes": {
+                            "description": "Kõnnitee on olemas",
+                            "title": "Jah"
+                        }
+                    },
+                    "placeholder": "Jah, et kaardistatud eraldi",
+                    "terms": "trotuaarid",
+                    "types": {
+                        "sidewalk:left": "Vasakul pervel",
+                        "sidewalk:right": "Paremal pervel"
+                    }
+                },
                 "siren/purpose": {
                     "label": "Eesmärk"
                 },
@@ -4075,6 +4157,7 @@
                     "label": "Teema Wikidata üksus"
                 },
                 "substance": {
+                    "label": "Aine/sisu",
                     "options": {
                         "fuel": "Kütus",
                         "gas": "Maagaas",
@@ -4250,6 +4333,21 @@
                     "placeholder": "Acer platanoides Columnare, Pyrus calleryana Chanticleer …",
                     "terms": "taksonoomiline rühm"
                 },
+                "tee": {
+                    "label": "Tii värv/tüüp"
+                },
+                "tee_disc_golf": {
+                    "label": "Tii-ala värvid",
+                    "options": {
+                        "blue": "Sinine",
+                        "gold": "Kuldne",
+                        "green": "Roheline",
+                        "purple": "Purpurne",
+                        "red": "Punane",
+                        "white": "Valge"
+                    },
+                    "placeholder": "Sinine, valge, punane..."
+                },
                 "telecom": {
                     "label": "Tüüp",
                     "options": {
@@ -4259,6 +4357,9 @@
                         "exchange": "Keskjaam",
                         "service_device": "Võrguteenuste seadmed"
                     }
+                },
+                "telecom/medium": {
+                    "label": "Meedium"
                 },
                 "telescope/type": {
                     "label": "Tüüp",
@@ -4369,7 +4470,7 @@
                 "traffic_calming": {
                     "label": "Tüüp",
                     "options": {
-                        "bump": "Kiirusepiiraja",
+                        "bump": "Teekünnis",
                         "chicane": "Suunamuutetakistus",
                         "choked_table": "Teekitsendus koos tõstetud pinnaga",
                         "choker": "Teekitsendus",
@@ -4378,7 +4479,7 @@
                         "double_dip": "Kaks ümberpööratud liikluskünnist",
                         "hump": "Liikluskünnis",
                         "island": "Eraldussaar",
-                        "mini_bumps": "Väikesed liikluskünnised",
+                        "mini_bumps": "Väikesed teekünnised",
                         "rumble_strip": "Täristi",
                         "table": "Tõstetud pind"
                     }
@@ -5057,7 +5158,8 @@
                     "name": "Külamaja"
                 },
                 "amenity/community_centre/youth_centre": {
-                    "name": "Noortekeskus"
+                    "name": "Noortekeskus",
+                    "terms": "noorte klubid,huviklubi,huviring,huviringid"
                 },
                 "amenity/compressed_air": {
                     "name": "Suruõhk",
@@ -5117,7 +5219,7 @@
                 },
                 "amenity/doctors/gynaecology": {
                     "name": "Sünnitusarst/günekoloog",
-                    "terms": "naistearst"
+                    "terms": "sünnitamine"
                 },
                 "amenity/doctors/haematology": {
                     "name": "Hematoloog",
@@ -5238,13 +5340,15 @@
                     "terms": "hamburger,burks"
                 },
                 "amenity/fast_food/cafeteria": {
-                    "name": "Söökla"
+                    "name": "Söökla",
+                    "terms": "lobila,lõunasöögikoht,söökla"
                 },
                 "amenity/fast_food/chicken": {
                     "name": "kiirtoit kanalihast"
                 },
                 "amenity/fast_food/chinese": {
-                    "name": "hiina kiirtoit"
+                    "name": "hiina kiirtoit",
+                    "terms": "hiinakas"
                 },
                 "amenity/fast_food/donut": {
                     "name": "Sõõrikukohvik",
@@ -5920,6 +6024,10 @@
                     "name": "Autokaal",
                     "aliases": "Platvormkaal"
                 },
+                "animal/horse_walker": {
+                    "name": "Hobuste jalutusaedik",
+                    "terms": "jalutusaed,jalutusplats,jooksuaed,jooksuplats"
+                },
                 "area": {
                     "name": "Ala"
                 },
@@ -5949,7 +6057,8 @@
                     "terms": "ilmaratas,kuradiratas"
                 },
                 "attraction/bumper_car": {
-                    "name": "Põrkavad elektriautod"
+                    "name": "Põrkavad elektriautod",
+                    "terms": "elektrodroom"
                 },
                 "attraction/bungee_jumping": {
                     "name": "Bendžihüpped"
@@ -6232,7 +6341,7 @@
                     "name": "Ühiselamu"
                 },
                 "building/entrance": {
-                    "name": "Sissepääs"
+                    "name": "Sissepääs ja/või väljapääs"
                 },
                 "building/farm": {
                     "name": "Talumaja",
@@ -7030,7 +7139,8 @@
                     "terms": "tõstetool"
                 },
                 "highway/emergency_access_point": {
-                    "name": "Asukohatuvastuspunkt hädaolukorras"
+                    "name": "Asukohatuvastuspunkt hädaolukorras",
+                    "terms": "päästmine,päästeaadress,päästemarker"
                 },
                 "highway/emergency_bay": {
                     "name": "Hädapeatumise ala",
@@ -7269,7 +7379,7 @@
                     "terms": "ümberpöörd,pöördering,tagasipööre"
                 },
                 "highway/unclassified": {
-                    "name": "Väike/klassifitseerimata tee",
+                    "name": "Väike või klassifitseerimata tee",
                     "terms": "klassifitseerimata tee,väike tee,kitsas tee,kohalik tee"
                 },
                 "historic": {
@@ -7850,8 +7960,8 @@
                     "terms": "vasaraheide"
                 },
                 "leisure/pitch/athletics/high_jump": {
-                    "name": "Kõrgushüppe maandumismatt",
-                    "terms": "kõrgushüpe"
+                    "name": "Kõrgushüppeala",
+                    "terms": "kõrgushüppe kast"
                 },
                 "leisure/pitch/athletics/javelin_throw": {
                     "name": "Odaviske sektor",
@@ -7892,6 +8002,10 @@
                     "name": "Rannavõrkpalli väljak",
                     "terms": "rannavolle plats",
                     "aliases": "Rannavolle väljak"
+                },
+                "leisure/pitch/biathlon": {
+                    "name": "Kahevõistluse lasketiir",
+                    "terms": "kahevõistluse laskmine"
                 },
                 "leisure/pitch/boules": {
                     "name": "Puu- ja metallkuulimängude väljak",
@@ -9617,8 +9731,8 @@
                     "terms": "lastepood,tita pood"
                 },
                 "shop/bag": {
-                    "name": "Kotipood",
-                    "terms": "käekoti pood"
+                    "name": "Koti- ja kohvripood",
+                    "terms": "käekott,seljakott,õlakott,pagas"
                 },
                 "shop/bakery": {
                     "name": "Pagariäri"
@@ -9643,7 +9757,7 @@
                 },
                 "shop/bed": {
                     "name": "Magamistoamööbli ja -tarvikute pood",
-                    "terms": "voodipood,madratsipood,padjapood,mööblipood"
+                    "terms": "voodipood,madratsipood,padjapood,mööblipood,voodilinad,linad"
                 },
                 "shop/beverages": {
                     "name": "Joogikauplus",
@@ -10371,7 +10485,7 @@
                     "terms": "kuju,postament,kunstiteos,installatsioon"
                 },
                 "tourism/artwork/statue": {
-                    "name": "Kuju",
+                    "name": "Kuju/ausammas",
                     "terms": "ausammas"
                 },
                 "tourism/attraction": {
@@ -10499,8 +10613,9 @@
                     "name": "Liikluse aeglustamine"
                 },
                 "traffic_calming/bump": {
-                    "name": "Kiirusepiiraja",
-                    "terms": "künnis,lamav politseinik,kiirustõke,tõke,liikluskünnis"
+                    "name": "Teekünnis",
+                    "terms": "künnis,lamav politseinik,kiirustõke,tõke,liikluskünnis",
+                    "aliases": "Kiirusepiiraja"
                 },
                 "traffic_calming/chicane": {
                     "name": "Suunamuutetakistus",
@@ -10526,7 +10641,9 @@
                     "name": "Eraldussaar"
                 },
                 "traffic_calming/mini_bumps": {
-                    "name": "Väikesed liikluskünnised"
+                    "name": "Väikesed teekünnised",
+                    "terms": "väike kiirusepiiraja",
+                    "aliases": "Väikesed liikluskünnised"
                 },
                 "traffic_calming/rumble_strip": {
                     "name": "Täristi",
@@ -10662,7 +10779,8 @@
                     "terms": "gaasijuhe,naftajuhe,kanalisatsioonitoru,veetoru"
                 },
                 "type/route/piste": {
-                    "name": "Suusaraja marsruut"
+                    "name": "Suusarada",
+                    "terms": "suusatamine"
                 },
                 "type/route/power": {
                     "name": "Elektriliini marsruut"
@@ -10743,7 +10861,7 @@
                     "terms": "kamberkalapääs"
                 },
                 "waterway/fuel": {
-                    "name": "Laevakütuse tankla",
+                    "name": "Väikelaevade tankla",
                     "terms": "kütus,bensiin,diisel,gaas,paat,paadi,mere"
                 },
                 "waterway/lock_gate": {

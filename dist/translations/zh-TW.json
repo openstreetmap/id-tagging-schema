@@ -146,6 +146,10 @@
                 },
                 "address": {
                     "label": "地址",
+                    "labels": {
+                        "conscriptionnumber": "徵集號碼",
+                        "housenumber": "門牌號碼"
+                    },
                     "placeholders": {
                         "block_number": "街區號碼",
                         "block_number!jp": "番地",
@@ -160,6 +164,7 @@
                         "district": "區",
                         "district!cn": "市轄區 / 縣 / 縣級市 / 旗",
                         "district!vn": "郡 / 市社 / 縣",
+                        "door": "門牌號碼",
                         "floor": "樓層",
                         "hamlet": "聚落",
                         "housename": "房屋名稱",
@@ -768,7 +773,7 @@
                 },
                 "camping": {
                     "label": "露營",
-                    "terms": "露營"
+                    "terms": "露營場 地"
                 },
                 "canoe": {
                     "label": "獨木舟通行"
@@ -792,7 +797,8 @@
                 },
                 "capacity/tents": {
                     "label": "容量 (帳篷)",
-                    "placeholder": "10, 20, 50..."
+                    "placeholder": "10, 20, 50...",
+                    "terms": "帳篷容量"
                 },
                 "capacity_parking": {
                     "label": "總空間",
@@ -976,6 +982,11 @@
                     "label": "Facebook 使用者名稱或網址",
                     "placeholder": "https://www.facebook.com/LocalBusiness",
                     "terms": "facebook 使用者名稱或網址,facebook 使用者名稱或 url"
+                },
+                "contact/instagram": {
+                    "label": "Instagram 帳號名稱或 URL",
+                    "placeholder": "https://www.instagram.com/openstreetmap/",
+                    "terms": "instagram 帳號名稱或 url"
                 },
                 "contact/webcam": {
                     "label": "網路攝影機網址",
@@ -1205,6 +1216,7 @@
                         "dessert": "甜點",
                         "diner": "美式小餐館",
                         "donut": "甜甜圈",
+                        "ethiopian": "衣索比亞菜",
                         "european": "歐洲菜",
                         "filipino": "菲律賓菜",
                         "fine_dining": "高級餐廳",
@@ -1759,7 +1771,20 @@
                     "label": "旗幟名稱"
                 },
                 "flag/type": {
-                    "label": "旗幟類型"
+                    "label": "旗幟類型",
+                    "options": {
+                        "advertising": "廣告",
+                        "athletic": "運動隊伍",
+                        "cultural": "文化",
+                        "governmental": "政府",
+                        "indigenous": "原住民",
+                        "military": "軍隊",
+                        "municipal": "城鎮",
+                        "national": "國家",
+                        "organisation": "組織",
+                        "regional": "區域",
+                        "religious": "宗教"
+                    }
                 },
                 "flag/wikidata": {
                     "label": "旗幟維基數據"
@@ -1974,6 +1999,34 @@
                         "quicksand": "流沙",
                         "shooting_range": "槍擊"
                     }
+                },
+                "hazard_highway": {
+                    "label": "有標記的危險",
+                    "options": {
+                        "animal_crossing": "動物穿越道",
+                        "bump": "凸起物",
+                        "children": "孩童",
+                        "curve": "彎道",
+                        "curves": "多重彎道",
+                        "cyclists": "腳踏車騎士",
+                        "dangerous_junction": "危險路口",
+                        "dip": "減速坡",
+                        "falling_rocks": "落石",
+                        "frost_heave": "凍脹",
+                        "horse_riders": "騎馬者",
+                        "ice": "冰",
+                        "landslide": "掩埋場",
+                        "loose_gravel": "鬆散的礫石",
+                        "low_flying_aircraft": "低空飛行飛機",
+                        "pedestrians": "人行道",
+                        "queues_likely": "交通停滯",
+                        "school_zone": "學校區域",
+                        "side_winds": "側風",
+                        "slippery": "濕滑",
+                        "turn": "轉彎",
+                        "turns": "多重轉彎"
+                    },
+                    "terms": "有標記的危險"
                 },
                 "healthcare": {
                     "label": "類型",
@@ -4027,6 +4080,29 @@
                         "right": "路線的右邊"
                     }
                 },
+                "sidewalk": {
+                    "label": "人行道",
+                    "options": {
+                        "no": {
+                            "description": "沒有人行道",
+                            "title": "無"
+                        },
+                        "separate": {
+                            "description": "人行道採用獨立路徑進行繪製",
+                            "title": "獨立繪製"
+                        },
+                        "yes": {
+                            "description": "有人行道",
+                            "title": "有"
+                        }
+                    },
+                    "placeholder": "有、無、獨立繪製",
+                    "terms": "人行道",
+                    "types": {
+                        "sidewalk:left": "左側",
+                        "sidewalk:right": "右側"
+                    }
+                },
                 "siren/purpose": {
                     "label": "目的"
                 },
@@ -4507,6 +4583,18 @@
                 },
                 "tee": {
                     "label": "開球區顏色或類型"
+                },
+                "tee_disc_golf": {
+                    "label": "開球區顏色",
+                    "options": {
+                        "blue": "藍",
+                        "gold": "金",
+                        "green": "綠",
+                        "purple": "紫",
+                        "red": "紅",
+                        "white": "白"
+                    },
+                    "placeholder": "藍、白、紅……"
                 },
                 "telecom": {
                     "label": "類型",
@@ -5348,7 +5436,7 @@
                     "terms": "社區中心,活動中心,社區發展協會"
                 },
                 "amenity/community_centre/chitalishte_BG": {
-                    "name": "Chitalishte",
+                    "name": "社區文教中心",
                     "terms": "chitalishte"
                 },
                 "amenity/community_centre/club_home": {
@@ -6349,6 +6437,10 @@
                     "name": "地磅",
                     "terms": "地磅"
                 },
+                "animal/horse_walker": {
+                    "name": "遛馬機",
+                    "terms": "遛馬機"
+                },
                 "area": {
                     "name": "區域",
                     "terms": "區域"
@@ -6719,7 +6811,7 @@
                     "terms": "宿舍,學生宿舍,學寮"
                 },
                 "building/entrance": {
-                    "name": "入口/出口"
+                    "name": "入口 / 出口"
                 },
                 "building/farm": {
                     "name": "農舍",
@@ -8420,8 +8512,8 @@
                     "terms": "鏈球投擲場"
                 },
                 "leisure/pitch/athletics/high_jump": {
-                    "name": "跳高場",
-                    "terms": "跳高場"
+                    "name": "跳高區域",
+                    "terms": "跳高區"
                 },
                 "leisure/pitch/athletics/javelin_throw": {
                     "name": "標槍投擲場",
@@ -8462,6 +8554,10 @@
                 "leisure/pitch/beachvolleyball": {
                     "name": "沙灘排球場",
                     "terms": "沙灘排球場"
+                },
+                "leisure/pitch/biathlon": {
+                    "name": "冬季兩項射擊場",
+                    "terms": "冬季兩項射擊場"
                 },
                 "leisure/pitch/boules": {
                     "name": "法式滾球場",

@@ -3290,6 +3290,25 @@
                         "forward": "Igual à direção da linha"
                     }
                 },
+                "railway/signal/position": {
+                    "label": "Posição",
+                    "options": {
+                        "bridge": "Ligado a um pórtico",
+                        "in_track": "No trilho",
+                        "left": "Esquerda",
+                        "overhead": "Ligado à catenária",
+                        "right": "Direita"
+                    }
+                },
+                "railway/signal_box": {
+                    "label": "Tipo",
+                    "options": {
+                        "electric": "Elétrico",
+                        "electronic": "Automatizado",
+                        "mechanical": "Mecânico",
+                        "track_diagram": "Digital"
+                    }
+                },
                 "railway/switch": {
                     "label": "Tipo",
                     "options": {
@@ -3298,6 +3317,12 @@
                 },
                 "railway/track_ref": {
                     "label": "Número da pista"
+                },
+                "railway/turnout_side": {
+                    "options": {
+                        "left": "Esquerda",
+                        "right": "Direita"
+                    }
                 },
                 "ramp": {
                     "label": "Rampa embutida",
@@ -3808,6 +3833,29 @@
                     "options": {
                         "left": "Lado esquerdo",
                         "right": "Lado direito"
+                    }
+                },
+                "sidewalk": {
+                    "label": "Calçadas",
+                    "options": {
+                        "no": {
+                            "description": "Sem calçada",
+                            "title": "Não"
+                        },
+                        "separate": {
+                            "description": "A calçada está mapeada usando linhas separadas",
+                            "title": "Mapeada separadamente"
+                        },
+                        "yes": {
+                            "description": "Há uma calçada",
+                            "title": "Sim"
+                        }
+                    },
+                    "placeholder": "Sim, não, mapeada separadamente",
+                    "terms": "calçada,passeio",
+                    "types": {
+                        "sidewalk:left": "Lado esquerdo",
+                        "sidewalk:right": "Lado direito"
                     }
                 },
                 "siren/purpose": {
@@ -4962,11 +5010,6 @@
                     "name": "LGBTQ+ Bar",
                     "terms": "lgbtq+ bar"
                 },
-                "amenity/bbq": {
-                    "name": "Churrasqueira",
-                    "terms": "forno,churrasco,grill,barbecue",
-                    "aliases": "Grelhador\nAssador\nBarbecue\nGrill\nGrelha\nBBQ"
-                },
                 "amenity/bench": {
                     "name": "Assento",
                     "terms": "assento,banco de praça"
@@ -5062,10 +5105,6 @@
                 "amenity/charging_station": {
                     "name": "Estação de carregamento",
                     "terms": "estação de carregamento,estação de recarga,estação de carga elétrica,tomada de cargamento,tomada de recarga"
-                },
-                "amenity/childcare": {
-                    "name": "Berçário ou creche",
-                    "terms": "berçário,creche,maternal,jardim de infância,cuidados infantis"
                 },
                 "amenity/cinema": {
                     "name": "Cinema",
@@ -5175,10 +5214,6 @@
                 "amenity/doctors/general": {
                     "name": "Clínico Geral",
                     "terms": "cuidados de saúde primários,atenção primária à saúde,cuidados primários,médico de cuidados primários"
-                },
-                "amenity/doctors/gynaecology": {
-                    "name": "Ginecologista / Obstetra",
-                    "terms": "medicina,médico,ginecológico,ginecologia,médica,consultório,reprodutivo,reprodução,obstétrico"
                 },
                 "amenity/doctors/haematology": {
                     "name": "Hematologista",
@@ -6446,7 +6481,7 @@
                     "terms": "alojamento estudantil,república estudantil,dormitório"
                 },
                 "building/entrance": {
-                    "name": "Entrada/Saída"
+                    "name": "Entrada/saída"
                 },
                 "building/farm": {
                     "name": "Casa de fazenda",
@@ -7394,6 +7429,9 @@
                     "name": "Autoestrada",
                     "terms": "autoestrada,via expressa,via rápida"
                 },
+                "highway/motorway_junction": {
+                    "name": "Saída de autoestrada"
+                },
                 "highway/motorway_link": {
                     "name": "Ligação de autoestrada",
                     "terms": "acesso à autoestrada,acesso à via expressa,ligação de via expressa,saída de autoestrada,saída,acesso"
@@ -7579,10 +7617,6 @@
                     "name": "Balão de Retorno (com ilha central)",
                     "terms": "retorno"
                 },
-                "highway/unclassified": {
-                    "name": "Via local ou estrada vicinal",
-                    "terms": "via sem classificação,estrada de terra,rodovia sem pavimentação,via local,vicinal,estrada"
-                },
                 "historic": {
                     "name": "Local histórico",
                     "terms": "lugar histórico,local histórico,patrimônio,monumento,turismo,ponto turístico"
@@ -7756,6 +7790,9 @@
                 "landuse/construction": {
                     "name": "Área de construção",
                     "terms": "área de construção"
+                },
+                "landuse/education": {
+                    "name": "Área educacional"
                 },
                 "landuse/farm": {
                     "name": "Área de lavoura",
@@ -8142,10 +8179,6 @@
                     "name": "Área de lançamento do martelo",
                     "terms": "martelo,sector,setor,lançamento,arremesso,hammer"
                 },
-                "leisure/pitch/athletics/high_jump": {
-                    "name": "Colchão de salto em altura",
-                    "terms": "salto,altura,jump,high,areia,pit,atletismo,atleta,saltador,saltadora,saltar"
-                },
                 "leisure/pitch/athletics/javelin_throw": {
                     "name": "Área de lançamento de dardo",
                     "terms": "dardo,sector,setor,lançamento,arremesso,javelin,atletismo,atleta"
@@ -8185,10 +8218,6 @@
                 "leisure/pitch/beachvolleyball": {
                     "name": "Quadra de voleibol de praia",
                     "terms": "vôlei,voleibol,praia,arena,areia"
-                },
-                "leisure/pitch/boules": {
-                    "name": "Quadra de boules/bocha",
-                    "terms": "cancha de bocha,pista de bocha,boules,bocha,bocce,boccia,boule lyonnaise,pètanque,petanca,raffa,bowls"
                 },
                 "leisure/pitch/bowls": {
                     "name": "Campo de Lawn Bowls",
@@ -10101,8 +10130,7 @@
                     "terms": "loja de artigos infantis,loja de roupas infantis,crianças,bebês"
                 },
                 "shop/bag": {
-                    "name": "Loja de Bolsas/Malas",
-                    "terms": "loja de malas,loja de bagagens"
+                    "name": "Loja de malas/bagagem"
                 },
                 "shop/bakery": {
                     "name": "Padaria",
@@ -10127,10 +10155,6 @@
                 "shop/beauty/tanning": {
                     "name": "Salão de Bronzeamento",
                     "terms": "clínica de bronzeamento"
-                },
-                "shop/bed": {
-                    "name": "Loja de Camas e Colchões",
-                    "terms": "loja de colchões,loja de camas,móveis"
                 },
                 "shop/beverages": {
                     "name": "Loja de Bebidas",
@@ -10628,10 +10652,6 @@
                     "name": "Loja de Fogos de Artifício",
                     "terms": "loja de fogos de artifício"
                 },
-                "shop/radiotechnics": {
-                    "name": "Loja de Componentes Eletrônicos",
-                    "terms": "loja de componentes eletrônicos,rádio e tv,televisão"
-                },
                 "shop/religion": {
                     "name": "Loja de Artigos Religiosos",
                     "terms": "loja de artigos religiosos"
@@ -10780,10 +10800,6 @@
                 "shop/water": {
                     "name": "Loja de Água Potável",
                     "terms": "loja de água potável"
-                },
-                "shop/water_sports": {
-                    "name": "Loja de esportes aquáticos",
-                    "terms": "loja de artigos para natação,loja de equipamentos para esportes áquáticos,loja de esportes áquáticos"
                 },
                 "shop/weapons": {
                     "name": "Loja de armas",
@@ -11166,10 +11182,6 @@
                 "type/route/pipeline": {
                     "name": "Rota de Tubulação",
                     "terms": "rota de tubulação,faixa de dutos"
-                },
-                "type/route/piste": {
-                    "name": "Rota de Ski",
-                    "terms": "ski,pista de esqui,esqui,snowboarding"
                 },
                 "type/route/power": {
                     "name": "Rota de Energia Elétrica",

@@ -63,8 +63,8 @@
                             "title": "Kunden"
                         },
                         "designated": {
-                            "description": "Zugang entsprechend lokaler Vorschriften oder Schildern vorgesehen",
-                            "title": "Vorgesehen / Gewidmet"
+                            "description": "Zugang erlaubt, ausdrücklich für diese Art der Fortbewegung gewidmet",
+                            "title": "Ausdrücklich Vorgesehen / Gewidmet"
                         },
                         "destination": {
                             "description": "Zugang erlaubt, Durchgang verboten",
@@ -79,11 +79,11 @@
                             "title": "Verboten"
                         },
                         "permissive": {
-                            "description": "Zugang bis auf Widerruf",
+                            "description": "Zugang bis auf Widerruf gestattet",
                             "title": "Geduldet"
                         },
                         "permit": {
-                            "description": "Zugang nur nach Genehmigung oder Ausweis",
+                            "description": "Zugang nur mit Genehmigung oder Ausweis",
                             "title": "Nach Genehmigung"
                         },
                         "private": {
@@ -146,6 +146,10 @@
                 },
                 "address": {
                     "label": "Adresse",
+                    "labels": {
+                        "conscriptionnumber": "Konskriptionsnummer",
+                        "housenumber": "Hausnummer"
+                    },
                     "placeholders": {
                         "block_number": "Blocknummer",
                         "block_number!jp": "Blocknr.",
@@ -160,6 +164,7 @@
                         "district": "Landkreis/Bezirk",
                         "district!cn": "Distrikt/Landkreis/Banner",
                         "district!vn": "Arrondissement/Gemeinde/Stadtteil",
+                        "door": "Türnummer",
                         "floor": "Stockwerk",
                         "hamlet": "Weiler",
                         "housename": "Postalischer Hausname",
@@ -792,7 +797,8 @@
                 },
                 "capacity/tents": {
                     "label": "Kapazität (Zelte)",
-                    "placeholder": "10, 20, 50..."
+                    "placeholder": "10, 20, 50...",
+                    "terms": "zelte,zeltanzahl"
                 },
                 "capacity_parking": {
                     "label": "Plätze",
@@ -976,6 +982,11 @@
                     "label": "Facebook Benutzername oder URL",
                     "placeholder": "https://www.facebook.com/LokalesGeschäft",
                     "terms": "facebook,fb"
+                },
+                "contact/instagram": {
+                    "label": "Instagram-Kontoname oder URL",
+                    "placeholder": "https://www.instagram.com/openstreetmap/",
+                    "terms": "insta,instagram"
                 },
                 "contact/webcam": {
                     "label": "Webcam-URL",
@@ -1205,6 +1216,7 @@
                         "dessert": "Nachtisch",
                         "diner": "Diner",
                         "donut": "Donut",
+                        "ethiopian": "Äthiopisch",
                         "european": "Europäisch",
                         "filipino": "Philippinisch",
                         "fine_dining": "Fine Dining",
@@ -1759,7 +1771,20 @@
                     "label": "Flaggenname"
                 },
                 "flag/type": {
-                    "label": "Flaggentyp"
+                    "label": "Flaggentyp",
+                    "options": {
+                        "advertising": "Werbung",
+                        "athletic": "Sportlich",
+                        "cultural": "Kulturell",
+                        "governmental": "Staatlich",
+                        "indigenous": "Indigen",
+                        "military": "Militär",
+                        "municipal": "Kommunal",
+                        "national": "National",
+                        "organisation": "Organisatorisch",
+                        "regional": "Regional",
+                        "religious": "Religiös"
+                    }
                 },
                 "flag/wikidata": {
                     "label": "Flagge in Wikidata"
@@ -1974,6 +1999,34 @@
                         "quicksand": "Treibsand",
                         "shooting_range": "Schießübungsplatz"
                     }
+                },
+                "hazard_highway": {
+                    "label": "Gefahrenzeichen",
+                    "options": {
+                        "animal_crossing": "Wildwechsel",
+                        "bump": "Bodenwelle",
+                        "children": "Kinder",
+                        "curve": "Kurve",
+                        "curves": "Doppelkurve",
+                        "cyclists": "Radverkehr",
+                        "dangerous_junction": "Gefährliche Kreuzung",
+                        "dip": "Bodensenke",
+                        "falling_rocks": "Steinschlag",
+                        "frost_heave": "Frosthub",
+                        "horse_riders": "Reiter",
+                        "ice": "Vereisung",
+                        "landslide": "Erdrutsch",
+                        "loose_gravel": "Splitt, Schotter",
+                        "low_flying_aircraft": "Flugbetrieb",
+                        "pedestrians": "Fußgänger",
+                        "queues_likely": "Stau",
+                        "school_zone": "Schulbereich",
+                        "side_winds": "Seitenwind",
+                        "slippery": "Schleudergefahr",
+                        "turn": "Kurve",
+                        "turns": "Doppelkurve"
+                    },
+                    "terms": "gefahr,gefahrsymbol,gefahrzeichen,gefahrkennzeichen,gefahrschild,gefahren,gefahrensymbol,gefahrenzeichen,gefahrenkennzeichen,gefahrenschild"
                 },
                 "healthcare": {
                     "label": "Typ",
@@ -2998,62 +3051,62 @@
                     }
                 },
                 "park_ride": {
-                    "label": "Parken und Reisen",
-                    "terms": "park+ride,p+r"
+                    "label": "Park+Ride",
+                    "terms": "park and ride,park & ride,park&ride,park+ride,p+r,park-and-ride,parken und reisen"
                 },
                 "parking": {
                     "label": "Typ",
                     "options": {
                         "carports": {
-                            "description": "Struktur, die Fahrzeugen begrenzten Schutz bietet, in der Regel ohne Wände.",
-                            "title": "Carports"
+                            "description": "Parkplatz, bei dem die Fahrzeuge in Carports stehen.",
+                            "title": "Parkplatz mit überdachten Stellplätzen"
                         },
                         "garage_boxes": {
-                            "description": "Private Garage mit mehreren Einzelboxen für jeweils ein Auto.",
-                            "title": "Garagenboxen"
+                            "description": "Fläche, auf der Fahrzeuge in Einzelgaragen parken.",
+                            "title": "Garagenhof"
                         },
                         "half_on_kerb": {
-                            "description": "Parken teilweise auf dem Gehweg.",
-                            "title": "Halb auf Gehweg"
+                            "description": "Parkfläche, die teilweise auf dem Gehweg liegt.",
+                            "title": "Parken halb auf dem Gehweg"
                         },
                         "lane": {
-                            "description": "Parken auf der Straße (die leicht in eine Fahrspur umgewandelt werden könnte).",
-                            "title": "Parkstreifen am Straßenrand"
+                            "description": "Parken am Fahrbahnrand oder auf einem markierten Parkstreifen, der Teil der Fahrbahn sein könnte.",
+                            "title": "Parken auf der Straße"
                         },
                         "layby": {
-                            "description": "Parken auf einem Rastplatz an einer Straße.",
+                            "description": "Haltebucht direkt neben der Straße. Innerorts oft mit Informationstafel.",
                             "title": "Haltebucht"
                         },
                         "multi-storey": {
-                            "description": "Zwei oder mehr Parkdecks in einem Gebäude.",
-                            "title": "Mehrstöckig"
+                            "description": "Gebäude mit mehreren Parkdecks.",
+                            "title": "Parkhaus"
                         },
                         "on_kerb": {
-                            "description": "Parken auf dem Gehweg.",
-                            "title": "Auf dem Gehweg"
+                            "description": "Fläche auf einem Gehweg, der fürs Parken freigegeben ist.",
+                            "title": "Parken ganz auf dem Gehweg"
                         },
                         "rooftop": {
-                            "description": "Eine Ebene eines Parkdecks auf einem Gebäude.",
-                            "title": "auf dem Dach"
+                            "description": "Parkfläche auf dem Dach eines Gebäudes.",
+                            "title": "Dachparkplatz"
                         },
                         "sheds": {
-                            "description": "Private Schuppen für Fahrzeuge.",
-                            "title": "Schuppen"
+                            "description": "Fläche, auf der Fahrzeuge in Schuppen parken.",
+                            "title": "Parkplatz mit Schuppen"
                         },
                         "shoulder": {
-                            "description": "Parken auf dem Seitenstreifen.",
-                            "title": "Seitenstreifen"
+                            "description": "Parken auf dem Seitenstreifen einer Landstraße.",
+                            "title": "Parken auf dem Seitenstreifen (Außerorts)"
                         },
                         "street_side": {
-                            "description": "Parken direkt an der Straße (aber nicht auf der Straße).",
-                            "title": "Straßenrand"
+                            "description": "Parken auf Flächen neben einer Straße, die direkt von der Straße aus angefahren werden.",
+                            "title": "Parken im Seitenraum einer Straße"
                         },
                         "surface": {
-                            "description": "Eine Parkebene auf dem Boden.",
-                            "title": "Oberfläche"
+                            "description": "Parkfläche, bei der die einzelnen Parkstände von Wegen auf dem Parkplatz aus angefahren werden.",
+                            "title": "Ebenerdiger Parkplatz"
                         },
                         "underground": {
-                            "description": "Tiefgarage.",
+                            "description": "Unterirdische Parkanlage, typischerweise unter einem Gebäude.",
                             "title": "Tiefgarage"
                         }
                     }
@@ -3173,13 +3226,13 @@
                 },
                 "piste/difficulty_downhill": {
                     "options": {
-                        "advanced": "Schwierig (Schwarzer Diamant)",
-                        "easy": "Leicht (grüner Kreis)",
-                        "expert": "Sehr schwierig (doppelter schwarzer Diamant)",
+                        "advanced": "Schwierig (schwarz)",
+                        "easy": "Leicht (blau)",
+                        "expert": "Sehr schwierig (doppelt-schwarz)",
                         "extreme": "Extrem (Kletterausrüstung notwendig)",
                         "freeride": "Freeride (abseits der Piste)",
-                        "intermediate": "Mittel (blaues Quadrat)",
-                        "novice": "Anfänger (Übungshang)"
+                        "intermediate": "Mittel (rot)",
+                        "novice": "Anfänger (Übungshang, grün)"
                     },
                     "placeholder": "Leicht, Mittel, Schwierig ..."
                 },
@@ -3974,10 +4027,10 @@
                     "label": "Typ",
                     "options": {
                         "alley": "Seitengasse",
-                        "drive-through": "Drive-Through",
-                        "driveway": "Grundstückzufahrt",
+                        "drive-through": "Drive-In",
+                        "driveway": "Untergeordnete Grundstückzufahrt",
                         "emergency_access": "Feuerwehrzufahrt",
-                        "parking_aisle": "Parkplatzfahrgassen"
+                        "parking_aisle": "Parkplatz-Nebenfahrgasse"
                     }
                 },
                 "service/bicycle": {
@@ -4025,6 +4078,29 @@
                     "options": {
                         "left": "Links vom Radfahrer",
                         "right": "Rechts vom Radfahrer"
+                    }
+                },
+                "sidewalk": {
+                    "label": "Gehsteige",
+                    "options": {
+                        "no": {
+                            "description": "Kein Gehsteig",
+                            "title": "Nein"
+                        },
+                        "separate": {
+                            "description": "Der Gehweg wird mit separaten Wegen kartiert",
+                            "title": "Separat kartiert"
+                        },
+                        "yes": {
+                            "description": "Es gibt einen Bürgersteig",
+                            "title": "Ja"
+                        }
+                    },
+                    "placeholder": "Ja, Nein, Separat Kartiert",
+                    "terms": "bürgersteige,gehsteige,fußgängerwege,gehwege,gangsteige,trottoirs",
+                    "types": {
+                        "sidewalk:left": "Linke Seite",
+                        "sidewalk:right": "Rechte Seite"
                     }
                 },
                 "siren/purpose": {
@@ -4370,17 +4446,17 @@
                         "grass": "Gras",
                         "grass_paver": "Rasengittersteine",
                         "gravel": "Grober Schotter",
-                        "ground": "Naturbelassene Oberfläche",
+                        "ground": "Gewachsener Boden",
                         "metal": "Metall",
                         "mud": "Dauerhaft Schlammig",
                         "paved": "Versiegelte Oberfläche",
-                        "paving_stones": "Pflastersteine",
+                        "paving_stones": "Verbundsteinpflaster",
                         "pebblestone": "Kieselsteine",
                         "salt": "Salz",
                         "sand": "Sand",
-                        "sett": "Glattes Steinpflaster",
+                        "sett": "Natursteinpflaster (behauen)",
                         "tartan": "Tartan",
-                        "unhewn_cobblestone": "Rohes Kopfsteinpflaster",
+                        "unhewn_cobblestone": "Katzenkopfpflaster (unbehauene, runden Steine)",
                         "unpaved": "Ohne Straßenbelag",
                         "wood": "Holz",
                         "woodchips": "Holzschnitzel"
@@ -4507,6 +4583,18 @@
                 },
                 "tee": {
                     "label": "Abschlag Farbe/Typ"
+                },
+                "tee_disc_golf": {
+                    "label": "Farbe des Abschlagbereichs",
+                    "options": {
+                        "blue": "Blau",
+                        "gold": "Gold",
+                        "green": "Grün",
+                        "purple": "Violett",
+                        "red": "Rot",
+                        "white": "Weiß"
+                    },
+                    "placeholder": "Blau, Weiß, Rot..."
                 },
                 "telecom": {
                     "label": "Typ",
@@ -4753,8 +4841,8 @@
                     "options": {
                         "avalanche_protector": "Lawinengalerie",
                         "building_passage": "Hausdurchgang",
-                        "culvert": "Durchlass",
-                        "flooded": "Freispiegelstollen"
+                        "culvert": "Durchlass (Fließgewässer)",
+                        "flooded": "Freispiegelstollen (Fließgewässer)"
                     }
                 },
                 "turning_circle": {
@@ -5336,8 +5424,8 @@
                     "terms": "ladestation für elektrofahrzeuge,ladestation,e-tankstelle,stromtankstelle,ladestation für elektroautos,plug-in hybridfahrzeuge,pedelecs und e-bikes,normalladepunkt,schnellladepunkt,ladesäule,normalladesäule,schnellladesäule,ladestelle,normalladestelle,schnellladestelle"
                 },
                 "amenity/childcare": {
-                    "name": "Kinderkrippenbetreuung, Kindertagesstätte",
-                    "terms": "kinderkrippe,kindergarten"
+                    "name": "Kinderbetreuung",
+                    "terms": "kinderkrippe,hort"
                 },
                 "amenity/cinema": {
                     "name": "Kino",
@@ -5471,8 +5559,8 @@
                 },
                 "amenity/doctors/gynaecology": {
                     "name": "Gynäkologe",
-                    "terms": "gynäkologe,gynäkologie",
-                    "aliases": "Frauenarzt\nFacharzt für Frauenheilkunde"
+                    "terms": "gynäkologe,gynäkologie,geburtshilfe,geburtshelfer,hebarzt,geburtskunde,tokologie,obstetrik,frauenmedizin,frauenheilkunde",
+                    "aliases": "Frauenarzt\nFacharzt für Frauenheilkunde\nFacharzt für Frauenheilkunde und Geburtshilfe"
                 },
                 "amenity/doctors/haematology": {
                     "name": "Hämatologe",
@@ -6385,6 +6473,10 @@
                     "name": "Brückenwaage, LKW-Waage",
                     "terms": "wiegeanlage,brückenwaage"
                 },
+                "animal/horse_walker": {
+                    "name": "Führanlage",
+                    "terms": "pferdeführanlage"
+                },
                 "area": {
                     "name": "Fläche",
                     "terms": "fläche,areal"
@@ -6757,7 +6849,7 @@
                     "terms": "wohnheim,studentenwohnheim,dormitorium"
                 },
                 "building/entrance": {
-                    "name": "Eingang/Ausgang (veralteter Tag)"
+                    "name": "Eingang / Ausgang"
                 },
                 "building/farm": {
                     "name": "Bauernhaus",
@@ -8518,6 +8610,10 @@
                 "leisure/pitch/beachvolleyball": {
                     "name": "Beachvolleyballfeld",
                     "terms": "beachvolleyballplatz,beachvolleyballfeld"
+                },
+                "leisure/pitch/biathlon": {
+                    "name": "Biathlon Schießstand",
+                    "terms": "schießstand,biathlon,schießbahn,stehendschießen,liegendschießen,zielscheibe,schießen,schussbahn"
                 },
                 "leisure/pitch/boules": {
                     "name": "Boccia-Platz",
@@ -10451,9 +10547,8 @@
                     "terms": "babysachengeschäft,babybekleidungsgeschäft,babygeschäft,babyfachmarkt"
                 },
                 "shop/bag": {
-                    "name": "Taschengeschäft",
-                    "terms": "taschen,koffer,reisegepäck,rollkoffer,reisetaschen,handtaschen,umhängetaschen",
-                    "aliases": "Koffergeschäft"
+                    "name": "Taschen / Koffergeschäft",
+                    "terms": "taschen,koffer,reisegepäck,rollkoffer,reisetaschen,handtaschen,umhängetaschen"
                 },
                 "shop/bakery": {
                     "name": "Bäckerei",
@@ -10480,7 +10575,7 @@
                     "terms": "sonnenstudio,bräunungsstudio,solarium"
                 },
                 "shop/bed": {
-                    "name": "Betten/Matratzengeschäft",
+                    "name": "Betten / Matratzengeschäft",
                     "terms": "matratzengeschäft,schlafzimmerbedarf,bettengeschäft,schlafzimmereinrichtungsgeschäft,matratzenladen"
                 },
                 "shop/beverages": {
@@ -10982,8 +11077,8 @@
                     "terms": "feuerwerksartikelladen,feuerwerkskörpergeschäft"
                 },
                 "shop/radiotechnics": {
-                    "name": "Radio/Elektronik-Geschäft",
-                    "terms": "elektronikladen,radio/elektro-laden"
+                    "name": "Radio / Elektronik-Geschäft",
+                    "terms": "elektronikladen,radio / elektro-laden"
                 },
                 "shop/religion": {
                     "name": "Devotionalienhandlung",
@@ -11135,7 +11230,7 @@
                 },
                 "shop/water_sports": {
                     "name": "Wassersportgeschäft",
-                    "terms": "wassersportladen,schwimmbedarf"
+                    "terms": "wassersportladen,schwimmbedarf,schwimmsport"
                 },
                 "shop/weapons": {
                     "name": "Waffengeschäft",

@@ -937,7 +937,7 @@
         }
     },
     "waterway/waterfall": {
-        "icon": "maki-waterfall",
+        "icon": "roentgen-waterfall",
         "fields": [
             "name",
             "height",
@@ -2514,7 +2514,7 @@
         }
     },
     "tourism/viewpoint": {
-        "icon": "temaki-spotting_scope",
+        "icon": "temaki-viewpoint",
         "geometry": [
             "point",
             "vertex",
@@ -2715,10 +2715,19 @@
     "tourism/hostel": {
         "icon": "temaki-bunk_beds",
         "fields": [
-            "{tourism/guest_house}"
+            "name",
+            "operator",
+            "address",
+            "website",
+            "email",
+            "phone",
+            "building_area_yes",
+            "rooms",
+            "{@templates/internet_access}"
         ],
         "moreFields": [
             "fhrs/id-GB",
+            "group_only",
             "{tourism/guest_house}"
         ],
         "geometry": [
@@ -2825,15 +2834,23 @@
             "capacity/caravans",
             "sanitary_dump_station",
             "power_supply",
+            "tents",
+            "toilets",
             "{@templates/internet_access}"
         ],
         "moreFields": [
             "{@templates/internet_access}",
             "{@templates/poi}",
+            "capacity/tents",
             "charge_fee",
+            "dog",
+            "drinking_water_available",
             "fee",
             "operator",
+            "opening_hours",
+            "picnic_table",
             "reservation",
+            "shower",
             "smoking"
         ],
         "geometry": [
@@ -3717,6 +3734,7 @@
             "{shop}"
         ],
         "moreFields": [
+            "{shop}",
             "fhrs/id-GB"
         ],
         "tags": {
@@ -3912,6 +3930,7 @@
             "{shop}"
         ],
         "moreFields": [
+            "{shop}",
             "fhrs/id-GB"
         ],
         "tags": {
@@ -4135,6 +4154,7 @@
             "{shop}"
         ],
         "moreFields": [
+            "{shop}",
             "fhrs/id-GB"
         ]
     },
@@ -4399,6 +4419,7 @@
             "{shop}"
         ],
         "moreFields": [
+            "{shop}",
             "fhrs/id-GB"
         ]
     },
@@ -4548,6 +4569,7 @@
             "{shop}"
         ],
         "moreFields": [
+            "{shop}",
             "fhrs/id-GB"
         ],
         "tags": {
@@ -4946,7 +4968,7 @@
         }
     },
     "shop/honey": {
-        "icon": "maki-shop",
+        "icon": "fas-jar",
         "geometry": [
             "point",
             "area"
@@ -4990,6 +5012,7 @@
             "{shop}"
         ],
         "moreFields": [
+            "{shop}",
             "fhrs/id-GB"
         ]
     },
@@ -5104,6 +5127,7 @@
             "organic"
         ],
         "moreFields": [
+            "{shop}",
             "fhrs/id-GB"
         ],
         "geometry": [
@@ -5272,6 +5296,7 @@
             "{shop}"
         ],
         "moreFields": [
+            "{shop}",
             "fhrs/id-GB"
         ],
         "tags": {
@@ -5383,6 +5408,7 @@
             "organic"
         ],
         "moreFields": [
+            "{shop}",
             "fhrs/id-GB"
         ],
         "geometry": [
@@ -5552,6 +5578,7 @@
             "{shop}"
         ],
         "moreFields": [
+            "{shop}",
             "fhrs/id-GB"
         ]
     },
@@ -5568,6 +5595,7 @@
             "{shop}"
         ],
         "moreFields": [
+            "{shop}",
             "fhrs/id-GB"
         ]
     },
@@ -5698,6 +5726,7 @@
             "{shop}"
         ],
         "moreFields": [
+            "{shop}",
             "fhrs/id-GB"
         ]
     },
@@ -5798,6 +5827,7 @@
             "{shop}"
         ],
         "moreFields": [
+            "{shop}",
             "fhrs/id-GB"
         ]
     },
@@ -6001,6 +6031,7 @@
             "{shop}"
         ],
         "moreFields": [
+            "{shop}",
             "fhrs/id-GB"
         ]
     },
@@ -9095,7 +9126,8 @@
             "generator/output/electricity"
         ],
         "moreFields": [
-            "{power/generator}"
+            "{power/generator}",
+            "location"
         ],
         "geometry": [
             "area",
@@ -11606,6 +11638,7 @@
         }
     },
     "natural/mud": {
+        "icon": "fas-water",
         "geometry": [
             "area"
         ],
@@ -12972,7 +13005,7 @@
         }
     },
     "man_made/reservoir_covered": {
-        "icon": "maki-water",
+        "icon": "fas-house-flood-water",
         "fields": [
             "name",
             "operator",
@@ -14093,7 +14126,7 @@
         }
     },
     "man_made/telescope/radio": {
-        "icon": "roentgen-telescope-radio",
+        "icon": "roentgen-telescope_radio",
         "geometry": [
             "point",
             "area"
@@ -15282,6 +15315,7 @@
         "moreFields": [
             "{@templates/contact}",
             "contact/facebook",
+            "contact/instagram",
             "gnis/feature_id-US",
             "opening_hours",
             "payment_multi"
@@ -16223,6 +16257,7 @@
         }
     },
     "leisure/pitch/table_soccer": {
+        "icon": "temaki-table_soccer",
         "fields": [
             "name",
             "lit",
@@ -16392,7 +16427,7 @@
         }
     },
     "leisure/pitch/pickleball": {
-        "icon": "maki-tennis",
+        "icon": "temaki-pickleball",
         "geometry": [
             "area",
             "point"
@@ -16727,6 +16762,27 @@
         "reference": {
             "key": "sport",
             "value": "boules"
+        }
+    },
+    "leisure/pitch/biathlon": {
+        "icon": "fas-crosshairs",
+        "geometry": [
+            "area",
+            "point"
+        ],
+        "fields": [
+            "{leisure/pitch}"
+        ],
+        "moreFields": [
+            "{leisure/pitch}"
+        ],
+        "tags": {
+            "leisure": "pitch",
+            "sport": "biathlon"
+        },
+        "reference": {
+            "key": "sport",
+            "value": "biathlon"
         }
     },
     "leisure/pitch/beachvolleyball": {
@@ -18006,6 +18062,7 @@
         "moreFields": [
             "{@templates/contact}",
             "address",
+            "opening_hours",
             "operator"
         ],
         "geometry": [
@@ -19125,7 +19182,8 @@
             "direction"
         ],
         "moreFields": [
-            "{historic/memorial}"
+            "{historic/memorial}",
+            "support"
         ],
         "geometry": [
             "point",
@@ -19343,6 +19401,7 @@
             "bridge/name",
             "charge_toll",
             "covered_no",
+            "hazard_highway",
             "incline",
             "junction_line",
             "lit",
@@ -19666,7 +19725,9 @@
             "bridge/name",
             "bridge/ref",
             "covered_no",
+            "sidewalk",
             "flood_prone",
+            "hazard_highway",
             "incline",
             "lanes",
             "lit",
@@ -19781,9 +19842,11 @@
             "bridge/name",
             "covered_no",
             "cycleway",
+            "sidewalk",
             "bicycle_road",
             "cyclestreet-BE-NL",
             "flood_prone",
+            "hazard_highway",
             "incline",
             "junction_line",
             "lane_markings",
@@ -19853,8 +19916,10 @@
             "charge_toll",
             "covered_no",
             "cycleway",
+            "sidewalk",
             "destination/symbol_oneway",
             "flood_prone",
+            "hazard_highway",
             "incline",
             "junction_line",
             "junction/ref_oneway",
@@ -19905,6 +19970,7 @@
             "charge_toll",
             "covered_no",
             "cycleway",
+            "sidewalk",
             "destination/symbol_oneway",
             "flood_prone",
             "incline",
@@ -19956,8 +20022,10 @@
             "charge_toll",
             "covered_no",
             "cycleway",
+            "sidewalk",
             "expressway-US",
             "flood_prone",
+            "hazard_highway",
             "incline",
             "junction_line",
             "lane_markings",
@@ -20104,6 +20172,7 @@
             "charge_toll",
             "covered_no",
             "destination/symbol_oneway",
+            "hazard_highway",
             "incline",
             "junction_line",
             "lit",
@@ -20208,6 +20277,7 @@
             "bridge/ref",
             "charge_toll",
             "covered_no",
+            "hazard_highway",
             "incline",
             "junction_line",
             "lit",
@@ -20277,7 +20347,9 @@
             "bicycle_road",
             "cyclestreet-BE-NL",
             "cycleway",
+            "sidewalk",
             "flood_prone",
+            "hazard_highway",
             "junction_line",
             "lit",
             "maxaxleload_bridge",
@@ -22753,7 +22825,7 @@
         }
     },
     "emergency/water_reservoir_covered": {
-        "icon": "maki-water",
+        "icon": "fas-house-flood-water",
         "fields": [
             "name",
             "ref",
@@ -23521,7 +23593,8 @@
     "disc_golf/tee": {
         "icon": "temaki-disc_golf_basket",
         "fields": [
-            "surface"
+            "surface",
+            "tee_disc_golf"
         ],
         "geometry": [
             "point",
@@ -24174,6 +24247,7 @@
             "{craft}"
         ],
         "moreFields": [
+            "{craft}",
             "fhrs/id-GB"
         ],
         "tags": {
@@ -24236,6 +24310,7 @@
             "{craft}"
         ],
         "moreFields": [
+            "{craft}",
             "fhrs/id-GB"
         ],
         "geometry": [
@@ -25292,7 +25367,7 @@
         "matchScore": 0.5
     },
     "building/construction": {
-        "icon": "maki-building",
+        "icon": "roentgen-building_construction",
         "fields": [
             "name",
             "construction",
@@ -25531,7 +25606,7 @@
         "matchScore": 0.5
     },
     "building/allotment_house": {
-        "icon": "maki-building",
+        "icon": "roentgen-apartments_1_story",
         "geometry": [
             "area"
         ],
@@ -26946,6 +27021,27 @@
             "area:highway": "traffic_island"
         }
     },
+    "animal/horse_walker": {
+        "icon": "temaki-amusement_park",
+        "fields": [
+            "building_area",
+            "covered"
+        ],
+        "moreFields": [
+            "access_simple",
+            "operator",
+            "lit",
+            "indoor",
+            "capacity"
+        ],
+        "geometry": [
+            "area",
+            "point"
+        ],
+        "tags": {
+            "animal": "horse_walker"
+        }
+    },
     "amenity/weighbridge": {
         "icon": "fas-weight",
         "fields": [
@@ -27577,6 +27673,7 @@
             "bin"
         ],
         "moreFields": [
+            "access_simple",
             "gnis/feature_id-US",
             "lit",
             "lockable",
@@ -34714,6 +34811,7 @@
             "{@templates/contact}",
             "address",
             "contact/facebook",
+            "contact/instagram",
             "gnis/feature_id-US",
             "level",
             "not/name",
