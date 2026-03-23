@@ -2249,4 +2249,3 @@ Thanks to all contributors: [@1ec5], [@andrewharvey], [@bagage], [@Bertware], [@
 # ≤ 3.0.0
 
 #### For versions ≤ 3.0.0 please visit the [iD changelog](https://github.com/openstreetmap/iD/blob/develop/CHANGELOG.md) :rocket: Presets sections
-ow
