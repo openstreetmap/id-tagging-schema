@@ -1,3 +1,5 @@
-import schemaBuilder from '@ideditor/schema-builder';
+import './patch_legacy_url.js';
+
+const { default: schemaBuilder } = await import('@ideditor/schema-builder');
 
 schemaBuilder.validate();
