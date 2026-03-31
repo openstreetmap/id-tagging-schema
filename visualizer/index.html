@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenStreetMap Tag Explorer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+    <nav class="top-navbar">
+        <h1 class="brand-title">OSM Preset Explorer</h1>
+        <div class="spacer"></div>
+        <select id="locale-selector" aria-label="Language selection">
+            <option value="en">English (EN)</option>
+            <option value="ru">Russian (RU)</option>
+            <option value="de">German (DE)</option>
+            <option value="fr">French (FR)</option>
+            <option value="es">Spanish (ES)</option>
+            <option value="it">Italian (IT)</option>
+            <option value="zh-CN">Chinese (ZH-CN)</option>
+            <option value="ja">Japanese (JA)</option>
+            <option value="nl">Dutch (NL)</option>
+            <option value="pl">Polish (PL)</option>
+        </select>
+        <div id="status-indicator">Fetching schema...</div>
+    </nav>
+    <div class="layout-grid" id="main-app">
+        <div class="search-top-bar">
+            <div class="input-wrapper">
+                <input type="text" id="schema-search" placeholder="Search presets..." disabled autocomplete="off">
+                <button id="reset-search" aria-label="Reset search" style="display: none;">
+                    <i class="fas fa-eraser"></i>
+                </button>
+            </div>
+        </div>
+        <div class="panel list-panel categories-panel">
+            <div class="panel-title">Folders</div>
+            <ul id="folder-hierarchy"></ul>
+        </div>
+        <div class="panel list-panel items-panel">
+            <div class="panel-title" id="items-title">Items</div>
+            <ul id="items-list">
+                <li class="placeholder-msg">Pick a folder to start</li>
+            </ul>
+            <div class="panel-bottom" id="items-bottom" style="display: none;">
+                <button id="btn-show-all" class="outline-btn">Expand all items</button>
+            </div>
+        </div>
+        <div class="panel details-pane">
+            <div class="panel-title">Item Info</div>
+            <div id="item-view">
+                <div class="placeholder-msg">Select an item to see more</div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
