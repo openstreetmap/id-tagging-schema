@@ -34,7 +34,7 @@ No preset or field is isolated; they are always presented alongside others in va
 
 ### Usage count sufficient to consider a tag as established
 
-There is no fixed threshold above which a tag will be eligible to be included. Factors include:
+There is no fixed threshold above which a tag will be eligible to be included due its significant usage. Factors include:
 
 - whether usage is organic or result of import/mass edit. In some cases [chronology graph at taginfo](https://taginfo.openstreetmap.org/tags/building=trullo) can reveal that tag was not added by mappers in normal editing, such usage would be almost entirely discounted. Note that in some cases this will be less visible, for example with slow-moving automated retagging or import.
 - how widely the tag is used - a tag used 20 000 times in a single location or by a single mapper will be rejected as not established, while a tag used less but by many mappers across the world is far likely to be accepted
@@ -46,6 +46,8 @@ In general, iD tagging schema is not intended as a place to promote new tagging 
 - organizing a mapping event focused on mapping this property or feature type
 - sharing this tag with others and encouraging them to map it
 - creating a JOSM user preset or adding it to more specialized tagging tools
+- going through [proposal process](https://wiki.openstreetmap.org/wiki/Proposal_process)
+- adding it to MapComplete, StreetComplete tasks if applicable
 
 If global tag usage could be increased by 10% in the time necessary to implement, test and review a pull request adding it to the iD tagging schema, it is a very strong sign that it is too early to add it here.
 
