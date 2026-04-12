@@ -8,6 +8,9 @@
                 "category-building": {
                     "name": "Bina Öznitelikleri"
                 },
+                "category-climbing": {
+                    "name": "Tırmanma Öznitelikleri"
+                },
                 "category-golf": {
                     "name": "Golf Öznitelikleri"
                 },
@@ -143,6 +146,9 @@
                 },
                 "address": {
                     "label": "Adres",
+                    "labels": {
+                        "housenumber": "Ev Numarası"
+                    },
                     "placeholders": {
                         "block_number": "Ada No",
                         "block_number!jp": "Ada No",
@@ -157,6 +163,7 @@
                         "district": "İlçe",
                         "district!cn": "Bölge/İlçe/Afiş",
                         "district!vn": "İlçe",
+                        "door": "Kapı Numarası",
                         "floor": "Kat",
                         "hamlet": "Mezra",
                         "housename": "Hane adı",
@@ -180,7 +187,7 @@
                         "town": "Kasaba",
                         "unit": "Birim"
                     },
-                    "terms": "konum,yer,i̇kametgah,lokasyon"
+                    "terms": "konum,yer,i̇kametgâh,lokasyon"
                 },
                 "admin_level": {
                     "label": "Yönetim Düzeyi"
@@ -240,6 +247,7 @@
                     "options": {
                         "cargo": "Kargo",
                         "helicopter": "Helikopter",
+                        "jet": "Jet",
                         "military": "Askeri"
                     }
                 },
@@ -665,11 +673,11 @@
                     "terms": "cephe rengi,dış yüzey rengi,binanın ön yüzü rengi"
                 },
                 "building/flats": {
-                    "label": "Birimler",
+                    "label": "Daire Sayısı",
                     "placeholder": "2, 4, 6, 8..."
                 },
                 "building/levels": {
-                    "label": "Katlar",
+                    "label": "Kat Sayısı",
                     "placeholder": "2, 4, 6...",
                     "terms": "seviyeler,katmanlar,daireler"
                 },
@@ -802,6 +810,15 @@
                         "stately": "Görkemli Ev"
                     }
                 },
+                "ceremonial_gate": {
+                    "label": "Tür",
+                    "options": {
+                        "hongsalmun": "Hongsalmun",
+                        "iljumun": "İljumun",
+                        "paifang": "Paifang",
+                        "torii": "Torii"
+                    }
+                },
                 "changing_table": {
                     "label": "Bebek Bezi Değiştirme Masası"
                 },
@@ -821,6 +838,18 @@
                 "circumference": {
                     "label": "Çevre (Göğüs Yüksekliğinde)",
                     "placeholder": "1 m, 20 cm, 30\"…"
+                },
+                "climbing/grade/french": {
+                    "placeholder": "5c"
+                },
+                "climbing/grade/saxon": {
+                    "placeholder": "VIIa"
+                },
+                "climbing/grade/uiaa": {
+                    "placeholder": "6-"
+                },
+                "climbing/grade/yds_class": {
+                    "placeholder": "5.10a"
                 },
                 "climbing/length": {
                     "label": "Uzunluk (metre)"
@@ -850,7 +879,7 @@
                     "terms": "giysiler,kıyafetler,giyecekler"
                 },
                 "club": {
-                    "label": "Cins"
+                    "label": "Tür"
                 },
                 "collection_times": {
                     "label": "Toplanma Zamanları"
@@ -874,7 +903,7 @@
                     "label": "İletişim türleri"
                 },
                 "community_centre": {
-                    "label": "Type",
+                    "label": "Tür",
                     "options": {
                         "youth_centre": "Youth Center"
                     }
@@ -902,6 +931,9 @@
                 "contact/facebook": {
                     "label": "Facebook Username or URL",
                     "placeholder": "https://www.facebook.com/LocalBusiness"
+                },
+                "contact/instagram": {
+                    "placeholder": "https://www.instagram.com/openstreetmap/"
                 },
                 "contact/webcam": {
                     "label": "Webcam Adresi",
@@ -1057,8 +1089,8 @@
                         "double_half": "Çift yarım bariyer",
                         "full": "Tam bariyer",
                         "half": "Yarım bariyer",
-                        "no": "Bariyersiz",
-                        "yes": "Bariyerli (bilinmiyor/tanımlanamıyor)"
+                        "no": "Hayır",
+                        "yes": "Evet"
                     }
                 },
                 "crossing/bell": {
@@ -1180,14 +1212,15 @@
                     }
                 },
                 "currency_multi": {
-                    "label": "Para Birimi Çeşitleri"
+                    "label": "Para Birimi Çeşitleri",
+                    "terms": "döviz türleri,para birimi türleri"
                 },
                 "cutting": {
                     "label": "Tür",
                     "placeholder": "Varsayılan"
                 },
                 "cycle_barrier": {
-                    "label": "Type"
+                    "label": "Tür"
                 },
                 "cycle_barrier/installation": {
                     "options": {
@@ -1206,7 +1239,13 @@
                         },
                         "no": {
                             "description": "Bisiklet yolu değil",
-                            "title": "None"
+                            "title": "Yok"
+                        },
+                        "opposite": {
+                            "description": "Lütfen oneway=yes, oneway:bicycle=no and cycleway:both=no vb.yle güncelleyin."
+                        },
+                        "opposite_lane": {
+                            "description": "Lütfen oneway, oneway:bicycle ve cycleway:left/right=lane vb.yle güncelleyin."
                         },
                         "separate": {
                             "description": "Indicates that cycleway was mapped as a separate geometry",
@@ -1227,8 +1266,8 @@
                     },
                     "placeholder": "Şerit, pist, ters yönden",
                     "types": {
-                        "cycleway:left": "Left Side",
-                        "cycleway:right": "Right Side"
+                        "cycleway:left": "Sol Taraf",
+                        "cycleway:right": "Sağ Taraf"
                     }
                 },
                 "dance/style": {
@@ -1242,6 +1281,9 @@
                 },
                 "defibrillator/location": {
                     "label": "Konum Açıklaması"
+                },
+                "deflection": {
+                    "label": "Açı"
                 },
                 "delivery": {
                     "label": "Paket Servis"
@@ -1265,7 +1307,7 @@
                     "label": "Deposit"
                 },
                 "depot": {
-                    "label": "Type"
+                    "label": "Tür"
                 },
                 "depth": {
                     "label": "Derinlik (metre)"
@@ -1399,6 +1441,9 @@
                 "door": {
                     "label": "Kapı"
                 },
+                "door/height": {
+                    "label": "Kapı Yüksekliği (Metre)"
+                },
                 "door_type": {
                     "label": "Tür"
                 },
@@ -1419,6 +1464,7 @@
                     "placeholder": "00:00"
                 },
                 "education": {
+                    "label": "Tür",
                     "options": {
                         "dancing_school": "Dans Kursu",
                         "driving_school": "Sürücü Kursu",
@@ -1490,7 +1536,8 @@
                         "service": "Servis girişi",
                         "staircase": "Doğrudan merdivene çıkan giriş",
                         "yes": "Unspecified"
-                    }
+                    },
+                    "terms": "çeşit,cins,tip"
                 },
                 "except": {
                     "label": "İstisnalar"
@@ -1585,7 +1632,11 @@
                     "label": "Flag Name"
                 },
                 "flag/type": {
-                    "label": "Bayrak Türü"
+                    "label": "Bayrak Türü",
+                    "options": {
+                        "athletic": "Atletik",
+                        "cultural": "Kültürel"
+                    }
                 },
                 "flag/wikidata": {
                     "label": "Flag Wikidata"
@@ -1636,7 +1687,7 @@
                     "label": "Benzin İstasyonu"
                 },
                 "fuel/fuel_multi": {
-                    "label": "Fuel Types",
+                    "label": "Yakıt Türleri",
                     "options": {
                         "GTL_diesel": "GTL Diesel",
                         "HGV_diesel": "Truck Diesel",
@@ -1741,7 +1792,7 @@
                     "label": "GNIS Feature ID"
                 },
                 "government": {
-                    "label": "Hükümet"
+                    "label": "Tür"
                 },
                 "grades": {
                     "label": "Sınıf Seviyeleri"
@@ -1765,6 +1816,11 @@
                 "hashtags": {
                     "label": "Etiketler",
                     "placeholder": "#örnek"
+                },
+                "hazard_boundary": {
+                    "options": {
+                        "hole": "Delik"
+                    }
                 },
                 "healthcare": {
                     "label": "Tür",
@@ -1889,7 +1945,7 @@
                     "label": "Isıtma"
                 },
                 "height": {
-                    "label": "Yükseklik (metre)",
+                    "label": "Yükseklik (Metre)",
                     "terms": "yükseklik"
                 },
                 "height/hub": {
@@ -1909,7 +1965,7 @@
                     "label": "Tür"
                 },
                 "highway_cartpath": {
-                    "label": "Type of Path",
+                    "label": "Patika Türü",
                     "options": {
                         "path": "Basit patika",
                         "service": "Service Road"
@@ -1991,7 +2047,12 @@
                     "label": "Sıcak Su"
                 },
                 "house": {
-                    "label": "Ev Türü"
+                    "label": "Ev Türü",
+                    "options": {
+                        "bungalow": {
+                            "title": "Bungalov"
+                        }
+                    }
                 },
                 "iata": {
                     "label": "IATA Havalimanı Kodu"
@@ -2095,7 +2156,7 @@
                     "label": "Yükseklik"
                 },
                 "kerb/kerb_barrier": {
-                    "label": "Type"
+                    "label": "Tür"
                 },
                 "kitchen": {
                     "label": "Kitchen"
@@ -2155,10 +2216,12 @@
                         "leafless": "Yapraksız",
                         "mixed": "Karışık",
                         "needleleaved": "İğneli"
-                    }
+                    },
+                    "terms": "yaprak çeşidi,yaprak cinsi,yaprak tipi"
                 },
                 "leaf_type_singular": {
-                    "label": "Yaprak Türü"
+                    "label": "Yaprak Türü",
+                    "terms": "yaprak çeşidi,yaprak cinsi,yaprak tipi"
                 },
                 "leisure": {
                     "label": "Tür"
@@ -2180,13 +2243,13 @@
                     "terms": "ehliyet,sürücü belgesi,ehliyet sınıfları,sürücü belgesi sınıfları"
                 },
                 "lifeguard": {
-                    "label": "Type"
+                    "label": "Tür"
                 },
                 "lifeguard_check": {
                     "label": "Lifeguard"
                 },
                 "lift_gate/type": {
-                    "label": "Type",
+                    "label": "Tür",
                     "options": {
                         "double": "Opposing Bars",
                         "single": "Single Bar"
@@ -2200,6 +2263,9 @@
                 },
                 "lit": {
                     "label": "Işıklandırma"
+                },
+                "loc_name": {
+                    "label": "Yerel Ad"
                 },
                 "location": {
                     "label": "Konum"
@@ -2652,7 +2718,6 @@
                             "title": "Çatı Katındaki Otopark"
                         },
                         "sheds": {
-                            "description": "Genelde özel mülkiyete ait hangar şeklindeki araç garajı yapısı.",
                             "title": "Garaj Kulübesi / Barakası"
                         },
                         "shoulder": {
@@ -2761,13 +2826,14 @@
                     "placeholder": "1, 2, 3..."
                 },
                 "phone": {
-                    "label": "Telefon"
+                    "label": "Telefon",
+                    "placeholder": "+000 0000 0000 0000"
                 },
                 "picnic_table": {
                     "label": "Piknik Masası"
                 },
                 "pipeline": {
-                    "label": "Type"
+                    "label": "Tür"
                 },
                 "piste/difficulty": {
                     "label": "Zorluk",
@@ -2896,7 +2962,15 @@
                 "playground": {
                     "label": "Tür",
                     "options": {
-                        "hopscotch": "Seksek Alanı"
+                        "ball_pool": "Top Havuzu",
+                        "bridge": "Köprü",
+                        "climbingwall": "Tırmanma Duvarı",
+                        "excavator": "Ekskavatör",
+                        "hamster_wheel": "Hamster Çarkı",
+                        "hopscotch": "Seksek Alanı",
+                        "ladder": "Dikey Merdiven",
+                        "map": "Harita",
+                        "maze": "Labirent"
                     }
                 },
                 "playground/theme": {
@@ -2923,12 +2997,13 @@
                     "label": "Teslim Adresi"
                 },
                 "post_box/type": {
-                    "label": "Type",
+                    "label": "Tür",
                     "options": {
                         "lamp": "Attached to a Pole",
                         "pillar": "Freestanding Box",
                         "wall": "Mounted in a Wall"
-                    }
+                    },
+                    "terms": "çeşit,tip,cins"
                 },
                 "power": {
                     "label": "Tür"
@@ -2970,6 +3045,21 @@
                         "backward": "Geri",
                         "both": "İleri ve Geri",
                         "forward": "İleri"
+                    }
+                },
+                "railway/signal/position": {
+                    "options": {
+                        "left": "Sol",
+                        "right": "Sağ"
+                    }
+                },
+                "railway/signal_box": {
+                    "label": "Tür"
+                },
+                "railway/turnout_side": {
+                    "options": {
+                        "left": "Sol",
+                        "right": "Sağ"
                     }
                 },
                 "ramp": {
@@ -3018,6 +3108,9 @@
                 },
                 "ref": {
                     "label": "Referans Kodu"
+                },
+                "ref/EU/EVSE-EU": {
+                    "placeholder": "DE*ABC*E12345ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 },
                 "ref/FR/siret-FR": {
                     "label": "SIRET Number"
@@ -3137,7 +3230,7 @@
                     "label": "Dönüş Kısıtlamaları"
                 },
                 "roller_coaster/track": {
-                    "label": "Type",
+                    "label": "Tür",
                     "options": {
                         "station": {
                             "title": "İstasyon"
@@ -3349,6 +3442,12 @@
                 "segregated": {
                     "label": "Bisiklet-Yaya Ayrımı"
                 },
+                "self_checkout": {
+                    "options": {
+                        "no": "Hayır",
+                        "yes": "Evet"
+                    }
+                },
                 "self_service": {
                     "label": "Self-Servis"
                 },
@@ -3375,7 +3474,8 @@
                         "siding": "Manevra Hattı",
                         "spur": "Destek Hattı",
                         "yard": "İstasyon"
-                    }
+                    },
+                    "terms": "hizmet türü,servis çeşidi"
                 },
                 "service_times": {
                     "label": "Hizmet Saatleri"
@@ -3400,11 +3500,25 @@
                     "label": "Duş",
                     "terms": "duş,banyo"
                 },
+                "sidewalk": {
+                    "options": {
+                        "no": {
+                            "title": "Hayır"
+                        },
+                        "yes": {
+                            "title": "Evet"
+                        }
+                    },
+                    "types": {
+                        "sidewalk:left": "Sol Taraf",
+                        "sidewalk:right": "Sağ Taraf"
+                    }
+                },
                 "siren/purpose": {
                     "label": "Amaç"
                 },
                 "siren/type": {
-                    "label": "Tip",
+                    "label": "Tür",
                     "options": {
                         "electronic": "Elektronik",
                         "other": "Diğer",
@@ -3458,7 +3572,13 @@
                     }
                 },
                 "social_facility_for": {
-                    "label": "Hedef Kitle"
+                    "label": "Hedef Kitle",
+                    "options": {
+                        "child": "Çocuklar",
+                        "drug_addicted": "Uyuşturucu bağımlısı",
+                        "homeless": "Evsiz",
+                        "woman": "Kadınlar"
+                    }
                 },
                 "source": {
                     "label": "Kaynak",
@@ -3575,7 +3695,8 @@
                     }
                 },
                 "street_cabinet": {
-                    "label": "Tip"
+                    "label": "Tür",
+                    "terms": "çeşit,cins,tip"
                 },
                 "stroller": {
                     "label": "Bebek Arabası Erişimi",
@@ -3615,6 +3736,7 @@
                 "structure_waterway": {
                     "label": "Yapı",
                     "options": {
+                        "bridge": "Köprü",
                         "tunnel": "Tünel"
                     },
                     "placeholder": "Bilinmiyor"
@@ -3655,7 +3777,7 @@
                     }
                 },
                 "substation_pipeline": {
-                    "label": "Type",
+                    "label": "Tür",
                     "options": {
                         "compression": "Compression",
                         "distribution": "Regional Distribution",
@@ -3773,6 +3895,7 @@
                     "label": "Hedef"
                 },
                 "taxi_vehicle": {
+                    "label": "Araç Türü",
                     "options": {
                         "motorcar": {
                             "title": "Otomobil"
@@ -3780,17 +3903,26 @@
                         "motorcycle": {
                             "title": "Motosiklet"
                         }
-                    }
+                    },
+                    "terms": "araba çeşidi,araç çeşidi"
                 },
                 "taxon": {
                     "label": "Taxon",
                     "placeholder": "Acer platanoides Columnare, Pyrus calleryana Chanticleer …"
                 },
-                "tee": {
-                    "label": "Tee Color/Type"
+                "tee_disc_golf": {
+                    "options": {
+                        "blue": "Mavi",
+                        "gold": "Altın Rengi",
+                        "green": "Yeşil",
+                        "purple": "Mor",
+                        "red": "Kırmızı",
+                        "white": "Beyaz"
+                    },
+                    "placeholder": "Mavi, Beyaz, Kırmızı..."
                 },
                 "telecom": {
-                    "label": "Tip",
+                    "label": "Tür",
                     "options": {
                         "data_center": "Veri Merkezi"
                     }
@@ -3799,7 +3931,11 @@
                     "label": "Orta"
                 },
                 "telescope/type": {
-                    "label": "Type"
+                    "label": "Tür",
+                    "options": {
+                        "optical": "Optik Teleskop",
+                        "radio": "Radyo Teleskobu"
+                    }
                 },
                 "tents": {
                     "label": "Çadır"
@@ -3828,7 +3964,7 @@
                 "toilets/menstrual_products": {
                     "options": {
                         "no": "Hayır",
-                        "yes": "Evet, tüm tezgahlarda"
+                        "yes": "Evet, tüm tezgâhlarda"
                     }
                 },
                 "toilets/position": {
@@ -3846,7 +3982,7 @@
                     "label": "Ücret"
                 },
                 "tomb": {
-                    "label": "Cins",
+                    "label": "Tür",
                     "options": {
                         "columbarium": "Güvercinlik",
                         "crypt": "Mahzen",
@@ -3877,7 +4013,7 @@
                     "label": "Tür"
                 },
                 "townhall/type": {
-                    "label": "Tip"
+                    "label": "Tür"
                 },
                 "tracktype": {
                     "label": "Toprak Yol Durumu",
@@ -3989,7 +4125,7 @@
                     "label": "Ağaçlar"
                 },
                 "trench": {
-                    "label": "Tip"
+                    "label": "Tür"
                 },
                 "trolley_wire": {
                     "label": "Asma Tramvay Kabloları"
@@ -3997,6 +4133,9 @@
                 "tunnel": {
                     "label": "Tür",
                     "placeholder": "Varsayılan"
+                },
+                "tunnel/name": {
+                    "label": "Tünel Adı"
                 },
                 "tunnel_combo": {
                     "label": "Tip",
@@ -4026,10 +4165,11 @@
                         "military": "Askeri",
                         "test": "Test",
                         "tourism": "Turizm"
-                    }
+                    },
+                    "terms": "kullanım türü,kullanım çeşidi"
                 },
                 "usage_waterway": {
-                    "label": "Usage Type",
+                    "label": "Kullanım Türü",
                     "options": {
                         "headrace": "Headrace",
                         "irrigation": "Irrigation",
@@ -4544,9 +4684,6 @@
                     "name": "Mahkeme",
                     "terms": "mahkeme,adalet sarayı,adliye"
                 },
-                "amenity/coworking_space": {
-                    "name": "Ortak Çalışma Alanı"
-                },
                 "amenity/crematorium": {
                     "name": "Cesed Yakma Yeri",
                     "terms": "cesed yakma yeri"
@@ -4642,6 +4779,10 @@
                 },
                 "amenity/doctors/urology": {
                     "name": "Urologist"
+                },
+                "amenity/dog_toilet": {
+                    "name": "Köpek Tuvaleti",
+                    "terms": "i̇t tuvaleti"
                 },
                 "amenity/dojo": {
                     "name": "Dövüş Sanatları Akademisi",
@@ -5511,9 +5652,6 @@
                 "barrier/wicket_gate": {
                     "name": "Wicket Gate"
                 },
-                "barrier/yes": {
-                    "name": "Barrier (Unspecified Type)"
-                },
                 "boundary": {
                     "name": "Sınır"
                 },
@@ -5597,6 +5735,9 @@
                 "building/dormitory": {
                     "name": "Yurt",
                     "terms": "öğrenci yurdu"
+                },
+                "building/entrance": {
+                    "name": "Giriş / Çıkış"
                 },
                 "building/farm": {
                     "name": "Çiftlik"
@@ -5761,6 +5902,10 @@
                 },
                 "cemetery/sector": {
                     "name": "Cemetery Section"
+                },
+                "climbing/route": {
+                    "name": "Tırmanış Rotası",
+                    "terms": "tırmanma rotası,tırmanma yolu,tırmanış yolu,tırmanma güzergâhı"
                 },
                 "club": {
                     "name": "Klüb",
@@ -6107,6 +6252,10 @@
                 "entrance/main": {
                     "name": "Ana Giriş"
                 },
+                "entrance/shop": {
+                    "name": "Mağaza Girişi",
+                    "terms": "market girişi,dükkân girişi,bakkal girişi"
+                },
                 "entrance/staircase": {
                     "name": "Staircase Entrance"
                 },
@@ -6249,9 +6398,6 @@
                     "name": "Konuşma Terapisti",
                     "terms": "konuşma uzmanı"
                 },
-                "healthcare/yes": {
-                    "name": "Healthcare Facility (Unspecified Type)"
-                },
                 "highway": {
                     "name": "Karayolu Özelliği"
                 },
@@ -6369,6 +6515,10 @@
                 "highway/give_way": {
                     "name": "Yol Ver İşareti",
                     "terms": "yol ver i̇şareti,yol ver levhası"
+                },
+                "highway/ladder": {
+                    "name": "Dikey Merdiven",
+                    "terms": "merdiven,çıkmak,tırmanma"
                 },
                 "highway/living_street": {
                     "name": "Yaya Öncelikli Yol",
@@ -6545,6 +6695,10 @@
                 "highway/turning_loop": {
                     "name": "Dönüş Yeri",
                     "terms": "dönüş yeri,dönüş adası"
+                },
+                "highway/unclassified": {
+                    "name": "Tali / Sınıflandırılmamış Yol",
+                    "terms": "şehir dışı yol,uzak yol,küçük yol"
                 },
                 "historic": {
                     "name": "Tarihi Yer",
@@ -7523,9 +7677,6 @@
                 "man_made/works/brewery": {
                     "name": "Industrial Brewery"
                 },
-                "man_made/yes": {
-                    "name": "Man-Made Feature (Unspecified Type)"
-                },
                 "marker": {
                     "name": "İşaretleyici"
                 },
@@ -7952,9 +8103,6 @@
                     "name": "Su Müdürlüğü",
                     "terms": "su ve kanalizasyon müdürlüğü"
                 },
-                "office/yes": {
-                    "name": "Office (Unspecified Type)"
-                },
                 "pipeline": {
                     "name": "Pipeline Feature"
                 },
@@ -8200,10 +8348,6 @@
                 },
                 "power/plant/source/hydro": {
                     "name": "Hidroelektrik Güç İstasyonu"
-                },
-                "power/plant/source/method/photovoltaic": {
-                    "name": "Güneş Enerjisi Santrali",
-                    "terms": "güneş enerjisi santrali,ges,fotovoltaik güneş enerjisi santrali"
                 },
                 "power/plant/source/nuclear": {
                     "name": "Nükleer Güç Santrali"
@@ -8822,6 +8966,10 @@
                     "name": "Kuaför",
                     "terms": "kuaför,berber"
                 },
+                "shop/hairdresser/barber": {
+                    "name": "Berber",
+                    "terms": "berber dükkânı,berberci,tıraş mekânı"
+                },
                 "shop/hairdresser_supply": {
                     "name": "Kuaför Malzemeleri Mağazası"
                 },
@@ -8970,6 +9118,10 @@
                 "shop/party": {
                     "name": "Parti Malzemeleri Mağazası"
                 },
+                "shop/pasta": {
+                    "name": "Makarna Dükkânı",
+                    "terms": "makarna mağazası,makarna marketi,burgu,kelebek"
+                },
                 "shop/pastry": {
                     "name": "Pastane",
                     "terms": "pastane"
@@ -9014,6 +9166,10 @@
                 },
                 "shop/repair": {
                     "name": "Tamir Dükkanı"
+                },
+                "shop/rice": {
+                    "name": "Pirinç Dükkânı",
+                    "terms": "pilav dükkânı,pilav mağazası,pilav marketi,pirinç marketi,pirinç mağazası"
                 },
                 "shop/scuba_diving": {
                     "name": "Tüple Dalış Mağazası",
@@ -9151,9 +9307,6 @@
                 "shop/wine": {
                     "name": "Şarap Mağazası",
                     "terms": "şarap mağazası"
-                },
-                "shop/yes": {
-                    "name": "Shop (Unspecified Type)"
                 },
                 "telecom": {
                     "name": "Telekom Özelliği"
@@ -9346,9 +9499,6 @@
                 },
                 "traffic_calming/table": {
                     "name": "Hız Tabelası"
-                },
-                "traffic_calming/yes": {
-                    "name": "Traffic Calming (Unspecified Type)"
                 },
                 "traffic_sign": {
                     "name": "Trafik Tabelası"

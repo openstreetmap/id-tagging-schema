@@ -24,6 +24,141 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 -->
 
 
+
+# 6.16.0
+##### 2026-Apr-08
+
+#### New Presets
+
+* create hidden `building=glasshouse` referencing `building=greenhouse` ([#2104], thanks [@matkoniecz])
+* Piercing Studio and `piercing` field for tattoo parlors ([#2004], thanks [@cuatim])
+* Add preset for `amenity=kitchen` (#1631) ([#1993], thanks [@ashree2118])
+* Add preset for `natural=arete` ([#2024], thanks [@ashree2118])
+* Add preset for advertising sign ([#2063], thanks [@ak8abhinay])
+
+#### New and Changed Fields
+
+* Change `direction_vertex_dual` field to type 'radio' ([#2109], thanks [@matkoniecz])
+* Omit `religion=none` from suggested options of religion field for places of worship ([#1940], thanks [@ak8abhinay])
+* Adding "sport" field for `leisure=bowling_alley` (#1973) ([#1974], thanks [@petercooperjr])
+* Piercing Studio and `piercing` field for tattoo parlors ([#2004], thanks [@cuatim])
+* Add `cuisine=british` support (more than 500 uses) ([#2022], thanks [@matkoniecz])
+* `mini_roundabout`: deemphasize direction= field ([#2117], thanks [@matkoniecz])
+* 'combo' to 'radio' type in more fields ([#2116], thanks [@matkoniecz])
+* Add 'Unspecified Building Type' for `building=yes` ([#2085], thanks [@matkoniecz])
+* Try radio selector for Direction fields ([#2081], thanks [@matkoniecz])
+* Add dedicated surface field for sport pitches ([#2079], thanks [@Ambuj123554])
+
+#### Changed Presets
+
+* add "bathroom fixtures" as search term to `shop=bathroom_furnishing` ([#2144], thanks [@matkoniecz])
+* Switch `incline_steps` to radio field ([#2141], thanks [@matkoniecz])
+* Make generic playground equipment searchable ([#2138], thanks [@matkoniecz])
+* use tunnel icon for `playground=tunnel_tube` ([#2134], thanks [@matkoniecz])
+* Use two hands icon for `shop=second_hand` ([#2133], thanks [@matkoniecz])
+* Express sub-preset relation in file structure ([#2077], thanks [@matkoniecz])
+* Add `min_age` to escape room and trampoline park moreFields ([#2125], thanks [@ivanfang-dev])
+* fix `parking=sheds` description ([#2130], thanks [@matkoniecz])
+* Use dedicated motorcycle parking icon ([#2099], thanks [@ak8abhinay])
+* Use multiple people icon for Coworking Space ([#2064], thanks [@matkoniecz])
+* less generic icon for tailings ponds - thanks to [@enzet] for an icon ([#2087], thanks [@matkoniecz])
+* Add 'Unspecified Building Type' for `building=yes` ([#2085], thanks [@matkoniecz])
+* Add icons to `playground=*` field ([#2120], thanks [@tordans])
+* Use dedicated geyser icon for geyser preset - thanks to [@quincylvania] for an icon ([#2098], thanks [@ak8abhinay])
+* Add `ref` field to `railway=derail` ([#2108], thanks [@gy-mate])
+* Make more clear that `building_area` may not need building value to be filled ([#1970], thanks [@matkoniecz])
+* Add floating dock terms to `dock.json` ([#1997], thanks [@matkoniecz])
+* not every bunker is a building ([#1995], thanks [@matkoniecz])
+* make glasshouse search find greenhouse ([#2101], thanks [@matkoniecz])
+* less generic icon for `shop=nuts` - thanks to [@enzet] for an icon ([#2090], thanks [@matkoniecz])
+* less generic icon for `barrier=log` - thanks to [@enzet] for an icon ([#2088], thanks [@matkoniecz])
+* less generic icon for `building=service` - thanks to [@enzet] for an icon ([#2089], thanks [@matkoniecz])
+* less generic icon for `shop=wigs` - thanks to [@enzet] for an icon ([#2091], thanks [@matkoniecz])
+* cycleway and sidewalk - `moreFields` `highway=trunk_link` ([#2106], thanks [@matkoniecz])
+* cycleway and sidewalk - to `moreFields` of `highway=trunk` ([#2105], thanks [@matkoniecz])
+* add cycleway as an optional field to service roads ([#2102], thanks [@matkoniecz])
+* Add 'art museum' search term to Museum preset ([#2073], thanks [@Kayd-06])
+* Change `shop=outpost` icon from generic to more unique one ([#2040], thanks [@matkoniecz])
+* use dedicated icon for sit-up station ([#2071], thanks [@matkoniecz])
+* Add "dry cleaning" term to dry cleaner ([#1962], thanks [@matkoniecz])
+* Change `office=guide` icon from 'maki-suitcase' to 'temaki-briefcase-info' ([#2058], thanks [@matkoniecz])
+* bottle return vending machine gets bottle-specific icon ([#2059], thanks [@matkoniecz])
+* sort, lowerscase terms ([#2076], thanks [@matkoniecz])
+* inherit properties from `office=coworking` to `amenity=coworking_space` ([#2075], thanks [@matkoniecz])
+* make aerialway osmism searchable ([#1966], thanks [@matkoniecz])
+* Add christian denomination search terms to improve preset discoverability ([#2028], thanks [@Ambuj123554])
+* Add "sex therapist" to `healthcare=counselling` terms ([#1961], thanks [@matkoniecz])
+* Use dedicated hotpot icon - thanks to [@novolife] for the icon ([#2060], thanks [@matkoniecz])
+
+#### Documentation and Other Changes
+
+* Remove copyright year in `LICENSE.md` ([#2111], thanks [@matkoniecz])
+* fix fixing typo ([#2112], thanks [@matkoniecz])
+
+#### Dependencies
+
+* Bump the github-actions group across 1 directory with 2 updates ([#2094])
+
+[#1940]: https://github.com/openstreetmap/id-tagging-schema/pull/1940
+[#1961]: https://github.com/openstreetmap/id-tagging-schema/pull/1961
+[#1962]: https://github.com/openstreetmap/id-tagging-schema/pull/1962
+[#1966]: https://github.com/openstreetmap/id-tagging-schema/pull/1966
+[#1970]: https://github.com/openstreetmap/id-tagging-schema/pull/1970
+[#1974]: https://github.com/openstreetmap/id-tagging-schema/pull/1974
+[#1993]: https://github.com/openstreetmap/id-tagging-schema/pull/1993
+[#1995]: https://github.com/openstreetmap/id-tagging-schema/pull/1995
+[#1997]: https://github.com/openstreetmap/id-tagging-schema/pull/1997
+[#2004]: https://github.com/openstreetmap/id-tagging-schema/pull/2004
+[#2004]: https://github.com/openstreetmap/id-tagging-schema/pull/2004
+[#2022]: https://github.com/openstreetmap/id-tagging-schema/pull/2022
+[#2024]: https://github.com/openstreetmap/id-tagging-schema/pull/2024
+[#2028]: https://github.com/openstreetmap/id-tagging-schema/pull/2028
+[#2040]: https://github.com/openstreetmap/id-tagging-schema/pull/2040
+[#2058]: https://github.com/openstreetmap/id-tagging-schema/pull/2058
+[#2059]: https://github.com/openstreetmap/id-tagging-schema/pull/2059
+[#2060]: https://github.com/openstreetmap/id-tagging-schema/pull/2060
+[#2063]: https://github.com/openstreetmap/id-tagging-schema/pull/2063
+[#2064]: https://github.com/openstreetmap/id-tagging-schema/pull/2064
+[#2071]: https://github.com/openstreetmap/id-tagging-schema/pull/2071
+[#2073]: https://github.com/openstreetmap/id-tagging-schema/pull/2073
+[#2075]: https://github.com/openstreetmap/id-tagging-schema/pull/2075
+[#2076]: https://github.com/openstreetmap/id-tagging-schema/pull/2076
+[#2077]: https://github.com/openstreetmap/id-tagging-schema/pull/2077
+[#2079]: https://github.com/openstreetmap/id-tagging-schema/pull/2079
+[#2081]: https://github.com/openstreetmap/id-tagging-schema/pull/2081
+[#2085]: https://github.com/openstreetmap/id-tagging-schema/pull/2085
+[#2085]: https://github.com/openstreetmap/id-tagging-schema/pull/2085
+[#2087]: https://github.com/openstreetmap/id-tagging-schema/pull/2087
+[#2088]: https://github.com/openstreetmap/id-tagging-schema/pull/2088
+[#2089]: https://github.com/openstreetmap/id-tagging-schema/pull/2089
+[#2090]: https://github.com/openstreetmap/id-tagging-schema/pull/2090
+[#2091]: https://github.com/openstreetmap/id-tagging-schema/pull/2091
+[#2098]: https://github.com/openstreetmap/id-tagging-schema/pull/2098
+[#2099]: https://github.com/openstreetmap/id-tagging-schema/pull/2099
+[#2101]: https://github.com/openstreetmap/id-tagging-schema/pull/2101
+[#2102]: https://github.com/openstreetmap/id-tagging-schema/pull/2102
+[#2104]: https://github.com/openstreetmap/id-tagging-schema/pull/2104
+[#2105]: https://github.com/openstreetmap/id-tagging-schema/pull/2105
+[#2106]: https://github.com/openstreetmap/id-tagging-schema/pull/2106
+[#2108]: https://github.com/openstreetmap/id-tagging-schema/pull/2108
+[#2109]: https://github.com/openstreetmap/id-tagging-schema/pull/2109
+[#2116]: https://github.com/openstreetmap/id-tagging-schema/pull/2116
+[#2117]: https://github.com/openstreetmap/id-tagging-schema/pull/2117
+[#2120]: https://github.com/openstreetmap/id-tagging-schema/pull/2120
+[#2125]: https://github.com/openstreetmap/id-tagging-schema/pull/2125
+[#2130]: https://github.com/openstreetmap/id-tagging-schema/pull/2130
+[#2133]: https://github.com/openstreetmap/id-tagging-schema/pull/2133
+[#2134]: https://github.com/openstreetmap/id-tagging-schema/pull/2134
+[#2138]: https://github.com/openstreetmap/id-tagging-schema/pull/2138
+[#2141]: https://github.com/openstreetmap/id-tagging-schema/pull/2141
+[#2144]: https://github.com/openstreetmap/id-tagging-schema/pull/2144
+[@petercooperjr]: https://github.com/petercooperjr
+[@Ambuj123554]: https://github.com/Ambuj123554
+[@ivanfang-dev]: https://github.com/ivanfang-dev
+[@Kayd-06]: https://github.com/Kayd-06
+[@enzet]: https://github.com/enzet
+
+
 # 6.15.0
 ##### 2026-Mar-15
 
