@@ -22,6 +22,7 @@ Github shows a `(Member)` label next to users with full access to this repositor
 
 - [Kyle](https://github.com/k-yle) contributes to this project as a volunteer.
 - [Tobias](https://github.com/tordans) contributes to this project as a volunteer.
+- [Mateusz](https://github.com/matkoniecz) contributed to this project as a volunteer, with [current work](https://github.com/osmfoundation/ewg_bidding/pull/58) funded by OpenStreetMap Foundation.
 
 The co-maintainer role includes:
 - Reviewing PRs.
@@ -33,7 +34,7 @@ Github shows a `(Collaborator)` label next to users with any permission on this 
 
 ### Triage Role
 
-* [Mateusz](https://github.com/matkoniecz) contributed to this project as a volunteer, with [current work](https://github.com/osmfoundation/ewg_bidding/pull/58) funded by OpenStreetMap Foundation.
+- [Andrew](https://github.com/andrewharvey) contributes to this project as a volunteer.
 
 The triage role includes:
 - Proactively helping to clarify issues and PRs.

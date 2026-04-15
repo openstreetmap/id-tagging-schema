@@ -143,6 +143,9 @@
                 },
                 "address": {
                     "label": "Adresse",
+                    "labels": {
+                        "housenumber": "Husnummer"
+                    },
                     "placeholders": {
                         "block_number": "Bloknummer",
                         "block_number!jp": "Bloknr.",
@@ -157,6 +160,7 @@
                         "district": "Bydel",
                         "district!cn": "Distrikt/Amt/Banner",
                         "district!vn": "Arrondissement/by/distrikt",
+                        "door": "Dørnummer",
                         "floor": "Etage",
                         "hamlet": "Lille landsby",
                         "housename": "Husnavn",
@@ -632,7 +636,8 @@
                         "train_station": "Jernbanestationsbygning",
                         "transportation": "Transport-bygning",
                         "university": "Universitetsbygning",
-                        "warehouse": "Varehus"
+                        "warehouse": "Varehus",
+                        "yes": "Uspecificeret bygningstype"
                     },
                     "terms": "bygning,hus,bebyggelse"
                 },
@@ -662,6 +667,9 @@
                 },
                 "building/prefabricated": {
                     "label": "Præfabrikeret"
+                },
+                "building_area": {
+                    "label": "Bygning, hvis relevant"
                 },
                 "bunker_type": {
                     "label": "Type"
@@ -906,6 +914,9 @@
                 "contact/facebook": {
                     "label": "Facebook-brugernavn eller URL"
                 },
+                "contact/instagram": {
+                    "label": "Instagram-kontonavn eller URL"
+                },
                 "contact/webcam": {
                     "label": "Webcam-URL",
                     "placeholder": "http://example.com/"
@@ -1107,6 +1118,7 @@
                         "bavarian": "Bayersk",
                         "brazilian": "Brasiliansk",
                         "breakfast": "Morgenmad",
+                        "british": "Britisk",
                         "brunch": "Brunch",
                         "burger": "Burger",
                         "cake": "Kage",
@@ -1116,6 +1128,7 @@
                         "coffee_shop": "Kaffebar",
                         "dessert": "Dessert",
                         "donut": "Donut",
+                        "ethiopian": "Etiopisk",
                         "european": "Europæisk",
                         "filipino": "Filippinsk",
                         "fine_dining": "Finere madlavning",
@@ -1340,7 +1353,8 @@
                     "options": {
                         "anticlockwise": "Mod uret",
                         "clockwise": "Med uret"
-                    }
+                    },
+                    "terms": "retning,forløb"
                 },
                 "direction_point": {
                     "placeholder": "45, 90, 180, 270"
@@ -1751,6 +1765,12 @@
                         "nuclear": "Nuklear / radioaktiv",
                         "quicksand": "Kviksand",
                         "shooting_range": "Våbenild"
+                    }
+                },
+                "hazard_highway": {
+                    "options": {
+                        "cyclists": "Cyklister",
+                        "pedestrians": "Fodgængere"
                     }
                 },
                 "healthcare": {
@@ -2622,9 +2642,11 @@
                     "label": "Type",
                     "options": {
                         "carports": {
+                            "description": "En konstruktion, der bruges til at give køretøjer en vis beskyttelse, typisk uden vægge.",
                             "title": "Carporte"
                         },
                         "garage_boxes": {
+                            "description": "Privat garage med flere individuelle pladser til hver sin bil.",
                             "title": "Garagebokse"
                         },
                         "half_on_kerb": {
@@ -2632,33 +2654,43 @@
                             "title": "Halvt på fortovet"
                         },
                         "lane": {
+                            "description": "Parkering på gaden (som let kunne omdannes til en kørebane).",
                             "title": "Vejsidespor"
                         },
                         "layby": {
+                            "description": "Parkering ved en rasteplads langs vejen.",
                             "title": "Mindre rasteplads"
                         },
                         "multi-storey": {
+                            "description": "To eller flere etager med parkeringsdæk i en bygningskonstruktion.",
                             "title": "Multiniveau"
                         },
                         "on_kerb": {
+                            "description": "Parkering på fortovet.",
                             "title": "På fortovet"
                         },
                         "rooftop": {
+                            "description": "Et parkeringsdæk øverst på en bygning.",
                             "title": "Tag"
                         },
                         "sheds": {
+                            "description": "Skure til opbevaring af køretøjer",
                             "title": "Skure"
                         },
                         "shoulder": {
+                            "description": "Parkering i vejkanten.",
                             "title": "Nødspor"
                         },
                         "street_side": {
+                            "description": "Parkering lige ved siden af gaden (men ikke på selve gaden).",
                             "title": "Kantsten"
                         },
                         "surface": {
+                            "description": "Et parkeringsområde i gadeplan.",
                             "title": "Overflade"
                         },
                         "underground": {
+                            "description": "Underjordisk parkering",
                             "title": "Underjordisk"
                         }
                     }
@@ -2724,6 +2756,9 @@
                 "picnic_table": {
                     "label": "Bord- og bænkesæt",
                     "terms": "bord- og bænkesæt,picnic,bord,picnicbord,madpakkebord,frokost,skovtur,mad,madpakke,bænk,udflugt"
+                },
+                "piercing": {
+                    "label": "Tilbyder piercinger"
                 },
                 "pipeline": {
                     "label": "Type"
@@ -3121,7 +3156,8 @@
                         "demanding_mountain_hiking": "T3: Krævende bjergvandring",
                         "difficult_alpine_hiking": "T6: Vanskelig alpinvandring",
                         "hiking": "T1: Vandring",
-                        "mountain_hiking": "T2: Bjergvandring"
+                        "mountain_hiking": "T2: Bjergvandring",
+                        "strolling": "Slentre"
                     },
                     "placeholder": "Bjergvandring, alpinvandring..."
                 },
@@ -3315,6 +3351,28 @@
                     "options": {
                         "left": "Venstre for cyklist",
                         "right": "Højre for cyklist"
+                    }
+                },
+                "sidewalk": {
+                    "label": "Fortove",
+                    "options": {
+                        "no": {
+                            "description": "Intet fortov",
+                            "title": "Nej"
+                        },
+                        "separate": {
+                            "description": "Fortovet er kortlagt med separate linjestreger",
+                            "title": "Kortlagt separat"
+                        },
+                        "yes": {
+                            "description": "Der er et fortov",
+                            "title": "Ja"
+                        }
+                    },
+                    "placeholder": "Ja, Nej, Kortlagt separat",
+                    "types": {
+                        "sidewalk:left": "Venstre side",
+                        "sidewalk:right": "Højre side"
                     }
                 },
                 "siren/purpose": {
@@ -4113,6 +4171,9 @@
                     "name": "Plakatstander",
                     "terms": "plakatstander,reklamestander,reklameboks"
                 },
+                "advertising/sign": {
+                    "name": "Reklameskilt"
+                },
                 "advertising/totem": {
                     "name": "Reklame-totem",
                     "terms": "reklame-totem,reklamesøjle.reklameskilt,reklame,plakat"
@@ -4254,10 +4315,6 @@
                     "name": "Bar",
                     "terms": "bar"
                 },
-                "amenity/bbq": {
-                    "name": "Barbecue/Grill",
-                    "terms": "barbecue/grill,grill,bål,ildsted,ovn"
-                },
                 "amenity/bench": {
                     "name": "Bænk",
                     "terms": "bænk,havebænk,parkbænk"
@@ -4340,10 +4397,6 @@
                     "name": "Ladestation",
                     "terms": "ladestation,opladerstation,elbilopladerstation,opladning,opladningsstation"
                 },
-                "amenity/childcare": {
-                    "name": "Dagpleje/Vuggestue",
-                    "terms": "dagpleje/vuggestue"
-                },
                 "amenity/cinema": {
                     "name": "Biograf",
                     "terms": "biograf,bio"
@@ -4419,9 +4472,6 @@
                     "name": "Retsbygning",
                     "terms": "domstolsbygning,domstol,retsbygning"
                 },
-                "amenity/coworking_space": {
-                    "name": "Kontorfællesskab"
-                },
                 "amenity/crematorium": {
                     "name": "Krematorium",
                     "terms": "krematorium,ligbrænding"
@@ -4460,9 +4510,6 @@
                 },
                 "amenity/doctors/general": {
                     "name": "Praktiserende læge"
-                },
-                "amenity/doctors/gynaecology": {
-                    "name": "Obstetriker/Gynækolog"
                 },
                 "amenity/doctors/haematology": {
                     "name": "Hæmatolog"
@@ -4636,6 +4683,10 @@
                     "name": "Karaokebar",
                     "terms": "karaokebar,karaoke box"
                 },
+                "amenity/kitchen": {
+                    "name": "Fælleskøkken",
+                    "terms": "fælleskøkken,kollegiekøkken,centralkøkken,storkøkken"
+                },
                 "amenity/kneipp_water_cure": {
                     "name": "Kneipp-facilitet"
                 },
@@ -4730,7 +4781,7 @@
                 },
                 "amenity/parking_space": {
                     "name": "Parkeringsbås",
-                    "terms": "parkeringsbås,parkeringsplads"
+                    "terms": "parkeringsbås,parkeringsplads,bås"
                 },
                 "amenity/parking_space/disabled": {
                     "name": "Handikapparkering",
@@ -4890,6 +4941,9 @@
                 "amenity/restaurant/japanese": {
                     "name": "Japansk restaurant"
                 },
+                "amenity/restaurant/korean": {
+                    "name": "Koreansk restaurant"
+                },
                 "amenity/restaurant/mexican": {
                     "name": "Mexikansk restaurant"
                 },
@@ -4943,7 +4997,7 @@
                 },
                 "amenity/shelter/picnic_shelter": {
                     "name": "Madpakkehus",
-                    "terms": "picnic,hytte,læ,ly,udflugt,skovtur,mad,madpakke,frokost,bord,bænk,bålhytte,bålhus"
+                    "terms": "picnic,hytte,læ,ly,udflugt,skovtur,mad,madpakke,frokost,bord,bænk,bålhytte,bålhus,tørvejrsrum"
                 },
                 "amenity/shelter/public_transport": {
                     "name": "Venteskur",
@@ -5479,9 +5533,6 @@
                 "building/dormitory": {
                     "name": "Kollegie",
                     "terms": "kollegie,klubværelse,kollegium"
-                },
-                "building/entrance": {
-                    "name": "Indgang/Udgang"
                 },
                 "building/farm": {
                     "name": "Stuehus",
@@ -6447,10 +6498,6 @@
                     "name": "Helleanlæg (trafikø)",
                     "terms": "helleanlæg (trafikø)"
                 },
-                "highway/unclassified": {
-                    "name": "Mindre/ikke-klassificeret offentlig vej",
-                    "terms": "mindre/ikke-klassificeret offentlig vej,landevej,småvej,vej"
-                },
                 "historic": {
                     "name": "Historisk sted",
                     "terms": "historisk sted"
@@ -6783,7 +6830,7 @@
                 },
                 "leisure/bleachers": {
                     "name": "Lægtepladser",
-                    "terms": "lægtepladser,lægter,stadion,siddeplads,fodbold,tilskuerrækker,sæder"
+                    "terms": "lægtepladser,lægter,stadion,siddeplads,fodbold,tilskuerrækker,sæder,bænke"
                 },
                 "leisure/bowling_alley": {
                     "name": "Bowlingbaner",
@@ -6809,7 +6856,8 @@
                     "terms": "lejrbål,bål,ild,ildsted"
                 },
                 "leisure/fishing": {
-                    "name": "Fiskeplads"
+                    "name": "Fiskeplads",
+                    "terms": "fiskeplads,fiskesø,put and take,fiskested"
                 },
                 "leisure/fitness_centre": {
                     "name": "Gym / Fitnesscenter",
@@ -6936,10 +6984,6 @@
                     "name": "Hammerkast-ring / sektor",
                     "terms": "hammerkast-ring / sektor,hammerkast"
                 },
-                "leisure/pitch/athletics/high_jump": {
-                    "name": "Højdespringsgrav",
-                    "terms": "højdespringsgrav,højdespring"
-                },
                 "leisure/pitch/athletics/javelin_throw": {
                     "name": "Spydkast-sektor"
                 },
@@ -6966,10 +7010,6 @@
                 "leisure/pitch/beachvolleyball": {
                     "name": "Beachvolleybane",
                     "terms": "beachvolley,beach,volley,beach volley"
-                },
-                "leisure/pitch/boules": {
-                    "name": "Boules/petanque-bane",
-                    "terms": "petanque,boules"
                 },
                 "leisure/pitch/bowls": {
                     "name": "Bowling græsplæne",
@@ -8051,7 +8091,7 @@
                 },
                 "playground/zipwire": {
                     "name": "Lege-svævebane",
-                    "terms": "lege-svævebane,zipline"
+                    "terms": "lege-svævebane,zipline,svævebane"
                 },
                 "point": {
                     "name": "Punkt",
@@ -8117,10 +8157,6 @@
                 "power/plant/source/gas": {
                     "name": "Gasfyret kraftværk",
                     "terms": "gas,fossil,afbrænding,forbrænding,naturgas,værk,kraftværk"
-                },
-                "power/plant/source/method/photovoltaic": {
-                    "name": "Solcellepark",
-                    "terms": "solcellepark,solpanel,panel,kraftværk,strøm,elektricitet,el,solkraft,sol,fotovoltaik,solcelleanlæg"
                 },
                 "power/plant/source/nuclear": {
                     "name": "Atomkraftværk",
@@ -8389,10 +8425,6 @@
                     "name": "Babyudstyrsbutik",
                     "terms": "babyudstyrsbutik,babyudstyrsforretning"
                 },
-                "shop/bag": {
-                    "name": "Taske/Kuffertbutik",
-                    "terms": "taskebutik,kuffertbutik,lædervareforretning"
-                },
                 "shop/bakery": {
                     "name": "Bager",
                     "terms": "bager,bageri"
@@ -8412,10 +8444,6 @@
                 "shop/beauty/tanning": {
                     "name": "Solcenter",
                     "terms": "hudklinik"
-                },
-                "shop/bed": {
-                    "name": "Sengetøj / Madras forhandler",
-                    "terms": "sengetøj / madras forhandler,sengeforhandler"
                 },
                 "shop/beverages": {
                     "name": "Drikkevarebutik",
@@ -8859,10 +8887,6 @@
                     "name": "Fyrværkeributik",
                     "terms": "fyrværkeributik,fyrværkeriforretning,fyrværkeriudsalg"
                 },
-                "shop/radiotechnics": {
-                    "name": "Radio/Elektronikbutik",
-                    "terms": "radio/elektronikbutik"
-                },
                 "shop/religion": {
                     "name": "Religøs forretning",
                     "terms": "religøs forretning"
@@ -9002,10 +9026,6 @@
                 "shop/water": {
                     "name": "Drikkevandsbutik"
                 },
-                "shop/water_sports": {
-                    "name": "Svømmesport/Svømmeudstyrsbutik",
-                    "terms": "svømmesport,svømmeudstyrsbutik"
-                },
                 "shop/weapons": {
                     "name": "Våbenbutik",
                     "terms": "våbenbutik,våbenforretning,bøssemager"
@@ -9138,6 +9158,10 @@
                 },
                 "tourism/information/terminal": {
                     "name": "Informationsterminal"
+                },
+                "tourism/information/visitor_centre": {
+                    "name": "Besøgscenter",
+                    "terms": "besøgscenter,udstilling,museum,informationscenter"
                 },
                 "tourism/motel": {
                     "name": "Motel",
@@ -9337,9 +9361,6 @@
                     "name": "Rørledningsnet",
                     "terms": "rørledningsnet"
                 },
-                "type/route/piste": {
-                    "name": "Piste/skirute"
-                },
                 "type/route/power": {
                     "name": "Elledningsnet",
                     "terms": "elledningsnet"
@@ -9374,6 +9395,10 @@
                 "type/waterway": {
                     "name": "Vandvej",
                     "terms": "vandvej"
+                },
+                "waterway/access_point": {
+                    "name": "Isætningssted",
+                    "terms": "isætningssted,kanoisætningssted,kajakisætningssted,bådisætningssted,isætningsplads,landgang,portage,udtagning,kanoudtagning,kajakudtagning"
                 },
                 "waterway/boatyard": {
                     "name": "Bådplads",
