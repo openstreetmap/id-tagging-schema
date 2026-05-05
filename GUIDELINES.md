@@ -32,25 +32,18 @@ No preset or field is isolated; they are always presented alongside others in va
 - 🙈 **Unsearchable Presets**: The tagging schema is not only for adding information but also for presenting existing information. Consider adding an unsearchable preset for tagging that should be highlighted with a preset on the map and with defined fields. Reasons to make a preset unsearchable include: multiple ways to tag something where one method is preferred, or other reasons to hide commonly used tags from the search and list interface to preserve a good [user experience](#user-experience).
 - 🏝️ **Local Presets and Fields**: Generally, presets and fields in OSM should be globally applicable, and efforts should be made to ensure this. However, when local tagging conventions exist or when presets only make sense for certain regions, presets and fields can be given a local filter. This increases the need for thorough testing and makes it more challenging to maintain a good [user experience](#user-experience).
 
-### Usage count sufficient to consider a tag as established
+### Utilization Requirements
 
-There is no fixed threshold above which a tag will be eligible to be included due its significant usage. Factors include:
+There is no fixed threshold above which a tag will be eligible to be included due to its significant usage. Factors include:
 
-- whether usage is organic or result of import/mass edit. In some cases [chronology graph at taginfo](https://taginfo.openstreetmap.org/tags/building=trullo) can reveal that tag was not added by mappers in normal editing, such usage would be almost entirely discounted. Note that in some cases this will be less visible, for example with slow-moving automated retagging or import.
-- how widely the tag is used - a tag used 20 000 times in a single location or by a single mapper will be rejected as not established, while a tag used less but by many mappers across the world is far likely to be accepted
-- how often it could be used - a tag with 10 000 uses is unlikely to be considered as established if it is a property that could be added to every `shop=`. In comparison a property of the [`diplomatic=embassy`](https://wiki.openstreetmap.org/wiki/Key:embassy) would require much lower usage threshold to be considered established, as number of embassies is vastly lower than number of shops.
-- whether another value is likely to be used by mistake - for example [`generator:source=wave`](https://wiki.openstreetmap.org/wiki/Tag%3Agenerator%3Asource%3Dwave) is used just a few times worldwide, but if omitted from presets such power plants could end up mistagged as [`generator:source=hydro`](https://wiki.openstreetmap.org/wiki/Tag:generator:source%3Dhydro) or [`generator:source=tidal`](https://wiki.openstreetmap.org/wiki/Tag:generator:source%3Dtidal). The same applies, for example, to [rarely used `shop=` values likely to be mistagged as something else](https://github.com/openstreetmap/id-tagging-schema/pull/2004).
-- how this tags would be used in presets - for example an unsearchable preset not adding any new strings to translate [may be accepted with fairly low usage](https://github.com/openstreetmap/id-tagging-schema/pull/2104)
+- Whether usage is organic or result of import/mass edit.
+- The absolute number of occurences of the tag is OSM.
+- For fields: How often it is used relateive to the frequency of the respective preset's primary tag
+- How prominent the tagged features are in the real world. For example, [`diplomatic=embassy`](https://wiki.openstreetmap.org/wiki/Key:embassy) would require much lower usage threshold to be considered established, as number of embassies is vastly lower than number of shops globally.
+- Whether the addition can prevent mapping mistakes. For example, [`generator:source=wave`](https://wiki.openstreetmap.org/wiki/Tag%3Agenerator%3Asource%3Dwave) is used just a few times worldwide, but if omitted from presets such power plants could end up mistagged as [`generator:source=hydro`](https://wiki.openstreetmap.org/wiki/Tag:generator:source%3Dhydro) or [`generator:source=tidal`](https://wiki.openstreetmap.org/wiki/Tag:generator:source%3Dtidal).
+- How this tag would be used in presets. For example an unsearchable preset not adding any new strings to translate may be accepted with fairly low usage.
 
-In general, iD tagging schema is not intended as a place to promote new tagging that should be established but for some reason is not yet popular. If some tag is barely used and should be used more widely consider for example:
-- mapping such objects or properties in your area
-- organizing a mapping event focused on mapping this property or feature type
-- sharing this tag with others and encouraging them to map it
-- creating a JOSM user preset or adding it to more specialized tagging tools
-- going through [proposal process](https://wiki.openstreetmap.org/wiki/Proposal_process)
-- adding it to MapComplete, StreetComplete tasks if applicable
-
-If global tag usage could be increased by 10% in the time necessary to implement, test and review a pull request adding it to the iD tagging schema, it is a very strong sign that it is too early to add it here.
+Tip: In some cases the chronology graph at taginfo ([example](https://taginfo.openstreetmap.org/tags/building=trullo)) can reveal information about the utilization patterns of a specific tag.
 
 If unsure, you can search among [pull requests](https://github.com/openstreetmap/id-tagging-schema/pulls?q=is%3Apr) for similar ones and see whether any were accepted/rejected, this gives strong indicator what may happen with a new one. Especially ones with [label "waitfor-higher-usage"](https://github.com/openstreetmap/id-tagging-schema/issues?q=label%3Awaitfor-higher-usage) are especially likely to be relevant.
 
