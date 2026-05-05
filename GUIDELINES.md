@@ -37,7 +37,7 @@ No preset or field is isolated; they are always presented alongside others in va
 There is no fixed threshold above which a tag will be eligible to be included due to its significant usage. Factors include:
 
 - Whether usage is organic or result of import/mass edit.
-- The absolute number of occurences of the tag is OSM.
+- The absolute number of occurrences of the tag is OSM.
 - For fields: How often it is used relateive to the frequency of the respective preset's primary tag
 - How prominent the tagged features are in the real world. For example, [`diplomatic=embassy`](https://wiki.openstreetmap.org/wiki/Key:embassy) would require much lower usage threshold to be considered established, as number of embassies is vastly lower than number of shops globally.
 - Whether the addition can prevent mapping mistakes. For example, [`generator:source=wave`](https://wiki.openstreetmap.org/wiki/Tag%3Agenerator%3Asource%3Dwave) is used just a few times worldwide, but if omitted from presets such power plants could end up mistagged as [`generator:source=hydro`](https://wiki.openstreetmap.org/wiki/Tag:generator:source%3Dhydro) or [`generator:source=tidal`](https://wiki.openstreetmap.org/wiki/Tag:generator:source%3Dtidal).
