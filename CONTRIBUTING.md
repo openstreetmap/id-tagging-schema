@@ -4,7 +4,7 @@
 
 Don't hesitate to submit feedback about issues or how the tagging schema could be improved, but please [search existing issues](https://github.com/search?l=&q=repo%3Aopenstreetmap%2Fid-tagging-schema&type=Issues) before [opening a new one](https://github.com/openstreetmap/id-tagging-schema/issues/new/choose).
 
-If changed is needed then opening a new issue is better than commenting in a closed issue or a closed pull request where it will be likely missed.
+In general it is better to open a new issue compared to commenting in a closed issue or a closed pull request where such a comment will likely be missed.
 
 iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_CONDUCT.md) and [privacy policy](https://github.com/openstreetmap/iD/blob/release/PRIVACY.md) also apply to this project.
 
