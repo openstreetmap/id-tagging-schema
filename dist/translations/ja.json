@@ -146,6 +146,10 @@
                 },
                 "address": {
                     "label": "住所",
+                    "labels": {
+                        "conscriptionnumber": "徴兵番号",
+                        "housenumber": "住居番号"
+                    },
                     "placeholders": {
                         "block_number": "街区符号 / 番 / 番地 / 地番",
                         "block_number!jp": "街区符号 / 番 / 番地 / 地番",
@@ -160,6 +164,7 @@
                         "district": "地区",
                         "district!cn": "District/County/Banner",
                         "district!vn": "Arrondissement/町/地区",
+                        "door": "ドア番号",
                         "floor": "階",
                         "hamlet": "Hamlet",
                         "housename": "地番",
@@ -671,7 +676,8 @@
                         "train_station": "駅舎",
                         "transportation": "公共交通機関（建物）",
                         "university": "大学（建物）",
-                        "warehouse": "倉庫"
+                        "warehouse": "倉庫",
+                        "yes": "未指定の建物タイプ"
                     },
                     "terms": "建物,ビル"
                 },
@@ -703,6 +709,10 @@
                 "building/prefabricated": {
                     "label": "プレハブ",
                     "terms": "プレハブ"
+                },
+                "building_area": {
+                    "label": "建物（該当する場合）",
+                    "terms": "建物,建築物,建造物,構造物,施設,ビル,ビルディング,建屋"
                 },
                 "bunker_type": {
                     "label": "種類"
@@ -978,6 +988,11 @@
                     "placeholder": "https://www.facebook.com/LocalBusiness",
                     "terms": "フェイスブック"
                 },
+                "contact/instagram": {
+                    "label": "Instagramアカウント名またはURL",
+                    "placeholder": "https://www.instagram.com/openstreetmap/",
+                    "terms": "instagram,インスタグラム,sns,ソーシャルメディア,アカウント"
+                },
                 "contact/webcam": {
                     "label": "ウェブカメラのURL",
                     "placeholder": "http://example.com/"
@@ -1206,6 +1221,7 @@
                         "dessert": "デザート",
                         "diner": "ダイナー",
                         "donut": "ドーナツ",
+                        "ethiopian": "エチオピア料理",
                         "european": "ヨーロッパ料理",
                         "filipino": "フィリピン料理",
                         "fine_dining": "高級料理店",
@@ -1287,6 +1303,7 @@
                         "diagonal": "斜め",
                         "double": "二つが平行",
                         "single": "二つが同一直線上",
+                        "tilted": "傾斜",
                         "triple": "三つが平行"
                     }
                 },
@@ -1758,7 +1775,20 @@
                     "label": "旗名"
                 },
                 "flag/type": {
-                    "label": "掲揚ポールの種類"
+                    "label": "掲揚ポールの種類",
+                    "options": {
+                        "advertising": "広告",
+                        "athletic": "スポーツチーム",
+                        "cultural": "文化的",
+                        "governmental": "政府関連",
+                        "indigenous": "先住民",
+                        "military": "軍旗",
+                        "municipal": "市区町村旗",
+                        "national": "国旗",
+                        "organisation": "非営利団体",
+                        "regional": "州旗・県旗",
+                        "religious": "宗教"
+                    }
                 },
                 "flag/wikidata": {
                     "label": "旗(Wikidata)"
@@ -3063,7 +3093,6 @@
                             "title": "屋上"
                         },
                         "sheds": {
-                            "description": "個人用の車両格納庫。",
                             "title": "小屋"
                         },
                         "shoulder": {
@@ -3384,6 +3413,7 @@
                         "water_cannon": "水鉄砲",
                         "water_channel": "水路",
                         "water_seesaw": "シーソー型水路",
+                        "water_stream": "水流",
                         "water_wheel": "水車",
                         "wobble_bridge": "揺れる橋",
                         "zipwire": "ジップライン"
@@ -3474,6 +3504,7 @@
                 "railway/signal/position": {
                     "label": "配置",
                     "options": {
+                        "bridge": "頭上（跨線信号台に取り付けられている）",
                         "in_track": "軌道内",
                         "left": "左",
                         "overhead": "頭上（架線に取り付けられている）",
@@ -4034,6 +4065,29 @@
                         "right": "右側"
                     }
                 },
+                "sidewalk": {
+                    "label": "歩道",
+                    "options": {
+                        "no": {
+                            "description": "歩道がない",
+                            "title": "なし"
+                        },
+                        "separate": {
+                            "description": "歩道は別個にマッピングされている",
+                            "title": "別個にマッピングされている"
+                        },
+                        "yes": {
+                            "description": "歩道がある",
+                            "title": "あり"
+                        }
+                    },
+                    "placeholder": "あり, なし, 別個にマッピングされている",
+                    "terms": "歩道,歩行者専用道路,歩行者スペース,舗道,人道,遊歩道,プロムナード,路側帯",
+                    "types": {
+                        "sidewalk:left": "左側",
+                        "sidewalk:right": "右側"
+                    }
+                },
                 "siren/purpose": {
                     "label": "利用目的"
                 },
@@ -4515,6 +4569,18 @@
                 "tee": {
                     "label": "ティーの色/種類"
                 },
+                "tee_disc_golf": {
+                    "label": "ティーの色",
+                    "options": {
+                        "blue": "青",
+                        "gold": "金",
+                        "green": "緑",
+                        "purple": "紫",
+                        "red": "赤",
+                        "white": "白"
+                    },
+                    "placeholder": "青, 白, 赤…"
+                },
                 "telecom": {
                     "label": "種類",
                     "options": {
@@ -4975,6 +5041,7 @@
                 "wheelchair": {
                     "label": "車椅子の利用可否",
                     "options": {
+                        "designated": "指定",
                         "limited": "一部可",
                         "no": "不可",
                         "yes": "可"
@@ -5060,6 +5127,10 @@
                 "advertising/poster_box": {
                     "name": "広告(ポスター掲示ボックス)",
                     "terms": "広告(ポスター掲示ボックス),ポスター掲示ボックス,掲示板,広告,宣伝,ロリポップ,ショーショー,ポスター,広場,歩道"
+                },
+                "advertising/sign": {
+                    "name": "広告看板",
+                    "terms": "広告看板,看板,掲示板"
                 },
                 "advertising/totem": {
                     "name": "広告(トーテム)",
@@ -5402,9 +5473,6 @@
                     "name": "裁判所",
                     "terms": "裁判所,法廷,法律,司法"
                 },
-                "amenity/coworking_space": {
-                    "name": "コワーキングスペース"
-                },
                 "amenity/crematorium": {
                     "name": "火葬場",
                     "terms": "火葬場,葬儀"
@@ -5697,6 +5765,10 @@
                 "amenity/karaoke_box": {
                     "name": "カラオケボックス",
                     "terms": "カラオケボックス,カラオケ"
+                },
+                "amenity/kitchen": {
+                    "name": "共同キッチン",
+                    "terms": "共同キッチン,共有キッチン,公共キッチン,コミュニティキッチン,キッチン,厨房,台所"
                 },
                 "amenity/kneipp_water_cure": {
                     "name": "クナイプ療法施設",
@@ -6356,6 +6428,9 @@
                 "amenity/weighbridge": {
                     "name": "トラックスケール",
                     "terms": "トラックスケール,車両計量台"
+                },
+                "animal/horse_walker": {
+                    "name": "馬用の運動器具"
                 },
                 "area": {
                     "name": "エリア",
@@ -7915,7 +7990,8 @@
                     "terms": "記念碑,石碑,石仏,像,歴史,銅像,彫刻,公園"
                 },
                 "historic/memorial/blue_plaque-GB-IE": {
-                    "name": "ブルー・プラーク"
+                    "name": "ブルー・プラーク",
+                    "terms": "ブルー・プラーク,ブループラーク,史跡案内板,銘板,看板,記念碑"
                 },
                 "historic/memorial/plaque": {
                     "name": "銘板",
@@ -8427,6 +8503,9 @@
                     "name": "ハンマー投擲場",
                     "terms": "投擲場,投てき場,陸上競技場"
                 },
+                "leisure/pitch/athletics/high_jump": {
+                    "name": "高跳びエリア"
+                },
                 "leisure/pitch/athletics/javelin_throw": {
                     "name": "槍投擲場",
                     "terms": "投擲場,投てき場,陸上競技場"
@@ -8466,6 +8545,9 @@
                 "leisure/pitch/beachvolleyball": {
                     "name": "ビーチバレーコート",
                     "terms": "ビーチバレーコート,スポーツ,運動,競技,砂浜"
+                },
+                "leisure/pitch/biathlon": {
+                    "name": "バイアスロン競技場"
                 },
                 "leisure/pitch/boules": {
                     "name": "ブールスポーツ",
@@ -8580,7 +8662,7 @@
                     "terms": "バレーボールコート,スポーツ"
                 },
                 "leisure/playground": {
-                    "name": "児童公園",
+                    "name": "遊び場",
                     "terms": "児童公園,遊び場,児童遊園,公園,遊具,子供,子ども,児童,キッズ"
                 },
                 "leisure/playground/indoor": {
@@ -9947,10 +10029,6 @@
                 "power/plant/source/hydro": {
                     "name": "水力発電所",
                     "terms": "水力発電所,水力,発電,発電所,電力"
-                },
-                "power/plant/source/method/photovoltaic": {
-                    "name": "太陽光発電所",
-                    "terms": "太陽光発電所,メガソーラー"
                 },
                 "power/plant/source/nuclear": {
                     "name": "原子力発電所",

@@ -13,13 +13,13 @@ jobs:
     if: ${{github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success'}}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           node-version-file: '.nvmrc'
       - run: npm clean-install
 
       - name: Get pull request number
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         id: pull-request-number
         with:
           result-encoding: string
@@ -46,7 +46,7 @@ jobs:
             const file = directory.files.find(d => d.path === 'pr_number');
             const content = await file.buffer();
             return content.toString();
-      - uses: dawidd6/action-download-artifact@09b07ec687d10771279a426c79925ee415c12906 # v17
+      - uses: dawidd6/action-download-artifact@b6e2e70617bc3265edd6dab6c906732b2f1ae151 # v21
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           workflow: build-preview.yml
@@ -61,7 +61,7 @@ jobs:
         run: ./node_modules/.bin/netlify deploy --no-build --dir=. --alias=pr-${{steps.pull-request-number.outputs.result}}
 
       - name: Add comment to pull request
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             const pullRequestNumber = parseInt(${{steps.pull-request-number.outputs.result}}, 10);
@@ -87,7 +87,7 @@ jobs:
             }
 
       - name: Clean up artifact
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           result-encoding: string
           script: |

@@ -116,6 +116,34 @@
         "tags": {},
         "matchScore": 0.1
     },
+    "playground": {
+        "icon": "maki-playground",
+        "fields": [
+            "playground",
+            "playground/theme",
+            "min_age",
+            "max_age",
+            "wheelchair",
+            "blind",
+            "height"
+        ],
+        "moreFields": [
+            "access_simple",
+            "colour",
+            "manufacturer",
+            "material",
+            "ref"
+        ],
+        "geometry": [
+            "point",
+            "vertex",
+            "line",
+            "area"
+        ],
+        "tags": {
+            "playground": "*"
+        }
+    },
     "office": {
         "icon": "maki-suitcase",
         "fields": [
@@ -605,35 +633,6 @@
             "power",
             "operator"
         ],
-        "searchable": false
-    },
-    "playground": {
-        "icon": "maki-playground",
-        "fields": [
-            "playground",
-            "playground/theme",
-            "min_age",
-            "max_age",
-            "wheelchair",
-            "blind",
-            "height"
-        ],
-        "moreFields": [
-            "access_simple",
-            "colour",
-            "manufacturer",
-            "material",
-            "ref"
-        ],
-        "geometry": [
-            "point",
-            "vertex",
-            "line",
-            "area"
-        ],
-        "tags": {
-            "playground": "*"
-        },
         "searchable": false
     },
     "place": {
@@ -3595,7 +3594,7 @@
         }
     },
     "shop/wigs": {
-        "icon": "maki-shop",
+        "icon": "roentgen-wig_on_stand",
         "geometry": [
             "point",
             "area"
@@ -3940,7 +3939,8 @@
     "shop/tattoo": {
         "icon": "temaki-tattoo_machine",
         "fields": [
-            "{shop}"
+            "{shop}",
+            "piercing"
         ],
         "moreFields": [
             "{shop}",
@@ -4125,7 +4125,7 @@
         }
     },
     "shop/second_hand": {
-        "icon": "maki-shop",
+        "icon": "fas-hand-holding-hand",
         "fields": [
             "{shop}",
             "second_hand"
@@ -4326,6 +4326,23 @@
             "shop": "pottery"
         }
     },
+    "shop/piercing": {
+        "tags": {
+            "shop": "piercing"
+        },
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "icon": "roentgen-circle_empty",
+        "fields": [
+            "{shop}"
+        ],
+        "moreFields": [
+            "{shop}",
+            "min_age"
+        ]
+    },
     "shop/photo": {
         "icon": "fas-camera-retro",
         "geometry": [
@@ -4478,7 +4495,7 @@
         }
     },
     "shop/outpost": {
-        "icon": "maki-shop",
+        "icon": "fas-box-open",
         "geometry": [
             "point",
             "area"
@@ -4537,7 +4554,7 @@
         "tags": {
             "shop": "nuts"
         },
-        "icon": "maki-shop",
+        "icon": "roentgen-hazelnut_with_leaves",
         "geometry": [
             "point",
             "area"
@@ -7228,7 +7245,8 @@
             "vertex"
         ],
         "fields": [
-            "direction_vertex"
+            "direction_vertex",
+            "ref"
         ],
         "tags": {
             "railway": "derail"
@@ -8990,7 +9008,7 @@
             "value": "coal"
         }
     },
-    "power/plant/source/method/photovoltaic": {
+    "power/plant/source/solar/photovoltaic": {
         "icon": "fas-solar-panel",
         "fields": [
             "name",
@@ -9282,7 +9300,7 @@
         }
     },
     "playground/tunnel_tube": {
-        "icon": "maki-playground",
+        "icon": "maki-tunnel",
         "geometry": [
             "point",
             "line",
@@ -10581,7 +10599,7 @@
         }
     },
     "office/guide": {
-        "icon": "maki-suitcase",
+        "icon": "temaki-briefcase_info",
         "geometry": [
             "point",
             "area"
@@ -10798,7 +10816,7 @@
         }
     },
     "office/coworking": {
-        "icon": "maki-suitcase",
+        "icon": "fas-users",
         "fields": [
             "{office}",
             "{@templates/internet_access}"
@@ -11715,7 +11733,7 @@
         }
     },
     "natural/geyser": {
-        "icon": "maki-water",
+        "icon": "temaki-geyser_from_ground",
         "fields": [
             "name",
             "geyser/height",
@@ -11867,6 +11885,21 @@
         ],
         "tags": {
             "natural": "bare_rock"
+        }
+    },
+    "natural/arete": {
+        "icon": "temaki-mountain_range",
+        "geometry": [
+            "line"
+        ],
+        "fields": [
+            "{natural}"
+        ],
+        "moreFields": [
+            "{natural}"
+        ],
+        "tags": {
+            "natural": "arete"
         }
     },
     "natural/arch": {
@@ -12502,7 +12535,7 @@
         "fields": [
             "name",
             "bunker_type",
-            "building_area_yes"
+            "building_area"
         ],
         "moreFields": [
             "gnis/feature_id-US"
@@ -12512,10 +12545,6 @@
             "area"
         ],
         "tags": {
-            "military": "bunker"
-        },
-        "addTags": {
-            "building": "bunker",
             "military": "bunker"
         }
     },
@@ -12852,7 +12881,7 @@
         }
     },
     "man_made/tailings_pond": {
-        "icon": "maki-water",
+        "icon": "roentgen-water_from_pipe",
         "fields": [
             "name",
             "resource",
@@ -14717,6 +14746,7 @@
             "brand",
             "charge_fee",
             "fee",
+            "min_age",
             "operator"
         ],
         "geometry": [
@@ -15024,7 +15054,7 @@
             "name",
             "sport",
             "access_simple",
-            "surface",
+            "surface_sport_pitch",
             "lit",
             "ref"
         ],
@@ -15505,6 +15535,7 @@
             "{@templates/internet_access}",
             "{@templates/poi}",
             "air_conditioning",
+            "min_age",
             "smoking"
         ],
         "geometry": [
@@ -15611,6 +15642,7 @@
         "fields": [
             "name",
             "operator",
+            "sport/sport_bowling",
             "address",
             "building_area_yes",
             "opening_hours"
@@ -17296,7 +17328,7 @@
         }
     },
     "leisure/fitness_station/sit-up": {
-        "icon": "maki-pitch",
+        "icon": "roentgen-sit_up",
         "geometry": [
             "point",
             "area"
@@ -19345,7 +19377,9 @@
             "{highway/motorway_link}"
         ],
         "moreFields": [
-            "{highway/motorway_link}"
+            "{highway/motorway_link}",
+            "cycleway",
+            "sidewalk"
         ],
         "geometry": [
             "line"
@@ -19367,7 +19401,9 @@
             "{highway/motorway_link-US-CA}"
         ],
         "moreFields": [
-            "{highway/motorway_link-US-CA}"
+            "{highway/motorway_link-US-CA}",
+            "cycleway",
+            "sidewalk"
         ],
         "geometry": [
             "line"
@@ -19401,6 +19437,8 @@
             "bridge/name",
             "charge_toll",
             "covered_no",
+            "cycleway",
+            "sidewalk",
             "hazard_highway",
             "incline",
             "junction_line",
@@ -19726,6 +19764,7 @@
             "bridge/ref",
             "covered_no",
             "sidewalk",
+            "cycleway",
             "flood_prone",
             "hazard_highway",
             "incline",
@@ -20309,7 +20348,7 @@
         "tags": {
             "highway": "mini_roundabout"
         },
-        "fields": [
+        "moreFields": [
             "direction_clock"
         ]
     },
@@ -24843,7 +24882,7 @@
         "matchScore": 0.5
     },
     "building/service": {
-        "icon": "maki-building",
+        "icon": "roentgen-building_door",
         "geometry": [
             "area"
         ],
@@ -25655,6 +25694,24 @@
         "matchScore": 0.5,
         "searchable": false
     },
+    "building/glasshouse": {
+        "icon": "maki-garden-centre",
+        "geometry": [
+            "area"
+        ],
+        "fields": [
+            "{building/greenhouse}"
+        ],
+        "moreFields": [
+            "{building/greenhouse}"
+        ],
+        "tags": {
+            "building": "glasshouse"
+        },
+        "matchScore": 0.5,
+        "name": "{building/greenhouse}",
+        "searchable": false
+    },
     "building/entrance": {
         "icon": "maki-entrance-alt1",
         "geometry": [
@@ -26039,7 +26096,7 @@
         }
     },
     "barrier/log": {
-        "icon": "maki-roadblock",
+        "icon": "roentgen-log_lying",
         "fields": [
             "access"
         ],
@@ -28182,7 +28239,7 @@
         "icon": "maki-place-of-worship",
         "fields": [
             "name",
-            "religion",
+            "religion_place_of_worship",
             "denomination",
             "address",
             "building_area_yes",
@@ -28458,7 +28515,7 @@
         }
     },
     "amenity/motorcycle_parking": {
-        "icon": "fas-motorcycle",
+        "icon": "temaki-motorcycle_parked",
         "fields": [
             "capacity_parking",
             "operator",
@@ -28778,6 +28835,21 @@
         "tags": {
             "amenity": "kneipp_water_cure"
         }
+    },
+    "amenity/kitchen": {
+        "icon": "fas-kitchen-set",
+        "geometry": [
+            "point",
+            "vertex",
+            "area"
+        ],
+        "tags": {
+            "amenity": "kitchen"
+        },
+        "fields": [
+            "name",
+            "access_simple"
+        ]
     },
     "amenity/karaoke_box": {
         "icon": "maki-karaoke",
@@ -30563,17 +30635,12 @@
         "searchable": false
     },
     "amenity/coworking_space": {
-        "icon": "maki-commercial",
+        "icon": "fas-users",
         "fields": [
-            "name",
-            "address",
-            "building_area_yes",
-            "opening_hours",
-            "{@templates/internet_access}"
+            "{office/coworking}"
         ],
         "moreFields": [
-            "{@templates/internet_access}",
-            "ref/FR/siret-FR"
+            "{office/coworking}"
         ],
         "geometry": [
             "point",
@@ -30582,6 +30649,7 @@
         "tags": {
             "amenity": "coworking_space"
         },
+        "name": "{office/coworking}",
         "searchable": false
     },
     "amenity/college": {
@@ -31089,7 +31157,7 @@
         }
     },
     "amenity/vending_machine/bottle_return": {
-        "icon": "temaki-vending_machine",
+        "icon": "roentgen-vending_bottle",
         "fields": [
             "vending",
             "operator"
@@ -32002,7 +32070,7 @@
         }
     },
     "amenity/restaurant/hotpot": {
-        "icon": "maki-restaurant-noodle",
+        "icon": "temaki-hotpot",
         "geometry": [
             "point",
             "area"
@@ -34720,6 +34788,27 @@
         ],
         "tags": {
             "advertising": "totem"
+        }
+    },
+    "advertising/sign": {
+        "icon": "fas-sign-hanging",
+        "fields": [
+            "{advertising}",
+            "support",
+            "location"
+        ],
+        "moreFields": [
+            "{advertising}",
+            "direction"
+        ],
+        "geometry": [
+            "point",
+            "vertex",
+            "line",
+            "area"
+        ],
+        "tags": {
+            "advertising": "sign"
         }
     },
     "advertising/poster_box": {
