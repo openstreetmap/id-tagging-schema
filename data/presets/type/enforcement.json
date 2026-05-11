@@ -9,5 +9,76 @@
     "tags": {
         "type": "enforcement"
     },
-    "name": "Enforcement"
+    "name": "Enforcement",
+    "relation": {
+        "reference": "enforcement",
+        "allowDuplicateMembers": false,
+        "role_labels": {
+            "device": "Device",
+            "force": "Force",
+            "from": "From",
+            "to": "To",
+            "section": "Setcion"
+        },
+        "members": [
+            {
+                "role": "device",
+                "matchTags": [
+                    {
+                        "highway": "speed_camera"
+                    },
+                    {
+                        "man_made": "surveillance"
+                    },
+                    {
+                        "amenity ": "weighbridge"
+                    }
+                ]
+            },
+            {
+                "role": "force",
+                "matchTags": [
+                    {
+                        "highway": "speed_camera"
+                    },
+                    {
+                        "man_made": "surveillance"
+                    },
+                    {
+                        "amenity ": "weighbridge"
+                    }
+                ]
+            },
+            {
+                "role": "from",
+                "geometry": [
+                    "vertex",
+                    "line"
+                ],
+                "matchTags": [
+                    {
+                        "highway": "*"
+                    }
+                ]
+            },
+            {
+                "role": "to",
+                "geometry": [
+                    "vertex",
+                    "line"
+                ],
+                "matchTags": [
+                    {
+                        "highway": "*"
+                    }
+                ]
+            },
+            {
+                "role": "section",
+                "geometry": [
+                    "line"
+                ]
+            }
+        ]
+    }
 }

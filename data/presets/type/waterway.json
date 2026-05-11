@@ -15,5 +15,52 @@
     "tags": {
         "type": "waterway"
     },
-    "name": "Waterway"
+    "name": "Waterway",
+    "relation": {
+        "reference": "waterway",
+        "allowDuplicateMembers": false,
+        "role_labels": {
+            "": "",
+            "main_stream": "Main Stream",
+            "spring": "Spring"
+        },
+        "members": [
+            {
+                "role": "",
+                "matchTags": [
+                    {
+                        "waterway": "*"
+                    }
+                ],
+                "geometry": [
+                    "line"
+                ]
+            },
+            {
+                "role": "main_stream",
+                "matchTags": [
+                    {
+                        "waterway": "*"
+                    }
+                ],
+                "geometry": [
+                    "line"
+                ]
+            },
+            {
+                "role": "spring",
+                "matchTags": [
+                    {
+                        "natural": "spring"
+                    },
+                    {
+                        "natural": "hot_spring"
+                    }
+                ],
+                "geometry": [
+                    "point"
+                ]
+            }
+        ]
+    }
 }

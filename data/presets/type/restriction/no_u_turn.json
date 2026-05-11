@@ -14,5 +14,50 @@
         "key": "restriction",
         "value": "no_u_turn"
     },
-    "name": "No U-Turn"
+    "name": "No U-Turn",
+    "relation": {
+        "reference": "restriction",
+        "allowDuplicateMembers": true,
+        "role_labels": {
+            "from": "From",
+            "to": "To",
+            "via": "Via"
+        },
+        "members": [
+            {
+                "role": "from",
+                "geometry": [
+                    "line"
+                ],
+                "matchTags": [
+                    {
+                        "highway": "*"
+                    }
+                ],
+                "min": 1,
+                "max": 1
+            },
+            {
+                "role": "via",
+                "geometry": [
+                    "vertex",
+                    "line"
+                ],
+                "min": 1
+            },
+            {
+                "role": "to",
+                "geometry": [
+                    "line"
+                ],
+                "matchTags": [
+                    {
+                        "highway": "*"
+                    }
+                ],
+                "min": 1,
+                "max": 1
+            }
+        ]
+    }
 }
