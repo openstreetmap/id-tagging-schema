@@ -24,6 +24,100 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 -->
 
 
+# 6.17.0
+##### 2026-May-11
+
+#### New Presets
+
+* Add day care preset ([#1862], thanks [@tiptoptom])
+* Add Barracks Building as a value for building type dropdown ([#2171], thanks [@ak8abhinay])
+* Add hidden preset for `shop=ice_cream` referencing `amenity=ice_cream` ([#2195], thanks [@matkoniecz])
+* Add preset for `leisure=summer_camp` ([#2000], thanks [@ashree2118])
+* Add `disused:aeroway=*` preset ([#2139], thanks [@Geo-2695])
+* Add preset for `man_made=geoglyph` ([#2062], thanks [@ak8abhinay])
+
+#### New and Changed Fields
+
+* Remove `maxweight` field from `man_made=bridge` ([#2009], thanks [@matkoniecz])
+* Add support for `building=supermarket` in value dropdown ([#2187], thanks [@matkoniecz])
+* Add "pickleball" as value to Sports field ([#2196], thanks [@tyrasd])
+* Add indoor_seating field as yes/no boolean, add seating fields to bakeries as moreFields ([#1984], thanks [@codeinabox])
+* Add `food=` field to pub and bar presets ([#2078], thanks [@ak8abhinay])
+
+#### Changed Presets
+
+ * Add "log" as term for fallen tree `barrier=log` preset ([#2240], thanks [@RudyTheDev])
+ * Reorder known field values to match TagInfo usage count instead of alphabetical ([#2235], thanks [@RudyTheDev])
+ * Add Barracks Building as a value for building type dropdown ([#2171], thanks [@ak8abhinay])
+ * Increase matchScore for non-link `highway=` with `_link` variant ([#2200], thanks [@matkoniecz])
+ * Try more unique abstract icon for enforcement relations ([#2146], thanks [@matkoniecz])
+ * Keep terms in order ([#2205], thanks [@matkoniecz])
+ * Add `parking:` tags for `highway=trunk` ([#2163], thanks [@matkoniecz])
+ * Add "food truck" as `amenity=fast_food` term ([#2143], thanks [@matkoniecz])
+ * `shop=travel_agency` - add "tours" terms ([#2155], thanks [@matkoniecz])
+ * Move `volcano:status` field to radio type ([#2175], thanks [@matkoniecz])
+ * Add `trolley_wire` for `highway=trunk` and `trunk_link` ([#2170], thanks [@matkoniecz])
+ * Userproof `monitoring_station` (add "weather station" search term) ([#2179], thanks [@matkoniecz])
+ * Move diplomatic field to radio type ([#2174], thanks [@matkoniecz])
+ * Use `temaki-sail` icon for sailmaker ([#2168], thanks [@matkoniecz])
+ * Make "retirement home" find something, some extra terms ([#2157], thanks [@matkoniecz])
+ * Add more denominations as search terms to Christian place_of_worship ([#2172], thanks [@michaelblyons])
+ * Add terms to `archaeological_site` preset ([#2158], thanks [@danieldegroot2])
+ * Add `operator` moreField to POIs ([#2114], thanks [@gy-mate])
+ * Add `tunnel_tube` icon also to `playground=` dropdown ([#2167], thanks [@matkoniecz])
+ * Tweak order of options lists for various fields ([#2239])
+
+#### Bug Fixes
+
+* Stop to suggest or to automatically add `surface=wood` to `bridge=boardwalk` ([#2229], thanks [@matkoniecz])
+* Add missing colon in tag key of `plant:output` multiCombo field ([#2186], thanks [@tyrasd])
+
+#### Documentation and Other Changes
+
+* Discourage reporting issues by commenting in closed PRs ([#2217], thanks [@matkoniecz])
+* Note @matkoniecz's grant was completed and further contributions are done as an unpaid volunteer again ([#2210], thanks [@matkoniecz])
+* Deemphasize proposal process in guidelines ([#2151], thanks [@matkoniecz])
+
+[#1862]: https://github.com/openstreetmap/id-tagging-schema/pull/1862
+[#1984]: https://github.com/openstreetmap/id-tagging-schema/pull/1984
+[#2000]: https://github.com/openstreetmap/id-tagging-schema/pull/2000
+[#2009]: https://github.com/openstreetmap/id-tagging-schema/pull/2009
+[#2062]: https://github.com/openstreetmap/id-tagging-schema/pull/2062
+[#2078]: https://github.com/openstreetmap/id-tagging-schema/pull/2078
+[#2114]: https://github.com/openstreetmap/id-tagging-schema/pull/2114
+[#2139]: https://github.com/openstreetmap/id-tagging-schema/pull/2139
+[#2143]: https://github.com/openstreetmap/id-tagging-schema/pull/2143
+[#2146]: https://github.com/openstreetmap/id-tagging-schema/pull/2146
+[#2151]: https://github.com/openstreetmap/id-tagging-schema/pull/2151
+[#2155]: https://github.com/openstreetmap/id-tagging-schema/pull/2155
+[#2157]: https://github.com/openstreetmap/id-tagging-schema/pull/2157
+[#2158]: https://github.com/openstreetmap/id-tagging-schema/pull/2158
+[#2163]: https://github.com/openstreetmap/id-tagging-schema/pull/2163
+[#2167]: https://github.com/openstreetmap/id-tagging-schema/pull/2167
+[#2168]: https://github.com/openstreetmap/id-tagging-schema/pull/2168
+[#2170]: https://github.com/openstreetmap/id-tagging-schema/pull/2170
+[#2171]: https://github.com/openstreetmap/id-tagging-schema/pull/2171
+[#2171]: https://github.com/openstreetmap/id-tagging-schema/pull/2171
+[#2172]: https://github.com/openstreetmap/id-tagging-schema/pull/2172
+[#2174]: https://github.com/openstreetmap/id-tagging-schema/pull/2174
+[#2175]: https://github.com/openstreetmap/id-tagging-schema/pull/2175
+[#2179]: https://github.com/openstreetmap/id-tagging-schema/pull/2179
+[#2186]: https://github.com/openstreetmap/id-tagging-schema/pull/2186
+[#2187]: https://github.com/openstreetmap/id-tagging-schema/pull/2187
+[#2195]: https://github.com/openstreetmap/id-tagging-schema/pull/2195
+[#2196]: https://github.com/openstreetmap/id-tagging-schema/pull/2196
+[#2200]: https://github.com/openstreetmap/id-tagging-schema/pull/2200
+[#2205]: https://github.com/openstreetmap/id-tagging-schema/pull/2205
+[#2210]: https://github.com/openstreetmap/id-tagging-schema/pull/2210
+[#2217]: https://github.com/openstreetmap/id-tagging-schema/pull/2217
+[#2229]: https://github.com/openstreetmap/id-tagging-schema/pull/2229
+[#2235]: https://github.com/openstreetmap/id-tagging-schema/pull/2235
+[#2239]: https://github.com/openstreetmap/id-tagging-schema/pull/2239
+[#2240]: https://github.com/openstreetmap/id-tagging-schema/pull/2240
+[@Geo-2695]: https://github.com/Geo-2695
+[@RudyTheDev]: https://github.com/RudyTheDev
+[@michaelblyons]: https://github.com/@michaelblyons
+
 
 # 6.16.0
 ##### 2026-Apr-08

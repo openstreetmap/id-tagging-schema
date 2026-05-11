@@ -1424,7 +1424,7 @@
         "matchScore": 0.1
     },
     "type/enforcement": {
-        "icon": "iD-relation",
+        "icon": "fas-hand",
         "fields": [
             "enforcement"
         ],
@@ -2201,7 +2201,7 @@
         }
     },
     "type/enforcement/maxspeed": {
-        "icon": "iD-relation",
+        "icon": "fas-hand",
         "fields": [
             "maxspeed"
         ],
@@ -6233,7 +6233,9 @@
         ],
         "moreFields": [
             "{shop}",
-            "fhrs/id-GB"
+            "fhrs/id-GB",
+            "indoor_seating",
+            "outdoor_seating"
         ]
     },
     "shop/bag": {
@@ -6406,6 +6408,25 @@
         "tags": {
             "shop": "vacant"
         }
+    },
+    "shop/ice_cream": {
+        "icon": "fas-ice-cream",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "fields": [
+            "{amenity/ice_cream}"
+        ],
+        "moreFields": [
+            "{amenity/ice_cream}"
+        ],
+        "tags": {
+            "shop": "ice_cream"
+        },
+        "matchScore": 0.5,
+        "name": "{amenity/ice_cream}",
+        "searchable": false
     },
     "shop/hobby": {
         "icon": "fas-dragon",
@@ -13389,6 +13410,43 @@
             "man_made": "goods_conveyor"
         }
     },
+    "man_made/geoglyph_multilinestring": {
+        "name": "{man_made/geoglyph}",
+        "geometry": [
+            "relation"
+        ],
+        "tags": {
+            "man_made": "geoglyph",
+            "type": "multilinestring"
+        },
+        "reference": {
+            "key": "man_made",
+            "value": "geoglyph"
+        }
+    },
+    "man_made/geoglyph": {
+        "fields": [
+            "name",
+            "description"
+        ],
+        "moreFields": [
+            "{man_made}",
+            "wikipedia",
+            "wikidata"
+        ],
+        "geometry": [
+            "point",
+            "line",
+            "area"
+        ],
+        "tags": {
+            "man_made": "geoglyph"
+        },
+        "reference": {
+            "key": "man_made",
+            "value": "geoglyph"
+        }
+    },
     "man_made/gasometer": {
         "icon": "temaki-storage_tank",
         "fields": [
@@ -13790,7 +13848,6 @@
             "name",
             "bridge_combo",
             "layer",
-            "maxweight",
             "ref_bridge_number"
         ],
         "moreFields": [
@@ -14828,6 +14885,19 @@
         "tags": {
             "leisure": "swimming_area"
         }
+    },
+    "leisure/summer_camp": {
+        "icon": "fas-campground",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "leisure": "summer_camp"
+        },
+        "fields": [
+            "name"
+        ]
     },
     "leisure/stadium": {
         "icon": "maki-pitch",
@@ -19379,7 +19449,8 @@
         "moreFields": [
             "{highway/motorway_link}",
             "cycleway",
-            "sidewalk"
+            "sidewalk",
+            "trolley_wire"
         ],
         "geometry": [
             "line"
@@ -19452,8 +19523,11 @@
             "maxwidth",
             "minspeed",
             "not/name",
+            "parking/side/parking",
+            "parking/side/orientation",
             "smoothness",
             "toll",
+            "trolley_wire",
             "width"
         ],
         "geometry": [
@@ -19461,7 +19535,8 @@
         ],
         "tags": {
             "highway": "trunk"
-        }
+        },
+        "matchScore": 1.01
     },
     "highway/trailhead": {
         "icon": "fas-hiking",
@@ -19601,7 +19676,8 @@
         ],
         "tags": {
             "highway": "tertiary"
-        }
+        },
+        "matchScore": 1.01
     },
     "highway/street_lamp": {
         "icon": "temaki-street_lamp_arm",
@@ -19819,7 +19895,8 @@
         ],
         "tags": {
             "highway": "secondary"
-        }
+        },
+        "matchScore": 1.01
     },
     "highway/road": {
         "icon": "iD-other-line",
@@ -20091,7 +20168,8 @@
         ],
         "tags": {
             "highway": "primary"
-        }
+        },
+        "matchScore": 1.01
     },
     "highway/pedestrian_line": {
         "icon": "temaki-pedestrian",
@@ -20338,7 +20416,8 @@
         ],
         "tags": {
             "highway": "motorway"
-        }
+        },
+        "matchScore": 1.01
     },
     "highway/mini_roundabout": {
         "icon": "maki-circle-stroked",
@@ -21073,11 +21152,6 @@
         "tags": {
             "highway": "path",
             "bridge": "boardwalk"
-        },
-        "addTags": {
-            "highway": "path",
-            "bridge": "boardwalk",
-            "surface": "wood"
         },
         "reference": {
             "key": "bridge",
@@ -23629,6 +23703,23 @@
         "matchScore": 0.05,
         "searchable": false
     },
+    "disused/aeroway": {
+        "icon": "maki-airport",
+        "fields": [
+            "disused/aeroway"
+        ],
+        "geometry": [
+            "point",
+            "vertex",
+            "line",
+            "area"
+        ],
+        "tags": {
+            "disused:aeroway": "*"
+        },
+        "matchScore": 0.05,
+        "searchable": false
+    },
     "disc_golf/tee": {
         "icon": "temaki-disc_golf_basket",
         "fields": [
@@ -23890,7 +23981,7 @@
         }
     },
     "craft/sailmaker": {
-        "icon": "temaki-tools",
+        "icon": "temaki-sail",
         "geometry": [
             "point",
             "area"
@@ -27792,6 +27883,7 @@
             "delivery",
             "fhrs/id-GB",
             "highchair",
+            "indoor_seating",
             "microbrewery",
             "min_age",
             "operator",
@@ -28028,6 +28120,7 @@
             "air_conditioning",
             "cuisine",
             "diet_multi",
+            "food",
             "microbrewery",
             "fhrs/id-GB",
             "min_age",
@@ -28752,6 +28845,7 @@
             "baby_feeding",
             "books",
             "changing_table",
+            "indoor_seating",
             "polling_station",
             "toilets"
         ],
@@ -28918,6 +29012,7 @@
             "delivery",
             "diet_multi",
             "drive_through",
+            "indoor_seating",
             "opening_hours/drive_through",
             "organic",
             "stroller",
@@ -29175,6 +29270,7 @@
             "{@templates/poi}",
             "capacity",
             "diet_multi",
+            "indoor_seating",
             "outdoor_seating",
             "smoking",
             "website/menu"
@@ -29235,6 +29331,7 @@
             "changing_table",
             "delivery",
             "highchair",
+            "indoor_seating",
             "organic",
             "outdoor_seating",
             "smoking",
@@ -29941,6 +30038,7 @@
             "diet_multi",
             "drive_through",
             "highchair",
+            "indoor_seating",
             "min_age",
             "organic",
             "reservation",
@@ -30237,6 +30335,8 @@
             "{@templates/internet_access}",
             "{@templates/poi}",
             "air_conditioning",
+            "food",
+            "indoor_seating",
             "microbrewery",
             "operator",
             "outdoor_seating",
@@ -31597,6 +31697,27 @@
         "reference": {
             "key": "social_facility",
             "value": "food_bank"
+        }
+    },
+    "amenity/social_facility/day_care": {
+        "icon": "maki-wheelchair",
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "fields": [
+            "{amenity/social_facility}"
+        ],
+        "moreFields": [
+            "{amenity/social_facility}"
+        ],
+        "tags": {
+            "amenity": "social_facility",
+            "social_facility": "day_care"
+        },
+        "reference": {
+            "key": "social_facility",
+            "value": "day_care"
         }
     },
     "amenity/social_facility/assisted_living": {
@@ -34905,6 +35026,7 @@
             "level",
             "not/name",
             "opening_hours",
+            "operator",
             "payment_multi",
             "ref/vatin",
             "ref/FR/siret-FR",
