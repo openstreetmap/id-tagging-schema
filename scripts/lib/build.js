@@ -1039,12 +1039,23 @@ function validatePresetFields(presets, fields) {
       }
     }
   }
-
+  
   for (let fieldID in fields) {
+    let field = fields[fieldID];
+
     if (!usedFieldIDs.has(fieldID) &&
-        fields[fieldID].universal !== true &&
-        (fields[fieldID].usage || 'preset') === 'preset') {
-      process.stdout.write('Field "' + fields[fieldID].label + '" (' + fieldID + ') isn\'t used by any presets.\n');
+        field.universal !== true &&
+        (field.usage || 'preset') === 'preset') {
+      process.stdout.write('Field "' + field.label + '" (' + fieldID + ') isn\'t used by any presets.\n');
+    }
+
+    if (field.fallbackKey) {
+      let fallbackField = fields[field.fallbackKey];
+      if (fallbackField?.fallbackKey) {
+        process.stderr.write('Field "' + field.fallbackKey + '" is used as a fallback by field "' + fieldID + '" but itself has a fallbackKey "' + fallbackField.fallbackKey + '". Recursive fallback fields are not allowed.\n');
+        process.stdout.write('\n');
+        process.exit(1);
+      }
     }
   }
 }
