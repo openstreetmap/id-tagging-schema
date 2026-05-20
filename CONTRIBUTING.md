@@ -88,7 +88,7 @@ The following `npm` commands are used in this repository:
 * `npm test` – validates the source data
 * `npm run build` – validates the source data and builds some files which are used during development (e.g. strings to be supplied to the translation platform)
 * `npm run dist` – validates the source data and compiles output files for iD
-* `npm run translations` – fetches translations from transifex and compiles the translations files for iD
+* `npm run dist -- translations` – fetches translations from transifex and compiles the translations files for iD
 
 ### Code Style
 
