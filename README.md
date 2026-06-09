@@ -3,7 +3,7 @@
 # iD Tagging Schema
 
 This is the directory of OpenStreetMap tagging data used by the [iD editor](https://github.com/openstreetmap/iD).
-It includes presets, fields, deprecations, and more. This records various information about OpenStreetMap tagging, in a format for easy use by editors. 
+It includes presets, fields, deprecations, and more. This records various information about OpenStreetMap tagging, in a machine-readable format for easy use by editor software. 
 
 ## Participate!
 
