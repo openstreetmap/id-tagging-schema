@@ -19,11 +19,10 @@ jobs:
           node-version-file: '.nvmrc'
       # install and build development version of id-tagging-schema
       - run: npm clean-install
-      - run: npm run translations
+      - run: npm run dist -- translations
         env:
           transifex_password: ${{secrets.TX_TOKEN}}
         if: env.transifex_password != null
-      - run: npm run dist
       # install and build development version of iD using freshest version of presets and ELI
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
@@ -39,16 +38,12 @@ jobs:
         working-directory: './iD'
       - run: npm run all
         working-directory: './iD'
-      - run: npm run translations
+      - run: npm run dist -- translations
         working-directory: './iD'
         env:
           transifex_password: ${{secrets.TX_TOKEN}}
         if: env.transifex_password != null
       - run: mkdir iD/dist/id-tagging-schema && mv dist iD/dist/id-tagging-schema/dist
-      - run: npm run dist
-        working-directory: './iD'
-        env:
-          ID_PRESETS_CDN_URL: './id-tagging-schema/'
       # deploy to netlify
       - name: Deploy to Netlify
         env:
