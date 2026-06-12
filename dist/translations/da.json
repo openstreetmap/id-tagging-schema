@@ -197,7 +197,8 @@
                     "options": {
                         "both": "Begge",
                         "entry": "Indgang",
-                        "exit": "Udgang"
+                        "exit": "Udgang",
+                        "no": "Ingen af delene"
                     }
                 },
                 "aerialway/bubble": {
@@ -219,12 +220,7 @@
                     "placeholder": "2, 4, 8..."
                 },
                 "aerialway/summer/access": {
-                    "label": "Adgang (sommer)",
-                    "options": {
-                        "both": "Begge",
-                        "entry": "Indgang",
-                        "exit": "Udgang"
-                    }
+                    "label": "Adgang (sommer)"
                 },
                 "aeroway": {
                     "label": "Type"
@@ -924,7 +920,18 @@
                     "placeholder": "http://example.com/"
                 },
                 "content": {
-                    "label": "Indhold"
+                    "label": "Indhold",
+                    "options": {
+                        "crop": "Afgrøde",
+                        "fuel": "Brændstof",
+                        "gas": "Gas",
+                        "hot_water": "Varmt vand",
+                        "oil": "Olie",
+                        "sewage": "Spildevand",
+                        "slurry": "Gylle",
+                        "water": "Vand",
+                        "wine": "Vin"
+                    }
                 },
                 "conveying": {
                     "label": "Bevægelsesretning",
@@ -3293,8 +3300,7 @@
                         "no": "Nej",
                         "only": "Kun",
                         "yes": "Ja"
-                    },
-                    "placeholder": "Ja, Nej, Kun"
+                    }
                 },
                 "segregated": {
                     "label": "Adskillelse mellem cyklister og fodgængere"
@@ -3316,7 +3322,7 @@
                         "drive-through": "Drive-thru",
                         "driveway": "Indkørsel",
                         "emergency_access": "Adgang til nødsituationer",
-                        "parking_aisle": "Vej mellem parkeringspladser"
+                        "parking_aisle": "Vej mellem parkeringsbåse"
                     }
                 },
                 "service/bicycle": {
@@ -3720,8 +3726,7 @@
                         "no": "Nej",
                         "only": "Kun tag med",
                         "yes": "Ja"
-                    },
-                    "placeholder": "Ja, nej, kun tag med..."
+                    }
                 },
                 "target": {
                     "label": "Mål"
@@ -4460,7 +4465,7 @@
                 },
                 "amenity/community_centre/parish_hall": {
                     "name": "Sognegård",
-                    "terms": "sognegård,medborgerhus,forsamlingshus,aktivitetshus,kulturhus,kulturcenter,multihus,borgerhus,menighedshus,loge"
+                    "terms": "sognegård,medborgerhus,forsamlingshus,aktivitetshus,kulturhus,kulturcenter,multihus,borgerhus,menighedshus,loge,missionshus"
                 },
                 "amenity/community_centre/village_hall": {
                     "name": "Forsamlingshus",
@@ -4795,7 +4800,7 @@
                 },
                 "amenity/parking_space/disabled": {
                     "name": "Handicapparkeringsbås",
-                    "terms": "handicap,rullestol,tilgængelig,kørestol"
+                    "terms": "handicapparkeringsbås,invalideparkering,rullestol,tilgængelig,kørestol"
                 },
                 "amenity/payment_centre": {
                     "name": "Betalingscenter"
@@ -4885,7 +4890,7 @@
                 },
                 "amenity/public_bath": {
                     "name": "Offentligt bad",
-                    "terms": "offentligt bad"
+                    "terms": "offentligt bad,havnebad,badeanlæg,badeanstalt,badehus,varm kilde,havbad,søbad,swimmingpool,svømmepøl,bassin,kurbad"
                 },
                 "amenity/public_bookcase": {
                     "name": "Bogbytteskab",
@@ -4996,6 +5001,10 @@
                 "amenity/shelter": {
                     "name": "Ly",
                     "terms": "ly,shelter,bivuak,hytte,læ,læskur,skur,halvtag,lejr"
+                },
+                "amenity/shelter/field_shelter": {
+                    "name": "Marklæskur",
+                    "terms": "marklæskur,læskur,lade,ly,hesteshelter,kvægshelter"
                 },
                 "amenity/shelter/gazebo": {
                     "name": "Lysthus",
@@ -6335,6 +6344,10 @@
                     "name": "Vigepligtsmarkering",
                     "terms": "vigepligtsmarkering,vigepligtstavle,hajtænder,advarselsskilt,stopskilt,vigepligt,ubetinget vigepligt"
                 },
+                "highway/hitchhiking": {
+                    "name": "Skiltet sted for blaffere",
+                    "terms": "skiltet sted for blaffere,blaffere,samkørsel,blaffersted,blafferspot"
+                },
                 "highway/ladder": {
                     "name": "Stige"
                 },
@@ -6451,8 +6464,8 @@
                     "terms": "ambulancevej,udrykningsvej,brandvej,redningsvej"
                 },
                 "highway/service/parking_aisle": {
-                    "name": "Vej mellem parkeringspladser",
-                    "terms": "parkeringsvej"
+                    "name": "Vej mellem parkeringsbåse",
+                    "terms": "vej mellem parkeringsbåse,parkeringsvej,adgangsvej,indkørsel"
                 },
                 "highway/service_area": {
                     "name": "Serviceområde med fast belægning"
@@ -6840,6 +6853,10 @@
                 "leisure/bandstand": {
                     "name": "Orkesterpavillon",
                     "terms": "pavillon,musik,band,orkester,koncert"
+                },
+                "leisure/bathing_place": {
+                    "name": "Badested",
+                    "terms": "badested,badestrand,badepunkt,søstrand,strand,svømme,badevand,sandstrand,nudiststrand"
                 },
                 "leisure/beach_resort": {
                     "name": "Strandresort",
@@ -8018,7 +8035,7 @@
                 },
                 "place/hamlet": {
                     "name": "Mindre beboet område",
-                    "terms": "mindre beboet område"
+                    "terms": "mindre beboet område,bebyggelse,ejendom,beboelse"
                 },
                 "place/island": {
                     "name": "Ø",
@@ -8029,7 +8046,7 @@
                 },
                 "place/isolated_dwelling": {
                     "name": "Lille beboet område (1-2 hustande)",
-                    "terms": "lille beboet område (1-2 hustande)"
+                    "terms": "lille beboet område (1-2 hustande),bebyggelse,beboelse,ejendom"
                 },
                 "place/locality": {
                     "name": "Lokalitet",
@@ -8966,7 +8983,7 @@
                 },
                 "shop/storage_rental": {
                     "name": "Lagerhotel",
-                    "terms": "lagerhotel,opbevaringshotel,depot,opmagasinering"
+                    "terms": "lagerhotel,opbevaringshotel,depot,opmagasinering,box,container,lager,rum"
                 },
                 "shop/supermarket": {
                     "name": "Supermarked",
@@ -9167,7 +9184,7 @@
                 },
                 "tourism/information/guidepost": {
                     "name": "Vejviser",
-                    "terms": "vejviser,rutemarkering,guidepost,skilt,pæl,rutemarkør,markør,afmærkning"
+                    "terms": "vejviser,rutemarkering,guidepost,skilt,pæl,rutemarkør,markør,afmærkning,pegeskilt"
                 },
                 "tourism/information/map": {
                     "name": "Kort",

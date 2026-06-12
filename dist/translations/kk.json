@@ -80,7 +80,7 @@
                         },
                         "permissive": {
                             "description": "Иесі тыйым салмағанша рұқсат етіледі",
-                            "title": "Мүмкін"
+                            "title": "Рұқсат етілген"
                         },
                         "permit": {
                             "description": "Жарамды рұқсаттама немесе лицензия болғанда ғана рұқсат",
@@ -88,7 +88,7 @@
                         },
                         "private": {
                             "description": "Тек иесінің жеке рұқсатымен ғана",
-                            "title": "Жекеше "
+                            "title": "Жекеменшік"
                         },
                         "unknown": {
                             "description": "Рұқсаттылық шарттары белгісіз немесе бейанық",
@@ -116,9 +116,9 @@
                     "options": {
                         "customers": "Тек клиенттерге",
                         "no": "Ешқайсы",
-                        "permissive": "Мүмкін",
+                        "permissive": "Рұқсат етілген",
                         "permit": "Тек рұқсат бойынша",
-                        "private": "Жекеше",
+                        "private": "Жекеменшік",
                         "unknown": "Белгісіз",
                         "yes": "Көпшілікке қолжетімді"
                     }
@@ -143,7 +143,7 @@
                     }
                 },
                 "address": {
-                    "label": "Мекенжай",
+                    "label": "Мекенжайы",
                     "labels": {
                         "housenumber": "Үй нөмірі"
                     },
@@ -200,7 +200,8 @@
                     "options": {
                         "both": "Екеуі де",
                         "entry": "Кіреберіс",
-                        "exit": "Шығу"
+                        "exit": "Шығу",
+                        "no": "Ешбірі"
                     }
                 },
                 "aerialway/bubble": {
@@ -222,12 +223,7 @@
                     "placeholder": "2, 4, 8..."
                 },
                 "aerialway/summer/access": {
-                    "label": "Рұқсаттылық (жазда)",
-                    "options": {
-                        "both": "Екеуі де",
-                        "entry": "Кіреберіс",
-                        "exit": "Шығу"
-                    }
+                    "label": "Рұқсаттылық (жазда)"
                 },
                 "aeroway": {
                     "label": "Түрі"
@@ -439,6 +435,9 @@
                 "bath/open_air": {
                     "label": "Таза ауада"
                 },
+                "bath/sand_bath-JP": {
+                    "label": "Құм ваннасы"
+                },
                 "bath/type": {
                     "label": "Қолданылуы",
                     "options": {
@@ -587,6 +586,7 @@
                         "allotment_house": "Саяжай үйі",
                         "apartments": "Көп пәтерлі үй",
                         "barn": "Қамба ",
+                        "barracks": "Казарма",
                         "boathouse": "Эллинг",
                         "bungalow": "Бунгало",
                         "bunker": "Бункер",
@@ -641,7 +641,7 @@
                         "synagogue": "Синагога ғимараты",
                         "temple": "Храм ғимараты",
                         "terrace": "Жапсарлас үйлер қатары",
-                        "train_station": "Теміржол вокзалы/станциясы ғимараты",
+                        "train_station": "Теміржол вокзалы/бекеті ғимараты",
                         "transportation": "Көлік терминалының ғимараты/вокзал",
                         "university": "Университет, институт ғимараты",
                         "warehouse": "Қойма",
@@ -666,7 +666,7 @@
                     "placeholder": "2, 4, 6..."
                 },
                 "building/material": {
-                    "label": "Материалы"
+                    "label": "Материал"
                 },
                 "building/part": {
                     "label": "Ғимараттың бөлігі"
@@ -802,7 +802,18 @@
                     "placeholder": "ЖЖЖЖ-АА-КК"
                 },
                 "circumference": {
+                    "label": "Жуандығы (Кеуде биіктігінде)",
                     "placeholder": "1 м, 20 см, 30 дюйм…"
+                },
+                "climbing/grade/french": {
+                    "placeholder": "5c"
+                },
+                "climbing/grade/uiaa": {
+                    "label": "Класс (UIAA)"
+                },
+                "climbing/grade/yds_class": {
+                    "label": "Класс (YDS)",
+                    "placeholder": "5.10a"
                 },
                 "clothes": {
                     "label": "Киім",
@@ -868,16 +879,39 @@
                     "label": "Түрі"
                 },
                 "consulate": {
-                    "label": "Түрі"
+                    "label": "Түрі",
+                    "options": {
+                        "consulate_general": "Бас консулдық",
+                        "honorary_consul": "Құрметті консул",
+                        "yes": "Консулдық"
+                    }
                 },
                 "contact/facebook": {
                     "label": "Facebook-тағы аты немесе URL"
                 },
                 "contact/instagram": {
-                    "label": "Instagram-дағы аты немесе URL"
+                    "label": "Instagram-дағы аты немесе URL",
+                    "placeholder": "https://www.instagram.com/openstreetmap/"
                 },
                 "contact/webcam": {
-                    "label": "Камераның URL-адресі"
+                    "label": "Камераның URL-адресі",
+                    "placeholder": "http://example.com/"
+                },
+                "content": {
+                    "label": "Ішіндегісі",
+                    "options": {
+                        "crop": "Егін",
+                        "fuel": "Жанармай",
+                        "gas": "Газ",
+                        "hot_water": "Ыссы су",
+                        "oil": "Мұнай",
+                        "salt": "Тұз",
+                        "sewage": "Ағын сулар",
+                        "silage": "Силос",
+                        "slurry": "Сұйық көң",
+                        "water": "Су",
+                        "wine": "Шарап"
+                    }
                 },
                 "conveying": {
                     "options": {
@@ -937,11 +971,15 @@
                         "handicraft": "Қолөнер",
                         "jeweller": "Зергер",
                         "joiner": "Ағаш ұстасы",
+                        "oil_mill": "Мұнай ұңғымасы",
                         "painter": "Әктеуші",
                         "photographer": "Фотограф",
+                        "photographic_laboratory": "Фотозертхана",
                         "plasterer": "Сылақшы",
+                        "plumber": "Сантехник-слесарь",
                         "rigger": "Такелажшы",
                         "roofer": "Шатыршы",
+                        "sailmaker": "Желкен жөндеу",
                         "sawmill": "Ағаш кесетін жер",
                         "sculptor": "Мүсінші",
                         "stonemason": "Тас қалаушы",
@@ -988,13 +1026,28 @@
                         "wheat": "Бидай"
                     }
                 },
+                "crossing": {
+                    "options": {
+                        "traffic_signals": "Реттелмелі өткел"
+                    }
+                },
                 "crossing/barrier": {
                     "options": {
                         "no": "Жоқ",
                         "yes": "Иә"
                     }
                 },
+                "crossing/island": {
+                    "label": "Қауіпсіздік аралшығы"
+                },
+                "crossing/markings": {
+                    "options": {
+                        "yes": "Бар",
+                        "zebra:double": "Қос «зебра»"
+                    }
+                },
                 "crossing_raised": {
+                    "label": "Көтеріліңкі",
                     "options": {
                         "table": "Иә",
                         "undefined": "Жоқ"
@@ -1016,6 +1069,7 @@
                         "bistro": "Бистро",
                         "brazilian": "Бразилиялық",
                         "breakfast": "Таңғы ас",
+                        "british": "Британдық",
                         "brunch": "Кешіктірілген таңғы ас",
                         "bubble_tea": "Бабл-ти",
                         "burger": "Бургерлер",
@@ -1024,6 +1078,7 @@
                         "chicken": "Тауық",
                         "chinese": "Қытай",
                         "coffee_shop": "Кофехана",
+                        "crepe": "Жұқа құймақшалар",
                         "curry": "Карри",
                         "dessert": "Десерттер",
                         "diner": "Дәмхана",
@@ -1044,6 +1099,7 @@
                         "grill": "Бар мен Гриль",
                         "hawaiian": "Гавайлық ",
                         "hot_dog": "Хотдог",
+                        "hotpot": "Хого",
                         "ice_cream": "Балмұздақ",
                         "indian": "Үндістандық",
                         "indonesian": "Индонезиялық",
@@ -1051,14 +1107,24 @@
                         "japanese": "Жапондық",
                         "juice": "Шырындар",
                         "kebab": "Кәуап",
+                        "korean": "Кореялық",
+                        "lebanese": "Ливандық",
+                        "malaysian": "Малазиялық",
+                        "mediterranean": "Жерорталық",
+                        "mexican": "Мексикандық",
+                        "middle_eastern": "Таяу Шығыс",
+                        "moroccan": "Мароккандық",
                         "noodle": "Кеспе",
                         "oriental": "Шығыс тағамдары",
                         "pancake": "Панкейк",
                         "pasta": "Паста",
                         "pastry": "Піскен нан өнімі",
                         "persian": "Парсы",
+                        "peruvian": "Перуандық",
                         "pizza": "Pizza",
-                        "ramen": "Ramen",
+                        "polish": "Поляктық",
+                        "portuguese": "Португалдық",
+                        "ramen": "Рамен",
                         "regional": "Жергілікті ",
                         "russian": "Орыс",
                         "salad": "Салаттар",
@@ -1068,20 +1134,32 @@
                         "shawarma": "Шауырма",
                         "soba": "Соба",
                         "soup": "Сорпа",
+                        "spanish": "Испандық",
                         "steak_house": "Стейктер",
                         "sushi": "Суши",
                         "tapas": "Тапас",
                         "tea": "Шай",
+                        "tex-mex": "Текс-мексикалық",
+                        "thai": "Тай",
                         "turkish": "Түрік",
                         "udon": "Удон",
-                        "vietnamese": "Вьетнамдық"
+                        "ukrainian": "Украиндық",
+                        "vietnamese": "Вьетнамдық",
+                        "western": "Батыс",
+                        "wings": "Тауық қанатшалары"
                     }
                 },
                 "currency_multi": {
                     "label": "Валюта түрлері"
                 },
+                "cutting": {
+                    "label": "Түрі",
+                    "placeholder": "Әдепкі"
+                },
                 "cycle_barrier": {
+                    "label": "Түрі",
                     "options": {
+                        "diagonal": "Диагональ",
                         "double": "Қос",
                         "single": "Жалаң",
                         "triple": "Үштік "
@@ -1089,9 +1167,13 @@
                 },
                 "cycle_barrier/installation": {
                     "options": {
+                        "fixed": "Фиксацияланған",
                         "openable": "Ашылатын",
                         "removable": "Алынатын"
                     }
+                },
+                "cycle_network": {
+                    "label": "Желі"
                 },
                 "cycleway": {
                     "label": "Веложолақтар",
@@ -1099,6 +1181,9 @@
                         "no": {
                             "description": "Веложолақ жоқ",
                             "title": "Жоқ"
+                        },
+                        "track": {
+                            "title": "Велосипед жолы"
                         }
                     },
                     "types": {
@@ -1130,6 +1215,7 @@
                     "options": {
                         "no": "Ешқайсы",
                         "realtime": "Нақты уақыт режимінде",
+                        "timetable": "Жүру кестесі",
                         "yes": "Бар"
                     }
                 },
@@ -1145,7 +1231,17 @@
                 "description": {
                     "label": "Сипаттамасы"
                 },
+                "design": {
+                    "label": "Конструкция"
+                },
+                "destination": {
+                    "label": "Белгіленген пункттер"
+                },
+                "destination_waterway": {
+                    "label": "Белгіленген пункт"
+                },
                 "devices": {
+                    "label": "Құрылғылар",
                     "placeholder": "1, 2, 3…"
                 },
                 "diameter": {
@@ -1154,18 +1250,23 @@
                     "terms": "диаметр"
                 },
                 "diameter_crown": {
-                    "placeholder": "4 м, 9', …"
+                    "label": "Бөрікбас диаметрі",
+                    "placeholder": "4 м, 9', …",
+                    "terms": "крона,диаметр,ағаш"
                 },
                 "diet_multi": {
+                    "label": "Диеталар",
                     "options": {
                         "gluten_free": "Глютенсіз диета",
                         "halal": "Адал(Халал)",
+                        "kosher": "Кошерлі тағам",
                         "lactose_free": "Лактозасыз диета",
                         "vegan": "Вегандық диета",
                         "vegetarian": "Вегетариандық диета"
                     }
                 },
                 "diplomatic": {
+                    "label": "Түрі",
                     "options": {
                         "consulate": "Консулдық",
                         "embassy": "Елшілік",
@@ -1174,6 +1275,10 @@
                 },
                 "diplomatic/services": {
                     "label": "Қызметтер"
+                },
+                "direction": {
+                    "label": "Бағыты (градусы сағат тілі бағытымен)",
+                    "placeholder": "45, 90, 180, 270"
                 },
                 "direction_cardinal-US-CA-NZ": {
                     "label": "Бағыты",
@@ -1198,7 +1303,7 @@
                     "label": "Әсер етілген бағыт",
                     "options": {
                         "backward": "Артқа",
-                        "both": "Екі / әр жаққа",
+                        "both": "Екі / бүкіл жаққа",
                         "forward": "Алға"
                     }
                 },
@@ -1232,7 +1337,8 @@
                 "dock": {
                     "label": "Түрі",
                     "options": {
-                        "drydock": "Құрғақ док"
+                        "drydock": "Құрғақ док",
+                        "floating": "Жүзбелі құрғақ док"
                     }
                 },
                 "dock/height": {
@@ -1259,6 +1365,9 @@
                 "door/height": {
                     "label": "Есіктің биіктігі (метр)"
                 },
+                "door/width": {
+                    "label": "Есік ені (метр)"
+                },
                 "door_type": {
                     "label": "Түрі"
                 },
@@ -1267,6 +1376,9 @@
                 },
                 "drinking_water": {
                     "label": "Ішуге жарамды"
+                },
+                "drinking_water_available": {
+                    "label": "Ауыз судың бары"
                 },
                 "drive_through": {
                     "label": "Көліктен түсірмей қызмет көрсетуге"
@@ -1313,6 +1425,7 @@
                 "embassy": {
                     "label": "Түрі",
                     "options": {
+                        "branch_embassy": "Елшілік бөлімшесі",
                         "delegation": "Делегация",
                         "high_commission": "Жоғары комиссар өкілдігі",
                         "interests_section": "Қызығушылықтар секциясы",
@@ -1343,7 +1456,7 @@
                         "garage": "Гараж қақпасы",
                         "home": "Жер үй немесе пәтер",
                         "main": "Басты",
-                        "secondary": "Қосымша",
+                        "secondary": "Қосалқы ",
                         "service": "Қызметтік",
                         "shop": "Дүкен кіреберісі",
                         "staircase": "Пәтер кіреберісі",
@@ -1361,9 +1474,13 @@
                     "placeholder": "+7 717 1234567"
                 },
                 "fee": {
-                    "label": "Ақылы"
+                    "label": "Ақылы ма"
+                },
+                "fence_type": {
+                    "label": "Түрі"
                 },
                 "fire_hydrant/position": {
+                    "label": "Позициясы",
                     "options": {
                         "green": "Газон",
                         "sidewalk": "Тротуар"
@@ -1373,7 +1490,14 @@
                     "label": "Пішіні",
                     "options": {
                         "pillar": "Жербетілік",
-                        "underground": "Жерасты"
+                        "underground": "Жерасты",
+                        "wall": "Қабырғада"
+                    }
+                },
+                "fire_mains": {
+                    "options": {
+                        "no": "Жоқ",
+                        "yes": "Түрі белгісіз"
                     }
                 },
                 "fire_service_inlet": {
@@ -1381,11 +1505,20 @@
                     "options": {
                         "pillar": "Жербетілік",
                         "underground": "Жерасты",
-                        "wall": "Қабырғалық "
+                        "wall": "Қабырғада"
+                    }
+                },
+                "fire_sprinkler": {
+                    "options": {
+                        "no": "Жоқ",
+                        "yes": "Түрі белгісіз"
                     }
                 },
                 "fishing": {
                     "label": "Балық аулау"
+                },
+                "fitness_station": {
+                    "label": "Жабдық түрі"
                 },
                 "fixme": {
                     "label": "Тексеріп түзету керек"
@@ -1399,55 +1532,254 @@
                 "flag/wikidata": {
                     "label": "Тудың Уикидерегі"
                 },
+                "flashing_lights": {
+                    "label": "Жыпылықтағыш сигнал",
+                    "options": {
+                        "always": {
+                            "title": "Әрдайым жыпылықтайды"
+                        },
+                        "no": "Жоқ",
+                        "yes": "Иә"
+                    }
+                },
+                "food": {
+                    "label": "Бұндай тамақ бар ма?"
+                },
+                "footrest": {
+                    "label": "Аяқ қоятын тіреуіш"
+                },
+                "ford": {
+                    "label": "Түрі",
+                    "placeholder": "Әдепкі"
+                },
                 "from": {
                     "label": "Осы жерден"
                 },
+                "fuel": {
+                    "label": "Жанармай"
+                },
+                "fuel/fuel_multi": {
+                    "label": "Жанармай түрлері",
+                    "options": {
+                        "e85": "E85 бензині",
+                        "h70": "Газ тәрізді сутек (700 bar)",
+                        "lng": "Сұйытылған табиғи газ (СТГ)",
+                        "lpg": "Сұйытылған мұнай газы (LPG)",
+                        "octane_100": "Бензин (октандық саны 100)",
+                        "octane_80": "Бензин (октандық саны 80)",
+                        "octane_85": "Бензин (октандық саны 85)",
+                        "octane_87": "Бензин (октандық саны 87)",
+                        "octane_88": "Бензин (октандық саны 88)",
+                        "octane_89": "Бензин (октандық саны 89)",
+                        "octane_90": "Бензин (октандық саны 90)",
+                        "octane_91": "Бензин (октандық саны 91)",
+                        "octane_92": "Бензин (октандық саны 92)",
+                        "octane_93": "Бензин (октандық саны 93)",
+                        "octane_95": "Бензин (октандық саны 95)",
+                        "octane_97": "Бензин (октандық саны 97)",
+                        "octane_98": "Бензин (октандық саны 98)",
+                        "propane": "Пропан"
+                    }
+                },
+                "gambling": {
+                    "label": "Ойындар"
+                },
+                "garden/type": {
+                    "label": "Бақша түрі"
+                },
+                "gender": {
+                    "label": "Жыныс",
+                    "options": {
+                        "female": "Әйел",
+                        "male": "Еркек",
+                        "unisex": "Унисекс"
+                    },
+                    "placeholder": "Белгісіз"
+                },
+                "generator/output/electricity": {
+                    "placeholder": "50 МВт, 100 МВт, 200 МВт ..."
+                },
                 "generator/source": {
-                    "label": "Дереккөзі"
+                    "label": "Көзі",
+                    "options": {
+                        "battery": "Батарея",
+                        "biogas": "Биогаз",
+                        "coal": "Көмір",
+                        "diesel": "Дизель",
+                        "gas": "Табиғи газ",
+                        "gasoline": "Бензин",
+                        "hydro": "Су энергиясы",
+                        "nuclear": "Атом энергиясы",
+                        "oil": "Мұнай",
+                        "wind": "Жел"
+                    }
+                },
+                "generator/type": {
+                    "label": "Түрі"
+                },
+                "genus": {
+                    "label": "Тегі",
+                    "placeholder": "Үйеңкі, шынар, емен..."
+                },
+                "government": {
+                    "label": "Түрі"
                 },
                 "grades": {
                     "label": "Сыныптар саны"
                 },
+                "grape_variety": {
+                    "label": "Жүзім сұрпы"
+                },
+                "guest_house": {
+                    "label": "Түрі"
+                },
+                "handicap": {
+                    "placeholder": "1-18"
+                },
                 "hashtags": {
                     "label": "Хэштегтер"
                 },
-                "healthcare": {
+                "hazard_boundary": {
                     "options": {
+                        "archery_range": "Жебелер",
+                        "hole": "Шұңқыр / Тесік",
+                        "minefield": "Миналы дала",
+                        "quicksand": "Былқылдақ құм"
+                    }
+                },
+                "hazard_highway": {
+                    "options": {
+                        "animal_crossing": "Жануарлардың шығу қаупі",
+                        "children": "Балалар",
+                        "ice": "Мұз"
+                    }
+                },
+                "healthcare": {
+                    "label": "Түрі",
+                    "options": {
+                        "alternative": "Баламалы медицина",
+                        "audiologist": "Отоларинголог",
+                        "birthing_centre": "Перзентхана",
+                        "blood_bank": "Қан банкі",
+                        "blood_donation": "Қан құю бекеті",
+                        "clinic": "Клиника",
+                        "community_health_worker": "Әлеуметтік медициналық қызметкер",
+                        "counselling": "Кеңес беру орталығы",
+                        "dentist": "Тіс дәрігері",
+                        "dialysis": "Диализ орталығы",
                         "doctor": "Дәрігер",
-                        "laboratory": "Медициналық зертхана"
+                        "hospice": "Хоспис",
+                        "hospital": "Аурухана",
+                        "laboratory": "Медициналық зертхана",
+                        "midwife": "Акушер әйел",
+                        "nurse": "Медбике",
+                        "occupational_therapist": "Реабилитолог",
+                        "optometrist": "Оптометрист",
+                        "pharmacy": "Дәріхана",
+                        "physiotherapist": "Физиотерапевт",
+                        "podiatrist": "Ортопед",
+                        "psychotherapist": "Психотерапевт",
+                        "rehabilitation": "Оңалту орталығы",
+                        "speech_therapist": "Логопед",
+                        "vaccination_centre": "Вакцинация орталығы"
                     }
                 },
                 "healthcare/speciality": {
                     "options": {
+                        "abortion": "Аборттар",
+                        "acupuncture": "Инемен емдеу",
+                        "allergology": "Аллергия мен астма",
+                        "anaesthetics": "Анестезиология",
+                        "angiology": "Ангиология",
+                        "biochemistry": "Биохимия",
+                        "biology": "Биология",
+                        "blood_check": "Қан талдауы",
+                        "cardiology": "Кардиология",
+                        "child_psychiatry": "Балалар мен жасөспірімдер психиатриясы",
+                        "chiropractic": "Хиропрактика",
+                        "clinical_pathology": "Клиникалық патология",
+                        "depth": "Тереңдік психологиясы",
                         "dermatology": "Дерматология",
                         "dermatovenereology": "Дерматовенерология",
                         "diabetology": "Диабетология",
+                        "general": "Жалпы практика",
                         "haematology": "Гематология",
                         "hepatology": "Гепатология",
+                        "homeopathy": "Гомеопатия",
+                        "naturopathy": "Натуропатия",
                         "neonatology": "Неонатология",
+                        "oncology": "Онкология",
+                        "osteopathy": "Остеопатия",
+                        "pathology": "Патология",
                         "rheumatology": "Ревматология",
-                        "stomatology": "Стоматология"
+                        "stomatology": "Стоматология",
+                        "urology": "Урология"
                     }
                 },
+                "heating": {
+                    "label": "Жылыту"
+                },
+                "height": {
+                    "label": "Биіктігі (метр)"
+                },
+                "height_building": {
+                    "label": "Ғимараттың биіктігі (метр)"
+                },
+                "highchair": {
+                    "label": "Бала орындығы"
+                },
+                "highspeed": {
+                    "label": "Жоғары жылдамдықты"
+                },
+                "highway": {
+                    "label": "Түрі"
+                },
                 "highway_cartpath": {
+                    "label": "Жолдың түрі",
                     "options": {
                         "service": "Қызметтік жол"
                     }
                 },
                 "historic": {
+                    "label": "Түрі",
                     "options": {
                         "boundary_stone": "Шекара бағанасы",
                         "building": "Тарихи ғимарат",
+                        "castle": "Қамал",
+                        "church": "Шіркеу",
                         "city_gate": "Қала қақпасы",
                         "citywalls": "Қала қабырғалары",
                         "fort": "Тарихи бекініс",
+                        "memorial": "Ескерткіш",
                         "milestone": "Жол белгі тасы",
                         "millstone": "Диірмен тасы",
                         "pillory": "Тарихи масқара бағаны",
+                        "railway": "Темір жол",
                         "tomb": "Мола"
                     }
                 },
+                "holding_position/type": {
+                    "label": "Түрі",
+                    "options": {
+                        "runway": "Ұшу алабы"
+                    }
+                },
+                "hoops": {
+                    "label": "Себеттер саны",
+                    "placeholder": "1, 2, 4…"
+                },
+                "horse_riding": {
+                    "label": "Атқа міну орталығы",
+                    "options": {
+                        "horse_riding": "Иә",
+                        "undefined": "Жоқ"
+                    }
+                },
+                "hot_water": {
+                    "label": "Ыссы су"
+                },
                 "house": {
+                    "label": "Үйдің түрі",
                     "options": {
                         "terrace": {
                             "title": "Таунхаустар қатары"
@@ -1457,46 +1789,223 @@
                         }
                     }
                 },
+                "image": {
+                    "label": "Сурет",
+                    "terms": "картина,фото,бейне,кескін,суреттеме"
+                },
+                "incline": {
+                    "label": "Көлбеулік"
+                },
+                "incline_steps": {
+                    "options": {
+                        "down": "Төмен қарай",
+                        "up": "Жоғары қарай"
+                    }
+                },
+                "indoor": {
+                    "label": "Іште"
+                },
+                "indoor_seating": {
+                    "label": "Іште отыратын орын"
+                },
+                "indoor_type": {
+                    "label": "Түрі"
+                },
+                "industrial": {
+                    "label": "Түрі"
+                },
+                "informal": {
+                    "label": "Бейресми"
+                },
+                "information": {
+                    "label": "Түрі"
+                },
+                "inscription": {
+                    "label": "Жазу"
+                },
+                "intermittent": {
+                    "label": "Суы тартылатын"
+                },
                 "internet_access": {
-                    "label": "Интернет байланыс"
+                    "label": "Интернет байланыс",
+                    "options": {
+                        "no": "Жоқ",
+                        "terminal": "Терминал",
+                        "wired": "Сымды",
+                        "wlan": "Wi-Fi",
+                        "yes": "Иә"
+                    }
                 },
                 "internet_access/fee": {
                     "options": {
-                        "customers": "Тек клиенттерге"
+                        "customers": "Тек клиенттерге",
+                        "no": "Тегін",
+                        "yes": "Ақылы"
                     }
                 },
                 "internet_access/ssid": {
                     "label": "Wifi желісінің атауы"
                 },
+                "irrigation_pivot": {
+                    "options": {
+                        "pivot": "Бар",
+                        "undefined": "Жоқ"
+                    }
+                },
+                "kerb": {
+                    "options": {
+                        "no": {
+                            "title": "Жоқ"
+                        },
+                        "raised": {
+                            "title": "Көтеріліңкі"
+                        },
+                        "yes": {
+                            "title": "Бар"
+                        }
+                    }
+                },
+                "kerb/height": {
+                    "label": "Биіктігі"
+                },
+                "kerb/kerb_barrier": {
+                    "label": "Түрі"
+                },
+                "kitchen": {
+                    "label": "Асүй"
+                },
+                "kneipp_water_cure_multi": {
+                    "options": {
+                        "arm": "Қол жуғыш",
+                        "face": "Бет жуғыш",
+                        "foot": "Аяқ жуғыш"
+                    }
+                },
+                "lamp_type": {
+                    "label": "Түрі"
+                },
+                "landuse": {
+                    "label": "Түрі"
+                },
                 "lanes": {
-                    "label": "Жолақ саны"
+                    "label": "Жолақ саны",
+                    "placeholder": "1, 2, 3…"
+                },
+                "language_multi": {
+                    "label": "Тілдер"
+                },
+                "layer": {
+                    "label": "Қабат"
+                },
+                "leaf_cycle": {
+                    "label": "Жапырақтың ауысуы",
+                    "options": {
+                        "deciduous": "Түспежапырақты",
+                        "evergreen": "Мәңгі жасыл",
+                        "mixed": "Аралас",
+                        "semi_deciduous": "Жартылай түспежапырақты",
+                        "semi_evergreen": "Жартылай мәңгі жасыл"
+                    }
+                },
+                "leaf_type": {
+                    "label": "Жапырақтарының түрі",
+                    "options": {
+                        "broadleaved": "Жалпақ жапырақты",
+                        "leafless": "Жапырақсыз",
+                        "mixed": "Аралас",
+                        "needleleaved": "Қылқан жапырақты"
+                    }
+                },
+                "leaf_type_singular": {
+                    "label": "Жапырақтарының түрі"
+                },
+                "leisure": {
+                    "label": "Түрі"
+                },
+                "length": {
+                    "label": "Ұзындығы (метр) "
+                },
+                "level": {
+                    "label": "Этаж (бірінші = 0)",
+                    "terms": "қабат,этаж"
+                },
+                "level_semi": {
+                    "label": "Этаж саны"
+                },
+                "liaison": {
+                    "label": "Түрі"
                 },
                 "lifeguard": {
+                    "label": "Түрі",
                     "options": {
                         "tower": "Құтқарушылар мұнарасы"
                     }
                 },
+                "lifeguard_check": {
+                    "label": "Құтқарушылар"
+                },
+                "lift_gate/type": {
+                    "label": "Түрі",
+                    "options": {
+                        "single": "Дара шлагбаум"
+                    }
+                },
+                "lit": {
+                    "label": "Жарық"
+                },
                 "loc_name": {
                     "label": "Жергілікті атауы"
                 },
+                "location": {
+                    "label": "Орналасқан орны"
+                },
                 "location_pool": {
                     "options": {
+                        "indoor": "Іште",
+                        "outdoor": "Сыртта",
                         "roof": "Төбеде"
                     }
+                },
+                "lockable": {
+                    "label": "Құлыптанатын"
+                },
+                "locked": {
+                    "label": "Құлыптаулы"
+                },
+                "man_made": {
+                    "label": "Түрі"
+                },
+                "manhole": {
+                    "label": "Түрі"
                 },
                 "manufacturer/wikidata": {
                     "label": "Өндіруші Уикидерегі"
                 },
                 "map_type": {
+                    "label": "Түрі",
                     "options": {
+                        "street": "Жол картасы",
                         "topo": "Топографиялық карта"
                     }
                 },
+                "mapillary": {
+                    "label": "Mapillary-дағы суреттің ID"
+                },
                 "marker": {
+                    "label": "Түрі",
                     "options": {
+                        "aerial": {
+                            "title": "Әуелік"
+                        },
                         "ground": {
                             "description": "Жерде жатқан жалпақ маркер.",
                             "title": "Жер"
+                        },
+                        "pedestal": {
+                            "title": "Тұғыр"
+                        },
+                        "post": {
+                            "title": "Пошта"
                         },
                         "stone": {
                             "title": "Тас"
@@ -1504,41 +2013,130 @@
                     }
                 },
                 "material": {
-                    "label": "Материалы",
+                    "label": "Материал",
                     "options": {
+                        "adobe": "Саман",
+                        "aluminium": "Алюминий",
+                        "brass": "Жез",
+                        "brick": "Кірпіш",
+                        "bronze": "Қола",
                         "concrete": "Бетон",
                         "dry_stone": "Құрғақ қалау ",
+                        "glass": "Әйнек",
+                        "granite": "Гранит",
+                        "iron": "Темір",
                         "limestone": "Әктас",
+                        "marble": "Мәрмәр",
+                        "metal": "Металл",
+                        "plastic": "Пластик",
                         "reinforced_concrete": "Темірбетон",
+                        "rock": "Тастақты жыныс",
+                        "sand": "Құм",
                         "sandstone": "Құм тас",
-                        "stone": "Тас"
+                        "soil": "Топырақ, жер",
+                        "steel": "Болат",
+                        "stone": "Тас",
+                        "wood": "Ағаш"
                     }
                 },
+                "max_age": {
+                    "label": "Максималды жас"
+                },
                 "maxspeed": {
-                    "label": "Жылдамдық шектеуі"
+                    "label": "Жылдамдық шектеуі",
+                    "placeholder": "40, 50, 60…"
                 },
                 "maxspeed/advisory": {
-                    "label": "Ұсынылатын жылдамдық"
+                    "label": "Ұсынылатын жылдамдық",
+                    "placeholder": "40, 50, 60..."
                 },
                 "maxspeed/hgv": {
-                    "label": "Жүк көліктері жылдамдығын шектеу"
+                    "label": "Жүк көліктері жылдамдығын шектеу",
+                    "placeholder": "40, 50, 60..."
                 },
                 "memorial": {
+                    "label": "Түрі",
                     "options": {
-                        "stone": "Тас"
+                        "blue_plaque": "Мемориалды тақта",
+                        "bust": "Бюст",
+                        "cross": "Айқыш (ескерткіш)",
+                        "ghost_bike": "Елес-велосипед",
+                        "obelisk": "Обелиск",
+                        "plaque": "Ескерткіш тақта",
+                        "sculpture": "Мүсін",
+                        "statue": "Ескерткіш",
+                        "stele": "Стела",
+                        "stone": "Тас",
+                        "war_memorial": "Соғыс ескерткіші"
                     }
                 },
                 "memorial/addr": {
                     "label": "Ең жақын ғимараттың мекенжайы"
                 },
+                "message": {
+                    "label": "Хабарлама"
+                },
+                "microbrewery": {
+                    "label": "Сыра қайнатушылық"
+                },
+                "military_service": {
+                    "options": {
+                        "air_force": "Әуе күштері",
+                        "army": "Әскер",
+                        "coast_guard": "Жағалаудағы күзет",
+                        "marines": "Теңіз флоты",
+                        "navy": "Флот"
+                    }
+                },
+                "min_age": {
+                    "label": "Минималды жас"
+                },
+                "min_height": {
+                    "label": "Еден биіктігі (метр)"
+                },
                 "minspeed": {
-                    "label": "Ең төменгі жылдамдықты шектеу"
+                    "label": "Ең төменгі жылдамдықты шектеу",
+                    "placeholder": "20, 30, 40..."
+                },
+                "mobile": {
+                    "label": "Мобильді телефон",
+                    "placeholder": "+7 717 1234567"
+                },
+                "model": {
+                    "label": "Модель"
                 },
                 "model/wikidata": {
                     "label": "Модель Уикидерегі"
                 },
                 "monitoring_multi": {
                     "label": "Қадағалау"
+                },
+                "mooring": {
+                    "options": {
+                        "guest": "Қонақтарға",
+                        "no": "Жоқ",
+                        "yes": "Иә"
+                    }
+                },
+                "mtb/scale": {
+                    "placeholder": "0, 1, 2, 3…"
+                },
+                "mtb/scale/imba": {
+                    "label": "IMBA бойынша күрделілігі",
+                    "options": {
+                        "0": "🟢 Оп-оңай (ақ дөңгелек)",
+                        "1": "🟢 Оңай (жасыл дөңгелек)",
+                        "2": "🟦 Орташа (көк шаршы)",
+                        "3": "◆ Қиын (қара ромб)",
+                        "4": "◆◆ Қып-қиын (екі қара ромб)"
+                    },
+                    "placeholder": "Оңай, орташа, қиын..."
+                },
+                "mtb/scale/uphill": {
+                    "placeholder": "0, 1, 2, 3…"
+                },
+                "museum": {
+                    "label": "Түрі"
                 },
                 "name": {
                     "label": "Атауы",
@@ -1547,17 +2145,70 @@
                 "nat_name": {
                     "label": "Ұлттық атауы"
                 },
+                "natural": {
+                    "label": "Табиғи объекттер"
+                },
+                "network": {
+                    "label": "Желі"
+                },
+                "network/type": {
+                    "label": "Желі түрі"
+                },
+                "network_bicycle": {
+                    "options": {
+                        "icn": "Халықаралық",
+                        "lcn": "Жергілікті",
+                        "ncn": "Ұлттық",
+                        "rcn": "Аймақтық"
+                    }
+                },
+                "network_foot": {
+                    "options": {
+                        "iwn": "Халықаралық",
+                        "lwn": "Жергілікті",
+                        "nwn": "Ұлттық",
+                        "rwn": "Аймақтық"
+                    }
+                },
+                "network_horse": {
+                    "options": {
+                        "ihn": "Халықаралық",
+                        "lhn": "Жергілікті",
+                        "nhn": "Ұлттық",
+                        "rhn": "Аймақтық"
+                    }
+                },
+                "network_road": {
+                    "label": "Желі"
+                },
                 "not/name": {
                     "label": "Қате атаулары"
                 },
                 "nudism": {
+                    "label": "Нудизм",
                     "options": {
                         "customary": "Кәдімгі"
                     }
                 },
                 "office": {
+                    "label": "Түрі",
                     "options": {
-                        "government": "Мемлекеттік мекеме"
+                        "architect": "Сәулет бюросы",
+                        "company": "Жеке компания",
+                        "construction_company": "Құрылыс компаниясының кеңсесі",
+                        "coworking": "Коворкинг",
+                        "engineer": "Инженерлік бюро",
+                        "estate_agent": "Жылжымайтын мүлік агенттігі",
+                        "foundation": "Қор",
+                        "government": "Мемлекеттік мекеме",
+                        "it": "IT-компания кеңсесі",
+                        "lawyer": "Заңгерлік қызметтер",
+                        "moving_company": "Көшуге көмекші компания",
+                        "newspaper": "Газет редакциясы",
+                        "notary": "Нотариус",
+                        "physician": "Дәрігер",
+                        "security": "Күзет кеңсесі",
+                        "therapist": "Терапевт кабинеті"
                     }
                 },
                 "official_name": {
@@ -1566,7 +2217,11 @@
                 "oneway": {
                     "label": "Біржақты қозғалыс",
                     "options": {
-                        "undefined": "Жоқ деген болжам"
+                        "alternating": "Жиі өзгереді",
+                        "no": "Жоқ",
+                        "reversible": "Өзгермелі",
+                        "undefined": "Жоқ деген болжам",
+                        "yes": "Иә"
                     },
                     "terms": "бір бағытты қозғалыс"
                 },
@@ -1575,18 +2230,25 @@
                 },
                 "oneway_yes": {
                     "options": {
-                        "undefined": "Иә деген болжам"
+                        "alternating": "Жиі өзгереді",
+                        "no": "Жоқ",
+                        "reversible": "Өзгермелі",
+                        "undefined": "Иә деген болжам",
+                        "yes": "Иә"
                     }
                 },
                 "opening_date": {
+                    "label": "Болжамды ашылу күні",
                     "placeholder": "ЖЖЖЖ-АА-КК"
                 },
                 "opening_hours": {
                     "label": "Жұмыс уақыты",
+                    "placeholder": "Белгісіз",
                     "terms": "жұмыс істейтін уақыты,сағат"
                 },
                 "opening_hours/drive_through": {
-                    "label": "Көліктен түсірмей қызмет көрсетудің жұмыс уақыты"
+                    "label": "Көліктен түсірмей қызмет көрсетудің жұмыс уақыты",
+                    "placeholder": "Әдеттегідей"
                 },
                 "operator": {
                     "label": "Оператор"
@@ -1604,6 +2266,9 @@
                 "outdoor_seating": {
                     "label": "Таза ауада отыратын орындар"
                 },
+                "panoramax": {
+                    "label": "Panoramax-тағы суреттің ID"
+                },
                 "par": {
                     "placeholder": "3, 4, 5..."
                 },
@@ -1615,6 +2280,7 @@
                     }
                 },
                 "parking": {
+                    "label": "Түрі",
                     "options": {
                         "multi-storey": {
                             "title": "Бірнеше қабатты"
@@ -1636,41 +2302,108 @@
                 },
                 "parking/side/orientation": {
                     "options": {
-                        "parallel": "Көшеге параллель"
+                        "diagonal": "Көшеге қиғаш (~45°)",
+                        "parallel": "Көшеге параллель",
+                        "perpendicular": "Көшеге перпендикуляр (~90°)"
+                    },
+                    "types": {
+                        "parking:left:orientation": "Сол жақ",
+                        "parking:right:orientation": "Оң жақ"
                     }
+                },
+                "parking/side/parking": {
+                    "options": {
+                        "half_on_kerb": "Жартылай тротуарда",
+                        "lane": "Жолақта",
+                        "no": "Жоқ",
+                        "on_kerb": "Тротуарда",
+                        "shoulder": "Жол жиегінде",
+                        "street_side": "Қалтасында"
+                    },
+                    "types": {
+                        "parking:left": "Сол жақ",
+                        "parking:right": "Оң жақ"
+                    }
+                },
+                "parking_entrance": {
+                    "label": "Түрі"
+                },
+                "parking_space": {
+                    "label": "Түрі"
                 },
                 "payment_multi": {
                     "label": "Төлеу тәсілдері",
                     "options": {
+                        "app": "Мобильдік қолданба",
+                        "apple_pay": "Apple Pay",
+                        "bancomat": "Банкомат",
+                        "cards": "Төлем картасы",
                         "cash": "Қолма-қол",
+                        "contactless": "Контактісіз төлем",
+                        "credit_cards": "Кредит картасы",
                         "cryptocurrencies": "Криптовалюта",
+                        "debit_cards": "Дебеттік карта",
+                        "electronic_purses": "Электрондық әмиян",
+                        "notes": "Банкноттар",
                         "telephone_cards": "Телефон карточкасы"
                     }
                 },
                 "phases": {
+                    "label": "Фазалар саны",
                     "placeholder": "1, 2, 3..."
                 },
                 "phone": {
                     "label": "Телефон",
                     "placeholder": "+000 0000 0000 0000"
                 },
+                "pipeline": {
+                    "label": "Түрі"
+                },
                 "piste/difficulty": {
                     "label": "Күрделілігі"
                 },
-                "piste/type": {
+                "piste/grooming_nordic": {
                     "options": {
-                        "skitour": "Шаңғы курорты"
+                        "scooter": "Қар кешкіш"
                     }
+                },
+                "piste/type": {
+                    "label": "Түрі",
+                    "options": {
+                        "downhill": "Таушаңғы трассасы",
+                        "playground": "Балаларды үйрету",
+                        "skitour": "Шаңғы курорты",
+                        "sled": "Шаналарға",
+                        "sleigh": "Жүк шаналарға",
+                        "snow_park": "Қар паркі"
+                    }
+                },
+                "place": {
+                    "label": "Түрі"
+                },
+                "plant/method": {
+                    "label": "Энергия алу тәсілі"
                 },
                 "plant/output": {
                     "options": {
-                        "electricity": "Электр қуаты"
+                        "cold_air": "Салқын ауа",
+                        "cold_water": "Салқын су",
+                        "compressed_air": "Сығылған ауа",
+                        "electricity": "Электр қуаты",
+                        "hot_air": "Ыстық ауа",
+                        "hot_water": "Ыссы су",
+                        "steam": "Бу",
+                        "vacuum": "Вакуум"
                     }
+                },
+                "plant/output/electricity": {
+                    "placeholder": "500 МВт, 1000 МВт, 2000 МВт ..."
                 },
                 "plant/source": {
                     "label": "Отын түрі/энергия көзі"
                 },
                 "playground": {
+                    "label": "Түрі",
                     "options": {
                         "bridge": "Көпірше"
                     }
@@ -1688,8 +2421,32 @@
                 "post": {
                     "label": "Жеткізу мекенжайы"
                 },
+                "post_box/type": {
+                    "label": "Түрі",
+                    "terms": "түрі,түрлері"
+                },
+                "power": {
+                    "label": "Түрі"
+                },
                 "preschool": {
                     "label": "Мектепке дейінгі мекеме"
+                },
+                "produce": {
+                    "label": "Өндіреді"
+                },
+                "product": {
+                    "label": "Өнімдер"
+                },
+                "public_bookcase/type": {
+                    "label": "Түрі"
+                },
+                "pump": {
+                    "options": {
+                        "yes": "Иә"
+                    }
+                },
+                "railway": {
+                    "label": "Түрі"
                 },
                 "railway/signal/direction": {
                     "label": "Әсер етілген бағыт",
@@ -1698,43 +2455,182 @@
                         "forward": "Алға"
                     }
                 },
+                "railway/signal_box": {
+                    "label": "Түрі"
+                },
+                "ramp": {
+                    "options": {
+                        "no": "Жоқ",
+                        "yes": "Иә"
+                    }
+                },
+                "real_fire-GB-IE": {
+                    "label": "Шын от"
+                },
+                "recycling_accepts": {
+                    "label": "Қабылдайды",
+                    "options": {
+                        "batteries": "Батареялар",
+                        "cans": "Алюминий құтысы",
+                        "cardboard": "Картон",
+                        "clothes": "Киім",
+                        "cooking_oil": "Азық май",
+                        "engine_oil": "Мотор майы",
+                        "paper": "Қағаз",
+                        "plastic": "Пластик",
+                        "scrap_metal": "Металл сынықтары"
+                    }
+                },
+                "recycling_type": {
+                    "label": "Түрі"
+                },
+                "ref/vatin": {
+                    "label": "ЖСН"
+                },
+                "ref_aeroway_gate": {
+                    "label": "Қақпа нөмірі"
+                },
+                "ref_disc_golf_hole": {
+                    "label": "Ойық нөмірі",
+                    "placeholder": "1-18"
+                },
+                "ref_golf_hole": {
+                    "placeholder": "1-18"
+                },
+                "ref_platform": {
+                    "label": "Платформа нөмірі"
+                },
                 "ref_road_number": {
                     "label": "Жол нөмірі"
+                },
+                "ref_room_number": {
+                    "label": "Бөлме нөмірі"
+                },
+                "ref_route": {
+                    "label": "Бағыт нөмірі"
+                },
+                "ref_runway": {
+                    "label": "Жолақ нөмірі",
+                    "placeholder": "мысалы 01L/19R"
                 },
                 "ref_stop_position": {
                     "label": "Аялдама нөмірі"
                 },
                 "ref_taxiway": {
-                    "label": "Рөлдеу жолының атауы"
+                    "label": "Рөлдеу жолының атауы",
+                    "placeholder": "мысалы А5"
                 },
                 "reg_name": {
                     "label": "Аймақтық атауы"
                 },
+                "relation": {
+                    "label": "Түрі"
+                },
                 "religion": {
                     "label": "Дін",
                     "options": {
+                        "bahai": "Бахаи",
+                        "benzhu": "Бенджу",
+                        "buddhist": "Буддизм",
+                        "caodaism": "Каодай",
                         "chinese_folk": "Дәстүрлі қытайлық наным",
                         "christian": "Христиан",
                         "confucian": "Конфуцишілдік ",
+                        "hindu": "Индуизм",
+                        "jain": "Джайнизм",
+                        "jewish": "Иудаизм",
+                        "multifaith": "Көпдіндік",
                         "muslim": "Ислам",
+                        "none": "Зайырлы",
+                        "pagan": "Пұтқа табынушылық",
                         "shinto": "Синтоизм",
-                        "vietnamese_folk": "Дәстүрлі вьетнамдық наным"
+                        "sikh": "Сикхизм",
+                        "spiritualist": "Спиритуализм",
+                        "taoist": "Таоизм",
+                        "tenrikyo": "Тэнрикё",
+                        "unitarian_universalist": "Унитариандық универсализм",
+                        "vietnamese_folk": "Дәстүрлі вьетнамдық наным",
+                        "voodoo": "Вудуизм"
                     },
                     "terms": "наным,сенім,діншілдік,илану"
                 },
                 "religion_place_of_worship": {
                     "label": "Дін"
                 },
+                "residential": {
+                    "label": "Түрі"
+                },
+                "resort": {
+                    "label": "Түрі"
+                },
                 "resource": {
                     "label": "Ресурстар",
                     "options": {
                         "clay": "Саз",
+                        "coal": "Көмір",
+                        "gold": "Алтын",
                         "gravel": "Қиыршықтас",
-                        "limestone": "Әктас"
+                        "limestone": "Әктас",
+                        "sand": "Құм"
                     }
+                },
+                "restriction": {
+                    "label": "Түрі"
+                },
+                "roller_coaster/track": {
+                    "label": "Түрі",
+                    "options": {
+                        "maintenance": {
+                            "title": "Техникалық қызмет"
+                        },
+                        "station": {
+                            "title": "Бекет"
+                        },
+                        "waiting": {
+                            "title": "Күту орны"
+                        }
+                    }
+                },
+                "roof/colour": {
+                    "label": "Шатырдың түсі"
                 },
                 "roof/height": {
                     "label": "Төбесінің биіктігі (метр)"
+                },
+                "roof/shape": {
+                    "label": "Шатырдың пішіні",
+                    "options": {
+                        "cone": "Конусты",
+                        "dome": "Күмбез",
+                        "flat": "Жалпақ",
+                        "gabled": "Екі жағы құламалы"
+                    }
+                },
+                "room": {
+                    "label": "Түрі"
+                },
+                "rooms": {
+                    "label": "Бөлмелер"
+                },
+                "route": {
+                    "label": "Түрі"
+                },
+                "route_master": {
+                    "label": "Түрі"
+                },
+                "royal_cypher-GB": {
+                    "options": {
+                        "no": "Жоқ"
+                    }
+                },
+                "ruins": {
+                    "label": "Түрі"
+                },
+                "salt": {
+                    "label": "Тұзды"
+                },
+                "sample_collection": {
+                    "label": "Мысалдар"
                 },
                 "screen": {
                     "placeholder": "1, 4, 8…"
@@ -1747,7 +2643,14 @@
                         "red": "Қызыл"
                     }
                 },
+                "seamark/beacon_lateral/system": {
+                    "label": "Жүйе",
+                    "options": {
+                        "other": "Басқа"
+                    }
+                },
                 "seamark/buoy_lateral/colour": {
+                    "label": "Түсі",
                     "options": {
                         "green": "Жасыл",
                         "green;red;green": "Жасыл-Қызыл-Жасыл",
@@ -1759,6 +2662,9 @@
                         "yellow": "Сары"
                     }
                 },
+                "seasonal": {
+                    "label": "Маусымдық па"
+                },
                 "seats": {
                     "placeholder": "2, 4, 6..."
                 },
@@ -1766,6 +2672,7 @@
                     "label": "Сатылымда пайдаланылған тауарлар"
                 },
                 "service": {
+                    "label": "Түрі",
                     "options": {
                         "alley": "Қалтарыс",
                         "drive-through": "Көліктен түсірмей қызмет көрсетуге арналған жол",
@@ -1773,8 +2680,23 @@
                         "parking_aisle": "Тұрақ қатарлары арасындағы"
                     }
                 },
+                "service_rail": {
+                    "label": " Қызметтік жол түрі"
+                },
+                "shelter_type": {
+                    "label": "Түрі"
+                },
+                "shop": {
+                    "label": "Түрі"
+                },
                 "short_name": {
                     "label": "Қысқаша атауы"
+                },
+                "siren/type": {
+                    "label": "Түрі"
+                },
+                "site": {
+                    "label": "Түрі"
                 },
                 "smoothness": {
                     "options": {
@@ -1782,12 +2704,21 @@
                     }
                 },
                 "social_facility": {
+                    "label": "Түрі",
                     "options": {
                         "ambulatory_care": "Амбулаторлық жәрдем"
                     }
                 },
+                "social_facility_for": {
+                    "options": {
+                        "child": "Балалар"
+                    }
+                },
                 "source": {
-                    "label": "Дереккөздер"
+                    "label": "Дереккөздер",
+                    "options": {
+                        "aerial imagery": "Аэрофототүсірілім"
+                    }
                 },
                 "source/population": {
                     "label": "Халық санағының дереккөзі"
@@ -1796,14 +2727,40 @@
                     "label": "Түрдің Уикидерегі"
                 },
                 "sport": {
+                    "label": "Спорт түрлері",
                     "options": {
+                        "billiards": "Бильярд",
+                        "equestrian": "Ат сайысы",
                         "motocross": "Мотокросс",
                         "motor": "Мотоспорт",
+                        "multi": "Спорттың басқа түрлері",
                         "speedway": "Спидвей"
                     }
                 },
+                "sport/sport_bowling": {
+                    "label": "Спорт түрлері"
+                },
+                "sport/sport_ice": {
+                    "label": "Спорт түрлері"
+                },
+                "sport/sport_pub": {
+                    "label": "Спорт түрлері"
+                },
+                "sport/sport_racing_motor": {
+                    "label": "Спорт түрлері"
+                },
+                "sport/sport_racing_nonmotor": {
+                    "label": "Спорт түрлері"
+                },
                 "start_date": {
                     "label": "Ашылған/Басталған уақыты"
+                },
+                "stile": {
+                    "label": "Түрі"
+                },
+                "street_cabinet": {
+                    "label": "Түрі",
+                    "terms": "түр,түрі,түрлері"
                 },
                 "structure": {
                     "label": "Құрылымы",
@@ -1813,23 +2770,29 @@
                         "embankment": "Жер үйіндісі",
                         "ford": "Өткел",
                         "tunnel": "Тоннель"
-                    }
+                    },
+                    "placeholder": "Белгісіз"
                 },
                 "structure_canal": {
                     "label": "Құрылымы",
                     "options": {
                         "bridge": "Көпір",
                         "tunnel": "Тоннель"
-                    }
+                    },
+                    "placeholder": "Белгісіз"
                 },
                 "structure_power": {
                     "label": "Конструкция"
                 },
                 "structure_waterway": {
-                    "label": "Тоннель түрі",
+                    "label": "Құрылымы",
                     "options": {
                         "bridge": "Көпір"
-                    }
+                    },
+                    "placeholder": "Белгісіз"
+                },
+                "studio": {
+                    "label": "Түрі"
                 },
                 "subject/wikidata": {
                     "label": "Тақырыптың Уикидерегі"
@@ -1850,7 +2813,17 @@
                         "grass_paver": "Газонды тор",
                         "gravel": "Қиыршықтас",
                         "ground": "Топырақ",
-                        "pebblestone": "Малта тас"
+                        "paved": "Қатты жабын (кез келген)",
+                        "paving_stones": "Тротуар плитасы",
+                        "pebblestone": "Малта тас",
+                        "salt": "Тұз",
+                        "sand": "Құм",
+                        "unpaved": "Жабынсыз"
+                    }
+                },
+                "surveillance/type": {
+                    "options": {
+                        "camera": "Камера"
                     }
                 },
                 "survey_point/structure": {
@@ -1869,16 +2842,29 @@
                         }
                     }
                 },
+                "tidal": {
+                    "label": "Толысатын",
+                    "terms": "судың толысуы мен қайтуы"
+                },
                 "toilets": {
                     "label": "Дәретхана"
                 },
                 "toll": {
                     "label": "Ақылы жол"
                 },
+                "tower/platforms": {
+                    "placeholder": "1, 2, 3…"
+                },
+                "tracktype": {
+                    "options": {
+                        "grade1": "Қатты жабын: төселген"
+                    }
+                },
                 "traffic_sign/direction": {
                     "label": "Әсер етілген бағыт",
                     "options": {
                         "backward": "Артқа",
+                        "both": "Екі / бүкіл жаққа",
                         "forward": "Алға"
                     }
                 },
@@ -1889,6 +2875,14 @@
                         "forward": "Алға"
                     }
                 },
+                "transformer": {
+                    "options": {
+                        "yes": "Белгісіз рөл"
+                    }
+                },
+                "trees": {
+                    "label": "Ағаштар"
+                },
                 "tunnel/name": {
                     "label": "Тоннель атауы"
                 },
@@ -1897,13 +2891,67 @@
                         "flooded": "Су басқан тоннель"
                     }
                 },
+                "two_sided": {
+                    "options": {
+                        "undefined": "Жоқ",
+                        "yes": "Иә"
+                    }
+                },
                 "usage_rail": {
                     "options": {
+                        "main": "Басты",
+                        "military": "Әскери",
                         "tourism": "Туризм"
                     }
                 },
-                "visibility": {
+                "utility": {
                     "options": {
+                        "gas": "Табиғи газ",
+                        "oil": "Мұнай",
+                        "water": "Су"
+                    }
+                },
+                "valve": {
+                    "label": "Түрі"
+                },
+                "vehicles": {
+                    "options": {
+                        "bus": "Автобус",
+                        "monorail": "Монорельс",
+                        "subway": "Метро",
+                        "train": "Пойыз",
+                        "tram": "Трамвай",
+                        "trolleybus": "Троллейбус"
+                    }
+                },
+                "vending": {
+                    "label": "Автоматтың түрі",
+                    "options": {
+                        "bread": "Нан",
+                        "cigarettes": "Темекі",
+                        "coffee": "Кофе",
+                        "condoms": "Мүшеқаптар",
+                        "drinks": "Сусындар",
+                        "eggs": "Жұмыртқа",
+                        "food": "Тамақ",
+                        "fuel": "Жанармай",
+                        "milk": "Сүт",
+                        "newspapers": "Газет",
+                        "pizza": "Пицца",
+                        "sweets": "Кәмпиттер",
+                        "water": "Ауыз су"
+                    }
+                },
+                "via": {
+                    "label": "Осы арқылы"
+                },
+                "video_calls": {
+                    "label": "Видеоқоңырау"
+                },
+                "visibility": {
+                    "label": "Көрінімділігі",
+                    "options": {
+                        "area": "20 м астам",
                         "house": "5 м дейін",
                         "street": "5 м-ден 20 м-ге дейін"
                     }
@@ -1913,20 +2961,91 @@
                         "stratovolcano": "Стратожанартау"
                     }
                 },
+                "voltage": {
+                    "label": "Кернеу"
+                },
+                "wall": {
+                    "label": "Түрі"
+                },
+                "waste": {
+                    "label": "Қалдықтар",
+                    "options": {
+                        "cigarettes": "Темекі",
+                        "trash": "Қоқыс"
+                    }
+                },
+                "water": {
+                    "label": "Түрі"
+                },
+                "water_point": {
+                    "label": "Су көзі"
+                },
                 "water_source": {
-                    "label": "Cу көзі"
+                    "label": "Cу көзі",
+                    "options": {
+                        "main": "Суқұбыр",
+                        "pond": "Тоған",
+                        "river": "Өзен",
+                        "stream": "Жылға",
+                        "water_tank": "Су ыдысы"
+                    }
+                },
+                "water_tank/volume": {
+                    "label": "Көлемі (литр)"
+                },
+                "waterway": {
+                    "label": "Түрі"
                 },
                 "website": {
-                    "label": "Веб-сайт"
+                    "label": "Веб-сайт",
+                    "placeholder": "https://example.com"
+                },
+                "website/menu": {
+                    "label": "Мәзірге сілтеме",
+                    "placeholder": "https://example.com"
+                },
+                "wetland": {
+                    "label": "Түрі",
+                    "options": {
+                        "bog": "Беткі батпақ",
+                        "fen": "Ойпаттық батпақ",
+                        "marsh": "Батпақ",
+                        "saltmarsh": "Жағалаулық сор",
+                        "tidalflat": "Толысу аймағы"
+                    }
+                },
+                "wheelchair": {
+                    "options": {
+                        "yes": "Иә"
+                    }
+                },
+                "width": {
+                    "label": "Ені (метр)"
                 },
                 "wikidata": {
                     "label": "Уикидерек",
                     "terms": "викидата,уикидата,wikidata,викиданные"
                 },
+                "wikipedia": {
+                    "label": "Уикипедия"
+                },
+                "windings": {
+                    "placeholder": "1, 2, 3…"
+                },
                 "windings/auto": {
                     "label": "Автотрансформатор",
                     "options": {
-                        "undefined": "Жоқ деген болжам"
+                        "no": "Жоқ",
+                        "undefined": "Жоқ деген болжам",
+                        "yes": "Иә"
+                    }
+                },
+                "windings/configuration": {
+                    "options": {
+                        "delta": "\"Үшбұрыш\"",
+                        "open": "Ашық",
+                        "star": "\"Жұлдыз\"",
+                        "zigzag": "Зиг Заг"
                     }
                 }
             },
@@ -1937,52 +3056,331 @@
                 "address": {
                     "name": "Мекенжай"
                 },
+                "advertising/billboard": {
+                    "name": "Жарнама тақтасы",
+                    "terms": "билборд,биллборд"
+                },
+                "advertising/board": {
+                    "name": "Хабарландыру тақтасы"
+                },
+                "advertising/poster_box": {
+                    "name": "Жарнама плакаты"
+                },
+                "aerialway": {
+                    "name": "Көтергіштер"
+                },
+                "aerialway/t-bar": {
+                    "name": "Т-тәрізді көтергіш"
+                },
+                "aerialway/zip_line": {
+                    "name": "Зиплайн"
+                },
+                "aeroway": {
+                    "name": "Авиация"
+                },
+                "aeroway/aerodrome": {
+                    "name": "Әуежай"
+                },
+                "aeroway/apron": {
+                    "name": "Әуежай перроны"
+                },
                 "aeroway/gate": {
                     "name": "Әуежайдағы гейт"
+                },
+                "aeroway/hangar": {
+                    "name": "Ангар",
+                    "terms": "ангар,ұшақжай,ұшақтұрақ"
+                },
+                "aeroway/helipad": {
+                    "name": "Тікұшақ алаңы"
+                },
+                "aeroway/spaceport": {
+                    "name": "Космодром"
                 },
                 "aeroway/taxiway": {
                     "name": "Рөлдеу жолы"
                 },
+                "aeroway/terminal": {
+                    "name": "Әуежай терминалы"
+                },
+                "allotments/plot": {
+                    "name": "Бау-бақша телімі"
+                },
+                "amenity": {
+                    "name": "Инфрақұрылым"
+                },
+                "amenity/animal_boarding": {
+                    "name": "Жануарларды уақытша ұстау орны"
+                },
+                "amenity/animal_breeding": {
+                    "name": "Жануарлар өсіру орталығы"
+                },
+                "amenity/animal_shelter": {
+                    "name": "Жануарлар панасы"
+                },
+                "amenity/arts_centre": {
+                    "name": "Өнер орталығы"
+                },
+                "amenity/atm": {
+                    "name": "Банкомат"
+                },
                 "amenity/bank": {
                     "name": "Банк"
+                },
+                "amenity/bar": {
+                    "name": "Бар"
+                },
+                "amenity/bar/lgbtq": {
+                    "name": "ЛГБТК+ Бар"
+                },
+                "amenity/bench": {
+                    "name": "Орындық"
+                },
+                "amenity/bicycle_parking": {
+                    "name": "Велотұрақ"
                 },
                 "amenity/bicycle_parking/shed": {
                     "name": "Велогараж"
                 },
+                "amenity/bicycle_rental": {
+                    "name": "Велосипедті жалға беру"
+                },
+                "amenity/bicycle_wash": {
+                    "name": "Велосипед жуу"
+                },
+                "amenity/biergarten": {
+                    "name": "Сыра бағы"
+                },
+                "amenity/bureau_de_change": {
+                    "name": "Валюта айырбастау орны"
+                },
+                "amenity/bus_station": {
+                    "name": "Автобус бекеті/терминалы"
+                },
                 "amenity/cafe": {
                     "name": "Кафе"
+                },
+                "amenity/cafe/bubble_tea": {
+                    "name": "Бабл-ти кафесі"
+                },
+                "amenity/cafe/coffee_shop": {
+                    "name": "Кофехана"
+                },
+                "amenity/cafe/teahouse": {
+                    "name": "Шай үйі"
+                },
+                "amenity/car_rental": {
+                    "name": "Автокөлік жалдау"
+                },
+                "amenity/car_wash": {
+                    "name": "Автожуу"
+                },
+                "amenity/casino": {
+                    "name": "Казино"
+                },
+                "amenity/charging_station": {
+                    "name": "Зарядтау бекеті"
+                },
+                "amenity/cinema": {
+                    "name": "Кинотеатр"
+                },
+                "amenity/clinic": {
+                    "name": "Клиника"
+                },
+                "amenity/clinic/dialysis": {
+                    "name": "Диализ орталығы"
+                },
+                "amenity/clock": {
+                    "name": "Сағат"
+                },
+                "amenity/community_centre": {
+                    "name": "Қоғамдық орталық"
+                },
+                "amenity/community_centre/club_home": {
+                    "name": "Клубтық үй"
+                },
+                "amenity/community_centre/community_hall": {
+                    "name": "Қоғамдық орталық"
+                },
+                "amenity/community_centre/cultural_centre": {
+                    "name": "Мәдениет орталығы"
+                },
+                "amenity/community_centre/family_centre": {
+                    "name": "Отбасылық орталық"
+                },
+                "amenity/community_centre/parish_hall": {
+                    "name": "Махалла/Приход залы"
+                },
+                "amenity/community_centre/village_hall": {
+                    "name": "Ауылдық клуб"
+                },
+                "amenity/community_centre/youth_centre": {
+                    "name": "Жастар орталығы"
+                },
+                "amenity/conference_centre": {
+                    "name": "Конференц-центр"
+                },
+                "amenity/courthouse": {
+                    "name": "Сот"
                 },
                 "amenity/crematorium": {
                     "name": "Крематорий"
                 },
+                "amenity/dentist": {
+                    "name": "Стоматология"
+                },
+                "amenity/dive_centre": {
+                    "name": "Дайв-центр"
+                },
                 "amenity/doctors": {
                     "name": "Дәрігер кабинеті"
+                },
+                "amenity/doctors/allergology": {
+                    "name": "Аллерголог"
+                },
+                "amenity/doctors/cardiology": {
+                    "name": "Кардиолог"
+                },
+                "amenity/doctors/child_psychiatry": {
+                    "name": "Балалар мен жасөспірімдер психиатры"
                 },
                 "amenity/doctors/dermatology": {
                     "name": "Дерматолог"
                 },
+                "amenity/doctors/gastroenterology": {
+                    "name": "Гастроэнтеролог"
+                },
                 "amenity/doctors/haematology": {
                     "name": "Гематолог"
+                },
+                "amenity/doctors/internal": {
+                    "name": "Терапевт"
+                },
+                "amenity/doctors/nephrology": {
+                    "name": "Нефролог"
+                },
+                "amenity/doctors/neurology": {
+                    "name": "Невролог"
+                },
+                "amenity/doctors/neurosurgery": {
+                    "name": "Нейрохирург"
+                },
+                "amenity/doctors/oncology": {
+                    "name": "Онколог"
                 },
                 "amenity/doctors/otolaryngology": {
                     "name": "Отоларинголог (лор)"
                 },
+                "amenity/doctors/paediatrics": {
+                    "name": "Педиатр",
+                    "terms": "балалар дәрігері,педиатр"
+                },
+                "amenity/doctors/pathology": {
+                    "name": "Патологоанатом"
+                },
+                "amenity/doctors/podiatry": {
+                    "name": "Ортопед"
+                },
+                "amenity/doctors/psychiatrist": {
+                    "name": "Психиатр"
+                },
+                "amenity/doctors/radiology": {
+                    "name": "Радиолог"
+                },
                 "amenity/doctors/rheumatology": {
                     "name": "Ревматолог"
+                },
+                "amenity/doctors/urology": {
+                    "name": "Уролог"
                 },
                 "amenity/dog_toilet": {
                     "name": "Ит дәретханасы"
                 },
+                "amenity/dressing_room": {
+                    "name": "Шешінетін бөлме"
+                },
+                "amenity/drinking_water": {
+                    "name": "Ауыз су"
+                },
                 "amenity/driver_training": {
                     "name": "Көлік жүргізуді үйрену алаңы"
+                },
+                "amenity/embassy": {
+                    "name": "Елшілік"
+                },
+                "amenity/events_venue": {
+                    "name": "Той-жиын өткізетін орын",
+                    "terms": "банкет залы,салтанат сарайы,тойхана"
+                },
+                "amenity/exhibition_centre": {
+                    "name": "Көрме орталығы"
                 },
                 "amenity/fast_food": {
                     "name": "Фаст-фуд",
                     "terms": "фастфуд,жылдам тамақтану мейрамханасы,тез тамақтану,бистро,кафетерий,асхана"
                 },
+                "amenity/fast_food/burger": {
+                    "name": "Бургерлік фаст-фуд"
+                },
+                "amenity/fast_food/cafeteria": {
+                    "name": "Асхана",
+                    "terms": "кафетерий,кафе,дәмхана"
+                },
+                "amenity/fast_food/chicken": {
+                    "name": "Тауық фаст-фуды"
+                },
+                "amenity/fast_food/chinese": {
+                    "name": "Қытайлық фаст-фуд"
+                },
+                "amenity/fast_food/hot_dog": {
+                    "name": "Хотдог фаст-фуд"
+                },
+                "amenity/fast_food/kebab": {
+                    "name": "Кәуап"
+                },
+                "amenity/fast_food/mexican": {
+                    "name": "Мексикандық фаст-фуд"
+                },
+                "amenity/fast_food/pizza": {
+                    "name": "Пиццерия"
+                },
+                "amenity/fire_station": {
+                    "name": "Өрт сөндіру бөлімі"
+                },
+                "amenity/food_court": {
+                    "name": "Фудкорт"
+                },
+                "amenity/fountain": {
+                    "name": "Субұрқақ/Фонтан"
+                },
+                "amenity/fuel": {
+                    "name": "АЖҚС"
+                },
+                "amenity/funeral_hall": {
+                    "name": "Жерлеу бюросы"
+                },
+                "amenity/gambling": {
+                    "name": "Ойын залы"
+                },
+                "amenity/hookah_lounge": {
+                    "name": "Кальянхана",
+                    "terms": "қорқор бөлмесі. қорқор тартатын бөлме"
+                },
                 "amenity/hospital": {
                     "name": "Аурухана аумағы",
                     "terms": "госпиталь,стационар,амбулатория,емхана,клиника,лазарет"
+                },
+                "amenity/hunting_stand": {
+                    "name": "Аңшы мұнарасы"
+                },
+                "amenity/internet_cafe": {
+                    "name": "Интернет-кафе"
+                },
+                "amenity/karaoke_box": {
+                    "name": "Караоке-бокс"
+                },
+                "amenity/love_hotel": {
+                    "name": "Махаббат қонақ үйі"
                 },
                 "amenity/marketplace": {
                     "name": "Базар"
@@ -1990,17 +3388,75 @@
                 "amenity/monastery": {
                     "name": "Монастырь"
                 },
+                "amenity/money_transfer": {
+                    "name": "Ақша аударымдары"
+                },
+                "amenity/mortuary": {
+                    "name": "Мәйітхана"
+                },
+                "amenity/motorcycle_parking": {
+                    "name": "Мотоцикл тұрағы"
+                },
                 "amenity/motorcycle_rental": {
                     "name": "Мотоциклді жалға алу"
+                },
+                "amenity/nightclub/lgbtq": {
+                    "name": "ЛГБТ+ түнгі клубы"
+                },
+                "amenity/parcel_locker": {
+                    "name": "Поштамат"
+                },
+                "amenity/parking": {
+                    "name": "Тұрақ"
+                },
+                "amenity/parking/multi-storey": {
+                    "name": "Көпқабатты тұрақ"
+                },
+                "amenity/parking/street-side": {
+                    "name": "Жол бойындағы тұрақ"
                 },
                 "amenity/parking/underground": {
                     "name": "Жерасты тұрағы"
                 },
+                "amenity/payment_centre": {
+                    "name": "Төлем орталығы"
+                },
+                "amenity/payment_terminal": {
+                    "name": "Төлем терминалы"
+                },
+                "amenity/pharmacy": {
+                    "name": "Дәріхана"
+                },
                 "amenity/photo_booth": {
                     "name": "Фотокабина"
                 },
+                "amenity/place_of_worship": {
+                    "name": "Табыну орны"
+                },
+                "amenity/place_of_worship/buddhist": {
+                    "name": "Буддалық храм",
+                    "terms": "будда храмы"
+                },
+                "amenity/place_of_worship/christian": {
+                    "name": "Христиан шіркеуі"
+                },
+                "amenity/place_of_worship/christian/quaker": {
+                    "name": "Квакерлердің кездесу үйі"
+                },
+                "amenity/place_of_worship/hindu": {
+                    "name": "Индуистік храм"
+                },
+                "amenity/place_of_worship/jewish": {
+                    "name": "Яһудилік синагога"
+                },
+                "amenity/place_of_worship/muslim": {
+                    "name": "Мұсылман мешіті"
+                },
                 "amenity/place_of_worship/shinto": {
                     "name": "Дзиндзя"
+                },
+                "amenity/post_office": {
+                    "name": "Пошта бөлімшесі"
                 },
                 "amenity/prison": {
                     "name": "Түрме"
@@ -2011,6 +3467,10 @@
                 "amenity/restaurant": {
                     "name": "Мейрамхана",
                     "terms": "ресторан,тойхана"
+                },
+                "amenity/shelter/gazebo": {
+                    "name": "Самалжай/Көлеңке",
+                    "terms": "күрке,самалжай,беседка,жаппа,көлеңке"
                 },
                 "amenity/social_facility/ambulatory_care": {
                     "name": "Амбулаторлық жәрдем"
@@ -2037,7 +3497,7 @@
                     "name": "Ойынхана"
                 },
                 "amenity/vehicle_inspection": {
-                    "name": "Техбайқау станциясы"
+                    "name": "Техбайқау бекеті"
                 },
                 "amenity/vending_machine": {
                     "name": "Cауда автоматы"
@@ -2272,6 +3732,9 @@
                     "name": "Кішкентай қақпа",
                     "terms": "калитка,кіреберіс,есік,есікше"
                 },
+                "barrier/yes": {
+                    "name": "Кедергі (кез келген)"
+                },
                 "boundary": {
                     "name": "Шекара"
                 },
@@ -2288,7 +3751,7 @@
                     "name": "Көпірдің аратіреуі"
                 },
                 "building": {
-                    "name": "Кез келген ғимарат"
+                    "name": "Ғимарат"
                 },
                 "building/allotment_house": {
                     "name": "Саяжай үйі"
@@ -2415,7 +3878,8 @@
                     "name": "Қоғамдық ғимарат"
                 },
                 "building/residential": {
-                    "name": "Тұрғын ғимарат"
+                    "name": "Тұрғын үй",
+                    "terms": "тұрғын ғимарат,тұрғынүй,тұрғынжай,тұратын үй"
                 },
                 "building/retail": {
                     "name": "Сауда ғимараты"
@@ -2455,7 +3919,7 @@
                     "name": "Таунхаустар қатары"
                 },
                 "building/train_station": {
-                    "name": "Теміржол вокзалы/станциясы ғимараты"
+                    "name": "Теміржол вокзалы/бекеті ғимараты"
                 },
                 "building/transportation": {
                     "name": "Көлік терминалының ғимараты/вокзал"
@@ -2506,6 +3970,9 @@
                 "craft/boatbuilder": {
                     "name": "Кеме жасайтын орын"
                 },
+                "craft/gardener": {
+                    "name": "Бағбан"
+                },
                 "craft/photographer": {
                     "name": "Фотограф"
                 },
@@ -2515,8 +3982,14 @@
                 "craft/stonemason": {
                     "name": "Тас қалаушы"
                 },
+                "craft/window_construction": {
+                    "name": "Терезеші"
+                },
                 "demolished/building": {
                     "name": "Жақында бұзылған ғимарат"
+                },
+                "disused/amenity": {
+                    "name": "Жабылып қалған орын"
                 },
                 "education/college": {
                     "name": "Колледж аумағы"
@@ -2529,6 +4002,9 @@
                 },
                 "education/university": {
                     "name": "Университет аумағы"
+                },
+                "education/yes": {
+                    "name": "Білім мекемесі (кез келген)"
                 },
                 "embankment": {
                     "name": "Жер үйіндісі"
@@ -2549,14 +4025,86 @@
                 "ford_line": {
                     "name": "Өткел"
                 },
+                "golf/cartpath": {
+                    "name": "Гольфкар жолы"
+                },
                 "healthcare/alternative/chiropractic": {
                     "name": "Хиропрактика"
+                },
+                "healthcare/alternative/homeopathy": {
+                    "name": "Гомеопат"
+                },
+                "healthcare/alternative/naturopathy": {
+                    "name": "Натуропат"
+                },
+                "healthcare/alternative/osteopathy": {
+                    "name": "Остеопат"
                 },
                 "healthcare/optometrist": {
                     "name": "Оптометрист"
                 },
+                "healthcare/yes": {
+                    "name": "Денсаулық сақтау мекемесі (кез келген)"
+                },
+                "highway/bridleway": {
+                    "name": "Ат жүретін шиыр"
+                },
+                "highway/bus_stop": {
+                    "name": "Автобус аялдамасы"
+                },
+                "highway/construction": {
+                    "name": "Салынып жатқан жол"
+                },
+                "highway/crossing": {
+                    "name": "Жаяу өткел"
+                },
+                "highway/crossing/informal": {
+                    "name": "Бейресми жаяу өткел"
+                },
+                "highway/crossing/traffic_signals": {
+                    "name": "Реттелмелі жаяу өткел"
+                },
+                "highway/crossing/unmarked": {
+                    "name": "Таңбаланбаған жаяу өткел"
+                },
+                "highway/cycleway": {
+                    "name": "Веложол"
+                },
+                "highway/cycleway/bicycle_foot": {
+                    "name": "Вело және жаяужол"
+                },
+                "highway/cycleway/crossing": {
+                    "name": "Велоөткел"
+                },
+                "highway/cycleway/crossing/bicycle_foot": {
+                    "name": "Вело және жаяу өткел"
+                },
+                "highway/cycleway/crossing/traffic_signals": {
+                    "name": "Реттелмелі велоөткел"
+                },
+                "highway/cycleway/crossing/uncontrolled": {
+                    "name": "Таңбаланған (реттелмейтін) велоөткел"
+                },
                 "highway/elevator": {
                     "name": "Лифт"
+                },
+                "highway/elevator_line": {
+                    "name": "Көлбеу лифт"
+                },
+                "highway/footway": {
+                    "name": "Жаяужол"
+                },
+                "highway/footway/crossing": {
+                    "name": "Жаяу жүргіншілер өткелі"
+                },
+                "highway/footway/crossing/traffic_signals": {
+                    "name": "Реттелмелі жаяу өткел"
+                },
+                "highway/footway/crossing/unmarked": {
+                    "name": "Таңбаланбаған жаяу өткел"
+                },
+                "highway/footway/informal": {
+                    "name": "Стихиялық соқпақ"
                 },
                 "highway/give_way": {
                     "name": "\"Жол бер\" белгісі"
@@ -2568,9 +4116,36 @@
                     "name": "Автомагистраль",
                     "terms": "автокүрежол,тас жол,автострада,автожол,автотрасса"
                 },
+                "highway/motorway_link": {
+                    "name": "Автомагистральді ауыспа жол"
+                },
+                "highway/path": {
+                    "name": "Соқпақ"
+                },
+                "highway/path/informal": {
+                    "name": "Шиыр жол"
+                },
+                "highway/primary": {
+                    "name": "Бірінші дәрежелі жол"
+                },
+                "highway/primary_link": {
+                    "name": "Бірінші дәрежелі ауыспа жол"
+                },
                 "highway/raceway": {
                     "name": "Жарыс трегі, трассасы",
                     "terms": "жарысуға арналған трасса,трек"
+                },
+                "highway/residential": {
+                    "name": "Көше"
+                },
+                "highway/road": {
+                    "name": "Жолдың белгісіз түрі"
+                },
+                "highway/secondary": {
+                    "name": "Екінші дәрежелі жол"
+                },
+                "highway/secondary_link": {
+                    "name": "Екінші дәрежелі ауыспа жол"
                 },
                 "highway/service": {
                     "name": "Қызметтік жол"
@@ -2587,8 +4162,32 @@
                 "highway/service/parking_aisle": {
                     "name": "Тұрақ ішіндегі жол"
                 },
+                "highway/service_area": {
+                    "name": "Асфальтталған қызметтік аймақ"
+                },
+                "highway/speed_camera": {
+                    "name": "Жылдамдық камерасы"
+                },
                 "highway/stop": {
                     "name": "\"Тоқта\" белгісі"
+                },
+                "highway/tertiary": {
+                    "name": "Үшінші дәрежелі жол"
+                },
+                "highway/tertiary_link": {
+                    "name": "Үшінші дәрежелі ауыспа жол"
+                },
+                "highway/track": {
+                    "name": "Далалық / ормандық жол"
+                },
+                "highway/trunk": {
+                    "name": "Негізгі жол"
+                },
+                "highway/trunk_link": {
+                    "name": "Басты ауыспа жол"
+                },
+                "highway/unclassified": {
+                    "name": "\"Жергілікті жолдан\" төмен жол"
                 },
                 "historic": {
                     "name": "Тарихи орын"
@@ -2608,24 +4207,106 @@
                 "historic/tomb": {
                     "name": "Мола"
                 },
+                "landuse/allotments": {
+                    "name": "Бау-бақша телімдері"
+                },
+                "landuse/brownfield": {
+                    "name": "Құрылысқа тазартылған аумақ"
+                },
+                "landuse/cemetery": {
+                    "name": "Зират",
+                    "terms": "зират,бейіт,қорым"
+                },
+                "landuse/construction": {
+                    "name": "Құрылыс алаңы"
+                },
+                "landuse/flowerbed": {
+                    "name": "Гүлзар"
+                },
+                "landuse/forest": {
+                    "name": "Бапталатын орман"
+                },
                 "landuse/grass": {
                     "name": "Шөп/Газон"
+                },
+                "landuse/greenfield": {
+                    "name": "Жаңа құрылысқа арналған аумақ"
+                },
+                "landuse/military/airfield": {
+                    "name": "Әскери аэродром"
+                },
+                "landuse/pond": {
+                    "name": "Тоған"
                 },
                 "landuse/recreation_ground": {
                     "name": "Демалыс орны"
                 },
+                "landuse/residential": {
+                    "name": "Тұрғын аймақ",
+                    "terms": "квартал,орам,тұрғын аумақ"
+                },
+                "landuse/residential/apartments": {
+                    "name": "Тұрғын үй кешені",
+                    "terms": "түк,тк,жк"
+                },
+                "landuse/winter_sports": {
+                    "name": "Қысқы спорт түрлері аймағы"
+                },
                 "leisure/bowling_alley": {
                     "name": "Боулинг орталығы"
+                },
+                "leisure/garden": {
+                    "name": "Бақ"
+                },
+                "leisure/garden/botanical": {
+                    "name": "Ботаникалық бақ"
+                },
+                "leisure/garden/community": {
+                    "name": "Қоғамдық бақ"
+                },
+                "leisure/garden/residential": {
+                    "name": "Тұрғын үй бағы"
                 },
                 "leisure/park": {
                     "name": "Саябақ",
                     "terms": "демалыс саябағы,парк,сквер,аллея,бульвар,гүл бағы"
                 },
+                "leisure/pitch/american_football": {
+                    "name": "Регби алаңы",
+                    "terms": "американдық футбол алаңы"
+                },
+                "leisure/pitch/baseball": {
+                    "name": "Бейсбол алаңы"
+                },
+                "leisure/pitch/cricket": {
+                    "name": "Крикет алаңы"
+                },
+                "leisure/pitch/field_hockey": {
+                    "name": "Шөптегі хоккейге арналған алаң"
+                },
+                "leisure/pitch/paintball": {
+                    "name": "Пейнтбол алаңы"
+                },
+                "leisure/pitch/rugby_union": {
+                    "name": "Регби алаңы"
+                },
+                "leisure/pitch/soccer": {
+                    "name": "Футбол алаңы"
+                },
+                "leisure/pitch/softball": {
+                    "name": "Софтбол алаңы"
+                },
                 "leisure/playground": {
                     "name": "Балалар алаңы"
                 },
+                "leisure/sports_centre": {
+                    "name": "Спорт орталығы/кешені"
+                },
                 "leisure/stadium": {
                     "name": "Стадион"
+                },
+                "line": {
+                    "name": "Сызық"
                 },
                 "man_made/bridge": {
                     "name": "Көпірдің контуры"
@@ -2636,11 +4317,20 @@
                 "man_made/manhole/drain": {
                     "name": "Нөсерлік ағынды"
                 },
+                "man_made/mast/communication/radio": {
+                    "name": "Радиодіңгек"
+                },
+                "man_made/mast/communication/television": {
+                    "name": "Телемұнара"
+                },
                 "man_made/observatory": {
                     "name": "Обсерватория"
                 },
                 "man_made/pipeline/underground": {
                     "name": "Жерасты құбыр желісі"
+                },
+                "man_made/surveillance/camera": {
+                    "name": "Бейнебақылау камерасы"
                 },
                 "man_made/tower": {
                     "name": "Мұнара"
@@ -2660,6 +4350,9 @@
                 "man_made/tower/observation": {
                     "name": "Бақылау мұнарасы"
                 },
+                "man_made/tower/pagoda": {
+                    "name": "Пагода"
+                },
                 "man_made/tunnel": {
                     "name": "Тоннель"
                 },
@@ -2670,11 +4363,69 @@
                     "name": "Зауыт",
                     "terms": "фабрика"
                 },
+                "man_made/yes": {
+                    "name": "Қолдан жасалған объект (кез келген)"
+                },
+                "military/office": {
+                    "name": "Әскері кеңсе"
+                },
                 "natural/grassland": {
                     "name": "Көгал"
                 },
+                "natural/tree/broadleaved": {
+                    "name": "Жапырақты ағаш"
+                },
+                "natural/tree/broadleaved/deciduous": {
+                    "name": "Жапырақты ағаш (түспежапырақты)"
+                },
+                "natural/tree/broadleaved/evergreen": {
+                    "name": "Жапырақты ағаш (мәңгі жасыл)"
+                },
+                "natural/tree/needleleaved/deciduous": {
+                    "name": "Қылқан жапырақты ағаш (түспежапырақты)"
+                },
+                "natural/tree/needleleaved/evergreen": {
+                    "name": "Қылқан жапырақты ағаш (мәңгі жасыл)"
+                },
                 "natural/valley": {
                     "name": "Аңғар"
+                },
+                "natural/water/pond": {
+                    "name": "Тоған"
+                },
+                "natural/water/river": {
+                    "name": "Өзен аумағы"
+                },
+                "natural/wetland/saltmarsh": {
+                    "name": "Жағалаулық сор"
+                },
+                "natural/wetland/tidalflat": {
+                    "name": "Толысу аймағы"
+                },
+                "natural/wood": {
+                    "name": "Табиғи орман",
+                    "terms": "орман,ағаштар,тоғай,орман алқабы,ағаш,орман қоры,тайга,өсімдік,көшет"
+                },
+                "office": {
+                    "name": "Кеңселер"
+                },
+                "office/accountant": {
+                    "name": "Бухгалтер"
+                },
+                "office/company": {
+                    "name": "Жеке компания"
+                },
+                "office/diplomatic/liaison": {
+                    "name": "Байланыс бөлімшесі"
+                },
+                "office/engineer": {
+                    "name": "Инженерлік бюро"
+                },
+                "office/estate_agent": {
+                    "name": "Жылжымайтын мүлік агенттігі"
+                },
+                "office/foundation": {
+                    "name": "Қор"
                 },
                 "office/government": {
                     "name": "Мемлекеттік мекеме"
@@ -2682,8 +4433,62 @@
                 "office/government/prosecutor": {
                     "name": "Прокуратура"
                 },
+                "office/government/register_office": {
+                    "name": "АХАЖ / азаматтардың хал актілерін жазу"
+                },
+                "office/government/tax": {
+                    "name": "Салық инспекциясы"
+                },
+                "office/insurance": {
+                    "name": "Сақтандыру компаниясы"
+                },
+                "office/moving_company": {
+                    "name": "Көшуге көмекші компания"
+                },
+                "office/newspaper": {
+                    "name": "Газет редакциясы"
+                },
+                "office/ngo": {
+                    "name": "Қоғамдық ұйым"
+                },
+                "office/notary": {
+                    "name": "Нотариус"
+                },
+                "office/physician": {
+                    "name": "Дәрігер"
+                },
+                "office/political_party": {
+                    "name": "Саяси партия кеңсесі"
+                },
                 "office/private_investigator": {
                     "name": "Жеке тергеуші"
+                },
+                "office/religion": {
+                    "name": "Діни ұйым"
+                },
+                "office/research": {
+                    "name": "Ғылыми-зерттеу ұйымы"
+                },
+                "office/security": {
+                    "name": "Күзет агенттігі"
+                },
+                "office/telecommunication": {
+                    "name": "Телекоммуникациялық компания"
+                },
+                "office/translator": {
+                    "name": "Аудармашы кеңсесі"
+                },
+                "office/yes": {
+                    "name": "Кеңсе (кез келген)"
+                },
+                "piste/ice_skate": {
+                    "name": "Мұз трассасы"
+                },
+                "piste/sled": {
+                    "name": "Шана трассасы"
+                },
+                "place": {
+                    "name": "Елді мекен"
                 },
                 "place/city": {
                     "name": "Қала"
@@ -2691,78 +4496,461 @@
                 "place/city_block": {
                     "name": "Қалалық махалла"
                 },
+                "place/farm": {
+                    "name": "Ферма"
+                },
+                "place/hamlet": {
+                    "name": "Шағын ауыл/Қыстақ"
+                },
+                "place/island": {
+                    "name": "Арал"
+                },
+                "place/islet": {
+                    "name": "Аралшық"
+                },
+                "place/isolated_dwelling": {
+                    "name": "Оқшау қоныс"
+                },
+                "place/locality": {
+                    "name": "Мекен, қоныс",
+                    "terms": "ескі қоныс,көне жұрт"
+                },
+                "place/neighbourhood": {
+                    "name": "Қалыптасқан аудан"
+                },
+                "place/quarter": {
+                    "name": "Шағын аудан / Квартал"
+                },
+                "place/suburb": {
+                    "name": "Аудан / Қала маңы"
+                },
                 "place/town": {
-                    "name": "Кент",
+                    "name": "Кент / Қала",
                     "terms": "қала,кент,қалашық"
+                },
+                "playground/basketswing": {
+                    "name": "Себет әткеншек"
                 },
                 "playground/bridge": {
                     "name": "Ойын алаңындағы көпір"
                 },
+                "playground/climbingwall": {
+                    "name": "Скалодром"
+                },
+                "playground/cushion": {
+                    "name": "Үрмелі батут"
+                },
+                "playground/hopscotch": {
+                    "name": "Классики"
+                },
+                "playground/horizontal_bar": {
+                    "name": "Керме (балалар алаңы)"
+                },
+                "playground/playhouse": {
+                    "name": "Ойнайтын үй"
+                },
+                "playground/roundabout": {
+                    "name": "Карусель"
+                },
+                "playground/sandpit": {
+                    "name": "Құмсалғыш"
+                },
+                "playground/seesaw": {
+                    "name": "Балансир әткеншек"
+                },
+                "playground/slide": {
+                    "name": "Төбешік"
+                },
+                "playground/springy": {
+                    "name": "Серіппе"
+                },
                 "playground/structure": {
                     "name": "Құрама конструкция"
+                },
+                "playground/swing": {
+                    "name": "Әткеншек / Алтыбақан"
+                },
+                "playground/trampoline": {
+                    "name": "Батут"
                 },
                 "playground/tunnel_tube": {
                     "name": "Ойын алаңындағы тоннель"
                 },
+                "playground/zipwire": {
+                    "name": "Зиплайн"
+                },
+                "point": {
+                    "name": "Нүкте"
+                },
+                "power": {
+                    "name": "Электр қуаты"
+                },
+                "power/cable": {
+                    "name": "Қуатты кабель"
+                },
+                "power/catenary_mast": {
+                    "name": "Түйіспелік бағана"
+                },
+                "power/generator": {
+                    "name": "Энергетикалық агрегаттар"
+                },
+                "power/generator/method/photovoltaic": {
+                    "name": "Күн панелі"
+                },
+                "power/generator/method/photovoltaic/location/roof": {
+                    "name": "Төбедегі күн батареясы"
+                },
+                "power/generator/source/hydro": {
+                    "name": "Су турбинасы"
+                },
                 "power/generator/source/nuclear": {
                     "name": "Ядролық реактор"
+                },
+                "power/generator/source/wind": {
+                    "name": "Желдік генератор"
+                },
+                "power/line": {
+                    "name": "Жоғарывольтты желі"
+                },
+                "power/minor_line": {
+                    "name": "Төменвольтты желі"
                 },
                 "power/plant": {
                     "name": "Электр станциясы/Қазандық"
                 },
+                "power/plant/source/coal": {
+                    "name": "Көмір электростанциясы"
+                },
+                "power/plant/source/hydro": {
+                    "name": "Суэлетростанциясы",
+                    "terms": "сэс,гэс"
+                },
+                "power/plant/source/nuclear": {
+                    "name": "Атом электростанциясы",
+                    "terms": "аэс"
+                },
+                "power/plant/source/wind": {
+                    "name": "Жел электростанциясы"
+                },
+                "power/pole": {
+                    "name": "Электр бағанасы"
+                },
+                "power/substation": {
+                    "name": "Қосалқы станция"
+                },
+                "power/switch": {
+                    "name": "Электр ажыратқыш"
+                },
+                "power/switchgear": {
+                    "name": "Тарату құрылғысы"
+                },
                 "power/tower": {
                     "name": "Электр тарату желісінің тірегі"
+                },
+                "power/transformer": {
+                    "name": "Бөлек трансформатор"
+                },
+                "public_transport/platform": {
+                    "name": "Платформа"
+                },
+                "public_transport/platform/bus": {
+                    "name": "Автобус платформасы"
+                },
+                "public_transport/platform/bus_point": {
+                    "name": "Автобус аялдамасы (платформа)"
+                },
+                "public_transport/platform/bus_tram_point": {
+                    "name": "Трамвай мен автобус аялдамасы (платформа)"
+                },
+                "public_transport/platform/monorail": {
+                    "name": "Монорельс платформасы"
+                },
+                "public_transport/platform/subway": {
+                    "name": "Метро платформасы"
                 },
                 "public_transport/platform/subway_point": {
                     "name": "Метро платформасы"
                 },
+                "public_transport/platform/train": {
+                    "name": "Теміржол платформасы"
+                },
                 "public_transport/platform/train_point": {
                     "name": "ТЖ платформасы"
+                },
+                "public_transport/platform/trolleybus_point": {
+                    "name": "Троллейбус аялдамасы (платформа)"
+                },
+                "public_transport/platform_point": {
+                    "name": "Қоғамдық көлік аялдамасы"
+                },
+                "public_transport/station": {
+                    "name": "Көлік бекеті"
+                },
+                "public_transport/station_aerialway": {
+                    "name": "Арқанжол бекеті"
+                },
+                "public_transport/station_bus": {
+                    "name": "Автобус бекеті/терминалы"
+                },
+                "public_transport/station_ferry": {
+                    "name": "Паром айлағы"
+                },
+                "public_transport/station_monorail": {
+                    "name": "Монорельс бекеті"
+                },
+                "public_transport/station_subway": {
+                    "name": "Метро бекеті"
+                },
+                "public_transport/station_train": {
+                    "name": "Теміржол бекеті"
+                },
+                "public_transport/station_train_halt": {
+                    "name": "Тоқтайтын орын (шағын бекет)"
+                },
+                "public_transport/station_tram": {
+                    "name": "Трамвай бекеті"
+                },
+                "public_transport/station_trolleybus": {
+                    "name": "Троллейбус бекеті/терминалы"
+                },
+                "public_transport/stop_area": {
+                    "name": "Көліктік хаб/Ауысып мінетін орын"
                 },
                 "public_transport/stop_position": {
                     "name": "Көлік тоқтайтын орын"
                 },
+                "public_transport/stop_position_aerialway": {
+                    "name": "Арқанжол тоқтайтын орын"
+                },
+                "public_transport/stop_position_bus": {
+                    "name": "Автобус аялдайтын орын"
+                },
+                "public_transport/stop_position_ferry": {
+                    "name": "Паром тоқтайтын орын"
+                },
+                "public_transport/stop_position_light_rail": {
+                    "name": "Жеңіл рельсті көлік тоқтайтын орын"
+                },
+                "public_transport/stop_position_monorail": {
+                    "name": "Монорельс тоқтайтын орын"
+                },
                 "public_transport/stop_position_subway": {
                     "name": "Метро тоқтайтын орын"
+                },
+                "public_transport/stop_position_train": {
+                    "name": "ТЖ көлігі тоқтайтын орын"
                 },
                 "public_transport/stop_position_tram": {
                     "name": "Трамвай тоқтайтын орын"
                 },
+                "public_transport/stop_position_trolleybus": {
+                    "name": "Троллейбус аялдайтын орын"
+                },
+                "railway": {
+                    "name": "Темір жол"
+                },
                 "railway/abandoned": {
                     "name": "Тасталған теміржол"
+                },
+                "railway/buffer_stop": {
+                    "name": "Буферлік тоқтатқы"
+                },
+                "railway/construction": {
+                    "name": "Салынып жатқан темір жол"
+                },
+                "railway/crossing": {
+                    "name": "Теміржол жаяу өткелі"
+                },
+                "railway/funicular": {
+                    "name": "Фуникулёр",
+                    "terms": "тауға көтеретін жол"
+                },
+                "railway/halt": {
+                    "name": "Тоқтайтын орын (шағын бекет)"
+                },
+                "railway/level_crossing": {
+                    "name": "Теміржол өткелі"
+                },
+                "railway/light_rail": {
+                    "name": "Жеңіл рельсті көлік жолы"
                 },
                 "railway/milestone": {
                     "name": "Километрлік белгі (теміржол)"
                 },
+                "railway/monorail": {
+                    "name": "Монорельс жолы"
+                },
+                "railway/narrow_gauge": {
+                    "name": "Тартабанды темір жол"
+                },
+                "railway/platform": {
+                    "name": "Теміржол платформасы"
+                },
+                "railway/rail": {
+                    "name": "Рельсті жол"
+                },
+                "railway/railway_crossing": {
+                    "name": "Теміржол қиылысы"
+                },
+                "railway/signal": {
+                    "name": "Темір жолдың сигнал беру жүйесі",
+                    "terms": "теміржол семафоры"
+                },
+                "railway/subway": {
+                    "name": "Метро желісінің жолы"
+                },
+                "railway/subway_entrance": {
+                    "name": "Метро кіреберісі"
+                },
+                "railway/tram": {
+                    "name": "Трамвай жолы"
+                },
+                "railway/tram_crossing": {
+                    "name": "Трамвай жолындағы жаяу өткел"
+                },
+                "railway/tram_level_crossing": {
+                    "name": "Трамвай автоөткелі"
+                },
+                "railway/tram_stop": {
+                    "name": "Трамвай тоқтайтын орын"
+                },
+                "railway/turntable": {
+                    "name": "Теміржол айналдыратын шеңбері"
+                },
+                "railway/yard": {
+                    "name": "Темір жол паркі"
+                },
+                "relation": {
+                    "name": "Қатынас"
+                },
+                "roller_coaster/station": {
+                    "name": "Американдық төбешіктердің бекеті"
+                },
+                "roller_coaster/support": {
+                    "name": "Американдық төбешіктердің тірегі"
+                },
+                "roller_coaster/track": {
+                    "name": "Американдық төбешіктердің трассасы"
+                },
+                "seamark": {
+                    "name": "Бакен"
+                },
+                "seamark/beacon_isolated_danger": {
+                    "name": "Қауіп шамшырағы"
+                },
+                "seamark/buoy_lateral": {
+                    "name": "Канал буйы"
+                },
+                "seamark/buoy_lateral/green": {
+                    "name": "Жасыл буй"
+                },
+                "seamark/buoy_lateral/red": {
+                    "name": "Қызыл буй"
+                },
+                "seamark/mooring": {
+                    "name": "Швартовка"
+                },
+                "shop": {
+                    "name": "Белгісіз дүкен",
+                    "terms": "анықталмаған дүкен,сауда орны,сату орны"
+                },
                 "shop/alcohol": {
                     "name": "Алкоголь дүкені"
+                },
+                "shop/anime": {
+                    "name": "Аниме / манга дүкені"
+                },
+                "shop/antiques": {
+                    "name": "Антиквариат",
+                    "terms": "сирек кездесетін бұйымдар дүкені,антикварлық дүкен"
                 },
                 "shop/appliance": {
                     "name": "Тұрмыстық техника дүкені"
                 },
+                "shop/art": {
+                    "name": "Өнер дүкені"
+                },
                 "shop/baby_goods": {
                     "name": "Балалар тауарлары дүкені"
+                },
+                "shop/bakery": {
+                    "name": "Нан дүкені",
+                    "terms": "наубайхана,нан өнімдерін сататын дүкен"
+                },
+                "shop/beauty": {
+                    "name": "Сұлулық салоны",
+                    "terms": "сұлулық салоны,әсемдік салоны,маникюр салоны,солярий,массаж,спа"
+                },
+                "shop/beauty/nails": {
+                    "name": "Маникюр салоны",
+                    "terms": "тырнақ жасайтын салон,маникюр,педикюр"
+                },
+                "shop/beauty/tanning": {
+                    "name": "Солярий",
+                    "terms": "қараю студиясы,солярий"
+                },
+                "shop/beverages": {
+                    "name": "Сусындар дүкені",
+                    "terms": "алкогольді және алкогольсіз сусындар сататын дүкен"
+                },
+                "shop/bicycle": {
+                    "name": "Велодүкен",
+                    "terms": "велосипед сататын дүкен,велосипед дүкені"
                 },
                 "shop/boat": {
                     "name": "Кемелер дүкені"
                 },
+                "shop/bookmaker": {
+                    "name": "Букмекер кеңсесі",
+                    "terms": "букмекер,букмекерлік кеңсе,лототрон,пари,лотерея"
+                },
                 "shop/books": {
                     "name": "Кітап дүкені"
                 },
+                "shop/boutique": {
+                    "name": "Бутик"
+                },
+                "shop/butcher": {
+                    "name": "Ет дүкені",
+                    "terms": "қасапшы,етші,ет сататын дүкен,фарш,борша,тартылған ет,кесек ет,стейк,шұжық,қазы,қарта,жал,жая"
+                },
+                "shop/camera": {
+                    "name": "Фотожабдықтар дүкені"
+                },
+                "shop/candles": {
+                    "name": "Шырағдан дүкені",
+                    "terms": "майшам,шам,шамдал,шырағдан,канделябр"
+                },
+                "shop/cannabis": {
+                    "name": "Марихуана дүкені"
+                },
                 "shop/car": {
-                    "name": "Автодилер"
+                    "name": "Автодилер",
+                    "terms": "автосалон,автокөлік салоны,автомобиль салоны,диллерлік автоцентр,автоорталық"
                 },
                 "shop/car/second_hand": {
                     "name": "Пайдаланылған көліктерді сату"
                 },
                 "shop/car_parts": {
-                    "name": "Автобөлшектер"
+                    "name": "Автобөлшектер",
+                    "terms": "автомобиль қосалқы бөлшектері,автокөлік бөлшектері"
+                },
+                "shop/car_repair": {
+                    "name": "Автошеберхана",
+                    "terms": "техникалық қызмет көрсету станциясы,тқс,шиномонтаж,автосервис,көлік жөндеу,сто"
+                },
+                "shop/caravan": {
+                    "name": "Автоүй сататын дилер",
+                    "terms": "автоүй дүкені,керуен,доңғалақты үй вагоны,дөңгелекті үй,трейлер,кемпер,rv,тіркеме үй"
                 },
                 "shop/carpet": {
                     "name": "Кілем дүкені"
                 },
                 "shop/charity": {
                     "name": "Қайырымдылық дүкені"
+                },
+                "shop/cheese": {
+                    "name": "Ірімшік дүкені"
                 },
                 "shop/chemist": {
                     "name": "Тұрмыстық химия"
@@ -2774,7 +4962,8 @@
                     "name": "Киім дүкені"
                 },
                 "shop/clothes/second_hand": {
-                    "name": "Секондхэнд"
+                    "name": "Секондхэнд",
+                    "terms": "комиссиондық дүкен,секонд-хенд киім дүкені"
                 },
                 "shop/clothes/suits": {
                     "name": "Ерлер костюмдері дүкені"
@@ -2788,6 +4977,12 @@
                 "shop/clothes/workwear": {
                     "name": "Жұмыс киімі дүкені"
                 },
+                "shop/coffee": {
+                    "name": "Кофе дүкені"
+                },
+                "shop/collector": {
+                    "name": "Коллекциялық дүкен"
+                },
                 "shop/computer": {
                     "name": "Компьютер дүкені"
                 },
@@ -2796,6 +4991,10 @@
                 },
                 "shop/convenience": {
                     "name": "Азық-түлік дүкені"
+                },
+                "shop/copyshop": {
+                    "name": "Көшіру, баспа дүкені",
+                    "terms": "ксерокопия"
                 },
                 "shop/cosmetics": {
                     "name": "Косметика дүкені"
@@ -2809,11 +5008,33 @@
                 "shop/dairy": {
                     "name": "Сүт өнімдері дүкені"
                 },
+                "shop/deli": {
+                    "name": "Деликатестер",
+                    "terms": "кулинария,деликатерстер,жеңсік ас"
+                },
                 "shop/department_store": {
                     "name": "Сауда үйі"
                 },
                 "shop/doityourself": {
                     "name": "Құрылыс дүкені"
+                },
+                "shop/doors": {
+                    "name": "Есік дүкені",
+                    "terms": "тапсырыс бойынша есік жасау,есік бутигі,есік дүкені,есік сататын дүкен"
+                },
+                "shop/dry_cleaning": {
+                    "name": "Химтазалау",
+                    "terms": "химиялық тазалау,химиялық тазарту"
+                },
+                "shop/e-cigarette": {
+                    "name": "Электронды темекі  дүкені",
+                    "terms": "вейп,электронды кальян,электронды сигареттер"
+                },
+                "shop/electrical": {
+                    "name": "Электр тауарлары дүкені"
+                },
+                "shop/electronics": {
+                    "name": "Тұрмыстық электроника дүкені"
                 },
                 "shop/erotic": {
                     "name": "Секс-шоп"
@@ -2821,13 +5042,46 @@
                 "shop/erotic/lgbtq": {
                     "name": "ЛГБТК+ эротика дүкені"
                 },
+                "shop/esoteric": {
+                    "name": "Эзотерика дүкені"
+                },
                 "shop/fabric": {
                     "name": "Маталар дүкені",
                     "terms": "мата сататын дүкен,тюль,перде,штор"
                 },
+                "shop/farm": {
+                    "name": "Фермерлік дүкен",
+                    "terms": "жемістер,көкөністер дүкені,қарбыз,қауын,азық-түлік"
+                },
+                "shop/fashion": {
+                    "name": "Сәнді брендтік киімдер дүкені"
+                },
+                "shop/fashion_accessories": {
+                    "name": "Cәнді аксессуарлар дүкені"
+                },
                 "shop/fireplace": {
                     "name": "Алауошақ сататын дүкен",
                     "terms": "камин сататын дүкен"
+                },
+                "shop/fishing": {
+                    "name": "Балықшылық дүкен",
+                    "terms": "балық аулауға арналған заттар дүкені,балықшылық дүкен"
+                },
+                "shop/flooring": {
+                    "name": "Еден төсеніштері дүкені"
+                },
+                "shop/florist": {
+                    "name": "Гүлдер дүкені",
+                    "terms": "гүл сататын дүкен,букет"
+                },
+                "shop/frozen_food": {
+                    "name": "Қатырылған тағамдар дүкені"
+                },
+                "shop/fuel": {
+                    "name": "Жанармай дүкені"
+                },
+                "shop/funeral_directors": {
+                    "name": "Жерлеу қызметінің бюросы"
                 },
                 "shop/furniture": {
                     "name": "Жиһаз дүкені"
@@ -2835,8 +5089,33 @@
                 "shop/games": {
                     "name": "Үстел ойындары дүкені"
                 },
+                "shop/gas": {
+                    "name": "Газ баллоны дүкені"
+                },
                 "shop/general": {
                     "name": "Әмбебап дүкен"
+                },
+                "shop/gift": {
+                    "name": "Кәдесый (сувенир) дүкені"
+                },
+                "shop/gold_buyer": {
+                    "name": "Алтын сатып алушы"
+                },
+                "shop/greengrocer": {
+                    "name": "Көкөністер мен жемістер дүкені"
+                },
+                "shop/groundskeeping": {
+                    "name": "Бақша мен газонға арналған жабдықтар дүкені"
+                },
+                "shop/hairdresser": {
+                    "name": "Шаштараз"
+                },
+                "shop/hairdresser/barber": {
+                    "name": "Барбершоп"
+                },
+                "shop/hairdresser_supply": {
+                    "name": "Шаштараз керек-жарақтары",
+                    "terms": "шаштараз жабдықтары,шаштараз құрал-сайманы"
                 },
                 "shop/hardware": {
                     "name": "Шаруашылық дүкені"
@@ -2848,21 +5127,131 @@
                     "name": "Есту аппараттарын сататын дүкен",
                     "terms": "есту аппараты"
                 },
+                "shop/herbalist": {
+                    "name": "Дәрілік шөптер дүкені"
+                },
                 "shop/hifi": {
                     "name": "Hi-Fi сататын дүкен"
+                },
+                "shop/hobby": {
+                    "name": "Қолөнер тауарлары"
                 },
                 "shop/honey": {
                     "name": "Бал дүкені",
                     "terms": "бал сататын дүкен"
                 },
+                "shop/household_linen": {
+                    "name": "Төсек-орын жабдығы дүкені"
+                },
+                "shop/houseware": {
+                    "name": "Үй заттары дүкені",
+                    "terms": "үй тауарлары дүкені,ыдыс-аяқ,аспап,әбзел,керек-жарақ"
+                },
+                "shop/hunting": {
+                    "name": "Аңшылар дүкені",
+                    "terms": "аңшылық тауарлар дүкені,аң аулауға арналған құрал-жабдықтар"
+                },
+                "shop/interior_decoration": {
+                    "name": "Интерьер заттары дүкені"
+                },
+                "shop/jewelry": {
+                    "name": "Зергерлік дүкен"
+                },
+                "shop/kiosk": {
+                    "name": "Киоск түріндегі дүкен"
+                },
                 "shop/kitchen": {
                     "name": "Асүй дүкені"
+                },
+                "shop/laundry": {
+                    "name": "Кір жуатын орын",
+                    "terms": "кір жуу орны,прачечная"
+                },
+                "shop/laundry/self_service": {
+                    "name": "Өзін кір жуатын орын"
+                },
+                "shop/leather": {
+                    "name": "Былғары бұйымдар дүкені"
                 },
                 "shop/lighting": {
                     "name": "Шамдар дүкені"
                 },
+                "shop/locksmith": {
+                    "name": "Кілт жасаушы",
+                    "terms": "кілт жасайтын орын"
+                },
+                "shop/lottery": {
+                    "name": "Лотерея билеттері дүкені"
+                },
+                "shop/mall": {
+                    "name": "Сауда орталығы",
+                    "terms": "сауда орталығы,сауда үйі"
+                },
+                "shop/massage": {
+                    "name": "Массаж салоны"
+                },
+                "shop/medical_supply": {
+                    "name": "Медициналық жабдықтар"
+                },
+                "shop/military_surplus": {
+                    "name": "Әскерлік дүкен"
+                },
+                "shop/mobile_phone": {
+                    "name": "Ұялы телефондар дүкені",
+                    "terms": "ұялы байланыс салоны,мобильді телефон сататын дүкен"
+                },
+                "shop/mobile_phone_accessories": {
+                    "name": "Ұялы телефон аксессуарлары дүкені"
+                },
+                "shop/model": {
+                    "name": "Модельдер дүкені"
+                },
+                "shop/money_lender": {
+                    "name": "Өсімқор"
+                },
+                "shop/motorcycle": {
+                    "name": "Мотоцикл дүкені"
+                },
+                "shop/motorcycle_repair": {
+                    "name": "Мотошеберхана",
+                    "terms": "мотосервис,мотоцикл жөндеу,байк,техникалық қызмет көрсету"
+                },
                 "shop/music": {
                     "name": "Музыкалық дүкен"
+                },
+                "shop/musical_instrument": {
+                    "name": "Музыкалық аспап дүкені"
+                },
+                "shop/newsagent": {
+                    "name": "Газет дүңгіршегі"
+                },
+                "shop/nutrition_supplements": {
+                    "name": "Тағамдық қоспалар дүкені"
+                },
+                "shop/nuts": {
+                    "name": "Жаңғақтар дүкені"
+                },
+                "shop/optician": {
+                    "name": "Оптика"
+                },
+                "shop/outpost": {
+                    "name": "Интернет-тапсырыстарды беру пункті"
+                },
+                "shop/paint": {
+                    "name": "Бояулар дүкені",
+                    "terms": "лак,бояу"
+                },
+                "shop/party": {
+                    "name": "Кештерге арналған тауарлар дүкені"
+                },
+                "shop/pasta": {
+                    "name": "Макарон өнімдері дүкені"
+                },
+                "shop/pastry": {
+                    "name": "Тәттілер дүкені"
+                },
+                "shop/pawnbroker": {
+                    "name": "Ломбард"
                 },
                 "shop/perfumery": {
                     "name": "Парфюмерия"
@@ -2870,8 +5259,23 @@
                 "shop/pet": {
                     "name": "Зоодүкен"
                 },
+                "shop/pet_grooming": {
+                    "name": "Үй жануарлары шаштаразы"
+                },
                 "shop/photo": {
                     "name": "Фототауарлар"
+                },
+                "shop/piercing": {
+                    "name": "Пирсинг студиясы"
+                },
+                "shop/pottery": {
+                    "name": "Керамика дүкені"
+                },
+                "shop/printer_ink": {
+                    "name": "Принтер сиялары дүкені"
+                },
+                "shop/psychic": {
+                    "name": "Көріпкел"
                 },
                 "shop/pyrotechnics": {
                     "name": "Фейерверктер дүкені"
@@ -2879,14 +5283,35 @@
                 "shop/religion": {
                     "name": "Діни тауарлар дүкені"
                 },
+                "shop/rental": {
+                    "name": "Жалға беру"
+                },
+                "shop/repair": {
+                    "name": "Шеберхана"
+                },
                 "shop/rice": {
                     "name": "Күріш дүкені"
+                },
+                "shop/scuba_diving": {
+                    "name": "Дайвинг дүкені"
+                },
+                "shop/seafood": {
+                    "name": "Теңіз өнімдері дүкені"
                 },
                 "shop/second_hand": {
                     "name": "Комиссиялық дүкен"
                 },
+                "shop/sewing": {
+                    "name": "Тігін бұйымдары"
+                },
+                "shop/shoe_repair": {
+                    "name": "Аяқ-киім жөндеу"
+                },
                 "shop/shoes": {
                     "name": "Аяқ-киім дүкені"
+                },
+                "shop/spices": {
+                    "name": "Дәмдеуіштер дүкені"
                 },
                 "shop/sports": {
                     "name": "Спорт тауарлары дүкені"
@@ -2894,8 +5319,20 @@
                 "shop/stationery": {
                     "name": "Кеңсе тауарлары"
                 },
+                "shop/storage_rental": {
+                    "name": "Қойма жалдау"
+                },
                 "shop/supermarket": {
                     "name": "Супермаркет"
+                },
+                "shop/supermarket/organic": {
+                    "name": "Табиғи өнімдер супермаркеті"
+                },
+                "shop/swimming_pool": {
+                    "name": "Бассейн тауарлары дүкені"
+                },
+                "shop/tailor": {
+                    "name": "Тігінші"
                 },
                 "shop/tattoo": {
                     "name": "Тату салоны"
@@ -2903,14 +5340,36 @@
                 "shop/tea": {
                     "name": "Шай дүкені"
                 },
+                "shop/ticket": {
+                    "name": "Билет кассасы"
+                },
+                "shop/tiles": {
+                    "name": "Плиткалар дүкені"
+                },
                 "shop/tobacco": {
                     "name": "Темекі дүкені"
+                },
+                "shop/tool_hire": {
+                    "name": "Құрал-сайманды жалға алу"
                 },
                 "shop/toys": {
                     "name": "Ойыншықтар дүкені"
                 },
+                "shop/trade": {
+                    "name": "Көтерме дүкен"
+                },
+                "shop/travel_agency": {
+                    "name": "Саяхат агенттігі"
+                },
+                "shop/trophy": {
+                    "name": "Марапаттар дүкені"
+                },
                 "shop/tyres": {
                     "name": "Шиналар дүкені"
+                },
+                "shop/vacant": {
+                    "name": "Бос дүкен орны",
+                    "terms": "дүкен ашуға қолайлы орын"
                 },
                 "shop/vacuum_cleaner": {
                     "name": "Шаңсорғыш дүкені"
@@ -2924,20 +5383,174 @@
                 "shop/video_games": {
                     "name": "Видеоойындар дүкені"
                 },
+                "shop/watches": {
+                    "name": "Сағаттар дүкені"
+                },
+                "shop/water": {
+                    "name": "Ауыз су дүкені"
+                },
+                "shop/weapons": {
+                    "name": "Қару-жарақ дүкені"
+                },
                 "shop/wholesale": {
                     "name": "Көтерме дүкен"
+                },
+                "shop/wigs": {
+                    "name": "Париктер дүкені"
                 },
                 "shop/window_blind": {
                     "name": "Жалюзилер дүкені"
                 },
+                "shop/wine": {
+                    "name": "Шарап дүкені"
+                },
+                "shop/yes": {
+                    "name": "Дүкен (кез келген)"
+                },
+                "telecom/data_center": {
+                    "name": "Дата центр"
+                },
                 "tourism": {
                     "name": "Туризм"
                 },
+                "tourism/alpine_hut": {
+                    "name": "Таудағы үй"
+                },
+                "tourism/apartment": {
+                    "name": "Қонақ апартаменттері пәтер"
+                },
+                "tourism/aquarium": {
+                    "name": "Аквариум"
+                },
+                "tourism/artwork": {
+                    "name": "Өнер туындысы"
+                },
+                "tourism/artwork/bust": {
+                    "name": "Бюст"
+                },
+                "tourism/artwork/graffiti": {
+                    "name": "Граффити"
+                },
+                "tourism/artwork/installation": {
+                    "name": "Көркем инсталляция"
+                },
+                "tourism/artwork/mural": {
+                    "name": "Мурал"
+                },
+                "tourism/artwork/sculpture": {
+                    "name": "Мүсін"
+                },
+                "tourism/artwork/statue": {
+                    "name": "Ескерткіш"
+                },
                 "tourism/attraction": {
-                    "name": "Көрнекі жер"
+                    "name": "Көрнекі жер",
+                    "terms": "көрікті жер,көрнекі орын,тарихи-мәдени орын"
+                },
+                "tourism/camp_pitch": {
+                    "name": "Кемпингке арналған далашық"
+                },
+                "tourism/caravan_site": {
+                    "name": "Трейлерлер тұрағы"
+                },
+                "tourism/chalet": {
+                    "name": "Жалдамалы коттедж"
+                },
+                "tourism/gallery": {
+                    "name": "Өнер галереясы"
+                },
+                "tourism/guest_house": {
+                    "name": "Қонақжай үй"
+                },
+                "tourism/hostel": {
+                    "name": "Хостел"
+                },
+                "tourism/hotel": {
+                    "name": "Қонақ үй"
+                },
+                "tourism/information": {
+                    "name": "Ақпарат пункті"
+                },
+                "tourism/information/board": {
+                    "name": "Ақпарат тақтасы"
+                },
+                "tourism/information/board/welcome_sign": {
+                    "name": "Қош келдіңіз белгісі"
+                },
+                "tourism/information/guidepost": {
+                    "name": "Бағыт көрсеткіші"
+                },
+                "tourism/information/map": {
+                    "name": "Карта"
+                },
+                "tourism/information/office": {
+                    "name": "Туристік ақпарат орталығы"
+                },
+                "tourism/information/route_marker": {
+                    "name": "Бағдар маркері"
+                },
+                "tourism/information/terminal": {
+                    "name": "Ақпараттық терминал"
+                },
+                "tourism/information/visitor_centre": {
+                    "name": "Туристік ақпараттық орталық"
+                },
+                "tourism/motel": {
+                    "name": "Мотель"
+                },
+                "tourism/museum": {
+                    "name": "Музей",
+                    "terms": "мұражай,музей"
                 },
                 "tourism/museum/history": {
                     "name": "Тарихи музей"
+                },
+                "tourism/picnic_site": {
+                    "name": "Пикник орны"
+                },
+                "tourism/theme_park": {
+                    "name": "Ойын-сауық паркі"
+                },
+                "tourism/viewpoint": {
+                    "name": "Шолу алаңы"
+                },
+                "tourism/wilderness_hut": {
+                    "name": "Аңшылар үйі"
+                },
+                "tourism/zoo": {
+                    "name": "Зообақ",
+                    "terms": "зоопарк,хайуанаттар бағы,хайуанатхана"
+                },
+                "tourism/zoo/petting": {
+                    "name": "Контактілі зообақ"
+                },
+                "tourism/zoo/safari": {
+                    "name": "Сафари-парк"
+                },
+                "tourism/zoo/wildlife": {
+                    "name": "Жабайы табиғат паркі"
+                },
+                "traffic_calming": {
+                    "name": "Қозғалысты жайлату элементі"
+                },
+                "traffic_calming/bump": {
+                    "name": "Жасанды төмпешік",
+                    "terms": "жасанды тегіссіздік,полицейский"
+                },
+                "traffic_calming/choker": {
+                    "name": "Жолдың тарылуы"
+                },
+                "traffic_calming/dip": {
+                    "name": "Жол шұңқыры"
+                },
+                "traffic_calming/rumble_strip": {
+                    "name": "Дыбыстық жолақтар"
+                },
+                "traffic_calming/yes": {
+                    "name": "Қозғалысты баяулату элементі (кез келген)"
+                },
+                "traffic_sign": {
+                    "name": "Жол белгісі"
                 },
                 "traffic_sign/city_limit": {
                     "name": "Елді мекен белгісі",
@@ -2946,11 +5559,105 @@
                 "traffic_sign/maxspeed": {
                     "name": "Жылдамдықты шектеу белгісі"
                 },
+                "type/boundary": {
+                    "name": "Шекара",
+                    "terms": "шекара,шегара,шек"
+                },
+                "type/boundary/administrative": {
+                    "name": "Әкімшілік шекара"
+                },
                 "type/enforcement/maxspeed": {
                     "name": "Жылдамдық камерасы"
                 },
+                "type/multipolygon": {
+                    "name": "Мультиполигон"
+                },
+                "type/restriction": {
+                    "name": "Манёвр шектеуі"
+                },
+                "type/restriction/no_left_turn": {
+                    "name": "Солға бұрылуға тыйым салынады (3.18.2)"
+                },
+                "type/restriction/no_right_turn": {
+                    "name": "Оңға бұрылуға тыйым салынады (3.18.1)"
+                },
+                "type/restriction/no_straight_on": {
+                    "name": "Тіке жүруге тыйым салынады"
+                },
+                "type/restriction/no_u_turn": {
+                    "name": "Кері бұрылуға тыйым салынады"
+                },
+                "type/restriction/only_left_turn": {
+                    "name": "Тек солға"
+                },
+                "type/restriction/only_right_turn": {
+                    "name": "Тек оңға"
+                },
+                "type/restriction/only_straight_on": {
+                    "name": "Тек тура"
+                },
+                "type/route": {
+                    "name": "Бағыт / Бағдар"
+                },
+                "type/route/aerialway": {
+                    "name": "Әуе бағыты"
+                },
+                "type/route/bicycle": {
+                    "name": "Велосипед бағыты"
+                },
+                "type/route/bus": {
+                    "name": "Автобус бағыты"
+                },
+                "type/route/detour": {
+                    "name": "Айналма бағыт"
+                },
+                "type/route/ferry": {
+                    "name": "Паром бағыты"
+                },
+                "type/route/foot": {
+                    "name": "Жаяу жүргіншілер бағыты"
+                },
+                "type/route/hiking": {
+                    "name": "Жаяу туризм бағыты"
+                },
+                "type/route/horse": {
+                    "name": "Атпен жүру бағыты"
+                },
+                "type/route/railway": {
+                    "name": "Теміржол бағдары"
+                },
+                "type/route/road": {
+                    "name": "Жол бағдары"
+                },
+                "type/site": {
+                    "name": "Орын"
+                },
+                "type/waterway": {
+                    "name": "Су жолы"
+                },
+                "waterway": {
+                    "name": "Гидрография"
+                },
+                "waterway/canal": {
+                    "name": "Жасанды канал/Анхар"
+                },
+                "waterway/ditch": {
+                    "name": "Су ағатын арық"
+                },
                 "waterway/milestone": {
                     "name": "Километрлік белгі (су жолы)"
+                },
+                "waterway/river": {
+                    "name": "Өзен"
+                },
+                "waterway/stream": {
+                    "name": "Жылға"
+                },
+                "waterway/stream_intermittent": {
+                    "name": "Тартылған жылға"
+                },
+                "waterway/tidal_channel": {
+                    "name": "Толысу каналы"
                 }
             }
         }

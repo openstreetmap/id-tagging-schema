@@ -79,15 +79,15 @@
                             "title": "禁止"
                         },
                         "permissive": {
-                            "description": "容许驶入，直至拥有者撤回许可",
+                            "description": "所有者撤销许可前可通行",
                             "title": "默许"
                         },
                         "permit": {
-                            "description": "仅限凭证驶入",
+                            "description": "仅持有效证照者通行",
                             "title": "许可证"
                         },
                         "private": {
-                            "description": "仅当在个人持有拥有者的允许时才许可通行",
+                            "description": "仅允许所有者逐一许可的人通行",
                             "title": "私人"
                         },
                         "unknown": {
@@ -95,7 +95,7 @@
                             "title": "未知"
                         },
                         "yes": {
-                            "description": "法律赋予的通行权",
+                            "description": "依法允许通行",
                             "title": "允许"
                         }
                     },
@@ -159,7 +159,7 @@
                         "city!vn": "城庯/市社",
                         "conscriptionnumber": "123",
                         "country": "国家",
-                        "county": "縣",
+                        "county": "县",
                         "county!jp": "郡",
                         "district": "区",
                         "district!cn": "市辖区/县/县级市/旗",
@@ -204,7 +204,8 @@
                     "options": {
                         "both": "双向",
                         "entry": "入口",
-                        "exit": "出口"
+                        "exit": "出口",
+                        "no": "皆非"
                     }
                 },
                 "aerialway/bubble": {
@@ -226,12 +227,7 @@
                     "placeholder": "2、4、8..."
                 },
                 "aerialway/summer/access": {
-                    "label": "通行方向（夏季）",
-                    "options": {
-                        "both": "双向",
-                        "entry": "入口",
-                        "exit": "出口"
-                    }
+                    "label": "通行方向（夏季）"
                 },
                 "aeroway": {
                     "label": "类型"
@@ -428,7 +424,7 @@
                         "retaining_wall": "挡土墙",
                         "stile": "梯磴",
                         "swing_gate": "平开门",
-                        "toll_booth": "收费站",
+                        "toll_booth": "收费亭",
                         "turnstile": "辊闸",
                         "wall": "墙"
                     }
@@ -1000,7 +996,20 @@
                     "placeholder": "http://example.com/"
                 },
                 "content": {
-                    "label": "内储物"
+                    "label": "内储物",
+                    "options": {
+                        "crop": "农作物",
+                        "fuel": "燃油",
+                        "gas": "气体",
+                        "hot_water": "热水",
+                        "oil": "油",
+                        "salt": "盐",
+                        "sewage": "污水",
+                        "silage": "青贮饲料",
+                        "slurry": "液态粪肥",
+                        "water": "水",
+                        "wine": "葡萄酒"
+                    }
                 },
                 "conveying": {
                     "label": "移动方向",
@@ -4030,7 +4039,6 @@
                         "only": "仅",
                         "yes": "是"
                     },
-                    "placeholder": "是、否、仅",
                     "terms": "出售二手货"
                 },
                 "segregated": {
@@ -4581,7 +4589,6 @@
                         "only": "仅限外卖",
                         "yes": "是"
                     },
-                    "placeholder": "是、否、仅限外卖",
                     "terms": "外卖,外送,打包,送餐"
                 },
                 "target": {
@@ -5201,7 +5208,7 @@
                 },
                 "aerialway/gondola": {
                     "name": "循环式索道",
-                    "terms": "索道,缆车,循环式索道,环路缆车,吊椅,滑雪,贡多拉,很多缆车,很多很多缆车,很多很多很多缆车,群体打转的缆车"
+                    "terms": "索道,缆车,循环式索道,环路缆车,吊椅,滑雪,贡多拉"
                 },
                 "aerialway/goods": {
                     "name": "物品缆车线路",
@@ -6183,6 +6190,10 @@
                     "name": "庇护所",
                     "terms": "庇护,庇护场地,躲雨,躲避,逃难,逃荒,避风,挡雨,遮阴"
                 },
+                "amenity/shelter/field_shelter": {
+                    "name": "牧棚",
+                    "terms": "牧棚,放牧棚舍,牲畜遮蔽棚,牧场遮蓬"
+                },
                 "amenity/shelter/gazebo": {
                     "name": "凉亭",
                     "terms": "凉亭,亭子,休息亭"
@@ -6222,6 +6233,10 @@
                 "amenity/social_facility/assisted_living": {
                     "name": "老年公寓",
                     "terms": "老年公寓,老人之家,老年活动中心"
+                },
+                "amenity/social_facility/day_care": {
+                    "name": "日间照护中心",
+                    "terms": "日间照护中心,日间照护,日间社会服务,日间中心"
                 },
                 "amenity/social_facility/food_bank": {
                     "name": "粥厂",
@@ -7771,6 +7786,10 @@
                     "name": "让行标志",
                     "terms": "让行标志,减速让行标志"
                 },
+                "highway/hitchhiking": {
+                    "name": "便民乘车点",
+                    "terms": "便民乘车点"
+                },
                 "highway/ladder": {
                     "name": "爬梯",
                     "terms": "梯子,陡梯,步梯"
@@ -7829,7 +7848,7 @@
                 },
                 "highway/pedestrian_area": {
                     "name": "步行区",
-                    "terms": "徒步,广场,行人,步行,人行,区"
+                    "terms": "徒步,广场,行人,步行,人行,区,行人地,步行区域,行人专用区"
                 },
                 "highway/pedestrian_line": {
                     "name": "步行街",
@@ -8870,8 +8889,8 @@
                     "terms": "桥梁范围,桥面轮廓,桥梁区域,桥梁边缘,桥面,桥体,桥梁,大桥,桥"
                 },
                 "man_made/bunker_silo": {
-                    "name": "储料堆场",
-                    "terms": "堆料,储料,贮料,储存,堆场,场地,储场"
+                    "name": "堆料场",
+                    "terms": "槽,堆料,储料,贮料,储存,堆场,场地,储场"
                 },
                 "man_made/cairn": {
                     "name": "石墩/玛尼石",
@@ -9105,8 +9124,8 @@
                     "terms": "卫星天线,卫星锅,天线,卫星"
                 },
                 "man_made/silo": {
-                    "name": "粮食库",
-                    "terms": "粮食库,粮食仓"
+                    "name": "筒仓",
+                    "terms": "储料,粮食库,粮食仓,粮仓,谷,提升机"
                 },
                 "man_made/ski_jump": {
                     "name": "滑雪跳台",
@@ -10159,7 +10178,7 @@
                 },
                 "public_transport/platform/aerialway": {
                     "name": "缆车站台",
-                    "terms": "缆车,空中列车,车站,站台,月台,公共交通,交通"
+                    "terms": "缆车,索道,空中列车,车站,站台,月台,公共交通,交通"
                 },
                 "public_transport/platform/aerialway_point": {
                     "name": "缆车站 / 站台"
@@ -10237,7 +10256,7 @@
                 },
                 "public_transport/station_aerialway": {
                     "name": "缆车站",
-                    "terms": "缆车,空中列车,车站"
+                    "terms": "缆车,索道,空中列车,车站"
                 },
                 "public_transport/station_bus": {
                     "name": "公交车站 / 枢纽站",
@@ -10405,8 +10424,8 @@
                     "terms": "色灯,信号机,信号,灯,信号灯,红绿灯,表示器,轨道,股道,铁轨,铁路,路轨,火车,列车,调车,进站,出站"
                 },
                 "railway/signal_box": {
-                    "name": "信号机",
-                    "terms": "信号机,信号箱,信号"
+                    "name": "铁路信号楼",
+                    "terms": "信号所,信号箱,信号"
                 },
                 "railway/station": {
                     "name": "铁路车站"
@@ -10785,7 +10804,7 @@
                 },
                 "shop/flooring": {
                     "name": "地板店",
-                    "terms": "地板專賣店"
+                    "terms": "地板专卖店"
                 },
                 "shop/florist": {
                     "name": "花店",
