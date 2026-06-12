@@ -24,6 +24,83 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 -->
 
 
+# 6.18.0
+##### 2026-Jun-12
+
+#### New Presets
+
+* added highway=hitchhiking preset ([#1705], thanks [@paulklie])
+* Add dedicated preset for shelter\_type=field\_shelter (Resolves #851) ([#2065], thanks [@ashree2118])
+
+#### New and Changed Fields
+
+* more logical detailed tunnel values order ([#2287], thanks [@matkoniecz])
+* Change `organic` field from combo to radio ([#2279], thanks [@FloEdelmann])
+* Change `internet_access:fee` field from combo to radio ([#2262], thanks [@FloEdelmann])
+* Change `aerialway:access` fields from combo to radio ([#2266], thanks [@FloEdelmann])
+* Add `no` option to `aerialway:access` fields ([#2273], thanks [@FloEdelmann])
+* Change `dog_yes` field from combo to radio ([#2265], thanks [@FloEdelmann])
+* Change `second_hand` field from combo to radio ([#2260], thanks [@FloEdelmann])
+* Change `survey_point:purpose` field from combo to radio ([#2263], thanks [@FloEdelmann])
+* Change `railway:turnout_side` field from combo to radio ([#2267], thanks [@FloEdelmann])
+* Change `plant:method` (hydro) field from combo to radio ([#2270], thanks [@FloEdelmann])
+* Change `structure_power` field from combo to radio ([#2261], thanks [@FloEdelmann])
+* Change `generator:method` (hydro) field from combo to radio ([#2269], thanks [@FloEdelmann])
+* Change `baby_feeding` field from combo to radio ([#2259], thanks [@FloEdelmann])
+* Change `ramp` field from combo to radio ([#2257], thanks [@FloEdelmann])
+* Change `takeaway` field from combo to radio ([#2256], thanks [@FloEdelmann])
+* Change `lift_gate:type` field from combo to radio ([#2253], thanks [@FloEdelmann])
+* Remove `autoSuggestions`/`customValues` from radio fields ([#2251], thanks [@FloEdelmann])
+* Add field for `content` tag to `man_made=silo` preset ([#2025], thanks [@matkoniecz])
+* Add strings for `Content` field, add some new values ([#2241], thanks [@Geo-2695])
+* make social media fields support URLs and usernames ([#2233], thanks [@k-yle])
+
+#### Changed Presets
+
+* Hooking up new icons from Roentgen 0.15.0 ([#2319], thanks [@BrianMacIntosh])
+* Add field for `content` tag to `man_made=silo` preset ([#2025], thanks [@matkoniecz])
+* Change icon of  `railway=station` preset ([#2311], thanks [@Geo-2695])
+
+#### Regional Presets and Fields
+
+* added highway=hitchhiking preset ([#1705], thanks [@paulklie])
+
+#### Dependencies
+
+* Bump actions/checkout from 6.0.2 to 6.0.3 in the github-actions group ([#2308])
+* Bump release-drafter/release-drafter from 7.3.0 to 7.3.1 in the github-actions group ([#2292])
+* Bump release-drafter/release-drafter from 7.2.1 to 7.3.0 in the github-actions group across 1 directory ([#2258])
+
+[#1705]: https://github.com/openstreetmap/id-tagging-schema/pull/1705
+[#2025]: https://github.com/openstreetmap/id-tagging-schema/pull/2025
+[#2065]: https://github.com/openstreetmap/id-tagging-schema/pull/2065
+[#2233]: https://github.com/openstreetmap/id-tagging-schema/pull/2233
+[#2241]: https://github.com/openstreetmap/id-tagging-schema/pull/2241
+[#2251]: https://github.com/openstreetmap/id-tagging-schema/pull/2251
+[#2253]: https://github.com/openstreetmap/id-tagging-schema/pull/2253
+[#2256]: https://github.com/openstreetmap/id-tagging-schema/pull/2256
+[#2257]: https://github.com/openstreetmap/id-tagging-schema/pull/2257
+[#2258]: https://github.com/openstreetmap/id-tagging-schema/pull/2258
+[#2259]: https://github.com/openstreetmap/id-tagging-schema/pull/2259
+[#2260]: https://github.com/openstreetmap/id-tagging-schema/pull/2260
+[#2261]: https://github.com/openstreetmap/id-tagging-schema/pull/2261
+[#2262]: https://github.com/openstreetmap/id-tagging-schema/pull/2262
+[#2263]: https://github.com/openstreetmap/id-tagging-schema/pull/2263
+[#2265]: https://github.com/openstreetmap/id-tagging-schema/pull/2265
+[#2266]: https://github.com/openstreetmap/id-tagging-schema/pull/2266
+[#2267]: https://github.com/openstreetmap/id-tagging-schema/pull/2267
+[#2269]: https://github.com/openstreetmap/id-tagging-schema/pull/2269
+[#2270]: https://github.com/openstreetmap/id-tagging-schema/pull/2270
+[#2273]: https://github.com/openstreetmap/id-tagging-schema/pull/2273
+[#2279]: https://github.com/openstreetmap/id-tagging-schema/pull/2279
+[#2287]: https://github.com/openstreetmap/id-tagging-schema/pull/2287
+[#2292]: https://github.com/openstreetmap/id-tagging-schema/pull/2292
+[#2308]: https://github.com/openstreetmap/id-tagging-schema/pull/2308
+[#2311]: https://github.com/openstreetmap/id-tagging-schema/pull/2311
+[#2319]: https://github.com/openstreetmap/id-tagging-schema/pull/2319
+[@BrianMacIntosh]: https://github.com/BrianMacIntosh
+
+
 # 6.17.0
 ##### 2026-May-11
 
