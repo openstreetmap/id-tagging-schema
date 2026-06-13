@@ -32,6 +32,21 @@ No preset or field is isolated; they are always presented alongside others in va
 - 🙈 **Unsearchable Presets**: The tagging schema is not only for adding information but also for presenting existing information. Consider adding an unsearchable preset for tagging that should be highlighted with a preset on the map and with defined fields. Reasons to make a preset unsearchable include: multiple ways to tag something where one method is preferred, or other reasons to hide commonly used tags from the search and list interface to preserve a good [user experience](#user-experience).
 - 🏝️ **Local Presets and Fields**: Generally, presets and fields in OSM should be globally applicable, and efforts should be made to ensure this. However, when local tagging conventions exist or when presets only make sense for certain regions, presets and fields can be given a local filter. This increases the need for thorough testing and makes it more challenging to maintain a good [user experience](#user-experience).
 
+### Utilization Requirements
+
+There is no fixed threshold above which a tag will be eligible to be included due to its significant usage. Factors include:
+
+- Whether usage is organic or result of import/mass edit.
+- The absolute number of occurrences of the tag is OSM.
+- For fields: How often it is used relative to the frequency of the respective preset's primary tag
+- How prominent the tagged features are in the real world. For example, [`diplomatic=embassy`](https://wiki.openstreetmap.org/wiki/Key:embassy) would require much lower usage threshold to be considered established, as number of embassies is vastly lower than number of shops globally.
+- Whether the addition can prevent mapping mistakes. For example, [`generator:source=wave`](https://wiki.openstreetmap.org/wiki/Tag%3Agenerator%3Asource%3Dwave) is used just a few times worldwide, but if omitted from presets such power plants could end up mistagged as [`generator:source=hydro`](https://wiki.openstreetmap.org/wiki/Tag:generator:source%3Dhydro) or [`generator:source=tidal`](https://wiki.openstreetmap.org/wiki/Tag:generator:source%3Dtidal).
+- How this tag would be used in presets. For example an unsearchable preset not adding any new strings to translate may be accepted with fairly low usage.
+
+Tip: In some cases the chronology graph at taginfo ([example](https://taginfo.openstreetmap.org/tags/building=trullo)) can reveal information about the utilization patterns of a specific tag.
+
+If unsure, you can search among [pull requests](https://github.com/openstreetmap/id-tagging-schema/pulls?q=is%3Apr) for similar ones and see whether any were accepted/rejected, this gives strong indicator what may happen with a new one. Especially ones with [label "waitfor-higher-usage"](https://github.com/openstreetmap/id-tagging-schema/issues?q=label%3Awaitfor-higher-usage) are especially likely to be relevant.
+
 ### Tag Updates and Additions
 
 - ➕ **Suggested Additions**: Presets can suggest additional tags. These suggestions must be clearly supported by the wiki and community consensus.
