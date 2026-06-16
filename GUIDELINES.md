@@ -45,7 +45,7 @@ There is no fixed threshold above which a tag will be eligible to be included du
 
 Tip: In some cases the chronology graph at taginfo ([example](https://taginfo.openstreetmap.org/tags/building=trullo)) can reveal information about the utilization patterns of a specific tag.
 
-If unsure, you can search among [pull requests](https://github.com/openstreetmap/id-tagging-schema/pulls?q=is%3Apr) for similar ones and see whether any were accepted/rejected, this gives strong indicator what may happen with a new one. Especially ones with [label "waitfor-higher-usage"](https://github.com/openstreetmap/id-tagging-schema/issues?q=label%3Awaitfor-higher-usage) are especially likely to be relevant.
+If unsure, you can search among [pull requests](https://github.com/openstreetmap/id-tagging-schema/pulls?q=is%3Apr) for similar ones and see whether any were accepted/rejected, this gives strong indicator what may happen with a new one. The ones labeled [waitfor-higher-usage](https://github.com/openstreetmap/id-tagging-schema/issues/labels/waitfor-higher-usage) are especially likely to be relevant.
 
 ### Tag Updates and Additions
 
