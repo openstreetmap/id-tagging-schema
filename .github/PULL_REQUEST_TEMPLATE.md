@@ -25,7 +25,7 @@ Follow these steps to test your PR yourself and make it a lot easier and faster 
 
 **This is how it works:**
 1. After you submit your PR, the system will create a preview and comment on your PR:
-   > 🍱 You can preview the tagging presets of this pull request here.
+   > 🍱 Your pull request preview is ready.
    If this is your first contribution to this project, the preview will not happen right away but requires a click from one of the project members. We will do this ASAP.
 
 2. Once the preview is ready, use it to test your changes.
@@ -58,7 +58,7 @@ Follow these steps to test your PR yourself and make it a lot easier and faster 
 
 <!-- **Test the info-i** for your fields and preset and share relevant **screenshots** here.
      The info needs to help mappers understand the preset and when to use it.
-     [Learn more…](https://github.com/tordans/id-tagging-schema/blob/main/CONTRIBUTING.md#info-i)
+     [Learn more…](https://github.com/openstreetmap/id-tagging-schema/blob/main/CONTRIBUTING.md#info-i)
  -->
 
 ### Wording

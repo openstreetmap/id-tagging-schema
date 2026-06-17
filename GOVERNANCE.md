@@ -6,7 +6,7 @@ This document outlines how this project is maintained.
 
 ### Maintainer Role
 
-[Martin](https://github.com/tyrasd) maintains this project as part of his work on the iD Editor project.
+[Martin](https://github.com/tyrasd) maintains this project as part of his work on the iD Editor project, with work funded by OpenStreetMap Foundation.
 
 The maintainer role includes:
 - Having the final say in decisions for the tagging schema.
@@ -22,6 +22,7 @@ Github shows a `(Member)` label next to users with full access to this repositor
 
 - [Kyle](https://github.com/k-yle) contributes to this project as a volunteer.
 - [Tobias](https://github.com/tordans) contributes to this project as a volunteer.
+- [Mateusz](https://github.com/matkoniecz) contributed to this project as a volunteer, with [some of past work](https://github.com/osmfoundation/ewg_bidding/pull/58) funded by OpenStreetMap Foundation.
 
 The co-maintainer role includes:
 - Reviewing PRs.
@@ -33,11 +34,12 @@ Github shows a `(Collaborator)` label next to users with any permission on this 
 
 ### Triage Role
 
-(No one has the triage role at the moment. Please reach out if you want to help.)
+- [Andrew](https://github.com/andrewharvey) contributes to this project as a volunteer.
 
 The triage role includes:
 - Proactively helping to clarify issues and PRs.
 - Closing issues as duplicates or not planned.
+- Closing abandoned, duplicated or invalid PRs.
 - Assigning labels to issues and PRs.
 
 Github shows a `(Collaborator)` label next to users with any permission on this repository.
@@ -70,7 +72,13 @@ Github shows a `(Contributor)` label next to users that previously committed to 
 
 - Usually squash merge PRs to make the history simpler
 - Give the merge a meaningful description of the change
-- Add labels to the PR to simplify creating the changelog: `new-*`, `add-*`, `bug`
+- Add labels to the PR before merging which get picked up by our [release drafter](https://github.com/openstreetmap/id-tagging-schema/blob/main/.github/release-drafter.yml)
+
+**How to close…**
+
+- Provide context and an explanation for the chosen action
+- Consider reaching out to the author before taking action
+- We're happy to reopen PRs if opinions change.
 
 ### Releases
 
