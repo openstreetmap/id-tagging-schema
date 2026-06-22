@@ -214,12 +214,7 @@
                     "placeholder": "2, 4, 8..."
                 },
                 "aerialway/summer/access": {
-                    "label": "Akses (musim panas)",
-                    "options": {
-                        "both": "Keduanya",
-                        "entry": "Masuk",
-                        "exit": "Keluar"
-                    }
+                    "label": "Akses (musim panas)"
                 },
                 "aeroway": {
                     "label": "Tipe"
@@ -477,6 +472,7 @@
                     "options": {
                         "apartments": "Rumah Susun",
                         "barn": "Lumbung",
+                        "barracks": "Bangunan Barak",
                         "bunker": "Tempat berlindung",
                         "cabin": "Kabin",
                         "carport": "Garasi Mobil",
@@ -520,6 +516,7 @@
                         "stadium": "Bangunan Stadion",
                         "static_caravan": "Karavan",
                         "sty": "Kandang Babi",
+                        "supermarket": "Bangunan Supermarket",
                         "synagogue": "Bangunan Sinagoga",
                         "temple": "Bangunan Tempat Suci",
                         "terrace": "Rumah Deret",
@@ -552,6 +549,9 @@
                 },
                 "building/prefabricated": {
                     "label": "Bangunan Prefab"
+                },
+                "building_area": {
+                    "label": "Bangunan, jika ada"
                 },
                 "bunker_type": {
                     "label": "Tipe"
@@ -637,7 +637,7 @@
                     "label": "Meja ganti popok"
                 },
                 "charge_fee": {
-                    "label": "Biaya pengunaan",
+                    "label": "Jumlah Biaya",
                     "placeholder": "2000 IDR (Rupiah), 5 USD, 10 JPY…",
                     "terms": "jumlah biaya,harga,ongkos,karcis,bayar,bayaran,upah,bea,cukai,uang pembayaran"
                 },
@@ -1287,7 +1287,7 @@
                     "terms": "faks,fax,faksimile,faksimil,faximile"
                 },
                 "fee": {
-                    "label": "Biaya",
+                    "label": "Bayar",
                     "terms": "jumlah biaya,harga,ongkos,karcis,bayar,bayaran,upah,bea,cukai,uang pembayaran"
                 },
                 "fence_type": {
@@ -1384,6 +1384,9 @@
                 },
                 "flood_prone": {
                     "label": "Rawan Banjir"
+                },
+                "food": {
+                    "label": "Apakah tersedia makanan?"
                 },
                 "footrest": {
                     "label": "Sandaran Kaki"
@@ -2528,6 +2531,9 @@
                         "voodoo": "Voodoo"
                     }
                 },
+                "religion_place_of_worship": {
+                    "label": "Agama"
+                },
                 "reservation": {
                     "label": "Pesan Tempat",
                     "options": {
@@ -2829,6 +2835,9 @@
                         "yoga": "Yoga"
                     }
                 },
+                "sport/sport_bowling": {
+                    "label": "Cabang Olahraga"
+                },
                 "sport/sport_ice": {
                     "label": "Olahraga"
                 },
@@ -2975,8 +2984,7 @@
                         "no": "Tidak",
                         "only": "Bawa pulang saja",
                         "yes": "Ya"
-                    },
-                    "placeholder": "Ya, Tidak, Bawa pulang saja"
+                    }
                 },
                 "telecom": {
                     "label": "Tipe"
@@ -3519,6 +3527,9 @@
                 "amenity/internet_cafe": {
                     "name": "Warung Internet",
                     "terms": "warnet"
+                },
+                "amenity/kitchen": {
+                    "name": "Dapur Umum"
                 },
                 "amenity/library": {
                     "name": "Perpustakaan",
@@ -4312,6 +4323,9 @@
                 "highway/bus_stop": {
                     "name": "Halte Bus"
                 },
+                "highway/busway": {
+                    "name": "Jalur Bis Terpisah"
+                },
                 "highway/construction": {
                     "name": "Jalan dalam Pembangunan"
                 },
@@ -4391,12 +4405,15 @@
                     "name": "Jalan Tol",
                     "terms": "jalan bebas hambatan"
                 },
+                "highway/motorway_junction": {
+                    "name": "Jalan Keluar Tol (out ramp)"
+                },
                 "highway/motorway_link": {
-                    "name": "Jalan Penghubung Tol",
+                    "name": "Jalan Penghubung Tol (ramp)",
                     "terms": "jalan penghubung bebas hambatan"
                 },
                 "highway/path": {
-                    "name": "Jalur (umum)",
+                    "name": "Jalur Setapak",
                     "terms": "trail,hiking,mendaki,setapak,single track,trek"
                 },
                 "highway/path/crossing": {
@@ -4417,11 +4434,11 @@
                     "terms": "jalan pedestrian,jalan alun-alun,jalan square"
                 },
                 "highway/primary": {
-                    "name": "Jalan Provinsi",
+                    "name": "Jalan Primer",
                     "terms": "jalan primer,jalan utama"
                 },
                 "highway/primary_link": {
-                    "name": "Jalan Penghubung Primer",
+                    "name": "Jalan Primer Penghubung",
                     "terms": "jalan penghubung primer"
                 },
                 "highway/raceway": {
@@ -4434,7 +4451,7 @@
                     "name": "Jalur Motorcross"
                 },
                 "highway/residential": {
-                    "name": "Jalan Permukiman / Lokal",
+                    "name": "Jalan Lokal / Permukiman",
                     "terms": "jalan permukiman,jalan perumahan"
                 },
                 "highway/rest_area": {
@@ -4446,11 +4463,11 @@
                     "terms": "jalan tidak diketahui"
                 },
                 "highway/secondary": {
-                    "name": "Jalan Kabupaten",
+                    "name": "Jalan Sekunder",
                     "terms": "jalan sekunder"
                 },
                 "highway/secondary_link": {
-                    "name": "Jalan Penghubung Sekunder",
+                    "name": "Jalan Sekunder Penghubung",
                     "terms": "jalan penghubung sekunder"
                 },
                 "highway/service": {
@@ -4462,9 +4479,8 @@
                     "terms": "gang,jalan tikus"
                 },
                 "highway/service/drive-through": {
-                    "name": "Layanan Tanpa Turun",
-                    "terms": "layanan tanpa turun,pelayanan mobil,pelayanan kendaraan",
-                    "aliases": "Lantatur"
+                    "name": "Layanan Tanpa Turun / Lantatur",
+                    "terms": "layanan tanpa turun,pelayanan mobil,pelayanan kendaraan"
                 },
                 "highway/service/driveway": {
                     "name": "Jalan Masuk",
@@ -4490,8 +4506,7 @@
                     "terms": "tangga,anak tangga"
                 },
                 "highway/steps/conveying": {
-                    "name": "Eskalator",
-                    "aliases": "Lift"
+                    "name": "Eskalator / Lift"
                 },
                 "highway/stop": {
                     "name": "Rambu Berhenti",
@@ -4501,11 +4516,11 @@
                     "name": "Lampu Jalan"
                 },
                 "highway/tertiary": {
-                    "name": "Jalan Kota",
+                    "name": "Jalan Tersier",
                     "terms": "jalan tersier"
                 },
                 "highway/tertiary_link": {
-                    "name": "Jalan Penghubung Tersier",
+                    "name": "Jalan Tersier Penghubung",
                     "terms": "jalan penghubung tersier"
                 },
                 "highway/track": {
@@ -4516,7 +4531,7 @@
                     "terms": "lampu merah"
                 },
                 "highway/trunk": {
-                    "name": "Jalan Nasional",
+                    "name": "Jalan Strategis Nasional",
                     "terms": "jalan raya"
                 },
                 "highway/trunk_link": {
@@ -5002,6 +5017,9 @@
                 },
                 "man_made/flagpole": {
                     "name": "Tiang Bendera"
+                },
+                "man_made/geoglyph": {
+                    "name": "Geoglif"
                 },
                 "man_made/lighthouse": {
                     "name": "Mercusuar"
@@ -5568,6 +5586,9 @@
                     "name": "PLTS",
                     "terms": "panel surya,sel surya"
                 },
+                "power/plant/source/solar/photovoltaic": {
+                    "name": "Kawasan PLTS"
+                },
                 "power/plant/source/waste": {
                     "name": "PLTSa",
                     "terms": "pembangkit listrik"
@@ -5803,6 +5824,9 @@
                 },
                 "shop/clothes": {
                     "name": "Toko Baju"
+                },
+                "shop/coffee": {
+                    "name": "Toko Biji Kopi"
                 },
                 "shop/collector": {
                     "name": "Toko Barang Koleksi"

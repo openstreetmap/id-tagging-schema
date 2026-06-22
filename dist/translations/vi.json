@@ -141,6 +141,9 @@
                 },
                 "address": {
                     "label": "Địa chỉ",
+                    "labels": {
+                        "housenumber": "Số Nhà"
+                    },
                     "placeholders": {
                         "block_number": "Số Ô phố",
                         "block_number!jp": "Số Ô phố",
@@ -155,6 +158,7 @@
                         "district": "Quận/thị xã/huyện",
                         "district!cn": "Khu/Huyện/Kỳ",
                         "district!vn": "Quận/Thị xã/Huyện",
+                        "door": "Số Cửa",
                         "floor": "Lầu",
                         "hamlet": "Thôn",
                         "housename": "Tên nhà",
@@ -213,12 +217,7 @@
                     "placeholder": "2, 4, 8, …"
                 },
                 "aerialway/summer/access": {
-                    "label": "Quyền Truy cập (Mùa hè)",
-                    "options": {
-                        "both": "Ra vào",
-                        "entry": "Vào",
-                        "exit": "Ra"
-                    }
+                    "label": "Quyền Truy cập (Mùa hè)"
                 },
                 "aeroway": {
                     "label": "Loại"
@@ -683,6 +682,11 @@
                         "stately": "Lâu đài"
                     }
                 },
+                "ceremonial_gate": {
+                    "options": {
+                        "paifang": "Bài phường"
+                    }
+                },
                 "changing_table": {
                     "label": "Bàn Thay Tã"
                 },
@@ -932,9 +936,11 @@
                         "filipino": "Philippines",
                         "fish": "Cá",
                         "french": "Pháp",
+                        "fries": "Khoai tây chiên",
                         "georgian": "Gruzia",
                         "german": "Đức",
                         "greek": "Hy Lạp",
+                        "hawaiian": "Hạ Uy Di",
                         "hot_dog": "Hot dog",
                         "ice_cream": "Kem",
                         "indian": "Ấn Độ",
@@ -949,6 +955,8 @@
                         "mediterranean": "Địa Trung Hải",
                         "mexican": "Mễ",
                         "middle_eastern": "Trung Đông",
+                        "noodle": "Mì/Bún/Miến/Phổ/v.v.",
+                        "oriental": "Phương Đông",
                         "pancake": "Bánh nướng chảo",
                         "pasta": "Pasta",
                         "pastry": "Bánh ngọt",
@@ -971,8 +979,10 @@
                         "tea": "Trà",
                         "thai": "Thái",
                         "turkish": "Thổ Nhĩ Kỳ",
+                        "udon": "Mì Udon",
                         "ukrainian": "Ukraina",
                         "vietnamese": "Việt Nam",
+                        "western": "Phương Tây",
                         "wings": "Cánh Gà"
                     },
                     "terms": "ẩm thực,cách nấu,am thuc,cach nau"
@@ -996,19 +1006,28 @@
                     "label": "Làn Xe đạp",
                     "options": {
                         "lane": {
-                            "description": "Làn xe đạp được phân cách bằng vạch trên mặt đường"
+                            "description": "Làn xe đạp được phân cách bằng vạch trên mặt đường",
+                            "title": "Làn xe đạp chuẩn"
+                        },
+                        "no": {
+                            "description": "Không có làn xe đạp",
+                            "title": "Không có"
                         },
                         "separate": {
-                            "description": "Đã vẽ lối đi xe đạp như một đường kẻ riêng"
+                            "description": "Đã vẽ lối đi xe đạp như một đường kẻ riêng",
+                            "title": "Lối đi xe đạp vẽ riêng"
                         },
                         "share_busway": {
-                            "description": "Làn xe đạp cũng dành cho xe buýt"
+                            "description": "Làn xe đạp cũng dành cho xe buýt",
+                            "title": "Làn xe đạp chung với xe buýt"
                         },
                         "shared_lane": {
-                            "description": "Làn xe đạp không được phân cách khỏi giao thông"
+                            "description": "Làn xe đạp không được phân cách khỏi giao thông",
+                            "title": "Làn xe đạp dùng chung"
                         },
                         "track": {
-                            "description": "Làn xe đạp được phân cách bằng chướng ngại"
+                            "description": "Làn xe đạp được phân cách bằng chướng ngại",
+                            "title": "Đường xe đạp riêng"
                         }
                     },
                     "terms": "làn xe đạp,làn đường xe đạp,lan xe dap,lan duong xe dap",
@@ -1335,7 +1354,8 @@
                     "options": {
                         "pillar": "Cột",
                         "pipe": "Ống dẫn Đậy nắp",
-                        "underground": "Ngầm"
+                        "underground": "Ngầm",
+                        "wall": "Tường"
                     }
                 },
                 "fireplace": {
@@ -1356,7 +1376,20 @@
                     "label": "Tên Cờ"
                 },
                 "flag/type": {
-                    "label": "Loại Cờ"
+                    "label": "Loại Cờ",
+                    "options": {
+                        "advertising": "Quảng cáo",
+                        "athletic": "Thể thao",
+                        "cultural": "Văn hóa",
+                        "governmental": "Chính phủ",
+                        "indigenous": "Thổ dân",
+                        "military": "Quân sự",
+                        "municipal": "Địa phương",
+                        "national": "Quốc gia",
+                        "organisation": "Tổ chức",
+                        "regional": "Vùng miền",
+                        "religious": "Tôn giáo"
+                    }
                 },
                 "flag/wikidata": {
                     "label": "Wikidata về Cờ"
@@ -1409,6 +1442,13 @@
                 "fuel": {
                     "label": "Nhiên liệu"
                 },
+                "fuel/fuel_multi": {
+                    "options": {
+                        "e10": "Xăng E10",
+                        "e5": "Xăng E5",
+                        "e85": "Xăng E85"
+                    }
+                },
                 "gambling": {
                     "label": "Trò chơi"
                 },
@@ -1443,7 +1483,10 @@
                     "options": {
                         "battery": "Pin",
                         "gasoline": "Xăng",
+                        "hydro": "Thủy năng",
                         "oil": "Dầu",
+                        "solar": "Bức xạ Mặt Trời",
+                        "waste": "Chất thải",
                         "wind": "Gió"
                     }
                 },
@@ -1490,13 +1533,34 @@
                     "label": "Thẻ băm",
                     "placeholder": "#VíDụ"
                 },
+                "hazard_boundary": {
+                    "label": "Nguy hiểm",
+                    "options": {
+                        "avalanche": "Lở tuyết",
+                        "electricity": "Giật điện",
+                        "hole": "Hố sụt",
+                        "minefield": "Bãi mìn",
+                        "quicksand": "Cát lún",
+                        "shooting_range": "Súng đạn"
+                    }
+                },
                 "healthcare": {
                     "label": "Kiểu",
                     "options": {
+                        "alternative": "Y học Thay thế",
+                        "audiologist": "Bác sĩ Thính học",
+                        "blood_donation": "Trung tâm Hiến máu",
+                        "clinic": "Phòng khám",
+                        "community_health_worker": "Nhân viên Y tế Cộng đồng",
+                        "dentist": "Nha sĩ",
+                        "dialysis": "Trung tâm Chạy thận",
                         "doctor": "Bác sĩ",
+                        "hospice": "Nhà An dưỡng Cuối đời",
                         "hospital": "Bệnh viện",
+                        "laboratory": "Phòng Thí nghiệm Y tế",
                         "midwife": "Bà đỡ",
                         "nurse": "Y tá",
+                        "occupational_therapist": "Bác sĩ Phục hồi Chức năng",
                         "pharmacy": "Nhà thuốc",
                         "physiotherapist": "Bác sĩ Vật lý trị liệu",
                         "podiatrist": "Bác sĩ Chân",
@@ -1512,8 +1576,12 @@
                         "angiology": "Mạch học",
                         "biochemistry": "Hóa sinh",
                         "biology": "Sinh học",
+                        "body": "Trị liệu Cơ thể",
                         "cardiology": "Tim mạch",
                         "dermatology": "Da liễu",
+                        "diagnostic_radiology": "Chẩn đoán Hình ảnh",
+                        "emergency": "Y học Cấp cứu",
+                        "endocrinology": "Nội tiết học",
                         "fertility": "Sinh sản",
                         "gastroenterology": "Tiêu hóa",
                         "general": "Đa khoa",
@@ -1522,13 +1590,24 @@
                         "haematology": "Huyết học",
                         "hepatology": "Gan",
                         "herbalism": "Thảo dược học",
+                        "hypnosis": "Thôi miên",
+                        "infectious_diseases": "Bệnh Truyền nhiễm",
+                        "intensive": "Hồi sức Tích cực",
                         "internal": "Nội khoa",
                         "neonatology": "Sơ sinh",
                         "nephrology": "Thận học",
                         "neurology": "Thần kinh học",
+                        "neuropsychiatry": "Tâm thần học Thần kinh",
+                        "nuclear": "Y học Hạt nhân",
+                        "occupational": "Y học Nghề nghiệp",
+                        "oncology": "Ung thư học",
                         "ophthalmology": "Nhãn khoa",
                         "orthodontics": "Chỉnh nha",
+                        "orthopaedics": "Ngoại chỉnh hình",
+                        "otolaryngology": "Tai Mũi Họng",
+                        "paediatric_surgery": "Ngoại nhi",
                         "paediatrics": "Nhi khoa",
+                        "palliative": "Chăm sóc Giảm nhẹ",
                         "pathology": "Bệnh lý học",
                         "podiatry": "Chân",
                         "psychiatry": "Tâm thần",
@@ -1536,6 +1615,8 @@
                         "radiology": "X quang",
                         "radiotherapy": "Xạ trị",
                         "rheumatology": "Thấp khớp",
+                        "traditional_chinese_medicine": "Đông y",
+                        "tropical": "Y học Nhiệt đới",
                         "urology": "Tiết niệu",
                         "vaccination": "Tiêm chủng"
                     }
@@ -1815,6 +1896,9 @@
                 "lit": {
                     "label": "Có Đèn Sáng"
                 },
+                "loc_name": {
+                    "label": "Tên Địa phương"
+                },
                 "location": {
                     "label": "Vị trí",
                     "terms": "vị trí,địa điểm,nơi,chỗ,vi tri,dia diem,noi,cho"
@@ -1916,8 +2000,15 @@
                     "label": "Kiểu",
                     "options": {
                         "bust": "Tượng Đầu",
-                        "plaque": "Bảng Kỷ niệm"
+                        "plaque": "Bảng Kỷ niệm",
+                        "sculpture": "Công trình Điêu khắc",
+                        "statue": "Tượng",
+                        "stone": "Đá",
+                        "war_memorial": "Đài tưởng niệm Chiến tranh"
                     }
+                },
+                "memorial/addr": {
+                    "label": "Địa chỉ Tòa nhà Gần nhất"
                 },
                 "microbrewery": {
                     "label": "Bia Thủ công",
@@ -1928,6 +2019,8 @@
                     "options": {
                         "air_force": "Không quân",
                         "army": "Quân đội",
+                        "coast_guard": "Cảnh sát biển",
+                        "marines": "Thủy quân lục chiến",
                         "navy": "Hải quân"
                     }
                 },
@@ -1946,6 +2039,10 @@
                     "label": "Tốc độ Tối thiểu",
                     "placeholder": "20, 30, 40, …",
                     "terms": "tốc độ tối thiểu,giới hạn tốc độ tối thiểu,toc do toi thieu,gioi han toc do toi thieu"
+                },
+                "mobile": {
+                    "label": "Điện thoại Di động",
+                    "placeholder": "+84 1 234 5678"
                 },
                 "monitoring_multi": {
                     "label": "Giám sát"
@@ -2112,7 +2209,8 @@
                     }
                 },
                 "official_name": {
-                    "label": "Tên Chính thức"
+                    "label": "Tên Chính thức",
+                    "terms": "tên chính thức,tên gọi chính thức,ten chinh thuc,ten goi chinh thuc"
                 },
                 "oneway": {
                     "label": "Chiều",
@@ -2148,6 +2246,9 @@
                     "label": "Giờ Mở cửa",
                     "placeholder": "Không rõ",
                     "terms": "giờ mở cửa,giờ giấc mở cửa,gio mo cua,gio giac mo cua"
+                },
+                "opening_hours/drive_through": {
+                    "label": "Giờ Phục vụ Mua hàng Trên xe"
                 },
                 "operator": {
                     "label": "Tổ chức Chủ quản",
@@ -2240,25 +2341,39 @@
                 "payment_multi": {
                     "label": "Phương thức Thanh toán",
                     "options": {
+                        "account_cards": "Thẻ Tài khoản",
                         "alipay": "Alipay",
                         "american_express": "American Express",
+                        "app": "Ứng dụng Di động",
                         "apple_pay": "Apple Pay",
                         "bancomat": "Bancomat",
                         "blik": "Blik",
+                        "cards": "Thẻ Thanh toán",
                         "cash": "Tiền mặt",
                         "cheque": "Séc",
                         "clipper": "Clipper",
                         "coins": "Tiền xu",
+                        "contactless": "Thanh toán Không tiếp xúc",
+                        "credit_cards": "Thẻ Tín dụng",
+                        "cryptocurrencies": "Tiền Mã hóa",
+                        "debit_cards": "Thẻ Ghi nợ",
                         "diners_club": "Diners Club",
                         "discover_card": "Discover",
                         "dkv": "DKV",
+                        "electronic_purses": "Ví Điện tử",
+                        "ep_easycard": "Du du ca EasyCard",
                         "ep_geldkarte": "GeldKarte",
+                        "ep_ipass": "iPASS Nhất ca thông",
                         "girocard": "Girocard",
                         "google_pay": "Google Pay",
                         "jcb": "JCB",
                         "maestro": "Maestro",
                         "mastercard": "Mastercard",
+                        "mastercard_contactless": "Mastercard Không tiếp xúc",
+                        "notes": "Tiền giấy",
                         "paypal": "PayPal",
+                        "prepaid_ticket": "Vé Trả Trước",
+                        "telephone_cards": "Thẻ Điện thoại",
                         "unionpay": "UnionPay",
                         "uta": "UTA",
                         "v_pay": "V Pay",
@@ -2380,6 +2495,17 @@
                 "plant/method": {
                     "label": "Hình thức Sản xuất"
                 },
+                "plant/output": {
+                    "options": {
+                        "cold_air": "Không khí Lạnh",
+                        "cold_water": "Nước Lạnh",
+                        "compressed_air": "Khí nén",
+                        "electricity": "Điện",
+                        "hot_air": "Không khí Nóng",
+                        "hot_water": "Nước Nóng",
+                        "steam": "Hơi nước"
+                    }
+                },
                 "plant/output/electricity": {
                     "placeholder": "500 MW, 1000 MW, 2000 MW, …"
                 },
@@ -2402,6 +2528,9 @@
                 },
                 "population": {
                     "label": "Dân số"
+                },
+                "population/date": {
+                    "placeholder": "NNNN-TT-NN (Năm-Tháng-Ngày)"
                 },
                 "portable": {
                     "label": "Lưu động",
@@ -2560,14 +2689,21 @@
                         "bahai": "Bahá’í giáo",
                         "buddhist": "Phật giáo",
                         "caodaism": "Cao Đài",
+                        "chinese_folk": "Tín ngưỡng Dân gian Trung Hoa",
                         "christian": "Kitô giáo",
                         "confucian": "Nho giáo",
                         "hindu": "Ấn Độ giáo",
                         "jain": "Kỳ Na giáo",
                         "jewish": "Do Thái giáo",
+                        "multifaith": "Đa tín ngưỡng",
                         "muslim": "Hồi giáo",
+                        "none": "Không tôn giáo",
+                        "pagan": "Đa thần giáo",
                         "shinto": "Thần đạo",
-                        "taoist": "Đạo giáo"
+                        "sikh": "Sikh giáo",
+                        "taoist": "Đạo giáo",
+                        "tenrikyo": "Thiên lý giáo",
+                        "vietnamese_folk": "Tín ngưỡng Dân gian Việt Nam"
                     },
                     "terms": "tôn giáo,đạo,ton giao,dao"
                 },
@@ -2630,6 +2766,9 @@
                 },
                 "route_master": {
                     "label": "Kiểu"
+                },
+                "royal_cypher-GB": {
+                    "label": "Mật mã Hoàng gia"
                 },
                 "ruins": {
                     "label": "Kiểu"
@@ -2776,8 +2915,7 @@
                         "no": "Không Bán",
                         "only": "Chỉ Bán",
                         "yes": "Có Bán"
-                    },
-                    "placeholder": "Có, Không, Chỉ"
+                    }
                 },
                 "segregated": {
                     "label": "Làn Riêng cho Xe đạp và Người đi bộ"
@@ -2903,10 +3041,51 @@
                 "sport": {
                     "label": "Môn Thể thao",
                     "options": {
+                        "american_football": "Bóng bầu dục Mỹ",
+                        "athletics": "Điền kinh",
+                        "badminton": "Cầu lông",
+                        "baseball": "Bóng chày",
+                        "basketball": "Bóng rổ",
                         "boules": "Bi sắt",
+                        "chess": "Cờ vua",
+                        "climbing": "Leo núi",
+                        "cycling": "Xe đạp",
                         "darts": "Phóng Phi tiêu",
-                        "speedway": "Speedway"
+                        "disc_golf": "Gôn đĩa",
+                        "dog_racing": "Đua Chó",
+                        "fitness": "Thể dục",
+                        "free_flying": "Dù lượn",
+                        "golf": "Gôn",
+                        "handball": "Bóng ném Đồng đội",
+                        "horse_racing": "Đua Ngựa",
+                        "ice_skating": "Trượt băng",
+                        "rugby_union": "Bóng bầu dục Liên hiệp",
+                        "shooting": "Bắn súng",
+                        "skateboard": "Trượt ván",
+                        "ski_jumping": "Trượt tuyết Nhảy xa",
+                        "skiing": "Trượt tuyết",
+                        "soccer": "Bóng đá",
+                        "softball": "Bóng mềm",
+                        "speedway": "Speedway",
+                        "swimming": "Bơi lội",
+                        "table_tennis": "Bóng bàn",
+                        "tennis": "Quần vợt",
+                        "volleyball": "Bóng chuyền",
+                        "yoga": "Du-già"
                     }
+                },
+                "sport/sport_ice": {
+                    "label": "Môn thể thao"
+                },
+                "sport/sport_pub": {
+                    "label": "Môn thể thao",
+                    "terms": "môn thể thao,thể thao,trò chơi,mon the thao,the thao,tro choi"
+                },
+                "sport/sport_racing_motor": {
+                    "label": "Môn thể thao"
+                },
+                "sport/sport_racing_nonmotor": {
+                    "label": "Môn thể thao"
                 },
                 "stars": {
                     "label": "Số Sao"
@@ -2953,6 +3132,14 @@
                     },
                     "placeholder": "Không rõ"
                 },
+                "structure_canal": {
+                    "label": "Cấu trúc",
+                    "options": {
+                        "bridge": "Cầu",
+                        "tunnel": "Hầm"
+                    },
+                    "placeholder": "Không rõ"
+                },
                 "structure_power": {
                     "label": "Cấu trúc"
                 },
@@ -2975,7 +3162,13 @@
                     "terms": "wikidata về chủ đề,wikidata về đề tài,qid về chủ đề,qid về đề tài,wikidata ve chu de,wikidata ve de tai,qid ve chu de,qid ve de tai"
                 },
                 "substance": {
-                    "label": "Chất"
+                    "label": "Chất",
+                    "options": {
+                        "fuel": "Nhiên liệu",
+                        "rainwater": "Nước mưa",
+                        "sewage": "Nước thải",
+                        "water": "Nước uống"
+                    }
                 },
                 "substation": {
                     "label": "Kiểu"
@@ -2999,16 +3192,23 @@
                     "options": {
                         "artificial_turf": "Cỏ Nhân tạo",
                         "asphalt": "Nhựa",
+                        "clay": "Đất sét",
                         "compacted": "Đá dăm",
                         "concrete": "Bê tông",
+                        "concrete:lanes": "Làn Bê tông",
                         "dirt": "Đất",
+                        "fine_gravel": "Sỏi mịn",
                         "grass": "Cỏ",
                         "gravel": "Sỏi",
                         "ground": "Đất chung",
+                        "metal": "Kim loại",
+                        "mud": "Bùn lầy",
                         "paved": "Lát",
                         "paving_stones": "Gạch",
+                        "pebblestone": "Đá cuội",
                         "salt": "Nước mặn",
                         "sand": "Cát",
+                        "sett": "Đá lát xẻ",
                         "unpaved": "Không Lát",
                         "wood": "Gỗ"
                     }
@@ -3060,7 +3260,10 @@
                     }
                 },
                 "swimming_pool": {
-                    "label": "Kiểu"
+                    "label": "Kiểu",
+                    "options": {
+                        "wave_pool": "Hồ bơi Tạo sóng"
+                    }
                 },
                 "switch": {
                     "label": "Kiểu",
@@ -3080,11 +3283,26 @@
                         "no": "Không có",
                         "only": "Chỉ có Mang về",
                         "yes": "Có"
-                    },
-                    "placeholder": "Có, Không có, Chỉ có Mang về, …"
+                    }
                 },
                 "target": {
                     "label": "Nước Bạn"
+                },
+                "taxi_vehicle": {
+                    "options": {
+                        "auto_rickshaw": {
+                            "title": "Xe lam"
+                        },
+                        "cycle_rickshaw": {
+                            "title": "Xích lô"
+                        },
+                        "motorcar": {
+                            "title": "Xe hơi"
+                        },
+                        "motorcycle": {
+                            "title": "Xe máy"
+                        }
+                    }
                 },
                 "taxon": {
                     "label": "Đơn vị Phân loại",
@@ -3124,6 +3342,11 @@
                 },
                 "toilets/position": {
                     "label": "Tư thế"
+                },
+                "toilets/wheelchair": {
+                    "options": {
+                        "limited": "Hạn chế"
+                    }
                 },
                 "toll": {
                     "label": "Thu phí",
@@ -3265,7 +3488,10 @@
                     "placeholder": "Bình thường"
                 },
                 "tunnel_combo": {
-                    "label": "Kiểu"
+                    "label": "Kiểu",
+                    "options": {
+                        "culvert": "Cống"
+                    }
                 },
                 "turning_circle": {
                     "label": "Hình dạng"
