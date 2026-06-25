@@ -3390,7 +3390,7 @@
     },
     "lanes": {
         "key": "lanes",
-        "type": "number",
+        "type": "integer",
         "minValue": 0
     },
     "language_multi": {
@@ -4099,7 +4099,7 @@
     },
     "opening_hours": {
         "key": "opening_hours",
-        "type": "combo",
+        "type": "schedule",
         "snake_case": false,
         "caseSensitive": true
     },
@@ -5613,6 +5613,13 @@
     "side": {
         "key": "side",
         "type": "radio",
+        "prerequisiteTag": {
+            "key": "direction",
+            "values": [
+                "forward",
+                "backward"
+            ]
+        },
         "autoSuggestions": false,
         "options": [
             "left",
