@@ -23,6 +23,11 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.19.1
+##### 2026-Jul-06
+
+* update translations
+
 
 # 6.19.0
 ##### 2026-Jul-06

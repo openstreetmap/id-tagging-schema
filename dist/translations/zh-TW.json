@@ -170,7 +170,7 @@
                         "housename": "房屋名稱",
                         "housenumber": "123",
                         "housenumber!jp": "建築物號碼 / 地號",
-                        "neighbourhood": "鄰",
+                        "neighbourhood": "鄰近區",
                         "neighbourhood!jp": "町/丁目/字/小字",
                         "place": "地方",
                         "postcode": "郵遞區號",
@@ -783,7 +783,6 @@
                 },
                 "capacity": {
                     "label": "容量",
-                    "placeholder": "50, 100, 200...",
                     "terms": "容量,位子數,車輛數,人數,床位數,房間數"
                 },
                 "capacity/caravans": {
@@ -1170,7 +1169,12 @@
                     "label": "響鈴"
                 },
                 "crossing/island": {
-                    "label": "分隔島"
+                    "label": "分隔島",
+                    "options": {
+                        "no": "無",
+                        "undefined": "預設為否",
+                        "yes": "有"
+                    }
                 },
                 "crossing/light": {
                     "label": "警示號"
@@ -1211,6 +1215,7 @@
                         "arab": "阿拉伯菜",
                         "argentinian": "阿根廷菜",
                         "asian": "亞洲菜",
+                        "austrian": "奧地利菜",
                         "bagel": "貝果",
                         "balkan": "巴爾幹菜",
                         "barbecue": "燒烤",
@@ -2727,6 +2732,13 @@
                     "label": "重量限制",
                     "terms": "重量限制"
                 },
+                "maxweight_general": {
+                    "label": "重量限制"
+                },
+                "maxweightrating": {
+                    "label": "額定車輛重量上限",
+                    "terms": "車輛評分的重量限制"
+                },
                 "maxwidth": {
                     "label": "寬度限制",
                     "terms": "寬度限制"
@@ -3511,6 +3523,21 @@
                 "product": {
                     "label": "產品",
                     "terms": "產品,商品"
+                },
+                "protect_class": {
+                    "label": "國際自然保護聯盟保護區管理分類",
+                    "options": {
+                        "2": "2：國家公園",
+                        "3": "3：自然紀念物",
+                        "4": "4：生境/物種管理區",
+                        "5": "5：陸地/海洋保護景觀",
+                        "6": "6：資源管理保護區",
+                        "1a": "1a：嚴格自然保護區",
+                        "1b": "1b：荒野地保護區"
+                    }
+                },
+                "protection_title": {
+                    "label": "保護標題"
                 },
                 "public_bookcase/type": {
                     "label": "類型"
@@ -4513,7 +4540,8 @@
                     "options": {
                         "ALPR": "自動車牌辨識",
                         "camera": "攝影機",
-                        "guard": "守衛"
+                        "guard": "守衛",
+                        "gunshot_detector": "槍擊偵測器"
                     }
                 },
                 "surveillance/zone": {
@@ -4954,6 +4982,7 @@
                     "label": "商品類型",
                     "options": {
                         "bicycle_tube": "自行車內胎",
+                        "bottle_return": "瓶罐回收",
                         "bread": "麵包",
                         "cigarettes": "菸品",
                         "coffee": "咖啡",
@@ -4965,6 +4994,7 @@
                         "elongated_coin": "紀念幣",
                         "excrement_bags": "寵物排遺袋",
                         "feminine_hygiene": "女性衛生用品",
+                        "flowers": "花卉",
                         "food": "食品",
                         "fuel": "燃料",
                         "ice_cream": "冰淇淋",
@@ -5729,6 +5759,10 @@
                 "amenity/fast_food/ice_cream": {
                     "name": "冰淇淋"
                 },
+                "amenity/fast_food/indian": {
+                    "name": "印度快餐",
+                    "terms": "印度速食"
+                },
                 "amenity/fast_food/juice": {
                     "name": "果汁",
                     "terms": "果汁,速食果汁"
@@ -5748,6 +5782,10 @@
                 "amenity/fast_food/sandwich": {
                     "name": "三明治",
                     "terms": "三明治,速食三明治"
+                },
+                "amenity/fast_food/sushi": {
+                    "name": "壽司快餐",
+                    "terms": "壽司得來速,壽司takeaway"
                 },
                 "amenity/fast_food/wings": {
                     "name": "雞翅",
@@ -6410,6 +6448,10 @@
                     "name": "女性衛生用品",
                     "terms": "女性衛生用品,衛生棉,女性衛生用品販賣機,販賣機"
                 },
+                "amenity/vending_machine/flowers": {
+                    "name": "花卉販賣機",
+                    "terms": "花卉自動販售機,花卉自動販賣機"
+                },
                 "amenity/vending_machine/food": {
                     "name": "食品",
                     "terms": "食品,食品販賣機"
@@ -6453,6 +6495,10 @@
                 "amenity/vending_machine/sweets": {
                     "name": "糖果",
                     "terms": "糖果,糖果販賣機"
+                },
+                "amenity/vending_machine/water": {
+                    "name": "飲用水機器",
+                    "terms": "飲水機,飲水設施"
                 },
                 "amenity/veterinary": {
                     "name": "獸醫院",
@@ -10340,8 +10386,8 @@
                     "name": "鐵路"
                 },
                 "railway/abandoned": {
-                    "name": "無軌遺跡鐵路",
-                    "terms": "廢棄鐵路,廢棄路線,廢線"
+                    "name": "仍有能檢視的鐵路遺跡",
+                    "terms": "鐵道遺跡"
                 },
                 "railway/buffer_stop": {
                     "name": "止衝擋",
@@ -11513,6 +11559,10 @@
                 "type/boundary/administrative": {
                     "name": "行政區界",
                     "terms": "行政分區,行政區範圍"
+                },
+                "type/boundary/protected_area": {
+                    "name": "保護區",
+                    "terms": "保護區"
                 },
                 "type/connectivity": {
                     "name": "車道連通",

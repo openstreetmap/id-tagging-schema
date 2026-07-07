@@ -170,7 +170,6 @@
                         "housename": "Enw Tŷ",
                         "housenumber": "123",
                         "housenumber!jp": "Rhif Adeilad",
-                        "neighbourhood": "Cymdogaeth",
                         "neighbourhood!jp": "Machi/Chōme/Aza/Koaza",
                         "place": "Lle",
                         "postcode": "Cod Post",
@@ -577,10 +576,6 @@
                     "label": "Brand",
                     "terms": "cwmni,sefydliad"
                 },
-                "brewery": {
-                    "label": "Brandiau Cwrw a werthir",
-                    "terms": "cwrw,drafft,tap"
-                },
                 "bridge": {
                     "label": "Math",
                     "placeholder": "Diofyn"
@@ -783,7 +778,6 @@
                 },
                 "capacity": {
                     "label": "Capasiti",
-                    "placeholder": "50, 100, 200...",
                     "terms": "galluedd,cynnal,dal,cadw,argaeledd,llawn,gwag,nifer,sawl,cyfanswm,cynifer"
                 },
                 "capacity/caravans": {
@@ -851,7 +845,8 @@
                 },
                 "charge_toll": {
                     "label": "Pris Toll",
-                    "placeholder": "1 EUR, 5 USD, 10 JPY…"
+                    "placeholder": "1 EUR, 5 USD, 10 JPY…",
+                    "terms": "cost,gost,tâl,tal,dirwy,ffi,codi,arian,talu"
                 },
                 "check_date": {
                     "label": "Gwiriwyd Ddiwethaf",
@@ -860,7 +855,8 @@
                 },
                 "circumference": {
                     "label": "Cylchedd (ar Uchder y Fron)",
-                    "placeholder": "1 m, 20 cm, 30\"…"
+                    "placeholder": "1 m, 20 cm, 30\"…",
+                    "terms": "dbh,diametr,bron,y fron"
                 },
                 "climbing/bolts": {
                     "label": "Nifer y Folltau"
@@ -1336,6 +1332,10 @@
                         "opposite_lane": {
                             "description": "Diweddarwch gydag oneway, oneway:bicycle, a cycleway:left/right=lane ac ati.",
                             "title": "(Hen) Lôn Feiciau Gwrthwynebol"
+                        },
+                        "share_busway": {
+                            "description": "Lôn beiciau a rennir gyda lôn bysiau",
+                            "title": "Lôn Beiciau a Rennir gyda Bysiau"
                         },
                         "shared_lane": {
                             "description": "Lôn beicio nad yw ar wahân i gerbydau",
@@ -2056,7 +2056,7 @@
                         "hydrotherapy": "Hydrotherapi",
                         "hypnosis": "Hypnosis",
                         "infectious_diseases": "Clefyd Heintus",
-                        "intensive": "Gofal Arbennig",
+                        "intensive": "Gofal Dwys",
                         "internal": "Meddyginiaeth Mewnol",
                         "naturopathy": "Naturopathi",
                         "neonatology": "Neonatoleg",
@@ -2188,9 +2188,11 @@
                     "label": "Anhawster Marchogaeth",
                     "options": {
                         "common": "Hawdd: Dim problemau neu anawsterau (diofyn)",
-                        "impossible": "Amhosibl: Ffordd neu bont na ellir ei basio am geffylau. Rhy gul, cefnogaeth annigonol, rhwystrau fel ysgolion. Perygl bywyd."
+                        "dangerous": "Peryglus: Dim ond ar gyfer marchogwyr a cheffylau profiadol iawn a dim ond mewn tywydd da. Dylid mynd oddi ar y ceffyl.",
+                        "impossible": "Amhosibl: Ni all ceffylau ddefnyddio'r ffordd neu'r bont. Mae'n rhy gul, nad oes digon o gefnogaeth, a cheir rhwystrau fel ysgolion. Perygl i fywyd."
                     },
-                    "placeholder": "Anodd, Peryglus..."
+                    "placeholder": "Anodd, Peryglus...",
+                    "terms": "her,reidio,ceffyl"
                 },
                 "hot_water": {
                     "label": "Dŵr Poeth"
@@ -2210,7 +2212,11 @@
                             "description": "Tŷ sydd wedi'i gysylltu â thŷ arall drwy garej neu ardal arall nad yw'n ardal fyw",
                             "title": "Tŷ Sengl â Garej"
                         },
+                        "maisonette": {
+                            "title": "Fflat Deulawr"
+                        },
                         "semi-detached": {
+                            "description": "Tŷ sydd wedi'i gysylltu â thŷ arall ar un ochr",
                             "title": "Tŷ Pâr"
                         },
                         "terrace": {
@@ -3340,6 +3346,7 @@
                     "label": "Math",
                     "options": {
                         "electric": "Trydanol",
+                        "electronic": "Cwbl Awtomatig",
                         "track_diagram": "Digidol"
                     }
                 },
@@ -4301,13 +4308,10 @@
                     "terms": "dallt,cyffwrdd,hygyrch"
                 },
                 "takeaway": {
-                    "label": "Tecawê",
                     "options": {
                         "no": "Na",
-                        "only": "Dim ond Tecawê",
                         "yes": "Ie"
-                    },
-                    "terms": "bwyd,bwyd i fynd"
+                    }
                 },
                 "target": {
                     "label": "Targed"
@@ -5109,7 +5113,8 @@
                     "name": "Deial Haul"
                 },
                 "amenity/community_centre": {
-                    "name": "Canolfan Gymunedol"
+                    "name": "Canolfan Gymunedol",
+                    "terms": "digwyddiad,neuadd"
                 },
                 "amenity/community_centre/chitalishte_BG": {
                     "name": "Chitalishte",
@@ -5196,8 +5201,8 @@
                     "name": "Gastroenterolegydd"
                 },
                 "amenity/doctors/general": {
-                    "name": "Ymarferydd Gofal Sylfaenol",
-                    "terms": "meddyg teulu,gp,ymarferydd teulu"
+                    "name": "Meddyg Teulu",
+                    "terms": "ymarferydd cyffredinol,gp,doctor"
                 },
                 "amenity/doctors/gynaecology": {
                     "name": "Obstetrydd / Gynaecolegydd"
@@ -5871,6 +5876,10 @@
                 "amenity/theatre/type/amphi": {
                     "name": "Amffitheatr"
                 },
+                "amenity/ticket_validator": {
+                    "name": "Peiriant Dilysu Tocynnau",
+                    "terms": "dilyswr,dilysydd"
+                },
                 "amenity/toilets": {
                     "name": "Toiledau",
                     "terms": "tŷ bach,tai bach,ty bach,lle chwech,lle 6,llefydd chwech"
@@ -6113,7 +6122,7 @@
                     "terms": "gât,gat,giat,giât,clwyd,glwyd,chlwyd,llidiart,llidiard,iet,porth,borth,phorth"
                 },
                 "barrier/bus_trap": {
-                    "name": "Magl Bws",
+                    "name": "Magl Bysiau",
                     "terms": "magl ceir"
                 },
                 "barrier/cattle_grid": {
@@ -6397,6 +6406,9 @@
                 "building/retail": {
                     "name": "Adeilad Manwerthu",
                     "terms": "adwerthu,siop,siopau,siopa,shop,store,prynu"
+                },
+                "building/riding_hall": {
+                    "name": "Arena Marchogaeth Dan Do"
                 },
                 "building/roof": {
                     "name": "To"
@@ -6940,7 +6952,7 @@
                     "name": "Therapydd Lleferydd"
                 },
                 "healthcare/yes": {
-                    "name": "Cyfleuster Gofal Iechyd (math anhysbys)"
+                    "name": "Cyfleuster Gofal Iechyd (Math Anhysbys)"
                 },
                 "highway": {
                     "name": "Nodwedd Priffordd"
@@ -6949,10 +6961,10 @@
                     "name": "Llwybr Ceffylau"
                 },
                 "highway/bus_stop": {
-                    "name": "Safle Bws"
+                    "name": "Safle Bysiau"
                 },
                 "highway/busway": {
-                    "name": "Ffordd Bws"
+                    "name": "Ffordd Fysiau"
                 },
                 "highway/construction": {
                     "name": "Ffordd sy'n cael ei Hadeiladu"
@@ -7021,6 +7033,10 @@
                     "name": "Troedffordd",
                     "terms": "troed,troetffordd,troedffordd,llwybr,palmant,llwybr troed,cerdded"
                 },
+                "highway/footway/access_aisle": {
+                    "name": "Eil Fynediad",
+                    "terms": "llwytho,hygyrch,hwylus,cerdded,anabl"
+                },
                 "highway/footway/conveying": {
                     "name": "Troedffordd Symudol"
                 },
@@ -7040,14 +7056,16 @@
                     "name": "Troedffordd Anffurfiol"
                 },
                 "highway/footway/sidewalk": {
-                    "name": "Palmant"
+                    "name": "Palmant",
+                    "terms": "palmant,ffordd,ochr"
                 },
                 "highway/footway/traffic_island": {
                     "name": "Ynys Draffig",
                     "terms": "ynys draffig,croesfan"
                 },
                 "highway/give_way": {
-                    "name": "Arwydd Ildio"
+                    "name": "Arwydd Ildio",
+                    "terms": "arwydd,ildiwch"
                 },
                 "highway/hitchhiking": {
                     "name": "Lleoliad Cerdded Wedi'i Arwyddo",
@@ -7066,7 +7084,8 @@
                     "terms": "milltir,marciwr,arwydd,post,polyn"
                 },
                 "highway/mini_roundabout": {
-                    "name": "Cylchfan Fach"
+                    "name": "Cylchfan Fach",
+                    "terms": "cylchfan,gylch,chylch,cylch,cyffordd"
                 },
                 "highway/motorway": {
                     "name": "Traffordd"
@@ -7433,6 +7452,9 @@
                 "landuse/military/base": {
                     "name": "Safle Milwrol"
                 },
+                "landuse/military/base/navy": {
+                    "name": "Safle'r Llynges"
+                },
                 "landuse/military/obstacle_course": {
                     "name": "Cwrs Rhwystrau Milwrol"
                 },
@@ -7491,7 +7513,8 @@
                     "terms": "manwerthu,adwerthu,siop"
                 },
                 "landuse/vineyard": {
-                    "name": "Gwinllan"
+                    "name": "Gwinllan",
+                    "terms": "grawnwin,gwin"
                 },
                 "landuse/winter_sports": {
                     "name": "Ardal Chwaraeon Gaeaf"
@@ -8900,14 +8923,14 @@
                     "name": "Safle / Platfform Awyrffordd"
                 },
                 "public_transport/platform/bus": {
-                    "name": "Platfform Bws",
+                    "name": "Platfform Bysiau",
                     "terms": "platfform,bws,cludiant,trafnidiaeth"
                 },
                 "public_transport/platform/bus_point": {
-                    "name": "Safle Bws"
+                    "name": "Safle Bysiau"
                 },
                 "public_transport/platform/bus_tram_point": {
-                    "name": "Safle Bws a Thram",
+                    "name": "Safle Bysiau a Thramiau",
                     "terms": "bws,rheil ysgafn,trac,tram,tramiau,cludiant,trafnidiaeth,troli,omnibws"
                 },
                 "public_transport/platform/ferry": {
@@ -8947,10 +8970,10 @@
                     "name": "Safle / Platfform Tram"
                 },
                 "public_transport/platform/trolleybus": {
-                    "name": "Platfform Bws Trydan"
+                    "name": "Platfform Bysiau Trydan"
                 },
                 "public_transport/platform/trolleybus_point": {
-                    "name": "Safle Bws Trydan"
+                    "name": "Safle Bysiau Trydan"
                 },
                 "public_transport/platform_point": {
                     "name": "Gorsaf / Platfform Cludiant"
@@ -8986,7 +9009,7 @@
                     "name": "Gorsaf Dram"
                 },
                 "public_transport/station_trolleybus": {
-                    "name": "Gorsaf / Terfynfa Fws Drydan"
+                    "name": "Gorsaf / Terfynfa Fysiau Trydan"
                 },
                 "public_transport/stop_area": {
                     "name": "Ardal Safle Gludiant",
@@ -9001,7 +9024,7 @@
                     "terms": "stop,stopio,atal,trafnidiaeth,cyhoeddus"
                 },
                 "public_transport/stop_position_bus": {
-                    "name": "Lleoliad Safle Bws",
+                    "name": "Lleoliad Safle Bysiau",
                     "terms": "stop,stopio,atal,trafnidiaeth,cyhoeddus"
                 },
                 "public_transport/stop_position_ferry": {
@@ -9029,15 +9052,11 @@
                     "terms": "stop,stopio,atal,trafnidiaeth,cyhoeddus"
                 },
                 "public_transport/stop_position_trolleybus": {
-                    "name": "Lleoliad Safle Bws Trydan",
+                    "name": "Lleoliad Safle Bysiau Trydan",
                     "terms": "stop,stopio,atal,trafnidiaeth,cyhoeddus"
                 },
                 "railway": {
                     "name": "Nodwedd Rheilffordd"
-                },
-                "railway/abandoned": {
-                    "name": "Rheilffordd Adawedig",
-                    "terms": "gadawedig,reilffordd,tren,hen"
                 },
                 "railway/buffer_stop": {
                     "name": "Stop Byffer",
@@ -10073,7 +10092,7 @@
                     "terms": "ffordd,lwybr,llwybr,rowt,riwt,trywydd,trywedd"
                 },
                 "type/route/bus": {
-                    "name": "Ffordd Fws",
+                    "name": "Ffordd Fysiau",
                     "terms": "ffordd,lwybr,llwybr,rowt,riwt,trywydd,trywedd,bws,bysiau"
                 },
                 "type/route/climbing": {
@@ -10144,7 +10163,7 @@
                     "terms": "ffordd,lwybr,llwybr,rowt,riwt,trywydd,trywedd"
                 },
                 "type/route/trolleybus": {
-                    "name": "Ffordd Fws Trydan",
+                    "name": "Ffordd Fysiau Trydan",
                     "terms": "ffordd,lwybr,llwybr,rowt,riwt,trywydd,trywedd"
                 },
                 "type/route_master": {

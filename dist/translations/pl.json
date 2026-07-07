@@ -64,7 +64,7 @@
                         },
                         "designated": {
                             "description": "Ta droga lub miejsce jest przeznaczone na podstawie znaków lub przepisów lokalnych dla danej kategorii użytkowników",
-                            "title": "Przeznaczony"
+                            "title": "Specjalnie przeznaczony"
                         },
                         "destination": {
                             "description": "Dostęp dozwolony tylko, by dotrzeć do celu",
@@ -72,7 +72,7 @@
                         },
                         "dismount": {
                             "description": "Dostęp dozwolony tylko, gdy jeździec zsiądzie z pojazdu/zwierzęcia",
-                            "title": "Po zejściu z z pojazdu/zwierzęcia"
+                            "title": "Zejdź z pojazdu/zwierzęcia i go prowadź"
                         },
                         "no": {
                             "description": "Dostęp zabroniony dla ogólnego ruchu",
@@ -416,7 +416,7 @@
                         "gate": "Brama",
                         "guard_rail": "Bariera energochłonna",
                         "hedge": "Żywopłot",
-                        "height_restrictor": "Ogranicznik wysokości ",
+                        "height_restrictor": "Ogranicznik wysokości",
                         "jersey_barrier": "Jersey",
                         "kerb": "Krawężnik",
                         "kissing_gate": "Furtka ze śluzą",
@@ -476,7 +476,7 @@
                 },
                 "bench": {
                     "label": "Ławka",
-                    "terms": "ławka"
+                    "terms": "ławka,siedzenie,ławeczka"
                 },
                 "bicycle_parking": {
                     "label": "Rodzaj",
@@ -503,7 +503,7 @@
                 },
                 "bin": {
                     "label": "Kosz na śmieci",
-                    "terms": "kosz na śmieci,śmietnik"
+                    "terms": "kosz na śmieci,śmietnik,pojemnik na odpady"
                 },
                 "blind": {
                     "label": "Dostęp dla niewidomych",
@@ -783,7 +783,6 @@
                 },
                 "capacity": {
                     "label": "Liczba miejsc",
-                    "placeholder": "50, 100, 200...",
                     "terms": "liczba miejsc,pojemność"
                 },
                 "capacity/caravans": {
@@ -1170,7 +1169,12 @@
                     "label": "Sygnalizacja dźwiękowa"
                 },
                 "crossing/island": {
-                    "label": "Wyspa azylu"
+                    "label": "Wyspa azylu",
+                    "options": {
+                        "no": "Nie",
+                        "undefined": "Nieokreślone (przyjmuje się, że brak)",
+                        "yes": "Tak"
+                    }
                 },
                 "crossing/light": {
                     "label": "Sygnalizacja świetlna"
@@ -1211,6 +1215,7 @@
                         "arab": "Arabska",
                         "argentinian": "Argentyńska",
                         "asian": "Azjatycka",
+                        "austrian": "Austriacka",
                         "bagel": "Bajgle",
                         "balkan": "Bałkańska",
                         "barbecue": "Grillowa (barbecue)",
@@ -2724,8 +2729,15 @@
                     "terms": "maksymalny czas postoju"
                 },
                 "maxweight": {
-                    "label": "Maksymalna masa pojazdu",
-                    "terms": "maksymalna masa pojazdu"
+                    "label": "Maksymalna rzeczywista masa pojazdu",
+                    "terms": "maksymalna rzeczywista masa pojazdu"
+                },
+                "maxweight_general": {
+                    "label": "Maksymalna rzeczywista masa pojazdu"
+                },
+                "maxweightrating": {
+                    "label": "Maksymalna dopuszczalna masa pojazdu",
+                    "terms": "maksymalna dopuszczalna masa pojazdu,dopuszczalna masa całkowita"
                 },
                 "maxwidth": {
                     "label": "Maksymalna szerokość pojazdu",
@@ -2995,7 +3007,7 @@
                         "alternating": "Ruch wahadłowy",
                         "no": "Nie",
                         "reversible": "O zmiennym kierunku",
-                        "undefined": "Domyślnie nie",
+                        "undefined": "Nieokreślone (przyjmuje się, że nie)",
                         "yes": "Tak"
                     },
                     "terms": "jednokierunkowa,jednokierunkowy"
@@ -3009,7 +3021,7 @@
                         "alternating": "Ruch wahadłowy",
                         "no": "Nie",
                         "reversible": "O zmiennym kierunku",
-                        "undefined": "Domyślnie tak",
+                        "undefined": "Nieokreślone (przyjmuje się, że tak)",
                         "yes": "Tak"
                     }
                 },
@@ -3075,7 +3087,7 @@
                     "label": "Odbiór przesyłek",
                     "options": {
                         "no": "Nie",
-                        "undefined": "Przyjmuje się, że tak",
+                        "undefined": "Nieokreślone (przyjmuje się, że tak)",
                         "yes": "Tak"
                     }
                 },
@@ -3511,6 +3523,21 @@
                 "product": {
                     "label": "Produkty",
                     "terms": "produkty"
+                },
+                "protect_class": {
+                    "label": "Kategoria obszaru wg IUCN",
+                    "options": {
+                        "2": "Park narodowy",
+                        "3": "Pomnik przyrody",
+                        "4": "Obszar ochrony gatunkowej lub siedliskowej",
+                        "5": "Obszar chronionego krajobrazu ",
+                        "6": "Obszar czynnej ochrony zasobów przyrodniczych",
+                        "1a": "Ścisły rezerwat przyrody",
+                        "1b": "Obszar przyrody pierwotnej"
+                    }
+                },
+                "protection_title": {
+                    "label": "Tytuł ochrony"
                 },
                 "public_bookcase/type": {
                     "label": "Rodzaj"
@@ -4513,7 +4540,8 @@
                     "options": {
                         "ALPR": "Automatyczne rozpoznawanie tablic rejestracyjnych",
                         "camera": "Kamera",
-                        "guard": "Strażnik"
+                        "guard": "Strażnik",
+                        "gunshot_detector": "Detektor strzałów z broni palnej"
                     }
                 },
                 "surveillance/zone": {
@@ -4586,7 +4614,7 @@
                     "label": "Na wynos",
                     "options": {
                         "no": "Nie",
-                        "only": "Tylko na wynos",
+                        "only": "Wyłącznie",
                         "yes": "Tak"
                     },
                     "terms": "na wynos"
@@ -4668,7 +4696,7 @@
                 },
                 "toilets": {
                     "label": "Toalety",
-                    "terms": "toalety,ubikacje,wc,szalety,klop,sławojka,latryna,ustęp"
+                    "terms": "toalety,ubikacje,ubikacja,wc,szalety,klop,sławojka,latryna,ustęp,wychodek,sanitariat,sanitariaty"
                 },
                 "toilets/disposal": {
                     "label": "Opróżnianie",
@@ -4954,6 +4982,7 @@
                     "label": "Rodzaje produktów",
                     "options": {
                         "bicycle_tube": "Dętki rowerowe",
+                        "bottle_return": "Zwrot butelek",
                         "bread": "Pieczywo",
                         "cigarettes": "Papierosy",
                         "coffee": "Kawa",
@@ -4965,6 +4994,7 @@
                         "elongated_coin": "Monety pamiątkowe",
                         "excrement_bags": "Worki na psie odchody",
                         "feminine_hygiene": "Środki higieny kobiecej",
+                        "flowers": "Kwiaty",
                         "food": "Jedzenie",
                         "fuel": "Paliwo",
                         "ice_cream": "Lody",
@@ -5132,7 +5162,7 @@
                     "label": "Autotransformator",
                     "options": {
                         "no": "Nie",
-                        "undefined": "Zakłada się, że nie",
+                        "undefined": "Nieokreślone (przyjmuje się, że nie)",
                         "yes": "Tak"
                     },
                     "terms": "autotransformator"
@@ -5356,7 +5386,7 @@
                 },
                 "amenity/bicycle_parking": {
                     "name": "Parking rowerowy",
-                    "terms": "parking rowerowy,parking dla rowerów,stojaki dla rowerów,stojak dla rowerów,stojak na rowery,rowery"
+                    "terms": "parking rowerowy,parking dla rowerów,stojaki dla rowerów,stojaki rowerowe,stojak dla rowerów,stojak na rowery,rowery"
                 },
                 "amenity/bicycle_parking/building": {
                     "name": "Garaż dla rowerów",
@@ -5736,6 +5766,10 @@
                 "amenity/fast_food/ice_cream": {
                     "name": "Bar z lodami"
                 },
+                "amenity/fast_food/indian": {
+                    "name": "Bar z kuchnią indyjską",
+                    "terms": "bar z kuchnią indyjską,bar z kuchnią hinduską,bar indyjski,bar hinduski,kuchnia indyjska,kuchnia hinduska,hindus"
+                },
                 "amenity/fast_food/juice": {
                     "name": "Bar z sokami/koktajlami",
                     "terms": "bar,kawiarnia,świeżo wyciskane soki,koktajle owocowe,smoothies"
@@ -5755,6 +5789,10 @@
                 "amenity/fast_food/sandwich": {
                     "name": "Bar kanapkowy",
                     "terms": "bar kanapkowy,kanapki,zapiekanki"
+                },
+                "amenity/fast_food/sushi": {
+                    "name": "Bar z sushi",
+                    "terms": "bar z sushi,bar sushi"
                 },
                 "amenity/fast_food/wings": {
                     "name": "Bar ze skrzydełkami kurczaka",
@@ -5903,7 +5941,7 @@
                     "name": "Dom pomocy społecznej"
                 },
                 "amenity/parcel_locker": {
-                    "name": "Paczkomat",
+                    "name": "Automat paczkowy",
                     "terms": "paczkomat,automat przesyłkowy,automat paczkowy,inpost,orlen paczka,aliexpress,cainiao,allegro"
                 },
                 "amenity/parking": {
@@ -6422,6 +6460,10 @@
                     "name": "Automat ze środkami higieny kobiecej",
                     "terms": "automat ze środkami higieny kobiecej,podpaski,tampony"
                 },
+                "amenity/vending_machine/flowers": {
+                    "name": "Automat sprzedający kwiaty",
+                    "terms": "automat sprzedający kwiaty,kwiatomat"
+                },
                 "amenity/vending_machine/food": {
                     "name": "Automat sprzedający jedzenie",
                     "terms": "automat sprzedający jedzenie,pożywienie,posiłki"
@@ -6468,6 +6510,10 @@
                 "amenity/vending_machine/sweets": {
                     "name": "Automat ze słodyczami",
                     "terms": "automat ze słodyczami,automat z cukierkami,automat z gumami do żucia"
+                },
+                "amenity/vending_machine/water": {
+                    "name": "Automat sprzedający wodę pitną",
+                    "terms": "automat sprzedający wodę pitną"
                 },
                 "amenity/veterinary": {
                     "name": "Weterynarz",
@@ -11590,6 +11636,10 @@
                 "type/boundary/administrative": {
                     "name": "Granica administracyjna",
                     "terms": "granica administracyjna"
+                },
+                "type/boundary/protected_area": {
+                    "name": "Obszar chroniony",
+                    "terms": "obszar chroniony,park narodowy,park krajobrazowy,rezerwat,park kulturowy"
                 },
                 "type/connectivity": {
                     "name": "Łączność pasów ruchu",
