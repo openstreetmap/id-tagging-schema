@@ -23,6 +23,18 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 6.19.2
+##### 2026-Jul-08
+
+* `typeCombo` -> `combo`, to prevent useless `=yes` values (more cases) ([#2415], thanks [@matkoniecz])
+* do not remove address field in some obscure cases ([#2417], thanks [@matkoniecz])
+* yet another attempt to find more clear label for maxweightrating ([#2427], thanks [@matkoniecz])
+
+[#2415]: https://github.com/openstreetmap/id-tagging-schema/pull/2415
+[#2417]: https://github.com/openstreetmap/id-tagging-schema/pull/2417
+[#2427]: https://github.com/openstreetmap/id-tagging-schema/pull/2427
+
+
 # 6.19.1
 ##### 2026-Jul-06
 
@@ -89,7 +101,6 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 #### Deprecated Tags
 
 * remove `levels` -> `building:levels` suggestion ([#2378], thanks [@joelkoen])
-[#2378]: https://github.com/openstreetmap/id-tagging-schema/pull/2378
 
 #### Bug Fixes
 
