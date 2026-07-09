@@ -23,6 +23,13 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+
+# 7.0.1
+##### 2026-Jul-09
+
+* Use correct final version of schema-builder
+
+
 # 7.0.0
 ##### 2026-Jul-08
 
