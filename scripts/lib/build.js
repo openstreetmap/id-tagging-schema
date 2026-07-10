@@ -6,6 +6,7 @@ import path from 'path';
 import shell from 'shelljs';
 import { dump as dumpYaml } from 'js-yaml';
 import marky from 'marky';
+import { LocationConflation } from '@rapideditor/location-conflation';
 import { createRequire } from 'module';
 import { compile, toSafeIdentifier } from 'json-schema-to-typescript-lite';
 import { isReference, dereferencedTranslatableContent, dereferenceUntranslatedContent } from './references.js';
@@ -23,6 +24,7 @@ const discardedSchema = require('../../schemas/discarded.json');
 let _currBuild = null;
 
 const jsonschema = new Validator();
+const locationConflation = new LocationConflation();
 
 function validateData(options) {
   const START = '🔬  ' + styleText('yellow', 'Validating schema...');
@@ -334,6 +336,8 @@ function generateFields(dataDir, tstrings, searchableFieldIDs, references) {
             'Planet'
         ];
       }
+
+      locationConflation.validateLocationSet(field.locationSet);
     }
 
     fields[id] = field;
@@ -435,6 +439,8 @@ function generatePresets(dataDir, tstrings, searchableFieldIDs, listReusedIcons,
             'Planet'
         ];
       }
+
+      locationConflation.validateLocationSet(preset.locationSet);
     }
   });
 
