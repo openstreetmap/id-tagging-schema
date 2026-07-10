@@ -37,7 +37,6 @@ export default [
       'no-await-in-loop': 'error',
       'no-caller': 'error',
       'no-catch-shadow': 'error',
-      'no-console': 'warn',
       'no-constructor-return': 'error',
       'no-div-regex': 'error',
       'no-duplicate-imports': 'warn',

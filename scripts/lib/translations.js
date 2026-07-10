@@ -140,7 +140,8 @@ function fetchTranslations(options, references) {
       process.stdout.write(`got resource language stats collection for ${resourceId}\n`);
       callback(null, result);
     } catch (err) {
-      process.stderr.write(`error while getting resource language stats collection for ${resourceId}\n`, err);
+      process.stderr.write(`error while getting resource language stats collection for ${resourceId}\n`);
+      console.error(err);
       callback(err);
     }
   }
