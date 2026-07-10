@@ -539,7 +539,7 @@ The value of each option can be a reference to another field or preset's name. F
 
 Some [special](#special) fields define additional strings besides `options`:
 * `access` fields define `types` for the different traffic modes
-* `directionalCombo` fields define `types` for the respecive directions subtags
+* `directionalCombo` fields define `types` for the respective directions subtags
 * `address` fields define `placeholders` and `labels` for the individual address sub-fields
 
 ##### `stringsCrossReference`
