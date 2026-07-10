@@ -27,11 +27,11 @@ export function dereferenceUntranslatedContent(presets, fields) {
           }
 
           // preset (A) references the fields of preset (B), but (B) has no
-          // fields. For now, we silently skip this to match the existing logic,
-          // but in the future we could emit an error here. (TODO:)
+          // fields.
           if (!referencedPreset[prop]) {
-            preset[prop].splice(i--, 1);
-            continue;
+            throw new Error(
+                `Preset “${presetID}” references “${otherPresetID}” in ${prop}, but “${otherPresetID}” does not have ${prop}.`,
+            );
           }
 
           // replace the reference with every field. decrement i to reprocess this array index.
