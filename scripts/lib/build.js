@@ -73,8 +73,7 @@ function buildDist(options) {
       _currBuild = null;
     })
     .catch((err) => {
-      process.stderr.write(err);
-      process.stdout.write('\n');
+      console.error(err);
       _currBuild = null;
       process.exit(1);
     });
