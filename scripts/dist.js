@@ -1,4 +1,4 @@
-import schemaBuilder from '@ideditor/schema-builder';
+import schemaBuilder from './lib/index.js';
 
 let translationOptions = {};
 if (process.argv.includes('translations')) {

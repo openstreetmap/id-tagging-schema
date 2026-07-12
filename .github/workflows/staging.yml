@@ -19,11 +19,10 @@ jobs:
           node-version-file: '.nvmrc'
       # install and build development version of id-tagging-schema
       - run: npm clean-install
-      - run: npm run translations
+      - run: npm run dist -- translations
         env:
           transifex_password: ${{secrets.TX_TOKEN}}
         if: env.transifex_password != null
-      - run: npm run dist
       # install and build development version of iD using freshest version of presets and ELI
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
