@@ -1,0 +1,226 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/openstreetmap/id-tagging-schema/raw/main/schemas/preset.json",
+    "title": "Preset",
+    "description": "Associates an icon, form fields, and other UI with a set of OSM tags",
+    "type": "object",
+    "properties": {
+        "name": {
+            "description": "The English name for the feature. A preset can reference the label of another by using that preset's identifier contained in brackets (e.g. {preset}), in which case also the preset's aliases and terms will also be referenced from that preset.",
+            "type": "string"
+        },
+        "geometry": {
+            "description": "Valid geometry types for the feature, in order of preference",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string",
+                "enum": ["point", "vertex", "line", "area", "relation"]
+            }
+        },
+        "tags": {
+            "description": "Tags that must be present for the preset to match",
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "addTags": {
+            "description": "Tags that are added when changing to the preset (default is the same value as 'tags')",
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "removeTags": {
+            "description": "Tags that are removed when changing to another preset (default is the same value as 'addTags' which in turn defaults to 'tags')",
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "fields": {
+            "description": "Default form fields that are displayed for the preset. A preset can reference the fields of another by using that preset's identifier contained in brackets, like {preset}.",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
+        },
+        "moreFields": {
+            "description": "Additional form fields that can be attached with the 'Add field' dropdown. A preset can reference the \"moreFields\" of another by using that preset's identifier contained in brackets, like {preset}.",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
+        },
+        "icon": {
+            "description": "Name of preset icon which represents this preset",
+            "type": "string"
+        },
+        "imageURL": {
+            "description": "The URL of a remote image that is more specific than 'icon'",
+            "type": "string"
+        },
+        "terms": {
+            "description": "English search terms or related keywords",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
+        },
+        "aliases": {
+            "description": "Display-ready English synonyms for the `name`",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
+        },
+        "searchable": {
+            "description": "Whether or not the preset will be suggested via search",
+            "type": "boolean",
+            "default": true
+        },
+        "matchScore": {
+            "description": "The quality score this preset will receive when being compared with other matches (higher is better)",
+            "type": "number",
+            "default": 1.0
+        },
+        "reference": {
+            "description": "Taginfo documentation parameters (to be used when a preset manages multiple tags)",
+            "type": "object",
+            "properties": {
+                "key": {
+                    "description": "For documentation of a key",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "For documentation of a tag (key and value)",
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "required": ["key"]
+        },
+        "replacement": {
+            "description": "The ID of a preset that is preferable to this one",
+            "type": "string"
+        },
+        "locationSet": {
+            "description": "An object specifying the IDs of regions where this preset is or isn't valid. See: https://github.com/ideditor/location-conflation",
+            "type": "object",
+            "properties": {
+                "include": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "exclude": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "minProperties": 1,
+            "additionalProperties": false
+        },
+        "locationSetCrossReference": {
+            "type": "string",
+            "pattern": "^\\{.+\\}$",
+            "description": "An string referencing another preset which has a locationSet"
+        },
+        "relation": {
+            "$ref": "#/$defs/RelationSchema"
+        },
+        "relationCrossReference": {
+            "description": "A preset can reference the relation schema from another preset, instead of defining the same schema again. If present, then the `relation` property must not appear.",
+            "type": "string",
+            "pattern": "^\\{.+\\}$"
+        }
+    },
+    "additionalProperties": false,
+    "required": ["name", "geometry", "tags"],
+    "$defs": {
+        "RelationSchema": {
+            "type": "object",
+            "properties": {
+                "reference": {
+                    "type": "string",
+                    "description": "The “permanent relation type ID”, this should match the value of https://osm.wiki/Property:P41 in the OSM wiki’s wikibase system."
+                },
+                "allowDuplicateMembers": {
+                    "type": "boolean",
+                    "description": "Set to `true` if the relation can contain the same member multiple times."
+                },
+                "role_labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "minProperties": 1,
+                    "description": "The labels for each role, in the default language. The role and the label can both be empty strings."
+                },
+                "members": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "role": {
+                                "type": "string",
+                                "description": "The relation role. An empty string is allowed."
+                            },
+                            "geometry": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "items": {
+                                    "$ref": "field.json#/$defs/Geometry"
+                                },
+                                "description": "If not specified, any geometry is allowed"
+                            },
+                            "matchTags": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    },
+                                    "minProperties": 1
+                                },
+                                "minItems": 1,
+                                "examples": [
+                                    [{ "a": 1, "b": 2 }],
+                                    [{ "a": 1 }, { "b": 2 }]
+                                ],
+                                "description": "`*` can be used as a tag value. If the object has multiple tags, then all tags must match (logical AND). If multiple array items are specified, only 1 needs to match (logical OR). If this property is not specified, then any tags are allowed."
+                            },
+                            "min": {
+                                "type": "integer",
+                                "description": "If unspecified, there is no minimum for how many times this role can appear in the relation"
+                            },
+                            "max": {
+                                "type": "integer",
+                                "description": "If unspecified, there is no maximum for how many times this role can appear in the relation"
+                            }
+                        },
+                        "required": ["role"],
+                        "additionalProperties": false
+                    }
+                }
+            },
+            "required": ["reference", "allowDuplicateMembers", "role_labels", "members"],
+            "additionalProperties": false
+        }
+    }
+}
