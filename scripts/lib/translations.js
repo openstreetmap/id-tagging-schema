@@ -1,4 +1,5 @@
 /* Downloads the latest translations from Transifex */
+import { setTimeout } from 'node:timers/promises';
 import fs from 'fs';
 import fetch from 'node-fetch';
 import { load as loadYaml } from 'js-yaml';
@@ -83,7 +84,7 @@ export function sortObject(original) {
   return sorted;
 }
 
-function fetchTranslations(options, references) {
+async function fetchTranslations(options, references) {
 
   // Transifex doesn't allow anonymous downloading
   /* eslint-disable no-process-env */
@@ -117,18 +118,13 @@ function fetchTranslations(options, references) {
   }
 
   const translResourceIds = options.translResourceIds;
-  return new Promise(function(resolve) {
-      asyncMap(translResourceIds, getResourceInfo, function(err, results) {
-        gotResourceInfo(err, results);
-        asyncMap(translResourceIds, getResource, function(err, results) {
-            gotResource(err, results);
-            resolve();
-        });
-      });
-  });
+  const resources = await Promise.all(translResourceIds.map(getResource));
+  const resourceInfos = await Promise.all(translResourceIds.map(getResourceInfo));
+  gotResource(resources);
+  gotResourceInfo(resourceInfos);
 
 
-  async function getResourceInfo(resourceId, callback) {
+  async function getResourceInfo(resourceId) {
     try {
       const result = [];
       for await (const stat of transifexApi.ResourceLanguageStats.filter({
@@ -138,17 +134,15 @@ function fetchTranslations(options, references) {
         result.push(stat);
       }
       process.stdout.write(`got resource language stats collection for ${resourceId}\n`);
-      callback(null, result);
+      return result;
     } catch (err) {
       process.stderr.write(`error while getting resource language stats collection for ${resourceId}\n`);
       console.error(err);
-      callback(err);
+      throw err;
     }
   }
 
-  function gotResourceInfo(err, results) {
-    if (err) return process.stderr.write(err + '\n');
-
+  function gotResourceInfo(results) {
     let coverageByLocaleCode = {};
     results.forEach(function(info) {
       info.forEach(stat => {
@@ -183,12 +177,17 @@ function fetchTranslations(options, references) {
     fs.writeFileSync(`${outDir}/index.min.json`, JSON.stringify(sortedLocales, null, 4));
   }
 
-  function getResource(resourceId, callback) {
-    getLanguages((err, codes) => {
-      if (err) return callback(err);
+    async function getResource(resourceId) {
+        const codes = await getLanguages();
 
-      asyncMap(codes, getLanguage(resourceId), (err, results) => {
-        if (err) return callback(err);
+        const promises = [];
+        for (const code of codes) {
+            // wait 50ms between each request to avoid sending 100s
+            // of requests at once to transifex.
+            await setTimeout(50);
+            promises.push(getLanguage(resourceId)(code));
+        }
+        const results = await Promise.all(promises);
 
         let locale = {};
         results.forEach((result, i) => {
@@ -196,15 +195,11 @@ function fetchTranslations(options, references) {
           locale[codes[i]] = result;
         });
 
-        callback(null, locale);
-      });
-    });
-  }
+        return locale;
+    }
 
 
-  function gotResource(err, results) {
-    if (err) return process.stderr.write(err + '\n');
-
+  function gotResource(results) {
     // merge in strings fetched from transifex
     let allStrings = {};
     results.forEach(resourceStrings => {
@@ -228,7 +223,7 @@ function fetchTranslations(options, references) {
   }
 
   function getLanguage(resourceId) {
-    return async (code, callback) => {
+    return async (code) => {
       try {
         code = code.replace(/-/g, '_');
         let reviewedOnly = options.translReviewedOnly && (
@@ -242,16 +237,16 @@ function fetchTranslations(options, references) {
         });
         const data = await fetch(url).then(d => d.text());
         process.stdout.write(`got translations for ${resourceId}, language ${code}\n`);
-        callback(null, loadYaml(data)[code]);
+        return loadYaml(data)[code];
       } catch (err) {
         process.stderr.write(`error while getting translations for ${resourceId}, language ${code}\n`);
-        callback(err);
+        throw err;
       }
     };
   }
 
 
-  async function getLanguages(callback) {
+  async function getLanguages() {
     try {
       const result = [];
       const project = await transifexApi.Project.get({
@@ -264,38 +259,11 @@ function fetchTranslations(options, references) {
         result.push(lng.attributes.code.replace(/_/g, '-'));
       }
       process.stdout.write('got project languages\n');
-      callback(null, result);
+      return result;
     } catch (err) {
       process.stderr.write('error while getting project languages\n');
-      callback(err);
+      throw err;
     }
-  }
-}
-
-
-function asyncMap(inputs, func, callback) {
-  let index = 0;
-  let remaining = inputs.length;
-  let results = [];
-  let error;
-
-  next();
-
-  function next() {
-    callFunc(index++);
-    if (index < inputs.length) {
-      setTimeout(next, 50);
-    }
-  }
-
-  function callFunc(i) {
-    let d = inputs[i];
-    func(d, (err, data) => {
-      if (err) error = err;
-      results[i] = data;
-      remaining--;
-      if (!remaining && callback) callback(error, results);
-    });
   }
 }
 
