@@ -1,3 +1,3 @@
-import schemaBuilder from './lib/index.js';
+import schemaBuilder from './lib/index.ts';
 
 schemaBuilder.buildDev();

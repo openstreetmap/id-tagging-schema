@@ -1,13 +1,21 @@
 // @ts-check
 import js from '@eslint/js';
+import { defineConfig } from 'eslint/config';
+import tseslint from 'typescript-eslint';
 import vitest from '@vitest/eslint-plugin';
 import globals from 'globals';
 
-export default [
+export default defineConfig(
   {
-    ignores: ['.coverage']
+    ignores: ['.coverage', 'dist/*']
   },
   js.configs.recommended,
+  tseslint.configs.recommended,
+  {
+    rules: {
+        'prefer-const': 'off',
+    }
+  },
   {
     files: ['**/*.js', '**/*.mjs'],
     languageOptions: {
@@ -119,4 +127,4 @@ export default [
       globals: vitest.environments.env.globals,
     },
   }
-];
+);

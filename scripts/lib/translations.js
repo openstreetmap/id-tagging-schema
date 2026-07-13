@@ -3,7 +3,7 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import { load as loadYaml } from 'js-yaml';
 import { transifexApi } from '@transifex/api';
-import { dereferencedTranslatableContent } from './references.js';
+import { dereferencedTranslatableContent } from './references.ts';
 
 export function expandTStrings(tstrings) {
   const presets = tstrings.presets || {};

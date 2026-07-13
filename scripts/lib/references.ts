@@ -1,5 +1,6 @@
-/** @param {string} string */
-export function isReference(string) {
+import type { AllFields, AllPresets, References, TStrings } from './types.def.ts';
+
+export function isReference(string: string) {
   return string.startsWith('{') && string.endsWith('}');
 }
 
@@ -8,12 +9,12 @@ export function isReference(string) {
  * For example, `fields` can reference the list of field IDs from another
  * preset.
  */
-export function dereferenceUntranslatedContent(presets, fields) {
+export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllFields) {
   for (const presetID in presets) {
     const preset = presets[presetID];
 
     // 1. fields and moreFields can reference other presets
-    for (const prop of ['fields', 'moreFields']) {
+    for (const prop of ['fields', 'moreFields'] as const) {
       if (!preset[prop]) continue;
       for (let i = 0; i < preset[prop].length || 0; i++) {
         const otherPresetID = preset[prop][i];
@@ -118,7 +119,7 @@ export function dereferenceUntranslatedContent(presets, fields) {
 /**
  * Copies translated strings to the presets that reference these strings.
  */
-export function dereferencedTranslatableContent(tstrings, references, strict) {
+export function dereferencedTranslatableContent(tstrings: TStrings, references: References, strict: boolean) {
   for (const presetID in references.presets) {
     // skip missing field, this language must have incomplete translations
     if (!tstrings.presets?.[presetID]) continue;

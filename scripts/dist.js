@@ -1,4 +1,4 @@
-import schemaBuilder from './lib/index.js';
+import schemaBuilder from './lib/index.ts';
 
 let translationOptions = {};
 if (process.argv.includes('translations')) {
