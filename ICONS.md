@@ -10,7 +10,7 @@ Icons from the below listed sources can be used. When specifying an icon, use th
 |------|-----------|-------------|---------|
 | [Maki](https://labs.mapbox.com/maki-icons/) | `maki-` | Map-specific icons from Mapbox | [Preview](https://icones.js.org/collection/maki) |
 | [Temaki](https://rapideditor.github.io/temaki/docs/) | `temaki-` | An expansion pack for Maki | [Preview](https://icones.js.org/collection/temaki) |
-| [Röntgen](https://github.com/enzet/map-machine#r%C3%B6ntgen-icon-set) | `roentgen-` | Part of the Map Machine project | [Preview](https://icones.js.org/collection/roentgen) |
+| [Röntgen](https://github.com/enzet/Roentgen) | `roentgen-` | Part of the Map Machine project | [Preview](https://icones.js.org/collection/roentgen) |
 | [Font Awesome Solid](https://fontawesome.com/search?s=solid&ic=free-collection) | `fas-` | Solid style icons from Font Awesome (free tier) | [Preview](https://icones.js.org/collection/fa7-solid) |
 | [Font Awesome Regular](https://fontawesome.com/search?s=regular&ic=free-collection) | `far-` | Regular style icons from Font Awesome (free tier) | [Preview](https://icones.js.org/collection/fa7-regular) |
 | [Font Awesome Brands](https://fontawesome.com/search?ip=brands&ic=free-collection) | `fab-` | Brand icons from Font Awesome (free tier) | [Preview](https://icones.js.org/collection/fa7-brands) |
