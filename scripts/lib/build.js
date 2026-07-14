@@ -328,6 +328,14 @@ function generateFields(dataDir, tstrings, searchableFieldIDs, references) {
       delete field.stringsCrossReference;
     }
 
+    if (field.locationSet) {
+      if (!field.locationSet.include) {
+        field.locationSet.include = [
+            'Planet'
+        ];
+      }
+    }
+
     fields[id] = field;
   });
 
@@ -419,6 +427,14 @@ function generatePresets(dataDir, tstrings, searchableFieldIDs, listReusedIcons,
       references.presets[id] ||= {};
       references.presets[id].relation = preset.relationCrossReference;
       delete preset.relationCrossReference;
+    }
+
+    if (preset.locationSet) {
+      if (!preset.locationSet.include) {
+        preset.locationSet.include = [
+            'Planet'
+        ];
+      }
     }
   });
 
