@@ -383,7 +383,7 @@ A string specifying the UI and behavior of the field. Must be one of the followi
 
 * `check` - 3-state checkbox: `yes`, `no`, unknown (no tag)
 * `defaultCheck` - 2-state checkbox where checked produces `yes` and unchecked produces no tag
-* `onewayCheck` - 3-state checkbox for `oneway` fields, with extra button for direction switching - editors may also implement special support for [`-1`](https://wiki.openstreetmap.org/wiki/Tag:oneway%3D-1) and [`reversible`](https://wiki.openstreetmap.org/wiki/Tag:oneway%3Dreversible) values.
+* `onewayCheck` - 3-state checkbox for `oneway` fields, with extra button for direction switching - editors may also implement special support for [`-1`](https://wiki.openstreetmap.org/wiki/Tag:oneway%3D-1), [`oneway=alternating`](https://osm.wiki/Tag:oneway=alternating), and [`reversible`](https://wiki.openstreetmap.org/wiki/Tag:oneway%3Dreversible) values.
 
 ###### Radio Buttons
 
