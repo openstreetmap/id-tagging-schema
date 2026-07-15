@@ -171,7 +171,7 @@ of `presets/shop.json`. When subfolders are used, the format is `{shop/books}` t
 ```
 
 Fields for keys that define the preset via `tags` are generally not inherited.
-E.g. the `shop` field is not inherited despite specifying as inherinting from `{shop}` presets.
+E.g. the `shop` field is not inherited despite specifying as inheriting from `{shop}` presets.
 This can be overwritten by adding the field explicitly like `"fields": [ "shop", "{shop}" ],`
 
 ##### `icon`
