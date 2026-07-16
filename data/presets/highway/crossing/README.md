@@ -18,8 +18,8 @@ There are places in OSM that follow a different tagging style where only crossin
 ## ways `highway=footway|cycleway|path + *=crossing + crossing=*`
 
 Crossing way presets are duplicated per highway class:
-- `/highway/footway/crossing.json`  + `/highway/footway/crossing/*.json`
-- `/highway/cycleway/crossing.json` + `/highway/cycleway/crossing/*.json`
-- `/highway/path/crossing.json`     + `/highway/path/crossing/*.json`
+- [`/highway/footway/crossing.json`](../footway/crossing.json)  + [`/highway/footway/crossing/*.json`](../footway/crossing)
+- [`/highway/cycleway/crossing.json`](../footway/cycleway.json) + [`/highway/cycleway/crossing/*.json`](../cycleway/crossing)
+- [`/highway/path/crossing.json`](../footway/path.json)         + [`/highway/path/crossing/*.json`](../path/crossing)
 
 The crossing presets for `/cycleway*` and `/path*` are considered to be relevant for bike traffic and have additional fields that target bike vs. foot traffic.
