@@ -240,13 +240,13 @@ function validateSchema(file, instance, schema) {
 function generateCategories(dataDir, tstrings) {
   let categories = {};
 
-  fs.globSync(dataDir + '/preset_categories/*.json', {
-    posix: true,
-  }).forEach(file => {
+  const categoriesDir = path.posix.join(dataDir, 'preset_categories');
+  fs.globSync(categoriesDir + '/*.json').forEach(file => {
     let category = read(file);
+    const id = 'category-' + extractIdFromPath(categoriesDir, file);
+
     validateSchema(file, category, categorySchema);
 
-    let id = 'category-' + path.basename(file, '.json');
     tstrings.categories[id] = { name: category.name };
     delete category.name;
 
@@ -260,11 +260,10 @@ function generateCategories(dataDir, tstrings) {
 function generateFields(dataDir, tstrings, searchableFieldIDs, references) {
   let fields = {};
 
-  fs.globSync(dataDir + '/fields/**/*.json', {
-    posix: true,
-  }).forEach(file => {
+  const fieldsDir = path.posix.join(dataDir, 'fields');
+  fs.globSync(fieldsDir + '/**/*.json').forEach(file => {
     let field = read(file);
-    let id = stripLeadingUnderscores(file.match(/fields\/([^.]*)\.json/)[1]);
+    const id = extractIdFromPath(fieldsDir, file);
 
     validateSchema(file, field, fieldSchema);
 
@@ -335,10 +334,21 @@ function generateFields(dataDir, tstrings, searchableFieldIDs, references) {
 }
 
 
-function stripLeadingUnderscores(str) {
-  return str.split('/')
-    .map(s => s.replace(/^_/,''))
-    .join('/');
+/**
+ * @example `data/presets/addr/_interpolation.json` -> `addr/interpolation`
+ */
+function extractIdFromPath(parentDir, file) {
+  // Strip the leading directory
+  const relativePath = path.relative(parentDir, file);
+  const dirName = path.posix.dirname(relativePath);
+  // Strip the extension, i.e. `.json`
+  const extension = path.extname(relativePath);
+  const fileName = path.posix.basename(relativePath, extension);
+  // Build the id from only the subdirectories and base file name
+  const id = path.posix.join(dirName, fileName);
+  // Remove leading underscores from any directory or file name
+  // Also enforce posix path separator '/' in case the path was with Windows '\' path separator
+  return path.posix.join(...id.split(path.sep).map(s => s.replace(/^_/, '')));
 }
 
 
@@ -347,11 +357,10 @@ function generatePresets(dataDir, tstrings, searchableFieldIDs, listReusedIcons,
 
   let icons = {};
 
-  fs.globSync(dataDir + '/presets/**/*.json', {
-    posix: true,
-  }).forEach(file => {
+  const presetsDir = path.posix.join(dataDir, 'presets');
+  fs.globSync(presetsDir + '/**/*.json').forEach(file => {
     let preset = read(file);
-    let id = stripLeadingUnderscores(file.match(/presets\/([^.]*)\.json/)[1]);
+    const id = extractIdFromPath(presetsDir, file);
 
     if (presets[id] !== undefined) {
       process.stderr.write(`Preset with id "${id}" defined multiple times\n`);
