@@ -29,6 +29,10 @@ This Tagging Schema fills that need, but with a number of caveats:
 
 ## Usage
 
+### Web / JSON
+
+Dist builds include `manifest.min.json` with `schemaVersion`, `packageVersion`, `commit`, `ref`, and `builtAt`. Load it from the same base URL as `presets.min.json` when you need to know which build produced a dist snapshot.
+
 ### Java/Android
 
 The [westnordost/osmfeatures](https://github.com/westnordost/osmfeatures) project,

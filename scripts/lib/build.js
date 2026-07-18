@@ -10,6 +10,7 @@ import { LocationConflation } from '@rapideditor/location-conflation';
 import { createRequire } from 'module';
 import { compile, toSafeIdentifier } from 'json-schema-to-typescript-lite';
 import { isReference, dereferencedTranslatableContent, dereferenceUntranslatedContent } from './references.ts';
+import { generateManifest } from './manifest.ts';
 import fetchTranslations, { expandTStrings, sortObject } from './translations.js';
 
 const require = createRequire(import.meta.url);
@@ -193,8 +194,12 @@ function processData(options, type) {
   if (!fs.existsSync(distDir + '/translations')) fs.mkdirSync(distDir + '/translations');
   fs.writeFileSync(distDir + '/translations/' + sourceLocale + '.json', JSON.stringify(translationsForJson, null, 4));
 
+  let manifest = generateManifest();
+  fs.writeFileSync(distDir + '/manifest.json', JSON.stringify(manifest, null, 4));
+
   const tasks = [
     // Minify files
+    minifyJSON(distDir + '/manifest.json', distDir + '/manifest.min.json'),
     minifyJSON(distDir + '/preset_categories.json', distDir + '/preset_categories.min.json'),
     minifyJSON(distDir + '/fields.json', distDir + '/fields.min.json'),
     minifyJSON(distDir + '/presets.json', distDir + '/presets.min.json'),

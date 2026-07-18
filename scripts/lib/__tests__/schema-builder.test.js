@@ -1,7 +1,7 @@
 import fs from 'fs';
 import shell from 'shelljs';
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
-import schemaBuilder from '../index.js';
+import schemaBuilder from '../index.ts';
 
 const _workspace = 'workspace';
 
@@ -244,5 +244,14 @@ describe('schema-builder', () => {
     });
     expect(fs.existsSync(_workspace + '/interim/source_strings.yaml')).toBe(true);
     expect(fs.existsSync(_workspace + '/dist')).toBe(true);
+
+    const manifest = JSON.parse(fs.readFileSync(_workspace + '/dist/manifest.json', 'utf8'));
+    expect(manifest.schemaVersion).toBe('7');
+    expect(manifest.packageVersion).toBeDefined();
+    expect(manifest.builtAt).toBeDefined();
+    expect(manifest.repository).toMatch(/^https:\/\/github\.com\//);
+    expect(manifest.commit).toBeDefined();
+    expect(manifest.ref).toBeDefined();
+    expect(fs.existsSync(_workspace + '/dist/manifest.min.json')).toBe(true);
   });
 });
