@@ -29,11 +29,11 @@ This Tagging Schema fills that need, but with a number of caveats:
 
 ## Usage
 
-### Java/Android
+### Kotlin Multiplatform
 
 The [westnordost/osmfeatures](https://github.com/westnordost/osmfeatures) project,
 a component of [StreetComplete](https://github.com/westnordost/StreetComplete),
-makes it easier to use this data with Android or other Java platforms.
+makes it easier to use this data with Android, iOS and Java platforms.
 
 ## Related Projects
 
