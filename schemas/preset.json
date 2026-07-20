@@ -165,6 +165,23 @@
             "pattern": "^\\{.+\\}$",
             "description": "An string referencing another preset which has a locationSet"
         },
+        "related": {
+            "description": "Hints about related presets that are related to this one, can be optionally used for a context-aware handling",
+            "type": "object",
+            "properties": {
+                "expectedVertices": {
+                    "description": "A list of preset IDs that are expected to appear as vertices on a line or area marked with this preset",
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "minProperties": 1,
+            "additionalProperties": false
+        },
         "relation": {
             "$ref": "#/$defs/RelationSchema"
         },
