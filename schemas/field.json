@@ -76,6 +76,7 @@
                 "roadheight",
                 "roadspeed",
                 "schedule",
+                "segregatedCombo",
                 "semiCombo",
                 "structureRadio",
                 "tel",
@@ -208,6 +209,10 @@
             "description": "The amount the stepper control should add or subtract (number fields only)",
             "minimum": 1,
             "type": "integer"
+        },
+        "fallbackKey": {
+            "description": "The field that is shown instead when this field's visibility requirements are not met",
+            "type": "string"
         },
         "prerequisiteTag": {
             "description": "Tagging constraint for showing this field in the editor",
@@ -378,9 +383,9 @@
             { "not": { "required": ["keys"] }}
         ]},
         { "$id": "field-type-with-key-optional-keys", "properties": { "type": { "enum": ["email", "url", "tel", "text", "number"] } }, "required": ["key"] },
-        { "$id": "field-type-with-key-and-keys", "properties": { "type": { "enum": ["address", "wikipedia", "wikidata", "directionalCombo"] } }, "required": ["key", "keys"] },
+        { "$id": "field-type-with-key-and-keys", "properties": { "type": { "enum": ["address", "wikipedia", "wikidata", "directionalCombo", "segregatedCombo"] } }, "required": ["key", "keys"] },
         { "$id": "field-type-with-key-or-keys", "allOf": [
-            { "not": { "properties": { "type": { "enum": ["restriction", "email", "url", "tel", "text", "number", "address", "wikipedia", "wikidata", "directionalCombo"] } } } },
+            { "not": { "properties": { "type": { "enum": ["restriction", "email", "url", "tel", "text", "number", "address", "wikipedia", "wikidata", "directionalCombo", "segregatedCombo"] } } } },
             { "oneOf": [
                 { "required": ["key"] },
                 { "required": ["keys"] }

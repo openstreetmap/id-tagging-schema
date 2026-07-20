@@ -1017,6 +1017,30 @@ function validatePresetFields(presets, fields) {
       }
     }
 
+    // Check that no field with a fallbackKey has its fallback field also explicitly listed,
+    // and that fallbackKey references are valid fields
+    let allPresetFieldIDs = new Set([
+      ...(preset.fields || []),
+      ...(preset.moreFields || [])
+    ]);
+    for (let fieldID of allPresetFieldIDs) {
+      let field = fields[fieldID];
+      if (!field?.fallbackKey) continue;
+
+      let fallbackField = fields[field.fallbackKey];
+      if (!fallbackField) {
+        process.stderr.write('Unknown fallback field "' + field.fallbackKey + '" referenced by field "' + fieldID + '" in preset "' + presetID + '" (' + preset.name + ')\n');
+        process.stdout.write('\n');
+        process.exit(1);
+      }
+
+      if (allPresetFieldIDs.has(field.fallbackKey)) {
+        process.stderr.write('The preset "' + presetID + '" includes repeated field "' + field.fallbackKey + '" already implicitly included by field "' + fieldID + '" as a fallback field\n');
+        process.stdout.write('\n');
+        process.exit(1);
+      }
+    }
+
     if (preset.fields) {
       // since `moreFields` is available, check that `fields` doesn't get too cluttered
       let fieldCount = preset.fields.length;
@@ -1037,12 +1061,23 @@ function validatePresetFields(presets, fields) {
       }
     }
   }
-
+  
   for (let fieldID in fields) {
+    let field = fields[fieldID];
+
     if (!usedFieldIDs.has(fieldID) &&
-        fields[fieldID].universal !== true &&
-        (fields[fieldID].usage || 'preset') === 'preset') {
-      process.stdout.write('Field "' + fields[fieldID].label + '" (' + fieldID + ') isn\'t used by any presets.\n');
+        field.universal !== true &&
+        (field.usage || 'preset') === 'preset') {
+      process.stdout.write('Field "' + field.label + '" (' + fieldID + ') isn\'t used by any presets.\n');
+    }
+
+    if (field.fallbackKey) {
+      let fallbackField = fields[field.fallbackKey];
+      if (fallbackField?.fallbackKey) {
+        process.stderr.write('Field "' + field.fallbackKey + '" is used as a fallback by field "' + fieldID + '" but itself has a fallbackKey "' + fallbackField.fallbackKey + '". Recursive fallback fields are not allowed.\n');
+        process.stdout.write('\n');
+        process.exit(1);
+      }
     }
   }
 }
