@@ -224,6 +224,30 @@ Alternatively, `locationSetCrossReference` can be use to reference the `location
 "locationSetCrossReference": "{presets/man_made/crane}"
 ```
 
+##### `related`
+
+Hints about related presets that are related to this one, can be optionally used for a context-aware handling.
+
+###### `expectedVertices`
+
+A list of preset IDs that are expected to appear as vertices on a line or area marked with this preset. For example `power=line` may have
+
+```
+    "related": {
+        "expectedVertices": [
+            "power/tower",
+            "power/portal",
+            "power/pole",
+            "power/transformer",
+            "power/generator/source/wind",
+            "power/generator/source/hydro",
+            "power/generator/method/photovoltaic",
+            "power/generator/source/nuclear",
+            "power/generator"
+        ]
+    }
+```
+
 ##### `replacement`
 
 The ID of a preset that is preferable to this one. iD's validator will flag features matching this preset and recommend that the user upgrade the tags.
