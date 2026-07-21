@@ -144,6 +144,8 @@ Specified tags are removed from the feature when deselecting this preset. Defaul
 
 For example [`landuse=vineyard`](https://github.com/openstreetmap/id-tagging-schema/blob/7c94ba9d1568f089234af39d5a1a5d8503e8ae39/data/presets/landuse/vineyard.json#L18-L22) removes also `crop=grape` - which is not included in its preset.
 
+Editors may additionally remove other tags such as tags of the old preset's fields.
+
 ##### `fields`/`moreFields`
 
 Both these properties are arrays of field paths (e.g. `description` or `generator/type`).
@@ -208,7 +210,7 @@ The default is `1.0`.
 
 An object with the identifiers of regions where this preset should or shouldn't be shown. By default, presets are available everywhere.
 
-See the [location-conflation](https://github.com/ideditor/location-conflation) package for details.
+See the [location-conflation](https://github.com/ideditor/location-conflation) package for details. Note that `"include": ["Planet"]` may be omitted.
 
 ```js
 "locationSet": {
