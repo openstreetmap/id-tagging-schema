@@ -232,7 +232,9 @@ Hints about related presets that are related to this one, can be optionally used
 
 ###### `expectedVertices`
 
-A list of preset IDs that are expected to appear as vertices on a line or area marked with this preset. For example `power=line` may have
+A list of preset IDs that may be used as a vertex of this preset, when this preset is used on a line or area. 
+
+For example `power=line` may have
 
 ```
     "related": {
@@ -249,6 +251,12 @@ A list of preset IDs that are expected to appear as vertices on a line or area m
         ]
     }
 ```
+
+List is ordered, entries expected to be used more often by mappers listed first. Editor software may preserve or take into account this ordering. But for example which presets were used recetly also can be considered.
+
+Editors may promote this presets when `power=line` vertex is selected. They may also choose to not show nay other presets at all if `expectedVertices` is defined. In addition QA warning may be shown if presets from outside of such list are present.
+
+Note: this feature is experimental. Feedback is welcome, editors may prefer for now to use this data less aggressively. For example only promote listed presets while allowing to select also other, unlisted ones.
 
 ##### `replacement`
 
