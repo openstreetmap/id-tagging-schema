@@ -210,7 +210,7 @@ The default is `1.0`.
 
 An object with the identifiers of regions where this preset should or shouldn't be shown. By default, presets are available everywhere.
 
-See the [location-conflation](https://github.com/ideditor/location-conflation) package for details. Note that `"include": ["Planet"]` may be omitted.
+See the [location-conflation](https://github.com/ideditor/location-conflation) package for details. Note that `"include": ["Planet"]` should be omitted.
 
 ```js
 "locationSet": {
