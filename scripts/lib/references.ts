@@ -37,8 +37,42 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
             continue;
           }
 
+          // Skip `fields` for the keys which define the preset.
+          // These are usually `typeCombo` fields like `shop=*`
+          function shouldInherit(fieldId: string) {
+            // shouldInherit is called recursively as references are expanded.
+            // if this field is reference, skip it for now. It will be
+            // processed in the next loop iteration.
+            if (isReference(fieldId)) return true;
+
+            const field = fields[fieldId];
+            if (!field.key) return true;
+
+            if (
+              preset.tags[field.key] &&
+              // inherit anyway if multiple values are allowed or just a checkbox
+              field.type !== 'multiCombo' &&
+              field.type !== 'semiCombo' &&
+              field.type !== 'manyCombo' &&
+              field.type !== 'check'
+            ) {
+              return false;
+            }
+
+            if (
+              preset.fields?.some(originalField => field.key === fields[originalField]?.key) ||
+              preset.moreFields?.some(originalField => field.key === fields[originalField]?.key)
+            ) {
+              // current preset already has a field for this field
+              return false;
+            }
+
+            return true;
+          }
+
           // replace the reference with every field. decrement i to reprocess this array index.
-          preset[prop].splice(i--, 1, ...referencedPreset[prop]);
+          // this is necessary as it can also be a reference
+          preset[prop].splice(i--, 1, ...referencedPreset[prop].filter(shouldInherit));
         }
       }
     }
