@@ -258,6 +258,10 @@ Editors may promote this presets when `power=line` vertex is selected. They may 
 
 Note: this feature is experimental. Feedback is welcome, editors may prefer for now to use this data less aggressively. For example only promote listed presets while allowing to select also other, unlisted ones.
 
+###### `expectedVerticesCrossReference`
+
+An string referencing another preset which has a `related.expectedVertices` to be used also here
+
 ##### `replacement`
 
 The ID of a preset that is preferable to this one. iD's validator will flag features matching this preset and recommend that the user upgrade the tags.
