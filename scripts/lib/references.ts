@@ -28,8 +28,10 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
           }
 
           // preset (A) references the fields of preset (B), but (B) has no
-          // fields. For now, we silently skip this to match the existing logic,
-          // but in the future we could emit an error here. (TODO:)
+          // fields. We silently and intentionally skip this, as it allows presets
+          // to specify fields and moreFields inheritance even while parent has no such field yet.
+          // Otherwise defining for example new moreFields would require checking all children presets
+          // whether inheritance should be added there.
           if (!referencedPreset[prop]) {
             preset[prop].splice(i--, 1);
             continue;
