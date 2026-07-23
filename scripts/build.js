@@ -1,3 +1,3 @@
-import schemaBuilder from '@ideditor/schema-builder';
+import schemaBuilder from './lib/index.ts';
 
 schemaBuilder.buildDev();
