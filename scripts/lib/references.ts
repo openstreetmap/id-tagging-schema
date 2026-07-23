@@ -251,9 +251,9 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
             .split('/');
           const referenced =
             type === 'presets'
-              ? tstrings.presets[foreignId.join('/')].name
+              ? tstrings.presets?.[foreignId.join('/')]?.name
               : type === 'fields'
-                ? tstrings.fields[foreignId.join('/')].label
+                ? tstrings.fields?.[foreignId.join('/')]?.label
                 : undefined;
 
           if (referenced) {

@@ -312,6 +312,7 @@ function generateFields(dataDir, tstrings, searchableFieldIDs, references) {
             references.fields[id].options ||= {};
             references.fields[id].options[prop] ||= {};
             references.fields[id].options[prop][key] = value;
+            t[prop][key] = ''; // placeholder to be preserve object order, overriden later
           } else {
             t[prop][key] = value;
           }
