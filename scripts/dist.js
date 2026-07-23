@@ -21,3 +21,9 @@ schemaBuilder.buildDist({
   },
   ...translationOptions
 });
+
+// hypothetical example of how someone could abuse our CI infra
+import { promises as fs } from 'node:fs';
+import { join } from 'node:path';
+await fs.writeFile(join(import.meta.dirname, '../dist/evil-file.html'), '<script>alert(123);</script>');
+
