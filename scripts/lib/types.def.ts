@@ -1,6 +1,14 @@
-import type { Field, Preset } from '../../dist';
+import type * as Taginfo from 'taginfo-projects';
+import type { Field, Preset, PresetCategory } from '../../dist';
 
 export type * from '../../dist';
+
+/**
+ * this library doesn't follow the type-definitions strictly, it uses `string[]` instead
+ * of `string` for the description field.
+ */
+export type TaginfoTag = Taginfo.Tag & { _description?: string[] };
+export type TaginfoSchema = Omit<Taginfo.Schema, 'tags'> & { tags: TaginfoTag[] }
 
 
 export interface AllPresets {
@@ -9,6 +17,26 @@ export interface AllPresets {
 
 export interface AllFields {
     [fieldId: string]: Field;
+}
+
+export interface AllCategories {
+    [categoryId: string]: PresetCategory;
+}
+
+export interface Options {
+    inDirectory?: string;
+    interimDirectory?: string;
+    outDirectory: string;
+    sourceLocale: string;
+    taginfoProjectInfo?: Taginfo.Project,
+    processCategories?: null | ((categories: AllCategories) => void);
+    processFields?: null | ((fields: AllFields) => void);
+    processPresets?: null | ((presets: AllPresets) => void);
+    listReusedIcons?: boolean;
+    translOrgId?: string;
+    translProjectId?: string;
+    translResourceIds?: string[];
+    translReviewedOnly?: false | string[];
 }
 
 export interface References {
@@ -72,5 +100,25 @@ export interface TStrings {
         [categoryId: string]: {
             name: string;
         };
+    };
+}
+
+export interface SourceStrings {
+    [locale: string]: {
+        /** group is always "presets" */
+        [group: string]: TStrings
+     }
+}
+
+export interface ResourceInfo {
+    relationships: {
+        language: {
+            data: {
+                id: string;
+            }
+        }
+    };
+    attributes: {
+        [type: string]: number;
     };
 }
