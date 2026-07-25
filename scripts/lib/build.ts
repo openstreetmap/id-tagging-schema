@@ -1021,6 +1021,22 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
       }
     }
 
+    let relatedKeys = ['expectedVertices'] as const;
+    for (let relatedKeyIndex in relatedKeys) {
+      let relatedKey = relatedKeys[relatedKeyIndex];
+      if (!preset.related?.[relatedKey]) continue;
+
+      for (let vertexIndex in preset.related[relatedKey]) {
+        let foreignPresetID = preset.related[relatedKey][vertexIndex];
+        if (presets[foreignPresetID] === undefined) {
+          process.stderr.write('Unknown preset "' + foreignPresetID + '" referenced in "expectedVertices" array of preset "' + presetID + '" (' + preset.name + ')\n');
+          process.stdout.write('\n');
+          process.exit(1);
+        }
+      }
+    }
+
+
     if (preset.fields) {
       // since `moreFields` is available, check that `fields` doesn't get too cluttered
       let fieldCount = preset.fields.length;
