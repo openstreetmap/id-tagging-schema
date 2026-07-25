@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@openstreetmap/id-tagging-schema",
-  "version": "6.14.0-dev",
+  "version": "7.1.0-dev",
   "description": "The OpenStreetMap tagging model used by the iD editor",
   "homepage": "https://github.com/openstreetmap/id-tagging-schema#readme",
   "bugs": "https://github.com/openstreetmap/id-tagging-schema/issues",
@@ -11,18 +11,37 @@
   },
   "license": "ISC",
   "main": "build.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "lint": "prettier --check 'data/**/!(*.md)'",
-    "lint:fix": "prettier --write data",
-    "build": "node scripts/build.js",
-    "dist": "node scripts/dist.js",
-    "test": "node scripts/test.js",
-    "translations": "node scripts/translations.js"
+    "lint": "eslint && tsc && prettier --check data",
+    "lint:fix": "eslint --fix && tsc && prettier --write data",
+    "build": "node scripts/build.ts",
+    "dist": "node scripts/dist.ts",
+    "test": "node scripts/test.ts && vitest run"
   },
   "devDependencies": {
-    "@ideditor/schema-builder": "~6.5.1",
-    "netlify-cli": "^23.2.1",
+    "@eslint/js": "^10.0.1",
+    "@rapideditor/location-conflation": "^3.0.1",
+    "@transifex/api": "^8.0.1",
+    "@types/shelljs": "^0.10.0",
+    "@types/taginfo-projects": "github:taginfo/taginfo-projects#6daafd2e30a86a8bfb9615855af2c2d73bd98279",
+    "@vitest/coverage-v8": "^4.1.5",
+    "@vitest/eslint-plugin": "^1.6.16",
+    "eslint": "^10.0.0",
+    "globals": "^17.3.0",
+    "js-yaml": "^5.0.0",
+    "json-schema-to-typescript-lite": "^15.0.0",
+    "jsonschema": "^1.1.0",
+    "marky": "^1.2.4",
+    "node-fetch": "^3.2.10",
     "prettier": "^3.2.5",
-    "unzipper": "^0.12.3"
+    "shelljs": "^0.10.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.63.0",
+    "unzipper": "^0.12.3",
+    "vitest": "^4.1.5"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

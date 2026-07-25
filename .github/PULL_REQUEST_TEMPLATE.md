@@ -44,7 +44,7 @@ Follow these steps to test your PR yourself and make it a lot easier and faster 
      Add relevant **screenshots** of the sidebar of those examples. -->
 
 <!-- FYI: What we will check:
-     - Is the [icon](https://github.com/ideditor/schema-builder/blob/main/ICONS.md) well chosen.
+     - Is the [icon](https://github.com/openstreetmap/id-tagging-schema/blob/main/ICONS.md) well chosen.
      - Are the fields well-structured and have good labels.
      - Do the dropdowns (etc.) work well and show helpful data. -->
 
