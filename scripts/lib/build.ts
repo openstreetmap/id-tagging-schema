@@ -243,7 +243,7 @@ function generateCategories(dataDir: string, tstrings: TStrings) {
   let categories: AllCategories = {};
 
   const categoriesDir = path.posix.join(dataDir, 'preset_categories');
-  fs.globSync(categoriesDir + '/*.json').forEach(file => {
+  fs.globSync(categoriesDir + '/*.json').forEach((file: string) => {
     let category = read<PresetCategory>(file);
     const id = 'category-' + extractIdFromPath(categoriesDir, file);
 
@@ -264,7 +264,7 @@ function generateFields(dataDir: string, tstrings: TStrings, searchableFieldIDs:
   let fields: AllFields = {};
 
   const fieldsDir = path.posix.join(dataDir, 'fields');
-  fs.globSync(fieldsDir + '/**/*.json').forEach(file => {
+  fs.globSync(fieldsDir + '/**/*.json').forEach((file: string) => {
     let field = read<Field>(file);
     const id = extractIdFromPath(fieldsDir, file);
 
@@ -364,7 +364,7 @@ function extractIdFromPath(parentDir: string, file: string) {
   const id = path.posix.join(dirName, fileName);
   // Remove leading underscores from any directory or file name
   // Also enforce posix path separator '/' in case the path was with Windows '\' path separator
-  return path.posix.join(...id.split(path.sep).map(s => s.replace(/^_/, '')));
+  return path.posix.join(...id.split(path.sep).map((s: string) => s.replace(/^_/, '')));
 }
 
 
@@ -380,7 +380,7 @@ function generatePresets(
   let icons: Record<string, string[]> = {};
 
   const presetsDir = path.posix.join(dataDir, 'presets');
-  fs.globSync(presetsDir + '/**/*.json').forEach(file => {
+  fs.globSync(presetsDir + '/**/*.json').forEach((file: string) => {
     let preset = read<Preset>(file);
     const id = extractIdFromPath(presetsDir, file);
 
