@@ -559,6 +559,11 @@ An optional property to reference to the strings of another field, indicated  by
 
 This would inherit all translations from the `sport` field but keep only the defined options.
 
+If you omit [`options`](#options), then it will include every option from the referenced field. For example:
+```json
+  "stringsCrossReference": "{sport}",
+```
+
 ##### `autoSuggestions`
 
 For combo fields, the most common tag values will be fetched from TagInfo and shown

@@ -132,7 +132,7 @@ async function processData(_options: Partial<Options> | undefined, type: string)
   validateCategoryPresets(categories, presets);
   validatePresetFields(presets, fields);
 
-  dereferenceUntranslatedContent(presets, fields);
+  dereferenceUntranslatedContent(presets, fields, references);
 
   const defaults = read<PresetDefaults>(dataDir + '/preset_defaults.json');
   if (defaults) {
