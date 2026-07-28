@@ -5,13 +5,23 @@
     "description": "Keys or tags to be deleted when editing features.",
     "type": "object",
     "additionalProperties": {
-      "anyOf": [
-        { "type": "boolean", "enum": [true] },
-        {
-          "type": "object",
-          "additionalProperties": { "type": "boolean", "enum": [true] },
-          "minProperties": 1
-        }
-      ]
+        "anyOf": [
+            {
+                "type": "boolean",
+                "enum": [
+                    true
+                ]
+            },
+            {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "boolean",
+                    "enum": [
+                        true
+                    ]
+                },
+                "minProperties": 1
+            }
+        ]
     }
 }
