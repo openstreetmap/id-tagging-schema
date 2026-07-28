@@ -16,7 +16,13 @@
             "uniqueItems": true,
             "items": {
                 "type": "string",
-                "enum": ["point", "vertex", "line", "area", "relation"]
+                "enum": [
+                    "point",
+                    "vertex",
+                    "line",
+                    "area",
+                    "relation"
+                ]
             }
         },
         "tags": {
@@ -108,7 +114,9 @@
                 }
             },
             "additionalProperties": false,
-            "required": ["key"]
+            "required": [
+                "key"
+            ]
         },
         "replacement": {
             "description": "The ID of a preset that is preferable to this one",
@@ -151,7 +159,11 @@
         }
     },
     "additionalProperties": false,
-    "required": ["name", "geometry", "tags"],
+    "required": [
+        "name",
+        "geometry",
+        "tags"
+    ],
     "$defs": {
         "RelationSchema": {
             "type": "object",
@@ -185,7 +197,7 @@
                                 "type": "array",
                                 "uniqueItems": true,
                                 "items": {
-                                    "$ref": "field.json#/$defs/Geometry"
+                                    "$ref": "./field.json#/$defs/Geometry"
                                 },
                                 "description": "If not specified, any geometry is allowed"
                             },
@@ -200,8 +212,20 @@
                                 },
                                 "minItems": 1,
                                 "examples": [
-                                    [{ "a": 1, "b": 2 }],
-                                    [{ "a": 1 }, { "b": 2 }]
+                                    [
+                                        {
+                                            "a": 1,
+                                            "b": 2
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            "a": 1
+                                        },
+                                        {
+                                            "b": 2
+                                        }
+                                    ]
                                 ],
                                 "description": "`*` can be used as a tag value. If the object has multiple tags, then all tags must match (logical AND). If multiple array items are specified, only 1 needs to match (logical OR). If this property is not specified, then any tags are allowed."
                             },
@@ -214,12 +238,19 @@
                                 "description": "If unspecified, there is no maximum for how many times this role can appear in the relation"
                             }
                         },
-                        "required": ["role"],
+                        "required": [
+                            "role"
+                        ],
                         "additionalProperties": false
                     }
                 }
             },
-            "required": ["reference", "allowDuplicateMembers", "role_labels", "members"],
+            "required": [
+                "reference",
+                "allowDuplicateMembers",
+                "role_labels",
+                "members"
+            ],
             "additionalProperties": false
         }
     }
