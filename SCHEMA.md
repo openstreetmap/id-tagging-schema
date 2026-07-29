@@ -94,6 +94,8 @@ A list of synonyms for the preset's `name`. These are alternative terms a preset
 
 A list of additional search terms or keywords for the preset. These might be names which describe a subset of the preset's features, or simply related terms a user might enter when searching for the preset.
 
+Editors likely should also list given preset when user will search by tags present in `tags` or `addTags`. For example searching by `natural=tree` or `amenity=school` or "water_tank", maybe also "water tank" likely also should give relevant results. Such codes should not be expected to be manually listed in terms unless they are also actually relevant terms on their own in natural language, and should not be expected to be manually listed by translators for other languages.
+
 ##### `geometry`
 
 An array of possible geometry types that a feature must have in order to match this preset.
