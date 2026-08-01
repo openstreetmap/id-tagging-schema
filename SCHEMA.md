@@ -239,15 +239,15 @@ For example `power=line` may have
 ```
     "related": {
         "expectedVertices": [
-            "power/tower",
-            "power/portal",
-            "power/pole",
-            "power/transformer",
-            "power/generator/source/wind",
-            "power/generator/source/hydro",
-            "power/generator/method/photovoltaic",
-            "power/generator/source/nuclear",
-            "power/generator"
+            "{power/tower}",
+            "{power/portal}",
+            "{power/pole}",
+            "{power/transformer}",
+            "{power/generator/source/wind}",
+            "{power/generator/source/hydro}",
+            "{power/generator/method/photovoltaic}",
+            "{power/generator/source/nuclear}",
+            "{power/generator}"
         ]
     }
 ```
