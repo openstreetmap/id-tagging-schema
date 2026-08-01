@@ -258,7 +258,15 @@ Note: this feature is experimental. Feedback is welcome, editors may prefer for 
 
 ###### `expectedVerticesCrossReference`
 
-An string referencing another preset which has a `related.expectedVertices` to be used also here
+An string referencing another preset which has a `related.expectedVertices` to be used also here.
+
+For example:
+
+```
+    "related": {
+        "expectedVerticesCrossReference": "{building/house}"
+    }
+```
 
 ##### `replacement`
 
