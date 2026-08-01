@@ -112,8 +112,7 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
       delete preset.locationSetCrossReference;
     }
 
-    // 10. presets can reference related.expectedVertices
-    // TODO what is going with these indexes?
+    // presets can reference related.expectedVertices
     if (preset.related?.expectedVerticesCrossReference) {
       const referencedPreset = presets[preset.related.expectedVerticesCrossReference.slice(1, -1)];
 
