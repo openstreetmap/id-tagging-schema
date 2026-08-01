@@ -98,21 +98,6 @@ export interface Preset {
    * An string referencing another preset which has a locationSet
    */
   locationSetCrossReference?: string
-  /**
-   * Hints about related presets that are related to this one, can be optionally used for a context-aware handling
-   */
-  related?: {
-    /**
-     * An list of preset IDs that may be used as a vertex of this preset, when this preset is used on a line or area. List is ordered, starting from ones more likely to be selected by mapper.
-     *
-     * @minItems 1
-     */
-    expectedVertices?: string[]
-    /**
-     * An string referencing another preset which has a related.expectedVertices to be used also here
-     */
-    expectedVerticesCrossReference?: string
-  }
   relation?: RelationSchema
   /**
    * A preset can reference the relation schema from another preset, instead of defining the same schema again. If present, then the `relation` property must not appear.
