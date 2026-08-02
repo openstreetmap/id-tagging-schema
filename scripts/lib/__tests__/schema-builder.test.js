@@ -317,7 +317,7 @@ describe('schema-builder', () => {
       expect(presets.t_chain_c.icon).toBe('maki-x');
     });
 
-    it('T3 resolves field icons value from {presets/id}', async () => {
+    it('T3 resolves value from {presets/id} for field icons', async () => {
       writeSourceData({
         'data/presets/t_fld_base.json': minimalPreset({
           tags: { f: 'b' },
@@ -345,7 +345,7 @@ describe('schema-builder', () => {
       expect(fields.t_fld_combo.icons.yes).toBe('iD-bus');
     });
 
-    it('T4 resolves {presets/…} inside icons after iconsCrossReference', async () => {
+    it('T4 iconsCrossReference works if referenced icons contain icon references', async () => {
       writeSourceData({
         'data/presets/t_xr_base.json': minimalPreset({
           tags: { xr: 'b' },

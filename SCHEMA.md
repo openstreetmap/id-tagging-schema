@@ -178,7 +178,7 @@ This can be overwritten by adding the field explicitly like `"fields": [ "shop",
 
 An icon representing a preset, e.g. `"icon": "temaki-power_tower"` ([Example](https://github.com/openstreetmap/id-tagging-schema/blob/main/data/presets/power/tower.json)). More information about available icon sets and usage of icons can be found on the [icons subpage](ICONS.md).
 
-You may set `"icon": "{presets/<preset-id>}"`, e.g. `{presets/shop/books}` for `data/presets/shop/books.json` (or `_books.json`, see [`searchable`](#searchable)). Only `presets/*` is allowed (not `fields/*`). Chains are OK and will also get resolved during build.
+You may set `"icon": "{presets/<preset-id>}"`, e.g. `{presets/shop/books}` for `data/presets/shop/books.json` (or `_books.json`, see [`searchable`](#searchable)). Only `presets/*` is allowed (not `fields/*`). Chains are allowed and are resolved during the build.
 
 For icons on each combo or radio option, see [`icons`](#icons).
 
@@ -656,7 +656,7 @@ For `identifier` fields, the regular expression that valid values are expected t
 
 On [combo / dropdown](#combodropdown-fields) and [radio](#radio-buttons) fields, the `icons` object maps each option key to an icon id shown beside that value in the editor, e.g. `"zebra": "iD-crossing_markings-zebra"` in the snippet below. More information about available icon sets and usage of icons can be found on the [icons subpage](ICONS.md).
 
-You may set each value to `"{presets/<preset-id>}"` instead of a literal id, with the same rules as [preset `icon`](#icon).
+Individual values may also use `"{presets/<preset-id>}"` instead of a literal id, with the same syntax as [preset `icon`](#icon).
 
 To copy an entire `icons` map from another field, use [`iconsCrossReference`](#iconscrossreference).
 
@@ -677,9 +677,9 @@ Combo field types can accept key-label pairs in the `options` value of the `stri
 
 ##### `iconsCrossReference`
 
-An optional property to copy the entire `icons` object from another field by giving that field's id in brackets (no `presets/` prefix)—for example `{kerb}` copies the field whose id is `kerb`. Useful when several field variants share the same option icons.
+An optional property to reference the `icons` object of another field, indicated by that field's id in brackets, like `{field}`. The `presets/` prefix is not used; for example `{kerb}` copies the field whose id is `kerb`. This is useful when multiple field variants for the same tag should share the same icons.
 
-If a field uses `iconsCrossReference`, the builder copies the other field’s `icons` map first, then expands every `{presets/…}` value in **all** field `icons` maps (including the copy).
+`{presets/…}` values inside a copied `icons` map are expanded the same way as in any other field (see [`icons`](#icons)).
 
 ### Deprecations
 

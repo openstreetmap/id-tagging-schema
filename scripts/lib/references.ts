@@ -5,8 +5,9 @@ export function isReference(string: string) {
 }
 
 /**
- * Resolve "{presets/<id>}" to a concrete icon id (following chains). Only
- * `presets/` is valid for icons; `{fields/…}` and bare `{id}` throw.
+ * Resolve "{presets/<id>}" to a concrete icon id (following chains).
+ * Icon refs always require the `presets/` prefix (unlike iconsCrossReference,
+ * which uses a bare field id). `{fields/…}` and bare `{id}` throw.
  */
 function resolveIconRefToId(
   presets: AllPresets,
