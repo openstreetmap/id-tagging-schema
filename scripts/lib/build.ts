@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { styleText } from 'node:util';
 import fs from 'fs';
-import { Validator } from 'jsonschema';
+import { Validator, type Schema } from 'jsonschema';
 import path from 'path';
 import shell from 'shelljs';
 import { dump as dumpYaml } from 'js-yaml';
@@ -9,8 +9,10 @@ import marky from 'marky';
 import { LocationConflation } from '@rapideditor/location-conflation';
 import { createRequire } from 'module';
 import { compile, toSafeIdentifier } from 'json-schema-to-typescript-lite';
+import type * as Taginfo from 'taginfo-projects';
 import { isReference, dereferencedTranslatableContent, dereferenceUntranslatedContent } from './references.ts';
-import fetchTranslations, { expandTStrings, sortObject } from './translations.js';
+import fetchTranslations, { expandTStrings, sortObject } from './translations.ts';
+import type { Field, Geometry, Preset, AllFields, AllPresets, References, TStrings, Options, AllCategories, TaginfoTag, TaginfoSchema, PresetDefaults, Deprecated, Discarded, SourceStrings, PresetCategory } from './types.def.ts';
 
 const require = createRequire(import.meta.url);
 
@@ -21,12 +23,12 @@ const defaultsSchema = require('../../schemas/preset_defaults.json');
 const deprecatedSchema = require('../../schemas/deprecated.json');
 const discardedSchema = require('../../schemas/discarded.json');
 
-let _currBuild = null;
+let _currBuild: Promise<void> | null = null;
 
 const jsonschema = new Validator();
 const locationConflation = new LocationConflation();
 
-function validateData(options) {
+async function validateData(options?: Options) {
   const START = '🔬  ' + styleText('yellow', 'Validating schema...');
   const END = '👍  ' + styleText('green', 'schema okay');
 
@@ -34,13 +36,13 @@ function validateData(options) {
   process.stdout.write(START + '\n');
   marky.mark(END);
 
-  processData(options, 'validate');
+  await processData(options, 'validate');
 
   marky.stop(END);
   process.stdout.write('\n');
 }
 
-function buildDev(options) {
+function buildDev(options?: Options) {
 
   if (_currBuild) return _currBuild;
 
@@ -57,7 +59,7 @@ function buildDev(options) {
   process.stdout.write('\n');
 }
 
-function buildDist(options) {
+function buildDist(options?: Partial<Options>) {
 
   if (_currBuild) return _currBuild;
 
@@ -81,38 +83,37 @@ function buildDist(options) {
     });
 }
 
-function processData(options, type) {
-  if (!options) options = {};
-  options = Object.assign({
+async function processData(_options: Partial<Options> | undefined, type: string) {
+  const options: Options = {
     inDirectory: 'data',
     interimDirectory: 'interim',
     outDirectory: 'dist',
     sourceLocale: 'en',
-    taginfoProjectInfo: {},
     processCategories: null,
     processFields: null,
     processPresets: null,
-    listReusedIcons: false
-  }, options);
+    listReusedIcons: false,
+    ..._options,
+  };
 
   const dataDir = './' + options.inDirectory;
 
   // Translation strings
-  let tstrings = {
+  let tstrings: TStrings = {
     categories: {},
     fields: {},
     presets: {}
   };
 
   // all fields searchable under "add field"
-  let searchableFieldIDs = {};
+  let searchableFieldIDs: Record<string, true> = {};
 
-  const deprecated = read(dataDir + '/deprecated.json');
+  const deprecated = read<Deprecated>(dataDir + '/deprecated.json');
   if (deprecated) {
     validateSchema(dataDir + '/deprecated.json', deprecated, deprecatedSchema);
   }
 
-  const discarded = read(dataDir + '/discarded.json');
+  const discarded = read<Discarded>(dataDir + '/discarded.json');
   if (discarded) {
     validateSchema(dataDir + '/discarded.json', discarded, discardedSchema);
   }
@@ -120,8 +121,7 @@ function processData(options, type) {
   let categories = generateCategories(dataDir, tstrings);
   if (options.processCategories) options.processCategories(categories);
 
-  /** @type {References} */
-  const references = { fields: {}, presets: {} };
+  const references: References = { fields: {}, presets: {} };
   let fields = generateFields(dataDir, tstrings, searchableFieldIDs, references);
   if (options.processFields) options.processFields(fields);
 
@@ -132,11 +132,12 @@ function processData(options, type) {
   validateCategoryPresets(categories, presets);
   validatePresetFields(presets, fields);
 
-  dereferenceUntranslatedContent(presets, fields);
+  dereferenceUntranslatedContent(presets, fields, references);
 
+  // After icon refs are resolved, so reuse counts use concrete icon ids
   reportReusedIcons(presets, options.listReusedIcons);
 
-  const defaults = read(dataDir + '/preset_defaults.json');
+  const defaults = read<PresetDefaults>(dataDir + '/preset_defaults.json');
   if (defaults) {
     validateSchema(dataDir + '/preset_defaults.json', defaults, defaultsSchema);
     validateDefaults(defaults, categories, presets);
@@ -152,7 +153,7 @@ function processData(options, type) {
 
   let translations = generateTranslations(fields, presets, tstrings, searchableFieldIDs);
 
-  let translationsForYaml = {};
+  let translationsForYaml: SourceStrings = {};
   translationsForYaml[sourceLocale] = { presets: translations };
   fs.writeFileSync(interimDir + '/source_strings.yaml', translationsToYAML(translationsForYaml));
 
@@ -181,7 +182,7 @@ function processData(options, type) {
   fs.writeFileSync(distDir + '/fields.json', JSON.stringify(fields, null, 4));
   fs.writeFileSync(distDir + '/presets.json', JSON.stringify(presets, null, 4));
 
-  let taginfo = generateTaginfo(presets, fields, deprecated, discarded, tstrings, options.taginfoProjectInfo);
+  let taginfo = generateTaginfo(presets, fields, deprecated, discarded, tstrings, options.taginfoProjectInfo!);
   if (taginfo) fs.writeFileSync(distDir + '/taginfo.json', JSON.stringify(taginfo, null, 4));
 
   if (defaults) fs.writeFileSync(distDir + '/preset_defaults.json', JSON.stringify(defaults, null, 4));
@@ -189,7 +190,7 @@ function processData(options, type) {
   if (discarded) fs.writeFileSync(distDir + '/discarded.json', JSON.stringify(discarded, null, 4));
 
   expandTStrings(tstrings);
-  let translationsForJson = {};
+  let translationsForJson: typeof translationsForYaml = {};
   translationsForJson[sourceLocale] = { presets: tstrings };
 
   if (!fs.existsSync(distDir + '/translations')) fs.mkdirSync(distDir + '/translations');
@@ -215,12 +216,12 @@ function processData(options, type) {
 }
 
 
-function read(f) {
+function read<T>(f: string): T {
   return fs.existsSync(f) && JSON.parse(fs.readFileSync(f, 'utf8'));
 }
 
 
-function validateSchema(file, instance, schema) {
+function validateSchema(file: string, instance: unknown, schema: Schema) {
   // add this schema to the cache, so $ref can be resolved faster
   jsonschema.addSchema(schema);
 
@@ -241,17 +242,18 @@ function validateSchema(file, instance, schema) {
 }
 
 
-function generateCategories(dataDir, tstrings) {
-  let categories = {};
+function generateCategories(dataDir: string, tstrings: TStrings) {
+  let categories: AllCategories = {};
 
-  fs.globSync(dataDir + '/preset_categories/*.json', {
-    posix: true,
-  }).forEach(file => {
-    let category = read(file);
+  const categoriesDir = path.posix.join(dataDir, 'preset_categories');
+  fs.globSync(categoriesDir + '/*.json').forEach(file => {
+    let category = read<PresetCategory>(file);
+    const id = 'category-' + extractIdFromPath(categoriesDir, file);
+
     validateSchema(file, category, categorySchema);
 
-    let id = 'category-' + path.basename(file, '.json');
     tstrings.categories[id] = { name: category.name };
+    // @ts-expect-error -- deleting a non-optional property
     delete category.name;
 
     categories[id] = category;
@@ -261,18 +263,18 @@ function generateCategories(dataDir, tstrings) {
 }
 
 
-function generateFields(dataDir, tstrings, searchableFieldIDs, references) {
-  let fields = {};
+function generateFields(dataDir: string, tstrings: TStrings, searchableFieldIDs: Record<string, true>, references: References) {
+  let fields: AllFields = {};
 
-  fs.globSync(dataDir + '/fields/**/*.json', {
-    posix: true,
-  }).forEach(file => {
-    let field = read(file);
-    let id = stripLeadingUnderscores(file.match(/fields\/([^.]*)\.json/)[1]);
+  const fieldsDir = path.posix.join(dataDir, 'fields');
+  fs.globSync(fieldsDir + '/**/*.json').forEach(file => {
+    let field = read<Field>(file);
+    const id = extractIdFromPath(fieldsDir, file);
 
     validateSchema(file, field, fieldSchema);
 
-    let t = tstrings.fields[id] = {};
+    tstrings.fields[id] = {};
+    let t = tstrings.fields[id];
 
     const label = field.label;
 
@@ -282,6 +284,7 @@ function generateFields(dataDir, tstrings, searchableFieldIDs, references) {
     } else {
       t.label = label;
     }
+    // @ts-expect-error -- deleting a non-optional property
     delete field.label;
 
     validateTerms(field.terms, `field "${id}"`);
@@ -307,9 +310,10 @@ function generateFields(dataDir, tstrings, searchableFieldIDs, references) {
     }
 
     if (field.strings) {
-      for (let prop in field.strings) {
+      for (let _prop in field.strings) {
+        const prop = _prop as keyof typeof field.strings;
         t[prop] = {};
-        for (const [key, value] of Object.entries(field.strings[prop])) {
+        for (const [key, value] of Object.entries(field.strings[prop]!)) {
           if (typeof value === 'string' && isReference(value)) {
             references.fields[id] ||= {};
             references.fields[id].options ||= {};
@@ -349,21 +353,31 @@ function generateFields(dataDir, tstrings, searchableFieldIDs, references) {
 }
 
 
-function stripLeadingUnderscores(str) {
-  return str.split('/')
-    .map(s => s.replace(/^_/,''))
-    .join('/');
+/**
+ * @example `data/presets/addr/_interpolation.json` -> `addr/interpolation`
+ */
+function extractIdFromPath(parentDir: string, file: string) {
+  // Strip the leading directory
+  const relativePath = path.relative(parentDir, file);
+  const dirName = path.posix.dirname(relativePath);
+  // Strip the extension, i.e. `.json`
+  const extension = path.extname(relativePath);
+  const fileName = path.posix.basename(relativePath, extension);
+  // Build the id from only the subdirectories and base file name
+  const id = path.posix.join(dirName, fileName);
+  // Remove leading underscores from any directory or file name
+  // Also enforce posix path separator '/' in case the path was with Windows '\' path separator
+  return path.posix.join(...id.split(path.sep).map(s => s.replace(/^_/, '')));
 }
 
 
-/**
- * @param {Record<string, object>} presets
- * @param {boolean | number} listReusedIcons
- */
-function reportReusedIcons(presets, listReusedIcons) {
+function reportReusedIcons(
+  presets: AllPresets,
+  listReusedIcons: boolean | number | undefined,
+) {
   if (!listReusedIcons) return;
 
-  const icons = {};
+  const icons: Record<string, string[]> = {};
   for (const id in presets) {
     const preset = presets[id];
     if (preset.searchable !== false) {
@@ -394,7 +408,7 @@ function reportReusedIcons(presets, listReusedIcons) {
     }).forEach(function(iconID) {
       const presetIDs = icons[iconID];
       process.stdout.write(iconID + ', ' + presetIDs.length + '\n');
-      for (let i in presetIDs) {
+      for (const i in presetIDs) {
         process.stdout.write('-' + presetIDs[i] + '\n');
       }
       process.stdout.write('\n');
@@ -405,14 +419,18 @@ function reportReusedIcons(presets, listReusedIcons) {
 }
 
 
-function generatePresets(dataDir, tstrings, searchableFieldIDs, references) {
-  let presets = {};
+function generatePresets(
+    dataDir: string,
+    tstrings: TStrings,
+    searchableFieldIDs: Record<string, true>,
+    references: References,
+) {
+  let presets: AllPresets = {};
 
-  fs.globSync(dataDir + '/presets/**/*.json', {
-    posix: true,
-  }).forEach(file => {
-    let preset = read(file);
-    let id = stripLeadingUnderscores(file.match(/presets\/([^.]*)\.json/)[1]);
+  const presetsDir = path.posix.join(dataDir, 'presets');
+  fs.globSync(presetsDir + '/**/*.json').forEach(file => {
+    let preset = read<Preset>(file);
+    const id = extractIdFromPath(presetsDir, file);
 
     if (presets[id] !== undefined) {
       process.stderr.write(`Preset with id "${id}" defined multiple times\n`);
@@ -422,7 +440,7 @@ function generatePresets(dataDir, tstrings, searchableFieldIDs, references) {
 
     validateSchema(file, preset, presetSchema);
 
-    let names = new Set([]);
+    let names = new Set<string>([]);
     tstrings.presets[id] = {};
 
     if (isReference(preset.name)) {
@@ -455,6 +473,7 @@ function generatePresets(dataDir, tstrings, searchableFieldIDs, references) {
     // don't include localized strings in the presets dist file since they're already in the locale file
     delete preset.aliases;
     delete preset.terms;
+    // @ts-expect-error -- deleting a non-optional prop
     delete preset.name;
 
 
@@ -468,6 +487,7 @@ function generatePresets(dataDir, tstrings, searchableFieldIDs, references) {
       tstrings.presets[id].relation = {
         role_labels: preset.relation.role_labels
       };
+        // @ts-expect-error -- deleting a non-optional prop
       delete preset.relation.role_labels;
     }
     if (preset.relationCrossReference) {
@@ -491,8 +511,8 @@ function generatePresets(dataDir, tstrings, searchableFieldIDs, references) {
 }
 
 
-function generateTranslations(fields, presets, tstrings, searchableFieldIDs) {
-  let yamlStrings = JSON.parse(JSON.stringify(tstrings));  // deep clone
+function generateTranslations(fields: AllFields, presets: AllPresets, tstrings: TStrings, searchableFieldIDs: Record<string, true>) {
+  let yamlStrings: TStrings = JSON.parse(JSON.stringify(tstrings));  // deep clone
 
   for (let fieldId in yamlStrings.fields) {
     let yamlField = yamlStrings.fields[fieldId];
@@ -555,7 +575,7 @@ function generateTranslations(fields, presets, tstrings, searchableFieldIDs) {
     if (keys.length) {
       yamlPreset['#name'] = tagsString;
       if (yamlPreset.aliases) {
-        yamlPreset['#name'] += ' | ' + yamlPreset.aliases.split('\n').join(', ');
+        yamlPreset['#name'] += ' | ' + (yamlPreset.aliases as string).split('\n').join(', ');
       }
       yamlPreset['#name'] += ' | Translate the primary name. Optionally, add equivalent synonyms on newlines in order of preference (press the Return key).';
     }
@@ -590,20 +610,15 @@ function generateTranslations(fields, presets, tstrings, searchableFieldIDs) {
 }
 
 
-/**
- * @import * as Taginfo from 'taginfo-projects'
- *
- * this library doesn't follow the type-definitions strictly, it uses `string[]` instead
- * of `string` for the description field.
- *
- * @typedef {Omit<Taginfo.Tag, "description"> & { description?: string[] }} TaginfoTag
- * @typedef {Omit<Taginfo.Schema, "tags"> & { tags: TaginfoTag[] }} TaginfoSchema
- */
 
-/**
- * @param {Taginfo.Project} projectInfo
- */
-function generateTaginfo(presets, fields, deprecated, discarded, tstrings, projectInfo) {
+function generateTaginfo(
+    presets: AllPresets,
+    fields: AllFields,
+    deprecated: Deprecated,
+    discarded: Discarded,
+    tstrings: TStrings,
+    projectInfo: Taginfo.Project,
+) {
 
   const packageInfo = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
@@ -621,8 +636,7 @@ function generateTaginfo(presets, fields, deprecated, discarded, tstrings, proje
     }
   }
 
-  /** @type {TaginfoSchema} */
-  let taginfo = {
+  let taginfo: TaginfoSchema = {
     data_format: 1,
     project: projectInfo,
     tags: []
@@ -632,8 +646,7 @@ function generateTaginfo(presets, fields, deprecated, discarded, tstrings, proje
     let preset = presets[id];
     if (id.startsWith('@')) return;
 
-    /** @type {Record<string, Set<string>>} */
-    const everyTag = {};
+    const everyTag: Record<string, Set<string>> = {};
     for (const group of [preset.tags, preset.addTags, preset.removeTags]) {
       for (const key in group) {
           everyTag[key] ||= new Set();
@@ -643,8 +656,7 @@ function generateTaginfo(presets, fields, deprecated, discarded, tstrings, proje
 
     for (const key in everyTag) {
       for (const value of everyTag[key]) {
-        /** @type {TaginfoTag} */
-        let tag = { key };
+        let tag: TaginfoTag = { key };
         if (value !== '*') tag.value = value;
 
 
@@ -653,29 +665,29 @@ function generateTaginfo(presets, fields, deprecated, discarded, tstrings, proje
           name = tstrings.presets[preset.name.slice(1, -1)].name;
         }
         let legacy = (preset.searchable === false) ? ' (unsearchable)' : '';
-        tag.description = [ `🄿 ${name}${legacy}` ];
+        tag._description = [ `🄿 ${name}${legacy}` ];
 
         if (preset.geometry) {
           setObjectType(tag, preset);
         }
 
         // add icon
-        if (/^maki-/.test(preset.icon)) {
+        if (preset.icon?.startsWith('maki-')) {
           tag.icon_url = 'https://cdn.jsdelivr.net/gh/mapbox/maki/icons/' +
             preset.icon.replace(/^maki-/, '') + '.svg';
-        } else if (/^temaki-/.test(preset.icon)) {
+        } else if (preset.icon?.startsWith('temaki-')) {
           tag.icon_url = 'https://cdn.jsdelivr.net/gh/rapideditor/temaki/icons/' +
             preset.icon.replace(/^temaki-/, '') + '.svg';
-        } else if (/^fa[srb]-/.test(preset.icon)) {
+        } else if (preset.icon && /^fa[srb]-/.test(preset.icon)) {
           tag.icon_url = 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/fontawesome/' +
             preset.icon + '.svg';
-        } else if (/^roentgen-/.test(preset.icon)) {
+        } else if (preset.icon?.startsWith('roentgen-')) {
           tag.icon_url = 'https://cdn.jsdelivr.net/gh/enzet/Roentgen@main/icons/' +
             preset.icon.replace(/^roentgen-/, '') + '.svg';
-        } else if (/^pinhead-/.test(preset.icon)) {
+        } else if (preset.icon?.startsWith('pinhead-')) {
           tag.icon_url = 'https://pinhead.ink/latest/' +
             preset.icon.replace(/^pinhead-/, '') + '.svg';
-        } else if (/^iD-/.test(preset.icon)) {
+        } else if (preset.icon?.startsWith('iD-')) {
           tag.icon_url = 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/iD-sprite/presets/' +
             preset.icon.replace(/^iD-/, '') + '.svg';
         }
@@ -693,25 +705,24 @@ function generateTaginfo(presets, fields, deprecated, discarded, tstrings, proje
     if (field.type === 'directionalCombo') {
       // for directionalCombo, only :left and :right are included in field.keys,
       // so we need to explicitly add the two other possibilities.
-      const base = field.key.replace(/:both$/, '');
+      const base = field.key!.replace(/:both$/, '');
       keys.push(base, `${base}:both`);
     }
 
     keys.forEach(key => {
-      /** @type {TaginfoTag} */
-      let tag = { key: key };
+      let tag: TaginfoTag = { key: key };
 
       let label = tstrings.fields[id].label;
       if (!label && field.label && isReference(field.label)) {
         label = tstrings.fields[field.label.slice(1, -1)].label;
       }
-      tag.description = [ `🄵 ${label}` ];
+      tag._description = [ `🄵 ${label}` ];
 
       if (areAnyFreeFormTagsAcceptedInField(field)) {
         coalesceTags(taginfo, tag);
       }
-      let yesTag = { ...tag, value: 'yes', description: [`🄵🅅 ${label}: yes`] };
-      let noTag  = { ...tag, value: 'no', description: [`🄵🅅 ${label}: no`] };
+      let yesTag = { ...tag, value: 'yes', _description: [`🄵🅅 ${label}: yes`] };
+      let noTag  = { ...tag, value: 'no', _description: [`🄵🅅 ${label}: no`] };
       if (field.type === 'defaultCheck') {
         coalesceTags(taginfo, yesTag);
       }
@@ -723,8 +734,7 @@ function generateTaginfo(presets, fields, deprecated, discarded, tstrings, proje
       if (field.options && !isRadio && field.type !== 'manyCombo') {
         field.options.forEach(value => {
           if (value === 'undefined' || value === '*' || value === '') return;
-          /** @type {TaginfoTag} */
-          let tag;
+          let tag: TaginfoTag;
           if (field.type === 'multiCombo') {
             tag = { key: key + value };
           } else {
@@ -733,9 +743,9 @@ function generateTaginfo(presets, fields, deprecated, discarded, tstrings, proje
           let valueLabel = tstrings.fields[id].options?.[value];
 
           if (valueLabel && typeof valueLabel === 'string') {
-            tag.description = [ `🄵🅅 ${label}: ${valueLabel}` ];
+            tag._description = [ `🄵🅅 ${label}: ${valueLabel}` ];
           } else {
-            tag.description = [ `🄵🅅 ${label}: \`${value}\`` ];
+            tag._description = [ `🄵🅅 ${label}: \`${value}\`` ];
           }
           coalesceTags(taginfo, tag);
         });
@@ -749,8 +759,7 @@ function generateTaginfo(presets, fields, deprecated, discarded, tstrings, proje
     let oldKeys = Object.keys(old);
     if (oldKeys.length === 1) {
       let oldKey = oldKeys[0];
-      /** @type {TaginfoTag} */
-      let tag = { key: oldKey };
+      let tag: TaginfoTag = { key: oldKey };
 
       let oldValue = old[oldKey];
       if (oldValue !== '*') tag.value = oldValue;
@@ -764,7 +773,7 @@ function generateTaginfo(presets, fields, deprecated, discarded, tstrings, proje
       if (replacementStrings.length > 0) {
         description += ' ➜ ' + replacementStrings.join(' + ');
       }
-      tag.description = [description];
+      tag._description = [description];
       coalesceTags(taginfo, tag);
     }
   });
@@ -774,24 +783,25 @@ function generateTaginfo(presets, fields, deprecated, discarded, tstrings, proje
     let description = '🄳🄳 (discarded tag)';
     if (discarded[key] === true) {
       // key=*
-      let tag = { key, description: [description] };
+      let tag = { key, _description: [description] };
       coalesceTags(taginfo, tag);
     } else {
       // key=value
       for (const value in discarded[key]) {
-        const tag = { key, value, description: [description] };
+        const tag = { key, value, _description: [description] };
         coalesceTags(taginfo, tag);
       }
     }
   }
 
   taginfo.tags.forEach(elem => {
-    if (elem.description) {
-      elem.description = elem.description.join(', ');
+    if (elem._description) {
+      elem.description = elem._description.join(', ');
+      delete elem._description;
     }
   });
 
-  function areAnyFreeFormTagsAcceptedInField(field) {
+  function areAnyFreeFormTagsAcceptedInField(field: Field) {
     if (['multiCombo', 'manyCombo', 'check', 'defaultCheck', 'onewayCheck'].includes(field.type)) {
       return false;
     }
@@ -801,11 +811,7 @@ function generateTaginfo(presets, fields, deprecated, discarded, tstrings, proje
     return true;
   }
 
-  /**
-   * @param {TaginfoSchema} taginfo
-   * @param {TaginfoTag} tag
-   */
-  function coalesceTags(taginfo, tag) {
+  function coalesceTags(taginfo: TaginfoSchema, tag: TaginfoTag) {
     if (!tag.key) return;
 
     let currentTaginfoEntries = taginfo.tags
@@ -816,25 +822,27 @@ function generateTaginfo(presets, fields, deprecated, discarded, tstrings, proje
       return;
     }
 
-    if (!tag.description) return;
+    if (!tag._description) return;
 
-    if (!currentTaginfoEntries[0].description) {
-      currentTaginfoEntries[0].description = tag.description;
+    if (!currentTaginfoEntries[0]._description) {
+      currentTaginfoEntries[0]._description = tag._description;
       return;
     }
 
-    let isNewDescription = currentTaginfoEntries[0].description
-      .indexOf(tag.description[0]) === -1;
+    let isNewDescription = currentTaginfoEntries[0]._description
+      .indexOf(tag._description[0]) === -1;
 
     if (isNewDescription) {
-      currentTaginfoEntries[0].description.push(tag.description[0]);
+      currentTaginfoEntries[0]._description!.push(tag._description[0]);
     }
   }
 
 
-  function setObjectType(tag, input) {
+  function setObjectType(tag: TaginfoTag, input: Field | Preset) {
+    if (!input.geometry) return;
+
     tag.object_types = [];
-    const mapping = {
+    const mapping: Record<Geometry, Taginfo.ObjectType> = {
       'point'    : 'node',
       'vertex'   : 'node',
       'line'     : 'way',
@@ -843,8 +851,8 @@ function generateTaginfo(presets, fields, deprecated, discarded, tstrings, proje
     };
 
     input.geometry.forEach(geom => {
-      if (tag.object_types.indexOf(mapping[geom]) === -1) {
-        tag.object_types.push(mapping[geom]);
+      if (tag.object_types!.indexOf(mapping[geom]) === -1) {
+        tag.object_types!.push(mapping[geom]);
       }
     });
   }
@@ -852,42 +860,37 @@ function generateTaginfo(presets, fields, deprecated, discarded, tstrings, proje
   return taginfo;
 }
 
-function generateIconsList(presets, fields, categories) {
-  const icons = {};
+function generateIconsList(presets: AllPresets, fields: AllFields, categories: AllCategories) {
+  const icons: Record<string, true> = {};
   [
     ...Object.values(presets).map(p => p.icon).filter(Boolean),
     ...Object.values(categories).map(c => c.icon).filter(Boolean),
     ...Object.values(fields).flatMap(f => Object.values(f.icons || {}))
-  ].forEach(icon => icons[icon] = true);
+  ].forEach(icon => icons[icon!] = true);
   return Object.keys(icons).sort();
 }
 
-/** @param {string} string */
-const toPascalCase = string => string.replace(/(_.|^.)/g, match => match.at(-1).toUpperCase());
+const toPascalCase = (string: string) => string.replace(/(_.|^.)/g, match => match.at(-1)!.toUpperCase());
 
-/** @param {string} string */
-const createTypeIdentifier = (string) => toPascalCase(toSafeIdentifier(string));
+const createTypeIdentifier = (string: string) => toPascalCase(toSafeIdentifier(string));
 
 
-/** @param {string} distDir */
-async function generateTypeDefs(distDir) {
+async function generateTypeDefs(distDir: string) {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
   const inputFolder = path.join(__dirname, '../../schemas');
 
   /**
    * Some generated files use plural names because they
    * export an object, e.g. `Fields = Record<string, Field>`
-   * @type {Record<string, string>}
    */
-  const KEY_MAP = {
+  const KEY_MAP: Record<string, string> = {
     field: 'fields',
     preset: 'presets',
     preset_category: 'preset_categories',
   };
   const fileNames = fs.globSync(path.join(inputFolder, '/**/*.json'));
 
-  /** @param {string} fileName */
-  async function processFile(fileName) {
+  async function processFile(fileName: string) {
     const key = path.parse(fileName).name;
     const pluralKey = KEY_MAP[key];
 
@@ -948,7 +951,7 @@ async function generateTypeDefs(distDir) {
   );
 }
 
-function validateCategoryPresets(categories, presets) {
+function validateCategoryPresets(categories: AllCategories, presets: AllPresets) {
   Object.keys(categories).forEach(id => {
     const category = categories[id];
     if (!category.members) return;
@@ -962,7 +965,7 @@ function validateCategoryPresets(categories, presets) {
   });
 }
 
-function validatePresetFields(presets, fields) {
+function validatePresetFields(presets: AllPresets, fields: AllFields) {
   const betweenBracketsRegex = /([^{]*?)(?=\})/;
   const maxFieldsBeforeError = 10;
 
@@ -987,7 +990,7 @@ function validatePresetFields(presets, fields) {
     }
 
     // the keys for properties that contain arrays of field ids
-    let fieldKeys = ['fields', 'moreFields'];
+    let fieldKeys = ['fields', 'moreFields'] as const;
     for (let fieldsKeyIndex in fieldKeys) {
       let fieldsKey = fieldKeys[fieldsKeyIndex];
       if (!preset[fieldsKey]) continue; // no fields are referenced, okay
@@ -1058,7 +1061,7 @@ function validatePresetFields(presets, fields) {
   }
 }
 
-function validateTerms(terms, where) {
+function validateTerms(terms: string[] | undefined, where: string) {
   if (!terms) return;
 
   const expectedTerms = terms.map(term => term.toLowerCase().trim()).sort();
@@ -1074,9 +1077,9 @@ function validateTerms(terms, where) {
   process.exit(1);
 }
 
-function validateDefaults(defaults, categories, presets) {
+function validateDefaults(defaults: PresetDefaults, categories: AllCategories, presets: AllPresets) {
   Object.keys(defaults).forEach(name => {
-    const members = defaults[name];
+    const members = defaults[name as keyof PresetDefaults];
     members.forEach(id => {
       if (!presets[id] && !categories[id]) {
         process.stderr.write(`Unknown category or preset: ${id} in default ${name}\n`);
@@ -1087,9 +1090,9 @@ function validateDefaults(defaults, categories, presets) {
   });
 }
 
-function translationsToYAML(translations) {
+function translationsToYAML(translations: SourceStrings) {
   // comment keys start with '#' and should sort immediately before their related key.
-  function commentFirst(a, b) {
+  function commentFirst(a: string, b: string) {
     if (a === '#' + b) return -1;
     if (b === '#' + a) return 1;
     if (a[0] !== b[0]) {
@@ -1104,8 +1107,8 @@ function translationsToYAML(translations) {
 }
 
 
-function minifyJSON(inPath, outPath) {
-  return new Promise((resolve, reject) => {
+function minifyJSON(inPath: string, outPath: string) {
+  return new Promise<void>((resolve, reject) => {
     if (!fs.existsSync(inPath)) {
       resolve();
       return;

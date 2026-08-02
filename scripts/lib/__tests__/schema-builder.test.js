@@ -46,7 +46,7 @@ describe('schema-builder', () => {
     expect(schemaBuilder && schemaBuilder.validate).not.toBeUndefined();
   });
 
-  it('runs validate', () => {
+  it('runs validate', async () => {
     writeSourceData({
       'data/presets/natural.json': {
         tags: {
@@ -56,7 +56,7 @@ describe('schema-builder', () => {
         name: 'Natural Feature'
       }
     });
-    schemaBuilder.validate({
+    await schemaBuilder.validate({
       inDirectory: _workspace + '/data'
     });
     expect(fs.existsSync(_workspace + '/interim')).toBe(false);
@@ -383,31 +383,31 @@ describe('schema-builder', () => {
       expect(fields.t_xr_b.icons.yes).toBe('fa-rss');
     });
 
-    it('T5 rejects {fields/…} in preset icon', () => {
+    it('T5 rejects {fields/…} in preset icon', async () => {
       writeSourceData({
         'data/presets/t_bad_fields.json': minimalPreset({
           tags: { bad: 'f' },
           icon: '{fields/nope}',
         }),
       });
-      expect(() =>
+      await expect(
         schemaBuilder.validate({ inDirectory: _workspace + '/data' }),
-      ).toThrow(/fields/);
+      ).rejects.toThrow(/fields/);
     });
 
-    it('T6 rejects unknown prefix in icon reference', () => {
+    it('T6 rejects unknown prefix in icon reference', async () => {
       writeSourceData({
         'data/presets/t_bad_type.json': minimalPreset({
           tags: { bad: 't' },
           icon: '{unknown/foo}',
         }),
       });
-      expect(() =>
+      await expect(
         schemaBuilder.validate({ inDirectory: _workspace + '/data' }),
-      ).toThrow(/presets/);
+      ).rejects.toThrow(/presets/);
     });
 
-    it('T7 rejects cyclic preset icon references', () => {
+    it('T7 rejects cyclic preset icon references', async () => {
       writeSourceData({
         'data/presets/t_cyc_a.json': minimalPreset({
           tags: { cy: 'a' },
@@ -418,21 +418,21 @@ describe('schema-builder', () => {
           icon: '{presets/t_cyc_a}',
         }),
       });
-      expect(() =>
+      await expect(
         schemaBuilder.validate({ inDirectory: _workspace + '/data' }),
-      ).toThrow(/Cycle/);
+      ).rejects.toThrow(/Cycle/);
     });
 
-    it('T8 rejects missing preset in icon reference', () => {
+    it('T8 rejects missing preset in icon reference', async () => {
       writeSourceData({
         'data/presets/t_miss.json': minimalPreset({
           tags: { m: '1' },
           icon: '{presets/does/not/exist}',
         }),
       });
-      expect(() =>
+      await expect(
         schemaBuilder.validate({ inDirectory: _workspace + '/data' }),
-      ).toThrow(/no preset/);
+      ).rejects.toThrow(/no preset/);
     });
 
     it('T9 buildDev interim icons.json lists only resolved icon ids', () => {

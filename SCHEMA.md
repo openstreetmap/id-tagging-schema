@@ -144,6 +144,8 @@ Specified tags are removed from the feature when deselecting this preset. Defaul
 
 For example [`landuse=vineyard`](https://github.com/openstreetmap/id-tagging-schema/blob/7c94ba9d1568f089234af39d5a1a5d8503e8ae39/data/presets/landuse/vineyard.json#L18-L22) removes also `crop=grape` - which is not included in its preset.
 
+Editors may additionally remove other tags such as tags of the old preset's fields.
+
 ##### `fields`/`moreFields`
 
 Both these properties are arrays of field paths (e.g. `description` or `generator/type`).
@@ -171,7 +173,7 @@ of `presets/shop.json`. When subfolders are used, the format is `{shop/books}` t
 ```
 
 Fields for keys that define the preset via `tags` are generally not inherited.
-E.g. the `shop` field is not inherited despite specifying as inherinting from `{shop}` presets.
+E.g. the `shop` field is not inherited despite specifying as inheriting from `{shop}` presets.
 This can be overwritten by adding the field explicitly like `"fields": [ "shop", "{shop}" ],`
 
 ##### `icon`
@@ -212,7 +214,7 @@ The default is `1.0`.
 
 An object with the identifiers of regions where this preset should or shouldn't be shown. By default, presets are available everywhere.
 
-See the [location-conflation](https://github.com/ideditor/location-conflation) package for details.
+See the [location-conflation](https://github.com/ideditor/location-conflation) package for details. Note that `"include": ["Planet"]` should be omitted.
 
 ```js
 "locationSet": {
@@ -560,6 +562,11 @@ An optional property to reference to the strings of another field, indicated  by
 ```
 
 This would inherit all translations from the `sport` field but keep only the defined options.
+
+If you omit [`options`](#options), then it will include every option from the referenced field. For example:
+```json
+  "stringsCrossReference": "{sport}",
+```
 
 ##### `autoSuggestions`
 
