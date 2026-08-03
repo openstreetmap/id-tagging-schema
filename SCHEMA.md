@@ -230,7 +230,7 @@ Hints about related presets that are related to this one, can be optionally used
 
 ###### `expectedVertices`
 
-A list of preset IDs that may be used as a vertex of this preset, when this preset is used on a line or area. 
+A list of preset IDs that are expected to be used as a vertex of this preset, when this preset is used on a line or area. 
 
 For example `power=line` may have
 
@@ -254,7 +254,15 @@ List is ordered, entries expected to be used more often by mappers listed first.
 
 Editors may promote this presets when `power=line` vertex is selected. They may also choose to not show nay other presets at all if `expectedVertices` is defined. In addition QA warning may be shown if presets from outside of such list are present.
 
-Note: this feature is experimental. Feedback is welcome, editors may prefer for now to use this data less aggressively. For example only promote listed presets while allowing to select also other, unlisted ones.
+Note that as world is complex this is not exhaustive. For example `tourism/artwork/statue` may be not listed as expected vertex of `waterway/river` as it is not an expected situation. But it does not make [this statue](https://www.openstreetmap.org/node/1374406687/history/11) invalidly mapped.
+
+In some cases single vertex may be member of multiple ways. In such case expected strategy would be to group listed options by how many parent ways list them as valid vertices.
+
+For example if `highway=track` and `highway=stream` intersect and both list `ford=yes` as valid vertex, then it should be listed before ones appearing on only one of parent ways.
+
+In typical use editor software should promote listed presets while allowing to select also other, unlisted ones.
+
+Note: this feature is experimental. Feedback is welcome.
 
 ###### `expectedVerticesCrossReference`
 
