@@ -254,7 +254,7 @@ For example `power=line` may have
 
 List is ordered, entries expected to be used more often by mappers listed first. Editor software may preserve or take into account this ordering. But for example which presets were used recetly also can be considered.
 
-Editors may promote this presets when `power=line` vertex is selected. They may also choose to not show nay other presets at all if `expectedVertices` is defined. In addition QA warning may be shown if presets from outside of such list are present.
+Editors may promote this presets when `power=line` vertex is selected. They may also choose to not show nay other presets at all if `expectedVertices` is defined.
 
 Note that as world is complex this is not exhaustive. For example `tourism/artwork/statue` may be not listed as expected vertex of `waterway/river` as it is not an expected situation. But it does not make [this statue](https://www.openstreetmap.org/node/1374406687/history/11) invalidly mapped.
 
@@ -265,6 +265,8 @@ For example if `highway=track` and `highway=stream` intersect and both list `for
 In typical use editor software should promote listed presets while allowing to select also other, unlisted ones.
 
 Note: this feature is experimental. Feedback is welcome.
+
+Note: using it for QA would need to be extremely careful. As this lists are being built they will miss for now many valid cases. In addition, there are many unexpected valid cases where QA warning may induce bad edits. This listing is more expected to be useful to show more relevant features when editing and block some changes, rather than encourage removing unexpected cases.
 
 ###### `expectedVerticesCrossReference`
 
