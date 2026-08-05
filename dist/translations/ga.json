@@ -5,11 +5,26 @@
                 "category-path": {
                     "name": "Cosáin"
                 },
+                "category-playground": {
+                    "name": "Trealamh Súgartha"
+                },
                 "category-rail": {
                     "name": "Ráillí"
                 },
+                "category-road_major": {
+                    "name": "Príomhbhóthair"
+                },
+                "category-road_minor": {
+                    "name": "Mionbhóthair"
+                },
                 "category-road_service": {
                     "name": "Bóithre Freastail"
+                },
+                "category-water": {
+                    "name": "Limistéir Uisce"
+                },
+                "category-waterway": {
+                    "name": "Uiscebhealaí"
                 }
             },
             "fields": {
@@ -94,6 +109,9 @@
                 },
                 "address": {
                     "label": "Seoladh",
+                    "labels": {
+                        "housenumber": "Uimhir Tí"
+                    },
                     "placeholders": {
                         "block_number": "Uimhir Bhloc",
                         "block_number!jp": "Uimh. Bhloc",
@@ -110,7 +128,6 @@
                         "housename": "Ainm an tí",
                         "housenumber": "123",
                         "housenumber!jp": "Uimhir an Foirgnimh/an Lota",
-                        "neighbourhood": "Comharsanacht",
                         "neighbourhood!jp": "Machi/Chōme/Aza/Koaza",
                         "place": "Áit",
                         "postcode": "Cód Poist",
@@ -165,7 +182,9 @@
                 },
                 "air_conditioning": {
                     "label": "Aerchóiriú",
-                    "terms": "aerchóiriúchán"
+                    "terms": [
+                        "aerchóiriúchán"
+                    ]
                 },
                 "aircraft/type": {
                     "label": "Cineál",
@@ -181,7 +200,9 @@
                 },
                 "alt_name": {
                     "label": "Ainm eile",
-                    "terms": "ainm malartach"
+                    "terms": [
+                        "ainm malartach"
+                    ]
                 },
                 "amenity": {
                     "label": "Cineál"
@@ -329,9 +350,14 @@
                     "label": "Binse"
                 },
                 "bicycle_parking": {
-                    "label": "Cineál"
+                    "label": "Cineál",
+                    "options": {
+                        "stands": "Gnáthsheastán (taca don fhráma)",
+                        "wall_loops": "Seastán le taca don roth amháin"
+                    }
                 },
                 "bicycle_road": {
+                    "label": "Sráid Rothar",
                     "options": {
                         "undefined": "Níl",
                         "yes": "Tá"
@@ -376,7 +402,12 @@
                 },
                 "bridge": {
                     "label": "Cineál",
-                    "placeholder": "Réamhshocruithe"
+                    "placeholder": "Réamhshocruithe",
+                    "options": {
+                        "aqueduct": "Uiscerian",
+                        "boardwalk": "Clárchosán",
+                        "viaduct": "Tarbhealach"
+                    }
                 },
                 "bridge/support": {
                     "label": "Cineál"
@@ -392,6 +423,7 @@
                 "building": {
                     "label": "Foirgneamh",
                     "options": {
+                        "apartments": "Bloc Árasán",
                         "barn": "Scioból",
                         "boathouse": "Teach Bád",
                         "bungalow": "Bungaló",
@@ -399,7 +431,7 @@
                         "chapel": "Foirgneamh Séipéal",
                         "church": "Foirgneamh Eaglais",
                         "college": "Foirgneamh Choláiste",
-                        "construction": "Foirgneamh á tógáil",
+                        "construction": "Foirgneamh Á Tógáil",
                         "cowshed": "Bóitheach",
                         "detached": "Teach Scoite",
                         "dormitory": "Dórtúr",
@@ -430,12 +462,14 @@
                         "stadium": "Foirgneamh Staid",
                         "static_caravan": "Teach Soghluaiste",
                         "sty": "Cró Muc",
+                        "supermarket": "Foirgneamh Ollmhargaidh",
                         "synagogue": "Foirgneamh Sionagóg",
                         "temple": "Foirgneamh Teampall",
                         "terrace": "Teach Sraithe",
                         "train_station": "Foirgneamh Stáisiún Traenach",
                         "university": "Foirgneamh Ollscoile",
-                        "warehouse": "Trádstóras"
+                        "warehouse": "Trádstóras",
+                        "yes": "Cineál Foirgnimh Neamhshonraithe"
                     }
                 },
                 "building/colour": {
@@ -453,6 +487,9 @@
                     "label": "Urláir faoi Thalamh",
                     "placeholder": "2, 4, 6..."
                 },
+                "building/part": {
+                    "label": "Cuid Foirgnimh"
+                },
                 "bunker_type": {
                     "label": "Cineál"
                 },
@@ -467,8 +504,7 @@
                     "label": "Cineál"
                 },
                 "capacity": {
-                    "label": "Toilleadh",
-                    "placeholder": "50, 100, 200..."
+                    "label": "Toilleadh"
                 },
                 "capacity/caravans": {
                     "placeholder": "10, 20, 50..."
@@ -678,7 +714,7 @@
                 "crossing": {
                     "label": "Cineál",
                     "options": {
-                        "traffic_signals": "Crosaire le soilse tráchta",
+                        "traffic_signals": "Crosaire le Soilse Tráchta",
                         "uncontrolled": "Marcanna Bóithre Amháin",
                         "unmarked": "Gan marcanna bóthair nó soilse tráchta"
                     }
@@ -694,6 +730,12 @@
                 },
                 "crossing/light": {
                     "label": "Soilse"
+                },
+                "crossing/markings": {
+                    "label": "Marcanna Trasnaithe",
+                    "terms": [
+                        "marcanna crosaire"
+                    ]
                 },
                 "crossing_raised": {
                     "options": {
@@ -804,6 +846,13 @@
                         "tilted": "Claonta"
                     }
                 },
+                "cycle_barrier/installation": {
+                    "options": {
+                        "fixed": "Greamaithe",
+                        "openable": "Inoscailte",
+                        "removable": "Inbhainte"
+                    }
+                },
                 "cycle_network": {
                     "label": "Líonra"
                 },
@@ -817,6 +866,9 @@
                         "no": {
                             "description": "Níl aon lána rothar",
                             "title": "Ceann ar bith"
+                        },
+                        "separate": {
+                            "title": "Rotharbhealach Léarscáilithe As Féin"
                         },
                         "share_busway": {
                             "description": "Lána rothar roinnte le lána bus",
@@ -874,6 +926,9 @@
                 },
                 "diet_multi": {
                     "options": {
+                        "gluten_free": "Saor ó Ghlútan",
+                        "halal": "Halal",
+                        "kosher": "Kosher",
                         "pescetarian": "Veigeatórach Éisc",
                         "vegan": "Veigeánach",
                         "vegetarian": "Feoilséantach"
@@ -910,7 +965,8 @@
                     }
                 },
                 "direction_point": {
-                    "placeholder": "45, 90, 180, 270"
+                    "placeholder": "45, 90, 180, 270",
+                    "label": "Treo (Céim Deiseal)"
                 },
                 "direction_vertex": {
                     "label": "An treo a bhaineann sé leis",
@@ -955,7 +1011,10 @@
                         "unleashed": "Ní gá iall",
                         "yes": "Ceadaithe"
                     },
-                    "terms": "madraí,gadhair"
+                    "terms": [
+                        "madraí",
+                        "gadhair"
+                    ]
                 },
                 "door": {
                     "label": "Doras"
@@ -974,7 +1033,10 @@
                 },
                 "drive_through": {
                     "label": "Carrsheirbhís",
-                    "terms": "carrsheirbhís,carrsheirbhíse"
+                    "terms": [
+                        "carrsheirbhís",
+                        "carrsheirbhíse"
+                    ]
                 },
                 "duration": {
                     "label": "Fad",
@@ -1001,13 +1063,17 @@
                     "label": "Leictriú",
                     "options": {
                         "no": "Níl",
-                        "rail": "Ráille Leictrithe"
+                        "rail": "Ráille Leictrithe",
+                        "yes": "Tá (neamhshonraithe)"
                     }
                 },
                 "email": {
                     "label": "R-phost",
                     "placeholder": "sampla@sampla.com",
-                    "terms": "ríomhphost,r-phost"
+                    "terms": [
+                        "ríomhphost",
+                        "r-phost"
+                    ]
                 },
                 "embankment": {
                     "label": "Cineál",
@@ -1152,7 +1218,10 @@
                         "unisex": "Measctha"
                     },
                     "placeholder": "Anaithnid",
-                    "terms": "inscne,gnéas"
+                    "terms": [
+                        "inscne",
+                        "gnéas"
+                    ]
                 },
                 "generator/method": {
                     "label": "Modh",
@@ -1202,7 +1271,10 @@
                 },
                 "handrail": {
                     "label": "Lámhráille",
-                    "terms": "lámhráille,ráille láimhe"
+                    "terms": [
+                        "lámhráille",
+                        "ráille láimhe"
+                    ]
                 },
                 "hashtags": {
                     "label": "Haischlibeanna",
@@ -1480,7 +1552,10 @@
                 "image": {
                     "label": "Íomhá",
                     "placeholder": "https://example.com/photo.jpg",
-                    "terms": "grianghraf,pictiúr"
+                    "terms": [
+                        "grianghraf",
+                        "pictiúr"
+                    ]
                 },
                 "incline": {
                     "label": "Fána"
@@ -1489,7 +1564,8 @@
                     "options": {
                         "down": "Síos",
                         "up": "Suas"
-                    }
+                    },
+                    "label": "Fána"
                 },
                 "indoor_type": {
                     "label": "Cineál"
@@ -1548,7 +1624,15 @@
                     "label": "Airde"
                 },
                 "kerb/kerb_barrier": {
-                    "label": "Cineál"
+                    "label": "Cineál",
+                    "options": {
+                        "no": {
+                            "title": "Níl"
+                        },
+                        "yes": {
+                            "title": "Tá"
+                        }
+                    }
                 },
                 "kitchen": {
                     "label": "Cistin"
@@ -1577,7 +1661,8 @@
                     "placeholder": "0"
                 },
                 "layer_1": {
-                    "placeholder": "0"
+                    "placeholder": "0",
+                    "label": "Sraith"
                 },
                 "leaf_cycle": {
                     "label": "Seal duille",
@@ -1588,7 +1673,12 @@
                         "semi_deciduous": "Leathdhuillsilteach",
                         "semi_evergreen": "Leathshíorghlas"
                     },
-                    "terms": "seal duille,seal duilleoga,timthriall duille,timthriall duilleoga"
+                    "terms": [
+                        "seal duille",
+                        "seal duilleoga",
+                        "timthriall duille",
+                        "timthriall duilleoga"
+                    ]
                 },
                 "leaf_type": {
                     "label": "Cineál duille",
@@ -1597,11 +1687,26 @@
                         "leafless": "Gan duilliúr",
                         "mixed": "Measctha"
                     },
-                    "terms": "cineál duilliúir,saghas duilliúr,saghas duilleoga,saghas duille"
+                    "terms": [
+                        "cineál duilliúir",
+                        "saghas duilliúr",
+                        "saghas duilleoga",
+                        "saghas duille"
+                    ]
                 },
                 "leaf_type_singular": {
                     "label": "Cineál duille",
-                    "terms": "cineál duilliúir,saghas duilliúr,saghas duilleoga,saghas duille"
+                    "terms": [
+                        "cineál duilliúir",
+                        "saghas duilliúr",
+                        "saghas duilleoga",
+                        "saghas duille"
+                    ],
+                    "options": {
+                        "broadleaved": "Leathanduilleach",
+                        "leafless": "Gan duilliúr",
+                        "mixed": "Measctha"
+                    }
                 },
                 "leisure": {
                     "label": "Cineál"
@@ -1639,7 +1744,8 @@
                         "indoor": "Laistigh",
                         "outdoor": "Lasmuigh",
                         "roof": "Ar an díon"
-                    }
+                    },
+                    "label": "Suíomh"
                 },
                 "man_made": {
                     "label": "Cineál"
@@ -1766,7 +1872,10 @@
                 "mobile": {
                     "label": "Guthán Póca",
                     "placeholder": "+31 42 123 4567",
-                    "terms": "guthán póca,fón póca"
+                    "terms": [
+                        "guthán póca",
+                        "fón póca"
+                    ]
                 },
                 "mooring": {
                     "options": {
@@ -1867,12 +1976,16 @@
                         "yes": "Tá"
                     }
                 },
+                "oneway/bicycle": {
+                    "label": "Aontreo (Rothair)"
+                },
                 "oneway_yes": {
                     "options": {
                         "no": "Níl",
                         "reversible": "Iniompaithe",
                         "yes": "Tá"
-                    }
+                    },
+                    "label": "Aontreo"
                 },
                 "opening_date": {
                     "placeholder": "BBBB-MM-LL"
@@ -1923,7 +2036,15 @@
                     }
                 },
                 "parking_entrance": {
-                    "label": "Cineál"
+                    "label": "Cineál",
+                    "options": {
+                        "surface": {
+                            "title": "Dromchla"
+                        },
+                        "underground": {
+                            "title": "Faoi Thalamh"
+                        }
+                    }
                 },
                 "parking_space": {
                     "label": "Cineál"
@@ -2126,7 +2247,9 @@
                         "unitarian_universalist": "Úinitéireach Uilíochúil",
                         "voodoo": "Vúdú"
                     },
-                    "terms": "reiligiún"
+                    "terms": [
+                        "reiligiún"
+                    ]
                 },
                 "reservation": {
                     "label": "Áirithintí",
@@ -2264,8 +2387,12 @@
                     "options": {
                         "alley": "Lána\nCaolsráid",
                         "drive-through": "Carrsheirbhís",
-                        "driveway": "Cabhsa\nCabhsán"
+                        "driveway": "Cabhsa\nCabhsán",
+                        "emergency_access": "Rochtain Éigeandála"
                     }
+                },
+                "service/bicycle": {
+                    "label": "Seirbhísí Rothair"
                 },
                 "service/vehicle": {
                     "label": "Seirbhísí"
@@ -2347,16 +2474,188 @@
                     }
                 },
                 "sport/sport_ice": {
-                    "label": "Spóirt"
+                    "label": "Spóirt",
+                    "options": {
+                        "american_football": "Peil Mheiriceánach",
+                        "badminton": "Badmantan",
+                        "baseball": "Daorchluiche",
+                        "basketball": "Cispheil",
+                        "beachvolleyball": "Eitpheil Trá",
+                        "boules": "Boules",
+                        "bowls": "Bollaí",
+                        "canoe": "Canúáil",
+                        "climbing": "Dreapadóireacht",
+                        "cricket": "Cruicéad",
+                        "curling": "Curláil",
+                        "cycling": "Rothaíocht",
+                        "dog_racing": "Rásaíocht Chon",
+                        "equestrian": "Spóirt Eachaíochta",
+                        "fitness": "Traenáil Chorpacmhainne",
+                        "free_flying": "Parafaoileoireacht / Faoileoireacht Foluana",
+                        "gaelic_games": "Cluichí Gaelacha",
+                        "golf": "Gailf",
+                        "gymnastics": "Gleacaíocht",
+                        "handball": "Liathróid Láimhe Foirne",
+                        "horse_racing": "Rásaíocht Chapall",
+                        "ice_hockey": "Haca Oighir",
+                        "ice_skating": "Scátáil Oighir",
+                        "karting": "Rásaíocht Cairtíní",
+                        "motocross": "Rásaíocht Gluaisrothair Thrastíre",
+                        "motor": "Mótarspóirt",
+                        "multi": "Spóirt Eile",
+                        "netball": "Líonpheil",
+                        "pelota": "Peileota",
+                        "rugby_union": "Rugbaí",
+                        "running": "Reathaíocht",
+                        "scuba_diving": "Scúbadóireacht",
+                        "shooting": "Lámhach",
+                        "skateboard": "Clárscátáil",
+                        "skiing": "Sciáil",
+                        "soccer": "Sacar",
+                        "softball": "Bogliathróid",
+                        "swimming": "Snámh",
+                        "table_tennis": "Leadóg Bhoird",
+                        "tennis": "Leadóg",
+                        "volleyball": "Eitpheil"
+                    }
                 },
                 "sport/sport_pub": {
-                    "label": "Spóirt"
+                    "label": "Spóirt",
+                    "options": {
+                        "american_football": "Peil Mheiriceánach",
+                        "badminton": "Badmantan",
+                        "baseball": "Daorchluiche",
+                        "basketball": "Cispheil",
+                        "beachvolleyball": "Eitpheil Trá",
+                        "boules": "Boules",
+                        "bowls": "Bollaí",
+                        "canoe": "Canúáil",
+                        "climbing": "Dreapadóireacht",
+                        "cricket": "Cruicéad",
+                        "curling": "Curláil",
+                        "cycling": "Rothaíocht",
+                        "dog_racing": "Rásaíocht Chon",
+                        "equestrian": "Spóirt Eachaíochta",
+                        "fitness": "Traenáil Chorpacmhainne",
+                        "free_flying": "Parafaoileoireacht / Faoileoireacht Foluana",
+                        "gaelic_games": "Cluichí Gaelacha",
+                        "golf": "Gailf",
+                        "gymnastics": "Gleacaíocht",
+                        "handball": "Liathróid Láimhe Foirne",
+                        "horse_racing": "Rásaíocht Chapall",
+                        "ice_hockey": "Haca Oighir",
+                        "ice_skating": "Scátáil Oighir",
+                        "karting": "Rásaíocht Cairtíní",
+                        "motocross": "Rásaíocht Gluaisrothair Thrastíre",
+                        "motor": "Mótarspóirt",
+                        "multi": "Spóirt Eile",
+                        "netball": "Líonpheil",
+                        "pelota": "Peileota",
+                        "rugby_union": "Rugbaí",
+                        "running": "Reathaíocht",
+                        "scuba_diving": "Scúbadóireacht",
+                        "shooting": "Lámhach",
+                        "skateboard": "Clárscátáil",
+                        "skiing": "Sciáil",
+                        "soccer": "Sacar",
+                        "softball": "Bogliathróid",
+                        "swimming": "Snámh",
+                        "table_tennis": "Leadóg Bhoird",
+                        "tennis": "Leadóg",
+                        "volleyball": "Eitpheil"
+                    }
                 },
                 "sport/sport_racing_motor": {
-                    "label": "Spóirt"
+                    "label": "Spóirt",
+                    "options": {
+                        "american_football": "Peil Mheiriceánach",
+                        "badminton": "Badmantan",
+                        "baseball": "Daorchluiche",
+                        "basketball": "Cispheil",
+                        "beachvolleyball": "Eitpheil Trá",
+                        "boules": "Boules",
+                        "bowls": "Bollaí",
+                        "canoe": "Canúáil",
+                        "climbing": "Dreapadóireacht",
+                        "cricket": "Cruicéad",
+                        "curling": "Curláil",
+                        "cycling": "Rothaíocht",
+                        "dog_racing": "Rásaíocht Chon",
+                        "equestrian": "Spóirt Eachaíochta",
+                        "fitness": "Traenáil Chorpacmhainne",
+                        "free_flying": "Parafaoileoireacht / Faoileoireacht Foluana",
+                        "gaelic_games": "Cluichí Gaelacha",
+                        "golf": "Gailf",
+                        "gymnastics": "Gleacaíocht",
+                        "handball": "Liathróid Láimhe Foirne",
+                        "horse_racing": "Rásaíocht Chapall",
+                        "ice_hockey": "Haca Oighir",
+                        "ice_skating": "Scátáil Oighir",
+                        "karting": "Rásaíocht Cairtíní",
+                        "motocross": "Rásaíocht Gluaisrothair Thrastíre",
+                        "motor": "Mótarspóirt",
+                        "multi": "Spóirt Eile",
+                        "netball": "Líonpheil",
+                        "pelota": "Peileota",
+                        "rugby_union": "Rugbaí",
+                        "running": "Reathaíocht",
+                        "scuba_diving": "Scúbadóireacht",
+                        "shooting": "Lámhach",
+                        "skateboard": "Clárscátáil",
+                        "skiing": "Sciáil",
+                        "soccer": "Sacar",
+                        "softball": "Bogliathróid",
+                        "swimming": "Snámh",
+                        "table_tennis": "Leadóg Bhoird",
+                        "tennis": "Leadóg",
+                        "volleyball": "Eitpheil"
+                    }
                 },
                 "sport/sport_racing_nonmotor": {
-                    "label": "Spóirt"
+                    "label": "Spóirt",
+                    "options": {
+                        "american_football": "Peil Mheiriceánach",
+                        "badminton": "Badmantan",
+                        "baseball": "Daorchluiche",
+                        "basketball": "Cispheil",
+                        "beachvolleyball": "Eitpheil Trá",
+                        "boules": "Boules",
+                        "bowls": "Bollaí",
+                        "canoe": "Canúáil",
+                        "climbing": "Dreapadóireacht",
+                        "cricket": "Cruicéad",
+                        "curling": "Curláil",
+                        "cycling": "Rothaíocht",
+                        "dog_racing": "Rásaíocht Chon",
+                        "equestrian": "Spóirt Eachaíochta",
+                        "fitness": "Traenáil Chorpacmhainne",
+                        "free_flying": "Parafaoileoireacht / Faoileoireacht Foluana",
+                        "gaelic_games": "Cluichí Gaelacha",
+                        "golf": "Gailf",
+                        "gymnastics": "Gleacaíocht",
+                        "handball": "Liathróid Láimhe Foirne",
+                        "horse_racing": "Rásaíocht Chapall",
+                        "ice_hockey": "Haca Oighir",
+                        "ice_skating": "Scátáil Oighir",
+                        "karting": "Rásaíocht Cairtíní",
+                        "motocross": "Rásaíocht Gluaisrothair Thrastíre",
+                        "motor": "Mótarspóirt",
+                        "multi": "Spóirt Eile",
+                        "netball": "Líonpheil",
+                        "pelota": "Peileota",
+                        "rugby_union": "Rugbaí",
+                        "running": "Reathaíocht",
+                        "scuba_diving": "Scúbadóireacht",
+                        "shooting": "Lámhach",
+                        "skateboard": "Clárscátáil",
+                        "skiing": "Sciáil",
+                        "soccer": "Sacar",
+                        "softball": "Bogliathróid",
+                        "swimming": "Snámh",
+                        "table_tennis": "Leadóg Bhoird",
+                        "tennis": "Leadóg",
+                        "volleyball": "Eitpheil"
+                    }
                 },
                 "stars": {
                     "label": "Réaltaí"
@@ -2530,6 +2829,9 @@
                 },
                 "tourism": {
                     "label": "Cineál"
+                },
+                "tower/construction": {
+                    "label": "Tógáil"
                 },
                 "tower/platforms": {
                     "placeholder": "1, 2, 3..."
@@ -2812,7 +3114,10 @@
                 },
                 "amenity/bar": {
                     "name": "Teach Tábhairne",
-                    "aliases": "Beár\nTeach Ósta"
+                    "aliases": [
+                        "Beár",
+                        "Teach Ósta"
+                    ]
                 },
                 "amenity/bench": {
                     "name": "Binse"
@@ -2828,6 +3133,9 @@
                 },
                 "amenity/clinic": {
                     "name": "Clinic"
+                },
+                "amenity/clock": {
+                    "name": "Clog"
                 },
                 "amenity/clock/sundial": {
                     "name": "Clog Gréine"
@@ -2870,7 +3178,9 @@
                 },
                 "amenity/doctors/cardiology": {
                     "name": "Cairdeolaí",
-                    "aliases": "Dochtúir croí"
+                    "aliases": [
+                        "Dochtúir croí"
+                    ]
                 },
                 "amenity/doctors/dermatology": {
                     "name": "Deirmeolaí"
@@ -2910,7 +3220,9 @@
                 },
                 "amenity/doctors/pulmonology": {
                     "name": "Scamhógeolaí",
-                    "aliases": "Saineolaí scamhóg"
+                    "aliases": [
+                        "Saineolaí scamhóg"
+                    ]
                 },
                 "amenity/doctors/radiology": {
                     "name": "Raideolaí"
@@ -2929,7 +3241,9 @@
                 },
                 "amenity/fountain": {
                     "name": "Scairdeán",
-                    "aliases": "Fuarán"
+                    "aliases": [
+                        "Fuarán"
+                    ]
                 },
                 "amenity/grave_yard": {
                     "name": "Reilig"
@@ -2939,7 +3253,9 @@
                 },
                 "amenity/marketplace": {
                     "name": "Margadh",
-                    "aliases": "Áit an Mhargaidh"
+                    "aliases": [
+                        "Áit an Mhargaidh"
+                    ]
                 },
                 "amenity/nightclub": {
                     "name": "Club oíche"
@@ -2952,22 +3268,30 @@
                 },
                 "amenity/police": {
                     "name": "Póilíní",
-                    "aliases": "Gardaí"
+                    "aliases": [
+                        "Gardaí"
+                    ]
                 },
                 "amenity/pub": {
                     "name": "Teach Tábhairne",
-                    "aliases": "Pub"
+                    "aliases": [
+                        "Pub"
+                    ]
                 },
                 "amenity/restaurant": {
                     "name": "Bialann"
                 },
                 "amenity/shelter": {
                     "name": "Scáthlán",
-                    "aliases": "Foscadán"
+                    "aliases": [
+                        "Foscadán"
+                    ]
                 },
                 "amenity/telephone": {
                     "name": "Teileafón",
-                    "aliases": "Fón"
+                    "aliases": [
+                        "Fón"
+                    ]
                 },
                 "amenity/theatre": {
                     "name": "Amharclann"
@@ -2977,11 +3301,56 @@
                 },
                 "amenity/toilets": {
                     "name": "Leithris",
-                    "aliases": "Leithreas"
+                    "aliases": [
+                        "Leithreas"
+                    ]
+                },
+                "amenity/vending_machine": {
+                    "name": "Meaisín Díola"
+                },
+                "amenity/vending_machine/bicycle_tube": {
+                    "name": "Meaisín Díola Feadán Rothair",
+                    "aliases": [
+                        "Meaisín Díola Tiúb Rothair"
+                    ]
+                },
+                "amenity/vending_machine/bread": {
+                    "name": "Meaisín Díola Aráin"
+                },
+                "amenity/vending_machine/cigarettes": {
+                    "name": "Meaisín Díola Toitíní"
+                },
+                "amenity/vending_machine/coffee": {
+                    "name": "Meaisín Díola Caife"
+                },
+                "amenity/vending_machine/condoms": {
+                    "name": "Meaisín Díola Coiscíní"
+                },
+                "amenity/vending_machine/drinks": {
+                    "name": "Meaisín Díola Deochanna"
+                },
+                "amenity/vending_machine/eggs": {
+                    "name": "Meaisín Díola Uibheacha"
+                },
+                "amenity/vending_machine/electronics": {
+                    "name": "Meaisín Díola Earraí Leictreonacha"
+                },
+                "amenity/veterinary": {
+                    "name": "Tréidlia"
+                },
+                "amenity/waste_basket": {
+                    "name": "Bosca Bruscair",
+                    "aliases": [
+                        "Canna Bruscair"
+                    ]
                 },
                 "area": {
                     "name": "Limistéar",
-                    "aliases": "Crios\nCeantar\nLáthair"
+                    "aliases": [
+                        "Crios",
+                        "Ceantar",
+                        "Láthair"
+                    ]
                 },
                 "attraction/train": {
                     "name": "Traein Turasóireachta"
@@ -3006,11 +3375,16 @@
                 },
                 "barrier/ditch": {
                     "name": "Díog",
-                    "aliases": "Clais\nTrinse"
+                    "aliases": [
+                        "Clais",
+                        "Trinse"
+                    ]
                 },
                 "barrier/entrance": {
                     "name": "Slí Isteach",
-                    "aliases": "Bealach Isteach"
+                    "aliases": [
+                        "Bealach Isteach"
+                    ]
                 },
                 "barrier/fence": {
                     "name": "Claí"
@@ -3032,7 +3406,10 @@
                 },
                 "barrier/stile": {
                     "name": "Dreapa",
-                    "aliases": "Strapa\nCéim"
+                    "aliases": [
+                        "Strapa",
+                        "Céim"
+                    ]
                 },
                 "barrier/swing_gate": {
                     "name": "Geata Luscadh"
@@ -3048,6 +3425,9 @@
                 },
                 "building": {
                     "name": "Foirgneamh"
+                },
+                "building/apartments": {
+                    "name": "Bloc Árasán"
                 },
                 "building/barn": {
                     "name": "Scioból"
@@ -3071,7 +3451,7 @@
                     "name": "Foirgneamh Choláiste"
                 },
                 "building/construction": {
-                    "name": "Foirgneamh á tógáil"
+                    "name": "Foirgneamh Á Tógáil"
                 },
                 "building/cowshed": {
                     "name": "Bóitheach"
@@ -3111,6 +3491,13 @@
                 },
                 "building/house": {
                     "name": "Teach"
+                },
+                "building/house/terraced": {
+                    "name": "Teach Cathrach",
+                    "aliases": [
+                        "Teach Baile Mór",
+                        "Teach Baile Mhóir"
+                    ]
                 },
                 "building/houseboat": {
                     "name": "Teach Bád"
@@ -3177,6 +3564,9 @@
                 },
                 "building/warehouse": {
                     "name": "Trádstóras"
+                },
+                "building_part": {
+                    "name": "Cuid Foirgnimh"
                 },
                 "building_point": {
                     "name": "Foirgneamh"
@@ -3310,6 +3700,34 @@
                 "embankment": {
                     "name": "Claífort"
                 },
+                "emergency/assembly_point": {
+                    "name": "Ionad Tionóil Éigeandála"
+                },
+                "emergency/fire_hydrant": {
+                    "name": "Hiodrant Dóiteáin",
+                    "aliases": [
+                        "Béal Tuile"
+                    ]
+                },
+                "emergency/fire_hydrant/pillar": {
+                    "name": "Hiodrant Dóiteáin Colúin",
+                    "aliases": [
+                        "Béal Tuile Colúin"
+                    ]
+                },
+                "emergency/fire_hydrant/underground": {
+                    "name": "Hiodrant Dóiteáin Faoi Thalamh",
+                    "aliases": [
+                        "Béal Tuile Faoi Thalamh"
+                    ]
+                },
+                "emergency/phone": {
+                    "name": "Guthán Éigeandála",
+                    "aliases": [
+                        "Fón Éigeandála",
+                        "Teileafón Éigeandála"
+                    ]
+                },
                 "entrance/emergency": {
                     "name": "Bealach Éalaithe"
                 },
@@ -3355,14 +3773,66 @@
                 "highway/bus_stop": {
                     "name": "Stad bus"
                 },
+                "highway/construction": {
+                    "name": "Bóthar Á Tógáil"
+                },
+                "highway/crossing": {
+                    "name": "Crosaire"
+                },
+                "highway/crossing/informal": {
+                    "name": "Crosaire Neamhfhoirmiúil"
+                },
                 "highway/crossing/traffic_signals": {
                     "name": "Crosaire le soilse coisithe"
                 },
+                "highway/crossing/uncontrolled": {
+                    "name": "Crosaire Marcáilte"
+                },
+                "highway/crossing/unmarked": {
+                    "name": "Crosaire Neamhmharcáilte"
+                },
+                "highway/cycleway/bicycle_foot": {
+                    "name": "Cosán Rothair ⁊ Coisithe"
+                },
+                "highway/cycleway/crossing": {
+                    "name": "Crosaire Rothair"
+                },
+                "highway/cycleway/crossing/bicycle_foot": {
+                    "name": "Crosaire Rothair ⁊ Coisithe"
+                },
                 "highway/cycleway/crossing/traffic_signals": {
-                    "name": "Crosaire rothair le soilse tráchta"
+                    "name": "Crosaire Rothair le Soilse Tráchta"
+                },
+                "highway/cycleway/crossing/uncontrolled": {
+                    "name": "Crosaire Rothair Marcáilte"
+                },
+                "highway/cycleway/traffic_island_shared": {
+                    "name": "Oileán Tráchta Rothair ⁊ Coisithe",
+                    "terms": [
+                        "oileán tráchta",
+                        "tearmann tráchta"
+                    ],
+                    "aliases": [
+                        "Tearmann Tráchta Rothair ⁊ Coisithe"
+                    ]
+                },
+                "highway/footway": {
+                    "name": "Cosán"
+                },
+                "highway/footway/crossing": {
+                    "name": "Crosaire Coisithe"
                 },
                 "highway/footway/crossing/traffic_signals": {
                     "name": "Crosaire le soilse coisithe"
+                },
+                "highway/footway/crossing/uncontrolled": {
+                    "name": "Crosaire Marcáilte"
+                },
+                "highway/footway/crossing/unmarked": {
+                    "name": "Crosaire Neamhmharcáilte"
+                },
+                "highway/footway/informal": {
+                    "name": "Cosán Neamhfhoirmiúil"
                 },
                 "highway/footway/sidewalk": {
                     "name": "Cosán"
@@ -3378,24 +3848,55 @@
                 },
                 "highway/path": {
                     "name": "Cosán",
-                    "aliases": "Conair\nSlí"
+                    "aliases": [
+                        "Conair",
+                        "Slí"
+                    ]
                 },
                 "highway/path/boardwalk": {
                     "name": "Clárchosán"
                 },
+                "highway/path/crossing": {
+                    "name": "Crosaire Rothair ⁊ Coisithe"
+                },
+                "highway/path/crossing/traffic_signals": {
+                    "name": "Crosaire Rothair ⁊ Coisithe, le Soilse Coisithe"
+                },
+                "highway/path/crossing/uncontrolled": {
+                    "name": "Crosaire Marcáilte Rothair ⁊ Coisithe"
+                },
+                "highway/path/crossing/unmarked": {
+                    "name": "Crosaire Neamhmharcáilte Rothair ⁊ Coisithe"
+                },
                 "highway/pedestrian_line": {
                     "name": "Sráid Choisithe"
                 },
+                "highway/primary": {
+                    "name": "Príomhbhóthar"
+                },
+                "highway/residential": {
+                    "name": "Bóthar Cónaithe",
+                    "terms": [
+                        "sráid cónaithe"
+                    ]
+                },
+                "highway/secondary": {
+                    "name": "Fobhóthar"
+                },
                 "highway/service/alley": {
                     "name": "Lána",
-                    "aliases": "Caolsráid"
+                    "aliases": [
+                        "Caolsráid"
+                    ]
                 },
                 "highway/service/drive-through": {
                     "name": "Carrsheirbhíse"
                 },
                 "highway/service/driveway": {
                     "name": "Cabhsa",
-                    "aliases": "Cabhsán"
+                    "aliases": [
+                        "Cabhsán"
+                    ]
                 },
                 "highway/steps": {
                     "name": "Céimeanna"
@@ -3408,6 +3909,9 @@
                 },
                 "highway/street_lamp": {
                     "name": "Solas sráide"
+                },
+                "highway/tertiary": {
+                    "name": "Bóthar Treasach"
                 },
                 "historic/archaeological_site": {
                     "name": "Láithreán Seandálaíochta"
@@ -3426,14 +3930,18 @@
                 },
                 "historic/memorial": {
                     "name": "Leacht Cuimhneacháin",
-                    "aliases": "Leac Chuimhneacháin"
+                    "aliases": [
+                        "Leac Chuimhneacháin"
+                    ]
                 },
                 "historic/monument": {
                     "name": "Leacht"
                 },
                 "historic/ruins": {
                     "name": "Fothrach",
-                    "aliases": "Ballóga"
+                    "aliases": [
+                        "Ballóga"
+                    ]
                 },
                 "historic/tomb": {
                     "name": "Tuama"
@@ -3447,28 +3955,45 @@
                 "landuse/cemetery": {
                     "name": "Reilig"
                 },
+                "landuse/construction": {
+                    "name": "Limistéar Tógála",
+                    "terms": [
+                        "láithreán tógála"
+                    ]
+                },
                 "landuse/farm": {
                     "name": "Talamh Feirme",
-                    "aliases": "Talamh Feilme"
+                    "aliases": [
+                        "Talamh Feilme"
+                    ]
                 },
                 "landuse/farmland": {
                     "name": "Talamh Feirme",
-                    "aliases": "Talamh Feilme"
+                    "aliases": [
+                        "Talamh Feilme"
+                    ]
                 },
                 "landuse/farmyard": {
                     "name": "Clós Feirme",
-                    "aliases": "Clós Feilme"
+                    "aliases": [
+                        "Clós Feilme"
+                    ]
                 },
                 "landuse/grass": {
                     "name": "Féar"
                 },
                 "landuse/harbour": {
                     "name": "Cuan",
-                    "aliases": "Caladh\nCalafort"
+                    "aliases": [
+                        "Caladh",
+                        "Calafort"
+                    ]
                 },
                 "landuse/meadow": {
                     "name": "Cluain",
-                    "aliases": "Móinéar"
+                    "aliases": [
+                        "Móinéar"
+                    ]
                 },
                 "landuse/military/barracks": {
                     "name": "Beairic"
@@ -3481,7 +4006,9 @@
                 },
                 "landuse/pond": {
                     "name": "Lochán",
-                    "aliases": "Linn"
+                    "aliases": [
+                        "Linn"
+                    ]
                 },
                 "landuse/quarry": {
                     "name": "Cairéal"
@@ -3494,7 +4021,9 @@
                 },
                 "leisure/garden": {
                     "name": "Gairdín",
-                    "aliases": "Garraí"
+                    "aliases": [
+                        "Garraí"
+                    ]
                 },
                 "leisure/marina": {
                     "name": "Mairíne"
@@ -3504,11 +4033,16 @@
                 },
                 "leisure/playground": {
                     "name": "Áit Súgartha",
-                    "aliases": "Clós Súgartha"
+                    "aliases": [
+                        "Clós Súgartha"
+                    ]
                 },
                 "leisure/slipway": {
                     "name": "Fánán",
-                    "aliases": "Slip\nSleamhnán"
+                    "aliases": [
+                        "Slip",
+                        "Sleamhnán"
+                    ]
                 },
                 "leisure/stadium": {
                     "name": "Staid"
@@ -3551,11 +4085,16 @@
                 },
                 "natural/grassland": {
                     "name": "Talamh Féaraigh",
-                    "aliases": "Féarthalamh\nFéarach"
+                    "aliases": [
+                        "Féarthalamh",
+                        "Féarach"
+                    ]
                 },
                 "natural/heath": {
                     "name": "Móinteach",
-                    "aliases": "Fraochmhá"
+                    "aliases": [
+                        "Fraochmhá"
+                    ]
                 },
                 "natural/peak": {
                     "name": "Binn"
@@ -3565,21 +4104,48 @@
                 },
                 "natural/spring": {
                     "name": "Tobar",
-                    "aliases": "Fuinse Uisce\nFuarán"
+                    "aliases": [
+                        "Fuinse Uisce",
+                        "Fuarán"
+                    ]
                 },
                 "natural/tree": {
                     "name": "Crann"
                 },
+                "natural/tree/broadleaved": {
+                    "name": "Crann Leathanduilleach"
+                },
+                "natural/tree/broadleaved/deciduous": {
+                    "name": "Crann Leathanduilleach (duillsilteach)"
+                },
+                "natural/tree/broadleaved/evergreen": {
+                    "name": "Crann Leathanduilleach (síorghlas)",
+                    "terms": [
+                        "duillí leathana",
+                        "duilleoga leathana"
+                    ]
+                },
+                "natural/tree/needleleaved/evergreen": {
+                    "name": "Crann Spíonduilleach (síorghlas)",
+                    "terms": [
+                        "duillí spíonacha",
+                        "duilleoga spíonacha"
+                    ]
+                },
                 "natural/water": {
                     "name": "Uisce",
-                    "aliases": "Dobhar"
+                    "aliases": [
+                        "Dobhar"
+                    ]
                 },
                 "natural/water/lake": {
                     "name": "Loch"
                 },
                 "natural/water/pond": {
                     "name": "Lochán",
-                    "aliases": "Linn"
+                    "aliases": [
+                        "Linn"
+                    ]
                 },
                 "natural/water/reservoir": {
                     "name": "Taiscumar"
@@ -3640,7 +4206,9 @@
                 },
                 "place/hamlet": {
                     "name": "Gráig",
-                    "aliases": "Sráidbhaile"
+                    "aliases": [
+                        "Sráidbhaile"
+                    ]
                 },
                 "place/island": {
                     "name": "Oileán"
@@ -3699,15 +4267,26 @@
                 "public_transport/stop_position_tram": {
                     "name": "Áit Stoptha Tram"
                 },
+                "railway/construction": {
+                    "name": "Iarnród Á Tógáil"
+                },
+                "railway/crossing": {
+                    "name": "Crosaire Ianród-Cosán"
+                },
                 "railway/funicular": {
                     "name": "Ráille Iarnróid Cáblach"
                 },
                 "railway/halt": {
                     "name": "Stáisiún Traenach (Stad ar iarratas)"
                 },
+                "railway/level_crossing": {
+                    "name": "Crosaire Ianród-Bóthar"
+                },
                 "railway/narrow_gauge": {
                     "name": "Iarnród Caol",
-                    "aliases": "Rian Caol"
+                    "aliases": [
+                        "Rian Caol"
+                    ]
                 },
                 "railway/platform": {
                     "name": "Ardán Traenach"
@@ -3717,6 +4296,9 @@
                 },
                 "railway/rail/highspeed": {
                     "name": "Ráille Thraein Ardluais"
+                },
+                "railway/railway_crossing": {
+                    "name": "Crosaire Ianród-Iarnród"
                 },
                 "railway/signal": {
                     "name": "Comhartha Iarnróid"
@@ -3750,19 +4332,27 @@
                 },
                 "shop/boutique": {
                     "name": "Búitíc",
-                    "aliases": "Boutique"
+                    "aliases": [
+                        "Boutique"
+                    ]
                 },
                 "shop/butcher": {
                     "name": "Búistéir",
-                    "aliases": "Siopa Búistéara"
+                    "aliases": [
+                        "Siopa Búistéara"
+                    ]
                 },
                 "shop/chemist": {
                     "name": "Cógaslann",
-                    "aliases": "Siopa Poitigéara"
+                    "aliases": [
+                        "Siopa Poitigéara"
+                    ]
                 },
                 "shop/deli": {
                     "name": "Deilí",
-                    "aliases": "Delicatessen"
+                    "aliases": [
+                        "Delicatessen"
+                    ]
                 },
                 "shop/florist": {
                     "name": "Siopa Bláthanna"
@@ -3772,11 +4362,15 @@
                 },
                 "shop/hairdresser": {
                     "name": "Gruagaire",
-                    "aliases": "Siopa Gruagaire"
+                    "aliases": [
+                        "Siopa Gruagaire"
+                    ]
                 },
                 "shop/kiosk": {
                     "name": "Both",
-                    "aliases": "Stainnín"
+                    "aliases": [
+                        "Stainnín"
+                    ]
                 },
                 "shop/locksmith": {
                     "name": "Glasadóir"
@@ -3798,7 +4392,9 @@
                 },
                 "tourism/artwork": {
                     "name": "Obair Ealaíne",
-                    "aliases": "Saothar Ealaíne"
+                    "aliases": [
+                        "Saothar Ealaíne"
+                    ]
                 },
                 "tourism/artwork/bust": {
                     "name": "Busta"
@@ -3823,7 +4419,9 @@
                 },
                 "tourism/hotel": {
                     "name": "Óstán",
-                    "aliases": "Óstlann"
+                    "aliases": [
+                        "Óstlann"
+                    ]
                 },
                 "tourism/information": {
                     "name": "Eolas"
@@ -3833,7 +4431,9 @@
                 },
                 "tourism/motel": {
                     "name": "Óstán Cois Bóthair",
-                    "aliases": "Óstán"
+                    "aliases": [
+                        "Óstán"
+                    ]
                 },
                 "tourism/museum": {
                     "name": "Músaem"
@@ -3843,7 +4443,9 @@
                 },
                 "tourism/zoo": {
                     "name": "Zú",
-                    "aliases": "Gairdín Ainmhithe"
+                    "aliases": [
+                        "Gairdín Ainmhithe"
+                    ]
                 },
                 "traffic_calming/bump": {
                     "name": "Uchtóg Mhoillithe"
@@ -3886,7 +4488,9 @@
                 },
                 "type/route": {
                     "name": "Bealach",
-                    "aliases": "Slí"
+                    "aliases": [
+                        "Slí"
+                    ]
                 },
                 "type/route/subway": {
                     "name": "Líne Meitreo"
@@ -3896,7 +4500,9 @@
                 },
                 "type/route/tram": {
                     "name": "Bealach Tram",
-                    "aliases": "Slí Tram"
+                    "aliases": [
+                        "Slí Tram"
+                    ]
                 },
                 "waterway/canal": {
                     "name": "Canáil"

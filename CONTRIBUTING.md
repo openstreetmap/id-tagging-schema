@@ -4,6 +4,8 @@
 
 Don't hesitate to submit feedback about issues or how the tagging schema could be improved, but please [search existing issues](https://github.com/search?l=&q=repo%3Aopenstreetmap%2Fid-tagging-schema&type=Issues) before [opening a new one](https://github.com/openstreetmap/id-tagging-schema/issues/new/choose).
 
+In general it is better to open a new issue compared to commenting in a closed issue or a closed pull request where such a comment will likely be missed.
+
 iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_CONDUCT.md) and [privacy policy](https://github.com/openstreetmap/iD/blob/release/PRIVACY.md) also apply to this project.
 
 
@@ -40,13 +42,13 @@ You are highly welcome to help this project by submitting pull requests!
 
 ### Overview and General Structure
 
-Detailed documentation for the data format used in this repository is located with the [schema-builder](https://github.com/ideditor/schema-builder) package, which is the technical basis of this project.
+Detailed documentation for the data format used in this repository is located in [./SCHEMA.md](./SCHEMA.md).
 
 To make a change, update the corresponding file within the `data` folder: The `presets` contain a representation of OpenStreetMap's [map features](https://wiki.openstreetmap.org/wiki/Map_Features), and the `fields` are their properties. In addition, the tagging schema contains a few `categories` of presets and a list of `deprecated` and `discardable` tags.
 
 ### Icons
 
-Icons from different sources (_icon sets_) can be used in the tagging schema. Head over to the [dedicated page](https://github.com/ideditor/schema-builder/blob/main/ICONS.md#icons) about how to use them.
+Icons from different sources (_icon sets_) can be used in the tagging schema. Head over to the [ICONS.md](./ICONS.md) about how to use them.
 
 ### Info-`i`
 
@@ -55,7 +57,7 @@ Icons from different sources (_icon sets_) can be used in the tagging schema. He
 iD and other tools provide users with a way to learn more about the main tag of a preset. It is important to provide good information in this information panel. Here are a few notes on how to do this:
 - Does your tag have a OSM Wiki data item? Click the small pencil icon next to the text to open the data item on the OSM Wiki. Improve this wording if needed. If the data item is missing, [learn more about how to add it in "Current methods for creating new items"](https://wiki.openstreetmap.org/wiki/Data_items#Item_creation_process).
 - Does your tag have a Wiki page with a good image?
-- Your preset might need [a `reference` property](https://github.com/ideditor/schema-builder?tab=readme-ov-file#reference) to force the system to use a specific tag for the information section.
+- Your preset might need [a `reference` property](./SCHEMA.md#reference) to force the system to use a specific tag for the information section.
 
 ### Integration Testing With iD
 
@@ -86,7 +88,7 @@ The following `npm` commands are used in this repository:
 * `npm test` – validates the source data
 * `npm run build` – validates the source data and builds some files which are used during development (e.g. strings to be supplied to the translation platform)
 * `npm run dist` – validates the source data and compiles output files for iD
-* `npm run translations` – fetches translations from transifex and compiles the translations files for iD
+* `npm run dist -- translations` – fetches translations from transifex and compiles the translations files for iD
 
 ### Code Style
 
