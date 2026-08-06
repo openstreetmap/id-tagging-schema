@@ -1067,7 +1067,7 @@ function validateTerms(terms, where) {
   process.stdout.write('expected terms\n\n');
   const jsonExpected = JSON.stringify(expectedTerms, null, 4);
   const indentedJsonExpected = jsonExpected.split('\n').map(line => '    ' + line).join('\n');
-  process.stdout.write(indentedJsonExpected); // make possible to directly copy CI output into code 
+  process.stdout.write(indentedJsonExpected); // make possible to directly copy CI output into code
   process.stdout.write('\n\ndiffer from actual ones\n\n');
   process.stdout.write(`${terms}`);
   process.stdout.write('\n');
