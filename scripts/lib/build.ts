@@ -28,21 +28,7 @@ let _currBuild: Promise<void> | null = null;
 const jsonschema = new Validator();
 const locationConflation = new LocationConflation();
 
-function validateData(options?: Options) {
-  const START = '🔬  ' + styleText('yellow', 'Validating schema...');
-  const END = '👍  ' + styleText('green', 'schema okay');
-
-  process.stdout.write('\n');
-  process.stdout.write(START + '\n');
-  marky.mark(END);
-
-  processData(options, 'validate');
-
-  marky.stop(END);
-  process.stdout.write('\n');
-}
-
-function buildDev(options?: Options) {
+async function buildDev(options?: Options) {
 
   if (_currBuild) return _currBuild;
 
@@ -53,7 +39,7 @@ function buildDev(options?: Options) {
   process.stdout.write(START + '\n');
   marky.mark(END);
 
-  processData(options, 'build-interim');
+  await processData(options, 'build-interim');
 
   marky.stop(END);
   process.stdout.write('\n');
@@ -83,7 +69,7 @@ function buildDist(options?: Partial<Options>) {
     });
 }
 
-async function processData(_options: Partial<Options> | undefined, type: string) {
+async function processData(_options: Partial<Options> | undefined, type: 'build-interim' | 'build-dist') {
   const options: Options = {
     inDirectory: 'data',
     interimDirectory: 'interim',
@@ -139,8 +125,6 @@ async function processData(_options: Partial<Options> | undefined, type: string)
     validateSchema(dataDir + '/preset_defaults.json', defaults, defaultsSchema);
     validateDefaults(defaults, categories, presets);
   }
-
-  if (type.indexOf('build') !== 0) return;
 
   const sourceLocale = options.sourceLocale;
 
@@ -1119,5 +1103,4 @@ function minifyJSON(inPath: string, outPath: string) {
 export {
   buildDev,
   buildDist,
-  validateData as validate
 };
