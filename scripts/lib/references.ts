@@ -5,6 +5,101 @@ export function isReference(string: string) {
 }
 
 /**
+ * Resolve "{presets/<id>}" to a concrete icon id (following chains).
+ * Icon refs always require the `presets/` prefix (unlike iconsCrossReference,
+ * which uses a bare field id). `{fields/…}` and bare `{id}` throw.
+ */
+function resolveIconRefToId(
+  presets: AllPresets,
+  ref: string,
+  contextMessage: string,
+  visitedPresetIds: Set<string> = new Set(),
+): string {
+  if (!isReference(ref)) return ref;
+
+  const inner = ref.slice(1, -1);
+  const slashIdx = inner.indexOf('/');
+  if (slashIdx === -1) {
+    throw new Error(
+      `Invalid icon reference “${ref}” in ${contextMessage}: use “{presets/<preset-id>}” (with a “presets/” prefix).`,
+    );
+  }
+
+  const type = inner.slice(0, slashIdx);
+  const id = inner.slice(slashIdx + 1);
+
+  if (type === 'fields') {
+    throw new Error(
+      `Invalid icon reference “${ref}” in ${contextMessage}: icon references must use “{presets/<preset-id>}”, not “{fields/…}”.`,
+    );
+  }
+  if (type !== 'presets') {
+    throw new Error(
+      `Invalid icon reference “${ref}” in ${contextMessage}: only “{presets/<preset-id>}” is allowed (unexpected prefix “${type}/”).`,
+    );
+  }
+  if (!id) {
+    throw new Error(
+      `Invalid icon reference “${ref}” in ${contextMessage}: missing preset id after “presets/”.`,
+    );
+  }
+
+  if (visitedPresetIds.has(id)) {
+    throw new Error(
+      `Cycle detected while resolving icon reference “${ref}” in ${contextMessage}: preset “${id}” appears more than once in the chain.`,
+    );
+  }
+  visitedPresetIds.add(id);
+
+  const referenced = presets[id];
+  if (!referenced) {
+    throw new Error(
+      `Cannot resolve icon reference “${ref}” in ${contextMessage}: there is no preset “${id}”.`,
+    );
+  }
+
+  const next = referenced.icon;
+  if (next === undefined || next === null || next === '') {
+    throw new Error(
+      `Cannot resolve icon reference “${ref}” in ${contextMessage}: preset “${id}” has no “icon” property.`,
+    );
+  }
+
+  if (isReference(next)) {
+    return resolveIconRefToId(presets, next, contextMessage, visitedPresetIds);
+  }
+  return next;
+}
+
+function dereferencePresetIconStrings(presets: AllPresets, fields: AllFields) {
+  for (const presetID in presets) {
+    const preset = presets[presetID];
+    if (typeof preset.icon === 'string' && isReference(preset.icon)) {
+      preset.icon = resolveIconRefToId(
+        presets,
+        preset.icon,
+        `preset “${presetID}” icon`,
+      );
+    }
+  }
+
+  for (const fieldID in fields) {
+    const field = fields[fieldID];
+    if (!field.icons || typeof field.icons !== 'object') continue;
+    for (const key of Object.keys(field.icons)) {
+      const v = field.icons[key];
+      if (typeof v === 'string' && isReference(v)) {
+        field.icons[key] = resolveIconRefToId(
+          presets,
+          v,
+          `field “${fieldID}” icons.${key}`,
+        );
+      }
+    }
+  }
+}
+
+/**
  * This is only used to expand references to _untranslated content_.
  * For example, `fields` can reference the list of field IDs from another
  * preset.
@@ -169,6 +264,9 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
       delete field.locationSetCrossReference;
     }
   }
+
+  // 11. preset `icon` and field `icons` values may use "{presets/<id>}" for another preset's icon id
+  dereferencePresetIconStrings(presets, fields);
 }
 
 /**

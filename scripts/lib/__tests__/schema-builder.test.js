@@ -46,7 +46,7 @@ describe('schema-builder', () => {
     expect(schemaBuilder && schemaBuilder.validate).not.toBeUndefined();
   });
 
-  it('runs validate', () => {
+  it('runs validate', async () => {
     writeSourceData({
       'data/presets/natural.json': {
         tags: {
@@ -56,7 +56,7 @@ describe('schema-builder', () => {
         name: 'Natural Feature'
       }
     });
-    schemaBuilder.validate({
+    await schemaBuilder.validate({
       inDirectory: _workspace + '/data'
     });
     expect(fs.existsSync(_workspace + '/interim')).toBe(false);
@@ -244,5 +244,217 @@ describe('schema-builder', () => {
     });
     expect(fs.existsSync(_workspace + '/interim/source_strings.yaml')).toBe(true);
     expect(fs.existsSync(_workspace + '/dist')).toBe(true);
+  });
+
+  describe('preset icon references {presets/…}', () => {
+    const taginfo = {
+      name: 'Test',
+      description: 'Test',
+      project_url: 'https://example.com',
+      contact_name: 'T',
+      contact_email: 't@example.com',
+    };
+
+    function minimalPreset(overrides) {
+      return Object.assign(
+        {
+          name: 'Test preset',
+          geometry: ['point'],
+          tags: { test: 'x' },
+          terms: ['a'],
+        },
+        overrides,
+      );
+    }
+
+    it('T1 resolves preset icon from {presets/id}', async () => {
+      writeSourceData({
+        'data/presets/t_icon_base.json': minimalPreset({
+          tags: { ir: 'base' },
+          icon: 'fas-foo',
+        }),
+        'data/presets/t_icon_child.json': minimalPreset({
+          tags: { ir: 'child' },
+          icon: '{presets/t_icon_base}',
+        }),
+      });
+      await schemaBuilder.buildDist({
+        inDirectory: _workspace + '/data',
+        interimDirectory: _workspace + '/interim',
+        outDirectory: _workspace + '/dist',
+        taginfoProjectInfo: taginfo,
+      });
+      const presets = JSON.parse(
+        fs.readFileSync(_workspace + '/dist/presets.json', 'utf8'),
+      );
+      expect(presets.t_icon_child.icon).toBe('fas-foo');
+    });
+
+    it('T2 resolves chained preset icon references', async () => {
+      writeSourceData({
+        'data/presets/t_chain_a.json': minimalPreset({
+          tags: { c: 'a' },
+          icon: 'maki-x',
+        }),
+        'data/presets/t_chain_b.json': minimalPreset({
+          tags: { c: 'b' },
+          icon: '{presets/t_chain_a}',
+        }),
+        'data/presets/t_chain_c.json': minimalPreset({
+          tags: { c: 'c' },
+          icon: '{presets/t_chain_b}',
+        }),
+      });
+      await schemaBuilder.buildDist({
+        inDirectory: _workspace + '/data',
+        interimDirectory: _workspace + '/interim',
+        outDirectory: _workspace + '/dist',
+        taginfoProjectInfo: taginfo,
+      });
+      const presets = JSON.parse(
+        fs.readFileSync(_workspace + '/dist/presets.json', 'utf8'),
+      );
+      expect(presets.t_chain_c.icon).toBe('maki-x');
+    });
+
+    it('T3 resolves value from {presets/id} for field icons', async () => {
+      writeSourceData({
+        'data/presets/t_fld_base.json': minimalPreset({
+          tags: { f: 'b' },
+          icon: 'iD-bus',
+        }),
+        'data/fields/t_fld_combo.json': {
+          key: 't_fld',
+          type: 'combo',
+          label: 'T fld',
+          universal: true,
+          strings: { options: { yes: 'Yes' } },
+          icons: { yes: '{presets/t_fld_base}' },
+          terms: ['z'],
+        },
+      });
+      await schemaBuilder.buildDist({
+        inDirectory: _workspace + '/data',
+        interimDirectory: _workspace + '/interim',
+        outDirectory: _workspace + '/dist',
+        taginfoProjectInfo: taginfo,
+      });
+      const fields = JSON.parse(
+        fs.readFileSync(_workspace + '/dist/fields.json', 'utf8'),
+      );
+      expect(fields.t_fld_combo.icons.yes).toBe('iD-bus');
+    });
+
+    it('T4 iconsCrossReference works if referenced icons contain icon references', async () => {
+      writeSourceData({
+        'data/presets/t_xr_base.json': minimalPreset({
+          tags: { xr: 'b' },
+          icon: 'fa-rss',
+        }),
+        'data/fields/t_xr_b.json': {
+          key: 'xr_b',
+          type: 'combo',
+          label: 'XR b',
+          universal: true,
+          strings: { options: { yes: 'Yes' } },
+          icons: { yes: '{presets/t_xr_base}' },
+          terms: ['y'],
+        },
+        'data/fields/t_xr_a.json': {
+          key: 'xr_a',
+          type: 'combo',
+          label: 'XR a',
+          universal: true,
+          strings: { options: { yes: 'Yes' } },
+          iconsCrossReference: '{t_xr_b}',
+          terms: ['y'],
+        },
+      });
+      await schemaBuilder.buildDist({
+        inDirectory: _workspace + '/data',
+        interimDirectory: _workspace + '/interim',
+        outDirectory: _workspace + '/dist',
+        taginfoProjectInfo: taginfo,
+      });
+      const fields = JSON.parse(
+        fs.readFileSync(_workspace + '/dist/fields.json', 'utf8'),
+      );
+      expect(fields.t_xr_a.icons.yes).toBe('fa-rss');
+      expect(fields.t_xr_b.icons.yes).toBe('fa-rss');
+    });
+
+    it('T5 rejects {fields/…} in preset icon', async () => {
+      writeSourceData({
+        'data/presets/t_bad_fields.json': minimalPreset({
+          tags: { bad: 'f' },
+          icon: '{fields/nope}',
+        }),
+      });
+      await expect(
+        schemaBuilder.validate({ inDirectory: _workspace + '/data' }),
+      ).rejects.toThrow(/fields/);
+    });
+
+    it('T6 rejects unknown prefix in icon reference', async () => {
+      writeSourceData({
+        'data/presets/t_bad_type.json': minimalPreset({
+          tags: { bad: 't' },
+          icon: '{unknown/foo}',
+        }),
+      });
+      await expect(
+        schemaBuilder.validate({ inDirectory: _workspace + '/data' }),
+      ).rejects.toThrow(/presets/);
+    });
+
+    it('T7 rejects cyclic preset icon references', async () => {
+      writeSourceData({
+        'data/presets/t_cyc_a.json': minimalPreset({
+          tags: { cy: 'a' },
+          icon: '{presets/t_cyc_b}',
+        }),
+        'data/presets/t_cyc_b.json': minimalPreset({
+          tags: { cy: 'b' },
+          icon: '{presets/t_cyc_a}',
+        }),
+      });
+      await expect(
+        schemaBuilder.validate({ inDirectory: _workspace + '/data' }),
+      ).rejects.toThrow(/Cycle/);
+    });
+
+    it('T8 rejects missing preset in icon reference', async () => {
+      writeSourceData({
+        'data/presets/t_miss.json': minimalPreset({
+          tags: { m: '1' },
+          icon: '{presets/does/not/exist}',
+        }),
+      });
+      await expect(
+        schemaBuilder.validate({ inDirectory: _workspace + '/data' }),
+      ).rejects.toThrow(/no preset/);
+    });
+
+    it('T9 buildDev interim icons.json lists only resolved icon ids', () => {
+      writeSourceData({
+        'data/presets/t_icn_base.json': minimalPreset({
+          tags: { ic: 'b' },
+          icon: 'maki-parking',
+        }),
+        'data/presets/t_icn_child.json': minimalPreset({
+          tags: { ic: 'c' },
+          icon: '{presets/t_icn_base}',
+        }),
+      });
+      schemaBuilder.buildDev({
+        inDirectory: _workspace + '/data',
+        interimDirectory: _workspace + '/interim',
+      });
+      const icons = JSON.parse(
+        fs.readFileSync(_workspace + '/interim/icons.json', 'utf8'),
+      );
+      expect(icons).toContain('maki-parking');
+      expect(JSON.stringify(icons)).not.toMatch(/\{presets\//);
+    });
   });
 });

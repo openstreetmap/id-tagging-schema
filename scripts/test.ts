@@ -1,3 +1,3 @@
 import schemaBuilder from './lib/index.ts';
 
-schemaBuilder.validate();
+await schemaBuilder.validate();
