@@ -71,14 +71,13 @@
                 "lanes",
                 "localized",
                 "manyCombo",
+                "measurement",
                 "multiCombo",
                 "networkCombo",
                 "number",
                 "onewayCheck",
                 "radio",
                 "restrictions",
-                "roadheight",
-                "roadspeed",
                 "schedule",
                 "semiCombo",
                 "structureRadio",
@@ -412,6 +411,42 @@
         "iconsCrossReference": {
             "description": "A field can reference icons of another by using that field's identifier contained in brackets, like {field}.",
             "type": "string"
+        },
+        "measurement": {
+            "type": "object",
+            "description": "defines the units of measurement that this field uses. Only supported by the 'measurement' field type.",
+            "allOf": [
+                {
+                    "properties": {
+                        "dimension": {
+                            "type": "string",
+                            "description": "The corresponding 'dimension' from CLDR",
+                            "$ref": "./auto-generated/dimension.json"
+                        },
+                        "usage": {
+                            "type": "string",
+                            "description": "The corresponding 'usage' from CLDR"
+                        },
+                        "units": {
+                            "type": "array",
+                            "minItems": 1,
+                            "uniqueItems": true,
+                            "description": "Optional, if only some units are allowed for this tag, then list the permitted units here, using the unit IDs from CLDR (see https://cdn.jsdelivr.net/npm/cldr-core/supplemental/unitPreferenceData.json).",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "impliedUnit": {
+                            "type": "string",
+                            "description": "Some OSM tags have a default unit, which does not need to be explicitly included in the tag value. This field defines how to interpret a unit-less value."
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": ["dimension", "usage"]
+                },
+                { "$ref": "./auto-generated/usage.json" },
+                { "$ref": "./auto-generated/unit-types.json" }
+            ]
         }
     },
     "additionalProperties": false,

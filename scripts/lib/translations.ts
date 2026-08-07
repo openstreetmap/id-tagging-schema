@@ -5,7 +5,8 @@ import fetch from 'node-fetch';
 import { load as loadYaml } from 'js-yaml';
 import { transifexApi, type Collection } from '@transifex/api';
 import { dereferencedTranslatableContent } from './references.ts';
-import type { Options, References, ResourceInfo, SourceStrings, TStrings } from './types.def.ts';
+import type { Options, References, ResourceInfo, SourceStrings, TStrings, Units } from './types.def.ts';
+import { getExternalTranslations } from './units.ts';
 
 export function expandTStrings(tstrings: TStrings) {
   const presets = tstrings.presets || {};
@@ -84,7 +85,7 @@ export function sortObject<T extends object>(original: T): T {
   return sorted;
 }
 
-async function fetchTranslations(_options: Partial<Options>, references: References) {
+async function fetchTranslations(_options: Partial<Options>, references: References, units: Units) {
 
   // Transifex doesn't allow anonymous downloading
   if (process.env.transifex_password) {
@@ -215,6 +216,8 @@ async function fetchTranslations(_options: Partial<Options>, references: Referen
       }
       let obj: { [localeCode: string]: { presets?: TStrings } } = {};
       obj[code] = allStrings[code] || {};
+      Object.assign(obj[code], getExternalTranslations(code, units));
+
       fs.writeFileSync(`${outDir}/${code}.json`, JSON.stringify(obj, null, 4));
       fs.writeFileSync(`${outDir}/${code}.min.json`, JSON.stringify(obj));
     }

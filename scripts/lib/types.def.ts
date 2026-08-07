@@ -103,6 +103,16 @@ export interface TStrings {
     };
 }
 
+export interface ExternalTranslations {
+    units: {
+        [dimension: string]: {
+            [unit: string]: {
+                [type: string]: string
+            };
+        };
+    };
+}
+
 export interface SourceStrings {
     [locale: string]: {
         /** group is always "presets" */
