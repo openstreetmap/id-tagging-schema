@@ -155,7 +155,7 @@ async function processData(_options: Partial<Options> | undefined, type: string)
   fs.writeFileSync(interimDir + '/source_strings.yaml', translationsToYAML(translationsForYaml));
 
   let icons = generateIconsList(presets, fields, categories);
-  fs.writeFileSync(interimDir + '/icons.json', JSON.stringify(icons, null, 4));
+  fs.writeFileSync(interimDir + '/icons.json', JSON.stringify(icons, null, 4) + '\n');
 
   dereferencedTranslatableContent(tstrings, references, true);
 
