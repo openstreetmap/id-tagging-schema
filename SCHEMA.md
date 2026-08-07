@@ -94,6 +94,8 @@ A list of synonyms for the preset's `name`. These are alternative terms a preset
 
 A list of additional search terms or keywords for the preset. These might be names which describe a subset of the preset's features, or simply related terms a user might enter when searching for the preset.
 
+Note that editors should also list a preset when a user searches by the preset's tags (`tags` or `addTags`) directly. For example, searching by `natural=tree` or `amenity=school` or "water_tank", maybe also "water tank" likely also should give relevant results. These tag key/value pairs should not be expected to be manually listed in terms (or translated into other languages) unless they are also actually relevant terms on their own.
+
 ##### `geometry`
 
 An array of possible geometry types that a feature must have in order to match this preset.
@@ -112,7 +114,7 @@ This property is required. There is no default.
 
 ##### `tags`
 
-An object with the `"key": "value"` tags a feature must have to match this preset. A `"*"` wildcard value can be set to have this preset match any value for that key.
+An object with the `"key": "value"` tags a feature must have to match this preset. A `"*"` wildcard value can be set to have this preset match any value for that key. When an object is created using a preset with a `"*"` wildcard, then the respective value will be set to `"yes"`.
 
 iD will pick the best match based on `matchScore`, the number of tags, and the use of wildcard values. A feature will be matched to one preset even if its tags and geometry fit more than one.
 
@@ -144,6 +146,8 @@ Specified tags are removed from the feature when deselecting this preset. Defaul
 
 For example [`landuse=vineyard`](https://github.com/openstreetmap/id-tagging-schema/blob/7c94ba9d1568f089234af39d5a1a5d8503e8ae39/data/presets/landuse/vineyard.json#L18-L22) removes also `crop=grape` - which is not included in its preset.
 
+Editors may additionally remove other tags such as tags of the old preset's fields.
+
 ##### `fields`/`moreFields`
 
 Both these properties are arrays of field paths (e.g. `description` or `generator/type`).
@@ -171,7 +175,7 @@ of `presets/shop.json`. When subfolders are used, the format is `{shop/books}` t
 ```
 
 Fields for keys that define the preset via `tags` are generally not inherited.
-E.g. the `shop` field is not inherited despite specifying as inherinting from `{shop}` presets.
+E.g. the `shop` field is not inherited despite specifying as inheriting from `{shop}` presets.
 This can be overwritten by adding the field explicitly like `"fields": [ "shop", "{shop}" ],`
 
 ##### `icon`
@@ -208,7 +212,7 @@ The default is `1.0`.
 
 An object with the identifiers of regions where this preset should or shouldn't be shown. By default, presets are available everywhere.
 
-See the [location-conflation](https://github.com/ideditor/location-conflation) package for details.
+See the [location-conflation](https://github.com/ideditor/location-conflation) package for details. Note that `"include": ["Planet"]` should be omitted.
 
 ```js
 "locationSet": {
@@ -383,7 +387,7 @@ A string specifying the UI and behavior of the field. Must be one of the followi
 
 * `check` - 3-state checkbox: `yes`, `no`, unknown (no tag)
 * `defaultCheck` - 2-state checkbox where checked produces `yes` and unchecked produces no tag
-* `onewayCheck` - 3-state checkbox for `oneway` fields, with extra button for direction switching
+* `onewayCheck` - 3-state checkbox for `oneway` fields, with extra button for direction switching - editors may also implement special support for [`-1`](https://wiki.openstreetmap.org/wiki/Tag:oneway%3D-1), [`alternating`](https://osm.wiki/Tag:oneway=alternating), and [`reversible`](https://wiki.openstreetmap.org/wiki/Tag:oneway%3Dreversible) values.
 
 ###### Radio Buttons
 
@@ -556,6 +560,11 @@ An optional property to reference to the strings of another field, indicated  by
 ```
 
 This would inherit all translations from the `sport` field but keep only the defined options.
+
+If you omit [`options`](#options), then it will include every option from the referenced field. For example:
+```json
+  "stringsCrossReference": "{sport}",
+```
 
 ##### `autoSuggestions`
 

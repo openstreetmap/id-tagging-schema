@@ -34,7 +34,9 @@
                         }
                     },
                     "additionalProperties": false,
-                    "required": ["key"]
+                    "required": [
+                        "key"
+                    ]
                 },
                 {
                     "type": "object",
@@ -45,7 +47,9 @@
                         }
                     },
                     "additionalProperties": false,
-                    "required": ["rtype"]
+                    "required": [
+                        "rtype"
+                    ]
                 }
             ]
         },
@@ -97,7 +101,7 @@
             "minItems": 1,
             "uniqueItems": true,
             "items": {
-              "$ref": "#/$defs/Geometry"
+                "$ref": "#/$defs/Geometry"
             }
         },
         "default": {
@@ -144,14 +148,23 @@
                     "minProperties": 1,
                     "additionalProperties": {
                         "oneOf": [
-                            { "type": "string" },
+                            {
+                                "type": "string"
+                            },
                             {
                                 "type": "object",
                                 "properties": {
-                                    "title": { "type": "string" },
-                                    "description": { "type": "string" }
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
                                 },
-                                "required": ["title", "description"],
+                                "required": [
+                                    "title",
+                                    "description"
+                                ],
                                 "additionalProperties": false
                             }
                         ]
@@ -161,19 +174,25 @@
                     "description": "Translatable types (directionalCombo and access only).",
                     "type": "object",
                     "minProperties": 1,
-                    "additionalProperties": { "type": "string" }
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "placeholders": {
                     "description": "Translatable placeholders of fields with subfields (address only).",
                     "type": "object",
                     "minProperties": 1,
-                    "additionalProperties": { "type": "string" }
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "labels": {
                     "description": "Translatable labels of fields with subfields (address only).",
                     "type": "object",
                     "minProperties": 1,
-                    "additionalProperties": { "type": "string" }
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 }
             }
         },
@@ -222,7 +241,9 @@
                         }
                     },
                     "additionalProperties": false,
-                    "required": ["key"]
+                    "required": [
+                        "key"
+                    ]
                 },
                 {
                     "$id": "requires-key-equals-value",
@@ -238,7 +259,10 @@
                         }
                     },
                     "additionalProperties": false,
-                    "required": ["key", "value"]
+                    "required": [
+                        "key",
+                        "value"
+                    ]
                 },
                 {
                     "$id": "requires-key-equals-values",
@@ -251,12 +275,17 @@
                         "values": {
                             "description": "The values that the tag must have. (alternative to 'valuesNot')",
                             "type": "array",
-                            "items": { "type": "string" },
+                            "items": {
+                                "type": "string"
+                            },
                             "minItems": 1
                         }
                     },
                     "additionalProperties": false,
-                    "required": ["key", "values"]
+                    "required": [
+                        "key",
+                        "values"
+                    ]
                 },
                 {
                     "$id": "requires-key-not-value",
@@ -272,7 +301,10 @@
                         }
                     },
                     "additionalProperties": false,
-                    "required": ["key", "valueNot"]
+                    "required": [
+                        "key",
+                        "valueNot"
+                    ]
                 },
                 {
                     "$id": "requires-key-not-values",
@@ -285,12 +317,17 @@
                         "valuesNot": {
                             "description": "The values that the tag cannot have. (alternative to 'values')",
                             "type": "array",
-                            "items": { "type": "string" },
+                            "items": {
+                                "type": "string"
+                            },
                             "minItems": 1
                         }
                     },
                     "additionalProperties": false,
-                    "required": ["key", "valuesNot"]
+                    "required": [
+                        "key",
+                        "valuesNot"
+                    ]
                 },
                 {
                     "$id": "requires-not-key",
@@ -302,7 +339,9 @@
                         }
                     },
                     "additionalProperties": false,
-                    "required": ["keyNot"]
+                    "required": [
+                        "keyNot"
+                    ]
                 }
             ]
         },
@@ -344,18 +383,23 @@
             "pattern": "^\\{.+\\}$",
             "description": "An string referencing another preset which has a locationSet"
         },
-        "urlFormat":  {
+        "urlFormat": {
             "description": "Permalink URL for `identifier` fields. Must contain a {value} placeholder",
             "type": "string"
         },
-        "pattern":  {
+        "pattern": {
             "description": "Regular expression that a valid `identifier` value is expected to match",
             "type": "string"
         },
         "usage": {
             "description": "The manner and context in which the field is used",
             "type": "string",
-            "enum": ["preset", "changeset", "manual", "group"]
+            "enum": [
+                "preset",
+                "changeset",
+                "manual",
+                "group"
+            ]
         },
         "icons": {
             "description": "For combo and radio fields: Name of icons which represents different values of this field",
@@ -371,26 +415,121 @@
         }
     },
     "additionalProperties": false,
-    "required": ["type", "label"],
+    "required": [
+        "type",
+        "label"
+    ],
     "anyOf": [
-        { "$id": "field-type-without-key-nor-keys", "properties": { "type": { "enum": ["restrictions"] } }, "allOf": [
-            { "not": { "required": ["key"] }},
-            { "not": { "required": ["keys"] }}
-        ]},
-        { "$id": "field-type-with-key-optional-keys", "properties": { "type": { "enum": ["email", "url", "tel", "text", "number"] } }, "required": ["key"] },
-        { "$id": "field-type-with-key-and-keys", "properties": { "type": { "enum": ["address", "wikipedia", "wikidata", "directionalCombo"] } }, "required": ["key", "keys"] },
-        { "$id": "field-type-with-key-or-keys", "allOf": [
-            { "not": { "properties": { "type": { "enum": ["restriction", "email", "url", "tel", "text", "number", "address", "wikipedia", "wikidata", "directionalCombo"] } } } },
-            { "oneOf": [
-                { "required": ["key"] },
-                { "required": ["keys"] }
-            ]}
-        ]}
+        {
+            "$id": "field-type-without-key-nor-keys",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "restrictions"
+                    ]
+                }
+            },
+            "allOf": [
+                {
+                    "not": {
+                        "required": [
+                            "key"
+                        ]
+                    }
+                },
+                {
+                    "not": {
+                        "required": [
+                            "keys"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "$id": "field-type-with-key-optional-keys",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "email",
+                        "url",
+                        "tel",
+                        "text",
+                        "number"
+                    ]
+                }
+            },
+            "required": [
+                "key"
+            ]
+        },
+        {
+            "$id": "field-type-with-key-and-keys",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "address",
+                        "wikipedia",
+                        "wikidata",
+                        "directionalCombo"
+                    ]
+                }
+            },
+            "required": [
+                "key",
+                "keys"
+            ]
+        },
+        {
+            "$id": "field-type-with-key-or-keys",
+            "allOf": [
+                {
+                    "not": {
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "restriction",
+                                    "email",
+                                    "url",
+                                    "tel",
+                                    "text",
+                                    "number",
+                                    "address",
+                                    "wikipedia",
+                                    "wikidata",
+                                    "directionalCombo"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "oneOf": [
+                        {
+                            "required": [
+                                "key"
+                            ]
+                        },
+                        {
+                            "required": [
+                                "keys"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
     ],
     "$defs": {
         "Geometry": {
             "type": "string",
-            "enum": ["point", "vertex", "line", "area", "relation"]
+            "enum": [
+                "point",
+                "vertex",
+                "line",
+                "area",
+                "relation"
+            ]
         }
     }
 }
