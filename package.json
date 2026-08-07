@@ -13,14 +13,15 @@
   "main": "build.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "lint": "eslint && tsc && prettier --check data",
-    "lint:fix": "eslint --fix && tsc && prettier --write data",
+    "lint": "eslint && tsc",
+    "lint:fix": "eslint --fix && tsc",
     "build": "node scripts/build.ts",
     "dist": "node scripts/dist.ts",
     "test": "node scripts/test.ts && vitest run"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@eslint/json": "^2.0.1",
     "@rapideditor/location-conflation": "^3.0.1",
     "@transifex/api": "^8.0.1",
     "@types/shelljs": "^0.10.0",
@@ -30,6 +31,7 @@
     "ajv": "^8.20.0",
     "better-ajv-errors": "^2.0.3",
     "eslint": "^10.0.0",
+    "eslint-plugin-prettier": "^5.5.6",
     "globals": "^17.3.0",
     "js-yaml": "^5.0.0",
     "json-schema-to-typescript-lite": "^15.0.0",
