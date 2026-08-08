@@ -6,6 +6,7 @@ import tseslint from 'typescript-eslint';
 import vitest from '@vitest/eslint-plugin';
 import prettier from 'eslint-plugin-prettier';
 import globals from 'globals';
+import local from './scripts/lib/validate/index.ts';
 
 export default defineConfig(
   {
@@ -137,9 +138,11 @@ export default defineConfig(
       'data/discarded.json',
     ],
     language: 'json/json',
-    plugins: { json, prettier },
+    plugins: { json, prettier, local },
     rules: {
       'prettier/prettier': 'error',
+      'json/no-duplicate-keys': 'error',
+      'local/terms-lowercase-sorted': 'error',
     },
   }
 );
