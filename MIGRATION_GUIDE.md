@@ -1,3 +1,7 @@
+# unreleased version Migration Guide
+
+`related.expectedVertices` and `related.expectedVerticesCrossReference` were added, editors may use this to enhance editing experience of vertices.
+
 # v7 Migration Guide
 
 v7 of [id-tagging-schema](https://github.com/openstreetmap/id-tagging-schema) and [schema-builder](https://github.com/ideditor/schema-builder) contains 6 breaking changes, where data consumers will need to take action.

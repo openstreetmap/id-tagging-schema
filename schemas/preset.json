@@ -149,6 +149,29 @@
             "pattern": "^\\{.+\\}$",
             "description": "An string referencing another preset which has a locationSet"
         },
+        "related": {
+            "description": "Hints about related presets that are related to this one, can be optionally used for a context-aware handling",
+            "type": "object",
+            "properties": {
+                "expectedVertices": {
+                    "description": "A list of preset IDs expected to be used as a vertex of this preset, when this preset is used on a line or area. List is ordered, starting from ones more likely to be selected by mapper.",
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string",
+                        "pattern": "^\\{.+\\}$"
+                    }
+                },
+                "expectedVerticesCrossReference": {
+                    "type": "string",
+                    "pattern": "^\\{.+\\}$",
+                    "description": "An string referencing another preset which has a related.expectedVertices to be used also here"
+                }
+            },
+            "minProperties": 1,
+            "additionalProperties": false
+        },
         "relation": {
             "$ref": "#/$defs/RelationSchema"
         },
