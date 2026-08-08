@@ -1,17 +1,19 @@
 // @ts-check
 import js from '@eslint/js';
+import json from '@eslint/json';
 import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 import vitest from '@vitest/eslint-plugin';
+import prettier from 'eslint-plugin-prettier';
 import globals from 'globals';
 
 export default defineConfig(
   {
     ignores: ['.coverage', 'dist/*']
   },
-  js.configs.recommended,
-  tseslint.configs.recommended,
   {
+    files: ['**/*.js', '**/*.ts'],
+    extends: [js.configs.recommended, tseslint.configs.recommended],
     rules: {
         'prefer-const': 'off',
     }
@@ -124,6 +126,20 @@ export default defineConfig(
     },
     languageOptions: {
       globals: vitest.environments.env.globals,
+    },
+  },
+  {
+    files: ['**/*.json'],
+    ignores: [
+      'package.json',
+      'package-lock.json',
+      'data/deprecated.json',
+      'data/discarded.json',
+    ],
+    language: 'json/json',
+    plugins: { json, prettier },
+    rules: {
+      'prettier/prettier': 'error',
     },
   }
 );
