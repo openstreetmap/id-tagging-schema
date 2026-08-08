@@ -18,36 +18,19 @@ jobs:
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version-file: '.nvmrc'
-      - run: npm clean-install
+
+      - name: Get pull request number artifact
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          name: pr
+          path: ./tmp-pr-artifact
+          run-id: ${{github.event.workflow_run.id}}
 
       - name: Get pull request number
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         id: pull-request-number
-        with:
-          result-encoding: string
-          script: |
-            const unzipper = require('unzipper');
-            const artifacts = await github.rest.actions.listWorkflowRunArtifacts({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              run_id: ${{github.event.workflow_run.id}}
-            });
-            const artifact = artifacts.data.artifacts.filter(
-              artifact => artifact.name === 'pr'
-            )[0];
-            if (!artifact) {
-              throw new Error('No "pr" artifact found');
-            }
-            const download = await github.rest.actions.downloadArtifact({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              artifact_id: artifact.id,
-              archive_format: 'zip'
-            });
-            const directory = await unzipper.Open.buffer(Buffer.from(download.data));
-            const file = directory.files.find(d => d.path === 'pr_number');
-            const content = await file.buffer();
-            return content.toString();
+        run: echo "result=$(cat ./tmp-pr-artifact/pr_number)" >> "$GITHUB_OUTPUT"
+
       - uses: dawidd6/action-download-artifact@b6e2e70617bc3265edd6dab6c906732b2f1ae151 # v21
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
