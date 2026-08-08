@@ -23,6 +23,557 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 7.1.0
+##### 2026-Aug-07
+
+* Merged the schema-builder repository (with contained documentation, schema definitions, and build scripts) into this repository ([#2431], thanks [@k-yle])
+
+#### New Presets
+
+* Add building=tent ([#2631], thanks [@matkoniecz])
+* Add Rooftop Solar Thermal Collector preset ([#2082], thanks [@ak8abhinay])
+* Add preset for historic=millstone with updated icon (#1067) ([#2589], thanks [@ashree2118])
+* Add leisure=schoolyard ([#134], thanks [@TurnrDev])
+* Add bicycle charging station ([#2418], thanks [@paulklie])
+* add hidden preset for bicycle charging station with bicycle=designated ([#2603], thanks [@paulklie])
+
+#### New and Changed Fields
+
+* Add building=tent ([#2631], thanks [@matkoniecz])
+* Add national cuisines to cuisine field options  ([#2657], thanks [@ak8abhinay])
+* Change `surveillance:type` field from combo to radio ([#2481], thanks [@FloEdelmann])
+* Merge US and global presets for post boxes ([#2645], thanks [@matkoniecz])
+* Add translatable strings to field seamark:beacon\_isolated\_danger:shape ([#1014], thanks [@kjonosm])
+* Add `cuisine=syrian` support [should it wait for 500 uses?] ([#1573], thanks [@matkoniecz])
+* Add `office=translator` to `office` combobox ([#2635], thanks [@fibonacci-matrix])
+* Split booking from general reservation field ([#2549], thanks [@matkoniecz])
+* Add description to Removable Bollard string to make it clear the values includes bollards which are removable only with a key ([#1534], thanks [@andrewharvey])
+* Add back crossing:markings=zebra:bicolour in Poland ([#2552], thanks [@matkoniecz])
+* Use proper `prerequisiteTag`s for cycle\_barrier ([#2444], thanks [@k-yle])
+* Change `opening_hours`-like fields to `type=schedule` (iD will link oh evaluator) ([#1537], thanks [@k-yle])
+* Move capacity to moreFields for amenity=public\_bookcase ([#2400], thanks [@matkoniecz])
+* Add `ref:mastr` field for power plant/generator presets ([#2250], thanks [@FloEdelmann])
+* Exclude `stop` field for stop signs in Bulgaria, as all are `stop=minor` ([#1539], thanks [@Dimitar5555])
+* Add `allowDuplicates` to destination fields ([#1418], thanks [@k-yle])
+
+#### Changed Presets
+
+* Use less abstract icon for playground=map ([#2486], thanks [@matkoniecz])
+* Add "surface parking" term to parking.json ([#2380], thanks [@matkoniecz])
+* Use simpler icon for millstone ([#2610], thanks [@matkoniecz])
+* Use Temaki icon also for playground=slide, not only dropdown option ([#2662], thanks [@matkoniecz])
+* Use more specific icon for playground=pump, matching dropdown ([#2660], thanks [@matkoniecz])
+* Use temaki-cushion icon for playground=cushion (by marensiegel from Temaki) ([#2659], thanks [@matkoniecz])
+* Remove hidden landuse=pond preset used 3 times worldwide ([#2656], thanks [@matkoniecz])
+* Moved the terms to the presets from which the names are copied ([#2674], thanks [@fibonacci-matrix])
+* Reused translations for some presets where the relation is the primary ([#2664], thanks [@fibonacci-matrix])
+* Add translation keys for Scuba Diving fill options ([#2655], thanks [@fibonacci-matrix])
+* Remove landuse=farm preset ([#2650], thanks [@matkoniecz])
+* Merge US and global presets for post boxes ([#2645], thanks [@matkoniecz])
+* Add dam term to reservoir ([#2600], thanks [@matkoniecz])
+* Reuse translation for "Bus Station / Terminal" ([#2651], thanks [@fibonacci-matrix])
+* Reuse translations for `landuse=basin` ([#2652], thanks [@fibonacci-matrix])
+* Reuse translations for unsearchable presets that have an unambiguous replacement ([#2646], thanks [@fibonacci-matrix])
+* Add translations for Scuba Diving Services ([#2630], thanks [@fibonacci-matrix])
+* Reuse translations for unsearchable presets ([#2636], thanks [@fibonacci-matrix])
+* Reuse more translations for 'healthcare' combobox ([#2629], thanks [@fibonacci-matrix])
+* Use healthcare icons for fields (Part 1) ([#2621], thanks [@fibonacci-matrix])
+* Use 'Physical Therapist' instead of 'Physiotherapist' ([#2611], thanks [@mugdhachalla])
+* Improve opening\_hours placeholder clarity ([#2140], thanks [@eeshm])
+* Remove ele= for shop= ([#2565], thanks [@matkoniecz])
+* Make differences more clear in traffic\_calming= dropdown icons ([#2485], thanks [@matkoniecz])
+* Glacial erratic is by definition not attached ([#2478], thanks [@matkoniecz])
+* Amenity=ice\_cream shop can inherit from shop= ([#2566], thanks [@matkoniecz])
+* Use better life\_ring icon from Pinhead, thanks westnordost for the icon ([#2548], thanks [@matkoniecz])
+* Try more readable icon for Archery Range from Pinhead, thanks to westnordost for the icon ([#2547], thanks [@matkoniecz])
+* Add name= field to natural=wetland ([#2560], thanks [@matkoniecz])
+* Add relation role definitions for type=boundary and type=multipolygon ([#2576], thanks [@k-yle])
+* Use country-neutral fax/mobile hints ([#2597], thanks [@Vectorial1024])
+* Re-use translations for `strings.options.*` ([#2577], thanks [@k-yle])
+* Use 'honeycomb' icon for `shop/honey` ([#2567], thanks [@fibonacci-matrix])
+* Add `reference` to presets where the main tag is ambiguous ([#2544], thanks [@k-yle])
+* Change icon of `aeroway=terminal` preset ([#2327], thanks [@Geo-2695])
+* fix moreFields not inherited in shop=cheese ([#2536], thanks [@matkoniecz])
+* Add air\_conditioning field to office=coworking ([#2556], thanks [@matkoniecz])
+* Add destination to motorized roads ([#2569], thanks [@matkoniecz])
+* Use sculpture for craft=sculptor, not wall-hanging picture - thanks to OpenHistoricalMap for icon and OpenHistoricalMap for importing it into Pinhead ([#2443], thanks [@matkoniecz])
+* Add terms for apartments ([#2452], thanks [@paulklie])
+* Selected a more appropriate icon for adoption agencies ([#2559], thanks [@fibonacci-matrix])
+* Changed icon to "Meat" for restaurant/steakhouse ([#2455], thanks [@fibonacci-matrix])
+* Use a crystall ball as an icon for esoteric shops ([#2459], thanks [@fibonacci-matrix])
+* Better cheese icon for shop=cheese from Pinhead, thanks to ooosssay for the icon ([#2487], thanks [@matkoniecz])
+* Replace the second-hand shop icon with the corresponding Carto icon ([#2462], thanks [@fibonacci-matrix])
+* Use proper icon for traffic\_calming=mini\_bumps ([#2472], thanks [@matkoniecz])
+* Use roentgen-traffic\_cushion for both preset and option ([#2473], thanks [@matkoniecz])
+* power=tower may be referred to as a pylon, add also other terms ([#2450], thanks [@matkoniecz])
+* Use "Venus" icon for gynaecologists ([#2464], thanks [@fibonacci-matrix])
+* Use Pinhead icon for lifeguard - thanks NPMap for the icon and quincylvania for collecting it! ([#2438], thanks [@matkoniecz])
+* Add icon for office/union ([#2447], thanks [@paulklie])
+* Use a more appropriate icon for charity shops ([#2460], thanks [@fibonacci-matrix])
+* Use "Blood drop" icon for haematologists ([#2467], thanks [@fibonacci-matrix])
+* Add covered to fields of picnic table ([#2490], thanks [@RudyTheDev])
+* Use "Lungs" icon for pulmonologists ([#2468], thanks [@fibonacci-matrix])
+* Use "eye" icon for ophthalmologists ([#2463], thanks [@fibonacci-matrix])
+* Use "Ear" icon for audiologists ([#2471], thanks [@fibonacci-matrix])
+* Use "foot" icon for podiatrists ([#2469], thanks [@fibonacci-matrix])
+* Set public transport presets with no defined vehicle mode (bus, tram etc.) to be non-searchable ([#2343], thanks [@Geo-2695])
+* Use a more appropriate icon for Ticket Validators ([#2458], thanks [@fibonacci-matrix])
+* Use a more appropriate icon for bagel fast foods ([#2461], thanks [@fibonacci-matrix])
+* Changed icon to "tube and toothbrush" for `shop=chemist` ([#2457], thanks [@fibonacci-matrix])
+* Make place=farm icon similar to other place= than physical features ([#2382], thanks [@matkoniecz])
+* Remove `military=nuclear_explosion_site` preset ([#2392], thanks [@matkoniecz])
+* Remove "Landuse" osmism from primary label, replace by "Land Use" ([#2375], thanks [@matkoniecz])
+* Use "Heart with cross" icon for cardiologists ([#2465], thanks [@fibonacci-matrix])
+* Smarter order of values for crossing field ([#2667], thanks [@ak8abhinay])
+* Added icons and translations for 'therapist' combobox ([#2628], thanks [@fibonacci-matrix])
+* Add religion identifiers to search terms of wayside shrine ([#2403], thanks [@matkoniecz])
+
+#### Regional Presets and Fields
+
+* Merge US and global presets for post boxes ([#2645], thanks [@matkoniecz])
+* Start using `locationSetCrossReference` ([#2588], thanks [@k-yle])
+* Add back crossing:markings=zebra:bicolour in Poland ([#2552], thanks [@matkoniecz])
+
+#### Bug Fixes
+
+* Fix bug with stringsCrossReference ([#2608], thanks [@k-yle])
+* Add destination to motorized roads ([#2569], thanks [@matkoniecz])
+* Fix field inheritance bug ([#2575], thanks [@k-yle])
+
+#### Documentation and Other Changes
+
+* Document consequence of instantiating preset with `"*"` wildcard value ([#2670], thanks [@matkoniecz])
+* Describe that editors should likely support by-tag search ([#2619], thanks [@matkoniecz])
+* Format JSON schema files ([#2616], thanks [@k-yle])
+* Fix bug with stringsCrossReference ([#2608], thanks [@k-yle])
+* Assign permissions specifically in deploy-preview.yml ([#2581], thanks [@matkoniecz])
+* Convert the remaining build scripts to typescript ([#2545], thanks [@k-yle])
+* Fix field inheritance bug ([#2575], thanks [@k-yle])
+* Clarify that inheriting from not yet existing fields is fine, as futureproofing ([#2585], thanks [@matkoniecz])
+* Fix build script on Windows assuming path separator for Regex ([#2546], thanks [@RudyTheDev])
+* Add some nitpicking to preset docs. ([#2562], thanks [@matkoniecz])
+* Ignore patch release updates of prettier ([#2206], thanks [@matkoniecz])
+* Update mention of osmfeatures ([#2561], thanks [@westnordost])
+* Link relevant code, fix bad references ([#2550], thanks [@matkoniecz])
+* Improve docs for preset categories ([#2539], thanks [@tordans])
+* Fix typo in SCHEMA.md ([#2537], thanks [@matkoniecz])
+* Replace confusing mix of callbacks and promises ([#2480], thanks [@k-yle])
+* Allow typescript to be used for the build scripts ([#2479], thanks [@k-yle])
+* Validate `locationSet` at compile-time ([#2533], thanks [@k-yle])
+* Mention =-1 and =reversible in context of onewayCheck field type ([#2456], thanks [@matkoniecz])
+* Automatic set location-set to include planet ([#2437], thanks [@tyrasd])
+* Direct link for roentgen icons repository ([#2489], thanks [@fibonacci-matrix])
+* Fix minor bugs in the build scripts ([#2446], thanks [@k-yle])
+* Fix typo in SCHEMA.md ([#2451], thanks [@matkoniecz])
+* Handle "build" label in release-drafter ([#2441], thanks [@matkoniecz])
+* Revert "Netlify preview: Add CORS for iD Staging deploy" ([#2436], thanks [@matkoniecz])
+
+[#134]: https://github.com/openstreetmap/id-tagging-schema/pull/134
+[#1014]: https://github.com/openstreetmap/id-tagging-schema/pull/1014
+[#1418]: https://github.com/openstreetmap/id-tagging-schema/pull/1418
+[#1534]: https://github.com/openstreetmap/id-tagging-schema/pull/1534
+[#1537]: https://github.com/openstreetmap/id-tagging-schema/pull/1537
+[#1539]: https://github.com/openstreetmap/id-tagging-schema/pull/1539
+[#1573]: https://github.com/openstreetmap/id-tagging-schema/pull/1573
+[#2082]: https://github.com/openstreetmap/id-tagging-schema/pull/2082
+[#2140]: https://github.com/openstreetmap/id-tagging-schema/pull/2140
+[#2206]: https://github.com/openstreetmap/id-tagging-schema/pull/2206
+[#2250]: https://github.com/openstreetmap/id-tagging-schema/pull/2250
+[#2327]: https://github.com/openstreetmap/id-tagging-schema/pull/2327
+[#2343]: https://github.com/openstreetmap/id-tagging-schema/pull/2343
+[#2375]: https://github.com/openstreetmap/id-tagging-schema/pull/2375
+[#2380]: https://github.com/openstreetmap/id-tagging-schema/pull/2380
+[#2382]: https://github.com/openstreetmap/id-tagging-schema/pull/2382
+[#2392]: https://github.com/openstreetmap/id-tagging-schema/pull/2392
+[#2400]: https://github.com/openstreetmap/id-tagging-schema/pull/2400
+[#2403]: https://github.com/openstreetmap/id-tagging-schema/pull/2403
+[#2418]: https://github.com/openstreetmap/id-tagging-schema/pull/2418
+[#2431]: https://github.com/openstreetmap/id-tagging-schema/pull/2431
+[#2436]: https://github.com/openstreetmap/id-tagging-schema/pull/2436
+[#2437]: https://github.com/openstreetmap/id-tagging-schema/pull/2437
+[#2438]: https://github.com/openstreetmap/id-tagging-schema/pull/2438
+[#2441]: https://github.com/openstreetmap/id-tagging-schema/pull/2441
+[#2443]: https://github.com/openstreetmap/id-tagging-schema/pull/2443
+[#2444]: https://github.com/openstreetmap/id-tagging-schema/pull/2444
+[#2446]: https://github.com/openstreetmap/id-tagging-schema/pull/2446
+[#2447]: https://github.com/openstreetmap/id-tagging-schema/pull/2447
+[#2450]: https://github.com/openstreetmap/id-tagging-schema/pull/2450
+[#2451]: https://github.com/openstreetmap/id-tagging-schema/pull/2451
+[#2452]: https://github.com/openstreetmap/id-tagging-schema/pull/2452
+[#2455]: https://github.com/openstreetmap/id-tagging-schema/pull/2455
+[#2456]: https://github.com/openstreetmap/id-tagging-schema/pull/2456
+[#2457]: https://github.com/openstreetmap/id-tagging-schema/pull/2457
+[#2458]: https://github.com/openstreetmap/id-tagging-schema/pull/2458
+[#2459]: https://github.com/openstreetmap/id-tagging-schema/pull/2459
+[#2460]: https://github.com/openstreetmap/id-tagging-schema/pull/2460
+[#2461]: https://github.com/openstreetmap/id-tagging-schema/pull/2461
+[#2462]: https://github.com/openstreetmap/id-tagging-schema/pull/2462
+[#2463]: https://github.com/openstreetmap/id-tagging-schema/pull/2463
+[#2464]: https://github.com/openstreetmap/id-tagging-schema/pull/2464
+[#2465]: https://github.com/openstreetmap/id-tagging-schema/pull/2465
+[#2467]: https://github.com/openstreetmap/id-tagging-schema/pull/2467
+[#2468]: https://github.com/openstreetmap/id-tagging-schema/pull/2468
+[#2469]: https://github.com/openstreetmap/id-tagging-schema/pull/2469
+[#2471]: https://github.com/openstreetmap/id-tagging-schema/pull/2471
+[#2472]: https://github.com/openstreetmap/id-tagging-schema/pull/2472
+[#2473]: https://github.com/openstreetmap/id-tagging-schema/pull/2473
+[#2478]: https://github.com/openstreetmap/id-tagging-schema/pull/2478
+[#2479]: https://github.com/openstreetmap/id-tagging-schema/pull/2479
+[#2480]: https://github.com/openstreetmap/id-tagging-schema/pull/2480
+[#2481]: https://github.com/openstreetmap/id-tagging-schema/pull/2481
+[#2485]: https://github.com/openstreetmap/id-tagging-schema/pull/2485
+[#2486]: https://github.com/openstreetmap/id-tagging-schema/pull/2486
+[#2487]: https://github.com/openstreetmap/id-tagging-schema/pull/2487
+[#2489]: https://github.com/openstreetmap/id-tagging-schema/pull/2489
+[#2490]: https://github.com/openstreetmap/id-tagging-schema/pull/2490
+[#2533]: https://github.com/openstreetmap/id-tagging-schema/pull/2533
+[#2536]: https://github.com/openstreetmap/id-tagging-schema/pull/2536
+[#2537]: https://github.com/openstreetmap/id-tagging-schema/pull/2537
+[#2539]: https://github.com/openstreetmap/id-tagging-schema/pull/2539
+[#2544]: https://github.com/openstreetmap/id-tagging-schema/pull/2544
+[#2545]: https://github.com/openstreetmap/id-tagging-schema/pull/2545
+[#2546]: https://github.com/openstreetmap/id-tagging-schema/pull/2546
+[#2547]: https://github.com/openstreetmap/id-tagging-schema/pull/2547
+[#2548]: https://github.com/openstreetmap/id-tagging-schema/pull/2548
+[#2549]: https://github.com/openstreetmap/id-tagging-schema/pull/2549
+[#2550]: https://github.com/openstreetmap/id-tagging-schema/pull/2550
+[#2552]: https://github.com/openstreetmap/id-tagging-schema/pull/2552
+[#2556]: https://github.com/openstreetmap/id-tagging-schema/pull/2556
+[#2559]: https://github.com/openstreetmap/id-tagging-schema/pull/2559
+[#2560]: https://github.com/openstreetmap/id-tagging-schema/pull/256
+[#2561]: https://github.com/openstreetmap/id-tagging-schema/pull/2561
+[#2562]: https://github.com/openstreetmap/id-tagging-schema/pull/2562
+[#2565]: https://github.com/openstreetmap/id-tagging-schema/pull/2565
+[#2566]: https://github.com/openstreetmap/id-tagging-schema/pull/2566
+[#2567]: https://github.com/openstreetmap/id-tagging-schema/pull/2567
+[#2569]: https://github.com/openstreetmap/id-tagging-schema/pull/2569
+[#2575]: https://github.com/openstreetmap/id-tagging-schema/pull/2575
+[#2576]: https://github.com/openstreetmap/id-tagging-schema/pull/2576
+[#2577]: https://github.com/openstreetmap/id-tagging-schema/pull/2577
+[#2581]: https://github.com/openstreetmap/id-tagging-schema/pull/2581
+[#2585]: https://github.com/openstreetmap/id-tagging-schema/pull/2585
+[#2588]: https://github.com/openstreetmap/id-tagging-schema/pull/2588
+[#2589]: https://github.com/openstreetmap/id-tagging-schema/pull/2589
+[#2597]: https://github.com/openstreetmap/id-tagging-schema/pull/2597
+[#2600]: https://github.com/openstreetmap/id-tagging-schema/pull/2600
+[#2603]: https://github.com/openstreetmap/id-tagging-schema/pull/2603
+[#2608]: https://github.com/openstreetmap/id-tagging-schema/pull/2608
+[#2610]: https://github.com/openstreetmap/id-tagging-schema/pull/2610
+[#2611]: https://github.com/openstreetmap/id-tagging-schema/pull/2611
+[#2616]: https://github.com/openstreetmap/id-tagging-schema/pull/2616
+[#2619]: https://github.com/openstreetmap/id-tagging-schema/pull/2619
+[#2621]: https://github.com/openstreetmap/id-tagging-schema/pull/2621
+[#2628]: https://github.com/openstreetmap/id-tagging-schema/pull/2628
+[#2629]: https://github.com/openstreetmap/id-tagging-schema/pull/2629
+[#2630]: https://github.com/openstreetmap/id-tagging-schema/pull/2630
+[#2631]: https://github.com/openstreetmap/id-tagging-schema/pull/2631
+[#2635]: https://github.com/openstreetmap/id-tagging-schema/pull/2635
+[#2636]: https://github.com/openstreetmap/id-tagging-schema/pull/2636
+[#2645]: https://github.com/openstreetmap/id-tagging-schema/pull/2645
+[#2646]: https://github.com/openstreetmap/id-tagging-schema/pull/2646
+[#2650]: https://github.com/openstreetmap/id-tagging-schema/pull/2650
+[#2651]: https://github.com/openstreetmap/id-tagging-schema/pull/2651
+[#2652]: https://github.com/openstreetmap/id-tagging-schema/pull/2652
+[#2655]: https://github.com/openstreetmap/id-tagging-schema/pull/2655
+[#2656]: https://github.com/openstreetmap/id-tagging-schema/pull/2656
+[#2657]: https://github.com/openstreetmap/id-tagging-schema/pull/2657
+[#2659]: https://github.com/openstreetmap/id-tagging-schema/pull/2659
+[#2660]: https://github.com/openstreetmap/id-tagging-schema/pull/2660
+[#2662]: https://github.com/openstreetmap/id-tagging-schema/pull/2662
+[#2664]: https://github.com/openstreetmap/id-tagging-schema/pull/2664
+[#2667]: https://github.com/openstreetmap/id-tagging-schema/pull/2667
+[#2670]: https://github.com/openstreetmap/id-tagging-schema/pull/2670
+[#2674]: https://github.com/openstreetmap/id-tagging-schema/pull/2674
+[@eeshm]: https://github.com/openstreetmap/id-tagging-schema/pull/eeshm
+
+
+# 7.0.0
+##### 2026-Jul-08
+
+### Breaking changes
+
+* Update to schema-builder version 7, see [migration guide](https://github.com/ideditor/schema-builder/blob/v7/MIGRATION_GUIDE.md) ([#2255], thanks [@k-yle], [@matkoniecz] and others involved)
+> [!IMPORTANT]
+> see [MIGRATION_GUIDE.md](./MIGRATION_GUIDE.md) for more details about each breaking change.
+
+#### Other Changes
+
+* Use Temaki icons to playground presets ([#2293], thanks [@aidenmurph])
+
+[#2255]: https://github.com/openstreetmap/id-tagging-schema/pull/2255
+[#2293]: https://github.com/openstreetmap/id-tagging-schema/pull/2293
+[@aidenmurph]: https://github.com/aidenmurph
+
+
+# schema-builder 7.0.0
+##### 2026-July-08
+
+###### Breaking changes
+
+> [!IMPORTANT]
+> see [MIGRATION_GUIDE.md](./MIGRATION_GUIDE.md) for more details about each breaking change.
+
+* :warning: Allow multiple values in `prerequisiteTag` property ([#87], thanks [@k-yle])
+* :warning: Add _schedule_ field type ([#101], thanks [@1ec5])
+* :warning: Add _integer_ field type ([#217], thanks [@k-yle])
+* :warning: Store `terms` and `aliases` as an array in the translation files ([#227], thanks [@k-yle])
+* :warning: Support discarding tags, not just keys ([#231], thanks [@k-yle])
+* :warning: Pinhead icon set is allowed as an additional source for icons ([#300], thanks [@matkoniecz])
+
+###### Non-breaking changes, which affect consumers
+
+* Define a schema for relation members ([#174], thanks [@k-yle])
+* Auto-generate type definitions from the json schema ([#177], thanks [@k-yle])
+* Add `allowDuplicates` property for semi-combo fields ([#178], thanks [@k-yle])
+* Dereference at build-time ([#281], thanks [@k-yle])
+* Allow icons for radio field ([#291], thanks [@matkoniecz])
+* Remove implicit inheritance ([#335], thanks [@matkoniecz])
+
+###### Non-breaking changes, which do NOT affect consumers
+
+* Allow individual field options to reference other translations ([#230], thanks [@k-yle])
+* Fix invalid json schema for the `required` field ([#172], thanks [@k-yle])
+* Add `$schema` and `$id` to all json schema for better IDE support ([#173], thanks [@k-yle])
+* Fix invalid eslint config ([#176], thanks [@k-yle])
+* Fix taginfo file not including base tags for `directionalCombo` ([#222], thanks [@k-yle])
+* Fix taginfo file only including the last key-value pair in the object ([#223], thanks [@k-yle])
+* Fix taginfo file having bogus key listed for `multiCombo`, make `multiCombo`, `manyCombo`, `check`, `defaultCheck`, `onewayCheck` listings more accurate, take into consideration `autoSuggestion` and `customValues` ([#331], thanks [@matkoniecz])
+* List Roentgen icons in taginfo dataset ([#321], thanks [@matkoniecz])
+* Allow fields & presets to reference the `locationSet` from other files ([#226], thanks [@k-yle])
+* Consider other unicode commas when splitting translated `terms` ([#228], thanks [@k-yle])
+* Make schemas stricter ([#242], thanks [@FloEdelmann])
+  * Arrays that now have to be non-empty and only allow unique items: deprecated tags, field `keys`/`options`/`terms`, preset `fields`/`moreFields`/`terms`/`aliases`, preset defaults `point`/`vertex`/`line`/`area`/`relation`
+  * Arrays that now have to be non-empty: field `locationSet.include`/`locationSet.exclude`
+  * Objects that now have to be non-empty: field `strings`/`strings.options`/`strings.types`/`strings.placeholders`/`locationSet`/`icons`, preset `locationSet`
+  * Objects that now disallow unknown properties: field `strings`/`strings.options`
+  * Only strings are now allowed as field `icons` values
+  * `rtype` is now required in field relation type `reference`s
+  * `title` and `description` are now required in field `strings.options`
+  * `name`, `icon` and `members` are now required in preset category
+  * `point`, `vertex`, `line`, `area` and `relation` are now required in preset defaults
+* Add validation for terms to be lowercase and sorted ([#243], thanks [@FloEdelmann])
+* Be more clear when complaining during build about value ordering ([#325], thanks [@matkoniecz] and [@k-yle])
+
+###### Docs
+
+* Preset properties > `name`: Explain edge case of presets with underscore ([#147], thanks [@tordans])
+* Explain that references don't respect the underscore convention ([#148], thanks [@tordans])
+* Fix typo ([#171], thanks [@matkoniecz])
+* Update directionalCombo docs to mention `:both` ([#179], thanks [@k-yle])
+* Document "strings" with "title" and "description" ([#205], thanks [@tordans])
+* Icons: Make table and add preview ([#254], thanks [@tordans])
+* Better phrasing in documentation of referencing ([#256], thanks [@matkoniecz])
+* link opening hours specs ([#274], thanks [@matkoniecz])
+* fix some typos ([#292], thanks [@matkoniecz])
+* fix broken links ([#328], thanks [@matkoniecz])
+* improve `removeTags` documentation ([#332], thanks [@matkoniecz])
+
+[#87]: https://github.com/ideditor/schema-builder/pull/87
+[#101]: https://github.com/ideditor/schema-builder/pull/101
+[#147]: https://github.com/ideditor/schema-builder/pull/147
+[#148]: https://github.com/ideditor/schema-builder/pull/148
+[#171]: https://github.com/ideditor/schema-builder/pull/171
+[#172]: https://github.com/ideditor/schema-builder/pull/172
+[#173]: https://github.com/ideditor/schema-builder/pull/173
+[#174]: https://github.com/ideditor/schema-builder/pull/174
+[#176]: https://github.com/ideditor/schema-builder/pull/176
+[#177]: https://github.com/ideditor/schema-builder/pull/177
+[#178]: https://github.com/ideditor/schema-builder/pull/178
+[#179]: https://github.com/ideditor/schema-builder/pull/179
+[#205]: https://github.com/ideditor/schema-builder/pull/205
+[#217]: https://github.com/ideditor/schema-builder/pull/217
+[#222]: https://github.com/ideditor/schema-builder/pull/222
+[#223]: https://github.com/ideditor/schema-builder/pull/223
+[#226]: https://github.com/ideditor/schema-builder/pull/226
+[#227]: https://github.com/ideditor/schema-builder/pull/227
+[#228]: https://github.com/ideditor/schema-builder/pull/228
+[#230]: https://github.com/ideditor/schema-builder/pull/230
+[#231]: https://github.com/ideditor/schema-builder/pull/231
+[#242]: https://github.com/ideditor/schema-builder/pull/242
+[#243]: https://github.com/ideditor/schema-builder/pull/243
+[#254]: https://github.com/ideditor/schema-builder/pull/254
+[#256]: https://github.com/ideditor/schema-builder/pull/256
+[#274]: https://github.com/ideditor/schema-builder/pull/274
+[#281]: https://github.com/ideditor/schema-builder/pull/281
+[#291]: https://github.com/ideditor/schema-builder/pull/291
+[#292]: https://github.com/ideditor/schema-builder/pull/292
+[#300]: https://github.com/ideditor/schema-builder/pull/300
+[#321]: https://github.com/ideditor/schema-builder/pull/321
+[#325]: https://github.com/ideditor/schema-builder/pull/325
+[#328]: https://github.com/ideditor/schema-builder/pull/328
+[#331]: https://github.com/ideditor/schema-builder/pull/331
+[#332]: https://github.com/ideditor/schema-builder/pull/332
+[#335]: https://github.com/ideditor/schema-builder/pull/335
+
+
+# 6.19.2
+##### 2026-Jul-08
+
+* `typeCombo` -> `combo`, to prevent useless `=yes` values (more cases) ([#2415], thanks [@matkoniecz])
+* do not remove address field in some obscure cases ([#2417], thanks [@matkoniecz])
+* yet another attempt to find more clear label for maxweightrating ([#2427], thanks [@matkoniecz])
+
+[#2415]: https://github.com/openstreetmap/id-tagging-schema/pull/2415
+[#2417]: https://github.com/openstreetmap/id-tagging-schema/pull/2417
+[#2427]: https://github.com/openstreetmap/id-tagging-schema/pull/2427
+
+
+# 6.19.1
+##### 2026-Jul-06
+
+* update translations
+
+
+# 6.19.0
+##### 2026-Jul-06
+
+#### New Presets
+
+* Add preset for `amenity=traffic_park` ([#2066], thanks [@ashree2118])
+* Created separate preset for sushi fast foods ([#2323], thanks [@fibonacci-matrix])
+* Don't suggest sport=motor for `highway=raceway`, create dedicated preset for `highway=raceway` without specified sport ([#2367], thanks [@matkoniecz])
+* Add preset for `boundary=protected_area` ([#2244], thanks [@k-yle])
+* Added Indian Fast Food and expanded Indian Restaurant presets ([#2118], thanks [@Naveena11-cmd])
+* Flower vending machine (preset and `vending=` value) ([#2334], thanks [@fibonacci-matrix])
+* Drinking water vending machines ([#2322], thanks [@fibonacci-matrix])
+
+#### New and Changed Fields
+
+* `amenity=trolley_bay` - remove capacity field ([#2401], thanks [@matkoniecz])
+* remove capacity from `man_made=dovecote` ([#2402], thanks [@matkoniecz])
+* use different placeholder for capacity, more fitting for more presets ([#2397], thanks [@matkoniecz])
+* support Gunshot Detector ([#2275], thanks [@matkoniecz])
+* `typeCombo` -> `combo`, to prevent useless `=yes` values (more cases) ([#2410], thanks [@matkoniecz])
+* Add `maxweightrating` in France (in future may be tweaked to allow `maxweightrating=` outside France) ([#1986], thanks [@ashree2118])
+* `typeCombo` -> `combo`, to prevent useless `=yes` values ([#2369], thanks [@matkoniecz])
+* Add Planet include to exclude-only `locationSets` (temporary workaround) ([#2381], thanks [@nathanpixodeo])
+* remove `capacity=` from `amenity=give_box` as unclear and not used and not documented ([#2398], thanks [@matkoniecz])
+* code review changes for `protect_class` ([#2376], thanks [@k-yle])
+* `typeCombo` -> `combo` - fix `trade=yes` appearing when user tries to cancel editing ([#2362], thanks [@matkoniecz])
+* Clarify assumed no state for crossing islands ([#2324], thanks [@KTibow])
+* Add `cuisine=austrian` ([#2264], thanks [@cuatim])
+* Remove `aerialway/capacity` field from "Goods Aerialway" preset" (field was specified as people per hour) ([#2364], thanks [@Geo-2695])
+* Added translatable key for `vending=bottle_return` ([#2342], thanks [@fibonacci-matrix])
+* Flower vending machine (preset and `vending` value) ([#2334], thanks [@fibonacci-matrix])
+* Reordering `bridge_combo` option values according to taginfo count ([#2325], thanks [@BrianMacIntosh])
+
+#### Changed Presets
+
+* Add incline to `living_street` more fields ([#2421], thanks [@RudyTheDev])
+* add "bike rack" term to `amenity=bicycle_parking` ([#2371], thanks [@matkoniecz])
+* add `support` as moreField in `information=guidepost` ([#2390], thanks [@matkoniecz])
+* clarify that `railway=abandoned` must have visible remains, with "Visible Railway Track Remnants" as a new label ([#2329], thanks [@matkoniecz])
+* "plumbing" should find `craft=plumber` ([#2355], thanks [@matkoniecz])
+* add some obvious terms to `office=estate_agent` ([#2359], thanks [@matkoniecz])
+* add address as moreField to `landuse=residential`, restores address display for `landuse=residential` from NSI ([#2373], thanks [@matkoniecz])
+* add term to capacity field ([#2370], thanks [@matkoniecz])
+* use breakwater icon also for `man_made=groyne` ([#2365], thanks [@matkoniecz])
+* code review changes for `protect_class` ([#2376], thanks [@k-yle])
+* Make `shop=florist` match on "flowers" ([#2340], thanks [@matkoniecz])
+* Add "bike parts" as term to Bike Shop preset ([#2005], thanks [@matkoniecz])
+* new icon for `building=outbuilding` ([#2349], thanks [@matkoniecz])
+* reorder some entries as demanded by linter ([#2366], thanks [@matkoniecz])
+* Change addr: neighbourhood placeholder to English (US) spelling, change takeaway to takeout to use English (US) ([#2358], thanks [@mugdhachalla])
+* Change 'brewery' field label to title case (Sold Beer Brands) ([#2356], thanks [@BrianMacIntosh])
+* Implementing icons from Roentgen 0.16.0 ([#2353], thanks [@BrianMacIntosh])
+* Added Indian Fast Food and expanded Indian Restaurant presets ([#2118], thanks [@Naveena11-cmd])
+* Allow building fields for Manor and allow address field on Castle presets ([#2338], thanks [@tyrasd])
+* Replace missing icons: `temaki-pump-manual`, `roentgen-telescope-radio` ([#2335], thanks [@baltpeter])
+* Prioritize peak preset slightly over related presets for double-tagged features ([#2331], thanks [@tyrasd])
+
+#### Deprecated Tags
+
+* remove `levels` -> `building:levels` suggestion ([#2378], thanks [@joelkoen])
+[#2378]: https://github.com/openstreetmap/id-tagging-schema/pull/2378
+
+#### Bug Fixes
+
+* Add incline to `living_street` more fields ([#2421], thanks [@RudyTheDev])
+* `typeCombo` -> `combo`, to prevent useless =yes values (more cases) ([#2410], thanks [@matkoniecz])
+* `typeCombo` -> `combo`, to prevent useless =yes values ([#2369], thanks [@matkoniecz])
+* add address as `moreField` to `landuse=residential`, restores address display for `landuse=residential` from NSI ([#2373], thanks [@matkoniecz])
+* Don't suggest `sport=motor` for `highway=raceway`, create dedicated preset for `highway=raceway` without specified sport ([#2367], thanks [@matkoniecz])
+* Add Planet include to exclude-only `locationSets` (temporary workaround) ([#2381], thanks [@nathanpixodeo])
+* remove capacity= from amenity\_give box as unclear and not used and not documented ([#2398], thanks [@matkoniecz])
+* remove `levels` -> `building:levels` suggestion ([#2378], thanks [@joelkoen])
+* typeCombo -> combo - fix `trade=yes` appearing when user tries to cancel editing ([#2362], thanks [@matkoniecz])
+* Remove `aerialway/capacity` field from "Goods Aerialway" preset" (field was specified as people per hour) ([#2364], thanks [@Geo-2695])
+
+
+#### Documentation and Other Changes
+
+* drop no longer needed `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24` ([#2420], thanks [@matkoniecz])
+* Tagging Schema Browser: Add compare view as alpha link to preview-comment ([#2413], thanks @tordans)
+* Netlify preview: Add CORS for iD Staging deploy ([#2412], thanks @tordans)
+* Record basic info what tagging schema is ([#2289], thanks [@matkoniecz])
+* Record new OSMF funding for work by matkoniecz (Mateusz Konieczny) ([#2348], thanks [@matkoniecz])
+* Netlify preview: Add CORS ([#2328], thanks @tordans)
+* Clarify on usage count necessary for tag to be established ([#2153], thanks [@matkoniecz])
+
+[#1986]: https://github.com/openstreetmap/id-tagging-schema/pull/1986
+[#2005]: https://github.com/openstreetmap/id-tagging-schema/pull/2005
+[#2066]: https://github.com/openstreetmap/id-tagging-schema/pull/2066
+[#2118]: https://github.com/openstreetmap/id-tagging-schema/pull/2118
+[#2118]: https://github.com/openstreetmap/id-tagging-schema/pull/2118
+[#2153]: https://github.com/openstreetmap/id-tagging-schema/pull/2153
+[#2244]: https://github.com/openstreetmap/id-tagging-schema/pull/2244
+[#2264]: https://github.com/openstreetmap/id-tagging-schema/pull/2264
+[#2275]: https://github.com/openstreetmap/id-tagging-schema/pull/2275
+[#2289]: https://github.com/openstreetmap/id-tagging-schema/pull/2289
+[#2322]: https://github.com/openstreetmap/id-tagging-schema/pull/2322
+[#2323]: https://github.com/openstreetmap/id-tagging-schema/pull/2323
+[#2324]: https://github.com/openstreetmap/id-tagging-schema/pull/2324
+[#2325]: https://github.com/openstreetmap/id-tagging-schema/pull/2325
+[#2328]: https://github.com/openstreetmap/id-tagging-schema/pull/2328
+[#2329]: https://github.com/openstreetmap/id-tagging-schema/pull/2329
+[#2331]: https://github.com/openstreetmap/id-tagging-schema/pull/2331
+[#2334]: https://github.com/openstreetmap/id-tagging-schema/pull/2334
+[#2335]: https://github.com/openstreetmap/id-tagging-schema/pull/2335
+[#2338]: https://github.com/openstreetmap/id-tagging-schema/pull/2338
+[#2340]: https://github.com/openstreetmap/id-tagging-schema/pull/2340
+[#2342]: https://github.com/openstreetmap/id-tagging-schema/pull/2342
+[#2348]: https://github.com/openstreetmap/id-tagging-schema/pull/2348
+[#2349]: https://github.com/openstreetmap/id-tagging-schema/pull/2349
+[#2353]: https://github.com/openstreetmap/id-tagging-schema/pull/2353
+[#2355]: https://github.com/openstreetmap/id-tagging-schema/pull/2355
+[#2356]: https://github.com/openstreetmap/id-tagging-schema/pull/2356
+[#2358]: https://github.com/openstreetmap/id-tagging-schema/pull/2358
+[#2359]: https://github.com/openstreetmap/id-tagging-schema/pull/2359
+[#2362]: https://github.com/openstreetmap/id-tagging-schema/pull/2362
+[#2362]: https://github.com/openstreetmap/id-tagging-schema/pull/2362
+[#2364]: https://github.com/openstreetmap/id-tagging-schema/pull/2364
+[#2365]: https://github.com/openstreetmap/id-tagging-schema/pull/2365
+[#2366]: https://github.com/openstreetmap/id-tagging-schema/pull/2366
+[#2367]: https://github.com/openstreetmap/id-tagging-schema/pull/2367
+[#2369]: https://github.com/openstreetmap/id-tagging-schema/pull/2369
+[#2369]: https://github.com/openstreetmap/id-tagging-schema/pull/2369
+[#2370]: https://github.com/openstreetmap/id-tagging-schema/pull/2370
+[#2371]: https://github.com/openstreetmap/id-tagging-schema/pull/2371
+[#2373]: https://github.com/openstreetmap/id-tagging-schema/pull/2373
+[#2373]: https://github.com/openstreetmap/id-tagging-schema/pull/2373
+[#2376]: https://github.com/openstreetmap/id-tagging-schema/pull/2376
+[#2378]: https://github.com/openstreetmap/id-tagging-schema/pull/2378
+[#2381]: https://github.com/openstreetmap/id-tagging-schema/pull/2381
+[#2390]: https://github.com/openstreetmap/id-tagging-schema/pull/2390
+[#2397]: https://github.com/openstreetmap/id-tagging-schema/pull/2397
+[#2398]: https://github.com/openstreetmap/id-tagging-schema/pull/2398
+[#2398]: https://github.com/openstreetmap/id-tagging-schema/pull/2398
+[#2401]: https://github.com/openstreetmap/id-tagging-schema/pull/2401
+[#2402]: https://github.com/openstreetmap/id-tagging-schema/pull/2402
+[#2410]: https://github.com/openstreetmap/id-tagging-schema/pull/2410
+[#2412]: https://github.com/openstreetmap/id-tagging-schema/pull/2412
+[#2413]: https://github.com/openstreetmap/id-tagging-schema/pull/2413
+[#2420]: https://github.com/openstreetmap/id-tagging-schema/pull/2420
+[#2421]: https://github.com/openstreetmap/id-tagging-schema/pull/2421
+
+[@fibonacci-matrix]: https://github.com/fibonacci-matrix
+[@Naveena11-cmd]: https://github.com/Naveena11-cmd
+[@mugdhachalla]: https://github.com/mugdhachalla
+[@joelkoen]: https://github.com/joelkoen
+[@nathanpixodeo]: https://github.com/nathanpixodeo
+[@KTibow]: https://github.com/KTibow
+[@baltpeter]: https://github.com/baltpeter
+
 
 # 6.18.0
 ##### 2026-Jun-12
@@ -1036,6 +1587,21 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [schema-builder#119]: https://github.com/ideditor/schema-builder/pull/119
 
 
+# schema-builder 6.5.1
+##### 2024-Mar-14
+
+* Also include category icons in `/interim/icons.json`
+
+
+# schema-builder 6.5.0
+##### 2024-Mar-14
+
+* Fix links to icons from the maki icon set ([#119], thanks [@Cj-Malone])
+* Write a list of used icons to the `/interim` directory, so they can be more timely pre-fetched/included by consumer applications like iD
+
+[#119]: https://github.com/ideditor/schema-builder/pull/119
+
+
 # 6.7.0
 ##### 2024-Mar-14
 
@@ -1249,6 +1815,18 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@zstadler]: https://github.com/zstadler
 
 
+# schema-builder 6.4.0
+##### 2023-Aug-25
+
+* Improve documentation of: Field inheritance ([#104]), Icons ([#103]), TagInfo output ([#102]), tag deprecations ([#105]), thanks [@tordans]
+* Enhance taginfo output: mention used special characters in the project description which are used in tag descriptions, resolve labels of presets/fields which use cross-referenced strings, include discarded tags in taginfo output
+
+[#102]: https://github.com/ideditor/schema-builder/pull/102
+[#103]: https://github.com/ideditor/schema-builder/pull/103
+[#104]: https://github.com/ideditor/schema-builder/pull/104
+[#105]: https://github.com/ideditor/schema-builder/pull/105
+
+
 # 6.4.1
 ##### 2023-Aug-16
 
@@ -1374,6 +1952,16 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#912]: https://github.com/openstreetmap/id-tagging-schema/pull/912
 [@pietervdvn]: https://github.com/pietervdvn
 [@Dimitrar5555]: https://github.com/Dimitrar5555
+
+
+# schema-builder 6.3.0
+##### 2023-May-23
+
+* Allow to specify alternative keys for `text`, `number`, `tel`, `email` and `url` fields. ([#98])
+* Fix regression to make the project work on Windows ([#97], thanks [@k-yle])
+
+[#97]: https://github.com/ideditor/schema-builder/pull/97
+[#98]: https://github.com/ideditor/schema-builder/pull/98
 
 
 # 6.2.0
@@ -1547,6 +2135,24 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@harahu]: https://github.com/harahu
 
 
+# schema-builder 6.2.0
+##### 2023-Mar-21
+
+* Produce transifex developer notes also for options of multi-key fields and fields with title/description strings ([#92])
+* Extend transifex developer notes for regional presets/fields ([#93])
+
+[#92]: https://github.com/ideditor/schema-builder/pull/92
+[#93]: https://github.com/ideditor/schema-builder/pull/93
+
+
+# schema-builder 6.1.0
+##### 2023-Mar-14
+
+* Update `teamki` URLs to new repository organization
+* Bump `glob` dependency to v9.3
+* Move documentation about icons to a separate page
+
+
 # 6.0.0
 ##### 2023-Mar-02
 
@@ -1651,12 +2257,35 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@UKChris-osm]: https://github.com/UKChris-osm
 
 
+# schema-builder 6.0.1
+##### 2023-Jan-20
+
+* Fix bug in validation of `prerequisiteTag` values (v6.0.0 does falsely disallow requirements with only a `key` but neither `value` nor `valueNot`)
+
+
 # 5.2.1
 
 #### Bugfixes
 * Revert restriction of Traffic Calming presets to vertices, which had unintended side effects with iD's validation mechanism ([#733])
 
 [#733]: https://github.com/openstreetmap/id-tagging-schema/issues/733
+
+
+# schema-builder 6.0.0
+##### 2023-Jan-20
+
+* :warning: Rename field type `cycleway` to `directionalCombo` ([#79], thanks [@tordans])
+  * :warning: the tag keys of this field are now split into two separate parts: the `key` property contains the common (e.g. `*:both`) variant of the tag and the `keys` property is for the directional (e.g. `:left`/`:right`) subtags
+* Introduce new `date` field type ([#76])
+* Allow the `Röntgen` icon set to be used for icons ([#75])
+* Allow to specify icons for values of combo fields ([#56])
+* Fix JSON schema's type definition of `prerequisiteTag` ([#81], thanks [@tordans]) and `reference` property of fields
+
+[#56]: https://github.com/ideditor/schema-builder/issues/56
+[#75]: https://github.com/ideditor/schema-builder/issues/75
+[#76]: https://github.com/ideditor/schema-builder/issues/76
+[#79]: https://github.com/ideditor/schema-builder/issues/79
+[#81]: https://github.com/ideditor/schema-builder/pull/81
 
 
 # 5.2.0
@@ -1751,6 +2380,15 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#676]: https://github.com/openstreetmap/id-tagging-schema/issues/676
 
 
+# schema-builder 5.3.0
+##### 2022-Dec-09
+
+* Add requirement to json schema that either `key` or `keys` property must be present on (most) fields ([#78])
+* Upgrade dependency `@transifex/api` to v5
+
+[#78]: https://github.com/ideditor/schema-builder/pull/78
+
+
 # 5.1.0
 
 #### :mega: Release Highlights
@@ -1802,6 +2440,27 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#656]: https://github.com/openstreetmap/id-tagging-schema/pull/656
 [@alanb43]: https://github.com/alanb43
 [@Zaczero]: https://github.com/Zaczero
+
+
+# schema-builder 5.2.2
+##### 2022-Nov-28
+
+* fix test and build commands on Windows OS (regression in v5.0.0) ([id-tagging-schema#655])
+
+[id-tagging-schema#655]: https://github.com/openstreetmap/id-tagging-schema/issues/655
+
+
+# schema-builder 5.2.1
+##### 2022-Nov-18
+
+* fix clearing the `dist` directory when running `buildDist` (regression in v5.2.0)
+
+
+# schema-builder 5.2.0
+##### 2022-Nov-18
+
+* upgrade transifex API version to v3
+* don't clear translations when running `buildDist` without translation settings
 
 
 # 5.0.1
@@ -1923,6 +2582,33 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@willemarcel]: https://github.com/willemarcel
 
 
+# schema-builder 5.1.1
+##### 2022-Sep-29
+
+* Fix a bug which caused a crash when fetching translations
+
+
+# schema-builder 5.1.0
+##### 2022-Sep-29
+
+* :warning: make `placeholder` property of fields referenceable like labels/terms/etc.
+
+
+# schema-builder 5.0.0
+##### 2022-Sep-29
+
+* :warning: add new `colour` field type ([#26])
+* :warning: add functionality to reference labels/strings from other fields/presets by using the referenced preset/field name in brackets, similar to how the fields/moreFields can be referenced between presets ([#42])
+* drop undocumented and unused `icon` property for fields ([#30])
+* refactor js code to be an ESM module ([#42])
+* improve documentation about usage of aliases and terms ([#57])
+
+[#26]: https://github.com/ideditor/schema-builder/issues/26
+[#30]: https://github.com/ideditor/schema-builder/issues/30
+[#42]: https://github.com/ideditor/schema-builder/issues/42
+[#57]: https://github.com/ideditor/schema-builder/pull/57
+
+
 # 3.5.1
 
 * Update distribution files and translations from Transifex.
@@ -2020,6 +2706,12 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 
 #### Bugfixes
 * Replace unavailable icon for new `moped_link` preset with an alternative.
+
+
+# schema-builder 4.0.8
+##### 2022-Jun-17
+
+* Taginfo metadata output: Include short description about deprecated tags
 
 
 # 3.4.0
@@ -2263,6 +2955,12 @@ Thanks to all contributors: [@matkoniecz], [@Binnette], [@danieldegroot2], [@arc
 [@rkost]: https://github.com/rkost
 [@HandyHat]: https://github.com/HandyHat
 [@Aniket]: https://github.com/Aniket
+
+
+# schema-builder 4.0.7
+##### 2022-Jan-28
+
+* Fix fetching of translations after upgrading `js-yaml` library to v4
 
 
 # 3.2.2
@@ -2519,6 +3217,14 @@ Thanks to all contributors: [@1ec5], [@andrewharvey], [@bagage], [@Bertware], [@
 [@ttomasz]: https://github.com/ttomasz
 
 
+# schema-builder 4.0.6
+##### 2022-Jan-18
+
+* Replace the broken `color` dependency with `chalk`
+* Use pipe separators instead of newlines for name translation comments
+* Filter out preset name from aliases and preset aliases from terms
+
+
 # 3.1.0
 
 #### :mega: Release Highlights
@@ -2552,6 +3258,93 @@ Thanks to all contributors: [@1ec5], [@andrewharvey], [@bagage], [@Bertware], [@
 [@westnordost]: https://github.com/westnordost
 [@quincylvania]: https://github.com/quincylvania
 
+
+# schema-builder 4.0.4
+##### 2020-Dec-10
+
+* Don't add incorrect option comments for fields with `keys`
+
+
+# schema-builder 4.0.3
+##### 2020-Dec-10
+
+* Fix issue with generating source_strings.yaml when there are string keys with whitespace
+
+
+# schema-builder 4.0.2
+##### 2020-Dec-10
+
+* Fix issue where only the first character of translated preset names would be saved
+
+
+# schema-builder 4.0.1
+##### 2020-Dec-10
+
+* Use commas instead of pluses to separate tags in the field label Transifex comments
+
+
+# schema-builder 4.0.0
+##### 2020-Dec-10
+
+* :warning: Separate `aliases` with newlines (\n) instead of commas
+* :warning: Don't include empty `terms` properties in the English locale
+* Make all `terms` lower case
+* Remove whitespace between `terms`
+* Collapse duplicate `terms`
+
+
+# schema-builder 3.1.0
+##### 2020-Dec-09
+
+* Add `aliases` preset property for listing `name` synonyms ([#3])
+* Fix an issue with generating some TagInfo field value descriptions
+
+[#3]: https://github.com/ideditor/schema-builder/issues/3
+
+
 # ≤ 3.0.0
 
 #### For versions ≤ 3.0.0 please visit the [iD changelog](https://github.com/openstreetmap/iD/blob/develop/CHANGELOG.md) :rocket: Presets sections
+
+
+# schema-builder 3.0.0
+##### 2020-Dec-08
+
+* :warning: Don't include English strings redundantly in built data files that are already in translation files
+* :warning: Rename `fetchTranslations` options:
+  * `credentials` -> `translCredentials`
+  * `organizationId` -> `translOrgId`
+  * `projectId` -> `translProjectId`
+  * `resourceIds` -> `translResourceIds`
+  * `reviewedOnly` -> `translReviewedOnly`
+* Accept translation options in the `buildDist` function in order to run `fetchTranslations` at the same time
+* Add `autoSuggestions` combo field property to control whether TagInfo dropdown options should be loaded
+* Add `customValues` combo field property to specify if freeform text values are allowed
+* Add optional `listReusedIcons` diagnostic option to find overused icons
+
+
+# schema-builder 2.1.0
+##### 2020-Nov-30
+
+* Build both minified and non-minified translation files ([#2])
+* Discard `terms` preset and field properties with no values
+
+[#2]: https://github.com/ideditor/schema-builder/issues/2
+
+
+# schema-builder 2.0.0
+##### 2020-Nov-25
+
+* :warning: Rename `build` endpoint to `buildDist`
+* :warning: Replace `countryCodes` and `notCountryCodes` preset and field properties with `locationSet`
+* :warning: Rename `maxspeed` field type to `roadspeed`
+* Add `roadheight` field type
+* Rename and relocate translations source file from `dist/translations/en.yaml` to `interim/source_strings.yaml`
+* Add `buildDev` endpoint for compiling development-only files (e.g. `interim/source_strings.yaml`)
+* Add `validate` endpoint for checking data errors without compiling any files
+* Add `fetchTranslations` endpoint for downloading translation files from Transifex
+* Add `sourceLocale` option for using a data language other than English
+* Include unminifed JSON files in the `dist` directory
+* Minify the source locale file (e.g. `dist/translations/en.json`) for consistency and space savings
+* Make `lib/index.js` the main module file
+* Enable code tests, es-lint, Travis CI, and Dependabot

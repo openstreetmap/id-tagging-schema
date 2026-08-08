@@ -1,0 +1,13 @@
+# Netlify custom response headers — https://docs.netlify.com/routing/headers/
+#
+# The PR-preview deploy publishes the repo root (`netlify deploy --dir=.`), so
+# the built schema JSON is served from `/dist/`. Allow external tools (tagging
+# schema browsers, diff/preview viewers, etc.) to fetch it cross-origin; without
+# this header the browser blocks the request and the fetch fails with a CORS
+# error. The published npm/jsDelivr copy already sends `Access-Control-Allow-Origin: *`.
+# Deploy: .github/workflows/deploy-preview.yml
+
+[[headers]]
+  for = "/dist/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"

@@ -18,5 +18,58 @@
         "key": "boundary",
         "value": "administrative"
     },
-    "name": "Administrative Boundary"
+    "name": "Administrative Boundary",
+    "relation": {
+        "reference": "boundary",
+        "allowDuplicateMembers": false,
+        "role_labels": {
+            "inner": "Inner",
+            "outer": "Outer",
+            "label": "Label",
+            "admin_centre": "Admin Center"
+        },
+        "members": [
+            {
+                "role": "inner",
+                "geometry": [
+                    "line",
+                    "area"
+                ]
+            },
+            {
+                "role": "outer",
+                "geometry": [
+                    "line",
+                    "area"
+                ],
+                "min": 1
+            },
+            {
+                "role": "label",
+                "geometry": [
+                    "point",
+                    "vertex"
+                ],
+                "matchTags": [
+                    {
+                        "place": "*"
+                    }
+                ],
+                "max": 1
+            },
+            {
+                "role": "admin_centre",
+                "geometry": [
+                    "point",
+                    "vertex"
+                ],
+                "matchTags": [
+                    {
+                        "place": "*"
+                    }
+                ],
+                "max": 1
+            }
+        ]
+    }
 }
