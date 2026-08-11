@@ -23,6 +23,14 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 7.1.1
+##### 2026-Aug-11
+
+* hotfix to address missing translations of referenced strings in non-English locales ([#2703])
+
+[#2703]: https://github.com/openstreetmap/id-tagging-schema/issues/2703
+
+
 # 7.1.0
 ##### 2026-Aug-07
 
