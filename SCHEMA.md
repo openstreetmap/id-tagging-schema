@@ -267,7 +267,7 @@ Note that as world is complex this is not exhaustive. For example `tourism/artwo
 
 In some cases single vertex may be member of multiple ways. In such case expected strategy would be to group listed options by how many parent ways list them as valid vertices.
 
-For example if `highway/track` and `highway/stream` intersect and both list `ford` preset as a valid vertex, then it should be listed before ones appearing on only one of parent ways.
+For example if `highway/track` and `waterway/stream` intersect and both list `ford` preset as a valid vertex, then it should be listed before ones appearing on only one of parent ways.
 
 Note: this feature is experimental. Feedback is welcome.
 
