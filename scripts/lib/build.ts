@@ -194,7 +194,7 @@ async function processData(_options: Partial<Options> | undefined, type: 'build-
   if (deprecated) fs.writeFileSync(distDir + '/deprecated.json', JSON.stringify(deprecated, null, 4));
   if (discarded) fs.writeFileSync(distDir + '/discarded.json', JSON.stringify(discarded, null, 4));
 
-  expandTStrings(tstrings);
+  expandTStrings(sourceLocale, tstrings);
   let translationsForJson: typeof translationsForYaml = {};
   translationsForJson[sourceLocale] = { presets: tstrings };
 
@@ -215,7 +215,7 @@ async function processData(_options: Partial<Options> | undefined, type: 'build-
   ];
 
   if (doFetchTranslations) {
-    tasks.push(fetchTranslations(options, references));
+    tasks.push(fetchTranslations(options, references, tstrings));
   }
   return Promise.all(tasks);
 }

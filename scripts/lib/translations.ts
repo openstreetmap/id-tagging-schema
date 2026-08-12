@@ -6,7 +6,8 @@ import { transifexApi, type Collection } from '@transifex/api';
 import { dereferencedTranslatableContent } from './references.ts';
 import type { Options, References, ResourceInfo, SourceStrings, TStrings } from './types.def.ts';
 
-export function expandTStrings(tstrings: TStrings) {
+export function expandTStrings(localeCode: string, tstrings: TStrings, sourceLanguageTranslations?: TStrings) {
+  const isCommonwealthEnglish = localeCode.startsWith('en-') && localeCode !== 'en-US';
   const presets = tstrings.presets || {};
   for (const key of Object.keys(presets)) {
     let preset = presets[key];
@@ -22,14 +23,31 @@ export function expandTStrings(tstrings: TStrings) {
       preset.aliases = preset.aliases.split('\n');
     }
 
-    if (!preset.terms) continue;
-
     // remove duplicates
-    preset.terms = Array.from(new Set(
+    const rawTerms = typeof preset.terms === 'string'
         // remove translation message if it was included somehow
-        (preset.terms as string).replace(/<.*>/, '')
+        ? preset.terms.replace(/<.*>/, '')
           // convert to an array
           .split(',')
+        : [];
+
+    // for en-* translations, copy the american translations as alternative terms
+    const americanPreset = sourceLanguageTranslations?.presets[key];
+    if (isCommonwealthEnglish && americanPreset) {
+        const extaTerms = [
+            ...(Array.isArray(americanPreset.terms) ? americanPreset.terms : []),
+            ...(Array.isArray(americanPreset.aliases) ? americanPreset.aliases : []),
+            ...(americanPreset.name ? [americanPreset.name] : []),
+        ];
+        const existingName = (preset.name || americanPreset.name)?.toLowerCase();
+        rawTerms.push(...extaTerms.filter(value => value.toLowerCase() !== existingName));
+    }
+
+    if (!rawTerms.length) continue;
+
+
+    preset.terms = Array.from(new Set(
+        rawTerms
           // make everything lowercase and remove whitespace
           .map(s => s.toLowerCase().trim())
           // remove empty strings
@@ -48,14 +66,30 @@ export function expandTStrings(tstrings: TStrings) {
   const fields = tstrings.fields || {};
   for (const key of Object.keys(fields)) {
     let field = fields[key];
-    if (!field.terms) continue;
-
     // remove duplicates
-    field.terms = Array.from(new Set(
+    const rawTerms = typeof field.terms === 'string'
       // remove translation message if it was included somehow
-      (field.terms as string).replace(/\[.*\]/, '')
+      ? field.terms.replace(/\[.*\]/, '')
       // convert to an array
       .split(/[,،]/)
+      : [];
+
+    // for en-* translations, copy the american translations as alternative terms
+    const americanField = sourceLanguageTranslations?.fields[key];
+    if (isCommonwealthEnglish && americanField) {
+        const extaTerms = [
+            ...(Array.isArray(americanField.terms) ? americanField.terms : []),
+            ...(Array.isArray(americanField.aliases) ? americanField.aliases : []),
+            ...(americanField.label ? [americanField.label] : []),
+        ]
+        const existingLabel = (field.label || americanField.label)?.toLowerCase();
+        rawTerms.push(...extaTerms.filter(value => value.toLowerCase() !== existingLabel));
+    }
+
+    if (!rawTerms.length) continue;
+
+    field.terms = Array.from(new Set(
+      rawTerms
       // make everything lowercase and remove whitespace
       .map(s => s.toLowerCase().trim())
       // remove empty strings
@@ -83,7 +117,7 @@ export function sortObject<T extends object>(original: T): T {
   return sorted;
 }
 
-async function fetchTranslations(_options: Partial<Options>, references: References) {
+async function fetchTranslations(_options: Partial<Options>, references: References, sourceLanguageTranslations: TStrings) {
 
   // Transifex doesn't allow anonymous downloading
   if (process.env.transifex_password) {
@@ -188,7 +222,7 @@ async function fetchTranslations(_options: Partial<Options>, references: Referen
 
         let locale: SourceStrings = {};
         results.forEach((result, i) => {
-          expandTStrings(result.presets || {});
+          expandTStrings(codes[i], result.presets || {}, sourceLanguageTranslations);
           locale[codes[i]] = result;
         });
 
