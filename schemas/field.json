@@ -7,7 +7,8 @@
     "properties": {
         "key": {
             "description": "Tag key whose value is to be displayed",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         },
         "keys": {
             "description": "Tag keys whose value is to be displayed",
@@ -15,7 +16,8 @@
             "minItems": 1,
             "uniqueItems": true,
             "items": {
-                "type": "string"
+                "type": "string",
+                "minLength": 1
             }
         },
         "reference": {
@@ -26,11 +28,13 @@
                     "properties": {
                         "key": {
                             "description": "For documentation of a key",
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 1
                         },
                         "value": {
                             "description": "For documentation of a tag (key and value)",
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 1
                         }
                     },
                     "additionalProperties": false,
@@ -43,7 +47,8 @@
                     "properties": {
                         "rtype": {
                             "description": "For documentation of a relation type",
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 1
                         }
                     },
                     "additionalProperties": false,
@@ -93,7 +98,8 @@
         },
         "label": {
             "description": "English label for the field caption. A field can reference the label of another by using that field's identifier contained in brackets (e.g. {field}), in which case also the field's terms will be referenced from that field.",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         },
         "geometry": {
             "description": "If specified, only show the field for these kinds of geometry",
@@ -106,7 +112,8 @@
         },
         "default": {
             "description": "The default value for this field",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         },
         "options": {
             "description": "List of untranslatable string suggestions (combo fields)",
@@ -114,7 +121,8 @@
             "minItems": 1,
             "uniqueItems": true,
             "items": {
-                "type": "string"
+                "type": "string",
+                "minLength": 1
             }
         },
         "autoSuggestions": {
@@ -134,7 +142,8 @@
         },
         "placeholder": {
             "description": "Placeholder text for this field. A field can reference the placeholder text of another by using that field's identifier contained in brackets, like {field}.",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         },
         "strings": {
             "description": "Strings sent to transifex for translation",
@@ -149,16 +158,19 @@
                     "additionalProperties": {
                         "oneOf": [
                             {
-                                "type": "string"
+                                "type": "string",
+                                "minLength": 1
                             },
                             {
                                 "type": "object",
                                 "properties": {
                                     "title": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "minLength": 1
                                     },
                                     "description": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "minLength": 1
                                     }
                                 },
                                 "required": [
@@ -175,7 +187,8 @@
                     "type": "object",
                     "minProperties": 1,
                     "additionalProperties": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1
                     }
                 },
                 "placeholders": {
@@ -183,7 +196,8 @@
                     "type": "object",
                     "minProperties": 1,
                     "additionalProperties": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1
                     }
                 },
                 "labels": {
@@ -191,14 +205,16 @@
                     "type": "object",
                     "minProperties": 1,
                     "additionalProperties": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1
                     }
                 }
             }
         },
         "stringsCrossReference": {
             "description": "A field can reference strings of another by using that field's identifier contained in brackets, like {field}.",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         },
         "snake_case": {
             "description": "If true, replace spaces with underscores in the tag value (combo fields only)",
@@ -237,7 +253,8 @@
                     "properties": {
                         "key": {
                             "description": "The key of the required tag",
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 1
                         }
                     },
                     "additionalProperties": false,
@@ -251,11 +268,13 @@
                     "properties": {
                         "key": {
                             "description": "The key of the required tag",
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 1
                         },
                         "value": {
                             "description": "The value that the tag must have. (alternative to 'valueNot')",
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 1
                         }
                     },
                     "additionalProperties": false,
@@ -270,13 +289,15 @@
                     "properties": {
                         "key": {
                             "description": "The key of the required tag",
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 1
                         },
                         "values": {
                             "description": "The values that the tag must have. (alternative to 'valuesNot')",
                             "type": "array",
                             "items": {
-                                "type": "string"
+                                "type": "string",
+                                "minLength": 1
                             },
                             "minItems": 1
                         }
@@ -293,11 +314,13 @@
                     "properties": {
                         "key": {
                             "description": "The key of the required tag",
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 1
                         },
                         "valueNot": {
                             "description": "The value that the tag cannot have. (alternative to 'value')",
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 1
                         }
                     },
                     "additionalProperties": false,
@@ -312,13 +335,15 @@
                     "properties": {
                         "key": {
                             "description": "The key of the required tag",
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 1
                         },
                         "valuesNot": {
                             "description": "The values that the tag cannot have. (alternative to 'values')",
                             "type": "array",
                             "items": {
-                                "type": "string"
+                                "type": "string",
+                                "minLength": 1
                             },
                             "minItems": 1
                         }
@@ -335,7 +360,8 @@
                     "properties": {
                         "keyNot": {
                             "description": "A key that must not be present",
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 1
                         }
                     },
                     "additionalProperties": false,
@@ -351,7 +377,8 @@
             "minItems": 1,
             "uniqueItems": true,
             "items": {
-                "type": "string"
+                "type": "string",
+                "minLength": 1
             }
         },
         "locationSet": {
@@ -364,7 +391,8 @@
                     "minItems": 1,
                     "uniqueItems": true,
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1
                     }
                 },
                 "exclude": {
@@ -372,7 +400,8 @@
                     "minItems": 1,
                     "uniqueItems": true,
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1
                     }
                 }
             },
@@ -380,16 +409,19 @@
         },
         "locationSetCrossReference": {
             "type": "string",
+            "minLength": 1,
             "pattern": "^\\{.+\\}$",
             "description": "An string referencing another preset which has a locationSet"
         },
         "urlFormat": {
             "description": "Permalink URL for `identifier` fields. Must contain a {value} placeholder",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         },
         "pattern": {
             "description": "Regular expression that a valid `identifier` value is expected to match",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         },
         "usage": {
             "description": "The manner and context in which the field is used",
@@ -406,12 +438,14 @@
             "type": "object",
             "minProperties": 1,
             "additionalProperties": {
-                "type": "string"
+                "type": "string",
+                "minLength": 1
             }
         },
         "iconsCrossReference": {
             "description": "A field can reference icons of another by using that field's identifier contained in brackets, like {field}.",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         }
     },
     "additionalProperties": false,
