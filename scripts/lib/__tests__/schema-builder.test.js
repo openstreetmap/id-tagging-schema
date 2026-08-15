@@ -1,26 +1,16 @@
 import fs from 'fs';
-import shell from 'shelljs';
-import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import { afterAll, beforeEach, describe, expect, it } from 'vitest';
 import schemaBuilder from '../index.js';
 
 const _workspace = 'workspace';
 
-beforeAll(() => {
-  if (!fs.existsSync(_workspace)) {
-    fs.mkdirSync(_workspace);
-  }
+afterAll(async () => {
+  await fs.promises.rm(_workspace, { force: true, recursive: true });
 });
 
-afterAll(() => {
-  shell.rm('-rf', [
-    _workspace
-  ]);
-});
-
-beforeEach(() => {
-  shell.rm('-rf', [
-    _workspace + '/*'
-  ]);
+beforeEach(async () => {
+  await fs.promises.rm(_workspace, { force: true, recursive: true });
+  await fs.promises.mkdir(_workspace, { recursive: true });
 });
 
 function writeSourceData(data) {
