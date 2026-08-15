@@ -1,10 +1,10 @@
 import { fileURLToPath } from 'node:url';
 import { styleText } from 'node:util';
+import { join } from 'node:path';
 import fs from 'fs';
 import Validator, { type SchemaObject as Schema } from 'ajv';
 import betterAjvErrors from 'better-ajv-errors';
 import path from 'path';
-import shell from 'shelljs';
 import { dump as dumpYaml } from 'js-yaml';
 import marky from 'marky';
 import { LocationConflation } from '@rapideditor/location-conflation';
@@ -165,8 +165,8 @@ async function processData(_options: Partial<Options> | undefined, type: string)
   const sourceLocale = options.sourceLocale;
 
   const interimDir = './' + options.interimDirectory;
-  if (!fs.existsSync(interimDir)) fs.mkdirSync(interimDir);
-  shell.rm('-f', [interimDir + '/*']); // clean directory
+  fs.rmSync(interimDir, { recursive: true, force: true });
+  fs.mkdirSync(interimDir);
 
   let translations = generateTranslations(fields, presets, tstrings, searchableFieldIDs);
 
@@ -186,9 +186,13 @@ async function processData(_options: Partial<Options> | undefined, type: string)
   const distDir = './' + options.outDirectory;
   if (!fs.existsSync(distDir)) fs.mkdirSync(distDir);
   // clean directory
-  shell.rm('-f', [distDir + '/*.*']);
+  for (const entry of await fs.promises.readdir(distDir, { withFileTypes: true })) {
+    if (entry.isFile()) {
+      await fs.promises.rm(join(distDir, entry.name), { force: true });
+    }
+  }
   if (doFetchTranslations) {
-    shell.rm('-rf', [distDir + '/translations']);
+    await fs.promises.rm(join(distDir, 'translations'), { recursive: true, force: true });
   }
 
   categories = sortObject(categories);
