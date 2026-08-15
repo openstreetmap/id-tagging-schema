@@ -25,19 +25,19 @@ export interface Preset {
     [k: string]: string
   }
   /**
-   * Tags that are removed when changing to another preset (default is the same value as 'addTags' which in turn defaults to 'tags')
+   * Tags that are removed when changing to another preset (default is the same value as 'addTags' which in turn defaults to 'tags'). Editors may additionally remove other tags such as tags of the old preset's fields.
    */
   removeTags?: {
     [k: string]: string
   }
   /**
-   * Default form fields that are displayed for the preset. A preset can reference the fields of another by using that preset's identifier contained in brackets, like {preset}.
+   * Default form fields that are displayed for the preset. A preset can reference the fields of another by using that preset's identifier contained in brackets as one of the entries, like {preset}.
    *
    * @minItems 1
    */
   fields?: string[]
   /**
-   * Additional form fields that can be attached with the 'Add field' dropdown. A preset can reference the "moreFields" of another by using that preset's identifier contained in brackets, like {preset}.
+   * Additional form fields that can be attached with the 'Add field' dropdown. A preset can reference the "moreFields" of another by using that preset's identifier contained in brackets as one of the entries, like {preset}.
    *
    * @minItems 1
    */
@@ -88,7 +88,7 @@ export interface Preset {
    */
   replacement?: string
   /**
-   * An object specifying the IDs of regions where this preset is or isn't valid. See: https://github.com/ideditor/location-conflation
+   * An object specifying the IDs of regions where this preset is or isn't valid. See: https://github.com/ideditor/location-conflation (but "include": ["Planet"] may and should be omitted)
    */
   locationSet?: {
     include?: string[]

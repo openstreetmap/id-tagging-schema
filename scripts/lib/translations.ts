@@ -1,7 +1,6 @@
 /* Downloads the latest translations from Transifex */
 import { setTimeout } from 'node:timers/promises';
 import fs from 'fs';
-import fetch from 'node-fetch';
 import { load as loadYaml } from 'js-yaml';
 import { transifexApi, type Collection } from '@transifex/api';
 import { dereferencedTranslatableContent } from './references.ts';

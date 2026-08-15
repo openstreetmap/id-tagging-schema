@@ -7,7 +7,8 @@
     "properties": {
         "name": {
             "description": "The English name for the feature. A preset can reference the label of another by using that preset's identifier contained in brackets (e.g. {preset}), in which case also the preset's aliases and terms will also be referenced from that preset.",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         },
         "geometry": {
             "description": "Valid geometry types for the feature, in order of preference",
@@ -29,21 +30,24 @@
             "description": "Tags that must be present for the preset to match",
             "type": "object",
             "additionalProperties": {
-                "type": "string"
+                "type": "string",
+                "minLength": 1
             }
         },
         "addTags": {
             "description": "Tags that are added when changing to the preset (default is the same value as 'tags')",
             "type": "object",
             "additionalProperties": {
-                "type": "string"
+                "type": "string",
+                "minLength": 1
             }
         },
         "removeTags": {
             "description": "Tags that are removed when changing to another preset (default is the same value as 'addTags' which in turn defaults to 'tags'). Editors may additionally remove other tags such as tags of the old preset's fields.",
             "type": "object",
             "additionalProperties": {
-                "type": "string"
+                "type": "string",
+                "minLength": 1
             }
         },
         "fields": {
@@ -52,7 +56,8 @@
             "minItems": 1,
             "uniqueItems": true,
             "items": {
-                "type": "string"
+                "type": "string",
+                "minLength": 1
             }
         },
         "moreFields": {
@@ -61,16 +66,19 @@
             "minItems": 1,
             "uniqueItems": true,
             "items": {
-                "type": "string"
+                "type": "string",
+                "minLength": 1
             }
         },
         "icon": {
             "description": "Name of preset icon which represents this preset",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         },
         "imageURL": {
             "description": "The URL of a remote image that is more specific than 'icon'",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         },
         "terms": {
             "description": "English search terms or related keywords",
@@ -78,7 +86,8 @@
             "minItems": 1,
             "uniqueItems": true,
             "items": {
-                "type": "string"
+                "type": "string",
+                "minLength": 1
             }
         },
         "aliases": {
@@ -87,7 +96,8 @@
             "minItems": 1,
             "uniqueItems": true,
             "items": {
-                "type": "string"
+                "type": "string",
+                "minLength": 1
             }
         },
         "searchable": {
@@ -106,11 +116,13 @@
             "properties": {
                 "key": {
                     "description": "For documentation of a key",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1
                 },
                 "value": {
                     "description": "For documentation of a tag (key and value)",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1
                 }
             },
             "additionalProperties": false,
@@ -120,7 +132,8 @@
         },
         "replacement": {
             "description": "The ID of a preset that is preferable to this one",
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         },
         "locationSet": {
             "description": "An object specifying the IDs of regions where this preset is or isn't valid. See: https://github.com/ideditor/location-conflation (but \"include\": [\"Planet\"] may and should be omitted)",
@@ -130,14 +143,16 @@
                     "type": "array",
                     "uniqueItems": true,
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1
                     }
                 },
                 "exclude": {
                     "type": "array",
                     "uniqueItems": true,
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1
                     }
                 }
             },
@@ -146,6 +161,7 @@
         },
         "locationSetCrossReference": {
             "type": "string",
+            "minLength": 1,
             "pattern": "^\\{.+\\}$",
             "description": "An string referencing another preset which has a locationSet"
         },
@@ -178,6 +194,7 @@
         "relationCrossReference": {
             "description": "A preset can reference the relation schema from another preset, instead of defining the same schema again. If present, then the `relation` property must not appear.",
             "type": "string",
+            "minLength": 1,
             "pattern": "^\\{.+\\}$"
         }
     },
@@ -193,6 +210,7 @@
             "properties": {
                 "reference": {
                     "type": "string",
+                    "minLength": 1,
                     "description": "The “permanent relation type ID”, this should match the value of https://osm.wiki/Property:P41 in the OSM wiki’s wikibase system."
                 },
                 "allowDuplicateMembers": {
@@ -202,7 +220,8 @@
                 "role_labels": {
                     "type": "object",
                     "additionalProperties": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1
                     },
                     "minProperties": 1,
                     "description": "The labels for each role, in the default language. The role and the label can both be empty strings."
@@ -214,6 +233,7 @@
                         "properties": {
                             "role": {
                                 "type": "string",
+                                "minLength": 1,
                                 "description": "The relation role. An empty string is allowed."
                             },
                             "geometry": {
@@ -229,7 +249,8 @@
                                 "items": {
                                     "type": "object",
                                     "additionalProperties": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "minLength": 1
                                     },
                                     "minProperties": 1
                                 },

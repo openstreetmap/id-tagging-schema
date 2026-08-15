@@ -1,9 +1,10 @@
 import { fileURLToPath } from 'node:url';
 import { styleText } from 'node:util';
+import { join } from 'node:path';
 import fs from 'fs';
-import { Validator, type Schema } from 'jsonschema';
+import Validator, { type SchemaObject as Schema } from 'ajv';
+import betterAjvErrors from 'better-ajv-errors';
 import path from 'path';
-import shell from 'shelljs';
 import { dump as dumpYaml } from 'js-yaml';
 import marky from 'marky';
 import { LocationConflation } from '@rapideditor/location-conflation';
@@ -13,6 +14,7 @@ import type * as Taginfo from 'taginfo-projects';
 import { isReference, dereferencedTranslatableContent, dereferenceUntranslatedContent } from './references.ts';
 import fetchTranslations, { expandTStrings, sortObject } from './translations.ts';
 import type { Field, Geometry, Preset, AllFields, AllPresets, References, TStrings, Options, AllCategories, TaginfoTag, TaginfoSchema, PresetDefaults, Deprecated, Discarded, SourceStrings, PresetCategory } from './types.def.ts';
+import { printErrorsForCI, type SchemaError } from './ci.ts';
 
 const require = createRequire(import.meta.url);
 
@@ -25,7 +27,17 @@ const discardedSchema = require('../../schemas/discarded.json');
 
 let _currBuild: Promise<void> | null = null;
 
-const jsonschema = new Validator();
+const jsonschema = new Validator({
+  allErrors: true,
+  schemas: [
+    fieldSchema,
+    presetSchema,
+    categorySchema,
+    defaultsSchema,
+    deprecatedSchema,
+    discardedSchema,
+  ],
+});
 const locationConflation = new LocationConflation();
 
 function validateData(options?: Options) {
@@ -128,15 +140,23 @@ async function processData(_options: Partial<Options> | undefined, type: string)
   let presets = generatePresets(dataDir, tstrings, searchableFieldIDs, options.listReusedIcons, references);
   if (options.processPresets) options.processPresets(presets);
 
+  const defaults = read<PresetDefaults>(dataDir + '/preset_defaults.json');
+  if (defaults) {
+    validateSchema(dataDir + '/preset_defaults.json', defaults, defaultsSchema);
+  }
+
+  if (schemaErrors.length) {
+    printErrorsForCI(schemaErrors);
+    process.exit(1);
+  }
+
   // Additional consistency checks
   validateCategoryPresets(categories, presets);
   validatePresetFields(presets, fields);
 
   dereferenceUntranslatedContent(presets, fields, references);
 
-  const defaults = read<PresetDefaults>(dataDir + '/preset_defaults.json');
   if (defaults) {
-    validateSchema(dataDir + '/preset_defaults.json', defaults, defaultsSchema);
     validateDefaults(defaults, categories, presets);
   }
 
@@ -145,8 +165,8 @@ async function processData(_options: Partial<Options> | undefined, type: string)
   const sourceLocale = options.sourceLocale;
 
   const interimDir = './' + options.interimDirectory;
-  if (!fs.existsSync(interimDir)) fs.mkdirSync(interimDir);
-  shell.rm('-f', [interimDir + '/*']); // clean directory
+  fs.rmSync(interimDir, { recursive: true, force: true });
+  fs.mkdirSync(interimDir);
 
   let translations = generateTranslations(fields, presets, tstrings, searchableFieldIDs);
 
@@ -166,9 +186,13 @@ async function processData(_options: Partial<Options> | undefined, type: string)
   const distDir = './' + options.outDirectory;
   if (!fs.existsSync(distDir)) fs.mkdirSync(distDir);
   // clean directory
-  shell.rm('-f', [distDir + '/*.*']);
+  for (const entry of await fs.promises.readdir(distDir, { withFileTypes: true })) {
+    if (entry.isFile()) {
+      await fs.promises.rm(join(distDir, entry.name), { force: true });
+    }
+  }
   if (doFetchTranslations) {
-    shell.rm('-rf', [distDir + '/translations']);
+    await fs.promises.rm(join(distDir, 'translations'), { recursive: true, force: true });
   }
 
   categories = sortObject(categories);
@@ -218,23 +242,20 @@ function read<T>(f: string): T {
 }
 
 
+let schemaErrors: SchemaError[] = [];
 function validateSchema(file: string, instance: unknown, schema: Schema) {
-  // add this schema to the cache, so $ref can be resolved faster
-  jsonschema.addSchema(schema);
+  let validate = jsonschema.getSchema(schema.$id!)!;
 
-  let validationErrors = jsonschema.validate(instance, schema).errors;
-
-  if (validationErrors.length) {
+  if (!validate(instance) && validate.errors) {
     process.stderr.write(`${file}: \n`);
-    validationErrors.forEach(error => {
-      if (error.property) {
-        process.stderr.write(error.property + ' ' + error.message + '\n');
-      } else {
-        process.stderr.write(error + '\n');
-      }
-    });
+    const json = fs.readFileSync(file, 'utf8');
+    const errors = betterAjvErrors(schema, instance, validate.errors, { json, format: 'js' });
+    const output = betterAjvErrors(schema, instance, validate.errors, { json, format: 'cli' });
+
+    schemaErrors.push(...errors.map(error => ({ error, file })));
+
+    process.stderr.write(output);
     process.stdout.write('\n');
-    process.exit(1);
   }
 }
 
