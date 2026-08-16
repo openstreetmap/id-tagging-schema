@@ -85,7 +85,7 @@ If you have [set up](https://github.com/openstreetmap/iD#installation) your own 
 The following `npm` commands are used in this repository:
 
 * `npm install` – installs or updates the repository's required dependencies
-* `npm test` – validates the source data
+* `npm test` – runs unit tests for the internal build scripts. You don't need to run this unless you're modifying the TypeScript code.
 * `npm run build` – validates the source data and builds some files which are used during development (e.g. strings to be supplied to the translation platform)
 * `npm run dist` – validates the source data and compiles output files for iD
 * `npm run dist -- translations` – fetches translations from transifex and compiles the translations files for iD

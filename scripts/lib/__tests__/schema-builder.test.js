@@ -33,24 +33,6 @@ describe('schema-builder', () => {
   it('accesses modules without error', () => {
     expect(schemaBuilder && schemaBuilder.buildDist).not.toBeUndefined();
     expect(schemaBuilder && schemaBuilder.buildDev).not.toBeUndefined();
-    expect(schemaBuilder && schemaBuilder.validate).not.toBeUndefined();
-  });
-
-  it('runs validate', () => {
-    writeSourceData({
-      'data/presets/natural.json': {
-        tags: {
-          natural: '*'
-        },
-        geometry: ['point', 'vertex', 'line', 'area', 'relation'],
-        name: 'Natural Feature'
-      }
-    });
-    schemaBuilder.validate({
-      inDirectory: _workspace + '/data'
-    });
-    expect(fs.existsSync(_workspace + '/interim')).toBe(false);
-    expect(fs.existsSync(_workspace + '/dist')).toBe(false);
   });
 
   it('runs buildDev', () => {
