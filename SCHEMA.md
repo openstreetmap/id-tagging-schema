@@ -94,6 +94,8 @@ A list of synonyms for the preset's `name`. These are alternative terms a preset
 
 A list of additional search terms or keywords for the preset. These might be names which describe a subset of the preset's features, or simply related terms a user might enter when searching for the preset.
 
+Note that editors should also list a preset when a user searches by the preset's tags (`tags` or `addTags`) directly. For example, searching by `natural=tree` or `amenity=school` or "water_tank", maybe also "water tank" likely also should give relevant results. These tag key/value pairs should not be expected to be manually listed in terms (or translated into other languages) unless they are also actually relevant terms on their own.
+
 ##### `geometry`
 
 An array of possible geometry types that a feature must have in order to match this preset.
@@ -112,7 +114,7 @@ This property is required. There is no default.
 
 ##### `tags`
 
-An object with the `"key": "value"` tags a feature must have to match this preset. A `"*"` wildcard value can be set to have this preset match any value for that key.
+An object with the `"key": "value"` tags a feature must have to match this preset. A `"*"` wildcard value can be set to have this preset match any value for that key. When an object is created using a preset with a `"*"` wildcard, then the respective value will be set to `"yes"`.
 
 iD will pick the best match based on `matchScore`, the number of tags, and the use of wildcard values. A feature will be matched to one preset even if its tags and geometry fit more than one.
 
@@ -172,8 +174,8 @@ of `presets/shop.json`. When subfolders are used, the format is `{shop/books}` t
 }
 ```
 
-Fields for keys that define the preset via `tags` are generally not inherited.
-E.g. the `shop` field is not inherited despite specifying as inheriting from `{shop}` presets.
+Fields for keys that define the preset via `tags` will be inherited only when it is useful (fields allowing multiple values such as `multiCombo` and checkboxes, see `shouldInherit` function).
+E.g. in the case above `shop` field is not inherited despite being one of `fields` in `{shop}` preset.
 This can be overwritten by adding the field explicitly like `"fields": [ "shop", "{shop}" ],`
 
 ##### `icon`
@@ -558,6 +560,11 @@ An optional property to reference to the strings of another field, indicated  by
 ```
 
 This would inherit all translations from the `sport` field but keep only the defined options.
+
+If you omit [`options`](#options), then it will include every option from the referenced field. For example:
+```json
+  "stringsCrossReference": "{sport}",
+```
 
 ##### `autoSuggestions`
 

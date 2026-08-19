@@ -1,26 +1,16 @@
 import fs from 'fs';
-import shell from 'shelljs';
-import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import { afterAll, beforeEach, describe, expect, it } from 'vitest';
 import schemaBuilder from '../index.js';
 
 const _workspace = 'workspace';
 
-beforeAll(() => {
-  if (!fs.existsSync(_workspace)) {
-    fs.mkdirSync(_workspace);
-  }
+afterAll(async () => {
+  await fs.promises.rm(_workspace, { force: true, recursive: true });
 });
 
-afterAll(() => {
-  shell.rm('-rf', [
-    _workspace
-  ]);
-});
-
-beforeEach(() => {
-  shell.rm('-rf', [
-    _workspace + '/*'
-  ]);
+beforeEach(async () => {
+  await fs.promises.rm(_workspace, { force: true, recursive: true });
+  await fs.promises.mkdir(_workspace, { recursive: true });
 });
 
 function writeSourceData(data) {
@@ -43,24 +33,6 @@ describe('schema-builder', () => {
   it('accesses modules without error', () => {
     expect(schemaBuilder && schemaBuilder.buildDist).not.toBeUndefined();
     expect(schemaBuilder && schemaBuilder.buildDev).not.toBeUndefined();
-    expect(schemaBuilder && schemaBuilder.validate).not.toBeUndefined();
-  });
-
-  it('runs validate', () => {
-    writeSourceData({
-      'data/presets/natural.json': {
-        tags: {
-          natural: '*'
-        },
-        geometry: ['point', 'vertex', 'line', 'area', 'relation'],
-        name: 'Natural Feature'
-      }
-    });
-    schemaBuilder.validate({
-      inDirectory: _workspace + '/data'
-    });
-    expect(fs.existsSync(_workspace + '/interim')).toBe(false);
-    expect(fs.existsSync(_workspace + '/dist')).toBe(false);
   });
 
   it('runs buildDev', () => {

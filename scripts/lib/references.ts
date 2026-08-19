@@ -9,11 +9,11 @@ export function isReference(string: string) {
  * For example, `fields` can reference the list of field IDs from another
  * preset.
  */
-export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllFields) {
+export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllFields, references: References) {
   for (const presetID in presets) {
     const preset = presets[presetID];
 
-    // 1. fields and moreFields can reference other presets
+    // fields and moreFields can reference other presets
     for (const prop of ['fields', 'moreFields'] as const) {
       if (!preset[prop]) continue;
       for (let i = 0; i < preset[prop].length || 0; i++) {
@@ -77,7 +77,7 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
       }
     }
 
-    // 2a. presets can reference the relation schema from other presets
+    // presets can reference the relation schema from other presets
     if (preset.relationCrossReference) {
       const referencedPreset =
         presets[preset.relationCrossReference.slice(1, -1)];
@@ -92,7 +92,7 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
       delete preset.relationCrossReference;
     }
 
-    // 9. presets can reference the locationSet from other fields or presets
+    // presets can reference the locationSet from other fields or presets
     if (preset.locationSetCrossReference) {
       const [type, ...foreignId] = preset.locationSetCrossReference
         .slice(1, -1)
@@ -116,7 +116,7 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
   for (const fieldID in fields) {
     const field = fields[fieldID];
 
-    // 3. fields can reference icons from other presets
+    // fields can reference icons from other presets
     if (field.iconsCrossReference) {
       const referencedField = fields[field.iconsCrossReference.slice(1, -1)];
 
@@ -130,7 +130,26 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
       delete field.iconsCrossReference;
     }
 
-    // 10. fields can reference the locationSet from other fields or presets
+
+    // if a field uses `stringsCrossReference`, we need to copy `options` if it
+    // doesn't already exist.
+    const stringsCrossReference = references.fields[fieldID]?.stringsCrossReference;
+    if (stringsCrossReference) {
+      const referencedField = fields[stringsCrossReference.slice(1, -1)];
+
+      if (!referencedField) {
+        throw new Error(
+          `Field “${fieldID}” references “${stringsCrossReference}” in stringsCrossReference, but there is no such field.`,
+        );
+      }
+
+      if (referencedField.options) {
+        fields[fieldID].options ||= referencedField.options;
+      }
+    }
+
+
+    // fields can reference the locationSet from other fields or presets
     if (field.locationSetCrossReference) {
       const [type, ...foreignId] = field.locationSetCrossReference
         .slice(1, -1)
@@ -157,16 +176,15 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
  */
 export function dereferencedTranslatableContent(tstrings: TStrings, references: References, strict: boolean) {
   for (const presetID in references.presets) {
-    // skip missing field, this language must have incomplete translations
-    if (!tstrings.presets?.[presetID]) continue;
-
+    if (!tstrings.presets) continue;
     const p = references.presets[presetID];
-    // 4. presets can reference the name + terms + aliases from other presets
+    // presets can reference the name + terms + aliases from other presets
     if (p.nameTermsAliases) {
       const referencedPreset =
         tstrings.presets[p.nameTermsAliases.slice(1, -1)];
 
       if (referencedPreset) {
+        if (!tstrings.presets[presetID]) tstrings.presets[presetID] = {};
         tstrings.presets[presetID].name = referencedPreset.name;
         tstrings.presets[presetID].aliases = referencedPreset.aliases;
         tstrings.presets[presetID].terms = referencedPreset.terms;
@@ -177,12 +195,13 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
       }
     }
 
-    // 2b. presets can reference the relation schema from other presets
-    //     (including relation.role_labels which is translatable content)
+    // presets can reference the relation schema from other presets
+    // (including relation.role_labels which is translatable content)
     if (p.relation) {
       const referencedPreset = tstrings.presets[p.relation.slice(1, -1)];
 
       if (referencedPreset) {
+        if (!tstrings.presets[presetID]) tstrings.presets[presetID] = {};
         tstrings.presets[presetID].relation = referencedPreset.relation;
       } else if (strict) {
         throw new Error(
@@ -193,15 +212,14 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
   }
 
   for (const fieldID in references.fields) {
-    // skip missing field, this language must have incomplete translations
-    if (!tstrings.fields?.[fieldID]) continue;
-
+    if (!tstrings.fields) continue;
     const f = references.fields[fieldID];
-    // 5. fields can reference the label + terms from other fields
+    // fields can reference the label + terms from other fields
     if (f.labelAndTerms) {
       const referencedField = tstrings.fields[f.labelAndTerms.slice(1, -1)];
 
       if (referencedField) {
+        if (!tstrings.fields[fieldID]) tstrings.fields[fieldID] = {};
         tstrings.fields[fieldID].label = referencedField.label;
         tstrings.fields[fieldID].terms = referencedField.terms;
       } else if (strict) {
@@ -211,11 +229,12 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
       }
     }
 
-    // 6. fields can reference the placeholder from other fields
+    // fields can reference the placeholder from other fields
     if (f.placeholder) {
       const referencedField = tstrings.fields[f.placeholder.slice(1, -1)];
 
       if (referencedField) {
+        if (!tstrings.fields[fieldID]) tstrings.fields[fieldID] = {};
         tstrings.fields[fieldID].placeholder = referencedField.placeholder;
       } else if (strict) {
         throw new Error(
@@ -224,12 +243,13 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
       }
     }
 
-    // 7. fields can reference the entire strings.options object from other fields
+    // fields can reference the entire strings.options object from other fields
     if (f.stringsCrossReference) {
       const referencedField =
         tstrings.fields[f.stringsCrossReference.slice(1, -1)];
 
       if (referencedField) {
+        if (!tstrings.fields[fieldID]) tstrings.fields[fieldID] = {};
         for (const prop in referencedField) {
           if (typeof referencedField[prop] === 'object') {
             tstrings.fields[fieldID][prop] = referencedField[prop];
@@ -242,7 +262,7 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
       }
     }
 
-    // 8. specific field options can reference the label from other fields *and from other presets*
+    // specific field options can reference the label from other fields *and from other presets*
     if (f.options) {
       for (const prop in f.options) {
         for (const key in f.options[prop]) {
@@ -257,6 +277,7 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
                 : undefined;
 
           if (referenced) {
+            if (!tstrings.fields[fieldID]) tstrings.fields[fieldID] = {};
             tstrings.fields[fieldID][prop] ||= {};
             tstrings.fields[fieldID][prop][key] = referenced;
           } else if (strict) {
