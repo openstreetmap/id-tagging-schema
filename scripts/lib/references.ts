@@ -176,9 +176,7 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
  */
 export function dereferencedTranslatableContent(tstrings: TStrings, references: References, strict: boolean) {
   for (const presetID in references.presets) {
-    // skip missing field, this language must have incomplete translations
-    if (!tstrings.presets?.[presetID]) continue;
-
+    if (!tstrings.presets) continue;
     const p = references.presets[presetID];
     // presets can reference the name + terms + aliases from other presets
     if (p.nameTermsAliases) {
@@ -186,6 +184,7 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
         tstrings.presets[p.nameTermsAliases.slice(1, -1)];
 
       if (referencedPreset) {
+        if (!tstrings.presets[presetID]) tstrings.presets[presetID] = {};
         tstrings.presets[presetID].name = referencedPreset.name;
         tstrings.presets[presetID].aliases = referencedPreset.aliases;
         tstrings.presets[presetID].terms = referencedPreset.terms;
@@ -202,6 +201,7 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
       const referencedPreset = tstrings.presets[p.relation.slice(1, -1)];
 
       if (referencedPreset) {
+        if (!tstrings.presets[presetID]) tstrings.presets[presetID] = {};
         tstrings.presets[presetID].relation = referencedPreset.relation;
       } else if (strict) {
         throw new Error(
@@ -212,15 +212,14 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
   }
 
   for (const fieldID in references.fields) {
-    // skip missing field, this language must have incomplete translations
-    if (!tstrings.fields?.[fieldID]) continue;
-
+    if (!tstrings.fields) continue;
     const f = references.fields[fieldID];
     // fields can reference the label + terms from other fields
     if (f.labelAndTerms) {
       const referencedField = tstrings.fields[f.labelAndTerms.slice(1, -1)];
 
       if (referencedField) {
+        if (!tstrings.fields[fieldID]) tstrings.fields[fieldID] = {};
         tstrings.fields[fieldID].label = referencedField.label;
         tstrings.fields[fieldID].terms = referencedField.terms;
       } else if (strict) {
@@ -235,6 +234,7 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
       const referencedField = tstrings.fields[f.placeholder.slice(1, -1)];
 
       if (referencedField) {
+        if (!tstrings.fields[fieldID]) tstrings.fields[fieldID] = {};
         tstrings.fields[fieldID].placeholder = referencedField.placeholder;
       } else if (strict) {
         throw new Error(
@@ -249,6 +249,7 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
         tstrings.fields[f.stringsCrossReference.slice(1, -1)];
 
       if (referencedField) {
+        if (!tstrings.fields[fieldID]) tstrings.fields[fieldID] = {};
         for (const prop in referencedField) {
           if (typeof referencedField[prop] === 'object') {
             tstrings.fields[fieldID][prop] = referencedField[prop];
@@ -276,6 +277,7 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
                 : undefined;
 
           if (referenced) {
+            if (!tstrings.fields[fieldID]) tstrings.fields[fieldID] = {};
             tstrings.fields[fieldID][prop] ||= {};
             tstrings.fields[fieldID][prop][key] = referenced;
           } else if (strict) {
