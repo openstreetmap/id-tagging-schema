@@ -15,8 +15,11 @@ updates:
       semver-patch-days: 7
     versioning-strategy: increase-if-necessary
     ignore:
-      - dependency-name: "action-download-artifact*"
+      # ignore unreviewed LLM version and few susequent hotfix releases
+      # see https://github.com/dawidd6/action-download-artifact/releases/tag/v23
+      - dependency-name: "action-download-artifact"
         versions: [ "23", "24", "25", "26", "27" ]
+      # ignore trivial releases of too often released package
       - dependency-name: "prettier"
         update-types: ["version-update:semver-patch"]
   - package-ecosystem: "github-actions"
