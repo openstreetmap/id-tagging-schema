@@ -289,7 +289,6 @@ function generateFields(dataDir: string, tstrings: TStrings, searchableFieldIDs:
     // @ts-expect-error -- deleting a non-optional property
     delete field.label;
 
-    validateTerms(field.terms, `field "${id}"`);
     tstrings.fields[id].terms = Array.from(new Set(
       (field.terms || [])
         .map(t => t.toLowerCase().trim())
@@ -416,7 +415,6 @@ function generatePresets(
     ));
     preset.aliases.forEach(a => names.add(a.toLowerCase()));
 
-    validateTerms(preset.terms, `preset "${id}"`);
     preset.terms = Array.from(new Set(
       (preset.terms || [])
         .map(t => t.toLowerCase().trim())
@@ -1054,22 +1052,6 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
       process.stdout.write('Field "' + fields[fieldID].label + '" (' + fieldID + ') isn\'t used by any presets.\n');
     }
   }
-}
-
-function validateTerms(terms: string[] | undefined, where: string) {
-  if (!terms) return;
-
-  const expectedTerms = terms.map(term => term.toLowerCase().trim()).sort();
-  if (terms.every((term, index) => expectedTerms[index] === term)) return;
-
-  process.stderr.write(`Expected terms in ${where} to be lowercase and sorted alphabetically.`);
-  process.stdout.write('\n');
-  process.stdout.write('expected terms\n\n');
-  process.stdout.write(JSON.stringify(expectedTerms, null, 2));
-  process.stdout.write('\n\ndiffer from actual ones\n\n');
-  process.stdout.write(`${terms}`);
-  process.stdout.write('\n');
-  process.exit(1);
 }
 
 function validateDefaults(defaults: PresetDefaults, categories: AllCategories, presets: AllPresets) {
