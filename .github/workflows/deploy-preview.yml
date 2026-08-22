@@ -31,13 +31,11 @@ jobs:
         id: pull-request-number
         run: echo "result=$(cat ./tmp-pr-artifact/pr_number)" >> "$GITHUB_OUTPUT"
 
-      - uses: dawidd6/action-download-artifact@b6e2e70617bc3265edd6dab6c906732b2f1ae151 # v21
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
         with:
-          github_token: ${{secrets.GITHUB_TOKEN}}
-          workflow: build-preview.yml
-          pr: ${{steps.pull-request-number.outputs.result}}
+          github-token: ${{secrets.GITHUB_TOKEN}}
           name: preview
-          allow_forks: true
+          run-id: ${{github.event.workflow_run.id}}
 
       - name: Deploy to Netlify
         env:
