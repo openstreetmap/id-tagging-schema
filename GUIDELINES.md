@@ -75,11 +75,13 @@ There are, however, alternatives to consider:
 The user interface must be clear, concise, and easy to use, leaving no room for misunderstandings.
 
 - Define the tags required on an object to trigger the preset.
-- Choose a name, category, and define a list of American English search terms.
+- Choose a name label using American English.
+- Add search terms: these should typically be in American English, but they may in rare occasions also include terms from other English dialects.
 - Use Title Case for the the preset `name` and [`aliases`](./SCHEMA.md#aliases) as well as the field [`label`](./SCHEMA.md#label) property. Use lower case for the preset [`terms`](./SCHEMA.md#terms) (sorted A-Z) and Title Case or sentences for preset's [`strings`-`options`](./SCHEMA.md#strings).
 - Check the search functionality to ensure other presets do not cause confusion.
 - Select an icon or start the process to create a new one.
 - Define which fields to show (`fields`) and suggest (`moreFields`), considering the order of fields.
+- If applicable, add the preset to categories.
 - Check the [`(i)` documentation](./CONTRIBUTING.md#info-i) and add or update the OSM Wiki data item if needed to provide a helpful short text.
 - Use the PR preview to add test cases with deep links to OSM objects that demonstrate the preset in use.
 
