@@ -643,7 +643,7 @@ function generateTaginfo(
     for (const group of [preset.tags, preset.addTags, preset.removeTags]) {
       for (const key in group) {
           everyTag[key] ||= new Set();
-          everyTag[key].add(preset.tags[key]);
+          everyTag[key].add(group[key]);
       }
     }
 
