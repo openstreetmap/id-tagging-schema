@@ -226,6 +226,69 @@ Alternatively, `locationSetCrossReference` can be use to reference the `location
 "locationSetCrossReference": "{presets/man_made/crane}"
 ```
 
+##### `related`
+
+Hints about related presets that are related to this one, can be optionally used for a context-aware handling.
+
+###### `expectedVertices`
+
+A list of preset IDs that are expected to be used as a vertex of this preset, when this preset is used on a line or area. 
+
+For example `power=line` may have
+
+```
+    "related": {
+        "expectedVertices": [
+            "{power/tower}",
+            "{power/portal}",
+            "{power/pole}",
+            "{power/transformer}",
+            "{power/generator/source/wind}",
+            "{power/generator/source/hydro}",
+            "{power/generator/method/photovoltaic}",
+            "{power/generator/source/nuclear}",
+            "{power/generator}"
+        ]
+    }
+```
+
+List is ordered, entries expected to be used more often by mappers listed first. Editor software may use this list to show more relevant presets when selecting preset for `power=line` vertex.
+
+For example, editors may show any entry from this list first. Taking into account position of entries on this list and recent usage.
+
+And only later show other presets. If user recently placed 10 `natural/tree/needleleaved/deciduous` objects and 20 `power/generator/source/wind` and selected vertex of `power=line` then maybe
+
+* `power/generator/source/wind` can be shown first, boosted to the first position by recent usage
+* then other entries from `expectedVertices` list
+* then `natural/tree/needleleaved/deciduous`
+* then other vertex presets
+
+If `power/generator/source/wind` had only two recent uses then probably `power/tower` should stay as the first option.
+
+Note that as world is complex this is not exhaustive. For example `tourism/artwork/statue` may be not listed as expected vertex of `waterway/river` as it is not an expected situation. But it does not make [this statue](https://www.openstreetmap.org/node/1374406687/history/11) invalidly mapped.
+
+In some cases single vertex may be member of multiple ways. In such case expected strategy would be to group listed options by how many parent ways list them as valid vertices.
+
+For example if `highway/track` and `waterway/stream` intersect and both list `ford` preset as a valid vertex, then it should be listed before ones appearing on only one of parent ways.
+
+Note: this feature is experimental. Feedback is welcome.
+
+Note: using it for QA would need to be extremely careful. As this lists are being built they will miss for now many valid cases. In addition, there are many unexpected valid cases where QA warning may induce bad edits. This listing is more expected to be useful to show more relevant features when editing and block some changes, rather than encourage removing unexpected cases.
+
+Note: comments welcome on [possible additional properties to mark those listings as more restrictive](https://github.com/openstreetmap/id-tagging-schema/pull/2454#issuecomment-5190205124).
+
+###### `expectedVerticesCrossReference`
+
+An string referencing another preset which has a `related.expectedVertices` to be used also here.
+
+For example:
+
+```
+    "related": {
+        "expectedVerticesCrossReference": "{building/house}"
+    }
+```
+
 ##### `replacement`
 
 The ID of a preset that is preferable to this one. iD's validator will flag features matching this preset and recommend that the user upgrade the tags.
