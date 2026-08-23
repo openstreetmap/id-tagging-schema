@@ -640,7 +640,7 @@ function generateTaginfo(
     if (id.startsWith('@')) return;
 
     const everyTag: Record<string, Set<string>> = {};
-    for (const group of [preset.tags, preset.addTags]) {
+    for (const group of [preset.tags, preset.addTags, preset.removeTags]) {
       for (const key in group) {
           everyTag[key] ||= new Set();
           everyTag[key].add(group[key]);
