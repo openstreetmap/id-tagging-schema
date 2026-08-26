@@ -20,5 +20,66 @@
         "key": "power",
         "value": "circuit"
     },
-    "name": "Power Circuit"
+    "name": "Power Circuit",
+    "relation": {
+        "reference": "power",
+        "allowDuplicateMembers": false,
+        "role_labels": {
+            "section": "Section",
+            "tap": "Power Line Tap",
+            "substation": "Substation"
+        },
+        "members": [
+            {
+                "role": "section",
+                "geometry": [
+                    "line",
+                    "relation"
+                ],
+                "matchTags": [
+                    {
+                        "power": "line"
+                    },
+                    {
+                        "power": "minor_line"
+                    },
+                    {
+                        "power": "cable"
+                    },
+                    {
+                        "power": "line_section"
+                    }
+                ],
+                "min": 1
+            },
+            {
+                "role": "tap",
+                "geometry": [
+                    "vertex"
+                ],
+                "matchTags": [
+                    {
+                        "line_management": "branch"
+                    }
+                ]
+            },
+            {
+                "role": "substation",
+                "geometry": [
+                    "point",
+                    "vertex",
+                    "area"
+                ],
+                "matchTags": [
+                    {
+                        "power": "substation"
+                    },
+                    {
+                        "substation": "*"
+                    }
+                ],
+                "min": 2
+            }
+        ]
+    }
 }
