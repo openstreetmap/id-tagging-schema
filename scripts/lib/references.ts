@@ -111,6 +111,25 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
       preset.locationSet = referenced.locationSet;
       delete preset.locationSetCrossReference;
     }
+
+    // presets can reference related.expectedVertices
+    if (preset.related?.expectedVerticesCrossReference) {
+      const referencedPreset = presets[preset.related.expectedVerticesCrossReference.slice(1, -1)];
+
+        if (!referencedPreset) {
+          throw new Error(
+            `Preset “${presetID}” references “${preset.related.expectedVerticesCrossReference}” in related.expectedVerticesCrossReference, but there is no such preset.`,
+          );
+        }
+        if (!referencedPreset.related) {
+          throw new Error(
+            `Preset “${presetID}” references “${preset.related.expectedVerticesCrossReference}” in related.expectedVerticesCrossReference, but this preset has no related field.`,
+          );
+        }
+
+        preset.related.expectedVertices = referencedPreset.related.expectedVertices;
+        delete preset.related.expectedVerticesCrossReference;
+      }
   }
 
   for (const fieldID in fields) {
