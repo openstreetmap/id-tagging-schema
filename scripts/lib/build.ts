@@ -1037,6 +1037,12 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
           process.stdout.write('\n');
           process.exit(1);
         }
+        if (!presets[foreignPresetID].geometry.includes("vertex")) {
+          process.stderr.write('preset not valid as a vertex "' + foreignPresetID + '" referenced in "expectedVertices" array of preset "' + presetID + '" (' + preset.name + ')\n');
+          process.stdout.write('\n');
+          process.stdout.write(presets[foreignPresetID].geometry.toString());
+          process.exit(1);
+        }
       }
     }
 
