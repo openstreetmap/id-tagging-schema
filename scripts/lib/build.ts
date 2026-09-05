@@ -970,12 +970,13 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
     if (preset.replacement) {
       let replacementPreset = presets[preset.replacement];
       let p1geometry = preset.geometry.slice().sort.toString();
-      let p2geometry = replacementPreset.geometry.slice().sort.toString();
       if (replacementPreset === undefined) {
         process.stderr.write('Unknown preset "' + preset.replacement + '" referenced as replacement of preset "' + presetID + '" (' + preset.name + ')\n');
         process.stdout.write('\n');
         process.exit(1);
-      } else if (p1geometry !== p2geometry) {
+      }
+      let p2geometry = replacementPreset.geometry.slice().sort.toString();
+      if (p1geometry !== p2geometry) {
         process.stderr.write('The preset "' + presetID + '" has different geometry than its replacement preset, "' + preset.replacement + '". They must match for tag upgrades to work.\n');
         process.stdout.write('\n');
         process.exit(1);
