@@ -969,7 +969,7 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
 
     if (preset.replacement) {
       let replacementPreset = presets[preset.replacement];
-      let p1geometry = preset.geometry.slice().sort.toString();
+      let p1geometry = preset.geometry.slice().sort().toString();
       if (replacementPreset === undefined) {
         process.stderr.write('Unknown preset "' + preset.replacement + '" referenced as replacement of preset "' + presetID + '" (' + preset.name + ')\n');
         process.stdout.write('\n');
