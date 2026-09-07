@@ -130,7 +130,7 @@ async function processData(_options: Partial<Options> | undefined, type: string)
 
   // Additional consistency checks
   validateCategoryPresets(categories, presets);
-  validatePresetFields(presets, fields);
+  validatePresetFields(presets, fields, tstrings, references);
 
   dereferenceUntranslatedContent(presets, fields, references);
 
@@ -955,7 +955,7 @@ function validateCategoryPresets(categories: AllCategories, presets: AllPresets)
   });
 }
 
-function validatePresetFields(presets: AllPresets, fields: AllFields) {
+function validatePresetFields(presets: AllPresets, fields: AllFields, tstrings: TStrings, references: References) {
   const betweenBracketsRegex = /([^{]*?)(?=\})/;
   const maxFieldsBeforeError = 10;
 
@@ -963,13 +963,14 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
 
   for (let presetID in presets) {
     let preset = presets[presetID];
+    const presetName = tstrings.presets[presetID].name ?? references.presets[presetID]?.nameTermsAliases ?? presetID;
 
     if (preset.replacement) {
       let replacementPreset = presets[preset.replacement];
       let p1geometry = preset.geometry.slice().sort.toString();
       let p2geometry = replacementPreset.geometry.slice().sort.toString();
       if (replacementPreset === undefined) {
-        process.stderr.write('Unknown preset "' + preset.replacement + '" referenced as replacement of preset "' + presetID + '" (' + preset.name + ')\n');
+        process.stderr.write('Unknown preset "' + preset.replacement + '" referenced as replacement of preset "' + presetID + '" (' + presetName + ')\n');
         process.stdout.write('\n');
         process.exit(1);
       } else if (p1geometry !== p2geometry) {
@@ -993,7 +994,7 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
           if (field.geometry) {
             let sharedGeometry = field.geometry.filter(value => preset.geometry.includes(value));
             if (!sharedGeometry.length) {
-              process.stderr.write('The preset "' + presetID + '" (' + preset.name + ') will never display the field "' + fieldID + '" since they don\'t share geometry types.\n');
+              process.stderr.write('The preset "' + presetID + '" (' + presetName + ') will never display the field "' + fieldID + '" since they don\'t share geometry types.\n');
               process.stdout.write('\n');
               process.exit(1);
             }
@@ -1006,12 +1007,12 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
           if (regexResult) {
             let foreignPresetID = regexResult[0];
             if (presets[foreignPresetID] === undefined) {
-              process.stderr.write('Unknown preset "' + foreignPresetID + '" referenced in "' + fieldsKey + '" array of preset "' + presetID + '" (' + preset.name + ')\n');
+              process.stderr.write('Unknown preset "' + foreignPresetID + '" referenced in "' + fieldsKey + '" array of preset "' + presetID + '" (' + presetName + ')\n');
               process.stdout.write('\n');
               process.exit(1);
             }
           } else {
-            process.stderr.write('Unknown preset field "' + fieldID + '" in "' + fieldsKey + '" array of preset "' + presetID + '" (' + preset.name + ')\n');
+            process.stderr.write('Unknown preset field "' + fieldID + '" in "' + fieldsKey + '" array of preset "' + presetID + '" (' + presetName + ')\n');
             process.stdout.write('\n');
             process.exit(1);
           }
@@ -1035,7 +1036,7 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
         fieldCount = alwaysShownFields.length;
       }
       if (fieldCount > maxFieldsBeforeError) {
-        process.stderr.write(fieldCount + ' values in "fields" of "' + preset.name + '" (' + presetID + '). Limit: ' + maxFieldsBeforeError + '. Please move lower-priority fields to "moreFields".\n');
+        process.stderr.write(fieldCount + ' values in "fields" of "' + presetName + '" (' + presetID + '). Limit: ' + maxFieldsBeforeError + '. Please move lower-priority fields to "moreFields".\n');
         process.stdout.write('\n');
         process.exit(1);
       }
