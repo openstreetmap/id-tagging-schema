@@ -604,6 +604,31 @@ function generateTranslations(fields: AllFields, presets: AllPresets, tstrings: 
 
 
 
+function getIconUrlFromIdentifier(identifier: string) {
+  if (identifier?.startsWith('maki-')) {
+    return 'https://cdn.jsdelivr.net/gh/mapbox/maki/icons/' +
+      identifier.replace(/^maki-/, '') + '.svg';
+  } else if (identifier?.startsWith('temaki-')) {
+    return 'https://cdn.jsdelivr.net/gh/rapideditor/temaki/icons/' +
+      identifier.replace(/^temaki-/, '') + '.svg';
+  } else if (identifier && /^fa[srb]-/.test(identifier)) {
+    return 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/fontawesome/' +
+      identifier + '.svg';
+  } else if (identifier?.startsWith('roentgen-')) {
+    return 'https://cdn.jsdelivr.net/gh/enzet/Roentgen@main/icons/' +
+      identifier.replace(/^roentgen-/, '') + '.svg';
+  } else if (identifier?.startsWith('pinhead-')) {
+    return 'https://pinhead.ink/latest/' +
+      identifier.replace(/^pinhead-/, '') + '.svg';
+  } else if (identifier?.startsWith('iD-')) {
+    return 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/iD-sprite/presets/' +
+      identifier.replace(/^iD-/, '') + '.svg';
+  }
+  process.stderr.write('Unknown icon set for: ' + identifier);
+  process.stdout.write('\n');
+  process.exit(1);
+}
+
 function generateTaginfo(
     presets: AllPresets,
     fields: AllFields,
@@ -665,24 +690,8 @@ function generateTaginfo(
         }
 
         // add icon
-        if (preset.icon?.startsWith('maki-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/mapbox/maki/icons/' +
-            preset.icon.replace(/^maki-/, '') + '.svg';
-        } else if (preset.icon?.startsWith('temaki-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/rapideditor/temaki/icons/' +
-            preset.icon.replace(/^temaki-/, '') + '.svg';
-        } else if (preset.icon && /^fa[srb]-/.test(preset.icon)) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/fontawesome/' +
-            preset.icon + '.svg';
-        } else if (preset.icon?.startsWith('roentgen-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/enzet/Roentgen@main/icons/' +
-            preset.icon.replace(/^roentgen-/, '') + '.svg';
-        } else if (preset.icon?.startsWith('pinhead-')) {
-          tag.icon_url = 'https://pinhead.ink/latest/' +
-            preset.icon.replace(/^pinhead-/, '') + '.svg';
-        } else if (preset.icon?.startsWith('iD-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/iD-sprite/presets/' +
-            preset.icon.replace(/^iD-/, '') + '.svg';
+        if (preset.icon !== undefined) {
+          tag.icon_url = getIconUrlFromIdentifier(preset.icon);
         }
 
         coalesceTags(taginfo, tag);
