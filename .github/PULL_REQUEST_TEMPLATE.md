@@ -21,7 +21,7 @@
 
 <details><summary>Read about the necessary next steps…</summary>
 
-Follow these steps to test your PR yourself. This is necessary for changes proposed to presets. For example build script modification may require different testing.
+We need your help testing your contributions. Please follow the steps below to test and document changes to presets.
 
 **This is how it works:**
 1. After you submit your PR, the system will create a preview and comment on your PR:
