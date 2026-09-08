@@ -7,7 +7,7 @@ export interface PresetCategory {
    */
   name: string
   /**
-   * Name of preset icon which represents this preset
+   * Name of preset icon which represents this category
    */
   icon: string
   /**

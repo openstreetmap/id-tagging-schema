@@ -461,12 +461,12 @@
         "key": "bicycle_road",
         "type": "defaultCheck",
         "locationSet": {
-            "include": [
-                "Planet"
-            ],
             "exclude": [
                 "BE",
                 "NL"
+            ],
+            "include": [
+                "Planet"
             ]
         },
         "options": [
@@ -567,7 +567,17 @@
     "bridge": {
         "key": "bridge",
         "type": "typeCombo",
-        "usage": "group"
+        "usage": "group",
+        "options": [
+            "viaduct",
+            "boardwalk",
+            "aqueduct",
+            "low_water_crossing",
+            "movable",
+            "cantilever",
+            "covered",
+            "trestle"
+        ]
     },
     "bridge/name": {
         "key": "bridge:name",
@@ -676,7 +686,8 @@
             "cathedral",
             "riding_hall",
             "barracks",
-            "synagogue"
+            "synagogue",
+            "tent"
         ]
     },
     "building/colour": {
@@ -1144,7 +1155,7 @@
     },
     "collection_times": {
         "key": "collection_times",
-        "type": "text"
+        "type": "schedule"
     },
     "collector": {
         "key": "collector",
@@ -1409,8 +1420,8 @@
         "key": "crossing",
         "type": "combo",
         "options": [
-            "traffic_signals",
             "uncontrolled",
+            "traffic_signals",
             "unmarked"
         ]
     },
@@ -1462,15 +1473,15 @@
             "ladder:paired": "iD-crossing_markings-ladder_paired"
         },
         "locationSet": {
-            "include": [
-                "Planet"
-            ],
             "exclude": [
                 "BG",
                 "DE",
                 "AT",
                 "CH",
                 "PL"
+            ],
+            "include": [
+                "Planet"
             ]
         },
         "options": [
@@ -1562,6 +1573,7 @@
         "autoSuggestions": false,
         "options": [
             "zebra",
+            "zebra:bicolour",
             "dots",
             "surface",
             "yes",
@@ -1592,15 +1604,15 @@
         "type": "combo",
         "default": "yes",
         "locationSet": {
-            "include": [
-                "Planet"
-            ],
             "exclude": [
                 "BG",
                 "DE",
                 "AT",
                 "CH",
                 "PL"
+            ],
+            "include": [
+                "Planet"
             ]
         },
         "icons": {
@@ -1616,7 +1628,24 @@
             "zebra:paired": "iD-crossing_markings-zebra_paired",
             "zebra:bicolour": "iD-crossing_markings-zebra_bicolour",
             "ladder:paired": "iD-crossing_markings-ladder_paired"
-        }
+        },
+        "options": [
+            "zebra",
+            "lines",
+            "no",
+            "ladder",
+            "dots",
+            "dashes",
+            "yes",
+            "surface",
+            "ladder:skewed",
+            "pictograms",
+            "lines:paired",
+            "zebra:double",
+            "zebra:paired",
+            "zebra:bicolour",
+            "ladder:paired"
+        ]
     },
     "crossing/markings_yes-BG": {
         "key": "crossing:markings",
@@ -1692,6 +1721,7 @@
         "default": "yes",
         "options": [
             "zebra",
+            "zebra:bicolour",
             "dots",
             "surface",
             "yes",
@@ -1820,8 +1850,18 @@
             "hawaiian",
             "brunch",
             "udon",
+            "syrian",
             "ukrainian",
-            "austrian"
+            "austrian",
+            "nepalese",
+            "irish",
+            "croatian",
+            "pakistani",
+            "lao",
+            "hungarian",
+            "bolivian",
+            "jamaican",
+            "cuban"
         ]
     },
     "currency_multi": {
@@ -1872,7 +1912,11 @@
                 "BE",
                 "NL"
             ]
-        }
+        },
+        "options": [
+            "undefined",
+            "yes"
+        ]
     },
     "cycleway": {
         "key": "cycleway",
@@ -2023,12 +2067,14 @@
     "destination": {
         "key": "destination",
         "type": "semiCombo",
+        "allowDuplicates": false,
         "snake_case": false,
         "caseSensitive": true
     },
     "destination/ref": {
         "key": "destination:ref",
         "type": "semiCombo",
+        "allowDuplicates": true,
         "snake_case": false,
         "caseSensitive": true
     },
@@ -2039,16 +2085,19 @@
             "key": "oneway",
             "value": "yes"
         },
+        "allowDuplicates": true,
         "snake_case": false,
         "caseSensitive": true
     },
     "destination/symbol": {
         "key": "destination:symbol",
-        "type": "semiCombo"
+        "type": "semiCombo",
+        "allowDuplicates": true
     },
     "destination/symbol_oneway": {
         "key": "destination:symbol",
         "type": "semiCombo",
+        "allowDuplicates": true,
         "prerequisiteTag": {
             "key": "oneway",
             "value": "yes"
@@ -2282,6 +2331,15 @@
     "drive_through": {
         "key": "drive_through",
         "type": "check"
+    },
+    "drive_through-US": {
+        "key": "drive_through",
+        "type": "check",
+        "locationSet": {
+            "include": [
+                "us"
+            ]
+        }
     },
     "duration": {
         "key": "duration",
@@ -2637,11 +2695,11 @@
         "autoSuggestions": true,
         "caseSensitive": true,
         "locationSet": {
-            "include": [
-                "Planet"
-            ],
             "exclude": [
                 "RU"
+            ],
+            "include": [
+                "Planet"
             ]
         },
         "options": [
@@ -2907,6 +2965,34 @@
     "healthcare": {
         "key": "healthcare",
         "type": "typeCombo",
+        "icons": {
+            "alternative": "fas-spa",
+            "audiologist": "temaki-ear",
+            "birthing_centre": "fas-baby",
+            "blood_bank": "maki-blood-bank",
+            "blood_donation": "maki-blood-bank",
+            "clinic": "maki-doctor",
+            "community_health_worker": "maki-doctor",
+            "counselling": "fas-comments",
+            "dentist": "maki-dentist",
+            "dialysis": "maki-doctor",
+            "doctor": "maki-doctor",
+            "hospice": "fas-procedures",
+            "hospital": "maki-hospital",
+            "laboratory": "fas-vial",
+            "midwife": "fas-baby",
+            "nurse": "fas-user-nurse",
+            "occupational_therapist": "maki-hospital",
+            "optometrist": "fas-eye",
+            "pharmacy": "maki-pharmacy",
+            "physiotherapist": "temaki-physiotherapist",
+            "podiatrist": "pinhead-foot",
+            "psychotherapist": "maki-hospital",
+            "rehabilitation": "maki-hospital",
+            "sample_collection": "fas-vial",
+            "speech_therapist": "fas-comment",
+            "vaccination_centre": "fas-syringe"
+        },
         "options": [
             "pharmacy",
             "doctor",
@@ -3036,7 +3122,35 @@
             "occupational_therapist",
             "speech_therapist"
         ],
-        "autoSuggestions": false
+        "autoSuggestions": false,
+        "icons": {
+            "alternative": "fas-spa",
+            "audiologist": "temaki-ear",
+            "birthing_centre": "fas-baby",
+            "blood_bank": "maki-blood-bank",
+            "blood_donation": "maki-blood-bank",
+            "clinic": "maki-doctor",
+            "community_health_worker": "maki-doctor",
+            "counselling": "fas-comments",
+            "dentist": "maki-dentist",
+            "dialysis": "maki-doctor",
+            "doctor": "maki-doctor",
+            "hospice": "fas-procedures",
+            "hospital": "maki-hospital",
+            "laboratory": "fas-vial",
+            "midwife": "fas-baby",
+            "nurse": "fas-user-nurse",
+            "occupational_therapist": "maki-hospital",
+            "optometrist": "fas-eye",
+            "pharmacy": "maki-pharmacy",
+            "physiotherapist": "temaki-physiotherapist",
+            "podiatrist": "pinhead-foot",
+            "psychotherapist": "maki-hospital",
+            "rehabilitation": "maki-hospital",
+            "sample_collection": "fas-vial",
+            "speech_therapist": "fas-comment",
+            "vaccination_centre": "fas-syringe"
+        }
     },
     "heating": {
         "key": "heating",
@@ -3711,11 +3825,11 @@
         "type": "combo",
         "snake_case": false,
         "locationSet": {
-            "include": [
-                "Planet"
-            ],
             "exclude": [
                 "fr"
+            ],
+            "include": [
+                "Planet"
             ]
         }
     },
@@ -3728,11 +3842,11 @@
             "valueNot": "no"
         },
         "locationSet": {
-            "include": [
-                "Planet"
-            ],
             "exclude": [
                 "fr"
+            ],
+            "include": [
+                "Planet"
             ]
         }
     },
@@ -3759,7 +3873,15 @@
     "maxwidth/physical": {
         "key": "maxwidth:physical",
         "type": "roadheight",
-        "snake_case": false
+        "snake_case": false,
+        "prerequisiteTag": {
+            "key": "cycle_barrier",
+            "values": [
+                "single",
+                "diagonal",
+                "tilted"
+            ]
+        }
     },
     "memorial": {
         "key": "memorial",
@@ -4071,6 +4193,7 @@
             "physician",
             "surveyor",
             "quango",
+            "translator",
             "private_investigator",
             "adoption_agency"
         ]
@@ -4122,7 +4245,10 @@
         "snake_case": false,
         "prerequisiteTag": {
             "key": "cycle_barrier",
-            "valueNot": "single"
+            "values": [
+                "double",
+                "triple"
+            ]
         }
     },
     "opening_date": {
@@ -4131,13 +4257,13 @@
     },
     "opening_hours": {
         "key": "opening_hours",
-        "type": "combo",
+        "type": "schedule",
         "snake_case": false,
         "caseSensitive": true
     },
     "opening_hours/drive_through": {
         "key": "opening_hours:drive_through",
-        "type": "combo",
+        "type": "schedule",
         "prerequisiteTag": {
             "key": "drive_through",
             "value": "yes"
@@ -4185,7 +4311,10 @@
         "snake_case": false,
         "prerequisiteTag": {
             "key": "cycle_barrier",
-            "valueNot": "single"
+            "values": [
+                "double",
+                "triple"
+            ]
         }
     },
     "panoramax": {
@@ -4350,7 +4479,50 @@
         "prerequisiteTag": {
             "key": "fee",
             "valueNot": "no"
-        }
+        },
+        "options": [
+            "account_cards",
+            "app",
+            "cards",
+            "cash",
+            "cheque",
+            "coins",
+            "contactless",
+            "credit_cards",
+            "cryptocurrencies",
+            "debit_cards",
+            "electronic_purses",
+            "notes",
+            "prepaid_ticket",
+            "telephone_cards",
+            "alipay",
+            "american_express",
+            "apple_pay",
+            "bancomat",
+            "blik",
+            "clipper",
+            "diners_club",
+            "discover_card",
+            "dkv",
+            "ep_easycard",
+            "ep_geldkarte",
+            "ep_ipass",
+            "girocard",
+            "google_pay",
+            "jcb",
+            "maestro",
+            "mastercard",
+            "mastercard_contactless",
+            "paypal",
+            "unionpay",
+            "uta",
+            "v_pay",
+            "visa",
+            "visa_debit",
+            "visa_electron",
+            "wechat",
+            "upi"
+        ]
     },
     "phases": {
         "key": "phases",
@@ -4513,7 +4685,22 @@
     "plant/method": {
         "key": "plant:method",
         "type": "combo",
-        "autoSuggestions": false
+        "autoSuggestions": false,
+        "options": [
+            "fission",
+            "fusion",
+            "wind_turbine",
+            "water-storage",
+            "water-pumped-storage",
+            "run-of-the-river",
+            "barrage",
+            "stream",
+            "thermal",
+            "photovoltaic",
+            "combustion",
+            "gasification",
+            "anaerobic_digestion"
+        ]
     },
     "plant/method/hydro": {
         "key": "plant:method",
@@ -4579,7 +4766,26 @@
     },
     "plant/source": {
         "key": "plant:source",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "nuclear",
+            "wind",
+            "hydro",
+            "tidal",
+            "wave",
+            "geothermal",
+            "solar",
+            "coal",
+            "gas",
+            "biomass",
+            "biofuel",
+            "biogas",
+            "oil",
+            "diesel",
+            "gasoline",
+            "waste",
+            "battery"
+        ]
     },
     "playground": {
         "key": "playground",
@@ -4591,7 +4797,7 @@
             "climbingframe": "temaki-climbing_frame",
             "climbingwall": "temaki-climbing_wall",
             "cushion": "temaki-cushion",
-            "map": "fas-earth-africa",
+            "map": "pinhead-africa",
             "maze": "roentgen-maze",
             "playhouse": "temaki-playhouse",
             "pump": "temaki-well_pump_manual",
@@ -4752,11 +4958,11 @@
     "post_box/type": {
         "key": "post_box:type",
         "locationSet": {
-            "include": [
-                "Planet"
-            ],
             "exclude": [
                 "gb"
+            ],
+            "include": [
+                "Planet"
             ]
         },
         "type": "combo",
@@ -5028,13 +5234,21 @@
             ]
         }
     },
+    "ref/mastr-DE": {
+        "key": "ref:mastr",
+        "type": "identifier",
+        "urlFormat": "https://www.marktstammdatenregister.de/MaStR/suche/{value}",
+        "pattern": "^SEE9\\d{11}(;SEE9\\d{11})*$",
+        "locationSet": {
+            "include": [
+                "DE"
+            ]
+        }
+    },
     "ref/vatin": {
         "key": "ref:vatin",
         "type": "identifier",
         "locationSet": {
-            "include": [
-                "Planet"
-            ],
             "exclude": [
                 "ai",
                 "ao",
@@ -5086,6 +5300,9 @@
                 "vg",
                 "xk",
                 "ye"
+            ],
+            "include": [
+                "Planet"
             ]
         }
     },
@@ -5213,6 +5430,18 @@
         ]
     },
     "reservation": {
+        "key": "reservation",
+        "type": "combo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "yes",
+            "no",
+            "required",
+            "recommended"
+        ]
+    },
+    "reservation_booking": {
         "key": "reservation",
         "type": "combo",
         "autoSuggestions": false,
@@ -5420,7 +5649,15 @@
     },
     "seamark/beacon_isolated_danger/shape": {
         "key": "seamark:beacon_isolated_danger:shape",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "pile",
+            "stake",
+            "tower",
+            "lattice",
+            "cairn",
+            "buoyant"
+        ]
     },
     "seamark/beacon_lateral/category": {
         "key": "seamark:beacon_lateral:category",
@@ -5449,7 +5686,15 @@
     },
     "seamark/beacon_lateral/shape": {
         "key": "seamark:beacon_lateral:shape",
-        "type": "combo"
+        "type": "combo",
+        "options": [
+            "pile",
+            "stake",
+            "tower",
+            "lattice",
+            "cairn",
+            "buoyant"
+        ]
     },
     "seamark/beacon_lateral/system": {
         "key": "seamark:beacon_lateral:system",
@@ -5618,7 +5863,7 @@
     },
     "service_times": {
         "key": "service_times",
-        "type": "text"
+        "type": "schedule"
     },
     "shelter": {
         "key": "shelter",
@@ -5808,7 +6053,10 @@
         "snake_case": false,
         "prerequisiteTag": {
             "key": "cycle_barrier",
-            "valueNot": "single"
+            "values": [
+                "double",
+                "triple"
+            ]
         }
     },
     "species": {
@@ -5974,6 +6222,14 @@
     "stop": {
         "key": "stop",
         "type": "radio",
+        "locationSet": {
+            "exclude": [
+                "BG"
+            ],
+            "include": [
+                "Planet"
+            ]
+        },
         "options": [
             "all",
             "minor"
@@ -6181,9 +6437,7 @@
     },
     "surveillance/type": {
         "key": "surveillance:type",
-        "type": "combo",
-        "autoSuggestions": false,
-        "customValues": false,
+        "type": "radio",
         "options": [
             "camera",
             "guard",
@@ -6397,7 +6651,12 @@
         "prerequisiteTag": {
             "key": "toilets",
             "valueNot": "no"
-        }
+        },
+        "options": [
+            "yes",
+            "limited",
+            "no"
+        ]
     },
     "toilets/position": {
         "key": "toilets:position",
@@ -6489,12 +6748,12 @@
         "icons": {
             "bump": "roentgen-bump",
             "cushion": "roentgen-traffic_cushion",
-            "dip": "roentgen-dip",
+            "dip": "temaki-speed_dip",
             "double_dip": "roentgen-double_dip",
-            "hump": "roentgen-hump",
+            "hump": "temaki-speed_hump",
             "mini_bumps": "roentgen-mini_bumps",
             "rumble_strip": "roentgen-rumble_strip",
-            "table": "roentgen-traffic_table"
+            "table": "temaki-speed_table"
         },
         "options": [
             "bump",
@@ -6517,13 +6776,27 @@
         "icons": {
             "bump": "roentgen-bump",
             "cushion": "roentgen-traffic_cushion",
-            "dip": "roentgen-dip",
+            "dip": "temaki-speed_dip",
             "double_dip": "roentgen-double_dip",
-            "hump": "roentgen-hump",
+            "hump": "temaki-speed_hump",
             "mini_bumps": "roentgen-mini_bumps",
             "rumble_strip": "roentgen-rumble_strip",
-            "table": "roentgen-traffic_table"
-        }
+            "table": "temaki-speed_table"
+        },
+        "options": [
+            "bump",
+            "chicane",
+            "choker",
+            "choked_table",
+            "cushion",
+            "dip",
+            "double_dip",
+            "hump",
+            "island",
+            "mini_bumps",
+            "rumble_strip",
+            "table"
+        ]
     },
     "traffic_sign": {
         "key": "traffic_sign",
@@ -6633,7 +6906,13 @@
     "tunnel": {
         "key": "tunnel",
         "type": "typeCombo",
-        "usage": "group"
+        "usage": "group",
+        "options": [
+            "building_passage",
+            "culvert",
+            "flooded",
+            "avalanche_protector"
+        ]
     },
     "tunnel/name": {
         "key": "tunnel:name",

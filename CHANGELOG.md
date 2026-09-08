@@ -23,6 +23,270 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# 7.1.0
+##### 2026-Aug-07
+
+* Merged the schema-builder repository (with contained documentation, schema definitions, and build scripts) into this repository ([#2431], thanks [@k-yle])
+
+#### New Presets
+
+* Add building=tent ([#2631], thanks [@matkoniecz])
+* Add Rooftop Solar Thermal Collector preset ([#2082], thanks [@ak8abhinay])
+* Add preset for historic=millstone with updated icon (#1067) ([#2589], thanks [@ashree2118])
+* Add leisure=schoolyard ([#134], thanks [@TurnrDev])
+* Add bicycle charging station ([#2418], thanks [@paulklie])
+* add hidden preset for bicycle charging station with bicycle=designated ([#2603], thanks [@paulklie])
+
+#### New and Changed Fields
+
+* Add building=tent ([#2631], thanks [@matkoniecz])
+* Add national cuisines to cuisine field options  ([#2657], thanks [@ak8abhinay])
+* Change `surveillance:type` field from combo to radio ([#2481], thanks [@FloEdelmann])
+* Merge US and global presets for post boxes ([#2645], thanks [@matkoniecz])
+* Add translatable strings to field seamark:beacon\_isolated\_danger:shape ([#1014], thanks [@kjonosm])
+* Add `cuisine=syrian` support [should it wait for 500 uses?] ([#1573], thanks [@matkoniecz])
+* Add `office=translator` to `office` combobox ([#2635], thanks [@fibonacci-matrix])
+* Split booking from general reservation field ([#2549], thanks [@matkoniecz])
+* Add description to Removable Bollard string to make it clear the values includes bollards which are removable only with a key ([#1534], thanks [@andrewharvey])
+* Add back crossing:markings=zebra:bicolour in Poland ([#2552], thanks [@matkoniecz])
+* Use proper `prerequisiteTag`s for cycle\_barrier ([#2444], thanks [@k-yle])
+* Change `opening_hours`-like fields to `type=schedule` (iD will link oh evaluator) ([#1537], thanks [@k-yle])
+* Move capacity to moreFields for amenity=public\_bookcase ([#2400], thanks [@matkoniecz])
+* Add `ref:mastr` field for power plant/generator presets ([#2250], thanks [@FloEdelmann])
+* Exclude `stop` field for stop signs in Bulgaria, as all are `stop=minor` ([#1539], thanks [@Dimitar5555])
+* Add `allowDuplicates` to destination fields ([#1418], thanks [@k-yle])
+
+#### Changed Presets
+
+* Use less abstract icon for playground=map ([#2486], thanks [@matkoniecz])
+* Add "surface parking" term to parking.json ([#2380], thanks [@matkoniecz])
+* Use simpler icon for millstone ([#2610], thanks [@matkoniecz])
+* Use Temaki icon also for playground=slide, not only dropdown option ([#2662], thanks [@matkoniecz])
+* Use more specific icon for playground=pump, matching dropdown ([#2660], thanks [@matkoniecz])
+* Use temaki-cushion icon for playground=cushion (by marensiegel from Temaki) ([#2659], thanks [@matkoniecz])
+* Remove hidden landuse=pond preset used 3 times worldwide ([#2656], thanks [@matkoniecz])
+* Moved the terms to the presets from which the names are copied ([#2674], thanks [@fibonacci-matrix])
+* Reused translations for some presets where the relation is the primary ([#2664], thanks [@fibonacci-matrix])
+* Add translation keys for Scuba Diving fill options ([#2655], thanks [@fibonacci-matrix])
+* Remove landuse=farm preset ([#2650], thanks [@matkoniecz])
+* Merge US and global presets for post boxes ([#2645], thanks [@matkoniecz])
+* Add dam term to reservoir ([#2600], thanks [@matkoniecz])
+* Reuse translation for "Bus Station / Terminal" ([#2651], thanks [@fibonacci-matrix])
+* Reuse translations for `landuse=basin` ([#2652], thanks [@fibonacci-matrix])
+* Reuse translations for unsearchable presets that have an unambiguous replacement ([#2646], thanks [@fibonacci-matrix])
+* Add translations for Scuba Diving Services ([#2630], thanks [@fibonacci-matrix])
+* Reuse translations for unsearchable presets ([#2636], thanks [@fibonacci-matrix])
+* Reuse more translations for 'healthcare' combobox ([#2629], thanks [@fibonacci-matrix])
+* Use healthcare icons for fields (Part 1) ([#2621], thanks [@fibonacci-matrix])
+* Use 'Physical Therapist' instead of 'Physiotherapist' ([#2611], thanks [@mugdhachalla])
+* Improve opening\_hours placeholder clarity ([#2140], thanks [@eeshm])
+* Remove ele= for shop= ([#2565], thanks [@matkoniecz])
+* Make differences more clear in traffic\_calming= dropdown icons ([#2485], thanks [@matkoniecz])
+* Glacial erratic is by definition not attached ([#2478], thanks [@matkoniecz])
+* Amenity=ice\_cream shop can inherit from shop= ([#2566], thanks [@matkoniecz])
+* Use better life\_ring icon from Pinhead, thanks westnordost for the icon ([#2548], thanks [@matkoniecz])
+* Try more readable icon for Archery Range from Pinhead, thanks to westnordost for the icon ([#2547], thanks [@matkoniecz])
+* Add name= field to natural=wetland ([#2560], thanks [@matkoniecz])
+* Add relation role definitions for type=boundary and type=multipolygon ([#2576], thanks [@k-yle])
+* Use country-neutral fax/mobile hints ([#2597], thanks [@Vectorial1024])
+* Re-use translations for `strings.options.*` ([#2577], thanks [@k-yle])
+* Use 'honeycomb' icon for `shop/honey` ([#2567], thanks [@fibonacci-matrix])
+* Add `reference` to presets where the main tag is ambiguous ([#2544], thanks [@k-yle])
+* Change icon of `aeroway=terminal` preset ([#2327], thanks [@Geo-2695])
+* fix moreFields not inherited in shop=cheese ([#2536], thanks [@matkoniecz])
+* Add air\_conditioning field to office=coworking ([#2556], thanks [@matkoniecz])
+* Add destination to motorized roads ([#2569], thanks [@matkoniecz])
+* Use sculpture for craft=sculptor, not wall-hanging picture - thanks to OpenHistoricalMap for icon and OpenHistoricalMap for importing it into Pinhead ([#2443], thanks [@matkoniecz])
+* Add terms for apartments ([#2452], thanks [@paulklie])
+* Selected a more appropriate icon for adoption agencies ([#2559], thanks [@fibonacci-matrix])
+* Changed icon to "Meat" for restaurant/steakhouse ([#2455], thanks [@fibonacci-matrix])
+* Use a crystall ball as an icon for esoteric shops ([#2459], thanks [@fibonacci-matrix])
+* Better cheese icon for shop=cheese from Pinhead, thanks to ooosssay for the icon ([#2487], thanks [@matkoniecz])
+* Replace the second-hand shop icon with the corresponding Carto icon ([#2462], thanks [@fibonacci-matrix])
+* Use proper icon for traffic\_calming=mini\_bumps ([#2472], thanks [@matkoniecz])
+* Use roentgen-traffic\_cushion for both preset and option ([#2473], thanks [@matkoniecz])
+* power=tower may be referred to as a pylon, add also other terms ([#2450], thanks [@matkoniecz])
+* Use "Venus" icon for gynaecologists ([#2464], thanks [@fibonacci-matrix])
+* Use Pinhead icon for lifeguard - thanks NPMap for the icon and quincylvania for collecting it! ([#2438], thanks [@matkoniecz])
+* Add icon for office/union ([#2447], thanks [@paulklie])
+* Use a more appropriate icon for charity shops ([#2460], thanks [@fibonacci-matrix])
+* Use "Blood drop" icon for haematologists ([#2467], thanks [@fibonacci-matrix])
+* Add covered to fields of picnic table ([#2490], thanks [@RudyTheDev])
+* Use "Lungs" icon for pulmonologists ([#2468], thanks [@fibonacci-matrix])
+* Use "eye" icon for ophthalmologists ([#2463], thanks [@fibonacci-matrix])
+* Use "Ear" icon for audiologists ([#2471], thanks [@fibonacci-matrix])
+* Use "foot" icon for podiatrists ([#2469], thanks [@fibonacci-matrix])
+* Set public transport presets with no defined vehicle mode (bus, tram etc.) to be non-searchable ([#2343], thanks [@Geo-2695])
+* Use a more appropriate icon for Ticket Validators ([#2458], thanks [@fibonacci-matrix])
+* Use a more appropriate icon for bagel fast foods ([#2461], thanks [@fibonacci-matrix])
+* Changed icon to "tube and toothbrush" for `shop=chemist` ([#2457], thanks [@fibonacci-matrix])
+* Make place=farm icon similar to other place= than physical features ([#2382], thanks [@matkoniecz])
+* Remove `military=nuclear_explosion_site` preset ([#2392], thanks [@matkoniecz])
+* Remove "Landuse" osmism from primary label, replace by "Land Use" ([#2375], thanks [@matkoniecz])
+* Use "Heart with cross" icon for cardiologists ([#2465], thanks [@fibonacci-matrix])
+* Smarter order of values for crossing field ([#2667], thanks [@ak8abhinay])
+* Added icons and translations for 'therapist' combobox ([#2628], thanks [@fibonacci-matrix])
+* Add religion identifiers to search terms of wayside shrine ([#2403], thanks [@matkoniecz])
+
+#### Regional Presets and Fields
+
+* Merge US and global presets for post boxes ([#2645], thanks [@matkoniecz])
+* Start using `locationSetCrossReference` ([#2588], thanks [@k-yle])
+* Add back crossing:markings=zebra:bicolour in Poland ([#2552], thanks [@matkoniecz])
+
+#### Bug Fixes
+
+* Fix bug with stringsCrossReference ([#2608], thanks [@k-yle])
+* Add destination to motorized roads ([#2569], thanks [@matkoniecz])
+* Fix field inheritance bug ([#2575], thanks [@k-yle])
+
+#### Documentation and Other Changes
+
+* Document consequence of instantiating preset with `"*"` wildcard value ([#2670], thanks [@matkoniecz])
+* Describe that editors should likely support by-tag search ([#2619], thanks [@matkoniecz])
+* Format JSON schema files ([#2616], thanks [@k-yle])
+* Fix bug with stringsCrossReference ([#2608], thanks [@k-yle])
+* Assign permissions specifically in deploy-preview.yml ([#2581], thanks [@matkoniecz])
+* Convert the remaining build scripts to typescript ([#2545], thanks [@k-yle])
+* Fix field inheritance bug ([#2575], thanks [@k-yle])
+* Clarify that inheriting from not yet existing fields is fine, as futureproofing ([#2585], thanks [@matkoniecz])
+* Fix build script on Windows assuming path separator for Regex ([#2546], thanks [@RudyTheDev])
+* Add some nitpicking to preset docs. ([#2562], thanks [@matkoniecz])
+* Ignore patch release updates of prettier ([#2206], thanks [@matkoniecz])
+* Update mention of osmfeatures ([#2561], thanks [@westnordost])
+* Link relevant code, fix bad references ([#2550], thanks [@matkoniecz])
+* Improve docs for preset categories ([#2539], thanks [@tordans])
+* Fix typo in SCHEMA.md ([#2537], thanks [@matkoniecz])
+* Replace confusing mix of callbacks and promises ([#2480], thanks [@k-yle])
+* Allow typescript to be used for the build scripts ([#2479], thanks [@k-yle])
+* Validate `locationSet` at compile-time ([#2533], thanks [@k-yle])
+* Mention =-1 and =reversible in context of onewayCheck field type ([#2456], thanks [@matkoniecz])
+* Automatic set location-set to include planet ([#2437], thanks [@tyrasd])
+* Direct link for roentgen icons repository ([#2489], thanks [@fibonacci-matrix])
+* Fix minor bugs in the build scripts ([#2446], thanks [@k-yle])
+* Fix typo in SCHEMA.md ([#2451], thanks [@matkoniecz])
+* Handle "build" label in release-drafter ([#2441], thanks [@matkoniecz])
+* Revert "Netlify preview: Add CORS for iD Staging deploy" ([#2436], thanks [@matkoniecz])
+
+[#134]: https://github.com/openstreetmap/id-tagging-schema/pull/134
+[#1014]: https://github.com/openstreetmap/id-tagging-schema/pull/1014
+[#1418]: https://github.com/openstreetmap/id-tagging-schema/pull/1418
+[#1534]: https://github.com/openstreetmap/id-tagging-schema/pull/1534
+[#1537]: https://github.com/openstreetmap/id-tagging-schema/pull/1537
+[#1539]: https://github.com/openstreetmap/id-tagging-schema/pull/1539
+[#1573]: https://github.com/openstreetmap/id-tagging-schema/pull/1573
+[#2082]: https://github.com/openstreetmap/id-tagging-schema/pull/2082
+[#2140]: https://github.com/openstreetmap/id-tagging-schema/pull/2140
+[#2206]: https://github.com/openstreetmap/id-tagging-schema/pull/2206
+[#2250]: https://github.com/openstreetmap/id-tagging-schema/pull/2250
+[#2327]: https://github.com/openstreetmap/id-tagging-schema/pull/2327
+[#2343]: https://github.com/openstreetmap/id-tagging-schema/pull/2343
+[#2375]: https://github.com/openstreetmap/id-tagging-schema/pull/2375
+[#2380]: https://github.com/openstreetmap/id-tagging-schema/pull/2380
+[#2382]: https://github.com/openstreetmap/id-tagging-schema/pull/2382
+[#2392]: https://github.com/openstreetmap/id-tagging-schema/pull/2392
+[#2400]: https://github.com/openstreetmap/id-tagging-schema/pull/2400
+[#2403]: https://github.com/openstreetmap/id-tagging-schema/pull/2403
+[#2418]: https://github.com/openstreetmap/id-tagging-schema/pull/2418
+[#2431]: https://github.com/openstreetmap/id-tagging-schema/pull/2431
+[#2436]: https://github.com/openstreetmap/id-tagging-schema/pull/2436
+[#2437]: https://github.com/openstreetmap/id-tagging-schema/pull/2437
+[#2438]: https://github.com/openstreetmap/id-tagging-schema/pull/2438
+[#2441]: https://github.com/openstreetmap/id-tagging-schema/pull/2441
+[#2443]: https://github.com/openstreetmap/id-tagging-schema/pull/2443
+[#2444]: https://github.com/openstreetmap/id-tagging-schema/pull/2444
+[#2446]: https://github.com/openstreetmap/id-tagging-schema/pull/2446
+[#2447]: https://github.com/openstreetmap/id-tagging-schema/pull/2447
+[#2450]: https://github.com/openstreetmap/id-tagging-schema/pull/2450
+[#2451]: https://github.com/openstreetmap/id-tagging-schema/pull/2451
+[#2452]: https://github.com/openstreetmap/id-tagging-schema/pull/2452
+[#2455]: https://github.com/openstreetmap/id-tagging-schema/pull/2455
+[#2456]: https://github.com/openstreetmap/id-tagging-schema/pull/2456
+[#2457]: https://github.com/openstreetmap/id-tagging-schema/pull/2457
+[#2458]: https://github.com/openstreetmap/id-tagging-schema/pull/2458
+[#2459]: https://github.com/openstreetmap/id-tagging-schema/pull/2459
+[#2460]: https://github.com/openstreetmap/id-tagging-schema/pull/2460
+[#2461]: https://github.com/openstreetmap/id-tagging-schema/pull/2461
+[#2462]: https://github.com/openstreetmap/id-tagging-schema/pull/2462
+[#2463]: https://github.com/openstreetmap/id-tagging-schema/pull/2463
+[#2464]: https://github.com/openstreetmap/id-tagging-schema/pull/2464
+[#2465]: https://github.com/openstreetmap/id-tagging-schema/pull/2465
+[#2467]: https://github.com/openstreetmap/id-tagging-schema/pull/2467
+[#2468]: https://github.com/openstreetmap/id-tagging-schema/pull/2468
+[#2469]: https://github.com/openstreetmap/id-tagging-schema/pull/2469
+[#2471]: https://github.com/openstreetmap/id-tagging-schema/pull/2471
+[#2472]: https://github.com/openstreetmap/id-tagging-schema/pull/2472
+[#2473]: https://github.com/openstreetmap/id-tagging-schema/pull/2473
+[#2478]: https://github.com/openstreetmap/id-tagging-schema/pull/2478
+[#2479]: https://github.com/openstreetmap/id-tagging-schema/pull/2479
+[#2480]: https://github.com/openstreetmap/id-tagging-schema/pull/2480
+[#2481]: https://github.com/openstreetmap/id-tagging-schema/pull/2481
+[#2485]: https://github.com/openstreetmap/id-tagging-schema/pull/2485
+[#2486]: https://github.com/openstreetmap/id-tagging-schema/pull/2486
+[#2487]: https://github.com/openstreetmap/id-tagging-schema/pull/2487
+[#2489]: https://github.com/openstreetmap/id-tagging-schema/pull/2489
+[#2490]: https://github.com/openstreetmap/id-tagging-schema/pull/2490
+[#2533]: https://github.com/openstreetmap/id-tagging-schema/pull/2533
+[#2536]: https://github.com/openstreetmap/id-tagging-schema/pull/2536
+[#2537]: https://github.com/openstreetmap/id-tagging-schema/pull/2537
+[#2539]: https://github.com/openstreetmap/id-tagging-schema/pull/2539
+[#2544]: https://github.com/openstreetmap/id-tagging-schema/pull/2544
+[#2545]: https://github.com/openstreetmap/id-tagging-schema/pull/2545
+[#2546]: https://github.com/openstreetmap/id-tagging-schema/pull/2546
+[#2547]: https://github.com/openstreetmap/id-tagging-schema/pull/2547
+[#2548]: https://github.com/openstreetmap/id-tagging-schema/pull/2548
+[#2549]: https://github.com/openstreetmap/id-tagging-schema/pull/2549
+[#2550]: https://github.com/openstreetmap/id-tagging-schema/pull/2550
+[#2552]: https://github.com/openstreetmap/id-tagging-schema/pull/2552
+[#2556]: https://github.com/openstreetmap/id-tagging-schema/pull/2556
+[#2559]: https://github.com/openstreetmap/id-tagging-schema/pull/2559
+[#2560]: https://github.com/openstreetmap/id-tagging-schema/pull/256
+[#2561]: https://github.com/openstreetmap/id-tagging-schema/pull/2561
+[#2562]: https://github.com/openstreetmap/id-tagging-schema/pull/2562
+[#2565]: https://github.com/openstreetmap/id-tagging-schema/pull/2565
+[#2566]: https://github.com/openstreetmap/id-tagging-schema/pull/2566
+[#2567]: https://github.com/openstreetmap/id-tagging-schema/pull/2567
+[#2569]: https://github.com/openstreetmap/id-tagging-schema/pull/2569
+[#2575]: https://github.com/openstreetmap/id-tagging-schema/pull/2575
+[#2576]: https://github.com/openstreetmap/id-tagging-schema/pull/2576
+[#2577]: https://github.com/openstreetmap/id-tagging-schema/pull/2577
+[#2581]: https://github.com/openstreetmap/id-tagging-schema/pull/2581
+[#2585]: https://github.com/openstreetmap/id-tagging-schema/pull/2585
+[#2588]: https://github.com/openstreetmap/id-tagging-schema/pull/2588
+[#2589]: https://github.com/openstreetmap/id-tagging-schema/pull/2589
+[#2597]: https://github.com/openstreetmap/id-tagging-schema/pull/2597
+[#2600]: https://github.com/openstreetmap/id-tagging-schema/pull/2600
+[#2603]: https://github.com/openstreetmap/id-tagging-schema/pull/2603
+[#2608]: https://github.com/openstreetmap/id-tagging-schema/pull/2608
+[#2610]: https://github.com/openstreetmap/id-tagging-schema/pull/2610
+[#2611]: https://github.com/openstreetmap/id-tagging-schema/pull/2611
+[#2616]: https://github.com/openstreetmap/id-tagging-schema/pull/2616
+[#2619]: https://github.com/openstreetmap/id-tagging-schema/pull/2619
+[#2621]: https://github.com/openstreetmap/id-tagging-schema/pull/2621
+[#2628]: https://github.com/openstreetmap/id-tagging-schema/pull/2628
+[#2629]: https://github.com/openstreetmap/id-tagging-schema/pull/2629
+[#2630]: https://github.com/openstreetmap/id-tagging-schema/pull/2630
+[#2631]: https://github.com/openstreetmap/id-tagging-schema/pull/2631
+[#2635]: https://github.com/openstreetmap/id-tagging-schema/pull/2635
+[#2636]: https://github.com/openstreetmap/id-tagging-schema/pull/2636
+[#2645]: https://github.com/openstreetmap/id-tagging-schema/pull/2645
+[#2646]: https://github.com/openstreetmap/id-tagging-schema/pull/2646
+[#2650]: https://github.com/openstreetmap/id-tagging-schema/pull/2650
+[#2651]: https://github.com/openstreetmap/id-tagging-schema/pull/2651
+[#2652]: https://github.com/openstreetmap/id-tagging-schema/pull/2652
+[#2655]: https://github.com/openstreetmap/id-tagging-schema/pull/2655
+[#2656]: https://github.com/openstreetmap/id-tagging-schema/pull/2656
+[#2657]: https://github.com/openstreetmap/id-tagging-schema/pull/2657
+[#2659]: https://github.com/openstreetmap/id-tagging-schema/pull/2659
+[#2660]: https://github.com/openstreetmap/id-tagging-schema/pull/2660
+[#2662]: https://github.com/openstreetmap/id-tagging-schema/pull/2662
+[#2664]: https://github.com/openstreetmap/id-tagging-schema/pull/2664
+[#2667]: https://github.com/openstreetmap/id-tagging-schema/pull/2667
+[#2670]: https://github.com/openstreetmap/id-tagging-schema/pull/2670
+[#2674]: https://github.com/openstreetmap/id-tagging-schema/pull/2674
+[@eeshm]: https://github.com/openstreetmap/id-tagging-schema/pull/eeshm
+
+
 # 7.0.0
 ##### 2026-Jul-08
 

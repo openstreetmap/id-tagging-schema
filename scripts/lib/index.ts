@@ -1,5 +1,5 @@
-import { buildDev, buildDist, validate } from './build.ts';
+import { buildDev, buildDist } from './build.ts';
 
 export default {
-    buildDev, buildDist, validate,
+    buildDev, buildDist,
 };

@@ -1,9 +1,10 @@
 import { fileURLToPath } from 'node:url';
 import { styleText } from 'node:util';
+import { join } from 'node:path';
 import fs from 'fs';
-import { Validator, type Schema } from 'jsonschema';
+import Validator, { type SchemaObject as Schema } from 'ajv';
+import betterAjvErrors from 'better-ajv-errors';
 import path from 'path';
-import shell from 'shelljs';
 import { dump as dumpYaml } from 'js-yaml';
 import marky from 'marky';
 import { LocationConflation } from '@rapideditor/location-conflation';
@@ -13,6 +14,7 @@ import type * as Taginfo from 'taginfo-projects';
 import { isReference, dereferencedTranslatableContent, dereferenceUntranslatedContent } from './references.ts';
 import fetchTranslations, { expandTStrings, sortObject } from './translations.ts';
 import type { Field, Geometry, Preset, AllFields, AllPresets, References, TStrings, Options, AllCategories, TaginfoTag, TaginfoSchema, PresetDefaults, Deprecated, Discarded, SourceStrings, PresetCategory } from './types.def.ts';
+import { printErrorsForCI, type SchemaError } from './ci.ts';
 
 const require = createRequire(import.meta.url);
 
@@ -25,24 +27,20 @@ const discardedSchema = require('../../schemas/discarded.json');
 
 let _currBuild: Promise<void> | null = null;
 
-const jsonschema = new Validator();
+const jsonschema = new Validator({
+  allErrors: true,
+  schemas: [
+    fieldSchema,
+    presetSchema,
+    categorySchema,
+    defaultsSchema,
+    deprecatedSchema,
+    discardedSchema,
+  ],
+});
 const locationConflation = new LocationConflation();
 
-function validateData(options?: Options) {
-  const START = '🔬  ' + styleText('yellow', 'Validating schema...');
-  const END = '👍  ' + styleText('green', 'schema okay');
-
-  process.stdout.write('\n');
-  process.stdout.write(START + '\n');
-  marky.mark(END);
-
-  processData(options, 'validate');
-
-  marky.stop(END);
-  process.stdout.write('\n');
-}
-
-function buildDev(options?: Options) {
+async function buildDev(options?: Options) {
 
   if (_currBuild) return _currBuild;
 
@@ -53,7 +51,7 @@ function buildDev(options?: Options) {
   process.stdout.write(START + '\n');
   marky.mark(END);
 
-  processData(options, 'build-interim');
+  await processData(options, 'build-interim');
 
   marky.stop(END);
   process.stdout.write('\n');
@@ -83,7 +81,7 @@ function buildDist(options?: Partial<Options>) {
     });
 }
 
-async function processData(_options: Partial<Options> | undefined, type: string) {
+async function processData(_options: Partial<Options> | undefined, type: 'build-interim' | 'build-dist') {
   const options: Options = {
     inDirectory: 'data',
     interimDirectory: 'interim',
@@ -128,25 +126,31 @@ async function processData(_options: Partial<Options> | undefined, type: string)
   let presets = generatePresets(dataDir, tstrings, searchableFieldIDs, options.listReusedIcons, references);
   if (options.processPresets) options.processPresets(presets);
 
+  const defaults = read<PresetDefaults>(dataDir + '/preset_defaults.json');
+  if (defaults) {
+    validateSchema(dataDir + '/preset_defaults.json', defaults, defaultsSchema);
+  }
+
+  if (schemaErrors.length) {
+    printErrorsForCI(schemaErrors);
+    process.exit(1);
+  }
+
   // Additional consistency checks
   validateCategoryPresets(categories, presets);
   validatePresetFields(presets, fields);
 
   dereferenceUntranslatedContent(presets, fields, references);
 
-  const defaults = read<PresetDefaults>(dataDir + '/preset_defaults.json');
   if (defaults) {
-    validateSchema(dataDir + '/preset_defaults.json', defaults, defaultsSchema);
     validateDefaults(defaults, categories, presets);
   }
-
-  if (type.indexOf('build') !== 0) return;
 
   const sourceLocale = options.sourceLocale;
 
   const interimDir = './' + options.interimDirectory;
-  if (!fs.existsSync(interimDir)) fs.mkdirSync(interimDir);
-  shell.rm('-f', [interimDir + '/*']); // clean directory
+  fs.rmSync(interimDir, { recursive: true, force: true });
+  fs.mkdirSync(interimDir);
 
   let translations = generateTranslations(fields, presets, tstrings, searchableFieldIDs);
 
@@ -155,7 +159,7 @@ async function processData(_options: Partial<Options> | undefined, type: string)
   fs.writeFileSync(interimDir + '/source_strings.yaml', translationsToYAML(translationsForYaml));
 
   let icons = generateIconsList(presets, fields, categories);
-  fs.writeFileSync(interimDir + '/icons.json', JSON.stringify(icons, null, 4));
+  fs.writeFileSync(interimDir + '/icons.json', JSON.stringify(icons, null, 4) + '\n');
 
   dereferencedTranslatableContent(tstrings, references, true);
 
@@ -166,9 +170,13 @@ async function processData(_options: Partial<Options> | undefined, type: string)
   const distDir = './' + options.outDirectory;
   if (!fs.existsSync(distDir)) fs.mkdirSync(distDir);
   // clean directory
-  shell.rm('-f', [distDir + '/*.*']);
+  for (const entry of await fs.promises.readdir(distDir, { withFileTypes: true })) {
+    if (entry.isFile()) {
+      await fs.promises.rm(join(distDir, entry.name), { force: true });
+    }
+  }
   if (doFetchTranslations) {
-    shell.rm('-rf', [distDir + '/translations']);
+    await fs.promises.rm(join(distDir, 'translations'), { recursive: true, force: true });
   }
 
   categories = sortObject(categories);
@@ -186,7 +194,7 @@ async function processData(_options: Partial<Options> | undefined, type: string)
   if (deprecated) fs.writeFileSync(distDir + '/deprecated.json', JSON.stringify(deprecated, null, 4));
   if (discarded) fs.writeFileSync(distDir + '/discarded.json', JSON.stringify(discarded, null, 4));
 
-  expandTStrings(tstrings);
+  expandTStrings(sourceLocale, tstrings);
   let translationsForJson: typeof translationsForYaml = {};
   translationsForJson[sourceLocale] = { presets: tstrings };
 
@@ -207,7 +215,7 @@ async function processData(_options: Partial<Options> | undefined, type: string)
   ];
 
   if (doFetchTranslations) {
-    tasks.push(fetchTranslations(options, references));
+    tasks.push(fetchTranslations(options, references, tstrings));
   }
   return Promise.all(tasks);
 }
@@ -218,23 +226,20 @@ function read<T>(f: string): T {
 }
 
 
+let schemaErrors: SchemaError[] = [];
 function validateSchema(file: string, instance: unknown, schema: Schema) {
-  // add this schema to the cache, so $ref can be resolved faster
-  jsonschema.addSchema(schema);
+  let validate = jsonschema.getSchema(schema.$id!)!;
 
-  let validationErrors = jsonschema.validate(instance, schema).errors;
-
-  if (validationErrors.length) {
+  if (!validate(instance) && validate.errors) {
     process.stderr.write(`${file}: \n`);
-    validationErrors.forEach(error => {
-      if (error.property) {
-        process.stderr.write(error.property + ' ' + error.message + '\n');
-      } else {
-        process.stderr.write(error + '\n');
-      }
-    });
+    const json = fs.readFileSync(file, 'utf8');
+    const errors = betterAjvErrors(schema, instance, validate.errors, { json, format: 'js' });
+    const output = betterAjvErrors(schema, instance, validate.errors, { json, format: 'cli' });
+
+    schemaErrors.push(...errors.map(error => ({ error, file })));
+
+    process.stderr.write(output);
     process.stdout.write('\n');
-    process.exit(1);
   }
 }
 
@@ -284,7 +289,6 @@ function generateFields(dataDir: string, tstrings: TStrings, searchableFieldIDs:
     // @ts-expect-error -- deleting a non-optional property
     delete field.label;
 
-    validateTerms(field.terms, `field "${id}"`);
     tstrings.fields[id].terms = Array.from(new Set(
       (field.terms || [])
         .map(t => t.toLowerCase().trim())
@@ -411,7 +415,6 @@ function generatePresets(
     ));
     preset.aliases.forEach(a => names.add(a.toLowerCase()));
 
-    validateTerms(preset.terms, `preset "${id}"`);
     preset.terms = Array.from(new Set(
       (preset.terms || [])
         .map(t => t.toLowerCase().trim())
@@ -601,6 +604,31 @@ function generateTranslations(fields: AllFields, presets: AllPresets, tstrings: 
 
 
 
+function getIconUrlFromIdentifier(identifier: string) {
+  if (identifier?.startsWith('maki-')) {
+    return 'https://cdn.jsdelivr.net/gh/mapbox/maki/icons/' +
+      identifier.replace(/^maki-/, '') + '.svg';
+  } else if (identifier?.startsWith('temaki-')) {
+    return 'https://cdn.jsdelivr.net/gh/rapideditor/temaki/icons/' +
+      identifier.replace(/^temaki-/, '') + '.svg';
+  } else if (identifier && /^fa[srb]-/.test(identifier)) {
+    return 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/fontawesome/' +
+      identifier + '.svg';
+  } else if (identifier?.startsWith('roentgen-')) {
+    return 'https://cdn.jsdelivr.net/gh/enzet/Roentgen@main/icons/' +
+      identifier.replace(/^roentgen-/, '') + '.svg';
+  } else if (identifier?.startsWith('pinhead-')) {
+    return 'https://pinhead.ink/latest/' +
+      identifier.replace(/^pinhead-/, '') + '.svg';
+  } else if (identifier?.startsWith('iD-')) {
+    return 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/iD-sprite/presets/' +
+      identifier.replace(/^iD-/, '') + '.svg';
+  }
+  process.stderr.write('Unknown icon set for: ' + identifier);
+  process.stdout.write('\n');
+  process.exit(1);
+}
+
 function generateTaginfo(
     presets: AllPresets,
     fields: AllFields,
@@ -640,7 +668,7 @@ function generateTaginfo(
     for (const group of [preset.tags, preset.addTags, preset.removeTags]) {
       for (const key in group) {
           everyTag[key] ||= new Set();
-          everyTag[key].add(preset.tags[key]);
+          everyTag[key].add(group[key]);
       }
     }
 
@@ -662,24 +690,8 @@ function generateTaginfo(
         }
 
         // add icon
-        if (preset.icon?.startsWith('maki-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/mapbox/maki/icons/' +
-            preset.icon.replace(/^maki-/, '') + '.svg';
-        } else if (preset.icon?.startsWith('temaki-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/rapideditor/temaki/icons/' +
-            preset.icon.replace(/^temaki-/, '') + '.svg';
-        } else if (preset.icon && /^fa[srb]-/.test(preset.icon)) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/fontawesome/' +
-            preset.icon + '.svg';
-        } else if (preset.icon?.startsWith('roentgen-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/enzet/Roentgen@main/icons/' +
-            preset.icon.replace(/^roentgen-/, '') + '.svg';
-        } else if (preset.icon?.startsWith('pinhead-')) {
-          tag.icon_url = 'https://pinhead.ink/latest/' +
-            preset.icon.replace(/^pinhead-/, '') + '.svg';
-        } else if (preset.icon?.startsWith('iD-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/iD-sprite/presets/' +
-            preset.icon.replace(/^iD-/, '') + '.svg';
+        if (preset.icon !== undefined) {
+          tag.icon_url = getIconUrlFromIdentifier(preset.icon);
         }
 
         coalesceTags(taginfo, tag);
@@ -966,13 +978,14 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
 
     if (preset.replacement) {
       let replacementPreset = presets[preset.replacement];
-      let p1geometry = preset.geometry.slice().sort.toString();
-      let p2geometry = replacementPreset.geometry.slice().sort.toString();
+      let p1geometry = preset.geometry.slice().sort().toString();
       if (replacementPreset === undefined) {
         process.stderr.write('Unknown preset "' + preset.replacement + '" referenced as replacement of preset "' + presetID + '" (' + preset.name + ')\n');
         process.stdout.write('\n');
         process.exit(1);
-      } else if (p1geometry !== p2geometry) {
+      }
+      let p2geometry = replacementPreset.geometry.slice().sort().toString();
+      if (p1geometry !== p2geometry) {
         process.stderr.write('The preset "' + presetID + '" has different geometry than its replacement preset, "' + preset.replacement + '". They must match for tag upgrades to work.\n');
         process.stdout.write('\n');
         process.exit(1);
@@ -1051,22 +1064,6 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
   }
 }
 
-function validateTerms(terms: string[] | undefined, where: string) {
-  if (!terms) return;
-
-  const expectedTerms = terms.map(term => term.toLowerCase().trim()).sort();
-  if (terms.every((term, index) => expectedTerms[index] === term)) return;
-
-  process.stderr.write(`Expected terms in ${where} to be lowercase and sorted alphabetically.`);
-  process.stdout.write('\n');
-  process.stdout.write('expected terms\n\n');
-  process.stdout.write(JSON.stringify(expectedTerms, null, 2));
-  process.stdout.write('\n\ndiffer from actual ones\n\n');
-  process.stdout.write(`${terms}`);
-  process.stdout.write('\n');
-  process.exit(1);
-}
-
 function validateDefaults(defaults: PresetDefaults, categories: AllCategories, presets: AllPresets) {
   Object.keys(defaults).forEach(name => {
     const members = defaults[name as keyof PresetDefaults];
@@ -1119,5 +1116,4 @@ function minifyJSON(inPath: string, outPath: string) {
 export {
   buildDev,
   buildDist,
-  validateData as validate
 };
