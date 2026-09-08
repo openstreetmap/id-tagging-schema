@@ -604,6 +604,31 @@ function generateTranslations(fields: AllFields, presets: AllPresets, tstrings: 
 
 
 
+function getIconUrlFromIdentifier(identifier: string) {
+  if (identifier?.startsWith('maki-')) {
+    return 'https://cdn.jsdelivr.net/gh/mapbox/maki/icons/' +
+      identifier.replace(/^maki-/, '') + '.svg';
+  } else if (identifier?.startsWith('temaki-')) {
+    return 'https://cdn.jsdelivr.net/gh/rapideditor/temaki/icons/' +
+      identifier.replace(/^temaki-/, '') + '.svg';
+  } else if (identifier && /^fa[srb]-/.test(identifier)) {
+    return 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/fontawesome/' +
+      identifier + '.svg';
+  } else if (identifier?.startsWith('roentgen-')) {
+    return 'https://cdn.jsdelivr.net/gh/enzet/Roentgen@main/icons/' +
+      identifier.replace(/^roentgen-/, '') + '.svg';
+  } else if (identifier?.startsWith('pinhead-')) {
+    return 'https://pinhead.ink/latest/' +
+      identifier.replace(/^pinhead-/, '') + '.svg';
+  } else if (identifier?.startsWith('iD-')) {
+    return 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/iD-sprite/presets/' +
+      identifier.replace(/^iD-/, '') + '.svg';
+  }
+  process.stderr.write('Unknown icon set for: ' + identifier);
+  process.stdout.write('\n');
+  process.exit(1);
+}
+
 function generateTaginfo(
     presets: AllPresets,
     fields: AllFields,
@@ -665,24 +690,8 @@ function generateTaginfo(
         }
 
         // add icon
-        if (preset.icon?.startsWith('maki-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/mapbox/maki/icons/' +
-            preset.icon.replace(/^maki-/, '') + '.svg';
-        } else if (preset.icon?.startsWith('temaki-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/rapideditor/temaki/icons/' +
-            preset.icon.replace(/^temaki-/, '') + '.svg';
-        } else if (preset.icon && /^fa[srb]-/.test(preset.icon)) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/fontawesome/' +
-            preset.icon + '.svg';
-        } else if (preset.icon?.startsWith('roentgen-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/enzet/Roentgen@main/icons/' +
-            preset.icon.replace(/^roentgen-/, '') + '.svg';
-        } else if (preset.icon?.startsWith('pinhead-')) {
-          tag.icon_url = 'https://pinhead.ink/latest/' +
-            preset.icon.replace(/^pinhead-/, '') + '.svg';
-        } else if (preset.icon?.startsWith('iD-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/iD-sprite/presets/' +
-            preset.icon.replace(/^iD-/, '') + '.svg';
+        if (preset.icon !== undefined) {
+          tag.icon_url = getIconUrlFromIdentifier(preset.icon);
         }
 
         coalesceTags(taginfo, tag);
@@ -969,13 +978,14 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
 
     if (preset.replacement) {
       let replacementPreset = presets[preset.replacement];
-      let p1geometry = preset.geometry.slice().sort.toString();
-      let p2geometry = replacementPreset.geometry.slice().sort.toString();
+      let p1geometry = preset.geometry.slice().sort().toString();
       if (replacementPreset === undefined) {
         process.stderr.write('Unknown preset "' + preset.replacement + '" referenced as replacement of preset "' + presetID + '" (' + preset.name + ')\n');
         process.stdout.write('\n');
         process.exit(1);
-      } else if (p1geometry !== p2geometry) {
+      }
+      let p2geometry = replacementPreset.geometry.slice().sort().toString();
+      if (p1geometry !== p2geometry) {
         process.stderr.write('The preset "' + presetID + '" has different geometry than its replacement preset, "' + preset.replacement + '". They must match for tag upgrades to work.\n');
         process.stdout.write('\n');
         process.exit(1);
