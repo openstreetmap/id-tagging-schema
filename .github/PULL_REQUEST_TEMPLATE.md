@@ -19,7 +19,7 @@
 
 ### Checklist and Test-Documentation Template
 
-<details><summary>Read about next necessary steps…</summary>
+<details><summary>Read about the necessary next steps…</summary>
 
 Follow these steps to test your PR yourself. This is necessary for changes proposed to presets. For example build script modification may require different testing.
 
