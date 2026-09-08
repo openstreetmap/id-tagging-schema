@@ -21,7 +21,7 @@
 
 <details><summary>Read about the necessary next steps…</summary>
 
-We need your help testing your contributions. Please follow the steps below to test and document changes to presets.
+We need your help testing your change. Please follow the steps below to finish pull request by testing new presets.
 
 **This is how it works:**
 1. After you submit your PR, the system will create a preview and comment on your PR:
