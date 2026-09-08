@@ -19,9 +19,9 @@
 
 ### Checklist and Test-Documentation Template
 
-<details><summary>Read on to get your PR merged faster…</summary>
+<details><summary>Read about next necessary steps…</summary>
 
-Follow these steps to test your PR yourself and make it a lot easier and faster for maintainers to check and approve it.
+Follow these steps to test your PR yourself. This is necessary for changes proposed to presets. For example build script modification may require different testing.
 
 **This is how it works:**
 1. After you submit your PR, the system will create a preview and comment on your PR:
