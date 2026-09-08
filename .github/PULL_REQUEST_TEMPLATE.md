@@ -2,6 +2,10 @@
 
 <!-- Help readers to understand why this is relevant -->
 
+<!-- link tag usage stats if relevant -->
+<!-- E.g., Numbers from Taginfo https://taginfo.openstreetmap.org/ and maybe local Taginfo https://taginfo.geofabrik.de/ -->
+<!-- E.g., a link to https://taghistory.raifer.tech -->
+
 ### Related issues
 
 <!-- Please link any related issues here. 
@@ -11,11 +15,6 @@
 
 **Relevant OSM Wiki links:**
 - …
-
-**Relevant tag usage stats:**
-> …
-<!-- E.g., Numbers from Taginfo https://taginfo.openstreetmap.org/ and maybe local Taginfo https://taginfo.geofabrik.de/ -->
-<!-- E.g., a link to https://taghistory.raifer.tech -->
 
 ### Checklist and Test-Documentation Template
 
