@@ -23,6 +23,109 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+
+# [7.2.0](https://github.com/openstreetmap/id-tagging-schema/releases/tag/v7.2.0)
+##### 2026-Sep-09
+
+#### New Presets
+
+* create preset for 'Offshore Platform' (#1714, thanks @k-yle)
+* Add unsearchable `aerialway=station` preset without public transport tags and update related icons (#2309, thanks @Geo-2695)
+* Better handling of Bunker silo and Silo contents, including new Crop Silo preset (#2313, thanks @Bjoern94)
+* Add dedicated surface parking preset (#2679, thanks @ak8abhinay)
+
+#### New and Changed Fields
+
+* Avoid duplicate drive-through field on ATMs (#2814, thanks @Dimitar5555)
+* Use integer field type for lanes and set minimum number of lanes to 1 (#2819, thanks @matkoniecz)
+* add boat rental types (#2708, thanks @andrewharvey)
+* `contact:mastodon` (#2312, thanks @cuatim)
+* Better handling of Bunker silo and Silo contents, including new Crop Silo preset (#2313, thanks @Bjoern94)
+* add `toilets:hands_drying` (#1730, thanks @k-yle)
+* Limit `drive_through` field for ATMs to specific countries (please create issue if more countries should have this field as prominent one) (#2668, thanks @Dimitar5555)
+* Add pedagogy as extra field for schools/preschools (#2276, thanks @RudyTheDev)
+
+#### Changed Presets
+
+* Add opening\_hours field to playground preset (#2840, thanks @FloEdelmann)
+* Change "centre" to American English spelling (#2665, thanks @FloEdelmann)
+* Better preset name for bare `amenity=parking` (#2738, thanks @matkoniecz)
+*  Add category for advertising features (#2809, thanks @matkoniecz)
+* add outdoor\_seating to restaurant in fields (#2785, thanks @matkoniecz)
+* add "equestrian" to search terms of shop=sports (#2718, thanks @matkoniecz)
+* Try better icon for miniature golf (#2770, thanks @matkoniecz)
+* remove preset for `route=power` relations (#2816, thanks @matkoniecz)
+* Offer the segregated field on shared refuge island presets (#2792, thanks @KTibow)
+* Add `width` to the `waterway=drain` (#2672, thanks @Geo-2695)
+* Change childcare, kindergarten and school icons (#2543, thanks @Dimitar5555)
+* move phone= to more fields for shops in general (#2720, thanks @matkoniecz)
+* move address in dog\_park to moreFields (#2772, thanks @matkoniecz)
+* remove ep\_geldkarte from payment\_multi (#2786, thanks @matkoniecz)
+* try to make building=service more findable (#2779, thanks @matkoniecz)
+* person\_wearing\_martial\_arts\_belt\_front\_kicking icon for dojo (#2773, thanks @matkoniecz)
+* add religion/religious search terms to PoW (#2778, thanks @matkoniecz)
+* more search terms for midwife (#2781, thanks @matkoniecz)
+* Don't show `denomination` field when `religion` is empty (#2782, thanks @Dimitar5555)
+* Avoid duplicate drive-through field on post boxes (#2787, thanks @amannsan)
+* US English fix: change 'storey' to 'story' in house field description (#2764, thanks @ak8abhinay)
+* Icons for mixed and leafless forests in the `leaf_type` combobox (#2695, thanks @fibonacci-matrix)
+* US English fix: change 'Counselling Center' to 'Counseling Center' (#2765, thanks @ak8abhinay)
+* Remove `replacement` from the hidden ferry terminal preset (#2488, thanks @Geo-2695)
+* use dedicated OSM Carto icon for public bookcase rather than library one (#2730, thanks @matkoniecz)
+* add some terms for street cabinet (#2725, thanks @matkoniecz)
+* tweak phone/website for pharmacy and hairdresser (#2719, thanks @matkoniecz)
+* use dedicated OSM Carto icon for cave rather than a triangle (#2731, thanks @matkoniecz)
+* subject:wikidata for monument in moreFields (#2753, thanks @matkoniecz)
+* remove collection\_times for Dog Excrement Bin (#2752, thanks @matkoniecz)
+* Try kidneys icon for nephrology (#2735, thanks @Dimitar5555)
+* Use book\_with\_bookmark\_in\_slot Pinhead icon for library dropoff (#2743, thanks @ooosssay)
+* US English fix: update 'Grey' to 'Gray' in seamark beacon lateral colour (#2763, thanks @ak8abhinay)
+* Add self\_service and self\_checkout to more features (#2301, thanks @cuatim)
+* Reused the translation key for `pharmacy` in the combo box (#2696, thanks @fibonacci-matrix)
+* Add website field to standard preset for shops \*help in testing and reviewing impact welcome\* (#2669, thanks @matkoniecz)
+* Better handling of Bunker silo and Silo contents, including new Crop Silo preset (#2313, thanks @Bjoern94)
+* Use more appropriate icon for `tourism/artwork/bust` (#2698, thanks @fibonacci-matrix)
+* set "matchScore": 0.9 for train wash, as it should rank lower than say train station as it is obscure and expert type of facility (#2639, thanks @matkoniecz)
+* add "women's healthcare" to midwife preset (#2678, thanks @matkoniecz)
+* Limit `drive_through` field for ATMs to specific countries (please create issue if more countries should have this field as prominent one) (#2668, thanks @Dimitar5555)
+* unify inconsistent preset labels (#2592, thanks @k-yle)
+
+#### Deprecated Tags
+
+* Stop suggesting footway-to-path replacement (#2788, thanks @amannsan)
+
+#### Bug Fixes
+
+* add missing newline and unbreak quote (#2835, thanks @matkoniecz)
+* Avoid duplicate drive-through field on ATMs (#2814, thanks @Dimitar5555)
+* fix checking of referenced presets in build script (#2817, thanks @matkoniecz)
+* Avoid duplicate drive-through field on post boxes (#2787, thanks @amannsan)
+* fix broken taginfo reports for addTags, list removeTags as belonging to preset (as code intended) (#2750, thanks @matkoniecz)
+
+#### Documentation and Other Changes
+
+* Added dedicated section for major changes in release-drafter.yml (#2818, thanks @matkoniecz)
+* add missing newline and unbreak quote (#2835, thanks @matkoniecz)
+* Update GUIDELINES.md allowing non-US English in search terms (#2693, thanks @matkoniecz)
+* extract icon code to own function (#2822, thanks @matkoniecz)
+* fix checking of referenced presets in build script (#2817, thanks @matkoniecz)
+* stop PRs about patch updates to eslint-plugin (#2716, thanks @matkoniecz)
+* automatically include american english terms in other english dialects (#2707, thanks @k-yle)
+* fix broken taginfo reports for addTags, list removeTags as belonging to preset (as code intended) (#2750, thanks @matkoniecz)
+* simplify eslint config (#2747, thanks @k-yle)
+* move the sorted-terms validator to a custom lint rule (#2684, thanks @k-yle)
+* simplify CI deploy pipeline (#2687, thanks @k-yle)
+* reduce dependabot spam to once a month (#2723, thanks @matkoniecz)
+* remove duplicate CI job (#2686, thanks @k-yle)
+* run prettier via eslint (#2683, thanks @k-yle)
+* ban empty strings in the json schema (#2709, thanks @k-yle)
+* remove shelljs dependency (#2706, thanks @k-yle)
+* drop node-fetch dependency (#2690, thanks @nightcityblade)
+* replace jsonschema validator library with ajv (#2682, thanks @k-yle)
+* try to be more clear and less confusing about smart inheritance (#2691, thanks @matkoniecz)
+
+
+
 # 7.1.0
 ##### 2026-Aug-07
 
