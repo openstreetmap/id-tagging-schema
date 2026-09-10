@@ -50,7 +50,7 @@ A basic preset is of the form:
         "shop": "farm"
     },
     // The geometry types for which this preset is valid.
-    // options are point, area, line, and vertex.
+    // options are point, area, line, vertex and relation.
     // vertices are points that are parts of lines, like the nodes in a road
     // lines are unclosed ways, and areas are closed ways
     "geometry": [
@@ -454,7 +454,9 @@ associated with building features (but only if drawn as a closed area).
     "key": "building",
     "type": "combo",
     "default": "yes",
-    "geometry": "area",
+    "geometry": [
+        "area"
+    ],
     "label": "Building"
 }
 ```
