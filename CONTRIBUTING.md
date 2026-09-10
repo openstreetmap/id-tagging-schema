@@ -6,10 +6,10 @@ Don't hesitate to submit feedback about issues or how the tagging schema could b
 
 In general it is better to open a new issue compared to commenting in a closed issue or a closed pull request where such a comment will likely be missed.
 
-iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_CONDUCT.md) and [privacy policy](https://github.com/openstreetmap/iD/blob/release/PRIVACY.md) also apply to this project.
-
 
 ## General Guidelines
+
+iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_CONDUCT.md) and [privacy policy](https://github.com/openstreetmap/iD/blob/release/PRIVACY.md) also apply to this project.
 
 Read the [GUIDELINES](./GUIDELINES.md) to help you understand what fields and tags should be added to the tagging schema.
 
