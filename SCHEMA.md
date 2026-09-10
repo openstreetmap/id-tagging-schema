@@ -716,7 +716,7 @@ To update a specific tag to a specific new tag
 
 ### Categories
 
-[data/preset_defaults.json] defines presets and categories to be shown in the default list for each geometry type. This default list is especially useful for populating preset list when the user has not used any presets yet and not searched for one.
+[data/preset_defaults.json](data/preset_defaults.json) defines presets and categories to be shown in the default list for each geometry type. This default list is especially useful for populating preset list when the user has not used any presets yet and not searched for one.
 
 [data/preset_categories](data/preset_categories) defines categories. Each category has name, icon and an ordered list of presets. Categories can be displayed in search results when the user is looking for a preset, can be entry in default list. As categories group similar presets together could be also potentially used by editors in other contexts.
 
