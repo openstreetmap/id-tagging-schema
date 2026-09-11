@@ -27,8 +27,8 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
             );
           }
 
-          // preset (A) references the fields of preset (B), but (B) has no
-          // fields. We silently and intentionally skip this, as it allows presets
+          // preset (A) references the fields / moreFields of preset (B), but (B) has them not defined
+          // We silently and intentionally skip this, as it allows presets
           // to specify fields and moreFields inheritance even while parent has no such field yet.
           // Otherwise defining for example new moreFields would require checking all children presets
           // whether inheritance should be added there.
@@ -37,12 +37,12 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
             continue;
           }
 
-          // Skip `fields` for the keys which define the preset.
+          // Skip fields and moreFields for the keys which define the preset.
           // These are usually `typeCombo` fields like `shop=*`
           function shouldInherit(fieldId: string) {
             // shouldInherit is called recursively as references are expanded.
             // if this field is reference, skip it for now. It will be
-            // processed in the next loop iteration.
+            // processed again in the next loop iteration, until it is no longer a reference.
             if (isReference(fieldId)) return true;
 
             const field = fields[fieldId];
@@ -70,7 +70,7 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
             return true;
           }
 
-          // replace the reference with every field. decrement i to reprocess this array index.
+          // replace the reference with what parent defined. decrement i to reprocess this array index.
           // this is necessary as it can also be a reference
           preset[prop].splice(i--, 1, ...referencedPreset[prop].filter(shouldInherit));
         }
