@@ -1042,8 +1042,7 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
       for (let vertexIndex in preset.related[relatedKey]) {
         let foreignPresetID = preset.related[relatedKey][vertexIndex];
         if (presets[foreignPresetID] === undefined) {
-          let regexResult = betweenBracketsRegex.exec(foreignPresetID);
-          if (regexResult) {
+          if (isReference(foreignPresetID)) {
             let referencedForeignPresetID = foreignPresetID.slice(1, -1)
             if (presets[referencedForeignPresetID] === undefined) {
               process.stderr.write(`Unknown preset "${referencedForeignPresetID}" referenced in "expectedVertices" array of preset "${presetID}" (${preset.name})\n`);
