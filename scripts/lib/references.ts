@@ -143,6 +143,8 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
           preset.related.expectedVertices.splice(i--, 1, ...referencedPreset.related.expectedVertices);
         }
       }
+      // deduplicate, possibly needed as result of dereferencing
+      preset.related.expectedVertices = [...new Set(preset.related.expectedVertices)]
     }
   }
 
