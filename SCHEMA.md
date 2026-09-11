@@ -236,7 +236,7 @@ A list of preset IDs that are expected to be used as a vertex of this preset, wh
 
 For example `power=line` may have
 
-```
+```json
     "related": {
         "expectedVertices": [
             "power/tower",
