@@ -267,7 +267,7 @@ And following syntax may be used to reference values from other preset.
     }
 ```
 
-This theorethical case would list first entries from `expectedVertices` in `building/house` preset (note `{}` wrapping) followed by an additional `"emergency/emergency_ward_entrance"` vertex preset.
+This theoretical case would list first entries from `expectedVertices` in `building/house` preset (note `{}` wrapping) followed by an additional `"emergency/emergency_ward_entrance"` vertex preset.
 
 Different editors may use this more relevant vertex list in various ways. For example, editors may show any entry from this list first. Taking into account position of entries on this list and recent usage.
 
