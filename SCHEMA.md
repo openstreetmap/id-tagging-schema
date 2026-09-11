@@ -327,7 +327,7 @@ A full example looks like this:
     // relation entries may have the same `reference` value.
     "allowDuplicateMembers": true,
 
-    // The label of ecah role, in the default language. An empty string is allowed.
+    // The label of each role, in the default language. An empty string is allowed.
     "role_labels": {
       "from": "From",
       "via": "Via",
@@ -409,7 +409,7 @@ The complete JSON schema for fields can be found in [`schemas/field.json`](schem
 
 ##### `label`
 
-A sort description or caption of the field.
+A short description or caption of the field.
 
 A field can optionally reference the label of another by using that field's name contained in brackets, like `{field}`. In which case the field's _terms_ are also automatically sourced from that other field. This is for example useful when there are multiple variants of fields for the same tag, which should all have the same labels.
 

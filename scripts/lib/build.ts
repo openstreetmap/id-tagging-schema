@@ -624,7 +624,7 @@ function getIconUrlFromIdentifier(identifier: string) {
     return 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/iD-sprite/presets/' +
       identifier.replace(/^iD-/, '') + '.svg';
   }
-  process.stderr.write('Unknown icon set for: ' + identifier);
+  process.stderr.write(`Unknown icon set for: ${identifier}\n`);
   process.stdout.write('\n');
   process.exit(1);
 }
@@ -959,7 +959,7 @@ function validateCategoryPresets(categories: AllCategories, presets: AllPresets)
     if (!category.members) return;
     category.members.forEach(preset => {
       if (presets[preset] === undefined) {
-        process.stderr.write('Unknown preset: ' + preset + ' in category ' + category.name + '\n');
+        process.stderr.write(`Unknown preset: ${preset} in category ${category.name}\n`);
         process.stdout.write('\n');
         process.exit(1);
       }
@@ -980,13 +980,13 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
       let replacementPreset = presets[preset.replacement];
       let p1geometry = preset.geometry.slice().sort().toString();
       if (replacementPreset === undefined) {
-        process.stderr.write('Unknown preset "' + preset.replacement + '" referenced as replacement of preset "' + presetID + '" (' + preset.name + ')\n');
+        process.stderr.write(`Unknown preset "${preset.replacement}" referenced as replacement of preset "${presetID}" (${preset.name})\n`);
         process.stdout.write('\n');
         process.exit(1);
       }
       let p2geometry = replacementPreset.geometry.slice().sort().toString();
       if (p1geometry !== p2geometry) {
-        process.stderr.write('The preset "' + presetID + '" has different geometry than its replacement preset, "' + preset.replacement + '". They must match for tag upgrades to work.\n');
+        process.stderr.write(`The preset "${presetID}" has different geometry than its replacement preset, "${preset.replacement}". They must match for tag upgrades to work.\n`);
         process.stdout.write('\n');
         process.exit(1);
       }
@@ -1006,7 +1006,7 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
           if (field.geometry) {
             let sharedGeometry = field.geometry.filter(value => preset.geometry.includes(value));
             if (!sharedGeometry.length) {
-              process.stderr.write('The preset "' + presetID + '" (' + preset.name + ') will never display the field "' + fieldID + '" since they don\'t share geometry types.\n');
+              process.stderr.write(`The preset "${presetID}" (${preset.name}) will never display the field "${fieldID}" since they don't share geometry types.\n`);
               process.stdout.write('\n');
               process.exit(1);
             }
@@ -1019,12 +1019,12 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
           if (regexResult) {
             let foreignPresetID = regexResult[0];
             if (presets[foreignPresetID] === undefined) {
-              process.stderr.write('Unknown preset "' + foreignPresetID + '" referenced in "' + fieldsKey + '" array of preset "' + presetID + '" (' + preset.name + ')\n');
+              process.stderr.write(`Unknown preset "${foreignPresetID}" referenced in "${fieldsKey}" array of preset "${presetID}" (${preset.name})\n`);
               process.stdout.write('\n');
               process.exit(1);
             }
           } else {
-            process.stderr.write('Unknown preset field "' + fieldID + '" in "' + fieldsKey + '" array of preset "' + presetID + '" (' + preset.name + ')\n');
+            process.stderr.write(`Unknown preset field "${fieldID}" in "${fieldsKey}" array of preset "${presetID}" (${preset.name})\n`);
             process.stdout.write('\n');
             process.exit(1);
           }
@@ -1071,7 +1071,7 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
         fieldCount = alwaysShownFields.length;
       }
       if (fieldCount > maxFieldsBeforeError) {
-        process.stderr.write(fieldCount + ' values in "fields" of "' + preset.name + '" (' + presetID + '). Limit: ' + maxFieldsBeforeError + '. Please move lower-priority fields to "moreFields".\n');
+        process.stderr.write(`${fieldCount} values in "fields" of "${preset.name}" (${presetID}). Limit: ${maxFieldsBeforeError}. Please move lower-priority fields to "moreFields".\n`);
         process.stdout.write('\n');
         process.exit(1);
       }
