@@ -56,7 +56,7 @@ A basic preset is of the form:
     "geometry": [
         "point", "area"
     ]
-    // The icon in iD which represents this feature.
+    // The icon which represents this feature.
     "icon": "maki-shop",
     // The names of fields that will appear by default in the editor sidebar.
     // See the fields documentation for details of what's valid here.
@@ -193,8 +193,8 @@ Bitmap images should be at least 100×100 px² to look good on high-resolution
 ##### `searchable`
 
 Deprecated or generic presets can include the property `"searchable": false`.
-This means that they will be recognized by iD when editing existing data,
-but will not be available as an option when adding new features.
+This means that they should be recognized when editing existing data,
+but not be available as an option when adding new features.
 
 By convention, unsearchable presets have filenames that begin with an underscore
 (e.g. `data/presets/landuse/_farm.json`). However, when using the preset name as reference,
@@ -264,7 +264,7 @@ A full example looks like this:
     // relation entries may have the same `reference` value.
     "allowDuplicateMembers": true,
 
-    // The label of ecah role, in the default language. An empty string is allowed.
+    // The label of each role, in the default language. An empty string is allowed.
     "role_labels": {
       "from": "From",
       "via": "Via",
@@ -346,7 +346,7 @@ The complete JSON schema for fields can be found in [`schemas/field.json`](schem
 
 ##### `label`
 
-A sort description or caption of the field.
+A short description or caption of the field.
 
 A field can optionally reference the label of another by using that field's name contained in brackets, like `{field}`. In which case the field's _terms_ are also automatically sourced from that other field. This is for example useful when there are multiple variants of fields for the same tag, which should all have the same labels.
 
@@ -719,9 +719,3 @@ To update a specific tag to a specific new tag
 [data/preset_defaults.json](data/preset_defaults.json) defines presets and categories to be shown in the default list for each geometry type. This default list is especially useful for populating preset list when the user has not used any presets yet and not searched for one.
 
 [data/preset_categories](data/preset_categories) defines categories. Each category has name, icon and an ordered list of presets. Categories can be displayed in search results when the user is looking for a preset, can be entry in default list. As categories group similar presets together could be also potentially used by editors in other contexts.
-
-
-## Contributing
-
-iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_CONDUCT.md) and
-[privacy policy](https://github.com/openstreetmap/iD/blob/release/PRIVACY.md) also apply to this project.

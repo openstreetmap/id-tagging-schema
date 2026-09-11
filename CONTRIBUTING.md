@@ -46,6 +46,8 @@ Detailed documentation for the data format used in this repository is located in
 
 To make a change, update the corresponding file within the `data` folder: The `presets` contain a representation of OpenStreetMap's [map features](https://wiki.openstreetmap.org/wiki/Map_Features), and the `fields` are their properties. In addition, the tagging schema contains a few `categories` of presets and a list of `deprecated` and `discardable` tags.
 
+When creating a new preset, copying the JSON file of a similar preset and modifying it accordingly is often a good starting point, rather than writing it fully from scratch.
+
 ### Icons
 
 Icons from different sources (_icon sets_) can be used in the tagging schema. Head over to the [ICONS.md](./ICONS.md) about how to use them.
