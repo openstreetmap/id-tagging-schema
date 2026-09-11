@@ -52,7 +52,10 @@ A basic preset is of the form:
     // The geometry types for which this preset is valid.
     // options are point, area, line, vertex and relation.
     // vertices are points that are parts of lines, like the nodes in a road
-    // lines are unclosed ways, and areas are closed ways
+    // lines are ways, except closed ones with tags indicating areas
+    // areas can be closed ways if tagged with something indicating them to be an area
+    // areas can be also be multipolygon relations
+    // relation type is for remaining relations
     "geometry": [
         "point", "area"
     ]
