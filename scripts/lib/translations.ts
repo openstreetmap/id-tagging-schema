@@ -177,7 +177,7 @@ async function fetchTranslations(_options: Partial<Options>, references: Referen
     let coverageByLocaleCode: { [localeCode: string]: number } = {};
     results.forEach(function(info) {
       info.forEach(stat => {
-        let code = stat.relationships.language.data.id.substr(2).replace(/_/g, '-');
+        let code = stat.relationships.language.data.id.substring(2).replace(/_/g, '-');
         let type = 'translated_strings';
         if (options.translReviewedOnly && (
           !Array.isArray(options.translReviewedOnly)
