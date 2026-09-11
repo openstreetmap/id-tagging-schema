@@ -1,6 +1,6 @@
 # unreleased version Migration Guide
 
-`related.expectedVertices` and `related.expectedVerticesCrossReference` were added, editors may use this to enhance editing experience of vertices.
+`related.expectedVertices` was added, editors may use this to enhance editing experience of vertices.
 
 # v7 Migration Guide
 

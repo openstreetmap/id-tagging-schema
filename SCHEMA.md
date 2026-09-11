@@ -253,9 +253,23 @@ For example `power=line` may have
     }
 ```
 
-List is ordered, entries expected to be used more often by mappers listed first. Editor software may use this list to show more relevant presets when selecting preset for `power=line` vertex.
+List is ordered, entries expected to be used more often by mappers listed first. 
+Editor software may use this list to show more relevant presets when selecting preset for `power=line` vertex.
 
-For example, editors may show any entry from this list first. Taking into account position of entries on this list and recent usage.
+And following syntax may be used to reference values from other preset.
+
+```json
+    "related": {
+        "expectedVertices": [
+            "{building/house}",
+            "emergency=emergency_ward_entrance"
+        ]
+    }
+```
+
+This theorethical case would list first entries from `expectedVertices` in `building/house` preset (note `{}` wrapping) followed by an additional `"emergency=emergency_ward_entrance"` vertex.
+
+Different editors may use this more relevant vertex list in various ways. For example, editors may show any entry from this list first. Taking into account position of entries on this list and recent usage.
 
 And only later show other presets. If user recently placed 10 `natural/tree/needleleaved/deciduous` objects and 20 `power/generator/source/wind` and selected vertex of `power=line` then maybe
 
@@ -277,18 +291,6 @@ Note: this feature is experimental. Feedback is welcome.
 Note: using it for QA would need to be extremely careful. As this lists are being built they will miss for now many valid cases. In addition, there are many unexpected valid cases where QA warning may induce bad edits. This listing is more expected to be useful to show more relevant features when editing and block some changes, rather than encourage removing unexpected cases.
 
 Note: comments welcome on [possible additional properties to mark those listings as more restrictive](https://github.com/openstreetmap/id-tagging-schema/pull/2454#issuecomment-5190205124).
-
-###### `expectedVerticesCrossReference`
-
-An string referencing another preset which has a `related.expectedVertices` to be used also here.
-
-For example:
-
-```
-    "related": {
-        "expectedVerticesCrossReference": "{building/house}"
-    }
-```
 
 ##### `replacement`
 
