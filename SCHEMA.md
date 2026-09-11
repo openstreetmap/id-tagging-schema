@@ -264,7 +264,7 @@ A full example looks like this:
     // relation entries may have the same `reference` value.
     "allowDuplicateMembers": true,
 
-    // The label of ecah role, in the default language. An empty string is allowed.
+    // The label of each role, in the default language. An empty string is allowed.
     "role_labels": {
       "from": "From",
       "via": "Via",
