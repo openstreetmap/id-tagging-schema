@@ -56,7 +56,7 @@ A basic preset is of the form:
     "geometry": [
         "point", "area"
     ]
-    // The icon in iD which represents this feature.
+    // The icon which represents this feature.
     "icon": "maki-shop",
     // The names of fields that will appear by default in the editor sidebar.
     // See the fields documentation for details of what's valid here.
@@ -193,8 +193,8 @@ Bitmap images should be at least 100×100 px² to look good on high-resolution
 ##### `searchable`
 
 Deprecated or generic presets can include the property `"searchable": false`.
-This means that they will be recognized by iD when editing existing data,
-but will not be available as an option when adding new features.
+This means that they should be recognized by editor when editing existing data,
+but not be available as an option when adding new features.
 
 By convention, unsearchable presets have filenames that begin with an underscore
 (e.g. `data/presets/landuse/_farm.json`). However, when using the preset name as reference,
