@@ -32,7 +32,7 @@ export interface Options {
     processCategories?: null | ((categories: AllCategories) => void);
     processFields?: null | ((fields: AllFields) => void);
     processPresets?: null | ((presets: AllPresets) => void);
-    listReusedIcons?: boolean;
+    listReusedIcons?: boolean | number;
     translOrgId?: string;
     translProjectId?: string;
     translResourceIds?: string[];
