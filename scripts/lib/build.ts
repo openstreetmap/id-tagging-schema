@@ -1083,8 +1083,8 @@ function translationsToYAML(translations: SourceStrings) {
     if (a === '#' + b) return -1;
     if (b === '#' + a) return 1;
     if (a[0] !== b[0]) {
-      if (a[0] === '#') a = a.substr(1);
-      if (b[0] === '#') b = b.substr(1);
+      if (a[0] === '#') a = a.substring(1);
+      if (b[0] === '#') b = b.substring(1);
     }
     return (a > b ? 1 : a < b ? -1 : 0);
   }
