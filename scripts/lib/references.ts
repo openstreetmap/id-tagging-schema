@@ -5,6 +5,69 @@ export function isReference(string: string) {
 }
 
 /**
+ * Resolves “{presets/<preset-id>}” to the icon of that preset, following chains
+ * of references. Unlike `iconsCrossReference`, which uses a bare field id, icon
+ * references always require the `presets/` prefix.
+ */
+function resolveIconReference(
+  presets: AllPresets,
+  reference: string,
+  context: string,
+  visitedPresetIDs: Set<string> = new Set(),
+): string {
+  const presetID = /^presets\/(.+)$/.exec(reference.slice(1, -1))?.[1];
+
+  if (!presetID) {
+    throw new Error(
+      `Invalid icon reference “${reference}” in ${context}: icon references must use “{presets/<preset-id>}”.`,
+    );
+  }
+
+  if (visitedPresetIDs.has(presetID)) {
+    throw new Error(
+      `Cycle detected while resolving icon reference “${reference}” in ${context}: preset “${presetID}” appears more than once in the chain.`,
+    );
+  }
+  visitedPresetIDs.add(presetID);
+
+  const referencedPreset = presets[presetID];
+  if (!referencedPreset) {
+    throw new Error(
+      `Cannot resolve icon reference “${reference}” in ${context}: there is no preset “${presetID}”.`,
+    );
+  }
+  if (!referencedPreset.icon) {
+    throw new Error(
+      `Cannot resolve icon reference “${reference}” in ${context}: preset “${presetID}” has no “icon” property.`,
+    );
+  }
+
+  return isReference(referencedPreset.icon)
+    ? resolveIconReference(presets, referencedPreset.icon, context, visitedPresetIDs)
+    : referencedPreset.icon;
+}
+
+function dereferenceIcons(presets: AllPresets, fields: AllFields) {
+  for (const presetID in presets) {
+    const preset = presets[presetID];
+    if (preset.icon && isReference(preset.icon)) {
+      preset.icon = resolveIconReference(presets, preset.icon, `preset “${presetID}” icon`);
+    }
+  }
+
+  for (const fieldID in fields) {
+    const field = fields[fieldID];
+    if (!field.icons) continue;
+
+    for (const [optionKey, icon] of Object.entries(field.icons)) {
+      if (isReference(icon)) {
+        field.icons[optionKey] = resolveIconReference(presets, icon, `field “${fieldID}” icons.${optionKey}`);
+      }
+    }
+  }
+}
+
+/**
  * This is only used to expand references to _untranslated content_.
  * For example, `fields` can reference the list of field IDs from another
  * preset.
@@ -116,7 +179,7 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
   for (const fieldID in fields) {
     const field = fields[fieldID];
 
-    // fields can reference icons from other presets
+    // fields can copy the icons map from another field
     if (field.iconsCrossReference) {
       const referencedField = fields[field.iconsCrossReference.slice(1, -1)];
 
@@ -169,6 +232,9 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
       delete field.locationSetCrossReference;
     }
   }
+
+  // preset `icon` and field `icons` values may use "{presets/<id>}" for another preset's icon id
+  dereferenceIcons(presets, fields);
 }
 
 /**
