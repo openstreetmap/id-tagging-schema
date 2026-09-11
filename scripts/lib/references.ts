@@ -70,7 +70,7 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
             return true;
           }
 
-          // replace the reference with what parent defined. decrement i to reprocess this array index.
+          // replace the reference with what the referenced preset defined. decrement i to reprocess this array index.
           // this is necessary as it can also be a reference
           preset[prop].splice(i--, 1, ...referencedPreset[prop].filter(shouldInherit));
         }
