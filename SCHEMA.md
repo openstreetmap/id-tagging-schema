@@ -713,8 +713,3 @@ To update a specific tag to a specific new tag
     "old": {"content": "unknown"}
   },
 ```
-
-## Contributing
-
-iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_CONDUCT.md) and
-[privacy policy](https://github.com/openstreetmap/iD/blob/release/PRIVACY.md) also apply to this project.
