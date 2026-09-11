@@ -193,7 +193,7 @@ Bitmap images should be at least 100×100 px² to look good on high-resolution
 ##### `searchable`
 
 Deprecated or generic presets can include the property `"searchable": false`.
-This means that they should be recognized by editor when editing existing data,
+This means that they should be recognized when editing existing data,
 but not be available as an option when adding new features.
 
 By convention, unsearchable presets have filenames that begin with an underscore
