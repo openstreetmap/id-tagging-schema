@@ -27,8 +27,8 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
             );
           }
 
-          // preset (A) references the fields / moreFields of preset (B), but (B) has them not defined
-          // We silently and intentionally skip this, as it allows presets
+          // preset (A) references the fields / moreFields of preset (B), but (B) does not
+          // define them. We silently and intentionally skip this, as it allows presets
           // to specify fields and moreFields inheritance even while parent has no such field yet.
           // Otherwise defining for example new moreFields would require checking all children presets
           // whether inheritance should be added there.
