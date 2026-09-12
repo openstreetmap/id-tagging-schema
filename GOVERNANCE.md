@@ -89,6 +89,11 @@ There is no set release schedule at the moment, but releases usually occur every
 - The maintainer of the iD editor has traditionally and continues to maintain this project.
 - Co-maintainer and triage roles are assigned by the current maintainer of the repository.
 
+### Rules
+
+iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_CONDUCT.md) and [privacy policy](https://github.com/openstreetmap/iD/blob/release/PRIVACY.md) also apply to this project.
+
+
 ## Previous Maintainers
 
 Many thanks to all previous maintainers! ❤
