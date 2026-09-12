@@ -182,6 +182,10 @@ This can be overwritten by adding the field explicitly like `"fields": [ "shop",
 
 An icon representing a preset, e.g. `"icon": "temaki-power_tower"` ([Example](https://github.com/openstreetmap/id-tagging-schema/blob/main/data/presets/power/tower.json)). More information about available icon sets and usage of icons can be found on the [icons subpage](ICONS.md).
 
+You may set `"icon": "{presets/<preset-id>}"`, e.g. `{presets/shop/books}` for `data/presets/shop/books.json` (or `_books.json`, see [`searchable`](#searchable)). Only `presets/*` is allowed (not `fields/*`). Chains are allowed and are resolved during the build.
+
+For icons on each combo or radio option, see [`icons`](#icons).
+
 ##### `imageURL`
 
 The URL of a remote image file. This does not fully replace `icon`—both may be shown in the UI.
@@ -659,7 +663,11 @@ For `identifier` fields, the regular expression that valid values are expected t
 
 ##### `icons`
 
-For combo and radio fields, the `icons` object might contain the name of icons which represent the different values of the field. More information about available icon sets and usage of icons can be found on the [icons subpage](ICONS.md).
+On [combo / dropdown](#combodropdown-fields) and [radio](#radio-buttons) fields, the `icons` object maps each option key to an icon id shown beside that value in the editor, e.g. `"zebra": "iD-crossing_markings-zebra"` in the snippet below. More information about available icon sets and usage of icons can be found on the [icons subpage](ICONS.md).
+
+Individual values may also use `"{presets/<preset-id>}"` instead of a literal id, with the same syntax as [preset `icon`](#icon).
+
+To copy an entire `icons` map from another field, use [`iconsCrossReference`](#iconscrossreference).
 
 Combo field types can accept key-label pairs in the `options` value of the `strings` property.
 
@@ -669,7 +677,7 @@ Combo field types can accept key-label pairs in the `options` value of the `stri
     "type": "combo",
     "label": "Crossing Markings",
     "icons": {
-        "zebra": "iD-crossing_markings-zebra",
+        "zebra": "{presets/highway/footway/crossing/zebra}",
         "lines": "iD-crossing_markings-lines",
         …
     }
@@ -678,7 +686,9 @@ Combo field types can accept key-label pairs in the `options` value of the `stri
 
 ##### `iconsCrossReference`
 
-An optional property to reference to the icons of another field, indicated  by using that field's name contained in brackets, like `{field}`. This is for example useful when there are multiple variants of fields for the same tag, which should all use the same icons.
+An optional property to reference the `icons` object of another field, indicated by that field's id in brackets, like `{field}`. The `presets/` prefix is not used; for example `{kerb}` copies the field whose id is `kerb`. This is useful when multiple field variants for the same tag should share the same icons.
+
+`{presets/…}` values inside a copied `icons` map are expanded the same way as in any other field (see [`icons`](#icons)).
 
 ### Deprecations
 
