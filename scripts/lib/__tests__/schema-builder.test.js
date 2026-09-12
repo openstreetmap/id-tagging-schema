@@ -53,6 +53,37 @@ describe('schema-builder', () => {
     expect(fs.existsSync(_workspace + '/dist')).toBe(false);
   });
 
+  it('runs buildDev while a different buildDist is pending', async () => {
+    writeSourceData({
+      'data/presets/natural.json': {
+        tags: { natural: '*' },
+        geometry: ['point'],
+        name: 'Natural Feature'
+      }
+    });
+    await Promise.all([
+      schemaBuilder.buildDist({
+        inDirectory: _workspace + '/data',
+        interimDirectory: _workspace + '/dist-interim',
+        outDirectory: _workspace + '/dist',
+        taginfoProjectInfo: {
+          name: 'IntrepiD',
+          description: 'iD editor, but adventurous.',
+          project_url: 'https://example.com/IntrepiD',
+          contact_name: 'J. Maintainer',
+          contact_email: 'maintainer@example.com'
+        }
+      }),
+      schemaBuilder.buildDev({
+        inDirectory: _workspace + '/data',
+        interimDirectory: _workspace + '/dev-interim'
+      })
+    ]);
+    expect(fs.existsSync(_workspace + '/dev-interim/source_strings.yaml')).toBe(true);
+    expect(fs.readFileSync(_workspace + '/dev-interim/source_strings.yaml', 'utf8')).toContain('Natural Feature');
+    expect(JSON.parse(fs.readFileSync(_workspace + '/dist/presets.json', 'utf8')).natural.tags).toEqual({ natural: '*' });
+  });
+
   it('runs buildDist', async () => {
     writeSourceData({
       'data/preset_categories/water.json': {
