@@ -1034,6 +1034,36 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
       }
     }
 
+    let relatedKeys = ['expectedVertices'] as const;
+    for (let relatedKeyIndex in relatedKeys) {
+      let relatedKey = relatedKeys[relatedKeyIndex];
+      if (!preset.related?.[relatedKey]) continue;
+
+      for (let vertexIndex in preset.related[relatedKey]) {
+        let foreignPresetID = preset.related[relatedKey][vertexIndex];
+        if (presets[foreignPresetID] === undefined) {
+          if (isReference(foreignPresetID)) {
+            let referencedForeignPresetID = foreignPresetID.slice(1, -1)
+            if (presets[referencedForeignPresetID] === undefined) {
+              process.stderr.write(`Unknown preset "${referencedForeignPresetID}" referenced in "expectedVertices" array of preset "${presetID}" (${preset.name})\n`);
+              process.stdout.write('\n');
+              process.exit(1);
+            }
+        } else {
+            process.stderr.write('Unknown preset "' + foreignPresetID + '" stated as valid vertex in "expectedVertices" array of preset "' + presetID + '" (' + preset.name + ')\n');
+            process.stdout.write('\n');
+            process.exit(1);
+          }
+        } else if (!presets[foreignPresetID].geometry.includes("vertex")) {
+          process.stderr.write('preset not valid as a vertex "' + foreignPresetID + '" referenced in "expectedVertices" array of preset "' + presetID + '" (' + preset.name + ')\n');
+          process.stdout.write('\n');
+          process.stdout.write(presets[foreignPresetID].geometry.toString());
+          process.exit(1);
+        }
+      }
+    }
+
+
     if (preset.fields) {
       // since `moreFields` is available, check that `fields` doesn't get too cluttered
       let fieldCount = preset.fields.length;
