@@ -28,7 +28,7 @@ export function expandTStrings(localeCode: string, tstrings: TStrings, sourceLan
         // remove translation message if it was included somehow
         ? preset.terms.replace(/<.*>/, '')
           // convert to an array
-          .split(',')
+          .split(/[,،]/)
         : [];
 
     // for en-* translations, copy the american translations as alternative terms
