@@ -93,7 +93,6 @@ There is no set release schedule at the moment, but releases usually occur every
 
 iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_CONDUCT.md) and [privacy policy](https://github.com/openstreetmap/iD/blob/release/PRIVACY.md) also apply to this project.
 
-
 ## Previous Maintainers
 
 Many thanks to all previous maintainers! ❤
