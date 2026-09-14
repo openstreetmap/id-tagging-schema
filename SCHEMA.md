@@ -55,7 +55,6 @@ A basic preset is of the form:
     // * `point` are all other nodes like POIs or place nodes
     // * `line` are ways, except closed ones with tags indicating an area
     // * `area` are closed ways if tagged with a tag indicating them to be an area
-    //   see https://wiki.openstreetmap.org/wiki/Area#Tags_implying_area_status
     // * `area` also matches multipolygon relations
     //   see https://wiki.openstreetmap.org/wiki/Relation:multipolygon
     // * `relation` represent all other OSM relation types
