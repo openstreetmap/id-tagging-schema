@@ -104,7 +104,7 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
 
       if (!referenced) {
         throw new Error(
-          `Preset “${presetID}” references “${foreignId}” in locationSetCrossReference, but there is no such ${type}.`,
+          `Preset “${presetID}” references “${foreignId.join('/')}” in locationSetCrossReference, but there is no such ${type}.`,
         );
       }
 
@@ -161,7 +161,7 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
 
       if (!referenced) {
         throw new Error(
-          `Field “${fieldID}” references “${foreignId}” in locationSetCrossReference, but there is no such ${type}.`,
+          `Field “${fieldID}” references “${foreignId.join('/')}” in locationSetCrossReference, but there is no such ${type}.`,
         );
       }
 
@@ -282,7 +282,7 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
             tstrings.fields[fieldID][prop][key] = referenced;
           } else if (strict) {
             throw new Error(
-              `Field “${fieldID}” references “${foreignId}” in options.${prop}.${key}, but there is no such ${type}.`,
+              `Field “${fieldID}” references “${foreignId.join('/')}” in options.${prop}.${key}, but there is no such ${type}.`,
             );
           }
         }
