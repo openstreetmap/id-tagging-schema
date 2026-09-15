@@ -286,7 +286,7 @@ async function fetchTranslations(_options: Partial<Options>, references: Referen
       });
       const lngs = await project.fetch('languages', false) as Collection;
       for await (const lng of lngs.all() as { attributes: { code: string } }[]) {
-        if (lng.attributes.code === 'en') continue;
+        if (lng.attributes.code === options.sourceLocale) continue;
         result.push(lng.attributes.code.replace(/_/g, '-'));
       }
       process.stdout.write('got project languages\n');
