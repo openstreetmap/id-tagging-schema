@@ -16,7 +16,7 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
     // fields and moreFields can reference other presets
     for (const prop of ['fields', 'moreFields'] as const) {
       if (!preset[prop]) continue;
-      for (let i = 0; i < preset[prop].length || 0; i++) {
+      for (let i = 0; i < preset[prop].length; i++) {
         const otherPresetID = preset[prop][i];
         if (isReference(otherPresetID)) {
           const referencedPreset = presets[otherPresetID.slice(1, -1)];
