@@ -568,7 +568,7 @@ If you omit [`options`](#options), then it will include every option from the re
 
 ##### `autoSuggestions`
 
-For combo fields, the most common tag values will be fetched from TagInfo and shown
+For combo fields, the most common tag values will be fetched from Taginfo and shown
 in the dropdown list if `autoSuggestions` is `true`. The default is `true`.
 
 ##### `customValues`
