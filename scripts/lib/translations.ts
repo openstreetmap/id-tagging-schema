@@ -6,6 +6,8 @@ import { transifexApi, type Collection } from '@transifex/api';
 import { dereferencedTranslatableContent } from './references.ts';
 import type { Options, References, ResourceInfo, SourceStrings, TStrings } from './types.def.ts';
 
+const COMMA_REGEX = /[,،]/
+
 export function expandTStrings(localeCode: string, tstrings: TStrings, sourceLanguageTranslations?: TStrings) {
   const isCommonwealthEnglish = localeCode.startsWith('en-') && localeCode !== 'en-US';
   const presets = tstrings.presets || {};
@@ -28,7 +30,7 @@ export function expandTStrings(localeCode: string, tstrings: TStrings, sourceLan
         // remove translation message if it was included somehow
         ? preset.terms.replace(/<.*>/, '')
           // convert to an array
-          .split(/[,،]/)
+          .split(COMMA_REGEX)
         : [];
 
     // for en-* translations, copy the american translations as alternative terms
@@ -71,7 +73,7 @@ export function expandTStrings(localeCode: string, tstrings: TStrings, sourceLan
       // remove translation message if it was included somehow
       ? field.terms.replace(/\[.*\]/, '')
       // convert to an array
-      .split(/[,،]/)
+      .split(COMMA_REGEX)
       : [];
 
     // for en-* translations, copy the american translations as alternative terms
