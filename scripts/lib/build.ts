@@ -707,8 +707,12 @@ function generateTaginfo(
     if (field.type === 'directionalCombo') {
       // for directionalCombo, only :left and :right are included in field.keys,
       // so we need to explicitly add the two other possibilities.
-      const base = field.key!.replace(/:both$/, '');
-      keys.push(base, `${base}:both`);
+      const key = field.key!;
+      if (key.includes(':both')) {
+        keys.push(key.replace(/:both(:|$)/, '$1'), key);
+      } else {
+        keys.push(key, `${key}:both`);
+      }
     }
 
     keys.forEach(key => {
