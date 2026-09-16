@@ -6,7 +6,7 @@ import { transifexApi, type Collection } from '@transifex/api';
 import { dereferencedTranslatableContent } from './references.ts';
 import type { Options, References, ResourceInfo, SourceStrings, TStrings } from './types.def.ts';
 
-const COMMA_REGEX = /[,،]/
+const COMMA_REGEX = /[,،，]/;
 
 export function expandTStrings(localeCode: string, tstrings: TStrings, sourceLanguageTranslations?: TStrings) {
   const isCommonwealthEnglish = localeCode.startsWith('en-') && localeCode !== 'en-US';
