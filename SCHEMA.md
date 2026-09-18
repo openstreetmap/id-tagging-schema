@@ -354,6 +354,22 @@ A short description or caption of the field.
 
 A field can optionally reference the label of another by using that field's name contained in brackets, like `{field}`. In which case the field's _terms_ are also automatically sourced from that other field. This is for example useful when there are multiple variants of fields for the same tag, which should all have the same labels.
 
+##### `terms`
+
+Fields also can list search terms. See for example:
+
+```js
+{
+    "key": "lit",
+    "type": "check",
+    "label": "Lit",
+    "terms": [
+        "lamp",
+        "lighting"
+    ]
+}
+```
+
 ##### `type`
 
 A string specifying the UI and behavior of the field. Must be one of the following values.
