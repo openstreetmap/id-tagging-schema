@@ -123,7 +123,7 @@ async function processData(_options: Partial<Options> | undefined, type: 'build-
   let fields = generateFields(dataDir, tstrings, searchableFieldIDs, references);
   if (options.processFields) options.processFields(fields);
 
-  let presets = generatePresets(dataDir, tstrings, searchableFieldIDs, options.listReusedIcons, references);
+  let presets = generatePresets(dataDir, tstrings, searchableFieldIDs, references);
   if (options.processPresets) options.processPresets(presets);
 
   const defaults = read<PresetDefaults>(dataDir + '/preset_defaults.json');
@@ -141,6 +141,8 @@ async function processData(_options: Partial<Options> | undefined, type: 'build-
   validatePresetFields(presets, fields);
 
   dereferenceUntranslatedContent(presets, fields, references);
+
+  reportReusedIcons(presets, options.listReusedIcons);
 
   if (defaults) {
     validateDefaults(defaults, categories, presets);
@@ -372,16 +374,59 @@ function extractIdFromPath(parentDir: string, file: string) {
 }
 
 
+function reportReusedIcons(presets: AllPresets, listReusedIcons: boolean | number | undefined) {
+  if (!listReusedIcons) return;
+
+  const icons: Record<string, string[]> = {};
+  for (const id in presets) {
+    const preset = presets[id];
+    if (preset.searchable !== false) {
+      const icon = preset.icon || '(none)';
+      if (!icons[icon]) icons[icon] = [];
+      icons[icon].push(id);
+    }
+  }
+
+  const reuseLimit = typeof listReusedIcons === 'number' && listReusedIcons > 0 ? listReusedIcons : 1;
+
+  let reusedIconPresetCount = 0;
+  const reusedIcons = Object.keys(icons).filter(function(iconID) {
+    const presetIDs = icons[iconID];
+    if (presetIDs.length > reuseLimit) {
+      reusedIconPresetCount += presetIDs.length;
+      return true;
+    }
+    return false;
+  });
+
+  if (reusedIcons.length > 0) {
+    process.stdout.write(reusedIcons.length + ' icon(s), including (none), are each used more than ' + reuseLimit + ' time(s), affecting ' + reusedIconPresetCount + ' presets\n');
+
+    reusedIcons.sort(function(iconID1, iconID2) {
+      return icons[iconID2].length - icons[iconID1].length;
+
+    }).forEach(function(iconID) {
+      const presetIDs = icons[iconID];
+      process.stdout.write(iconID + ', ' + presetIDs.length + '\n');
+      for (let i in presetIDs) {
+        process.stdout.write('-' + presetIDs[i] + '\n');
+      }
+      process.stdout.write('\n');
+    });
+  } else {
+    process.stdout.write(styleText('green', 'No icon is used more than ' + reuseLimit + ' time(s) across all searchable presets\n'));
+  }
+}
+
+
 function generatePresets(
     dataDir: string,
     tstrings: TStrings,
     searchableFieldIDs: Record<string, true>,
-    listReusedIcons: boolean | number | undefined,
     references: References,
 ) {
   let presets: AllPresets = {};
 
-  let icons: Record<string, string[]> = {};
 
   const presetsDir = path.posix.join(dataDir, 'presets');
   fs.globSync(presetsDir + '/**/*.json').forEach(file => {
@@ -438,12 +483,6 @@ function generatePresets(
 
     presets[id] = preset;
 
-    if (preset.searchable !== false) {
-      let icon = preset.icon || '(none)';
-      if (!icons[icon]) icons[icon] = [];
-      icons[icon].push(id);
-    }
-
     if (preset.relation) {
       tstrings.presets[id].relation = {
         role_labels: preset.relation.role_labels
@@ -467,38 +506,6 @@ function generatePresets(
       locationConflation.validateLocationSet(preset.locationSet);
     }
   });
-
-  if (listReusedIcons) {
-    const reuseLimit = typeof listReusedIcons === 'number' && listReusedIcons > 0 ? listReusedIcons : 1;
-
-    let reusedIconPresetCount = 0;
-    const reusedIcons = Object.keys(icons).filter(function(iconID) {
-      const presetIDs = icons[iconID];
-      if (presetIDs.length > reuseLimit) {
-        reusedIconPresetCount += presetIDs.length;
-        return true;
-      }
-      return false;
-    });
-
-    if (reusedIcons.length > 0) {
-      process.stdout.write(reusedIcons.length + ' icon(s), including (none), are each used more than ' + reuseLimit + ' time(s), affecting ' + reusedIconPresetCount + ' presets\n');
-
-      reusedIcons.sort(function(iconID1, iconID2) {
-        return icons[iconID2].length - icons[iconID1].length;
-
-      }).forEach(function(iconID) {
-        const presetIDs = icons[iconID];
-        process.stdout.write(iconID + ', ' + presetIDs.length + '\n');
-        for (let i in presetIDs) {
-          process.stdout.write('-' + presetIDs[i] + '\n');
-        }
-        process.stdout.write('\n');
-      });
-    } else {
-      process.stdout.write(styleText('green', 'No icon is used more than ' + reuseLimit + ' time(s) across all searchable presets\n'));
-    }
-  }
 
   return presets;
 }
