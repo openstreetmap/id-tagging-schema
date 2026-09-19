@@ -42,8 +42,6 @@ const locationConflation = new LocationConflation();
 
 async function buildDev(options?: Options) {
 
-  if (_currBuild) return _currBuild;
-
   const START = '🏗   ' + styleText('yellow', 'Validating and building for development...');
   const END = '👍  ' + styleText('green', 'built for development');
 
