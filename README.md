@@ -7,7 +7,7 @@ It includes presets, fields, deprecations, and more, recording various informati
 It does this by abstracting and slightly simplifying OpenStreetMap's [Folksonomy](https://en.wikipedia.org/wiki/Folksonomy) as documented on the [OpenStreetMap Wiki](https://wiki.openstreetmap.org/), the [community forum](https://community.openstreetmap.org/) and other sources.
 The main goal is to allow OSM editing software to display the OSM data in a way that is intuitive and easy to understand for the user (i.e. such that they don't have to read the full documentation in order to use the respective tags). iD tagging schema is following community consensus rather than inventing new tagging methods.
 
-## Participate!
+## Participate
 
 * Read up about how you can contribute to the iD Tagging Schema on the [contributing page](CONTRIBUTING.md).
 * [Translate!](CONTRIBUTING.md#Translating)
