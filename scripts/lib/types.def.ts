@@ -46,7 +46,7 @@ export interface References {
             placeholder?: string;
             options?: {
                 [prop: string]: {
-                    [optionKey: string]: string;
+                    [optionKey: string]: string | { title: string };
                 };
             };
             iconsCrossReference?: string;
@@ -92,7 +92,7 @@ export interface TStrings {
             [otherProp: string]: {
                 [option: string]: string | {
                     '#title'?: string;
-                    title: string;
+                    title?: string;
                     '#description'?: string;
                     description: string;
                 };
