@@ -539,10 +539,16 @@ _unchecked state_ ([example](https://github.com/openstreetmap/id-tagging-schema/
 2. fields of type `defaultCheck`: _unchecked state_ (must use the option `undefined`), _checked state_ ([example](https://github.com/openstreetmap/id-tagging-schema/blob/2375a6b/data/fields/crossing_raised.json))
 
 The value of each option can be a reference to another field or preset's name. For example:
-```json
+```jsonc
   "strings": {
     "options": {
       "portal_crane": "{presets/man_made/crane/portal_crane}",
+
+      // if using title + description, the title can also be a reference:
+      "gantry_crane": {
+        "title": "{presets/man_made/crane/gantry_crane}",
+        "description": "A crane that sits atop a movable gantry"
+      }
     }
   }
 ```

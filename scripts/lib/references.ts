@@ -266,7 +266,9 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
     if (f.options) {
       for (const prop in f.options) {
         for (const key in f.options[prop]) {
-          const [type, ...foreignId] = f.options[prop][key]
+          const reference = f.options[prop][key];
+          const referenceExpression = (typeof reference === 'object' ? reference.title : reference);
+          const [type, ...foreignId] = referenceExpression
             .slice(1, -1)
             .split('/');
           const referenced =
@@ -279,10 +281,19 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
           if (referenced) {
             if (!tstrings.fields[fieldID]) tstrings.fields[fieldID] = {};
             tstrings.fields[fieldID][prop] ||= {};
-            tstrings.fields[fieldID][prop][key] = referenced;
+            const existing = tstrings.fields[fieldID][prop][key];
+            if (typeof reference === 'object' && typeof existing !== 'string') {
+              tstrings.fields[fieldID][prop][key] = {
+                ...existing,
+                title: referenced,
+              };
+            } else {
+              tstrings.fields[fieldID][prop][key] = referenced;
+            }
           } else if (strict) {
+            const subkey = typeof reference === 'object' ? 'title.' : '';
             throw new Error(
-              `Field “${fieldID}” references “${foreignId.join('/')}” in options.${prop}.${key}, but there is no such ${type}.`,
+              `Field “${fieldID}” references “${foreignId.join('/')}” in options.${prop}.${key}.${subkey} But there is no such ${type}.`,
             );
           }
         }
