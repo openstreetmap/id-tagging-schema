@@ -17,5 +17,124 @@
         "key": "route",
         "value": "bus"
     },
-    "name": "Bus Route"
+    "name": "Bus Route",
+    "relation": {
+        "reference": "route",
+        "allowDuplicateMembers": true,
+        "role_labels": {
+            "stop": "Stop",
+            "stop_exit_only": "Stop (Drop-Off Only)",
+            "stop_entry_only": "Stop (Pick-Up Only)",
+            "platform": "Platform",
+            "platform_exit_only": "Platform (Drop-Off Only)",
+            "platform_entry_only": "Platform (Pick-Up Only)",
+            "": "Route Segment",
+            "forward": "Route Segment (Forward)",
+            "backward": "Route Segment (Backward)"
+        },
+        "members": [
+            {
+                "role": "",
+                "geometry": [
+                    "line"
+                ]
+            },
+            {
+                "role": "forward",
+                "geometry": [
+                    "line"
+                ]
+            },
+            {
+                "role": "backward",
+                "geometry": [
+                    "line"
+                ]
+            },
+            {
+                "role": "stop",
+                "geometry": [
+                    "vertex"
+                ],
+                "matchTags": [
+                    {
+                        "public_transport": "stop_position"
+                    }
+                ]
+            },
+            {
+                "role": "stop_exit_only",
+                "geometry": [
+                    "vertex"
+                ],
+                "matchTags": [
+                    {
+                        "public_transport": "stop_position"
+                    }
+                ]
+            },
+            {
+                "role": "stop_entry_only",
+                "geometry": [
+                    "vertex"
+                ],
+                "matchTags": [
+                    {
+                        "public_transport": "stop_position"
+                    }
+                ]
+            },
+            {
+                "role": "platform",
+                "geometry": [
+                    "point",
+                    "vertex",
+                    "line",
+                    "area"
+                ],
+                "matchTags": [
+                    {
+                        "public_transport": "platform"
+                    },
+                    {
+                        "highway": "bus_stop"
+                    }
+                ]
+            },
+            {
+                "role": "platform_exit_only",
+                "geometry": [
+                    "point",
+                    "vertex",
+                    "line",
+                    "area"
+                ],
+                "matchTags": [
+                    {
+                        "public_transport": "platform"
+                    },
+                    {
+                        "highway": "bus_stop"
+                    }
+                ]
+            },
+            {
+                "role": "platform_entry_only",
+                "geometry": [
+                    "point",
+                    "vertex",
+                    "line",
+                    "area"
+                ],
+                "matchTags": [
+                    {
+                        "public_transport": "platform"
+                    },
+                    {
+                        "highway": "bus_stop"
+                    }
+                ]
+            }
+        ]
+    }
 }
