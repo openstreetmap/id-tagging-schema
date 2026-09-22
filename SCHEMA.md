@@ -696,21 +696,27 @@ For combo and radio fields, the `icons` object might contain the name of icons w
 }
 ```
 
-Combo field types can accept key-label pairs in the `options` value of the `strings` property.
+Combo field types can accept key-icon pairs.
 
 ```js
 {
-    "key": "plant:output:",
-    "type": "multiCombo",
-    "label": "Form of Power Output",
+    "key": "volcano:type",
+    "type": "combo",
+    "label": "Volcano Type",
     "strings": {
         "options": {
-            "electricity": "Electricity",
-            "hot_water": "Hot Water",
-            "hot_air": "Hot Air",
-            …
+            "stratovolcano": "Stratovolcano",
+            "shield": "Shield",
+            "scoria": "Scoria"
         }
-    }
+    },
+    "icons": {
+        "stratovolcano": "roentgen-stratovolcano___smoke_2",
+        "shield": "roentgen-shield_volcano___smoke_2",
+        "scoria": "roentgen-volcanic_cone___smoke_2"
+    },
+    "autoSuggestions": false,
+    "customValues": false
 }
 ```
 
