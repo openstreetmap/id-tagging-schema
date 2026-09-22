@@ -626,7 +626,7 @@ For `number` & `integer` fields, the amount the stepper control increases or dec
 
 An object defining the tags the feature needs before this field will be displayed. It may have this property:
 
-- `key`: The key for the required tag.
+- `key`: The key that must be present on the feature.
 
 And may optionally be combined with one of these properties, but not both:
 
