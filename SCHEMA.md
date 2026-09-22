@@ -144,7 +144,7 @@ When adding a feature with this preset, it will be given the tags `man_made=brid
 
 ##### `removeTags`
 
-`removeTags` is a special feature that needs explicit setting in edge cases when [automatic tag removal on preset switching](https://github.com/ideditor/schema-builder/issues/329) is not enough.
+`removeTags` is a special feature that needs explicit setting in edge cases when [automatic tag removal on preset switching](https://github.com/openstreetmap/id-tagging-schema/issues/2494) is not enough.
 
 Specified tags are removed from the feature when deselecting this preset. Defaults to `addTags` or if this is also not defined, to `tags`.
 
