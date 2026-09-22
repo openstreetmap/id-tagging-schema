@@ -683,8 +683,6 @@ For `identifier` fields, the regular expression that valid values are expected t
 
 For combo and radio fields, the `icons` object might contain the name of icons which represent the different values of the field. More information about available icon sets and usage of icons can be found on the [icons subpage](ICONS.md).
 
-Combo field types can accept key-label pairs in the `options` value of the `strings` property.
-
 ```js
 {
     "key": "crossing:markings",
@@ -694,6 +692,24 @@ Combo field types can accept key-label pairs in the `options` value of the `stri
         "zebra": "iD-crossing_markings-zebra",
         "lines": "iD-crossing_markings-lines",
         …
+    }
+}
+```
+
+Combo field types can accept key-label pairs in the `options` value of the `strings` property.
+
+```js
+{
+    "key": "plant:output:",
+    "type": "multiCombo",
+    "label": "Form of Power Output",
+    "strings": {
+        "options": {
+            "electricity": "Electricity",
+            "hot_water": "Hot Water",
+            "hot_air": "Hot Air",
+            …
+        }
     }
 }
 ```
