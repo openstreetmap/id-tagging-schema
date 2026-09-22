@@ -461,7 +461,7 @@ appear in the "Add Field" list for all presets
 ##### `geometry`
 
 If specified, only show the field for this kind of geometry. Should contain
-one of `point`, `vertex`, `line`, `area`.
+one of `point`, `vertex`, `line`, `area`, `relation`.
 
 ##### `default`
 
