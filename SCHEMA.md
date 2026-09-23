@@ -250,7 +250,7 @@ For example,
 
 ##### `relation`
 
-For relations, this object describes which roles are allowed, which tags are required for each role, and other constraints related to relation roles.
+For relations, this optional object describes which roles are allowed, which tags are required for each role, and other constraints related to relation roles.
 
 * `relation.reference` – a string. This is the “permanent relation type ID”, it must match the value of [permanent relation type ID<sup><code>P41</code></sup>](https://osm.wiki/Property:P41) in the OSM wiki’s wikibase system.
 * `relation.allowDuplicateMembers` – a boolean. Set to `true` if the same OSM feature is allowed to appear multiple times in the relation's members.
