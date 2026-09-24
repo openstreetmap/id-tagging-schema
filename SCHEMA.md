@@ -108,7 +108,7 @@ An array of possible geometry types that a feature must have in order to match t
 * `vertex`: an OSM node that is a member of one or more ways
 * `line`: an OSM way that is not an area
 * `area`: an OSM way that is closed/circular (the first and last nodes are the same) or a `type=multipolygon` relation
-* `relation`: an OSM relation
+* `relation`: an OSM relation, other than a `type=multipolygon`
 
 Closed ways can be treated as both `line` or `area` geometry. If a preset allows both, iD will add an additional `area=yes` tag when choosing the preset for an area feature.
 
