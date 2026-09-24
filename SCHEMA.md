@@ -31,7 +31,7 @@ A basic preset is of the form:
     "aliases": [
         "Farm Shop",
         "Farm Stand"
-    ]
+    ],
     // Terms are additional search terms for the preset - these are added to
     // fuel the search functionality. searching for 'vegetables' will bring
     // up this 'farm shop' preset
@@ -59,7 +59,7 @@ A basic preset is of the form:
     // * `relation` represent all other OSM relation types
     "geometry": [
         "point", "area"
-    ]
+    ],
     // The icon which represents this feature.
     "icon": "maki-shop",
     // The names of fields that will appear by default in the editor sidebar.
