@@ -1,0 +1,62 @@
+{
+    "icon": "maki-roadblock",
+    "geometry": [
+        "relation"
+    ],
+    "fields": [
+        "{type/restriction}"
+    ],
+    "tags": {
+        "type": "restriction",
+        "restriction": "no_exit"
+    },
+    "reference": {
+        "key": "restriction",
+        "value": "no_exit"
+    },
+    "name": "No Exit",
+    "searchable": false,
+    "relation": {
+        "reference": "restriction",
+        "allowDuplicateMembers": true,
+        "role_labels": {
+            "from": "From",
+            "to": "To",
+            "via": "Via"
+        },
+        "members": [
+            {
+                "role": "from",
+                "geometry": [
+                    "line"
+                ],
+                "matchTags": [
+                    {
+                        "highway": "*"
+                    }
+                ],
+                "min": 1
+            },
+            {
+                "role": "via",
+                "geometry": [
+                    "vertex",
+                    "line"
+                ],
+                "min": 1
+            },
+            {
+                "role": "to",
+                "geometry": [
+                    "line"
+                ],
+                "matchTags": [
+                    {
+                        "highway": "*"
+                    }
+                ],
+                "min": 1
+            }
+        ]
+    }
+}
