@@ -320,6 +320,14 @@ function generateFields(dataDir: string, tstrings: TStrings, searchableFieldIDs:
             references.fields[id].options ||= {};
             references.fields[id].options[prop] ||= {};
             references.fields[id].options[prop][key] = value;
+          } else if (typeof value === 'object' && isReference(value.title)) {
+            references.fields[id] ||= {};
+            references.fields[id].options ||= {};
+            references.fields[id].options[prop] ||= {};
+
+            // title is a reference, description is not
+            references.fields[id].options[prop][key] = { title: value.title };
+            t[prop][key] = { description: value.description };
           } else {
             t[prop][key] = value;
           }
@@ -522,7 +530,7 @@ function generateTranslations(fields: AllFields, presets: AllPresets, tstrings: 
         options['#' + k] = field.key ? `${field.key}=${k}` : `field "${fieldId}" with value "${k}"`;
       } else {
         options[k]['#description'] = `description for ${field.key}=${k}`;
-        options[k]['#title'] = `title for ${field.key}=${k}`;
+        if (options[k].title) options[k]['#title'] = `title for ${field.key}=${k}`;
       }
     });
 
