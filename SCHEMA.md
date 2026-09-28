@@ -14,9 +14,10 @@ files located under the `data/presets` folder.
 
 #### Preset Files
 
-Presets are defined in JSON files located under `data/presets`. They're organized in a
-directory hierarchy based on OSM key/value pairs. For example, the preset that matches
-the tag `leisure=park` is in the file `data/presets/leisure/park.json`.
+Presets are defined in JSON files located under `data/presets`. To keep them easy to
+find by humans their directory hierarchy is based on OSM key/value pairs.
+For example, the preset that matches the tag `leisure=park` is in the file 
+`data/presets/leisure/park.json`.
 
 #### Preset Schema
 
