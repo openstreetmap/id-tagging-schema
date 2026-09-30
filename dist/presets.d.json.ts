@@ -103,15 +103,11 @@ export interface Preset {
    */
   related?: {
     /**
-     * An list of preset IDs that may be used as a vertex of this preset, when this preset is used on a line or area. List is ordered, starting from ones more likely to be selected by mapper.
+     * A list of preset IDs expected to be used as a vertex of this preset, when this preset is used on a line or area. List is ordered, starting from ones more likely to be selected by mapper.
      *
      * @minItems 1
      */
     expectedVertices?: string[]
-    /**
-     * An string referencing another preset which has a related.expectedVertices to be used also here
-     */
-    expectedVerticesCrossReference?: string
   }
   relation?: RelationSchema
   /**
