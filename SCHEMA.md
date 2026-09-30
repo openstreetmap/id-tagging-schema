@@ -339,9 +339,9 @@ For example, the field for the tag `piste:difficulty=*` is stored in the file
 
 ```js
 {
-    "key": "cuisine",
-    "type": "combo",
-    "label": "Cuisine"
+    "key": "operator",
+    "type": "text",
+    "label": "Operator"
 }
 ```
 The complete JSON schema for fields can be found in [`schemas/field.json`](schemas/field.json)
