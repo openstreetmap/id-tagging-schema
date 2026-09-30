@@ -111,6 +111,41 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
       preset.locationSet = referenced.locationSet;
       delete preset.locationSetCrossReference;
     }
+
+    // presets can reference related.expectedVertices
+    const prop = "expectedVertices"
+    if (preset.related?.expectedVertices) {
+      for (let i = 0; i < preset.related.expectedVertices.length || 0; i++) {
+        const otherPresetID = preset.related.expectedVertices[i];
+        if (isReference(otherPresetID)) {
+          const referencedPreset = presets[otherPresetID.slice(1, -1)];
+
+          if (!referencedPreset) {
+            throw new Error(
+              `Preset “${presetID}” references “${otherPresetID}” in ${prop}.${i}, but there is no such preset.`,
+            );
+          }
+
+          if (!referencedPreset.related) {
+            throw new Error(
+              `Preset “${presetID}” references “${otherPresetID}” in related.expectedVertices, but this preset has no related field.`,
+            );
+          }
+
+          if (!referencedPreset.related.expectedVertices) {
+            throw new Error(
+              `Preset “${presetID}” references “${otherPresetID}” in related.expectedVertices, but this preset has no related.expectedVertices field.`,
+            );
+          }
+
+          // replace the reference with every field. decrement i to reprocess this array index.
+          // this is necessary as it can also be a reference
+          preset.related.expectedVertices.splice(i--, 1, ...referencedPreset.related.expectedVertices);
+        }
+      }
+      // deduplicate, possibly needed as result of dereferencing
+      preset.related.expectedVertices = [...new Set(preset.related.expectedVertices)]
+    }
   }
 
   for (const fieldID in fields) {
