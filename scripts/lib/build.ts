@@ -138,7 +138,7 @@ async function processData(_options: Partial<Options> | undefined, type: 'build-
 
   // Additional consistency checks
   validateCategoryPresets(categories, presets);
-  validatePresetFields(presets, fields);
+  validatePresetFields(presets, fields, tstrings);
 
   dereferenceUntranslatedContent(presets, fields, references);
 
@@ -970,9 +970,17 @@ function validateCategoryPresets(categories: AllCategories, presets: AllPresets)
   });
 }
 
-function validatePresetFields(presets: AllPresets, fields: AllFields) {
+function validatePresetFields(presets: AllPresets, fields: AllFields, tstrings: TStrings) {
   const betweenBracketsRegex = /([^{]*?)(?=\})/;
   const maxFieldsBeforeError = 10;
+
+  // preset.name is deleted during loading (translations live in locale
+  // files), so resolve the human-readable name from tstrings instead.
+  // Falls back to no suffix when the name is a {reference} or missing.
+  const displayName = (presetID: string): string => {
+    const name = tstrings.presets[presetID]?.name;
+    return name !== undefined ? ` (${name})` : '';
+  };
 
   let usedFieldIDs = new Set();
 
@@ -983,7 +991,7 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
       let replacementPreset = presets[preset.replacement];
       let p1geometry = preset.geometry.slice().sort().toString();
       if (replacementPreset === undefined) {
-        process.stderr.write(`Unknown preset "${preset.replacement}" referenced as replacement of preset "${presetID}" (${preset.name})\n`);
+        process.stderr.write(`Unknown preset "${preset.replacement}" referenced as replacement of preset "${presetID}"${displayName(presetID)}\n`);
         process.stdout.write('\n');
         process.exit(1);
       }
@@ -1009,7 +1017,7 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
           if (field.geometry) {
             let sharedGeometry = field.geometry.filter(value => preset.geometry.includes(value));
             if (!sharedGeometry.length) {
-              process.stderr.write(`The preset "${presetID}" (${preset.name}) will never display the field "${fieldID}" since they don't share geometry types.\n`);
+              process.stderr.write(`The preset "${presetID}"${displayName(presetID)} will never display the field "${fieldID}" since they don't share geometry types.\n`);
               process.stdout.write('\n');
               process.exit(1);
             }
@@ -1022,12 +1030,12 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
           if (regexResult) {
             let foreignPresetID = regexResult[0];
             if (presets[foreignPresetID] === undefined) {
-              process.stderr.write(`Unknown preset "${foreignPresetID}" referenced in "${fieldsKey}" array of preset "${presetID}" (${preset.name})\n`);
+              process.stderr.write(`Unknown preset "${foreignPresetID}" referenced in "${fieldsKey}" array of preset "${presetID}"${displayName(presetID)}\n`);
               process.stdout.write('\n');
               process.exit(1);
             }
           } else {
-            process.stderr.write(`Unknown preset field "${fieldID}" in "${fieldsKey}" array of preset "${presetID}" (${preset.name})\n`);
+              process.stderr.write(`Unknown preset field "${fieldID}" in "${fieldsKey}" array of preset "${presetID}"${displayName(presetID)}\n`);
             process.stdout.write('\n');
             process.exit(1);
           }
@@ -1048,17 +1056,17 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
           if (isReference(foreignPresetID)) {
             let referencedForeignPresetID = foreignPresetID.slice(1, -1)
             if (presets[referencedForeignPresetID] === undefined) {
-              process.stderr.write(`Unknown preset "${referencedForeignPresetID}" referenced in "expectedVertices" array of preset "${presetID}" (${preset.name})\n`);
+              process.stderr.write(`Unknown preset "${referencedForeignPresetID}" referenced in "expectedVertices" array of preset "${presetID}"${displayName(presetID)}\n`);
               process.stdout.write('\n');
               process.exit(1);
             }
         } else {
-            process.stderr.write('Unknown preset "' + foreignPresetID + '" stated as valid vertex in "expectedVertices" array of preset "' + presetID + '" (' + preset.name + ')\n');
+            process.stderr.write('Unknown preset "' + foreignPresetID + '" stated as valid vertex in "expectedVertices" array of preset "' + presetID + '"' + displayName(presetID) + '\n');
             process.stdout.write('\n');
             process.exit(1);
           }
         } else if (!presets[foreignPresetID].geometry.includes("vertex")) {
-          process.stderr.write('preset not valid as a vertex "' + foreignPresetID + '" referenced in "expectedVertices" array of preset "' + presetID + '" (' + preset.name + ')\n');
+            process.stderr.write('preset not valid as a vertex "' + foreignPresetID + '" referenced in "expectedVertices" array of preset "' + presetID + '"' + displayName(presetID) + '\n');
           process.stdout.write('\n');
           process.stdout.write(presets[foreignPresetID].geometry.toString());
           process.exit(1);
@@ -1081,7 +1089,7 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
         fieldCount = alwaysShownFields.length;
       }
       if (fieldCount > maxFieldsBeforeError) {
-        process.stderr.write(`${fieldCount} values in "fields" of "${preset.name}" (${presetID}). Limit: ${maxFieldsBeforeError}. Please move lower-priority fields to "moreFields".\n`);
+        process.stderr.write(`${fieldCount} values in "fields" of${displayName(presetID)} (${presetID}). Limit: ${maxFieldsBeforeError}. Please move lower-priority fields to "moreFields".\n`);
         process.stdout.write('\n');
         process.exit(1);
       }
