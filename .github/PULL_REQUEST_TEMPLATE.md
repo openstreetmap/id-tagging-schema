@@ -2,6 +2,10 @@
 
 <!-- Help readers to understand why this is relevant -->
 
+<!-- link tag usage stats if relevant -->
+<!-- E.g., Numbers from Taginfo https://taginfo.openstreetmap.org/ and maybe local Taginfo https://taginfo.geofabrik.de/ -->
+<!-- E.g., a link to https://taghistory.raifer.tech -->
+
 ### Related issues
 
 <!-- Please link any related issues here. 
@@ -12,20 +16,16 @@
 **Relevant OSM Wiki links:**
 - …
 
-**Relevant tag usage stats:**
-> …
-<!-- E.g., Numbers from Taginfo https://taginfo.openstreetmap.org/ and maybe local Taginfo https://taginfo.geofabrik.de/ -->
-<!-- E.g., a link to https://taghistory.raifer.tech -->
-
 ### Checklist and Test-Documentation Template
 
-<details><summary>Read on to get your PR merged faster…</summary>
+<details><summary>Read about the necessary next steps…</summary>
 
-Follow these steps to test your PR yourself and make it a lot easier and faster for maintainers to check and approve it.
+We need your help testing your change. Please follow the steps below to complete your pull request by testing new presets.
 
 **This is how it works:**
 1. After you submit your PR, the system will create a preview and comment on your PR:
    > 🍱 Your pull request preview is ready.
+
    If this is your first contribution to this project, the preview will not happen right away but requires a click from one of the project members. We will do this ASAP.
 
 2. Once the preview is ready, use it to test your changes.

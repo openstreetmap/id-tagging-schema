@@ -31,7 +31,7 @@ A basic preset is of the form:
     "aliases": [
         "Farm Shop",
         "Farm Stand"
-    ]
+    ],
     // Terms are additional search terms for the preset - these are added to
     // fuel the search functionality. searching for 'vegetables' will bring
     // up this 'farm shop' preset
@@ -50,13 +50,17 @@ A basic preset is of the form:
         "shop": "farm"
     },
     // The geometry types for which this preset is valid.
-    // options are point, area, line, and vertex.
-    // vertices are points that are parts of lines, like the nodes in a road
-    // lines are unclosed ways, and areas are closed ways
+    // Options are point, vertex, area, line, and relation.
+    // * `vertex` are points that are parts of lines, like the nodes in a road
+    // * `point` are all other nodes like POIs or place nodes
+    // * `line` are ways, except closed ones with tags indicating an area
+    // * `area` are closed ways if tagged with a tag indicating them to be an area
+    // * `area` also matches multipolygon relations
+    // * `relation` represent all other OSM relation types
     "geometry": [
         "point", "area"
-    ]
-    // The icon in iD which represents this feature.
+    ],
+    // The icon which represents this feature.
     "icon": "maki-shop",
     // The names of fields that will appear by default in the editor sidebar.
     // See the fields documentation for details of what's valid here.
@@ -104,7 +108,7 @@ An array of possible geometry types that a feature must have in order to match t
 * `vertex`: an OSM node that is a member of one or more ways
 * `line`: an OSM way that is not an area
 * `area`: an OSM way that is closed/circular (the first and last nodes are the same) or a `type=multipolygon` relation
-* `relation`: an OSM relation
+* `relation`: an OSM relation, other than a `type=multipolygon`
 
 Closed ways can be treated as both `line` or `area` geometry. If a preset allows both, iD will add an additional `area=yes` tag when choosing the preset for an area feature.
 
@@ -140,7 +144,7 @@ When adding a feature with this preset, it will be given the tags `man_made=brid
 
 ##### `removeTags`
 
-`removeTags` is a special feature that needs explicit setting in edge cases when [automatic tag removal on preset switching](https://github.com/ideditor/schema-builder/issues/329) is not enough.
+`removeTags` is a special feature that needs explicit setting in edge cases when [automatic tag removal on preset switching](https://github.com/openstreetmap/id-tagging-schema/issues/2494) is not enough.
 
 Specified tags are removed from the feature when deselecting this preset. Defaults to `addTags` or if this is also not defined, to `tags`.
 
@@ -174,8 +178,8 @@ of `presets/shop.json`. When subfolders are used, the format is `{shop/books}` t
 }
 ```
 
-Fields for keys that define the preset via `tags` are generally not inherited.
-E.g. the `shop` field is not inherited despite specifying as inheriting from `{shop}` presets.
+Fields for keys that define the preset via `tags` will be inherited only when it is useful (fields allowing multiple values such as `multiCombo` and checkboxes, see `shouldInherit` function).
+E.g. in the case above `shop` field is not inherited despite being one of `fields` in `{shop}` preset.
 This can be overwritten by adding the field explicitly like `"fields": [ "shop", "{shop}" ],`
 
 ##### `icon`
@@ -193,8 +197,8 @@ Bitmap images should be at least 100×100 px² to look good on high-resolution
 ##### `searchable`
 
 Deprecated or generic presets can include the property `"searchable": false`.
-This means that they will be recognized by iD when editing existing data,
-but will not be available as an option when adding new features.
+This means that they should be recognized when editing existing data,
+but not be available as an option when adding new features.
 
 By convention, unsearchable presets have filenames that begin with an underscore
 (e.g. `data/presets/landuse/_farm.json`). However, when using the preset name as reference,
@@ -226,6 +230,72 @@ Alternatively, `locationSetCrossReference` can be use to reference the `location
 "locationSetCrossReference": "{presets/man_made/crane}"
 ```
 
+##### `related`
+
+Hints about related presets that are related to this one, can be optionally used for a context-aware handling.
+
+###### `expectedVertices`
+
+A list of preset IDs that are expected to be used as a vertex of this preset, when this preset is used on a line or area. 
+
+For example `power=line` may have
+
+```json
+    "related": {
+        "expectedVertices": [
+            "power/tower",
+            "power/portal",
+            "power/pole",
+            "power/transformer",
+            "power/generator/source/wind",
+            "power/generator/source/hydro",
+            "power/generator/method/photovoltaic",
+            "power/generator/source/nuclear",
+            "power/generator",
+            "power/switch"
+        ]
+    }
+```
+
+List is ordered, entries expected to be used more often by mappers listed first. 
+Editor software may use this list to show more relevant presets when selecting preset for `power=line` vertex.
+
+And following syntax may be used to reference values from other preset.
+
+```json
+    "related": {
+        "expectedVertices": [
+            "{building/house}",
+            "emergency/emergency_ward_entrance"
+        ]
+    }
+```
+
+This theoretical case would list first entries from `expectedVertices` in `building/house` preset (note `{}` wrapping) followed by an additional `"emergency/emergency_ward_entrance"` vertex preset.
+
+Different editors may use this more relevant vertex list in various ways. For example, editors may show any entry from this list first. Taking into account position of entries on this list and recent usage.
+
+And only later show other presets. If user recently placed 10 `natural/tree/needleleaved/deciduous` objects and 20 `power/generator/source/wind` and selected vertex of `power=line` then maybe
+
+* `power/generator/source/wind` can be shown first, boosted to the first position by recent usage
+* then other entries from `expectedVertices` list
+* then `natural/tree/needleleaved/deciduous`
+* then other vertex presets
+
+If `power/generator/source/wind` had only two recent uses then probably `power/tower` should stay as the first option.
+
+Note that as world is complex this is not exhaustive. For example `tourism/artwork/statue` may be not listed as expected vertex of `waterway/river` as it is not an expected situation. But it does not make [this statue](https://www.openstreetmap.org/node/1374406687/history/11) invalidly mapped.
+
+In some cases single vertex may be member of multiple ways. In such case expected strategy would be to group listed options by how many parent ways list them as valid vertices.
+
+For example if `highway/track` and `waterway/stream` intersect and both list `ford` preset as a valid vertex, then it should be listed before ones appearing on only one of parent ways.
+
+Note: this feature is experimental. Feedback is welcome.
+
+Note: using it for QA would need to be extremely careful. As this lists are being built they will miss for now many valid cases. In addition, there are many unexpected valid cases where QA warning may induce bad edits. This listing is more expected to be useful to show more relevant features when editing and block some changes, rather than encourage removing unexpected cases.
+
+Note: comments welcome on [possible additional properties to mark those listings as more restrictive](https://github.com/openstreetmap/id-tagging-schema/pull/2454#issuecomment-5190205124).
+
 ##### `replacement`
 
 The ID of a preset that is preferable to this one. iD's validator will flag features matching this preset and recommend that the user upgrade the tags.
@@ -246,7 +316,7 @@ For example,
 
 ##### `relation`
 
-For relations, this object describes which roles are allowed, which tags are required for each role, and other constraints related to relation roles.
+For relations, this optional object describes which roles are allowed, which tags are required for each role, and other constraints related to relation roles.
 
 * `relation.reference` – a string. This is the “permanent relation type ID”, it must match the value of [permanent relation type ID<sup><code>P41</code></sup>](https://osm.wiki/Property:P41) in the OSM wiki’s wikibase system.
 * `relation.allowDuplicateMembers` – a boolean. Set to `true` if the same OSM feature is allowed to appear multiple times in the relation's members.
@@ -264,7 +334,7 @@ A full example looks like this:
     // relation entries may have the same `reference` value.
     "allowDuplicateMembers": true,
 
-    // The label of ecah role, in the default language. An empty string is allowed.
+    // The label of each role, in the default language. An empty string is allowed.
     "role_labels": {
       "from": "From",
       "via": "Via",
@@ -335,9 +405,9 @@ For example, the field for the tag `piste:difficulty=*` is stored in the file
 
 ```js
 {
-    "key": "cuisine",
-    "type": "combo",
-    "label": "Cuisine"
+    "key": "operator",
+    "type": "text",
+    "label": "Operator"
 }
 ```
 The complete JSON schema for fields can be found in [`schemas/field.json`](schemas/field.json)
@@ -346,9 +416,25 @@ The complete JSON schema for fields can be found in [`schemas/field.json`](schem
 
 ##### `label`
 
-A sort description or caption of the field.
+A short description or caption of the field.
 
 A field can optionally reference the label of another by using that field's name contained in brackets, like `{field}`. In which case the field's _terms_ are also automatically sourced from that other field. This is for example useful when there are multiple variants of fields for the same tag, which should all have the same labels.
+
+##### `terms`
+
+Fields also can list search terms. See for example:
+
+```js
+{
+    "key": "lit",
+    "type": "check",
+    "label": "Lit",
+    "terms": [
+        "lamp",
+        "lighting"
+    ]
+}
+```
 
 ##### `type`
 
@@ -441,7 +527,7 @@ appear in the "Add Field" list for all presets
 ##### `geometry`
 
 If specified, only show the field for this kind of geometry. Should contain
-one of `point`, `vertex`, `line`, `area`.
+one of `point`, `vertex`, `line`, `area`, `relation`.
 
 ##### `default`
 
@@ -454,7 +540,9 @@ associated with building features (but only if drawn as a closed area).
     "key": "building",
     "type": "combo",
     "default": "yes",
-    "geometry": "area",
+    "geometry": [
+        "area"
+    ],
     "label": "Building"
 }
 ```
@@ -568,7 +656,7 @@ If you omit [`options`](#options), then it will include every option from the re
 
 ##### `autoSuggestions`
 
-For combo fields, the most common tag values will be fetched from TagInfo and shown
+For combo fields, the most common tag values will be fetched from Taginfo and shown
 in the dropdown list if `autoSuggestions` is `true`. The default is `true`.
 
 ##### `customValues`
@@ -604,7 +692,7 @@ For `number` & `integer` fields, the amount the stepper control increases or dec
 
 An object defining the tags the feature needs before this field will be displayed. It may have this property:
 
-- `key`: The key for the required tag.
+- `key`: The key that must be present on the feature.
 
 And may optionally be combined with one of these properties, but not both:
 
@@ -661,8 +749,6 @@ For `identifier` fields, the regular expression that valid values are expected t
 
 For combo and radio fields, the `icons` object might contain the name of icons which represent the different values of the field. More information about available icon sets and usage of icons can be found on the [icons subpage](ICONS.md).
 
-Combo field types can accept key-label pairs in the `options` value of the `strings` property.
-
 ```js
 {
     "key": "crossing:markings",
@@ -714,7 +800,11 @@ To update a specific tag to a specific new tag
   },
 ```
 
-## Contributing
+### Default listing
 
-iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_CONDUCT.md) and
-[privacy policy](https://github.com/openstreetmap/iD/blob/release/PRIVACY.md) also apply to this project.
+[data/preset_defaults.json](data/preset_defaults.json) defines presets and categories to be shown in the default list for each geometry type. This default list is especially useful for populating preset list when the user has not used any presets yet and not searched for one.
+
+
+### Categories
+
+[data/preset_categories](data/preset_categories) defines categories. Each category has name, icon and an ordered list of presets. Categories can be displayed in search results when the user is looking for a preset, can be entry in default list. As categories group similar presets together could be also potentially used by editors in other contexts.

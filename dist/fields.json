@@ -520,6 +520,36 @@
         "key": "boat",
         "type": "combo"
     },
+    "boat_rental_types": {
+        "type": "manyCombo",
+        "keys": [
+            "kayak_rental",
+            "canoe_rental",
+            "standup_paddleboard_rental",
+            "motorboat_rental",
+            "pedalboat_rental",
+            "sailboat_rental",
+            "rowboat_rental",
+            "dinghy_rental",
+            "jetski_rental",
+            "houseboat_rental",
+            "yacht_rental"
+        ],
+        "autoSuggestions": false,
+        "options": [
+            "motorboat_rental",
+            "houseboat_rental",
+            "pedalboat_rental",
+            "jetski_rental",
+            "sailboat_rental",
+            "rowboat_rental",
+            "dinghy_rental",
+            "kayak_rental",
+            "canoe_rental",
+            "standup_paddleboard_rental",
+            "yacht_rental"
+        ]
+    },
     "bollard": {
         "key": "bollard",
         "type": "combo",
@@ -1228,6 +1258,12 @@
         "pattern": "^.+$",
         "urlFormat": "https://instagram.com/{value}"
     },
+    "contact/mastodon": {
+        "key": "contact:mastodon",
+        "type": "identifier",
+        "pattern": "^.+$",
+        "urlFormat": "https://fedirect.toolforge.org/?id={value}"
+    },
     "contact/webcam": {
         "key": "contact:webcam",
         "type": "url"
@@ -1247,6 +1283,19 @@
             "slurry",
             "water",
             "wine"
+        ]
+    },
+    "content_bulk": {
+        "key": "content",
+        "type": "combo",
+        "options": [
+            "silage",
+            "manure",
+            "crop",
+            "grain",
+            "salt",
+            "cement",
+            "sand"
         ]
     },
     "conveying": {
@@ -1974,7 +2023,10 @@
         "type": "combo",
         "prerequisiteTag": {
             "key": "religion",
-            "valueNot": "none"
+            "valuesNot": [
+                "none",
+                ""
+            ]
         }
     },
     "denotation": {
@@ -2338,6 +2390,67 @@
         "locationSet": {
             "include": [
                 "us"
+            ]
+        }
+    },
+    "drive_through-except-US": {
+        "key": "drive_through",
+        "type": "check",
+        "locationSet": {
+            "exclude": [
+                "us"
+            ],
+            "include": [
+                "Planet"
+            ]
+        }
+    },
+    "drive_through_common_for_atm": {
+        "key": "drive_through",
+        "type": "check",
+        "locationSet": {
+            "include": [
+                "ca",
+                "us",
+                "mx",
+                "cr",
+                "ec",
+                "gt",
+                "hn",
+                "ni",
+                "pr",
+                "do",
+                "ve",
+                "au",
+                "nz",
+                "id",
+                "my"
+            ]
+        }
+    },
+    "drive_through_uncommon_for_atm": {
+        "key": "drive_through",
+        "type": "check",
+        "locationSet": {
+            "exclude": [
+                "ca",
+                "us",
+                "mx",
+                "cr",
+                "ec",
+                "gt",
+                "hn",
+                "ni",
+                "pr",
+                "do",
+                "ve",
+                "au",
+                "nz",
+                "id",
+                "my"
+            ],
+            "include": [
+                "Planet"
             ]
         }
     },
@@ -3505,8 +3618,8 @@
     },
     "lanes": {
         "key": "lanes",
-        "type": "number",
-        "minValue": 0
+        "type": "integer",
+        "minValue": 1
     },
     "language_multi": {
         "key": "language:",
@@ -3551,7 +3664,9 @@
         "type": "combo",
         "icons": {
             "broadleaved": "maki-park",
-            "needleleaved": "roentgen-needleleaved_tree"
+            "needleleaved": "roentgen-needleleaved_tree",
+            "mixed": "pinhead-conifer_tree_and_oval_broadleaved_tree",
+            "leafless": "temaki-tree_cactus"
         },
         "autoSuggestions": false,
         "customValues": false,
@@ -3574,7 +3689,9 @@
         "customValues": false,
         "icons": {
             "broadleaved": "maki-park",
-            "needleleaved": "roentgen-needleleaved_tree"
+            "needleleaved": "roentgen-needleleaved_tree",
+            "mixed": "pinhead-conifer_tree_and_oval_broadleaved_tree",
+            "leafless": "temaki-tree_cactus"
         }
     },
     "leisure": {
@@ -4454,7 +4571,6 @@
             "discover_card",
             "dkv",
             "ep_easycard",
-            "ep_geldkarte",
             "ep_ipass",
             "girocard",
             "google_pay",
@@ -4505,7 +4621,6 @@
             "discover_card",
             "dkv",
             "ep_easycard",
-            "ep_geldkarte",
             "ep_ipass",
             "girocard",
             "google_pay",
@@ -4522,6 +4637,16 @@
             "visa_electron",
             "wechat",
             "upi"
+        ]
+    },
+    "pedagogy": {
+        "key": "pedagogy",
+        "type": "combo",
+        "options": [
+            "mainstream",
+            "montessori",
+            "waldorf",
+            "dalton"
         ]
     },
     "phases": {
@@ -5770,6 +5895,23 @@
         "key": "seamark:mooring:category",
         "type": "combo"
     },
+    "seamark/platform/category": {
+        "key": "seamark:platform:category",
+        "type": "combo",
+        "options": [
+            "oil",
+            "production",
+            "observation",
+            "fpso",
+            "accommodation"
+        ]
+    },
+    "seamark/radio_station/mmsi": {
+        "key": "seamark:radio_station:mmsi",
+        "type": "identifier",
+        "urlFormat": "https://www.vesselfinder.com/vessels/details/{value}",
+        "pattern": "^[0-9]{1,}$"
+    },
     "seamark/rescue_station/category": {
         "key": "seamark:rescue_station:category",
         "type": "semiCombo",
@@ -6630,6 +6772,19 @@
             "pitlatrine",
             "chemical",
             "bucket"
+        ]
+    },
+    "toilets/hands_drying": {
+        "key": "toilets:hands_drying",
+        "type": "semiCombo",
+        "autoSuggestions": false,
+        "customValues": false,
+        "options": [
+            "electric_hand_dryer",
+            "paper_towel",
+            "towel",
+            "towel_cabinet",
+            "no"
         ]
     },
     "toilets/handwashing": {

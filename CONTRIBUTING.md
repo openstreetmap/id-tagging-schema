@@ -6,10 +6,10 @@ Don't hesitate to submit feedback about issues or how the tagging schema could b
 
 In general it is better to open a new issue compared to commenting in a closed issue or a closed pull request where such a comment will likely be missed.
 
-iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_CONDUCT.md) and [privacy policy](https://github.com/openstreetmap/iD/blob/release/PRIVACY.md) also apply to this project.
-
 
 ## General Guidelines
+
+iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_CONDUCT.md) and [privacy policy](https://github.com/openstreetmap/iD/blob/release/PRIVACY.md) also apply to this project.
 
 Read the [GUIDELINES](./GUIDELINES.md) to help you understand what fields and tags should be added to the tagging schema.
 
@@ -45,6 +45,8 @@ You are highly welcome to help this project by submitting pull requests!
 Detailed documentation for the data format used in this repository is located in [./SCHEMA.md](./SCHEMA.md).
 
 To make a change, update the corresponding file within the `data` folder: The `presets` contain a representation of OpenStreetMap's [map features](https://wiki.openstreetmap.org/wiki/Map_Features), and the `fields` are their properties. In addition, the tagging schema contains a few `categories` of presets and a list of `deprecated` and `discardable` tags.
+
+When creating a new preset, copying the JSON file of a similar preset and modifying it accordingly is often a good starting point, rather than writing it fully from scratch.
 
 ### Icons
 
@@ -85,7 +87,7 @@ If you have [set up](https://github.com/openstreetmap/iD#installation) your own 
 The following `npm` commands are used in this repository:
 
 * `npm install` – installs or updates the repository's required dependencies
-* `npm test` – validates the source data
+* `npm test` – runs unit tests for the internal build scripts. You don't need to run this unless you're modifying the TypeScript code.
 * `npm run build` – validates the source data and builds some files which are used during development (e.g. strings to be supplied to the translation platform)
 * `npm run dist` – validates the source data and compiles output files for iD
 * `npm run dist -- translations` – fetches translations from transifex and compiles the translations files for iD
