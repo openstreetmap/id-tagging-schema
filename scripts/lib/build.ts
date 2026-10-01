@@ -531,7 +531,9 @@ function generateTranslations(fields: AllFields, presets: AllPresets, tstrings: 
         options['#' + k] = field.key ? `${field.key}=${k}` : `field "${fieldId}" with value "${k}"`;
       } else {
         options[k]['#description'] = `description for ${field.key}=${k}`;
-        if (options[k].title) options[k]['#title'] = `title for ${field.key}=${k}`;
+        if (options[k].title) {
+           options[k]['#title'] = `title for ${field.key}=${k}`;
+        }
       }
     });
 
