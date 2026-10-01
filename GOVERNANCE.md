@@ -22,7 +22,7 @@ Github shows a `(Member)` label next to users with full access to this repositor
 
 - [Kyle](https://github.com/k-yle) contributes to this project as a volunteer.
 - [Tobias](https://github.com/tordans) contributes to this project as a volunteer.
-- [Mateusz](https://github.com/matkoniecz) contributed to this project as a volunteer, with [some of current](https://github.com/osmfoundation/ewg_bidding/pull/61) and [past work](https://github.com/osmfoundation/ewg_bidding/pull/58) funded by OpenStreetMap Foundation.
+- [Mateusz](https://github.com/matkoniecz) contributed to this project as a volunteer, with [some of current](https://github.com/osmfoundation/ewg_bidding/pull/61) and [past work](https://github.com/osmfoundation/ewg_bidding/pull/58) funded by OpenStreetMap Foundation. He is also receiving funding from [European Union via NLnet Foundation](https://nlnet.nl/project/OSM-iD-tagging/). Funding is not overlapping, given piece of work was funded from at most one of this sources.
 
 The co-maintainer role includes:
 - Reviewing PRs.
