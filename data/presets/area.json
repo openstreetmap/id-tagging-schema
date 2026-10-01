@@ -12,5 +12,30 @@
         "polygon"
     ],
     "name": "Area",
-    "matchScore": 0.1
+    "matchScore": 0.1,
+    "relation": {
+        "reference": "multipolygon",
+        "allowDuplicateMembers": false,
+        "role_labels": {
+            "inner": "Inner Edge",
+            "outer": "Outer Edge"
+        },
+        "members": [
+            {
+                "role": "inner",
+                "geometry": [
+                    "line",
+                    "area"
+                ]
+            },
+            {
+                "role": "outer",
+                "geometry": [
+                    "line",
+                    "area"
+                ],
+                "min": 1
+            }
+        ]
+    }
 }

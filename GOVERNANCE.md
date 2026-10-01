@@ -22,6 +22,7 @@ Github shows a `(Member)` label next to users with full access to this repositor
 
 - [Kyle](https://github.com/k-yle) contributes to this project as a volunteer.
 - [Tobias](https://github.com/tordans) contributes to this project as a volunteer.
+- [Mateusz](https://github.com/matkoniecz) contributed to this project as a volunteer, with [some of current](https://github.com/osmfoundation/ewg_bidding/pull/61) and [past work](https://github.com/osmfoundation/ewg_bidding/pull/58) funded by OpenStreetMap Foundation.
 
 The co-maintainer role includes:
 - Reviewing PRs.
@@ -33,7 +34,7 @@ Github shows a `(Collaborator)` label next to users with any permission on this 
 
 ### Triage Role
 
-* [Mateusz](https://github.com/matkoniecz) contributed to this project as a volunteer, with [current work](https://github.com/osmfoundation/ewg_bidding/pull/58) funded by OpenStreetMap Foundation.
+- [Andrew](https://github.com/andrewharvey) contributes to this project as a volunteer.
 
 The triage role includes:
 - Proactively helping to clarify issues and PRs.
@@ -87,6 +88,10 @@ There is no set release schedule at the moment, but releases usually occur every
 
 - The maintainer of the iD editor has traditionally and continues to maintain this project.
 - Co-maintainer and triage roles are assigned by the current maintainer of the repository.
+
+### Policies
+
+iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_CONDUCT.md) and [privacy policy](https://github.com/openstreetmap/iD/blob/release/PRIVACY.md) also apply to this project. Maintainers and Co-Maintainers are responsible to enforce the code of conduct in this project.
 
 ## Previous Maintainers
 
