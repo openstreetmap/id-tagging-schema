@@ -244,6 +244,30 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
         );
       }
     }
+
+    // presets' relation role_labels can reference the role_labels from other presets
+    if (p.roleLabels) {
+      for (const role in p.roleLabels) {
+        const match = p.roleLabels[role].slice(1, -1).split('.role_labels.');
+        if (match.length !== 2 || !match[0]) {
+          throw new Error(
+            `Preset “${presetID}” contains “${p.roleLabels[role]}” in relation.role_labels.${role}, but that syntax is not a valid reference.`,
+          );
+        }
+        const [otherPresetID, otherRole] = match;
+
+        const label = tstrings.presets[otherPresetID]?.relation?.role_labels?.[otherRole];
+        if (label) {
+          tstrings.presets[presetID] ||= {};
+          tstrings.presets[presetID].relation ||= { role_labels: {} };
+          tstrings.presets[presetID].relation.role_labels[role] = label;
+        } else if (strict) {
+          throw new Error(
+            `Preset “${presetID}” references “${p.roleLabels[role]}” in relation.role_labels.${role}, but preset “${otherPresetID}” does not exist or does not have such a role.`,
+          );
+        }
+      }
+    }
   }
 
   for (const fieldID in references.fields) {

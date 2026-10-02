@@ -445,9 +445,18 @@ function generatePresets(
     }
 
     if (preset.relation) {
-      tstrings.presets[id].relation = {
-        role_labels: preset.relation.role_labels
-      };
+      for (const role in preset.relation.role_labels) {
+        const labelOrReference = preset.relation.role_labels[role];
+        if (isReference(labelOrReference)) {
+          references.presets[id] ||= {};
+          references.presets[id].roleLabels ||= {};
+          references.presets[id].roleLabels[role] = labelOrReference;
+        } else {
+          tstrings.presets[id].relation ||= { role_labels: {} };
+          tstrings.presets[id].relation.role_labels[role] = labelOrReference;
+        }
+      }
+
         // @ts-expect-error -- deleting a non-optional prop
       delete preset.relation.role_labels;
     }
