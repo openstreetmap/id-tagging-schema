@@ -57,6 +57,9 @@ export interface References {
         [presetId: string]: {
             relation?: string;
             nameTermsAliases?: string;
+            roleLabels?: {
+                [role: string]: string;
+            };
         };
     };
 }
