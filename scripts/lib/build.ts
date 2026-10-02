@@ -578,6 +578,11 @@ function generateTranslations(fields: AllFields, presets: AllPresets, tstrings: 
 
     if (yamlPreset.relation?.role_labels) {
       for (const role in yamlPreset.relation.role_labels) {
+        // skip empty values
+        if (!yamlPreset.relation.role_labels[role]) {
+          delete yamlPreset.relation.role_labels[role];
+          continue;
+        }
         yamlPreset.relation.role_labels[`#${role}`] = `Relation role “${role}” when used with ${tagsString}`;
       }
     }
