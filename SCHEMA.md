@@ -620,6 +620,8 @@ to the different states of the checkbox input element, in the following order:
 _unchecked state_ ([example](https://github.com/openstreetmap/id-tagging-schema/blob/2375a6b/data/fields/parcel_pickup.json))
 2. fields of type `defaultCheck`: _unchecked state_ (must use the option `undefined`), _checked state_ ([example](https://github.com/openstreetmap/id-tagging-schema/blob/2375a6b/data/fields/crossing_raised.json))
 
+In such case additional options must not be specified.
+
 The value of each option can be a reference to another field or preset's name. For example:
 ```json
   "strings": {
