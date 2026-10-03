@@ -338,7 +338,8 @@ A full example looks like this:
     "role_labels": {
       "from": "From",
       "via": "Via",
-      "to": "To",
+      // you can also reference the labels from other presets:
+      "to": "{type/restriction.role_labels.to}",
     },
     "members": [
       {
