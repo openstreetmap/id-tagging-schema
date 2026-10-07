@@ -808,3 +808,7 @@ To update a specific tag to a specific new tag
 ### Categories
 
 [data/preset_categories](data/preset_categories) defines categories. Each category has name, icon and an ordered list of presets. Categories can be displayed in search results when the user is looking for a preset, can be entry in default list. As categories group similar presets together could be also potentially used by editors in other contexts.
+
+### Field groups
+
+[data/field_groups](data/field_groups) defines fields that should be grouped in editors. For example `name`, `alt_name` and `old_name` should be shown next to each other, even if some are coming from `fields` and some from `moreFields`.
