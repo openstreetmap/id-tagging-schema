@@ -88,6 +88,12 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
         );
       }
 
+      if (!referencedPreset.relation) {
+        throw new Error(
+          `Preset “${presetID}” references “${preset.relationCrossReference}” in relationCrossReference, but that preset has no "relation" attribute.`,
+        );
+      }
+
       preset.relation = referencedPreset.relation;
       delete preset.relationCrossReference;
     }
