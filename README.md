@@ -37,7 +37,7 @@ See [schema](SCHEMA.md) file for documentation of structure of content published
 
 ### Usage Example
 
-Example of a common scenario would be going from tags to feature name in a specific language. For example we may be looking for French label of `amenity=vending_machine vending=flowers` object.
+Example of a common scenario would be going from tags to feature name in a specific language. For example we may be looking for French label of `amenity=vending_machine vending=flowers ref=178` object.
 
 In such case going through [dist/presets.json](dist/presets.json) and finding best match for these tags should find `amenity/vending_machine/flowers` preset, based on its tag definition: 
 
@@ -54,9 +54,9 @@ Note that in real use likely prefetched minified versions of these files would b
 
 Also, in real use other properties of preset should be considered. Tag matching should also take into account [`addTags` property](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#addtags).
 
-When multiple presets match then multiple factors should be considered when ordering them. For example `amenity=vending_machine` from out example matches to far more presets. But match on multiple tags should trump that.
+In many cases more than one preset will match. For example `amenity=vending_machine` from example above matches to far more presets. But there is only one match on two tags, so it should be listed first.
 
-In other cases [`matchScore`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#matchscore) may be defined and should be taken into consideration.
+[`matchScore`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#matchscore) may be defined on presets and taken into consideration when ordering them.
 
 Filtering by [`geometry`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#geometry) also should be performed. Some presets are valid [only in some parts of the world](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#locationset).
 
