@@ -33,7 +33,7 @@ You can use `npm install @openstreetmap/id-tagging-schema` to obtain data.
 
 You can also fetch directly from [dist/](dist/) folder of this repository.
 
-See [schema](SCHEMA.md) file for documentation of structure of content published here. It is a structured, machine-readable content but it represents a bit complex situation.
+See the [schema](SCHEMA.md) file for documentation of structure of content published here. It is a structured, machine-readable content but it represents a bit complex situation.
 
 ### Usage Example
 
