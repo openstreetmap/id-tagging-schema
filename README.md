@@ -29,6 +29,37 @@ This Tagging Schema fills that need, but with a number of caveats:
 
 ## Usage
 
+You can use `npm install @openstreetmap/id-tagging-schema` to obtain data.
+
+You can also fetch directly from [dist/](dist/) folder of this repository.
+
+See [schema](SCHEMA.md) file for documentation of structure of content published here. It is a structured, machine-readable content but it represents a bit complex situation.
+
+### Usage Example
+
+Example of a common scenario would be going from tags to feature name in a specific language. For example we may be looking for French label of `amenity=vending_machine vending=flowers` object.
+
+In such case going through [dist/presets.json](dist/presets.json) and finding best match for these tags should find `amenity/vending_machine/flowers` preset, based on its tag definition: 
+
+```
+        "tags": {
+            "amenity": "vending_machine",
+            "vending": "flowers"
+        },
+```
+
+Then [dist/translations/fr.json](dist/translations/fr.json) may be searched for `amenity/vending_machine/flowers` code, getting us wanted label.
+
+Note that in real use likely prefetched minified versions of these files would be used.
+
+Also, in real use other properties of preset should be considered. Tag matching should also take into account [`addTags` property](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#addtags)
+
+When multiple presets match then multiple factors should be considered when ordering them. For example `amenity=vending_machine` from out example matches to far more presets. But match on multiple tags should trump that.
+
+In other cases [`matchScore`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#matchscore) may be defined and should be taken into consideration.
+
+Filtering by [`geometry`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#geometry) also should be performed. Some presets are valid [only in some parts of the world](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#locationset).
+
 ### Kotlin Multiplatform
 
 The [westnordost/osmfeatures](https://github.com/westnordost/osmfeatures) project,
