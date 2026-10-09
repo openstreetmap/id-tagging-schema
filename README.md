@@ -52,7 +52,7 @@ Then [dist/translations/fr.json](dist/translations/fr.json) may be searched for 
 
 Note that in real use likely prefetched minified versions of these files would be used.
 
-Also, in real use other properties of preset should be considered. Tag matching should also take into account [`addTags` property](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#addtags)
+Also, in real use other properties of preset should be considered. Tag matching should also take into account [`addTags` property](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#addtags).
 
 When multiple presets match then multiple factors should be considered when ordering them. For example `amenity=vending_machine` from out example matches to far more presets. But match on multiple tags should trump that.
 
