@@ -130,7 +130,7 @@ The tags that are added to the feature when selecting this preset. Defaults to `
 
 iD's validator will recommend that users add missing tags from `addTags` to matching features. For example, the Bridge preset has these properties:
 
-```
+```javascript
     "tags": {
         "man_made": "bridge"
     },
@@ -141,6 +141,20 @@ iD's validator will recommend that users add missing tags from `addTags` to matc
 ```
 
 When adding a feature with this preset, it will be given the tags `man_made=bridge` and `layer=1`. The user could then change `layer` to `3`, for instance, and the feature would still match the preset because it still has `man_made=bridge`. If the user removes the `layer` tag altogether, iD will recommend adding it back with a value of `1`.
+
+When searching best-fitting preset given set of tags `addTags` should also be considered. For example given
+
+```javascript
+    "tags": {
+        "emergency": "water_rescue"
+    },
+    "addTags": {
+        "emergency": "water_rescue",
+        "seamark:type": "rescue_station"
+    }
+```
+
+object with `seamark:type=rescue_station` should match to this preset.
 
 ##### `removeTags`
 
