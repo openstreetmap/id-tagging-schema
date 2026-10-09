@@ -52,13 +52,11 @@ Then [dist/translations/fr.json](dist/translations/fr.json) may be searched for 
 
 Note that in real use likely prefetched minified versions of these files would be used.
 
-Also, in real use other properties of preset should be considered. Tag matching should also take into account [`addTags` property](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#addtags).
+In real use other properties of presets should be also considered. Filtering by [`geometry`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#geometry) should be performed. Some presets are valid [only in some parts of the world](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#locationset).
 
 In many cases more than one preset will match. For example `amenity=vending_machine` from example above matches to far more presets. But there is only one match on two tags, so it should be listed first.
 
 [`matchScore`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#matchscore) may be defined on presets and taken into consideration when ordering them.
-
-Filtering by [`geometry`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#geometry) also should be performed. Some presets are valid [only in some parts of the world](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#locationset).
 
 ### Kotlin Multiplatform
 
