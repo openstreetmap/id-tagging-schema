@@ -29,6 +29,35 @@ This Tagging Schema fills that need, but with a number of caveats:
 
 ## Usage
 
+You can use `npm install @openstreetmap/id-tagging-schema` to obtain data.
+
+You can also fetch directly from [dist/](dist/) folder of this repository.
+
+See the [schema](SCHEMA.md) file for documentation of structure of content published here. It is a structured, machine-readable content but it represents a bit complex situation.
+
+### Usage Example
+
+A common scenario would be finding a feature name in a specific language, given raw tags of an object. For example we may be looking for French label for `amenity=vending_machine vending=flowers ref=178` object.
+
+In this case going through [dist/presets.json](dist/presets.json) and finding a best match for these tags should obtain a preset with code `amenity/vending_machine/flowers`, based on its tag definition: 
+
+```
+        "tags": {
+            "amenity": "vending_machine",
+            "vending": "flowers"
+        },
+```
+
+Then [dist/translations/fr.json](dist/translations/fr.json) may be searched for the code `amenity/vending_machine/flowers`, getting us the fitting label.
+
+Note that in a real use we would be using prefetched and minified versions of these files - [dist/presets.min.json](dist/presets.min.json) and [dist/translations/fr.min.json](dist/translations/fr.min.json).
+
+Also, in a real use other properties of presets should be also considered. Filtering by [`geometry`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#geometry) should be performed. Some presets are valid [only in some parts of the world](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#locationset).
+
+In many cases more than one preset will match. For example `amenity=vending_machine` from the example above matches far more presets. But there is only one match on two tags, so it should be considered as most fitting.
+
+[`matchScore`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#matchscore) may be defined on presets and taken into consideration when ordering them as secondary discriminator.
+
 ### Kotlin Multiplatform
 
 The [westnordost/osmfeatures](https://github.com/westnordost/osmfeatures) project,
