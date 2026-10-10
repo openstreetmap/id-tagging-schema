@@ -37,9 +37,9 @@ See the [schema](SCHEMA.md) file for documentation of structure of content publi
 
 ### Usage Example
 
-Example of a common scenario would be going from tags to feature name in a specific language. For example we may be looking for French label of `amenity=vending_machine vending=flowers ref=178` object.
+A common scenario would be finding a feature name in a specific language, given raw tags of an object. For example we may be looking for French label for `amenity=vending_machine vending=flowers ref=178` object.
 
-In such case going through [dist/presets.json](dist/presets.json) and finding best match for these tags should find `amenity/vending_machine/flowers` preset, based on its tag definition: 
+In this case going through [dist/presets.json](dist/presets.json) and finding a best match for these tags should obtain a preset with code `amenity/vending_machine/flowers`, based on its tag definition: 
 
 ```
         "tags": {
@@ -48,15 +48,15 @@ In such case going through [dist/presets.json](dist/presets.json) and finding be
         },
 ```
 
-Then [dist/translations/fr.json](dist/translations/fr.json) may be searched for `amenity/vending_machine/flowers` code, getting us wanted label.
+Then [dist/translations/fr.json](dist/translations/fr.json) may be searched for the code `amenity/vending_machine/flowers`, getting us the fitting label.
 
-Note that in real use likely prefetched minified versions of these files would be used.
+Note that in a real use we would be using prefetched and minified versions of these files - [dist/presets.min.json](dist/presets.min.json) and [dist/translations/fr.min.json](dist/translations/fr.min.json).
 
-In real use other properties of presets should be also considered. Filtering by [`geometry`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#geometry) should be performed. Some presets are valid [only in some parts of the world](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#locationset).
+Also, in a real use other properties of presets should be also considered. Filtering by [`geometry`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#geometry) should be performed. Some presets are valid [only in some parts of the world](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#locationset).
 
-In many cases more than one preset will match. For example `amenity=vending_machine` from example above matches to far more presets. But there is only one match on two tags, so it should be listed first.
+In many cases more than one preset will match. For example `amenity=vending_machine` from the example above matches far more presets. But there is only one match on two tags, so it should be considered as most fitting.
 
-[`matchScore`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#matchscore) may be defined on presets and taken into consideration when ordering them.
+[`matchScore`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#matchscore) may be defined on presets and taken into consideration when ordering them as secondary discriminator.
 
 ### Kotlin Multiplatform
 
