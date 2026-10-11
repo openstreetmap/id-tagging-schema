@@ -2,6 +2,9 @@
     "cy": {
         "presets": {
             "categories": {
+                "category-advertising": {
+                    "name": "Nodweddion Hysbysebu"
+                },
                 "category-barrier": {
                     "name": "Nodweddion Rhwystr"
                 },
@@ -1058,13 +1061,13 @@
                     "options": {
                         "castrum": "Caer Rhufeinaidd",
                         "defensive": "Castell Amddiffynnol",
-                        "fortress": "Caer",
                         "hillfort": "Bryngaer",
                         "kremlin": "Kremlin",
                         "manor": "Maenordy",
                         "shiro": "Shiro",
                         "stately": "Plasty",
-                        "palace": "Palas"
+                        "palace": "Palas",
+                        "fortress": "Caer Hanesyddol"
                     }
                 },
                 "ceremonial_gate": {
@@ -1280,6 +1283,8 @@
                     "options": {
                         "club_home": "Tŷ Clwb",
                         "community_hall": "Neuadd y Gymuned",
+                        "cultural_centre": "Canolfan Ddiwylliannol",
+                        "family_centre": "Canolfan Deuluol",
                         "parish_hall": "Neuadd Blwyf",
                         "village_hall": "Neuadd y Bentref",
                         "youth_centre": "Canolfan Ieuenctid"
@@ -1323,6 +1328,10 @@
                         "insta"
                     ]
                 },
+                "contact/mastodon": {
+                    "label": "Enw Defnyddiwr neu URL Mastodon",
+                    "placeholder": "https://en.osm.town/@openstreetmap"
+                },
                 "contact/webcam": {
                     "label": "URL Cyfarfod Fideo",
                     "placeholder": "https://example.com/"
@@ -1339,6 +1348,13 @@
                         "sewage": "Carthion",
                         "water": "Dŵr",
                         "wine": "Gwin"
+                    }
+                },
+                "content_bulk": {
+                    "label": "Cynnwys",
+                    "options": {
+                        "salt": "Halen",
+                        "sand": "Tywod"
                     }
                 },
                 "conveying": {
@@ -1491,7 +1507,6 @@
                 "crossing": {
                     "label": "Math",
                     "options": {
-                        "traffic_signals": "Croesfan â Goleuadau Traffig",
                         "uncontrolled": "Dim ond Marciau Ffordd",
                         "unmarked": "Dim Goleuadau Traffig neu Farciau Ffordd"
                     }
@@ -1978,7 +1993,179 @@
                     "label": "Math"
                 },
                 "disused/shop": {
-                    "label": "Math"
+                    "label": "Math",
+                    "options": {
+                        "convenience": "Siop Gyfleus",
+                        "supermarket": "Archfarchnad",
+                        "clothes": "Siop Ddillad",
+                        "hairdresser": "Triniwr Gwallt",
+                        "car_repair": "Gweithdy Atgyweirio Ceir",
+                        "bakery": "Becws",
+                        "beauty": "Siop Harddwch",
+                        "car": "Gwerthwr Ceir",
+                        "hardware": "Siop Galedwedd",
+                        "butcher": "Cigydd",
+                        "kiosk": "Ciosg",
+                        "mobile_phone": "Siop Ffonau Symudol",
+                        "furniture": "Siop Ddodrefn",
+                        "car_parts": "Siop Rannau Car",
+                        "alcohol": "Siop Ddiodydd Alcoholig",
+                        "variety_store": "Siop Ddisgownt",
+                        "florist": "Siop Flodau",
+                        "optician": "Optegydd",
+                        "electronics": "Siop Electroneg",
+                        "jewelry": "Siop Gemwaith",
+                        "shoes": "Siop Esgidiau",
+                        "vacant": "Siop Wag",
+                        "mall": "Canolfan Siopa",
+                        "gift": "Siop Roddion",
+                        "doityourself": "Siop DIY",
+                        "greengrocer": "Gwerthwr Llysiau",
+                        "chemist": "Cemegydd",
+                        "laundry": "Golchi Dillad",
+                        "books": "Siop Lyfrau",
+                        "bicycle": "Siop Feiciau",
+                        "department_store": "Siop Adran",
+                        "pet": "Siop Anifeiliaid Anwes",
+                        "travel_agency": "Asiantaeth Teithio",
+                        "stationery": "Siop Ddeunydd Ysgrifennu",
+                        "sports": "Siop Gyfarpar Chwaraeon",
+                        "confectionery": "Siop Losin",
+                        "tyres": "Siop Deiars",
+                        "storage_rental": "Gwasanaeth Rhentu Storfeydd",
+                        "tobacco": "Siop Dybaco",
+                        "cosmetics": "Siop Golur",
+                        "trade": "Siop Fasnachu",
+                        "massage": "Siop Dylino",
+                        "tailor": "Gwniadur",
+                        "computer": "Siop Gyfrifiaduron",
+                        "funeral_directors": "Trefnydd Angladdau",
+                        "copyshop": "Siop Gopïo",
+                        "pastry": "Siop Grwst",
+                        "motorcycle": "Gwerthwr Beiciau Modur",
+                        "dry_cleaning": "Sychlanhäwr",
+                        "farm": "Stondin Gynnyrch",
+                        "garden_centre": "Canolfan Garddio",
+                        "beverages": "Siop Ddiodydd",
+                        "newsagent": "Stondin Newyddion",
+                        "general": "Siop Gyffredinol",
+                        "ticket": "Gwerthwr Tocynnau",
+                        "interior_decoration": "Siop Addurno Mewnol",
+                        "deli": "Delicatessen",
+                        "houseware": "Siop Nwyddau Cartref",
+                        "toys": "Siop Degannau",
+                        "seafood": "Siop Fwyd Morol",
+                        "wine": "Siop Win",
+                        "tattoo": "Parlwr Tatŵ",
+                        "wholesale": "Siop Gyfanwerthu",
+                        "paint": "Siop Baent",
+                        "second_hand": "Siop Ail-Law",
+                        "pawnbroker": "Siop Wystlo",
+                        "medical_supply": "Siop Gyflenwadau Meddygol",
+                        "charity": "Siop Elusen",
+                        "photo": "Siop Ffotograffiaeth",
+                        "bed": "Siop Welyau / Matresi",
+                        "kitchen": "Siop Gegin",
+                        "bookmaker": "Siop Fetio",
+                        "art": "Siop Gelf",
+                        "lottery": "Siop Loteri",
+                        "agrarian": "Siop Gyflenwi Fferm",
+                        "outdoor": "Siop Gynnyrch Awyr Agored",
+                        "antiques": "Siop Henebion",
+                        "e-cigarette": "Siop E-Sigaréts",
+                        "fabric": "Siop Ddeunydd",
+                        "coffee": "Siop Goffi",
+                        "perfumery": "Siop Bersawr",
+                        "gas": "Siop Nwy",
+                        "motorcycle_repair": "Siop Atgyweirio Beiciau Modur",
+                        "hearing_aids": "Siop Gymhorthion Clyw",
+                        "appliance": "Siop Nwyddau Gwyn",
+                        "craft": "Siop Grefft",
+                        "electrical": "Siop Offer Electronig",
+                        "telecommunication": "Siop Fanwerthu Telathrebu",
+                        "money_lender": "Rhoddwr Benthyciadau",
+                        "pet_grooming": "Triniwr Anifeiliaid",
+                        "tea": "Siop De",
+                        "bag": "Siop Fagiau / Bagiau Teithio",
+                        "dairy": "Siop Laeth",
+                        "baby_goods": "Siop Nwyddau Babanod",
+                        "musical_instrument": "Siop Offerynnau Cerdd",
+                        "rental": "Siop Rhentu",
+                        "fashion_accessories": "Siop Ategolion Ffasiwn",
+                        "cannabis": "Siop Ganabis",
+                        "health_food": "Siop Fwyd Iach",
+                        "chocolate": "Siop Siocled",
+                        "music": "Siop Gerddoriaeth",
+                        "carpet": "Siop Garped",
+                        "cheese": "Siop Gaws",
+                        "fishing": "Siop Bysgota",
+                        "repair": "Siop Atgyweirio",
+                        "locksmith": "Gof Cloeon",
+                        "nutrition_supplements": "Siop Atchwanegiadau Maeth",
+                        "bathroom_furnishing": "Siop Ddodrefn Ystafell Ymolchi",
+                        "watches": "Siop Oriorau",
+                        "sewing": "Siop Gyflenwi Gweu",
+                        "video_games": "Siop Gemau Fideo",
+                        "curtain": "Siop Len",
+                        "lighting": "Siop Oleuadau",
+                        "herbalist": "Herbwr",
+                        "tiles": "Siop Deils",
+                        "flooring": "Siop Gyflenwi Lloriau",
+                        "frozen_food": "Siop Fwyd Rhewgell",
+                        "doors": "Siop Ddrysau",
+                        "hifi": "Siop Hi-fi",
+                        "shoe_repair": "Siop Atgyweirio Esgidiau",
+                        "erotic": "Siop Erotig",
+                        "party": "Siop Gyflenwi Partïon",
+                        "water": "Siop Ddŵr Yfed",
+                        "religion": "Siop Grefyddol",
+                        "frame": "Siop Fframio",
+                        "swimming_pool": "Siop Gyflenwi Pwll Nofio",
+                        "hairdresser_supply": "Siop Gyflenwi Trinio Gwallt",
+                        "video": "Siop Fideos",
+                        "games": "Siop Gemau Bwrdd",
+                        "leather": "Siop Ledr",
+                        "weapons": "Siop Arfau",
+                        "country_store": "Siop Gynnyrch Gwledig",
+                        "fuel": "Siop Danwydd",
+                        "boat": "Siop Gwch",
+                        "pottery": "Siop Grochenwaith",
+                        "fireplace": "Siop Lle Tân",
+                        "window_blind": "Siop Orchuddion Ffenestr",
+                        "collector": "Siop Gasglwr",
+                        "radiotechnics": "Siop Offer Radio / Rhannau Electronig",
+                        "tool_hire": "Gwasanaeth Rhentu Offer",
+                        "caravan": "Gwerthwr Carafannau",
+                        "household_linen": "Siop Llenni Cartref",
+                        "ice_cream": "Siop Hufen Iâ",
+                        "spices": "Siop Sbeisys",
+                        "scuba_diving": "Siop Ddeifio Scuba",
+                        "pyrotechnics": "Siop Dân Gwyllt",
+                        "printer_ink": "Siop Incs Printeri",
+                        "nuts": "Siop Gnau",
+                        "mobile_phone_accessories": "Siop Ategolion Ffôn Symudol",
+                        "model": "Siop Fodelau",
+                        "gold_buyer": "Prynwr Aur",
+                        "candles": "Siop Ganhwyllau",
+                        "hunting": "Siop Helfa",
+                        "groundskeeping": "Siop Gyfarpar Lawnt a Gardd",
+                        "pasta": "Siop Basta",
+                        "vacuum_cleaner": "Siop Sugnwr Llwch",
+                        "honey": "Siop Fêl",
+                        "camera": "Siop Offer Camera",
+                        "rice": "Siop Reis",
+                        "water_sports": "Siop Chwaraeon Dŵr / Nofio",
+                        "anime": "Siop Anime / Manga",
+                        "psychic": "Seicic",
+                        "trophy": "Siop Dlysau",
+                        "wigs": "Siop Wigs",
+                        "catalogue": "Siop Gátalog",
+                        "military_surplus": "Siop Gynnyrch Milwrol",
+                        "brewing_supplies": "Siop Gyflenwi Bragdy",
+                        "esoteric": "Siop Esoterig",
+                        "piercing": "Stiwdio Tyllu",
+                        "bbq": "Siop Barbeciw"
+                    }
                 },
                 "dock": {
                     "label": "Math",
@@ -2154,13 +2341,13 @@
                         "exit": "Allanfa yn unig",
                         "garage": "Drws Garej",
                         "home": "Tŷ neu Fflat Preifat",
-                        "main": "Prif",
                         "secondary": "Eilaidd",
                         "service": "Gwasanaeth",
-                        "staircase": "Grisiau",
                         "yes": "Amhenodol",
+                        "main": "Prif Fynedfa",
                         "shop": "Mynedfa Siop",
-                        "emergency": "Allanfa Argyfwng"
+                        "emergency": "Allanfa Argyfwng",
+                        "staircase": "Mynedfa Grisiau"
                     },
                     "terms": [
                         "teip"
@@ -2765,7 +2952,6 @@
                         "church": "Eglwys",
                         "citywalls": "Mur Dinas",
                         "milestone": "Carreg Filltir",
-                        "millstone": "Maen Melin",
                         "mine": "Mwynglawdd",
                         "mine_shaft": "Siafft Mwynglawdd",
                         "railway": "Rheilffordd",
@@ -2783,6 +2969,8 @@
                         "manor": "Maenordy",
                         "fort": "Caer Hanesyddol",
                         "city_gate": "Gât Dinas",
+                        "aircraft": "Awyren Hanesyddol",
+                        "cannon": "Canon",
                         "wreck": "Llongddrylliad"
                     }
                 },
@@ -2844,9 +3032,6 @@
                         "semi-detached": {
                             "description": "Tŷ sydd wedi'i gysylltu â thŷ arall ar un ochr",
                             "title": "Tŷ Pâr"
-                        },
-                        "terrace": {
-                            "title": "Rhes Teras"
                         },
                         "terraced": {
                             "description": "Tŷ unigol mewn rhes teras",
@@ -3717,7 +3902,7 @@
                         "guide": "Swyddfa Dywysydd Teithiau",
                         "graphic_design": "Swyddfa Ddylunio Graffeg",
                         "physician": "Meddyg",
-                        "surveyor": "Swyddfa Arolygydd",
+                        "surveyor": "Swyddfa Dirfesur",
                         "quango": "Swyddfa Gorff Quasi-Aflywodraethol",
                         "translator": "Swyddfa Gyfieithu",
                         "adoption_agency": "Asiantaeth Mabwysiadu"
@@ -3890,8 +4075,7 @@
                             "title": "Blychau Garej"
                         },
                         "half_on_kerb": {
-                            "description": "Parcio'n rhannol ar y palmant.",
-                            "title": "Hanner Ar Gwrb"
+                            "description": "Parcio'n rhannol ar y palmant."
                         },
                         "lane": {
                             "description": "Parcio ar y stryd (y gellid ei newid i lôn).",
@@ -3906,8 +4090,7 @@
                             "title": "Aml-lawr"
                         },
                         "on_kerb": {
-                            "description": "Parcio ar balmant.",
-                            "title": "Ar Gwrb"
+                            "description": "Parcio ar balmant."
                         },
                         "rooftop": {
                             "description": "Lefel o barcio ar ben adeilad.",
@@ -3950,10 +4133,8 @@
                 "parking/side/parking": {
                     "label": "Parcio",
                     "options": {
-                        "half_on_kerb": "Hanner Ar Gwrb",
                         "lane": "Lôn Ochr Ffordd",
                         "no": "Na",
-                        "on_kerb": "Ar Gwrb",
                         "separate": "Mapir parcio ar wahân",
                         "shoulder": "Llain Galed",
                         "street_side": "Ochr Stryd",
@@ -3983,8 +4164,7 @@
                             "title": "Blychau Garej"
                         },
                         "half_on_kerb": {
-                            "description": "Parcio'n rhannol ar y palmant.",
-                            "title": "Hanner Ar Gwrb"
+                            "description": "Parcio'n rhannol ar y palmant."
                         },
                         "lane": {
                             "description": "Parcio ar y stryd (y gellid ei newid i lôn).",
@@ -3999,8 +4179,7 @@
                             "title": "Aml-lawr"
                         },
                         "on_kerb": {
-                            "description": "Parcio ar balmant.",
-                            "title": "Ar Gwrb"
+                            "description": "Parcio ar balmant."
                         },
                         "rooftop": {
                             "description": "Lefel o barcio ar ben adeilad.",
@@ -4963,6 +5142,7 @@
                     "label": "Lliw",
                     "options": {
                         "green": "Gwyrdd",
+                        "grey": "Llwyd",
                         "red": "Coch"
                     }
                 },
@@ -5037,6 +5217,12 @@
                 },
                 "seamark/mooring/category": {
                     "label": "Categori"
+                },
+                "seamark/platform/category": {
+                    "label": "Categori"
+                },
+                "seamark/radio_station/mmsi": {
+                    "label": "MMSI"
                 },
                 "seamark/rescue_station/category": {
                     "label": "Offer Achub Bywydau",
@@ -5144,13 +5330,192 @@
                     "label": "Cysgod"
                 },
                 "shelter_type": {
-                    "label": "Math"
+                    "label": "Math",
+                    "options": {
+                        "public_transport": "Cysgod Cludiant",
+                        "picnic_shelter": "Cysgod Picnic",
+                        "gazebo": "Gasebo",
+                        "lean_to": "Pentis",
+                        "field_shelter": "Cysgod Maes"
+                    }
                 },
                 "shoes": {
                     "label": "Esgidiau"
                 },
                 "shop": {
-                    "label": "Math"
+                    "label": "Math",
+                    "options": {
+                        "convenience": "Siop Gyfleus",
+                        "supermarket": "Archfarchnad",
+                        "clothes": "Siop Ddillad",
+                        "hairdresser": "Triniwr Gwallt",
+                        "car_repair": "Gweithdy Atgyweirio Ceir",
+                        "bakery": "Becws",
+                        "beauty": "Siop Harddwch",
+                        "car": "Gwerthwr Ceir",
+                        "hardware": "Siop Galedwedd",
+                        "butcher": "Cigydd",
+                        "kiosk": "Ciosg",
+                        "mobile_phone": "Siop Ffonau Symudol",
+                        "furniture": "Siop Ddodrefn",
+                        "car_parts": "Siop Rannau Car",
+                        "alcohol": "Siop Ddiodydd Alcoholig",
+                        "variety_store": "Siop Ddisgownt",
+                        "florist": "Siop Flodau",
+                        "optician": "Optegydd",
+                        "electronics": "Siop Electroneg",
+                        "jewelry": "Siop Gemwaith",
+                        "shoes": "Siop Esgidiau",
+                        "vacant": "Siop Wag",
+                        "mall": "Canolfan Siopa",
+                        "gift": "Siop Roddion",
+                        "doityourself": "Siop DIY",
+                        "greengrocer": "Gwerthwr Llysiau",
+                        "chemist": "Cemegydd",
+                        "laundry": "Golchi Dillad",
+                        "books": "Siop Lyfrau",
+                        "bicycle": "Siop Feiciau",
+                        "department_store": "Siop Adran",
+                        "pet": "Siop Anifeiliaid Anwes",
+                        "travel_agency": "Asiantaeth Teithio",
+                        "stationery": "Siop Ddeunydd Ysgrifennu",
+                        "sports": "Siop Gyfarpar Chwaraeon",
+                        "confectionery": "Siop Losin",
+                        "tyres": "Siop Deiars",
+                        "storage_rental": "Gwasanaeth Rhentu Storfeydd",
+                        "tobacco": "Siop Dybaco",
+                        "cosmetics": "Siop Golur",
+                        "trade": "Siop Fasnachu",
+                        "massage": "Siop Dylino",
+                        "tailor": "Gwniadur",
+                        "computer": "Siop Gyfrifiaduron",
+                        "funeral_directors": "Trefnydd Angladdau",
+                        "copyshop": "Siop Gopïo",
+                        "pastry": "Siop Grwst",
+                        "motorcycle": "Gwerthwr Beiciau Modur",
+                        "dry_cleaning": "Sychlanhäwr",
+                        "farm": "Stondin Gynnyrch",
+                        "garden_centre": "Canolfan Garddio",
+                        "beverages": "Siop Ddiodydd",
+                        "newsagent": "Stondin Newyddion",
+                        "general": "Siop Gyffredinol",
+                        "ticket": "Gwerthwr Tocynnau",
+                        "interior_decoration": "Siop Addurno Mewnol",
+                        "deli": "Delicatessen",
+                        "houseware": "Siop Nwyddau Cartref",
+                        "toys": "Siop Degannau",
+                        "seafood": "Siop Fwyd Morol",
+                        "wine": "Siop Win",
+                        "tattoo": "Parlwr Tatŵ",
+                        "wholesale": "Siop Gyfanwerthu",
+                        "paint": "Siop Baent",
+                        "second_hand": "Siop Ail-Law",
+                        "pawnbroker": "Siop Wystlo",
+                        "medical_supply": "Siop Gyflenwadau Meddygol",
+                        "charity": "Siop Elusen",
+                        "photo": "Siop Ffotograffiaeth",
+                        "bed": "Siop Welyau / Matresi",
+                        "kitchen": "Siop Gegin",
+                        "bookmaker": "Siop Fetio",
+                        "art": "Siop Gelf",
+                        "lottery": "Siop Loteri",
+                        "agrarian": "Siop Gyflenwi Fferm",
+                        "outdoor": "Siop Gynnyrch Awyr Agored",
+                        "antiques": "Siop Henebion",
+                        "e-cigarette": "Siop E-Sigaréts",
+                        "fabric": "Siop Ddeunydd",
+                        "coffee": "Siop Goffi",
+                        "perfumery": "Siop Bersawr",
+                        "gas": "Siop Nwy",
+                        "motorcycle_repair": "Siop Atgyweirio Beiciau Modur",
+                        "hearing_aids": "Siop Gymhorthion Clyw",
+                        "appliance": "Siop Nwyddau Gwyn",
+                        "craft": "Siop Grefft",
+                        "electrical": "Siop Offer Electronig",
+                        "telecommunication": "Siop Fanwerthu Telathrebu",
+                        "money_lender": "Rhoddwr Benthyciadau",
+                        "pet_grooming": "Triniwr Anifeiliaid",
+                        "tea": "Siop De",
+                        "bag": "Siop Fagiau / Bagiau Teithio",
+                        "dairy": "Siop Laeth",
+                        "baby_goods": "Siop Nwyddau Babanod",
+                        "musical_instrument": "Siop Offerynnau Cerdd",
+                        "rental": "Siop Rhentu",
+                        "fashion_accessories": "Siop Ategolion Ffasiwn",
+                        "cannabis": "Siop Ganabis",
+                        "health_food": "Siop Fwyd Iach",
+                        "chocolate": "Siop Siocled",
+                        "music": "Siop Gerddoriaeth",
+                        "carpet": "Siop Garped",
+                        "cheese": "Siop Gaws",
+                        "fishing": "Siop Bysgota",
+                        "repair": "Siop Atgyweirio",
+                        "locksmith": "Gof Cloeon",
+                        "nutrition_supplements": "Siop Atchwanegiadau Maeth",
+                        "bathroom_furnishing": "Siop Ddodrefn Ystafell Ymolchi",
+                        "watches": "Siop Oriorau",
+                        "sewing": "Siop Gyflenwi Gweu",
+                        "video_games": "Siop Gemau Fideo",
+                        "curtain": "Siop Len",
+                        "lighting": "Siop Oleuadau",
+                        "herbalist": "Herbwr",
+                        "tiles": "Siop Deils",
+                        "flooring": "Siop Gyflenwi Lloriau",
+                        "frozen_food": "Siop Fwyd Rhewgell",
+                        "doors": "Siop Ddrysau",
+                        "hifi": "Siop Hi-fi",
+                        "shoe_repair": "Siop Atgyweirio Esgidiau",
+                        "erotic": "Siop Erotig",
+                        "party": "Siop Gyflenwi Partïon",
+                        "water": "Siop Ddŵr Yfed",
+                        "religion": "Siop Grefyddol",
+                        "frame": "Siop Fframio",
+                        "swimming_pool": "Siop Gyflenwi Pwll Nofio",
+                        "hairdresser_supply": "Siop Gyflenwi Trinio Gwallt",
+                        "video": "Siop Fideos",
+                        "games": "Siop Gemau Bwrdd",
+                        "leather": "Siop Ledr",
+                        "weapons": "Siop Arfau",
+                        "country_store": "Siop Gynnyrch Gwledig",
+                        "fuel": "Siop Danwydd",
+                        "boat": "Siop Gwch",
+                        "pottery": "Siop Grochenwaith",
+                        "fireplace": "Siop Lle Tân",
+                        "window_blind": "Siop Orchuddion Ffenestr",
+                        "collector": "Siop Gasglwr",
+                        "radiotechnics": "Siop Offer Radio / Rhannau Electronig",
+                        "tool_hire": "Gwasanaeth Rhentu Offer",
+                        "caravan": "Gwerthwr Carafannau",
+                        "household_linen": "Siop Llenni Cartref",
+                        "ice_cream": "Siop Hufen Iâ",
+                        "spices": "Siop Sbeisys",
+                        "scuba_diving": "Siop Ddeifio Scuba",
+                        "pyrotechnics": "Siop Dân Gwyllt",
+                        "printer_ink": "Siop Incs Printeri",
+                        "nuts": "Siop Gnau",
+                        "mobile_phone_accessories": "Siop Ategolion Ffôn Symudol",
+                        "model": "Siop Fodelau",
+                        "gold_buyer": "Prynwr Aur",
+                        "candles": "Siop Ganhwyllau",
+                        "hunting": "Siop Helfa",
+                        "groundskeeping": "Siop Gyfarpar Lawnt a Gardd",
+                        "pasta": "Siop Basta",
+                        "vacuum_cleaner": "Siop Sugnwr Llwch",
+                        "honey": "Siop Fêl",
+                        "camera": "Siop Offer Camera",
+                        "rice": "Siop Reis",
+                        "water_sports": "Siop Chwaraeon Dŵr / Nofio",
+                        "anime": "Siop Anime / Manga",
+                        "psychic": "Seicic",
+                        "trophy": "Siop Dlysau",
+                        "wigs": "Siop Wigs",
+                        "catalogue": "Siop Gátalog",
+                        "military_surplus": "Siop Gynnyrch Milwrol",
+                        "brewing_supplies": "Siop Gyflenwi Bragdy",
+                        "esoteric": "Siop Esoterig",
+                        "piercing": "Stiwdio Tyllu",
+                        "bbq": "Siop Barbeciw"
+                    }
                 },
                 "short_name": {
                     "label": "Enw Byr",
@@ -5308,7 +5673,7 @@
                         "local knowledge": "Gwybodaeth leol",
                         "osm notes": "Nodiadau OpenStreetMap",
                         "streetlevel imagery": "Lluniau Lefel Stryd",
-                        "survey": "Arsylwi"
+                        "survey": "Tirfesur"
                     }
                 },
                 "source/population": {
@@ -5961,7 +6326,7 @@
                     "label": "Parth Gwyliadwraeth"
                 },
                 "survey/date": {
-                    "label": "Gwiriwyd Ddiwethaf",
+                    "label": "Dyddiad Tirfesur Diwethaf",
                     "terms": [
                         "arolwg",
                         "gweld",
@@ -6732,6 +7097,33 @@
                         "ganolfan",
                         "chanolfan"
                     ]
+                },
+                "construction_highway": {
+                    "label": "Math",
+                    "options": {
+                        "bridleway": "Llwybr Ceffylau",
+                        "cycleway": "Llwybr Seiclo",
+                        "footway": "Troedffordd",
+                        "living_street": "Stryd Fyw",
+                        "motorway_link": "Cyswllt Traffordd",
+                        "path": "Llwybr",
+                        "pedestrian": "Stryd Gerddwyr",
+                        "primary": "Prif Ffordd",
+                        "primary_link": "Cyswllt Prif Ffordd",
+                        "residential": "Ffordd Breswyl",
+                        "secondary": "Ffordd Eilaidd",
+                        "secondary_link": "Cyswllt Ffordd Eilaidd",
+                        "service": "Ffordd Wasanaeth",
+                        "steps": "Grisiau",
+                        "tertiary": "Ffordd Drydyddol",
+                        "tertiary_link": "Cyswllt Ffordd Drydyddol",
+                        "track": "Ffordd Fynediad / Trac",
+                        "trunk": "Cefnffordd",
+                        "motorway": "Traffordd",
+                        "trunk_link": "Cyswllt Cefnffordd",
+                        "unclassified": "Ffordd Fach / Diddosbarth",
+                        "road": "Ffordd Amhenodol"
+                    }
                 },
                 "cyclestreet-BE-NL": {
                     "label": "Stryd Feicio",
@@ -8088,6 +8480,24 @@
                         "chanolfan"
                     ]
                 },
+                "amenity/community_centre/cultural_centre": {
+                    "name": "Canolfan Ddiwylliannol",
+                    "terms": [
+                        "diwylliannol",
+                        "canolfan",
+                        "ganolfan",
+                        "chanolfan"
+                    ]
+                },
+                "amenity/community_centre/family_centre": {
+                    "name": "Canolfan Deuluol",
+                    "terms": [
+                        "teulu",
+                        "canolfan",
+                        "ganolfan",
+                        "chanolfan"
+                    ]
+                },
                 "amenity/community_centre/lgbtq": {
                     "name": "Canolfan Gymunedol LHDTC+",
                     "terms": [
@@ -8344,16 +8754,6 @@
                         "maxilla",
                         "cosmetig",
                         "adadeiladol"
-                    ]
-                },
-                "amenity/doctors/podiatry": {
-                    "name": "Podiatrydd",
-                    "terms": [
-                        "pigwrn",
-                        "troed",
-                        "traed",
-                        "coes",
-                        "podiatreg"
                     ]
                 },
                 "amenity/doctors/proctology": {
@@ -9102,6 +9502,16 @@
                 },
                 "amenity/parcel_locker": {
                     "name": "Locer Parseli"
+                },
+                "amenity/parking": {
+                    "name": "Maes Parcio",
+                    "terms": [
+                        "barcio",
+                        "pharcio",
+                        "stopio",
+                        "car.ceir",
+                        "cerbyd"
+                    ]
                 },
                 "amenity/parking/multi-storey": {
                     "name": "Maes Parcio Aml-lawr"
@@ -10559,12 +10969,6 @@
                 },
                 "area": {
                     "name": "Ardal",
-                    "relation": {
-                        "role_labels": {
-                            "inner": "Mewnol",
-                            "outer": "Allanol"
-                        }
-                    },
                     "terms": [
                         "poligon",
                         "polygon",
@@ -12230,9 +12634,6 @@
                 },
                 "highway/crossing/informal": {
                     "name": "Croesfan Anffurfiol"
-                },
-                "highway/crossing/traffic_signals": {
-                    "name": "Croesfan â Goleuadau Cerddwyr"
                 },
                 "highway/crossing/uncontrolled": {
                     "name": "Croesfan â Marciau"
@@ -14406,7 +14807,16 @@
                     ]
                 },
                 "man_made/survey_point": {
-                    "name": "Pwynt Arsylwi"
+                    "name": "Pwynt Tirfesur",
+                    "terms": [
+                        "marc geodetig",
+                        "geodeteg",
+                        "arolwg",
+                        "piler",
+                        "pwynt",
+                        "trig",
+                        "trigonometri"
+                    ]
                 },
                 "man_made/telescope": {
                     "name": "Telesgop",
@@ -15143,7 +15553,17 @@
                     "name": "Swyddfa Ddiogelwch"
                 },
                 "office/surveyor": {
-                    "name": "Swyddfa Arolygydd"
+                    "name": "Swyddfa Dirfesur",
+                    "terms": [
+                        "arolwg",
+                        "gweld",
+                        "sbio",
+                        "llygad",
+                        "llygaid",
+                        "taith",
+                        "ymweliad",
+                        "ymweld"
+                    ]
                 },
                 "office/tax_advisor": {
                     "name": "Swyddfa Gynghori Treth"
@@ -15812,6 +16232,12 @@
                 },
                 "railway/monorail": {
                     "name": "Trac Trên-un-Gledren"
+                },
+                "railway/platform_edge": {
+                    "name": "Ymyl Platfform",
+                    "terms": [
+                        "ochr"
+                    ]
                 },
                 "railway/rail": {
                     "name": "Trac Trên"
@@ -17731,9 +18157,7 @@
                     "name": "Ffin Gweinyddol",
                     "relation": {
                         "role_labels": {
-                            "inner": "Mewnol",
-                            "label": "Label",
-                            "outer": "Allanol"
+                            "label": "Label"
                         }
                     },
                     "terms": [
@@ -17789,13 +18213,7 @@
                     "terms": [
                         "amlochron",
                         "amlpolygon"
-                    ],
-                    "relation": {
-                        "role_labels": {
-                            "inner": "Mewnol",
-                            "outer": "Allanol"
-                        }
-                    }
+                    ]
                 },
                 "type/restriction": {
                     "name": "Rhwystr",
@@ -18816,6 +19234,16 @@
                         "phd",
                         "meistr",
                         "bagloriaeth"
+                    ]
+                },
+                "amenity/doctors/podiatry": {
+                    "name": "Podiatrydd",
+                    "terms": [
+                        "pigwrn",
+                        "troed",
+                        "traed",
+                        "coes",
+                        "podiatreg"
                     ]
                 },
                 "aerialway/station": {

@@ -95,7 +95,7 @@ export interface Preset {
     exclude?: string[]
   }
   /**
-   * An string referencing another preset which has a locationSet
+   * An string referencing another preset or field which has a locationSet
    */
   locationSetCrossReference?: string
   /**
@@ -137,6 +137,8 @@ export interface RelationSchema {
     role: string
     /**
      * If not specified, any geometry is allowed
+     *
+     * @minItems 1
      */
     geometry?: ("point" | "vertex" | "line" | "area" | "relation")[]
     /**

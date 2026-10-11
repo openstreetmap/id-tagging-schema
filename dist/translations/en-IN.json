@@ -99,6 +99,7 @@
                         "gate": "Gate",
                         "wall": "Wall",
                         "hedge": "Hedge",
+                        "kerb": "Kerb",
                         "bollard": "Bollard",
                         "block": "Block",
                         "stile": "Stile",
@@ -352,7 +353,15 @@
                     "label": "Type"
                 },
                 "disused/shop": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "supermarket": "Supermarket",
+                        "bakery": "Bakery",
+                        "butcher": "Butcher",
+                        "mall": "Mall",
+                        "garden_centre": "Garden Centre",
+                        "fashion_accessories": "Fashion Accessories Store"
+                    }
                 },
                 "dock": {
                     "label": "Type"
@@ -585,17 +594,27 @@
                     ]
                 },
                 "kerb": {
+                    "label": "Kerb",
                     "options": {
                         "lowered": {
                             "description": "A dropped kerb which can be used by wheelchair users, not higher than a few centimetres."
                         },
+                        "no": {
+                            "description": "There is no kerb present at this location."
+                        },
                         "raised": {
                             "description": "A raised kerb which can't easily be used by wheelchair users, higher than a few centimetres."
+                        },
+                        "rolled": {
+                            "description": "A raised kerb with a rounded edge which makes it easier to use for cars or bicycles, but not for wheelchairs."
                         },
                         "yes": {
                             "title": "Yes"
                         }
-                    }
+                    },
+                    "terms": [
+                        "curb"
+                    ]
                 },
                 "kerb/kerb_barrier": {
                     "label": "Type",
@@ -603,13 +622,22 @@
                         "lowered": {
                             "description": "A dropped kerb which can be used by wheelchair users, not higher than a few centimetres."
                         },
+                        "no": {
+                            "description": "There is no kerb present at this location."
+                        },
                         "raised": {
                             "description": "A raised kerb which can't easily be used by wheelchair users, higher than a few centimetres."
+                        },
+                        "rolled": {
+                            "description": "A raised kerb with a rounded edge which makes it easier to use for cars or bicycles, but not for wheelchairs."
                         },
                         "yes": {
                             "title": "Yes"
                         }
-                    }
+                    },
+                    "terms": [
+                        "curb"
+                    ]
                 },
                 "lamp_type": {
                     "label": "Type"
@@ -740,15 +768,19 @@
                     "label": "Type",
                     "options": {
                         "half_on_kerb": {
-                            "description": "Parking partially on the footpath."
+                            "description": "Parking partially on the footpath.",
+                            "title": "Half On Kerb"
                         },
                         "on_kerb": {
-                            "description": "Parking on the footpath."
+                            "description": "Parking on the footpath.",
+                            "title": "On Kerb"
                         }
                     }
                 },
                 "parking/side/parking": {
                     "options": {
+                        "half_on_kerb": "Half On Kerb",
+                        "on_kerb": "On Kerb",
                         "yes": "Yes (unspecified)"
                     }
                 },
@@ -756,10 +788,12 @@
                     "label": "Type",
                     "options": {
                         "half_on_kerb": {
-                            "description": "Parking partially on the footpath."
+                            "description": "Parking partially on the footpath.",
+                            "title": "Half On Kerb"
                         },
                         "on_kerb": {
-                            "description": "Parking on the footpath."
+                            "description": "Parking on the footpath.",
+                            "title": "On Kerb"
                         }
                     }
                 },
@@ -918,7 +952,15 @@
                     "label": "Type"
                 },
                 "shop": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "supermarket": "Supermarket",
+                        "bakery": "Bakery",
+                        "butcher": "Butcher",
+                        "mall": "Mall",
+                        "garden_centre": "Garden Centre",
+                        "fashion_accessories": "Fashion Accessories Store"
+                    }
                 },
                 "sidewalk": {
                     "label": "Footpaths",
@@ -1181,6 +1223,16 @@
                     "terms": [
                         "structure"
                     ]
+                },
+                "construction_highway": {
+                    "label": "Type",
+                    "options": {
+                        "footway": "Walkway",
+                        "path": "Path",
+                        "steps": "Steps",
+                        "track": "Track / Land-Access Road",
+                        "motorway": "Motorway"
+                    }
                 },
                 "cyclestreet-BE-NL": {
                     "terms": [
@@ -1697,6 +1749,46 @@
                 },
                 "barrier/hedge": {
                     "name": "Hedge"
+                },
+                "barrier/kerb": {
+                    "name": "Kerb",
+                    "terms": [
+                        "curb"
+                    ]
+                },
+                "barrier/kerb/flush": {
+                    "name": "Flush Kerb",
+                    "terms": [
+                        "even curb",
+                        "level curb",
+                        "tactile curb",
+                        "flush curb"
+                    ]
+                },
+                "barrier/kerb/lowered": {
+                    "name": "Lowered Kerb",
+                    "terms": [
+                        "curb cut",
+                        "curb ramp",
+                        "dropped kerb",
+                        "kerb ramp",
+                        "pram ramp",
+                        "lowered curb"
+                    ]
+                },
+                "barrier/kerb/raised": {
+                    "name": "Raised Kerb",
+                    "terms": [
+                        "step",
+                        "raised curb"
+                    ]
+                },
+                "barrier/kerb/rolled": {
+                    "name": "Rolled Kerb",
+                    "terms": [
+                        "gutter",
+                        "rolled curb"
+                    ]
                 },
                 "barrier/stile": {
                     "name": "Stile"
@@ -2572,13 +2664,6 @@
                         "animal"
                     ]
                 },
-                "type/boundary/administrative": {
-                    "relation": {
-                        "role_labels": {
-                            "admin_centre": "Admin Centre"
-                        }
-                    }
-                },
                 "type/route/subway": {
                     "name": "Metro Route",
                     "terms": [
@@ -2685,8 +2770,7 @@
                     "terms": [
                         "dam"
                     ]
-                },
-                "boundary/administrative": {}
+                }
             }
         }
     }

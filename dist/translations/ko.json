@@ -2,6 +2,9 @@
     "ko": {
         "presets": {
             "categories": {
+                "category-advertising": {
+                    "name": "광고 지물"
+                },
                 "category-barrier": {
                     "name": "방벽형 지물"
                 },
@@ -188,6 +191,7 @@
                         "housename": "집이름",
                         "housenumber": "123",
                         "housenumber!jp": "주거 번호",
+                        "neighbourhood": "행정리",
                         "neighbourhood!jp": "마치/초메/아자/코아자",
                         "place": "장소",
                         "postcode": "우편번호",
@@ -608,6 +612,21 @@
                 "boat": {
                     "label": "보트 접근"
                 },
+                "boat_rental_types": {
+                    "label": "선박 유형",
+                    "options": {
+                        "canoe_rental": "카누",
+                        "dinghy_rental": "딩기",
+                        "houseboat_rental": "수상가옥 (하우스보트)",
+                        "jetski_rental": "제트스키",
+                        "kayak_rental": "카약",
+                        "motorboat_rental": "모터보트",
+                        "pedalboat_rental": "페달보트",
+                        "rowboat_rental": "로우보트",
+                        "sailboat_rental": "돛단배",
+                        "yacht_rental": "요트"
+                    }
+                },
                 "bollard": {
                     "label": "유형",
                     "options": {
@@ -715,6 +734,7 @@
                         "container": "컨테이너 하우스",
                         "riding_hall": "승마 경기장",
                         "supermarket": "슈퍼마켓 건물",
+                        "yes": "유형이 정의되지 않은 건물",
                         "house": "주택",
                         "residential": "주거 건물",
                         "detached": "단독 주택",
@@ -824,6 +844,9 @@
                     "terms": [
                         "조립식"
                     ]
+                },
+                "building_area": {
+                    "label": "건물 유형 (해당하는 경우)"
                 },
                 "bunker_type": {
                     "label": "유형"
@@ -939,13 +962,13 @@
                     "options": {
                         "castrum": "로마 요새",
                         "defensive": "방어성",
-                        "fortress": "요새",
                         "hillfort": "성채",
                         "kremlin": "크렘린",
                         "manor": "영주 저택",
                         "shiro": "일본식 성",
                         "stately": "대저택",
-                        "palace": "궁전"
+                        "palace": "궁전",
+                        "fortress": "역사적 요새"
                     }
                 },
                 "ceremonial_gate": {
@@ -1290,7 +1313,6 @@
                 "crossing": {
                     "label": "유형",
                     "options": {
-                        "traffic_signals": "보행자 신호등이 있는 횡단보도",
                         "uncontrolled": "노면 표시만 있음",
                         "unmarked": "노면 표시나 신호등이 없음"
                     }
@@ -1364,6 +1386,7 @@
                         "bavarian": "바이에른",
                         "beef_bowl": "규동",
                         "bistro": "작은 레스토랑",
+                        "bolivian": "볼리비아 음식",
                         "brazilian": "브라질",
                         "breakfast": "아침",
                         "british": "영국 음식",
@@ -1376,6 +1399,8 @@
                         "chinese": "중국 요리",
                         "coffee_shop": "커피숍",
                         "crepe": "크레페",
+                        "croatian": "크로아티아 음식",
+                        "cuban": "쿠바 음식",
                         "curry": "카레",
                         "dessert": "디저트",
                         "diner": "다이너",
@@ -1397,22 +1422,28 @@
                         "hawaiian": "하와이안",
                         "hot_dog": "핫도그",
                         "hotpot": "훠궈",
+                        "hungarian": "헝가리 음식",
                         "ice_cream": "아이스크림",
                         "indian": "인도 요리",
                         "indonesian": "인도네시아 요리",
+                        "irish": "아일랜드 음식",
                         "italian": "이탈리아 요리",
+                        "jamaican": "자메이카 음식",
                         "japanese": "일본 요리",
                         "juice": "주스",
                         "kebab": "케밥",
                         "korean": "한식",
+                        "lao": "라오스 음식",
                         "lebanese": "레바논 요리",
                         "malaysian": "말레이시아 요리",
                         "mediterranean": "지중해",
                         "mexican": "멕시코 요리",
                         "middle_eastern": "중동",
                         "moroccan": "모로코",
+                        "nepalese": "네팔 음식",
                         "noodle": "면류",
                         "oriental": "동아시아",
+                        "pakistani": "파키스탄 음식",
                         "pancake": "팬케이크",
                         "pasta": "파스타",
                         "pastry": "페이스트리",
@@ -1434,6 +1465,7 @@
                         "spanish": "스페인 요리",
                         "steak_house": "스테이크하우스",
                         "sushi": "초밥",
+                        "syrian": "시리아 음식",
                         "taiwanese": "대만 요리",
                         "tapas": "타파스",
                         "tea": "차",
@@ -1443,6 +1475,7 @@
                         "udon": "우동",
                         "ukrainian": "우크라이나 요리",
                         "vietnamese": "베트남 요리",
+                        "waffle": "와플",
                         "western": "서양",
                         "wings": "치킨 날개"
                     },
@@ -1537,6 +1570,9 @@
                 },
                 "defibrillator/location": {
                     "label": "위치 설명"
+                },
+                "deflection": {
+                    "label": "각도"
                 },
                 "delivery": {
                     "label": "배달",
@@ -1718,7 +1754,178 @@
                     "label": "유형"
                 },
                 "disused/shop": {
-                    "label": "유형"
+                    "label": "유형",
+                    "options": {
+                        "convenience": "편의점",
+                        "supermarket": "슈퍼마켓",
+                        "clothes": "옷가게",
+                        "hairdresser": "미용실",
+                        "car_repair": "자동차 수리점",
+                        "bakery": "제과점",
+                        "beauty": "뷰티 샵",
+                        "car": "자동차 대리점",
+                        "hardware": "철물점",
+                        "butcher": "정육점",
+                        "kiosk": "가판대",
+                        "mobile_phone": "휴대폰 가게",
+                        "furniture": "가구점",
+                        "car_parts": "자동차 부품 가게",
+                        "alcohol": "주류상",
+                        "variety_store": "할인 판매점",
+                        "florist": "꽃 가게",
+                        "optician": "안경점",
+                        "electronics": "전자 제품 가게",
+                        "jewelry": "귀금속 가게",
+                        "outpost": "전자상거래 사업자 영업소",
+                        "shoes": "신발 가게",
+                        "vacant": "빈 가게",
+                        "mall": "쇼핑몰",
+                        "gift": "선물 가게",
+                        "doityourself": "DIY 가게",
+                        "greengrocer": "청과상",
+                        "chemist": "약국",
+                        "laundry": "세탁소",
+                        "books": "서점",
+                        "bicycle": "자전거 가게",
+                        "department_store": "백화점",
+                        "pet": "애완동물 가게",
+                        "travel_agency": "여행사",
+                        "stationery": "문구점",
+                        "sports": "스포츠 용품 가게",
+                        "confectionery": "사탕 가게",
+                        "tyres": "타이어 가게",
+                        "storage_rental": "저장공간 대여소",
+                        "tobacco": "담배 가게",
+                        "cosmetics": "화장품 가게",
+                        "trade": "무역 가게",
+                        "massage": "마사지 가게",
+                        "tailor": "양복점",
+                        "computer": "컴퓨터 가게",
+                        "funeral_directors": "장례식장",
+                        "copyshop": "복사집",
+                        "pastry": "과자 가게",
+                        "motorcycle": "오토바이 대리점",
+                        "dry_cleaning": "드라이클리닝",
+                        "farm": "산지 직매",
+                        "garden_centre": "원예 용품점",
+                        "beverages": "음료 가게",
+                        "newsagent": "뉴스 간판대",
+                        "general": "일반 상점",
+                        "ticket": "티켓 판매소",
+                        "interior_decoration": "실내장식 가게",
+                        "deli": "조제 식품 판매점",
+                        "houseware": "가정용품 가게",
+                        "toys": "완구점",
+                        "seafood": "해산물 가게",
+                        "wine": "와인 가게",
+                        "tattoo": "문신 가게",
+                        "wholesale": "도매상",
+                        "paint": "페인트 가게",
+                        "second_hand": "중고품 가게",
+                        "pawnbroker": "전당포",
+                        "medical_supply": "의료 용품 가게",
+                        "charity": "자선 쇼핑몰",
+                        "photo": "사진 가게",
+                        "bed": "침구/매트리스 가게",
+                        "kitchen": "주방 디자인 가게",
+                        "bookmaker": "마권업자",
+                        "art": "미술품 가게",
+                        "lottery": "복권 가게",
+                        "agrarian": "농업 용품 가게",
+                        "outdoor": "아웃도어 가게",
+                        "antiques": "골동품 가게",
+                        "e-cigarette": "전자 담배 가게",
+                        "fabric": "직물 가게",
+                        "coffee": "커피 가게",
+                        "perfumery": "향수 가게",
+                        "gas": "가스통 가게",
+                        "motorcycle_repair": "오토바이 수리점",
+                        "hearing_aids": "보청기 가게",
+                        "appliance": "가전 제품 가게",
+                        "craft": "미술 & 공예 가게",
+                        "electrical": "전기 기구 가게",
+                        "telecommunication": "통신사 대리점",
+                        "money_lender": "대출",
+                        "pet_grooming": "반려동물 미용실",
+                        "tea": "차 가게",
+                        "bag": "가방/여행가방 가게",
+                        "dairy": "유제품 가게",
+                        "baby_goods": "유아 용품 가게",
+                        "musical_instrument": "악기 가게",
+                        "rental": "대여점",
+                        "fashion_accessories": "패션 액세서리 가게",
+                        "cannabis": "대마초 가게",
+                        "health_food": "건강식품 판매점",
+                        "chocolate": "초콜릿 가게",
+                        "music": "음반 가게",
+                        "carpet": "카펫 가게",
+                        "cheese": "치즈 가게",
+                        "fishing": "낚시 가게",
+                        "repair": "수리점",
+                        "locksmith": "열쇠 제조공",
+                        "nutrition_supplements": "영양 보조 식품 가게",
+                        "bathroom_furnishing": "화장실 기구 가게",
+                        "watches": "손목시계 가게",
+                        "sewing": "바느질 용품 가게",
+                        "video_games": "비디오 게임 가게",
+                        "curtain": "커튼 가게",
+                        "lighting": "조명 가게",
+                        "herbalist": "약초 가게",
+                        "tiles": "타일 가게",
+                        "flooring": "바닥재 가게",
+                        "frozen_food": "냉동식품 가게",
+                        "doors": "문 가게",
+                        "hifi": "고급 오디오 가게",
+                        "shoe_repair": "신발 수선점",
+                        "erotic": "성인용품 가게",
+                        "party": "파티 용품 가게",
+                        "water": "식수 가게",
+                        "religion": "종교 가게",
+                        "frame": "액자 가게",
+                        "swimming_pool": "수영장 용품 가게",
+                        "hairdresser_supply": "미용실 용품 가게",
+                        "video": "비디오 가게",
+                        "games": "보드게임 가게",
+                        "leather": "가죽 가게",
+                        "weapons": "무기 가게",
+                        "country_store": "농촌용품점",
+                        "fuel": "연료 가게",
+                        "boat": "보트 가게",
+                        "pottery": "도자기 가게",
+                        "fireplace": "벽난로 가게",
+                        "window_blind": "창문 블라인드 가게",
+                        "collector": "수집품 가게",
+                        "radiotechnics": "라디오/전자 부품 가게",
+                        "tool_hire": "도구 대여점",
+                        "caravan": "RV 대리점",
+                        "household_linen": "가정용 직물 가게",
+                        "ice_cream": "아이스크림 가게",
+                        "spices": "향신료 가게",
+                        "scuba_diving": "스쿠버 다이빙 가게",
+                        "pyrotechnics": "불꽃놀이 가게",
+                        "printer_ink": "프린터 잉크 가게",
+                        "nuts": "견과류 가게",
+                        "mobile_phone_accessories": "휴대폰 악세서리 가게",
+                        "model": "모형 가게",
+                        "candles": "양초 가게",
+                        "hunting": "사냥 용품 가게",
+                        "groundskeeping": "잔디 및 정원용품점",
+                        "pasta": "파스타 가게",
+                        "vacuum_cleaner": "진공청소기 가게",
+                        "honey": "꿀 가게",
+                        "camera": "카메라 가게",
+                        "rice": "쌀 가게",
+                        "water_sports": "수상 스포츠/수영 가게",
+                        "anime": "애니메이션/만화 가게",
+                        "psychic": "초능력자",
+                        "trophy": "트로피 가게",
+                        "wigs": "가발 가게",
+                        "catalogue": "카탈로그 가게",
+                        "military_surplus": "군용품 판매점",
+                        "brewing_supplies": "양조 용품 가게",
+                        "piercing": "피어싱샵",
+                        "bbq": "바베큐 상점"
+                    }
                 },
                 "dock": {
                     "label": "유형",
@@ -1888,13 +2095,13 @@
                         "exit": "출구 전용",
                         "garage": "차고 문",
                         "home": "개인 주택 또는 아파트",
-                        "main": "주 출입구",
                         "secondary": "보조 출입구",
                         "service": "전용 출입구",
-                        "staircase": "계단 출입구",
                         "yes": "명시되지 않음",
+                        "main": "정문",
                         "shop": "가게 출입구",
-                        "emergency": "비상구"
+                        "emergency": "비상구",
+                        "staircase": "계단 입구"
                     },
                     "terms": [
                         "종류"
@@ -2476,7 +2683,6 @@
                         "church": "교회",
                         "citywalls": "성벽",
                         "milestone": "이정표",
-                        "millstone": "맷돌",
                         "mine": "광산",
                         "mine_shaft": "수직 갱도",
                         "railway": "철도",
@@ -2494,6 +2700,8 @@
                         "manor": "영주 저택",
                         "fort": "역사적 요새•진지",
                         "city_gate": "성문",
+                        "aircraft": "역사적 항공기",
+                        "cannon": "대포",
                         "wreck": "난파선",
                         "pillory": "역사적 공시대"
                     }
@@ -3451,6 +3659,7 @@
                 },
                 "opening_hours": {
                     "label": "영업시간",
+                    "placeholder": "Mo-Fr 09:00-18:00",
                     "terms": [
                         "영업시간"
                     ]
@@ -3542,8 +3751,7 @@
                             "title": "차고 상자"
                         },
                         "half_on_kerb": {
-                            "description": "차량 일부를 보도 위에 걸쳐 주차함.",
-                            "title": "연석에 걸친 주차"
+                            "description": "차량 일부를 보도 위에 걸쳐 주차함."
                         },
                         "lane": {
                             "description": "길가에 주차 (주행 차로가 될 수 있음)",
@@ -3558,8 +3766,7 @@
                             "title": "다층"
                         },
                         "on_kerb": {
-                            "description": "보도 위에 주차함.",
-                            "title": "보도 주차"
+                            "description": "보도 위에 주차함."
                         },
                         "rooftop": {
                             "description": "건물 옥상층을 주차장으로 사용함.",
@@ -3605,10 +3812,8 @@
                 "parking/side/parking": {
                     "label": "주차",
                     "options": {
-                        "half_on_kerb": "연석에 걸친 주차",
                         "lane": "가로변 차로",
                         "no": "아니오",
-                        "on_kerb": "보도 주차",
                         "separate": "별도로 매핑된 주차구역",
                         "shoulder": "갓길 주차",
                         "street_side": "도로변에 마련된 주차 공간",
@@ -3633,8 +3838,7 @@
                             "title": "차고 상자"
                         },
                         "half_on_kerb": {
-                            "description": "차량 일부를 보도 위에 걸쳐 주차함.",
-                            "title": "연석에 걸친 주차"
+                            "description": "차량 일부를 보도 위에 걸쳐 주차함."
                         },
                         "lane": {
                             "description": "길가에 주차 (주행 차로가 될 수 있음)",
@@ -3649,8 +3853,7 @@
                             "title": "다층"
                         },
                         "on_kerb": {
-                            "description": "보도 위에 주차함.",
-                            "title": "보도 주차"
+                            "description": "보도 위에 주차함."
                         },
                         "rooftop": {
                             "description": "건물 옥상층을 주차장으로 사용함.",
@@ -4683,13 +4886,190 @@
                     "label": "대피소"
                 },
                 "shelter_type": {
-                    "label": "유형"
+                    "label": "유형",
+                    "options": {
+                        "public_transport": "대중교통 쉼터",
+                        "picnic_shelter": "피크닉 쉘터",
+                        "gazebo": "정자",
+                        "lean_to": "달개"
+                    }
                 },
                 "shoes": {
                     "label": "신발"
                 },
                 "shop": {
-                    "label": "유형"
+                    "label": "유형",
+                    "options": {
+                        "convenience": "편의점",
+                        "supermarket": "슈퍼마켓",
+                        "clothes": "옷가게",
+                        "hairdresser": "미용실",
+                        "car_repair": "자동차 수리점",
+                        "bakery": "제과점",
+                        "beauty": "뷰티 샵",
+                        "car": "자동차 대리점",
+                        "hardware": "철물점",
+                        "butcher": "정육점",
+                        "kiosk": "가판대",
+                        "mobile_phone": "휴대폰 가게",
+                        "furniture": "가구점",
+                        "car_parts": "자동차 부품 가게",
+                        "alcohol": "주류상",
+                        "variety_store": "할인 판매점",
+                        "florist": "꽃 가게",
+                        "optician": "안경점",
+                        "electronics": "전자 제품 가게",
+                        "jewelry": "귀금속 가게",
+                        "outpost": "전자상거래 사업자 영업소",
+                        "shoes": "신발 가게",
+                        "vacant": "빈 가게",
+                        "mall": "쇼핑몰",
+                        "gift": "선물 가게",
+                        "doityourself": "DIY 가게",
+                        "greengrocer": "청과상",
+                        "chemist": "약국",
+                        "laundry": "세탁소",
+                        "books": "서점",
+                        "bicycle": "자전거 가게",
+                        "department_store": "백화점",
+                        "pet": "애완동물 가게",
+                        "travel_agency": "여행사",
+                        "stationery": "문구점",
+                        "sports": "스포츠 용품 가게",
+                        "confectionery": "사탕 가게",
+                        "tyres": "타이어 가게",
+                        "storage_rental": "저장공간 대여소",
+                        "tobacco": "담배 가게",
+                        "cosmetics": "화장품 가게",
+                        "trade": "무역 가게",
+                        "massage": "마사지 가게",
+                        "tailor": "양복점",
+                        "computer": "컴퓨터 가게",
+                        "funeral_directors": "장례식장",
+                        "copyshop": "복사집",
+                        "pastry": "과자 가게",
+                        "motorcycle": "오토바이 대리점",
+                        "dry_cleaning": "드라이클리닝",
+                        "farm": "산지 직매",
+                        "garden_centre": "원예 용품점",
+                        "beverages": "음료 가게",
+                        "newsagent": "뉴스 간판대",
+                        "general": "일반 상점",
+                        "ticket": "티켓 판매소",
+                        "interior_decoration": "실내장식 가게",
+                        "deli": "조제 식품 판매점",
+                        "houseware": "가정용품 가게",
+                        "toys": "완구점",
+                        "seafood": "해산물 가게",
+                        "wine": "와인 가게",
+                        "tattoo": "문신 가게",
+                        "wholesale": "도매상",
+                        "paint": "페인트 가게",
+                        "second_hand": "중고품 가게",
+                        "pawnbroker": "전당포",
+                        "medical_supply": "의료 용품 가게",
+                        "charity": "자선 쇼핑몰",
+                        "photo": "사진 가게",
+                        "bed": "침구/매트리스 가게",
+                        "kitchen": "주방 디자인 가게",
+                        "bookmaker": "마권업자",
+                        "art": "미술품 가게",
+                        "lottery": "복권 가게",
+                        "agrarian": "농업 용품 가게",
+                        "outdoor": "아웃도어 가게",
+                        "antiques": "골동품 가게",
+                        "e-cigarette": "전자 담배 가게",
+                        "fabric": "직물 가게",
+                        "coffee": "커피 가게",
+                        "perfumery": "향수 가게",
+                        "gas": "가스통 가게",
+                        "motorcycle_repair": "오토바이 수리점",
+                        "hearing_aids": "보청기 가게",
+                        "appliance": "가전 제품 가게",
+                        "craft": "미술 & 공예 가게",
+                        "electrical": "전기 기구 가게",
+                        "telecommunication": "통신사 대리점",
+                        "money_lender": "대출",
+                        "pet_grooming": "반려동물 미용실",
+                        "tea": "차 가게",
+                        "bag": "가방/여행가방 가게",
+                        "dairy": "유제품 가게",
+                        "baby_goods": "유아 용품 가게",
+                        "musical_instrument": "악기 가게",
+                        "rental": "대여점",
+                        "fashion_accessories": "패션 액세서리 가게",
+                        "cannabis": "대마초 가게",
+                        "health_food": "건강식품 판매점",
+                        "chocolate": "초콜릿 가게",
+                        "music": "음반 가게",
+                        "carpet": "카펫 가게",
+                        "cheese": "치즈 가게",
+                        "fishing": "낚시 가게",
+                        "repair": "수리점",
+                        "locksmith": "열쇠 제조공",
+                        "nutrition_supplements": "영양 보조 식품 가게",
+                        "bathroom_furnishing": "화장실 기구 가게",
+                        "watches": "손목시계 가게",
+                        "sewing": "바느질 용품 가게",
+                        "video_games": "비디오 게임 가게",
+                        "curtain": "커튼 가게",
+                        "lighting": "조명 가게",
+                        "herbalist": "약초 가게",
+                        "tiles": "타일 가게",
+                        "flooring": "바닥재 가게",
+                        "frozen_food": "냉동식품 가게",
+                        "doors": "문 가게",
+                        "hifi": "고급 오디오 가게",
+                        "shoe_repair": "신발 수선점",
+                        "erotic": "성인용품 가게",
+                        "party": "파티 용품 가게",
+                        "water": "식수 가게",
+                        "religion": "종교 가게",
+                        "frame": "액자 가게",
+                        "swimming_pool": "수영장 용품 가게",
+                        "hairdresser_supply": "미용실 용품 가게",
+                        "video": "비디오 가게",
+                        "games": "보드게임 가게",
+                        "leather": "가죽 가게",
+                        "weapons": "무기 가게",
+                        "country_store": "농촌용품점",
+                        "fuel": "연료 가게",
+                        "boat": "보트 가게",
+                        "pottery": "도자기 가게",
+                        "fireplace": "벽난로 가게",
+                        "window_blind": "창문 블라인드 가게",
+                        "collector": "수집품 가게",
+                        "radiotechnics": "라디오/전자 부품 가게",
+                        "tool_hire": "도구 대여점",
+                        "caravan": "RV 대리점",
+                        "household_linen": "가정용 직물 가게",
+                        "ice_cream": "아이스크림 가게",
+                        "spices": "향신료 가게",
+                        "scuba_diving": "스쿠버 다이빙 가게",
+                        "pyrotechnics": "불꽃놀이 가게",
+                        "printer_ink": "프린터 잉크 가게",
+                        "nuts": "견과류 가게",
+                        "mobile_phone_accessories": "휴대폰 악세서리 가게",
+                        "model": "모형 가게",
+                        "candles": "양초 가게",
+                        "hunting": "사냥 용품 가게",
+                        "groundskeeping": "잔디 및 정원용품점",
+                        "pasta": "파스타 가게",
+                        "vacuum_cleaner": "진공청소기 가게",
+                        "honey": "꿀 가게",
+                        "camera": "카메라 가게",
+                        "rice": "쌀 가게",
+                        "water_sports": "수상 스포츠/수영 가게",
+                        "anime": "애니메이션/만화 가게",
+                        "psychic": "초능력자",
+                        "trophy": "트로피 가게",
+                        "wigs": "가발 가게",
+                        "catalogue": "카탈로그 가게",
+                        "military_surplus": "군용품 판매점",
+                        "brewing_supplies": "양조 용품 가게",
+                        "piercing": "피어싱샵",
+                        "bbq": "바베큐 상점"
+                    }
                 },
                 "short_name": {
                     "label": "짧은 이름"
@@ -5968,7 +6348,6 @@
                         "pizza": "피자",
                         "public_transport_tickets": "대중교통 승차권",
                         "stamps": "우표",
-                        "sweets": "사탕류",
                         "water": "식수"
                     }
                 },
@@ -6187,6 +6566,34 @@
                         "빌딩",
                         "건축물"
                     ]
+                },
+                "construction_highway": {
+                    "label": "유형",
+                    "options": {
+                        "bridleway": "승마로",
+                        "cycleway": "자전거 도로",
+                        "footway": "보도",
+                        "living_street": "보행자 우선도로",
+                        "motorway_link": "고속도로 연결로",
+                        "path": "경로",
+                        "pedestrian": "보행자 전용 거리",
+                        "primary": "1차 도로",
+                        "primary_link": "1차 도로 연결로",
+                        "raceway": "모터스포츠 경주로",
+                        "residential": "주거 도로",
+                        "secondary": "2차 도로",
+                        "secondary_link": "2차 도로 연결로",
+                        "service": "서비스 도로",
+                        "steps": "계단",
+                        "tertiary": "3차 도로",
+                        "tertiary_link": "3차 도로 연결로",
+                        "track": "농도·임도·토지 접근도로",
+                        "trunk": "간선 도로",
+                        "motorway": "고속도로",
+                        "trunk_link": "간선 도로 연결로",
+                        "unclassified": "비주요/미분류 도로",
+                        "road": "미확인 도로"
+                    }
                 },
                 "cyclestreet-BE-NL": {
                     "label": "자전거 도로",
@@ -7437,12 +7844,6 @@
                         "성형외과 의사"
                     ]
                 },
-                "amenity/doctors/podiatry": {
-                    "name": "족부의학과 의사",
-                    "terms": [
-                        "족부의학과 의사"
-                    ]
-                },
                 "amenity/doctors/proctology": {
                     "name": "대장항문외과 의사",
                     "terms": [
@@ -7846,6 +8247,9 @@
                         "택배 보관함"
                     ]
                 },
+                "amenity/parking": {
+                    "name": "주차 공간"
+                },
                 "amenity/parking/multi-storey": {
                     "name": "입체 주차장",
                     "terms": [
@@ -7881,7 +8285,7 @@
                     ]
                 },
                 "amenity/parking_space": {
-                    "name": "주차 공간",
+                    "name": "주차 칸",
                     "terms": [
                         "주차 공간"
                     ]
@@ -10469,12 +10873,6 @@
                 },
                 "highway/crossing/informal": {
                     "name": "비공식적인 횡단보도"
-                },
-                "highway/crossing/traffic_signals": {
-                    "name": "보행자 신호등이 있는 횡단보도",
-                    "terms": [
-                        "보행자 신호등이 있는 횡단보도"
-                    ]
                 },
                 "highway/crossing/uncontrolled": {
                     "name": "표시가 있는 횡단보도",
@@ -13844,9 +14242,10 @@
                     ]
                 },
                 "place/neighbourhood": {
-                    "name": "동",
+                    "name": "통 / 행정리",
                     "terms": [
-                        "동"
+                        "통",
+                        "행정리"
                     ]
                 },
                 "place/plot": {
@@ -17126,6 +17525,13 @@
                 },
                 "amenity/university": {
                     "name": "대학교 부지"
+                },
+                "amenity/doctors/podiatry": {
+                    "name": "족부의사",
+                    "terms": [
+                        "발",
+                        "발톱"
+                    ]
                 },
                 "amenity/charging_station/charging_station_bicycle_designated": {
                     "name": "자전거 충전소"
