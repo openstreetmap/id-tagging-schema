@@ -36,13 +36,13 @@ export function expandTStrings(localeCode: string, tstrings: TStrings, sourceLan
     // for en-* translations, copy the american translations as alternative terms
     const americanPreset = sourceLanguageTranslations?.presets[key];
     if (isCommonwealthEnglish && americanPreset) {
-        const extaTerms = [
+        const extraTerms = [
             ...(Array.isArray(americanPreset.terms) ? americanPreset.terms : []),
             ...(Array.isArray(americanPreset.aliases) ? americanPreset.aliases : []),
             ...(americanPreset.name ? [americanPreset.name] : []),
         ];
         const existingName = (preset.name || americanPreset.name)?.toLowerCase();
-        rawTerms.push(...extaTerms.filter(value => value.toLowerCase() !== existingName));
+        rawTerms.push(...extraTerms.filter(value => value.toLowerCase() !== existingName));
     }
 
     if (!rawTerms.length) continue;
@@ -79,13 +79,13 @@ export function expandTStrings(localeCode: string, tstrings: TStrings, sourceLan
     // for en-* translations, copy the american translations as alternative terms
     const americanField = sourceLanguageTranslations?.fields[key];
     if (isCommonwealthEnglish && americanField) {
-        const extaTerms = [
+        const extraTerms = [
             ...(Array.isArray(americanField.terms) ? americanField.terms : []),
             ...(Array.isArray(americanField.aliases) ? americanField.aliases : []),
             ...(americanField.label ? [americanField.label] : []),
         ]
         const existingLabel = (field.label || americanField.label)?.toLowerCase();
-        rawTerms.push(...extaTerms.filter(value => value.toLowerCase() !== existingLabel));
+        rawTerms.push(...extraTerms.filter(value => value.toLowerCase() !== existingLabel));
     }
 
     if (!rawTerms.length) continue;

@@ -320,6 +320,14 @@ function generateFields(dataDir: string, tstrings: TStrings, searchableFieldIDs:
             references.fields[id].options ||= {};
             references.fields[id].options[prop] ||= {};
             references.fields[id].options[prop][key] = value;
+          } else if (typeof value === 'object' && isReference(value.title)) {
+            references.fields[id] ||= {};
+            references.fields[id].options ||= {};
+            references.fields[id].options[prop] ||= {};
+
+            // title is a reference, description is not
+            references.fields[id].options[prop][key] = { title: value.title };
+            t[prop][key] = { description: value.description };
           } else {
             t[prop][key] = value;
           }
@@ -445,16 +453,24 @@ function generatePresets(
     }
 
     if (preset.relation) {
-      tstrings.presets[id].relation = {
-        role_labels: preset.relation.role_labels
-      };
+      for (const role in preset.relation.role_labels) {
+        const labelOrReference = preset.relation.role_labels[role];
+        if (isReference(labelOrReference)) {
+          references.presets[id] ||= {};
+          references.presets[id].roleLabels ||= {};
+          references.presets[id].roleLabels[role] = labelOrReference;
+        } else {
+          tstrings.presets[id].relation ||= { role_labels: {} };
+          tstrings.presets[id].relation.role_labels[role] = labelOrReference;
+        }
+      }
+
         // @ts-expect-error -- deleting a non-optional prop
       delete preset.relation.role_labels;
     }
     if (preset.relationCrossReference) {
       references.presets[id] ||= {};
       references.presets[id].relation = preset.relationCrossReference;
-      delete preset.relationCrossReference;
     }
 
     if (preset.locationSet) {
@@ -523,7 +539,9 @@ function generateTranslations(fields: AllFields, presets: AllPresets, tstrings: 
         options['#' + k] = field.key ? `${field.key}=${k}` : `field "${fieldId}" with value "${k}"`;
       } else {
         options[k]['#description'] = `description for ${field.key}=${k}`;
-        options[k]['#title'] = `title for ${field.key}=${k}`;
+        if (options[k].title) {
+           options[k]['#title'] = `title for ${field.key}=${k}`;
+        }
       }
     });
 
@@ -579,7 +597,17 @@ function generateTranslations(fields: AllFields, presets: AllPresets, tstrings: 
 
     if (yamlPreset.relation?.role_labels) {
       for (const role in yamlPreset.relation.role_labels) {
+        // skip empty values
+        if (!yamlPreset.relation.role_labels[role]) {
+          delete yamlPreset.relation.role_labels[role];
+          continue;
+        }
         yamlPreset.relation.role_labels[`#${role}`] = `Relation role “${role}” when used with ${tagsString}`;
+      }
+
+      // delete objects if they're empty
+      if (!Object.keys(yamlPreset.relation.role_labels).length) {
+        delete yamlPreset.relation;
       }
     }
 
@@ -1037,6 +1065,36 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
 
       }
     }
+
+    let relatedKeys = ['expectedVertices'] as const;
+    for (let relatedKeyIndex in relatedKeys) {
+      let relatedKey = relatedKeys[relatedKeyIndex];
+      if (!preset.related?.[relatedKey]) continue;
+
+      for (let vertexIndex in preset.related[relatedKey]) {
+        let foreignPresetID = preset.related[relatedKey][vertexIndex];
+        if (presets[foreignPresetID] === undefined) {
+          if (isReference(foreignPresetID)) {
+            let referencedForeignPresetID = foreignPresetID.slice(1, -1)
+            if (presets[referencedForeignPresetID] === undefined) {
+              process.stderr.write(`Unknown preset "${referencedForeignPresetID}" referenced in "expectedVertices" array of preset "${presetID}" (${preset.name})\n`);
+              process.stdout.write('\n');
+              process.exit(1);
+            }
+        } else {
+            process.stderr.write('Unknown preset "' + foreignPresetID + '" stated as valid vertex in "expectedVertices" array of preset "' + presetID + '" (' + preset.name + ')\n');
+            process.stdout.write('\n');
+            process.exit(1);
+          }
+        } else if (!presets[foreignPresetID].geometry.includes("vertex")) {
+          process.stderr.write('preset not valid as a vertex "' + foreignPresetID + '" referenced in "expectedVertices" array of preset "' + presetID + '" (' + preset.name + ')\n');
+          process.stdout.write('\n');
+          process.stdout.write(presets[foreignPresetID].geometry.toString());
+          process.exit(1);
+        }
+      }
+    }
+
 
     if (preset.fields) {
       // since `moreFields` is available, check that `fields` doesn't get too cluttered
