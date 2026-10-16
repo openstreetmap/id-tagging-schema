@@ -13,8 +13,9 @@ import { compile, toSafeIdentifier } from 'json-schema-to-typescript-lite';
 import type * as Taginfo from 'taginfo-projects';
 import { isReference, dereferencedTranslatableContent, dereferenceUntranslatedContent } from './references.ts';
 import fetchTranslations, { expandTStrings, sortObject } from './translations.ts';
-import type { Field, Geometry, Preset, AllFields, AllPresets, References, TStrings, Options, AllCategories, TaginfoTag, TaginfoSchema, PresetDefaults, Deprecated, Discarded, SourceStrings, PresetCategory } from './types.def.ts';
+import type { Field, Geometry, Preset, AllFields, AllPresets, References, TStrings, Options, AllCategories, TaginfoTag, TaginfoSchema, PresetDefaults, Deprecated, Discarded, SourceStrings, PresetCategory, Units } from './types.def.ts';
 import { printErrorsForCI, type SchemaError } from './ci.ts';
+import { getExternalTranslations } from './units.ts';
 
 const require = createRequire(import.meta.url);
 
@@ -24,6 +25,10 @@ const categorySchema = require('../../schemas/preset_category.json');
 const defaultsSchema = require('../../schemas/preset_defaults.json');
 const deprecatedSchema = require('../../schemas/deprecated.json');
 const discardedSchema = require('../../schemas/discarded.json');
+const unitTypesSchema = require('../../schemas/auto-generated/unit-types.json');
+const unitsSchema = require('../../schemas/auto-generated/units.json');
+const dimensionSchema = require('../../schemas/auto-generated/dimension.json');
+const usageSchema = require('../../schemas/auto-generated/usage.json');
 
 let _currBuild: Promise<void> | null = null;
 
@@ -36,6 +41,10 @@ const jsonschema = new Validator({
     defaultsSchema,
     deprecatedSchema,
     discardedSchema,
+    unitTypesSchema,
+    unitsSchema,
+    dimensionSchema,
+    usageSchema,
   ],
 });
 const locationConflation = new LocationConflation();
@@ -116,6 +125,11 @@ async function processData(_options: Partial<Options> | undefined, type: 'build-
     validateSchema(dataDir + '/discarded.json', discarded, discardedSchema);
   }
 
+  const units = read<Units>(dataDir + '/units.json');
+  if (units) {
+    validateSchema(dataDir + '/units.json', units, unitsSchema);
+  }
+
   let categories = generateCategories(dataDir, tstrings);
   if (options.processCategories) options.processCategories(categories);
 
@@ -162,6 +176,9 @@ async function processData(_options: Partial<Options> | undefined, type: 'build-
   fs.writeFileSync(interimDir + '/icons.json', JSON.stringify(icons, null, 4) + '\n');
 
   dereferencedTranslatableContent(tstrings, references, true);
+  const sourceTranslations = { presets: tstrings };
+  Object.assign(sourceTranslations, getExternalTranslations(sourceLocale, units));
+
 
   if (type !== 'build-dist') return;
 
@@ -193,10 +210,11 @@ async function processData(_options: Partial<Options> | undefined, type: 'build-
   if (defaults) fs.writeFileSync(distDir + '/preset_defaults.json', JSON.stringify(defaults, null, 4));
   if (deprecated) fs.writeFileSync(distDir + '/deprecated.json', JSON.stringify(deprecated, null, 4));
   if (discarded) fs.writeFileSync(distDir + '/discarded.json', JSON.stringify(discarded, null, 4));
+  if (units) fs.writeFileSync(distDir + '/units.json', JSON.stringify(units, null, 4));
 
   expandTStrings(sourceLocale, tstrings);
   let translationsForJson: typeof translationsForYaml = {};
-  translationsForJson[sourceLocale] = { presets: tstrings };
+  translationsForJson[sourceLocale] = sourceTranslations;
 
   if (!fs.existsSync(distDir + '/translations')) fs.mkdirSync(distDir + '/translations');
   fs.writeFileSync(distDir + '/translations/' + sourceLocale + '.json', JSON.stringify(translationsForJson, null, 4));
@@ -210,12 +228,13 @@ async function processData(_options: Partial<Options> | undefined, type: 'build-
     minifyJSON(distDir + '/preset_defaults.json', distDir + '/preset_defaults.min.json'),
     minifyJSON(distDir + '/deprecated.json', distDir + '/deprecated.min.json'),
     minifyJSON(distDir + '/discarded.json', distDir + '/discarded.min.json'),
+    minifyJSON(distDir + '/units.json', distDir + '/units.min.json'),
     minifyJSON(distDir + '/translations/' + sourceLocale + '.json', distDir + '/translations/' + sourceLocale + '.min.json'),
     generateTypeDefs(distDir),
   ];
 
   if (doFetchTranslations) {
-    tasks.push(fetchTranslations(options, references, tstrings));
+    tasks.push(fetchTranslations(options, references, tstrings, units));
   }
   return Promise.all(tasks);
 }
