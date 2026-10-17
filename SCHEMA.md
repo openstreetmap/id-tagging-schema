@@ -201,8 +201,8 @@ This means that they should be recognized when editing existing data,
 but not be available as an option when adding new features.
 
 By convention, unsearchable presets have filenames that begin with an underscore
-(e.g. `data/presets/landuse/_farm.json`). However, when using the preset name as reference,
-the underscore is omitted (e.g. `{landuse/farm}`).
+(e.g. `data/presets/landuse/_churchyard.json`). However, when using the preset name as reference,
+the underscore is omitted (e.g. `{landuse/churchyard}`).
 
 ##### `matchScore`
 
