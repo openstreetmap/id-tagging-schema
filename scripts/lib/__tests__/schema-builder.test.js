@@ -1,5 +1,6 @@
 import fs from 'fs';
-import { afterAll, beforeEach, describe, expect, it } from 'vitest';
+import process from 'node:process';
+import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import schemaBuilder from '../index.js';
 
 const _workspace = 'workspace';
@@ -216,5 +217,32 @@ describe('schema-builder', () => {
     });
     expect(fs.existsSync(_workspace + '/interim/source_strings.yaml')).toBe(true);
     expect(fs.existsSync(_workspace + '/dist')).toBe(true);
+  });
+
+  it('includes preset names in validation errors', async () => {
+    writeSourceData({
+      'data/presets/test_line.json': {
+        tags: { test: 'line' },
+        geometry: ['line'],
+        name: 'Test Line',
+        related: { expectedVertices: ['missing_vertex'] }
+      }
+    });
+
+    const stderrSpy = vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
+    const exitSpy = vi.spyOn(process, 'exit').mockImplementation(code => {
+      throw new Error(`process.exit(${code})`);
+    });
+
+    try {
+      await expect(schemaBuilder.buildDev({
+        inDirectory: _workspace + '/data',
+        interimDirectory: _workspace + '/interim'
+      })).rejects.toThrow('process.exit(1)');
+      expect(stderrSpy).toHaveBeenCalledWith('Unknown preset "missing_vertex" stated as valid vertex in "expectedVertices" array of preset "test_line" (Test Line)\n');
+    } finally {
+      stderrSpy.mockRestore();
+      exitSpy.mockRestore();
+    }
   });
 });
