@@ -388,7 +388,7 @@ Fields are reusable form elements that can be associated with presets.
 
 #### Field Files
 
-Fields are defined in JSON files located under `data/fields`.
+Fields are defined in JSON files located under [`data/fields`](data/fields).
 
 The field files are typically named according to their associated OSM key.
 For example, the field for the tag `sport=*` is stored in the file
