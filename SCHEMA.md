@@ -9,12 +9,10 @@ A [preset](https://wiki.openstreetmap.org/wiki/Preset) represents a specific typ
 can exist for parks, restaurants, drinking water fountains, buildings, railway tracks,
 and many more feature types.
 
-iD editor preset and field types are defined in [JSON](http://en.wikipedia.org/wiki/JSON)
-files located under the `data/presets` folder.
-
 #### Preset Files
 
-Presets are defined in JSON files located under `data/presets`. They're organized in a
+iD editor presets are defined in [JSON](http://en.wikipedia.org/wiki/JSON)
+files located under the [`data/presets`](data/presets) folder. They're organized in a
 directory hierarchy based on OSM key/value pairs. For example, the preset that matches
 the tag `leisure=park` is in the file `data/presets/leisure/park.json`.
 
@@ -181,6 +179,8 @@ of `presets/shop.json`. When subfolders are used, the format is `{shop/books}` t
 Fields for keys that define the preset via `tags` will be inherited only when it is useful (fields allowing multiple values such as `multiCombo` and checkboxes, see `shouldInherit` function).
 E.g. in the case above `shop` field is not inherited despite being one of `fields` in `{shop}` preset.
 This can be overwritten by adding the field explicitly like `"fields": [ "shop", "{shop}" ],`
+
+See [here](#Fields) for documentation how fields are defined.
 
 ##### `icon`
 
