@@ -773,6 +773,25 @@ For combo and radio fields, the `icons` object might contain the name of icons w
 
 An optional property to reference to the icons of another field, indicated  by using that field's name contained in brackets, like `{field}`. This is for example useful when there are multiple variants of fields for the same tag, which should all use the same icons.
 
+##### `reference`
+
+A key and optionally a value to link to the wiki documentation for this field. Only necessary in rare cases.
+
+For example,
+```javascript
+{
+    "key": "sample_collection",
+    "type": "semiCombo",
+    "reference": {
+        "key": "healthcare",
+        "value": "sample_collection"
+    },
+    "label": "Samples"
+}
+```
+
+intentionally directs to [Tag:healthcare=sample_collection](https://wiki.openstreetmap.org/wiki/Tag:healthcare%3Dsample_collection) rather than default [Key:sample_collection](https://wiki.openstreetmap.org/wiki/Key:sample_collection)
+
 ### Deprecations
 
 Use `deprecated.json` ([Example](data/deprecated.json), [Schema](schemas/deprecated.json)) to specify tag deprecations.
