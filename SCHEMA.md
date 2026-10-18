@@ -775,7 +775,7 @@ An optional property to reference to the icons of another field, indicated  by u
 
 ##### `reference`
 
-A key and optionally a value to link to the wiki documentation for this preset. Only necessary in rare cases.
+A key and optionally a value to link to the wiki documentation for this field. Only necessary in rare cases.
 
 For example,
 ```javascript
