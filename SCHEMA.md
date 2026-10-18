@@ -552,7 +552,7 @@ associated with building features (but only if drawn as a closed area).
 
 The text which should be shown in a field's input box when no value has been entered yet. This text is shown as a grayed-out text and can be used to give the user some examples of what to enter in the respective field.
 
-A field can optionally reference the placeholder text of another by using that field's name contained in brackets, like `{field}`. In which case the field's _terms_ are also automatically sourced from that other field. This is for example useful when there are multiple variants of fields for the same tag, which should all have the same labels.
+A field can optionally reference the placeholder text of another by using that field's name contained in brackets, like `{field}`. This is for example useful when there are multiple variants of fields for the same tag, which should all have the same labels.
 
 ##### `options`
 
