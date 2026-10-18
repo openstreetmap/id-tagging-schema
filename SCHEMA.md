@@ -467,7 +467,7 @@ A string specifying the UI and behavior of the field. Must be one of the followi
 * `networkCombo` - Dropdown field that helps users pick a route `network` tag (localized for editing location)
 * `semiCombo` - Dropdown field for adding multiple values to a semicolon-delimited list<br/>
 (e.g. `sport=*` -> `soccer;lacrosse;athletics;field_hockey`)
-* `directionalCombo` - Block of dropdowns for adding directional (e.g. `*:left`/`*:right` or `*:forward`/`*:backward`) tags on a linear way. This field was named `cycleway` until [`v5.3.0`](CHANGELOG.md#540). This field type requires that both the `keys` and `key` properties are specified (`key` for the _common_ (e.g. `:both`) subtag of this field and `keys` for the _directional_ (e.g. `:left`/`:right`) subtags).
+* `directionalCombo` - Block of dropdowns for adding directional (e.g. `*:left`/`*:right` or `*:forward`/`*:backward`) tags on a linear way. This field was named `cycleway` until [`v6.0.0`](CHANGELOG.md#600). This field type requires that both the `keys` and `key` properties are specified (`key` for the _common_ (e.g. `:both`) subtag of this field and `keys` for the _directional_ (e.g. `:left`/`:right`) subtags).
 
 
 ###### Checkboxes
