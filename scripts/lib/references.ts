@@ -114,6 +114,12 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
         );
       }
 
+      if (!referenced.locationSet) {
+        throw new Error(
+          `Preset “${presetID}” references “${foreignId.join('/')}” in locationSetCrossReference, but that ${type} has no "locationSet" attribute.`,
+        );
+      }
+
       preset.locationSet = referenced.locationSet;
       delete preset.locationSetCrossReference;
     }
@@ -164,6 +170,12 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
       if (!referencedField) {
         throw new Error(
           `Field “${fieldID}” references “${field.iconsCrossReference}” in iconsCrossReference, but there is no such field.`,
+        );
+      }
+
+      if (!referencedField.icons) {
+        throw new Error(
+          `Field “${fieldID}” references “${field.iconsCrossReference}” in iconsCrossReference, but that field has no "icons" attribute.`,
         );
       }
 
