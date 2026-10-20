@@ -237,7 +237,7 @@ Hints about related presets, can be optionally used for a context-aware handling
 
 ###### `related.expectedVertices`
 
-A list of preset IDs that are expected to be used as a vertex on lines/areas of this preset. 
+A list of preset IDs that are expected to be used as a vertex of this preset, when this preset is used on a line or area.
 
 For example `power=line` may have
 
