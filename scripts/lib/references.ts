@@ -88,6 +88,12 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
         );
       }
 
+      if (!referencedPreset.relation) {
+        throw new Error(
+          `Preset “${presetID}” references “${preset.relationCrossReference}” in relationCrossReference, but that preset has no "relation" attribute.`,
+        );
+      }
+
       preset.relation = referencedPreset.relation;
       delete preset.relationCrossReference;
     }
@@ -105,6 +111,12 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
       if (!referenced) {
         throw new Error(
           `Preset “${presetID}” references “${foreignId.join('/')}” in locationSetCrossReference, but there is no such ${type}.`,
+        );
+      }
+
+      if (!referenced.locationSet) {
+        throw new Error(
+          `Preset “${presetID}” references “${foreignId.join('/')}” in locationSetCrossReference, but that ${type} has no "locationSet" attribute.`,
         );
       }
 
@@ -158,6 +170,12 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
       if (!referencedField) {
         throw new Error(
           `Field “${fieldID}” references “${field.iconsCrossReference}” in iconsCrossReference, but there is no such field.`,
+        );
+      }
+
+      if (!referencedField.icons) {
+        throw new Error(
+          `Field “${fieldID}” references “${field.iconsCrossReference}” in iconsCrossReference, but that field has no "icons" attribute.`,
         );
       }
 
@@ -244,6 +262,30 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
         );
       }
     }
+
+    // presets' relation role_labels can reference the role_labels from other presets
+    if (p.roleLabels) {
+      for (const role in p.roleLabels) {
+        const match = p.roleLabels[role].slice(1, -1).split('.role_labels.');
+        if (match.length !== 2 || !match[0]) {
+          throw new Error(
+            `Preset “${presetID}” contains “${p.roleLabels[role]}” in relation.role_labels.${role}, but that syntax is not a valid reference.`,
+          );
+        }
+        const [otherPresetID, otherRole] = match;
+
+        const label = tstrings.presets[otherPresetID]?.relation?.role_labels?.[otherRole];
+        if (label) {
+          tstrings.presets[presetID] ||= {};
+          tstrings.presets[presetID].relation ||= { role_labels: {} };
+          tstrings.presets[presetID].relation.role_labels[role] = label;
+        } else if (strict) {
+          throw new Error(
+            `Preset “${presetID}” references “${p.roleLabels[role]}” in relation.role_labels.${role}, but preset “${otherPresetID}” does not exist or does not have such a role.`,
+          );
+        }
+      }
+    }
   }
 
   for (const fieldID in references.fields) {
@@ -301,7 +343,9 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
     if (f.options) {
       for (const prop in f.options) {
         for (const key in f.options[prop]) {
-          const [type, ...foreignId] = f.options[prop][key]
+          const reference = f.options[prop][key];
+          const referenceCode = (typeof reference === 'object' ? reference.title : reference);
+          const [type, ...foreignId] = referenceCode
             .slice(1, -1)
             .split('/');
           const referenced =
@@ -314,10 +358,19 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
           if (referenced) {
             if (!tstrings.fields[fieldID]) tstrings.fields[fieldID] = {};
             tstrings.fields[fieldID][prop] ||= {};
-            tstrings.fields[fieldID][prop][key] = referenced;
+            const existing = tstrings.fields[fieldID][prop][key];
+            if (typeof reference === 'object' && typeof existing !== 'string') {
+              tstrings.fields[fieldID][prop][key] = {
+                title: referenced,
+                ...existing,
+              };
+            } else {
+              tstrings.fields[fieldID][prop][key] = referenced;
+            }
           } else if (strict) {
+            const subkey = typeof reference === 'object' ? 'title.' : '';
             throw new Error(
-              `Field “${fieldID}” references “${foreignId.join('/')}” in options.${prop}.${key}, but there is no such ${type}.`,
+              `Field “${fieldID}” references “${foreignId.join('/')}” in options.${prop}.${key}.${subkey} But there is no such ${type}.`,
             );
           }
         }

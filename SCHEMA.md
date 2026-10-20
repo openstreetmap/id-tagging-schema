@@ -9,12 +9,10 @@ A [preset](https://wiki.openstreetmap.org/wiki/Preset) represents a specific typ
 can exist for parks, restaurants, drinking water fountains, buildings, railway tracks,
 and many more feature types.
 
-iD editor preset and field types are defined in [JSON](http://en.wikipedia.org/wiki/JSON)
-files located under the `data/presets` folder.
-
 #### Preset Files
 
-Presets are defined in JSON files located under `data/presets`. They're organized in a
+iD editor presets are defined in [JSON](http://en.wikipedia.org/wiki/JSON)
+files located under the [`data/presets`](data/presets) folder. They're organized in a
 directory hierarchy based on OSM key/value pairs. For example, the preset that matches
 the tag `leisure=park` is in the file `data/presets/leisure/park.json`.
 
@@ -182,6 +180,8 @@ Fields for keys that define the preset via `tags` will be inherited only when it
 E.g. in the case above `shop` field is not inherited despite being one of `fields` in `{shop}` preset.
 This can be overwritten by adding the field explicitly like `"fields": [ "shop", "{shop}" ],`
 
+See [here](#Fields) for documentation how fields are defined.
+
 ##### `icon`
 
 An icon representing a preset, e.g. `"icon": "temaki-power_tower"` ([Example](https://github.com/openstreetmap/id-tagging-schema/blob/main/data/presets/power/tower.json)). More information about available icon sets and usage of icons can be found on the [icons subpage](ICONS.md).
@@ -201,8 +201,8 @@ This means that they should be recognized when editing existing data,
 but not be available as an option when adding new features.
 
 By convention, unsearchable presets have filenames that begin with an underscore
-(e.g. `data/presets/landuse/_farm.json`). However, when using the preset name as reference,
-the underscore is omitted (e.g. `{landuse/farm}`).
+(e.g. `data/presets/landuse/_churchyard.json`). However, when using the preset name as reference,
+the underscore is omitted (e.g. `{landuse/churchyard}`).
 
 ##### `matchScore`
 
@@ -338,7 +338,8 @@ A full example looks like this:
     "role_labels": {
       "from": "From",
       "via": "Via",
-      "to": "To",
+      // you can also reference the labels from other presets:
+      "to": "{type/restriction.role_labels.to}",
     },
     "members": [
       {
@@ -387,7 +388,7 @@ Fields are reusable form elements that can be associated with presets.
 
 #### Field Files
 
-Fields are defined in JSON files located under `data/fields`.
+Fields are defined in JSON files located under [`data/fields`](data/fields).
 
 The field files are typically named according to their associated OSM key.
 For example, the field for the tag `sport=*` is stored in the file
@@ -466,7 +467,7 @@ A string specifying the UI and behavior of the field. Must be one of the followi
 * `networkCombo` - Dropdown field that helps users pick a route `network` tag (localized for editing location)
 * `semiCombo` - Dropdown field for adding multiple values to a semicolon-delimited list<br/>
 (e.g. `sport=*` -> `soccer;lacrosse;athletics;field_hockey`)
-* `directionalCombo` - Block of dropdowns for adding directional (e.g. `*:left`/`*:right` or `*:forward`/`*:backward`) tags on a linear way. This field was named `cycleway` until [`v5.3.0`](CHANGELOG.md#540). This field type requires that both the `keys` and `key` properties are specified (`key` for the _common_ (e.g. `:both`) subtag of this field and `keys` for the _directional_ (e.g. `:left`/`:right`) subtags).
+* `directionalCombo` - Block of dropdowns for adding directional (e.g. `*:left`/`*:right` or `*:forward`/`*:backward`) tags on a linear way. This field was named `cycleway` before [`v6.0.0`](CHANGELOG.md#600). This field type requires that both the `keys` and `key` properties are specified (`key` for the _common_ (e.g. `:both`) subtag of this field and `keys` for the _directional_ (e.g. `:left`/`:right`) subtags).
 
 
 ###### Checkboxes
@@ -551,7 +552,7 @@ associated with building features (but only if drawn as a closed area).
 
 The text which should be shown in a field's input box when no value has been entered yet. This text is shown as a grayed-out text and can be used to give the user some examples of what to enter in the respective field.
 
-A field can optionally reference the placeholder text of another by using that field's name contained in brackets, like `{field}`. In which case the field's _terms_ are also automatically sourced from that other field. This is for example useful when there are multiple variants of fields for the same tag, which should all have the same labels.
+A field can optionally reference the placeholder text of another by using that field's name contained in brackets, like `{field}`. This is for example useful when there are multiple variants of fields for the same tag, which should all have the same labels.
 
 ##### `options`
 
@@ -621,10 +622,16 @@ _unchecked state_ ([example](https://github.com/openstreetmap/id-tagging-schema/
 2. fields of type `defaultCheck`: _unchecked state_ (must use the option `undefined`), _checked state_ ([example](https://github.com/openstreetmap/id-tagging-schema/blob/2375a6b/data/fields/crossing_raised.json))
 
 The value of each option can be a reference to another field or preset's name. For example:
-```json
+```jsonc
   "strings": {
     "options": {
       "portal_crane": "{presets/man_made/crane/portal_crane}",
+
+      // if using title + description, the title can also be a reference:
+      "gantry_crane": {
+        "title": "{presets/man_made/crane/gantry_crane}",
+        "description": "A crane that sits atop a movable gantry"
+      }
     }
   }
 ```
@@ -766,9 +773,28 @@ For combo and radio fields, the `icons` object might contain the name of icons w
 
 An optional property to reference to the icons of another field, indicated  by using that field's name contained in brackets, like `{field}`. This is for example useful when there are multiple variants of fields for the same tag, which should all use the same icons.
 
+##### `reference`
+
+A key and optionally a value to link to the wiki documentation for this field. Only necessary in rare cases.
+
+For example,
+```javascript
+{
+    "key": "sample_collection",
+    "type": "semiCombo",
+    "reference": {
+        "key": "healthcare",
+        "value": "sample_collection"
+    },
+    "label": "Samples"
+}
+```
+
+intentionally directs to [Tag:healthcare=sample_collection](https://wiki.openstreetmap.org/wiki/Tag:healthcare%3Dsample_collection) rather than default [Key:sample_collection](https://wiki.openstreetmap.org/wiki/Key:sample_collection)
+
 ### Deprecations
 
-Use `deprecated.json` ([Example](https://github.com/openstreetmap/id-tagging-schema/blob/main/data/deprecated.json), [Schema](https://github.com/ideditor/schema-builder/blob/main/schemas/deprecated.json)) to specify tag deprecations.
+Use `deprecated.json` ([Example](data/deprecated.json), [Schema](schemas/deprecated.json)) to specify tag deprecations.
 
 Usage example: iD Editor will show an information panel that informs users about deprecated tags and an update-tag-action.
 

@@ -1833,8 +1833,7 @@
         "tags": {
             "amenity": "bus_station"
         },
-        "searchable": false,
-        "replacement": "public_transport/station_bus"
+        "searchable": false
     },
     "amenity/cafe": {
         "icon": "maki-cafe",
@@ -2533,7 +2532,7 @@
         }
     },
     "amenity/clinic/dialysis": {
-        "icon": "maki-doctor",
+        "icon": "pinhead-kidneys",
         "geometry": [
             "point",
             "area"
@@ -4397,7 +4396,8 @@
         "reference": {
             "key": "healthcare:speciality",
             "value": "podiatry"
-        }
+        },
+        "searchable": false
     },
     "amenity/doctors/proctology": {
         "icon": "maki-doctor",
@@ -6614,14 +6614,13 @@
         "icon": "fas-ice-cream",
         "fields": [
             "name",
-            "shop",
+            "outdoor_seating",
             "operator",
             "address",
             "building_area_yes",
             "opening_hours",
             "payment_multi",
-            "website",
-            "outdoor_seating"
+            "website"
         ],
         "moreFields": [
             "phone",
@@ -6672,21 +6671,20 @@
         }
     },
     "amenity/ice_cream/frozen_yogurt": {
-        "icon": "maki-ice-cream",
+        "icon": "fas-ice-cream",
         "geometry": [
             "point",
             "area"
         ],
         "fields": [
             "name",
-            "shop",
+            "outdoor_seating",
             "operator",
             "address",
             "building_area_yes",
             "opening_hours",
             "payment_multi",
-            "website",
-            "outdoor_seating"
+            "website"
         ],
         "moreFields": [
             "phone",
@@ -6738,7 +6736,7 @@
         }
     },
     "amenity/internet_cafe": {
-        "icon": "temaki-antenna",
+        "icon": "pinhead-laptop",
         "fields": [
             "name",
             "operator",
@@ -8230,6 +8228,45 @@
         "tags": {
             "amenity": "place_of_worship",
             "religion": "jewish"
+        },
+        "reference": {
+            "key": "amenity",
+            "value": "place_of_worship"
+        }
+    },
+    "amenity/place_of_worship/multifaith": {
+        "icon": "maki-place-of-worship",
+        "fields": [
+            "name",
+            "religion",
+            "denomination",
+            "address",
+            "building_area_yes",
+            "service_times"
+        ],
+        "moreFields": [
+            "email",
+            "fax",
+            "mobile",
+            "phone",
+            "website",
+            "air_conditioning",
+            "baby_feeding",
+            "gnis/feature_id-US",
+            "internet_access",
+            "internet_access/ssid",
+            "level",
+            "opening_hours",
+            "polling_station",
+            "wheelchair"
+        ],
+        "geometry": [
+            "point",
+            "area"
+        ],
+        "tags": {
+            "amenity": "place_of_worship",
+            "religion": "multifaith"
         },
         "reference": {
             "key": "amenity",
@@ -11226,6 +11263,22 @@
             "value": "public_transport"
         }
     },
+    "amenity/shelter/sun_shelter": {
+        "icon": "maki-shelter",
+        "geometry": [
+            "point",
+            "vertex",
+            "area"
+        ],
+        "tags": {
+            "amenity": "shelter",
+            "shelter_type": "sun_shelter"
+        },
+        "reference": {
+            "key": "shelter_type",
+            "value": "sun_shelter"
+        }
+    },
     "amenity/shower": {
         "icon": "temaki-shower",
         "fields": [
@@ -14057,7 +14110,7 @@
         }
     },
     "attraction/river_rafting": {
-        "icon": "maki-ferry",
+        "icon": "pinhead-person_riding_tube_on_water",
         "fields": [
             "name",
             "operator",
@@ -15454,13 +15507,12 @@
     "building/carport": {
         "icon": "temaki-carport",
         "fields": [
-            "name",
-            "building/levels",
-            "height",
-            "address",
-            "capacity"
+            "capacity",
+            "height"
         ],
         "moreFields": [
+            "building/levels",
+            "address",
             "architect",
             "building/colour",
             "building/levels/underground",
@@ -15788,7 +15840,12 @@
         "tags": {
             "building": "detached"
         },
-        "matchScore": 0.5
+        "matchScore": 0.5,
+        "related": {
+            "expectedVertices": [
+                "entrance"
+            ]
+        }
     },
     "building/dormitory": {
         "icon": "maki-building",
@@ -16282,7 +16339,12 @@
         "tags": {
             "building": "house"
         },
-        "matchScore": 0.5
+        "matchScore": 0.5,
+        "related": {
+            "expectedVertices": [
+                "entrance"
+            ]
+        }
     },
     "building/house/detached": {
         "icon": "maki-home",
@@ -16322,7 +16384,12 @@
             "value": "detached"
         },
         "matchScore": 0.5,
-        "searchable": false
+        "searchable": false,
+        "related": {
+            "expectedVertices": [
+                "entrance"
+            ]
+        }
     },
     "building/house/semi-detached": {
         "icon": "maki-home",
@@ -16362,7 +16429,12 @@
             "value": "semi-detached"
         },
         "matchScore": 0.5,
-        "searchable": false
+        "searchable": false,
+        "related": {
+            "expectedVertices": [
+                "entrance"
+            ]
+        }
     },
     "building/house/terrace": {
         "icon": "temaki-row_houses",
@@ -16402,7 +16474,12 @@
             "value": "terrace"
         },
         "matchScore": 0.5,
-        "searchable": false
+        "searchable": false,
+        "related": {
+            "expectedVertices": [
+                "entrance"
+            ]
+        }
     },
     "building/house/terraced": {
         "icon": "temaki-row_houses",
@@ -16441,7 +16518,12 @@
             "key": "house",
             "value": "terraced"
         },
-        "matchScore": 0.5
+        "matchScore": 0.5,
+        "related": {
+            "expectedVertices": [
+                "entrance"
+            ]
+        }
     },
     "building/houseboat": {
         "icon": "temaki-houseboat",
@@ -16474,7 +16556,12 @@
         "tags": {
             "building": "houseboat"
         },
-        "matchScore": 0.5
+        "matchScore": 0.5,
+        "related": {
+            "expectedVertices": [
+                "entrance"
+            ]
+        }
     },
     "building/hut": {
         "icon": "temaki-hut",
@@ -17005,7 +17092,12 @@
         "tags": {
             "building": "semidetached_house"
         },
-        "matchScore": 0.5
+        "matchScore": 0.5,
+        "related": {
+            "expectedVertices": [
+                "entrance"
+            ]
+        }
     },
     "building/service": {
         "icon": "roentgen-building_door",
@@ -17336,7 +17428,12 @@
         "tags": {
             "building": "terrace"
         },
-        "matchScore": 0.5
+        "matchScore": 0.5,
+        "related": {
+            "expectedVertices": [
+                "entrance"
+            ]
+        }
     },
     "building/train_station": {
         "icon": "maki-building",
@@ -17809,7 +17906,7 @@
         }
     },
     "craft/agricultural_engines": {
-        "icon": "fas-tools",
+        "icon": "fas-tractor",
         "geometry": [
             "point",
             "area"
@@ -22159,7 +22256,7 @@
         }
     },
     "healthcare/rehabilitation": {
-        "icon": "maki-hospital",
+        "icon": "pinhead-person_squatting_and_person_reaching_up",
         "geometry": [
             "point",
             "area"
@@ -22432,7 +22529,7 @@
         "icon": "maki-barrier",
         "fields": [
             "name",
-            "construction",
+            "construction_highway",
             "opening_date",
             "check_date",
             "access",
@@ -26225,7 +26322,7 @@
         }
     },
     "historic/castle/fortress": {
-        "icon": "maki-castle",
+        "icon": "pinhead-fortress",
         "fields": [
             "name",
             "building_area_yes",
@@ -26319,7 +26416,7 @@
         }
     },
     "historic/fort": {
-        "icon": "maki-castle",
+        "icon": "pinhead-fort",
         "fields": [
             "name",
             "building_area_yes",
@@ -26338,7 +26435,7 @@
         }
     },
     "historic/manor": {
-        "icon": "maki-castle",
+        "icon": "pinhead-manor",
         "fields": [
             "name",
             "building_area_yes",
@@ -28191,7 +28288,7 @@
         }
     },
     "leisure/bathing_place": {
-        "icon": "maki-water",
+        "icon": "pinhead-person_in_water",
         "fields": [
             "name",
             "access_simple",
@@ -35836,6 +35933,7 @@
     "natural/wetland/saltmarsh": {
         "icon": "maki-wetland",
         "fields": [
+            "name",
             "salt",
             "tidal"
         ],
@@ -35879,10 +35977,10 @@
     "natural/wetland/swamp": {
         "icon": "temaki-swamp",
         "fields": [
-            "name",
-            "salt"
+            "name"
         ],
         "moreFields": [
+            "gnis/feature_id-US",
             "tidal"
         ],
         "geometry": [
@@ -35900,6 +35998,7 @@
     "natural/wetland/tidalflat": {
         "icon": "maki-wetland",
         "fields": [
+            "name",
             "salt",
             "tidal"
         ],
@@ -37997,7 +38096,7 @@
         }
     },
     "office/telecommunication": {
-        "icon": "maki-telephone",
+        "icon": "maki-suitcase",
         "geometry": [
             "point",
             "area"
@@ -39876,7 +39975,6 @@
         "fields": [
             "ref",
             "operator",
-            "generator/output/electricity",
             "location"
         ],
         "moreFields": [
@@ -39907,8 +40005,7 @@
         "icon": "fas-solar-panel",
         "fields": [
             "ref",
-            "operator",
-            "generator/output/electricity"
+            "operator"
         ],
         "moreFields": [
             "colour",
@@ -40054,6 +40151,20 @@
         ],
         "tags": {
             "power": "line"
+        },
+        "related": {
+            "expectedVertices": [
+                "power/tower",
+                "power/portal",
+                "power/pole",
+                "power/transformer",
+                "power/generator/source/wind",
+                "power/generator/source/hydro",
+                "power/generator/method/photovoltaic",
+                "power/generator/source/nuclear",
+                "power/generator",
+                "power/switch"
+            ]
         }
     },
     "power/minor_line": {
@@ -40071,6 +40182,20 @@
         ],
         "tags": {
             "power": "minor_line"
+        },
+        "related": {
+            "expectedVertices": [
+                "power/pole",
+                "power/transformer",
+                "highway/street_lamp",
+                "power/tower",
+                "power/generator/source/wind",
+                "power/generator/source/hydro",
+                "power/generator/method/photovoltaic",
+                "power/generator/source/nuclear",
+                "power/generator",
+                "power/portal"
+            ]
         }
     },
     "power/plant": {
@@ -40504,7 +40629,8 @@
         "icon": "temaki-power_switch",
         "fields": [
             "voltage",
-            "location"
+            "location",
+            "operator"
         ],
         "geometry": [
             "area"
@@ -42232,7 +42358,34 @@
             "point",
             "vertex"
         ],
-        "fields": [],
+        "fields": [
+            "name",
+            "network",
+            "operator",
+            "vehicles",
+            "address",
+            "building_area",
+            "internet_access",
+            "internet_access/fee"
+        ],
+        "moreFields": [
+            "email",
+            "fax",
+            "mobile",
+            "phone",
+            "website",
+            "internet_access/ssid",
+            "opening_hours",
+            "air_conditioning",
+            "baby_feeding",
+            "changing_table",
+            "gnis/feature_id-US",
+            "level",
+            "toilets",
+            "toilets/wheelchair",
+            "toilets/menstrual_products_poi",
+            "wheelchair"
+        ],
         "tags": {
             "railway": "halt"
         },
@@ -42446,6 +42599,19 @@
             "railway": "platform"
         },
         "searchable": false
+    },
+    "railway/platform_edge": {
+        "icon": "temaki-board_train",
+        "fields": [
+            "ref",
+            "tactile_paving"
+        ],
+        "geometry": [
+            "line"
+        ],
+        "tags": {
+            "railway": "platform_edge"
+        }
     },
     "railway/preserved": {
         "icon": "temaki-train_steam",
@@ -43543,6 +43709,7 @@
             "toilets",
             "toilets/wheelchair",
             "toilets/menstrual_products_poi",
+            "diet_multi",
             "fhrs/id-GB",
             "indoor_seating",
             "outdoor_seating",
@@ -48053,13 +48220,13 @@
         ],
         "fields": [
             "name",
+            "outdoor_seating",
             "operator",
             "address",
             "building_area_yes",
             "opening_hours",
             "payment_multi",
-            "website",
-            "outdoor_seating"
+            "website"
         ],
         "moreFields": [
             "phone",
@@ -49590,8 +49757,12 @@
         "icon": "fas-plate-wheat",
         "fields": [
             "name",
+            "operator",
             "address",
-            "opening_hours"
+            "building_area_yes",
+            "opening_hours",
+            "payment_multi",
+            "website"
         ],
         "moreFields": [
             "phone",
@@ -49682,6 +49853,7 @@
             "toilets",
             "toilets/wheelchair",
             "toilets/menstrual_products_poi",
+            "diet_multi",
             "fhrs/id-GB"
         ]
     },
@@ -54296,6 +54468,27 @@
         ],
         "tags": {
             "type": "boundary"
+        },
+        "relation": {
+            "reference": "boundary",
+            "allowDuplicateMembers": false,
+            "members": [
+                {
+                    "role": "inner",
+                    "geometry": [
+                        "line",
+                        "area"
+                    ]
+                },
+                {
+                    "role": "outer",
+                    "geometry": [
+                        "line",
+                        "area"
+                    ],
+                    "min": 1
+                }
+            ]
         }
     },
     "type/boundary/administrative": {
@@ -54414,6 +54607,47 @@
         ],
         "tags": {
             "type": "destination_sign"
+        },
+        "relation": {
+            "reference": "destination_sign",
+            "allowDuplicateMembers": true,
+            "members": [
+                {
+                    "role": "from",
+                    "geometry": [
+                        "vertex",
+                        "line"
+                    ]
+                },
+                {
+                    "role": "intersection",
+                    "geometry": [
+                        "vertex"
+                    ],
+                    "max": 1
+                },
+                {
+                    "role": "to",
+                    "geometry": [
+                        "vertex",
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "role": "sign",
+                    "geometry": [
+                        "point",
+                        "vertex"
+                    ]
+                }
+            ]
         }
     },
     "type/enforcement": {
@@ -54454,7 +54688,28 @@
             "type": "multipolygon"
         },
         "removeTags": {},
-        "matchScore": 0.1
+        "matchScore": 0.1,
+        "relation": {
+            "reference": "multipolygon",
+            "allowDuplicateMembers": false,
+            "members": [
+                {
+                    "role": "inner",
+                    "geometry": [
+                        "line",
+                        "area"
+                    ]
+                },
+                {
+                    "role": "outer",
+                    "geometry": [
+                        "line",
+                        "area"
+                    ],
+                    "min": 1
+                }
+            ]
+        }
     },
     "type/public_transport/stop_area_group": {
         "icon": "iD-relation",
@@ -54487,6 +54742,160 @@
         ],
         "tags": {
             "type": "restriction"
+        },
+        "relation": {
+            "reference": "restriction",
+            "allowDuplicateMembers": false,
+            "members": [
+                {
+                    "role": "from",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "role": "via",
+                    "geometry": [
+                        "vertex",
+                        "line"
+                    ],
+                    "min": 1
+                },
+                {
+                    "role": "to",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        }
+    },
+    "type/restriction/no_entry": {
+        "icon": "maki-roadblock",
+        "geometry": [
+            "relation"
+        ],
+        "fields": [
+            "except"
+        ],
+        "tags": {
+            "type": "restriction",
+            "restriction": "no_entry"
+        },
+        "reference": {
+            "key": "restriction",
+            "value": "no_entry"
+        },
+        "searchable": false,
+        "relation": {
+            "reference": "restriction",
+            "allowDuplicateMembers": true,
+            "members": [
+                {
+                    "role": "from",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1
+                },
+                {
+                    "role": "via",
+                    "geometry": [
+                        "vertex"
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "role": "to",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        }
+    },
+    "type/restriction/no_exit": {
+        "icon": "maki-roadblock",
+        "geometry": [
+            "relation"
+        ],
+        "fields": [
+            "except"
+        ],
+        "tags": {
+            "type": "restriction",
+            "restriction": "no_exit"
+        },
+        "reference": {
+            "key": "restriction",
+            "value": "no_exit"
+        },
+        "searchable": false,
+        "relation": {
+            "reference": "restriction",
+            "allowDuplicateMembers": true,
+            "members": [
+                {
+                    "role": "from",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "role": "via",
+                    "geometry": [
+                        "vertex"
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "role": "to",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1
+                }
+            ]
         }
     },
     "type/restriction/no_left_turn": {
@@ -54504,6 +54913,46 @@
         "reference": {
             "key": "restriction",
             "value": "no_left_turn"
+        },
+        "relation": {
+            "reference": "restriction",
+            "allowDuplicateMembers": false,
+            "members": [
+                {
+                    "role": "from",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "role": "via",
+                    "geometry": [
+                        "vertex",
+                        "line"
+                    ],
+                    "min": 1
+                },
+                {
+                    "role": "to",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
         }
     },
     "type/restriction/no_right_turn": {
@@ -54521,6 +54970,46 @@
         "reference": {
             "key": "restriction",
             "value": "no_right_turn"
+        },
+        "relation": {
+            "reference": "restriction",
+            "allowDuplicateMembers": false,
+            "members": [
+                {
+                    "role": "from",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "role": "via",
+                    "geometry": [
+                        "vertex",
+                        "line"
+                    ],
+                    "min": 1
+                },
+                {
+                    "role": "to",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
         }
     },
     "type/restriction/no_straight_on": {
@@ -54538,6 +55027,46 @@
         "reference": {
             "key": "restriction",
             "value": "no_straight_on"
+        },
+        "relation": {
+            "reference": "restriction",
+            "allowDuplicateMembers": false,
+            "members": [
+                {
+                    "role": "from",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "role": "via",
+                    "geometry": [
+                        "vertex",
+                        "line"
+                    ],
+                    "min": 1
+                },
+                {
+                    "role": "to",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
         }
     },
     "type/restriction/no_u_turn": {
@@ -54555,6 +55084,46 @@
         "reference": {
             "key": "restriction",
             "value": "no_u_turn"
+        },
+        "relation": {
+            "reference": "restriction",
+            "allowDuplicateMembers": true,
+            "members": [
+                {
+                    "role": "from",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "role": "via",
+                    "geometry": [
+                        "vertex",
+                        "line"
+                    ],
+                    "min": 1
+                },
+                {
+                    "role": "to",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
         }
     },
     "type/restriction/only_left_turn": {
@@ -54572,6 +55141,46 @@
         "reference": {
             "key": "restriction",
             "value": "only_left_turn"
+        },
+        "relation": {
+            "reference": "restriction",
+            "allowDuplicateMembers": false,
+            "members": [
+                {
+                    "role": "from",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "role": "via",
+                    "geometry": [
+                        "vertex",
+                        "line"
+                    ],
+                    "min": 1
+                },
+                {
+                    "role": "to",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
         }
     },
     "type/restriction/only_right_turn": {
@@ -54589,6 +55198,46 @@
         "reference": {
             "key": "restriction",
             "value": "only_right_turn"
+        },
+        "relation": {
+            "reference": "restriction",
+            "allowDuplicateMembers": false,
+            "members": [
+                {
+                    "role": "from",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "role": "via",
+                    "geometry": [
+                        "vertex",
+                        "line"
+                    ],
+                    "min": 1
+                },
+                {
+                    "role": "to",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
         }
     },
     "type/restriction/only_straight_on": {
@@ -54606,6 +55255,46 @@
         "reference": {
             "key": "restriction",
             "value": "only_straight_on"
+        },
+        "relation": {
+            "reference": "restriction",
+            "allowDuplicateMembers": false,
+            "members": [
+                {
+                    "role": "from",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "role": "via",
+                    "geometry": [
+                        "vertex",
+                        "line"
+                    ],
+                    "min": 1
+                },
+                {
+                    "role": "to",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
         }
     },
     "type/restriction/only_u_turn": {
@@ -54623,6 +55312,46 @@
         "reference": {
             "key": "restriction",
             "value": "only_u_turn"
+        },
+        "relation": {
+            "reference": "restriction",
+            "allowDuplicateMembers": true,
+            "members": [
+                {
+                    "role": "from",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                },
+                {
+                    "role": "via",
+                    "geometry": [
+                        "vertex",
+                        "line"
+                    ],
+                    "min": 1
+                },
+                {
+                    "role": "to",
+                    "geometry": [
+                        "line"
+                    ],
+                    "matchTags": [
+                        {
+                            "highway": "*"
+                        }
+                    ],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
         }
     },
     "type/route": {
@@ -55336,6 +56065,20 @@
         "reference": {
             "key": "climbing",
             "value": "crag"
+        },
+        "relation": {
+            "reference": "site",
+            "allowDuplicateMembers": false,
+            "members": [
+                {
+                    "role": "",
+                    "matchTags": [
+                        {
+                            "climbing": "crag"
+                        }
+                    ]
+                }
+            ]
         }
     },
     "type/site/climbing/crag": {
@@ -55362,6 +56105,23 @@
         "reference": {
             "key": "climbing",
             "value": "crag"
+        },
+        "relation": {
+            "reference": "site",
+            "allowDuplicateMembers": false,
+            "members": [
+                {
+                    "role": "",
+                    "matchTags": [
+                        {
+                            "climbing": "route"
+                        },
+                        {
+                            "climbing": "route_bottom"
+                        }
+                    ]
+                }
+            ]
         }
     },
     "type/waterway": {
@@ -55380,6 +56140,67 @@
         ],
         "tags": {
             "type": "waterway"
+        },
+        "relation": {
+            "reference": "waterway",
+            "allowDuplicateMembers": false,
+            "members": [
+                {
+                    "role": "",
+                    "matchTags": [
+                        {
+                            "waterway": "*"
+                        }
+                    ],
+                    "geometry": [
+                        "line"
+                    ]
+                },
+                {
+                    "role": "main_stream",
+                    "matchTags": [
+                        {
+                            "waterway": "*"
+                        }
+                    ],
+                    "geometry": [
+                        "line"
+                    ]
+                },
+                {
+                    "role": "side_stream",
+                    "matchTags": [
+                        {
+                            "waterway": "*"
+                        }
+                    ],
+                    "geometry": [
+                        "line"
+                    ]
+                },
+                {
+                    "role": "spring",
+                    "matchTags": [
+                        {
+                            "natural": "spring"
+                        },
+                        {
+                            "natural": "hot_spring"
+                        }
+                    ],
+                    "geometry": [
+                        "point",
+                        "vertex"
+                    ]
+                },
+                {
+                    "role": "mouth",
+                    "geometry": [
+                        "point",
+                        "vertex"
+                    ]
+                }
+            ]
         }
     },
     "waterway": {
