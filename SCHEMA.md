@@ -528,7 +528,7 @@ appear in the "Add Field" list for all presets
 
 ##### `geometry`
 
-If specified, only show the field for this kind of geometry. It is a list, may
+If specified, only show the field for this kind of geometry. May
 contain one or more of `point`, `vertex`, `line`, `area`, `relation`.
 
 ##### `default`
