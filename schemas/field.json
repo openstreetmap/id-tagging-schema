@@ -516,49 +516,68 @@
             ]
         },
         {
-            "$id": "field-type-with-key-or-keys",
+            "$id": "field-type-with-key-not-keys",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "localized",
+                        "multiCombo",
+                        "check",
+                        "defaultCheck",
+                        "onewayCheck",
+                        "combo",
+                        "semiCombo",
+                        "typeCombo",
+                        "networkCombo",
+                        "radio",
+                        "colour",
+                        "identifier",
+                        "textarea",
+                        "roadspeed",
+                        "roadheight",
+                        "date",
+                        "schedule"
+                    ]
+                }
+            },
             "allOf": [
                 {
-                    "properties": {
-                        "type": {
-                            "enum": [
-                                "check",
-                                "defaultCheck",
-                                "onewayCheck",
-                                "combo",
-                                "semiCombo",
-                                "manyCombo",
-                                "multiCombo",
-                                "typeCombo",
-                                "networkCombo",
-                                "radio",
-                                "colour",
-                                "identifier",
-                                "localized",
-                                "textarea",
-                                "roadspeed",
-                                "roadheight",
-                                "date",
-                                "schedule",
-                                "structureRadio",
-                                "access"
-                            ]
-                        }
-                    }
+                    "required": [
+                        "key"
+                    ]
                 },
                 {
-                    "oneOf": [
-                        {
-                            "required": [
-                                "key"
-                            ]
-                        },
-                        {
-                            "required": [
-                                "keys"
-                            ]
-                        }
+                    "not": {
+                        "required": [
+                            "keys"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "$id": "field-type-without-key-but-with-keys",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "access",
+                        "manyCombo",
+                        "structureRadio"
                     ]
+                }
+            },
+            "allOf": [
+                {
+                    "required": [
+                        "key"
+                    ]
+                },
+                {
+                    "not": {
+                        "required": [
+                            "keys"
+                        ]
+                    }
                 }
             ]
         }
