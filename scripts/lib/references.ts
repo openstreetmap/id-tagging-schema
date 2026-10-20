@@ -173,13 +173,13 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
         );
       }
 
-    if (!referencedField.icons) {
+      if (!referencedField.icons) {
         throw new Error(
           `Field “${fieldID}” references “${field.iconsCrossReference}” in iconsCrossReference, but that field has no "icons" attribute.`,
         );
-      } 
+      }
 
-    field.icons = referencedField.icons;
+      field.icons = referencedField.icons;
       delete field.iconsCrossReference;
     }
 
