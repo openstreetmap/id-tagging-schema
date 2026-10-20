@@ -105,7 +105,7 @@ An array of possible geometry types that a feature must have in order to match t
 * `point`: an OSM node that is not a member of any way
 * `vertex`: an OSM node that is a member of one or more ways
 * `line`: an OSM way that is not an area
-* `area`: an OSM way that is closed/circular (the first and last nodes are the same) and tagged with a tag indicating them to be an area
+* `area`: an OSM way that is closed/circular and tagged with a tag indicating them to be an area
 * `area`: also matches multipolygon relations
 * `relation`: an OSM relation, other than a `type=multipolygon`
 
