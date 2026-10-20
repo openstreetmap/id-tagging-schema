@@ -235,7 +235,7 @@ Alternatively, `locationSetCrossReference` can be use to reference the `location
 
 Hints about related presets, can be optionally used for a context-aware handling.
 
-###### `expectedVertices`
+###### `related.expectedVertices`
 
 A list of preset IDs that are expected to be used as a vertex on lines/areas of this preset. 
 
