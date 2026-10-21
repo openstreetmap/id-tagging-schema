@@ -416,7 +416,8 @@
                 "barrier": {
                     "label": "Type",
                     "options": {
-                        "ditch": "Ditch"
+                        "ditch": "Ditch",
+                        "kerb": "Kerb"
                     }
                 },
                 "barrier_planter": {
@@ -954,7 +955,6 @@
                 "crossing": {
                     "label": "Type",
                     "options": {
-                        "traffic_signals": "Crossing With Traffic Signals",
                         "uncontrolled": "Only Road Markings",
                         "unmarked": "No Road Markings or Traffic Signals"
                     }
@@ -1221,7 +1221,12 @@
                     "label": "Type"
                 },
                 "disused/shop": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "confectionery": "Sweet Shop",
+                        "garden_centre": "Garden Centre",
+                        "window_blind": "Window Blind Shop"
+                    }
                 },
                 "dock": {
                     "label": "Type",
@@ -1373,10 +1378,8 @@
                         "exit": "Exit Only",
                         "garage": "Garage Door",
                         "home": "Private House or Apartment",
-                        "main": "Main",
                         "secondary": "Secondary",
                         "service": "Service",
-                        "staircase": "Staircase",
                         "yes": "Unspecified"
                     }
                 },
@@ -1551,17 +1554,30 @@
                     ]
                 },
                 "kerb": {
+                    "label": "Kerb",
                     "options": {
+                        "flush": {
+                            "description": "A dropped kerb which is level with the surrounding area."
+                        },
                         "lowered": {
                             "description": "A dropped kerb which can be used by wheelchair users, not higher than a few centimetres."
+                        },
+                        "no": {
+                            "description": "There is no kerb present at this location."
                         },
                         "raised": {
                             "description": "A raised kerb which can't easily be used by wheelchair users, higher than a few centimetres."
                         },
+                        "rolled": {
+                            "description": "A raised kerb with a rounded edge which makes it easier to use for cars or bicycles, but not for wheelchairs."
+                        },
                         "yes": {
                             "title": "Yes"
                         }
-                    }
+                    },
+                    "terms": [
+                        "curb"
+                    ]
                 },
                 "length": {
                     "label": "Length (Metres)",
@@ -1633,15 +1649,19 @@
                 "parking": {
                     "options": {
                         "half_on_kerb": {
-                            "description": "Parking partially on the footpath."
+                            "description": "Parking partially on the footpath.",
+                            "title": "Half On Kerb"
                         },
                         "on_kerb": {
-                            "description": "Parking on the footpath."
+                            "description": "Parking on the footpath.",
+                            "title": "On Kerb"
                         }
                     }
                 },
                 "parking/side/parking": {
                     "options": {
+                        "half_on_kerb": "Half On Kerb",
+                        "on_kerb": "On Kerb",
                         "yes": "Yes (unspecified)"
                     }
                 },
@@ -2784,7 +2804,7 @@
                     "label": "Type"
                 },
                 "stroller": {
-                    "label": "Stroller Access",
+                    "label": "Pushchair Access",
                     "options": {
                         "limited": "Limited",
                         "no": "No",
@@ -2794,7 +2814,8 @@
                         "baby carriage",
                         "perambulator",
                         "pram",
-                        "pushchair"
+                        "pushchair",
+                        "stroller access"
                     ]
                 },
                 "structure": {
@@ -3286,6 +3307,9 @@
                         "structure"
                     ]
                 },
+                "construction_highway": {
+                    "label": "Type"
+                },
                 "cyclestreet-BE-NL": {
                     "label": "Cycle Street",
                     "terms": [
@@ -3372,10 +3396,12 @@
                 "parking_entrance": {
                     "options": {
                         "half_on_kerb": {
-                            "description": "Parking partially on the footpath."
+                            "description": "Parking partially on the footpath.",
+                            "title": "Half On Kerb"
                         },
                         "on_kerb": {
-                            "description": "Parking on the footpath."
+                            "description": "Parking on the footpath.",
+                            "title": "On Kerb"
                         }
                     }
                 },
@@ -3393,6 +3419,13 @@
                         "recommended": "Recommended",
                         "required": "Required",
                         "yes": "Accepted"
+                    }
+                },
+                "shop": {
+                    "options": {
+                        "confectionery": "Sweet Shop",
+                        "garden_centre": "Garden Centre",
+                        "window_blind": "Window Blind Shop"
                     }
                 },
                 "surface_sport_pitch": {
@@ -3463,16 +3496,28 @@
                 },
                 "kerb/kerb_barrier": {
                     "options": {
+                        "flush": {
+                            "description": "A dropped kerb which is level with the surrounding area."
+                        },
                         "lowered": {
                             "description": "A dropped kerb which can be used by wheelchair users, not higher than a few centimetres."
+                        },
+                        "no": {
+                            "description": "There is no kerb present at this location."
                         },
                         "raised": {
                             "description": "A raised kerb which can't easily be used by wheelchair users, higher than a few centimetres."
                         },
+                        "rolled": {
+                            "description": "A raised kerb with a rounded edge which makes it easier to use for cars or bicycles, but not for wheelchairs."
+                        },
                         "yes": {
                             "title": "Yes"
                         }
-                    }
+                    },
+                    "terms": [
+                        "curb"
+                    ]
                 },
                 "crossing/markings-BG": {
                     "label": "Crossing Markings",
@@ -3784,6 +3829,46 @@
                         "amphitheater"
                     ]
                 },
+                "barrier/kerb": {
+                    "name": "Kerb",
+                    "terms": [
+                        "curb"
+                    ]
+                },
+                "barrier/kerb/flush": {
+                    "name": "Flush Kerb",
+                    "terms": [
+                        "even curb",
+                        "level curb",
+                        "tactile curb",
+                        "flush curb"
+                    ]
+                },
+                "barrier/kerb/lowered": {
+                    "name": "Lowered Kerb",
+                    "terms": [
+                        "curb cut",
+                        "curb ramp",
+                        "dropped kerb",
+                        "kerb ramp",
+                        "pram ramp",
+                        "lowered curb"
+                    ]
+                },
+                "barrier/kerb/raised": {
+                    "name": "Raised Kerb",
+                    "terms": [
+                        "step",
+                        "raised curb"
+                    ]
+                },
+                "barrier/kerb/rolled": {
+                    "name": "Rolled Kerb",
+                    "terms": [
+                        "gutter",
+                        "rolled curb"
+                    ]
+                },
                 "healthcare/birthing_center": {
                     "name": "Birthing Centre",
                     "terms": [
@@ -3988,6 +4073,18 @@
                         "neighborhood"
                     ]
                 },
+                "shop/confectionery": {
+                    "name": "Sweet Shop",
+                    "terms": [
+                        "fudge",
+                        "lollipop",
+                        "sugar",
+                        "sweet",
+                        "candy shop",
+                        "confectionery store",
+                        "candy store"
+                    ]
+                },
                 "shop/garden_centre": {
                     "name": "Garden Centre",
                     "terms": [
@@ -3999,6 +4096,12 @@
                         "shrub",
                         "tree",
                         "garden center"
+                    ]
+                },
+                "shop/window_blind": {
+                    "name": "Window Blind Shop",
+                    "terms": [
+                        "window blind store"
                     ]
                 },
                 "shop/yes": {
@@ -4572,10 +4675,7 @@
                     "name": "Administrative Boundary",
                     "relation": {
                         "role_labels": {
-                            "admin_centre": "Admin Centre",
-                            "inner": "Inner",
-                            "label": "Label",
-                            "outer": "Outer"
+                            "label": "Label"
                         }
                     }
                 },

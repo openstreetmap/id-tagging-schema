@@ -29,6 +29,31 @@ This Tagging Schema fills that need, but with a number of caveats:
 
 ## Usage
 
+### Direct (e.g. via npm)
+
+You can use `npm install @openstreetmap/id-tagging-schema` to obtain the most recently published data. Alternatively, you can also fetch it directly from the [dist/](dist/) folder from tagged releases of this repository. See the [schema](SCHEMA.md) file for documentation of structure of content published here.
+
+#### Usage Example
+
+A common scenario would be finding the name of a map feature type in a specific language, given raw tags of an OSM object. For example we may be looking for French label for an object tagged as `amenity=vending_machine vending=flowers ref=178`.
+
+In this case going through [dist/presets.json](dist/presets.json) allows to find the best match for the object's tags. In this case it should be the preset with the identifier `amenity/vending_machine/flowers`, based on its `tags` definition: 
+
+```
+    "tags": {
+        "amenity": "vending_machine",
+        "vending": "flowers"
+    },
+```
+
+Then [dist/translations/fr.json](dist/translations/fr.json) may be searched for the code `amenity/vending_machine/flowers`, getting us the fitting label.
+
+Note that in production use we would be using the minified versions of these files - [dist/presets.min.json](dist/presets.min.json) and [dist/translations/fr.min.json](dist/translations/fr.min.json).
+
+Also, in a real use other properties of presets should be also considered. Filtering by [`geometry` type](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#geometry) should be performed. Some presets are valid [only in some parts of the world](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#locationset).
+
+In many cases more than one preset will match. `amenity=vending_machine` from the example above matches far more presets. But there is only one match on two tags, so it should be considered as most fitting. [`matchScore`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#matchscore) may be defined on presets and taken into consideration when ordering them as secondary discriminator.
+
 ### Kotlin Multiplatform
 
 The [westnordost/osmfeatures](https://github.com/westnordost/osmfeatures) project,
@@ -39,7 +64,7 @@ makes it easier to use this data with Android, iOS and Java platforms.
 
 * The [OpenStreetMap wiki](https://wiki.openstreetmap.org/wiki/Map_features) documents the current usage of tags, and hosts discussions about proposed new tags.
 * iD also incorporates preset data from the [name-suggestion-index](https://github.com/osmlab/name-suggestion-index).
-* Other editors also include their own models of interpretations of OSM tags. See for example [Vespucci's](https://github.com/simonpoole/beautified-JOSM-preset) or [JOSM's](https://josm.openstreetmap.de/wiki/Presets) tagging presets.
+* Other editors also include their own models of OSM tagging. See for example [Vespucci's](https://github.com/simonpoole/beautified-JOSM-preset) or [JOSM's](https://josm.openstreetmap.de/wiki/Presets) tagging presets.
 
 ## Contributing
 

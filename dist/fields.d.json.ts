@@ -57,7 +57,7 @@ export interface Field {
    */
   options?: string[]
   /**
-   * If true, the top values from TagInfo will be suggested in the dropdown (combo fields only)
+   * If true, the top values from Taginfo will be suggested in the dropdown (combo fields only)
    */
   autoSuggestions?: boolean
   /**
@@ -121,15 +121,15 @@ export interface Field {
    */
   allowDuplicates?: boolean
   /**
-   * Minimum field value (number fields only)
+   * Minimum field value (for number and integer fields)
    */
   minValue?: number
   /**
-   * Maximum field value (number fields only)
+   * Maximum field value (for number and integer fields)
    */
   maxValue?: number
   /**
-   * The amount the stepper control should add or subtract (number fields only)
+   * The amount the stepper control should add or subtract (for number and integer fields)
    */
   increment?: number
   /**
@@ -156,7 +156,7 @@ export interface Field {
     exclude?: string[]
   }
   /**
-   * An string referencing another preset which has a locationSet
+   * A string referencing another preset or field which has a locationSet
    */
   locationSetCrossReference?: string
   /**
