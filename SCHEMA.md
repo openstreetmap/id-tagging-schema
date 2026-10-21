@@ -157,7 +157,7 @@ Both these properties are arrays of field paths (e.g. `description` or `generato
 user or if a matching tag is present. Note that some fields have a [`prerequisiteTag`](#prerequisitetag)
 property that limits when they will be shown.
 
-A preset can reference the fields of another by using that preset's name contained in
+A preset can reference the fields of another by using that preset's identifier contained in
 brackets, like `{preset}`. For example, `{shop}` in `presets/shop/books.json` references and extends the fields
 of `presets/shop.json`. When subfolders are used, the format is `{shop/books}` to reference the properties of the `shop/books.json`.
 
@@ -419,7 +419,7 @@ The complete JSON schema for fields can be found in [`schemas/field.json`](schem
 
 A short description or caption of the field.
 
-A field can optionally reference the label of another by using that field's name contained in brackets, like `{field}`. In which case the field's _terms_ are also automatically sourced from that other field. This is for example useful when there are multiple variants of fields for the same tag, which should all have the same labels.
+A field can optionally reference the label of another by using that field's identifier contained in brackets, like `{field}`. In which case the field's _terms_ are also automatically sourced from that other field. This is for example useful when there are multiple variants of fields for the same tag, which should all have the same labels.
 
 ##### `terms`
 
@@ -552,7 +552,7 @@ associated with building features (but only if drawn as a closed area).
 
 The text which should be shown in a field's input box when no value has been entered yet. This text is shown as a grayed-out text and can be used to give the user some examples of what to enter in the respective field.
 
-A field can optionally reference the placeholder text of another by using that field's name contained in brackets, like `{field}`. This is for example useful when there are multiple variants of fields for the same tag, which should all have the same labels.
+A field can optionally reference the placeholder text of another by using that field's identifier contained in brackets, like `{field}`. This is for example useful when there are multiple variants of fields for the same tag, which should all have the same labels.
 
 ##### `options`
 
@@ -621,7 +621,7 @@ to the different states of the checkbox input element, in the following order:
 _unchecked state_ ([example](https://github.com/openstreetmap/id-tagging-schema/blob/2375a6b/data/fields/parcel_pickup.json))
 2. fields of type `defaultCheck`: _unchecked state_ (must use the option `undefined`), _checked state_ ([example](https://github.com/openstreetmap/id-tagging-schema/blob/2375a6b/data/fields/crossing_raised.json))
 
-The value of each option can be a reference to another field or preset's name. For example:
+The value of each option can be a reference to another field or preset's identifier. For example:
 ```jsonc
   "strings": {
     "options": {
@@ -643,7 +643,7 @@ Some [special](#special) fields define additional strings besides `options`:
 
 ##### `stringsCrossReference`
 
-An optional property to reference to the strings of another field, indicated  by using that field's name contained in brackets, like `{field}`. This is for example useful when there are multiple variants of fields for the same tag, which should all use the same strings. For example:
+An optional property to reference to the strings of another field, indicated  by using that field's identifier contained in brackets, like `{field}`. This is for example useful when there are multiple variants of fields for the same tag, which should all use the same strings. For example:
 
 ```json
   "stringsCrossReference": "{sport}",
@@ -771,7 +771,7 @@ For combo and radio fields, the `icons` object might contain the name of icons w
 
 ##### `iconsCrossReference`
 
-An optional property to reference to the icons of another field, indicated  by using that field's name contained in brackets, like `{field}`. This is for example useful when there are multiple variants of fields for the same tag, which should all use the same icons.
+An optional property to reference to the icons of another field, indicated  by using that field's identifier contained in brackets, like `{field}`. This is for example useful when there are multiple variants of fields for the same tag, which should all use the same icons.
 
 ##### `reference`
 
