@@ -29,34 +29,30 @@ This Tagging Schema fills that need, but with a number of caveats:
 
 ## Usage
 
-You can use `npm install @openstreetmap/id-tagging-schema` to obtain data.
+### Direct (e.g. via npm)
 
-You can also fetch directly from [dist/](dist/) folder of this repository.
+You can use `npm install @openstreetmap/id-tagging-schema` to obtain the most recently published data. Alternatively, you can also fetch it directly from the [dist/](dist/) folder from tagged releases of this repository. See the [schema](SCHEMA.md) file for documentation of structure of content published here.
 
-See the [schema](SCHEMA.md) file for documentation of structure of content published here. It is a structured, machine-readable content but it represents a bit complex situation.
+#### Usage Example
 
-### Usage Example
+A common scenario would be finding the name of a map feature type in a specific language, given raw tags of an OSM object. For example we may be looking for French label for an object tagged as `amenity=vending_machine vending=flowers ref=178`.
 
-A common scenario would be finding a feature name in a specific language, given raw tags of an object. For example we may be looking for French label for `amenity=vending_machine vending=flowers ref=178` object.
-
-In this case going through [dist/presets.json](dist/presets.json) and finding a best match for these tags should obtain a preset with code `amenity/vending_machine/flowers`, based on its tag definition: 
+In this case going through [dist/presets.json](dist/presets.json) allows to find the best match for the object's tags. In this case it should be the preset with the identifier `amenity/vending_machine/flowers`, based on its `tags` definition: 
 
 ```
-        "tags": {
-            "amenity": "vending_machine",
-            "vending": "flowers"
-        },
+    "tags": {
+        "amenity": "vending_machine",
+        "vending": "flowers"
+    },
 ```
 
 Then [dist/translations/fr.json](dist/translations/fr.json) may be searched for the code `amenity/vending_machine/flowers`, getting us the fitting label.
 
-Note that in a real use we would be using prefetched and minified versions of these files - [dist/presets.min.json](dist/presets.min.json) and [dist/translations/fr.min.json](dist/translations/fr.min.json).
+Note that in production use we would be using the minified versions of these files - [dist/presets.min.json](dist/presets.min.json) and [dist/translations/fr.min.json](dist/translations/fr.min.json).
 
-Also, in a real use other properties of presets should be also considered. Filtering by [`geometry`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#geometry) should be performed. Some presets are valid [only in some parts of the world](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#locationset).
+Also, in a real use other properties of presets should be also considered. Filtering by [`geometry` type](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#geometry) should be performed. Some presets are valid [only in some parts of the world](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#locationset).
 
-In many cases more than one preset will match. `amenity=vending_machine` from the example above matches far more presets. But there is only one match on two tags, so it should be considered as most fitting.
-
-[`matchScore`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#matchscore) may be defined on presets and taken into consideration when ordering them as secondary discriminator.
+In many cases more than one preset will match. `amenity=vending_machine` from the example above matches far more presets. But there is only one match on two tags, so it should be considered as most fitting. [`matchScore`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#matchscore) may be defined on presets and taken into consideration when ordering them as secondary discriminator.
 
 ### Kotlin Multiplatform
 
