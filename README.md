@@ -54,7 +54,7 @@ Note that in a real use we would be using prefetched and minified versions of th
 
 Also, in a real use other properties of presets should be also considered. Filtering by [`geometry`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#geometry) should be performed. Some presets are valid [only in some parts of the world](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#locationset).
 
-In many cases more than one preset will match. For example `amenity=vending_machine` from the example above matches far more presets. But there is only one match on two tags, so it should be considered as most fitting.
+In many cases more than one preset will match. `amenity=vending_machine` from the example above matches far more presets. But there is only one match on two tags, so it should be considered as most fitting.
 
 [`matchScore`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#matchscore) may be defined on presets and taken into consideration when ordering them as secondary discriminator.
 
