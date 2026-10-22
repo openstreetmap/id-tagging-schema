@@ -105,7 +105,8 @@ An array of possible geometry types that a feature must have in order to match t
 * `point`: an OSM node that is not a member of any way
 * `vertex`: an OSM node that is a member of one or more ways
 * `line`: an OSM way that is not an area
-* `area`: an OSM way that is closed/circular (the first and last nodes are the same) or a `type=multipolygon` relation
+* `area`: an OSM way that is closed/circular and tagged with a tag indicating them to be an area
+* `area`: also matches multipolygon relations
 * `relation`: an OSM relation, other than a `type=multipolygon`
 
 Closed ways can be treated as both `line` or `area` geometry. If a preset allows both, iD will add an additional `area=yes` tag when choosing the preset for an area feature.
@@ -232,11 +233,11 @@ Alternatively, `locationSetCrossReference` can be use to reference the `location
 
 ##### `related`
 
-Hints about related presets that are related to this one, can be optionally used for a context-aware handling.
+Hints about related presets, can be optionally used for a context-aware handling.
 
-###### `expectedVertices`
+###### `related.expectedVertices`
 
-A list of preset IDs that are expected to be used as a vertex of this preset, when this preset is used on a line or area. 
+A list of preset IDs that are expected to be used as a vertex of this preset, when this preset is used on a line or area.
 
 For example `power=line` may have
 
@@ -292,7 +293,7 @@ For example if `highway/track` and `waterway/stream` intersect and both list `fo
 
 Note: this feature is experimental. Feedback is welcome.
 
-Note: using it for QA would need to be extremely careful. As this lists are being built they will miss for now many valid cases. In addition, there are many unexpected valid cases where QA warning may induce bad edits. This listing is more expected to be useful to show more relevant features when editing and block some changes, rather than encourage removing unexpected cases.
+Note: using it for QA would need to be extremely careful. As these lists are being built they will miss for now many valid cases. In addition, there are many unexpected valid cases where QA warning may induce bad edits. This listing is more expected to be useful to show more relevant features when editing and block some changes, rather than encourage removing unexpected cases.
 
 Note: comments welcome on [possible additional properties to mark those listings as more restrictive](https://github.com/openstreetmap/id-tagging-schema/pull/2454#issuecomment-5190205124).
 
@@ -354,7 +355,7 @@ A full example looks like this:
           { "highway": "*" }
         ],
         "min": 1, // The minimum number of times that this role must appear in the relation.
-        "max": 1 // The maximum number of times that this role must appear in the relation.
+        "max": 1 // The maximum number of times that this role may appear in the relation.
       },
       {
         "role": "via",
@@ -472,8 +473,8 @@ A string specifying the UI and behavior of the field. Must be one of the followi
 
 ###### Checkboxes
 
-* `check` - 3-state checkbox: `yes`, `no`, unknown (no tag)
-* `defaultCheck` - 2-state checkbox where checked produces `yes` and unchecked produces no tag
+* `check` - 3-state checkbox: `yes`, `no`, _unknown_ (no tag)
+* `defaultCheck` - 2-state checkbox where checked produces `yes` and unchecked represents the _default_ with no tag. Other value than `yes` can be specified as [`strings.options`](https://github.com/openstreetmap/id-tagging-schema/blob/main/SCHEMA.md#strings).
 * `onewayCheck` - 3-state checkbox for `oneway` fields, with extra button for direction switching - editors may also implement special support for [`-1`](https://wiki.openstreetmap.org/wiki/Tag:oneway%3D-1), [`alternating`](https://osm.wiki/Tag:oneway=alternating), and [`reversible`](https://wiki.openstreetmap.org/wiki/Tag:oneway%3Dreversible) values.
 
 ###### Radio Buttons
@@ -507,12 +508,12 @@ The `key` property names the OSM tag key that the field will edit. Some fields, 
 field type | `key` | `keys` | description | example
 ---------- | ----- | ------ | ----------- | -------
 `text`, `number`, `integer`, `email`, `url`, `tel` | :heavy_check_mark: | optional | Optionally, these fields can match multiple tag `keys` of an OSM object: which is useful to support OSM tags which have more than one established tag key like `phone` and `contact:phone`.[^1] | `"key": "phone", "keys": ["phone", "contact:phone"]`
-`address` | :heavy_check_mark: | :heavy_check_mark: | `keys` must contains all possible subtags to be used in the address field and `key` must contain the tag key prefix (e.g. `addr`). | `"key": "addr", "keys": ["addr:city", "addr:street", …]`
+`address` | :heavy_check_mark: | :heavy_check_mark: | `keys` must contain all possible subtags to be used in the address field and `key` must contain the tag key prefix (e.g. `addr`). | `"key": "addr", "keys": ["addr:city", "addr:street", …]`
 `wikipedia`, `wikidata` | :heavy_check_mark: | :heavy_check_mark: | As the values of these two fields should be updated in sync by the editor, the `keys` should always contain both the respective wikipedia and wikidata keys. | `"key": "flag:wikidata", "keys": ["flag:wikidata", "flag:wikipedia"]`
 `directionalCombo` | :heavy_check_mark: | :heavy_check_mark: | For directional fields, the `key` is the tag to use when the OSM feature has the same attributes in both directions, while the `keys` are the two tags for the individual directions. iD considers `key` with and without the `:both` suffix (for example, `cycleway` and `cycleway:both`). | `"key": "cycleway", "keys": ["cycleway:right", "cycleway:left"]`
 `access` | :x: | :heavy_check_mark: | `keys` lists all access tags to consider in the field. | `"keys": ["access", "foot", "bicycle",  …]`
-`localized` | :heavy_check_mark: | :x: | `key` specified the main tag, which will also be used as the tag key prefix for localized versions of the tag (i.e. the `name` field will also display contents of the tags `name:*`). | `"key": "name"`
-`multiCombo` | :heavy_check_mark: | :x: | This field allows to toggle multiple `yes/no` subtags which share a common tag prefix specified in the field's `key`. | `"key": "recycling:"`
+`localized` | :heavy_check_mark: | :x: | `key` specifies the main tag, which will also be used as the tag key prefix for localized versions of the tag (i.e. the `name` field will also display contents of the tags `name:*`). | `"key": "name"`
+`multiCombo` | :heavy_check_mark: | :x: | This field allows toggling multiple `yes/no` subtags which share a common tag prefix specified in the field's `key`. | `"key": "recycling:"`
 `manyCombo` | :x: | :heavy_check_mark: | Similar to the `multiCombo` field, but here the `keys` property contains the full list of OSM tag keys which the options of the field should correspond to. | `"keys": ["hiking", "bicycle", …]`
 `structureRadio` | :x: | :heavy_check_mark: | Like the `radio` field, but operates on multiple tags: Selecting an option will remove the tag for the previously active option. | `"keys": ["bridge", "tunnel", …]`
 `restrictions` | :x: | :x: | A special field which does not operate on tags, therefore does not need `key` or `keys`. |
@@ -527,8 +528,8 @@ appear in the "Add Field" list for all presets
 
 ##### `geometry`
 
-If specified, only show the field for this kind of geometry. Should contain
-one of `point`, `vertex`, `line`, `area`, `relation`.
+If specified, only show the field for this kind of geometry. May
+contain one or more of `point`, `vertex`, `line`, `area`, `relation`.
 
 ##### `default`
 
@@ -643,7 +644,7 @@ Some [special](#special) fields define additional strings besides `options`:
 
 ##### `stringsCrossReference`
 
-An optional property to reference to the strings of another field, indicated  by using that field's identifier contained in brackets, like `{field}`. This is for example useful when there are multiple variants of fields for the same tag, which should all use the same strings. For example:
+An optional property to reference to the strings of another field, indicated by using that field's identifier contained in brackets, like `{field}`. This is for example useful when there are multiple variants of fields for the same tag, which should all use the same strings. For example:
 
 ```json
   "stringsCrossReference": "{sport}",
@@ -703,8 +704,8 @@ An object defining the tags the feature needs before this field will be displaye
 
 And may optionally be combined with one of these properties, but not both:
 
-- `values`: The value(s) that the key must have. For backwards compatibly, `value` can also be used.
-- `valuesNot`: The value(s) that the key must not have. For backwards compatibly, `valueNot` can also be used.
+- `values`: The value(s) that the key must have. For backwards compatibility, `value` can also be used.
+- `valuesNot`: The value(s) that the key must not have. For backwards compatibility, `valueNot` can also be used.
 
 Alternatively, the object may contain a single property:
 
@@ -735,7 +736,7 @@ See the [location-conflation](https://github.com/ideditor/location-conflation) p
 }
 ```
 
-Alternatively, `locationSetCrossReference` can be use to reference the `locationSet` property from another field or preset:
+Alternatively, `locationSetCrossReference` can be used to reference the `locationSet` property from another field or preset:
 ```json
 "locationSetCrossReference": "{fields/crane/type}"
 ```
