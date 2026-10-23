@@ -1,0 +1,65 @@
+{
+    "icon": "maki-building",
+    "geometry": [
+        "relation"
+    ],
+    "tags": {
+        "type": "building"
+    },
+    "terms": [
+        "3d building",
+        "building parts"
+    ],
+    "name": "Building Relation",
+    "relation": {
+        "reference": "building",
+        "allowDuplicateMembers": false,
+        "role_labels": {
+            "outline": "Outline",
+            "part": "Building Part",
+            "ridge": "Roof Ridge",
+            "edge": "Roof Edge"
+        },
+        "members": [
+            {
+                "role": "outline",
+                "geometry": [
+                    "area",
+                    "relation"
+                ],
+                "matchTags": [
+                    {
+                        "building": "*"
+                    }
+                ],
+                "min": 1,
+                "max": 1
+            },
+            {
+                "role": "part",
+                "geometry": [
+                    "area",
+                    "relation"
+                ],
+                "matchTags": [
+                    {
+                        "building:part": "*"
+                    }
+                ],
+                "min": 1
+            },
+            {
+                "role": "ridge",
+                "geometry": [
+                    "line"
+                ]
+            },
+            {
+                "role": "edge",
+                "geometry": [
+                    "line"
+                ]
+            }
+        ]
+    }
+}
