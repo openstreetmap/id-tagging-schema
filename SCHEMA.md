@@ -233,7 +233,7 @@ Alternatively, `locationSetCrossReference` can be use to reference the `location
 
 ##### `related`
 
-Hints about related presets, can be optionally used for a context-aware handling.
+Optional data to describe how different presets are related to each other. Can be used to improve tagging suggestions.
 
 ###### `related.expectedVertices`
 
