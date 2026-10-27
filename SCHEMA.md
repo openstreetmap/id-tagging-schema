@@ -49,12 +49,6 @@ A basic preset is of the form:
     },
     // The geometry types for which this preset is valid.
     // Options are point, vertex, area, line, and relation.
-    // * `vertex` are points that are parts of lines, like the nodes in a road
-    // * `point` are all other nodes like POIs or place nodes
-    // * `line` are ways, except closed ones with tags indicating an area
-    // * `area` are closed ways if tagged with a tag indicating them to be an area
-    // * `area` also matches multipolygon relations
-    // * `relation` represent all other OSM relation types
     "geometry": [
         "point", "area"
     ],
@@ -105,8 +99,7 @@ An array of possible geometry types that a feature must have in order to match t
 * `point`: an OSM node that is not a member of any way
 * `vertex`: an OSM node that is a member of one or more ways
 * `line`: an OSM way that is not an area
-* `area`: an OSM way that is closed/circular and tagged with a tag indicating it to be an area
-* `area`: also matches multipolygon relations
+* `area`: a) an OSM way that is closed/circular and tagged with a tag indicating it to be an area, or b) a multipolygon relation
 * `relation`: an OSM relation, other than a `type=multipolygon`
 
 Closed ways can be treated as both `line` or `area` geometry. If a preset allows both, iD will add an additional `area=yes` tag when choosing the preset for an area feature.
