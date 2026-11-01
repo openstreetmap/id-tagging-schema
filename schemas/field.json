@@ -126,7 +126,7 @@
             }
         },
         "autoSuggestions": {
-            "description": "If true, the top values from TagInfo will be suggested in the dropdown (combo fields only)",
+            "description": "If true, the top values from Taginfo will be suggested in the dropdown (combo fields only)",
             "type": "boolean",
             "default": true
         },
@@ -214,7 +214,8 @@
         "stringsCrossReference": {
             "description": "A field can reference strings of another by using that field's identifier contained in brackets, like {field}.",
             "type": "string",
-            "minLength": 1
+            "minLength": 3,
+            "pattern": "^\\{.+\\}$"
         },
         "snake_case": {
             "description": "If true, replace spaces with underscores in the tag value (combo fields only)",
@@ -232,16 +233,17 @@
             "default": false
         },
         "minValue": {
-            "description": "Minimum field value (number fields only)",
+            "description": "Minimum field value (for number and integer fields)",
             "type": "integer"
         },
         "maxValue": {
-            "description": "Maximum field value (number fields only)",
+            "description": "Maximum field value (for number and integer fields)",
             "type": "integer"
         },
         "increment": {
-            "description": "The amount the stepper control should add or subtract (number fields only)",
+            "description": "The amount the stepper control should add or subtract (for number and integer fields)",
             "minimum": 1,
+            "default": 1,
             "type": "integer"
         },
         "prerequisiteTag": {
@@ -319,8 +321,7 @@
                         },
                         "valueNot": {
                             "description": "The value that the tag cannot have. (alternative to 'value')",
-                            "type": "string",
-                            "minLength": 1
+                            "type": "string"
                         }
                     },
                     "additionalProperties": false,
@@ -342,8 +343,7 @@
                             "description": "The values that the tag cannot have. (alternative to 'values')",
                             "type": "array",
                             "items": {
-                                "type": "string",
-                                "minLength": 1
+                                "type": "string"
                             },
                             "minItems": 1
                         }
@@ -410,8 +410,8 @@
         "locationSetCrossReference": {
             "type": "string",
             "minLength": 1,
-            "pattern": "^\\{.+\\}$",
-            "description": "An string referencing another preset which has a locationSet"
+            "pattern": "^\\{(presets|fields)\\/.+\\}$",
+            "description": "A string referencing another preset or field which has a locationSet"
         },
         "urlFormat": {
             "description": "Permalink URL for `identifier` fields. Must contain a {value} placeholder",
@@ -445,7 +445,7 @@
         "iconsCrossReference": {
             "description": "A field can reference icons of another by using that field's identifier contained in brackets, like {field}.",
             "type": "string",
-            "minLength": 1
+            "pattern": "^\\{.+\\}$"
         }
     },
     "additionalProperties": false,
@@ -489,6 +489,7 @@
                         "url",
                         "tel",
                         "text",
+                        "integer",
                         "number"
                     ]
                 }
@@ -515,40 +516,67 @@
             ]
         },
         {
-            "$id": "field-type-with-key-or-keys",
+            "$id": "field-type-with-key-not-keys",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "localized",
+                        "multiCombo",
+                        "check",
+                        "defaultCheck",
+                        "onewayCheck",
+                        "combo",
+                        "semiCombo",
+                        "typeCombo",
+                        "networkCombo",
+                        "radio",
+                        "colour",
+                        "identifier",
+                        "textarea",
+                        "roadspeed",
+                        "roadheight",
+                        "date",
+                        "schedule"
+                    ]
+                }
+            },
+            "allOf": [
+                {
+                    "required": [
+                        "key"
+                    ]
+                },
+                {
+                    "not": {
+                        "required": [
+                            "keys"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "$id": "field-type-without-key-but-with-keys",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "access",
+                        "manyCombo",
+                        "structureRadio"
+                    ]
+                }
+            },
             "allOf": [
                 {
                     "not": {
-                        "properties": {
-                            "type": {
-                                "enum": [
-                                    "restriction",
-                                    "email",
-                                    "url",
-                                    "tel",
-                                    "text",
-                                    "number",
-                                    "address",
-                                    "wikipedia",
-                                    "wikidata",
-                                    "directionalCombo"
-                                ]
-                            }
-                        }
+                        "required": [
+                            "key"
+                        ]
                     }
                 },
                 {
-                    "oneOf": [
-                        {
-                            "required": [
-                                "key"
-                            ]
-                        },
-                        {
-                            "required": [
-                                "keys"
-                            ]
-                        }
+                    "required": [
+                        "keys"
                     ]
                 }
             ]

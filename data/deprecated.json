@@ -376,10 +376,6 @@
     "replace": {"height": "$1"}
   },
   {
-    "old": {"building:level": "*"},
-    "replace": {"building:levels": "$1"}
-  },
-  {
     "old": {"building:material": "Brick"},
     "replace": {"building:material": "brick"}
   },
@@ -783,10 +779,6 @@
     "replace": {"highway": "cycleway"}
   },
   {
-    "old": {"highway": "footway", "foot": "no"},
-    "replace": {"highway": "path", "foot": "no"}
-  },
-  {
     "old": {"highway": "path", "ladder": "yes"},
     "replace": {"highway": "ladder"}
   },
@@ -820,7 +812,7 @@
   },
   {
     "old": {"information": "bicyclemap"},
-    "replace": {"tourism": "information", "information": "map", "map_type": "topo", "bicyle": "yes"}
+    "replace": {"tourism": "information", "information": "map", "bicycle": "yes"}
   },
   {
     "old": {"information": "nature"},
@@ -979,10 +971,6 @@
     "replace": {"office": "notary"}
   },
   {
-    "old": {"leisure": "beach"},
-    "replace": {"natural": "beach"}
-  },
-  {
     "old": {"leisure": "bingo"},
     "replace": {"amenity": "gambling", "gambling": "bingo"}
   },
@@ -1113,10 +1101,6 @@
   {
     "old": {"man_made": "weighting_machine"},
     "replace": {"amenity": "weighbridge"}
-  },
-  {
-    "old": {"man_made": "well"},
-    "replace": {"man_made": "water_well"}
   },
   {
     "old": {"man_made": "winery"},
@@ -1250,16 +1234,12 @@
     "replace": {"parking": "lane"}
   },
   {
-    "old": {"parking:orientation": "*"},
-    "replace": {"orientation": "$1"}
+    "old": {"parking": "*", "parking:orientation": "*"},
+    "replace": {"parking": "*", "orientation": "$2"}
   },
   {
-    "old": {"orientation": "orthogonal"},
-    "replace": {"orientation": "perpendicular"}
-  },
-  {
-    "old": {"parking:orientation": "orthogonal"},
-    "replace": {"parking:orientation": "perpendicular"}
+    "old": {"parking": "*", "orientation": "orthogonal"},
+    "replace": {"parking": "*", "orientation": "perpendicular"}
   },
   {
     "old": {"place_name": "*"},
@@ -1314,7 +1294,7 @@
   },
   {
     "old": {"power": "substation", "location": "kiosk"},
-    "replace": {"power": "substation", "man_made": "street_cabinet", "street_cabinet": "power"}
+    "replace": {"power": "substation", "man_made": "street_cabinet", "utility": "power"}
   },
   {
     "old": {"power": "underground_cable"},
@@ -1359,10 +1339,6 @@
   {
     "old": {"railway": "platform"},
     "replace": {"railway": "platform", "public_transport": "platform"}
-  },
-  {
-    "old": {"railway": "station"},
-    "replace": {"railway": "station", "public_transport": "station"}
   },
   {
     "old": {"railway": "tram_stop"},
@@ -1810,7 +1786,7 @@
   },
   {
     "old": {"type": "gas", "man_made": "pumping_rig"},
-    "replace": {"substance": "gas", "man_made": "pumping_rig"}
+    "replace": {"substance": "gas", "man_made": "petroleum_well"}
   },
   {
     "old": {"type": "gas", "pipeline": "*"},
@@ -1822,7 +1798,7 @@
   },
   {
     "old": {"type": "oil", "man_made": "pumping_rig"},
-    "replace": {"substance": "oil", "man_made": "pumping_rig"}
+    "replace": {"substance": "oil", "man_made": "petroleum_well"}
   },
   {
     "old": {"type": "oil", "pipeline": "*"},
@@ -1943,10 +1919,6 @@
   {
     "old": {"wood": "evergreen"},
     "replace": {"leaf_cycle": "evergreen"}
-  },
-  {
-    "old": {"wood": "mixed"},
-    "replace": {"leaf_cycle": "mixed", "leaf_type": "mixed"}
   },
   {
     "old": {"cycleway": "none"},

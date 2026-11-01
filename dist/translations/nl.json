@@ -2,6 +2,9 @@
     "nl": {
         "presets": {
             "categories": {
+                "category-advertising": {
+                    "name": "Advertentie-objecten"
+                },
                 "category-barrier": {
                     "name": "Afscheidingen"
                 },
@@ -440,16 +443,16 @@
                 "barrier": {
                     "label": "Type",
                     "options": {
-                        "block": "Groot blok",
                         "ditch": "Sloot",
-                        "lift_gate": "Slagboom",
                         "fence": "Afrastering",
                         "gate": "Poort",
                         "wall": "Muur",
                         "hedge": "Haag",
                         "kerb": "Stoeprand",
                         "bollard": "Paaltjes",
+                        "lift_gate": "Slagboom",
                         "retaining_wall": "Keermuur",
+                        "block": "Blok",
                         "guard_rail": "Vangrail",
                         "cycle_barrier": "Slingerhek",
                         "stile": "Overstaphek",
@@ -556,7 +559,8 @@
                     "terms": [
                         "afvalemmer",
                         "vuilnisbak",
-                        "vuilbak"
+                        "vuilbak",
+                        "prullenbak"
                     ]
                 },
                 "blind": {
@@ -604,12 +608,32 @@
                         "doorgang"
                     ]
                 },
+                "boat_rental_types": {
+                    "label": "Boot types om te huren",
+                    "options": {
+                        "canoe_rental": "Kano's",
+                        "dinghy_rental": "Rubberboot",
+                        "houseboat_rental": "Woonboot",
+                        "jetski_rental": "Jetski",
+                        "kayak_rental": "Kajak",
+                        "motorboat_rental": "Motorboot",
+                        "pedalboat_rental": "Waterfiets",
+                        "rowboat_rental": "Roeiboot",
+                        "sailboat_rental": "Zeilboot",
+                        "standup_paddleboard_rental": "Stand-Up Paddleboard (SUP)",
+                        "yacht_rental": "Jacht"
+                    }
+                },
                 "bollard": {
                     "label": "Type",
                     "options": {
                         "fixed": "Vast paaltje",
                         "flexible": "Flexibel paaltje",
                         "foldable": "Vouwbaar paaltje",
+                        "removable": {
+                            "description": "Verwijderbaar met of zonder sleutel",
+                            "title": "Verwijderbaar paaltje"
+                        },
                         "rising": "Inzinkbaar paaltje"
                     }
                 },
@@ -718,7 +742,6 @@
                         "container": "Container",
                         "riding_hall": "Paardenpiste",
                         "supermarket": "Supermarktgebouw",
-                        "terrace": "Rijtjeshuizen",
                         "yes": "Niet-gespecifieerd gebouwtype",
                         "house": "Huis",
                         "residential": "Woongebouw",
@@ -731,6 +754,7 @@
                         "roof": "Dak",
                         "farm_auxiliary": "Boerderijgebouw",
                         "semidetached_house": "Koppelwoning",
+                        "terrace": "Blok van rijtjeshuizen",
                         "commercial": "Commercieel gebouw",
                         "school": "Schoolgebouw",
                         "retail": "Handelspand",
@@ -919,6 +943,7 @@
                 },
                 "capacity": {
                     "label": "Capaciteit",
+                    "placeholder": "2, 20, 200...",
                     "terms": [
                         "capaciteit"
                     ]
@@ -969,13 +994,13 @@
                     "options": {
                         "castrum": "Romeins fort",
                         "defensive": "Verdedigingskasteel",
-                        "fortress": "Vesting",
                         "hillfort": "Heuvelfort",
                         "kremlin": "Kremlin",
                         "manor": "Landhuis",
                         "shiro": "Japans kasteel\nShiro",
                         "stately": "Statig huis",
-                        "palace": "Paleis"
+                        "palace": "Paleis",
+                        "fortress": "Historische fortificatie"
                     }
                 },
                 "ceremonial_gate": {
@@ -1027,6 +1052,22 @@
                         "omtrek",
                         "borsthoogte"
                     ]
+                },
+                "climbing/bolts": {
+                    "label": "Aantal klimbouten"
+                },
+                "climbing/grade/french": {
+                    "label": "Routewaardering (Frans)",
+                    "placeholder": "5c"
+                },
+                "climbing/grade/saxon": {
+                    "label": "Routewaardering (Saksisch)"
+                },
+                "climbing/grade/uiaa": {
+                    "placeholder": "6-"
+                },
+                "climbing/grade/yds_class": {
+                    "placeholder": "5.10a"
                 },
                 "climbing/length": {
                     "label": "Lengte (meter)",
@@ -1112,8 +1153,6 @@
                     "options": {
                         "club_home": "Clubgebouw",
                         "community_hall": "Ontmoetingscentrum",
-                        "cultural_centre": "Cultuurcentrum",
-                        "family_centre": "Familiecentrum",
                         "parish_hall": "Parochiezaal",
                         "village_hall": "Dorpshuis",
                         "youth_centre": "Jeugdcentrum"
@@ -1150,7 +1189,16 @@
                     ]
                 },
                 "contact/instagram": {
-                    "label": "Naam of URL van Instagram-account"
+                    "label": "Naam of URL van Instagram-account",
+                    "placeholder": "https://www.instagram.com/openstreetmap/"
+                },
+                "contact/mastodon": {
+                    "label": "Mastodon-handle of -URL",
+                    "placeholder": "https://en.osm.town/@openstreetmap",
+                    "terms": [
+                        "mastodon",
+                        "mastodon-account"
+                    ]
                 },
                 "contact/webcam": {
                     "label": "Webcam-url",
@@ -1159,6 +1207,9 @@
                 "content": {
                     "label": "Inhoud",
                     "options": {
+                        "crop": "Gewas",
+                        "fuel": "Brandstof",
+                        "gas": "Gas",
                         "hot_water": "Heet water",
                         "oil": "Olie",
                         "salt": "Zout",
@@ -1166,6 +1217,16 @@
                         "slurry": "Vloeibare mest",
                         "water": "Water",
                         "wine": "Wijn"
+                    }
+                },
+                "content_bulk": {
+                    "label": "Inhoud",
+                    "options": {
+                        "cement": "Cement",
+                        "crop": "Gewas",
+                        "grain": "Graan",
+                        "salt": "Zout",
+                        "sand": "Zand"
                     }
                 },
                 "conveying": {
@@ -1216,23 +1277,23 @@
                     "options": {
                         "brewery": "Brouwerij",
                         "builder": "Bouwer",
-                        "electronics_repair": "Reparateur van elektrische apparaten",
                         "grinding_mill": "Molen",
-                        "handicraft": "Ambacht",
-                        "hvac": "Installateur",
                         "jeweller": "Juwelier",
                         "oil_mill": "Oliemolen",
                         "carpenter": "Timmerman",
+                        "electronics_repair": "Elektronicaherstelwinkel",
                         "winery": "Wijngoed",
                         "metal_construction": "Metaalbewerker",
                         "photographer": "Fotograaf",
                         "electrician": "Elektricien",
+                        "hvac": "Werklplaats van een HVAC ontwerper",
                         "plumber": "Loodgieter",
                         "tailor": "Kleermaker",
                         "caterer": "Cateraar",
                         "shoemaker": "Schoenmaker",
                         "sawmill": "Zagerij",
                         "window_construction": "Raam- en deurkadermaker",
+                        "handicraft": "Werkplaats voor handvaardigheid",
                         "gardener": "Tuinman",
                         "joiner": "Schrijnwerker",
                         "dressmaker": "Kleermaker voornamelijk voor vrouwen",
@@ -1316,7 +1377,6 @@
                 "crossing": {
                     "label": "Type",
                     "options": {
-                        "traffic_signals": "Oversteekplaats met verkeerslichten",
                         "uncontrolled": "Alleen markeringen op de weg",
                         "unmarked": "Geen markeringen op de weg en geen verkeerslichten"
                     }
@@ -1393,6 +1453,7 @@
                         "bavarian": "Beiers",
                         "beef_bowl": "Gyudon",
                         "bistro": "Bistro",
+                        "bolivian": "Boliviaans",
                         "brazilian": "Braziliaans",
                         "breakfast": "Ontbijt",
                         "british": "Brits",
@@ -1405,6 +1466,8 @@
                         "chinese": "Chinees",
                         "coffee_shop": "Koffiehuis",
                         "crepe": "Crèpe",
+                        "croatian": "Kroatisch",
+                        "cuban": "Cubaans",
                         "curry": "Curry",
                         "dessert": "Dessert",
                         "diner": "Avondmaal",
@@ -1425,10 +1488,13 @@
                         "grill": "Gril",
                         "hawaiian": "Hawaïaans",
                         "hot_dog": "Hotdog",
+                        "hungarian": "Hongaars",
                         "ice_cream": "IJs",
                         "indian": "Indiaas",
                         "indonesian": "Indonesisch",
+                        "irish": "Iers",
                         "italian": "Italiaans",
+                        "jamaican": "Jamaicaans",
                         "japanese": "Japans",
                         "juice": "Sap",
                         "kebab": "Kebab",
@@ -1439,8 +1505,10 @@
                         "mexican": "Mexicaans",
                         "middle_eastern": "Midden-Oosters",
                         "moroccan": "Marokkaans",
+                        "nepalese": "Nepalees",
                         "noodle": "Noodles",
                         "oriental": "Oriëntaals ",
+                        "pakistani": "Pakistaans",
                         "pancake": "Pannenkoek",
                         "pasta": "Pasta",
                         "pastry": "Gebak",
@@ -1462,6 +1530,7 @@
                         "spanish": "Spaans",
                         "steak_house": "Steakhouse",
                         "sushi": "Sushi",
+                        "syrian": "Syrisch",
                         "taiwanese": "Taiwanees",
                         "tapas": "Tapas",
                         "tea": "Thee",
@@ -1471,6 +1540,7 @@
                         "udon": "Udon",
                         "ukrainian": "Oekraïens",
                         "vietnamese": "Vietnamees",
+                        "waffle": "Wafels",
                         "western": "Westers",
                         "wings": "Kippenbillen"
                     },
@@ -1765,7 +1835,177 @@
                     "label": "Type"
                 },
                 "disused/shop": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "convenience": "Gemakswinkel",
+                        "supermarket": "Supermarkt",
+                        "clothes": "Kledingzaak",
+                        "hairdresser": "Kapper",
+                        "car_repair": "Autogarage",
+                        "bakery": "Bakkerij",
+                        "beauty": "Schoonheidssalon",
+                        "car": "Autoshowroom",
+                        "hardware": "Bouwmarkt",
+                        "butcher": "Slagerij",
+                        "kiosk": "Winkelkiosk",
+                        "mobile_phone": "Mobieletelefoonwinkel",
+                        "furniture": "Meubelzaak",
+                        "car_parts": "Auto-onderdelenwinkel",
+                        "alcohol": "Slijterij",
+                        "variety_store": "Discountwinkel",
+                        "florist": "Bloemenwinkel",
+                        "optician": "Opticien",
+                        "electronics": "Huishoudtoestellen-/Witgoedwinkel",
+                        "jewelry": "Juwelierszaak",
+                        "outpost": "Voorpost van een online retailer",
+                        "shoes": "Schoenenwinkel",
+                        "vacant": "Leegstaande winkel",
+                        "mall": "Winkelcentrum",
+                        "gift": "Cadeauwinkel",
+                        "doityourself": "Bouwmarkt, doe-het-zelfwinkel",
+                        "greengrocer": "Groenteboer",
+                        "chemist": "Drogisterij",
+                        "laundry": "Wasserette",
+                        "books": "Boekenwinkel",
+                        "bicycle": "Fietswinkel",
+                        "department_store": "Warenhuis",
+                        "pet": "Dierenwinkel",
+                        "travel_agency": "Reisbureau",
+                        "stationery": "Kantoorboekhandel",
+                        "sports": "Sportzaak",
+                        "confectionery": "Snoepwinkel",
+                        "tyres": "Bandenwinkel",
+                        "storage_rental": "Zelfopslag",
+                        "tobacco": "Tabakswinkel",
+                        "cosmetics": "Cosmeticawinkel",
+                        "trade": "Bouwmaterialenhandel",
+                        "massage": "Massagewinkel",
+                        "tailor": "Kleermaker",
+                        "computer": "Computerwinkel",
+                        "funeral_directors": "Begrafenisondernemer",
+                        "copyshop": "Copyshop",
+                        "pastry": "Patisserie",
+                        "motorcycle": "Motorwinkel",
+                        "dry_cleaning": "Stomerij",
+                        "farm": "Boerderijwinkel voor groente en fruit",
+                        "garden_centre": "Tuincentrum",
+                        "beverages": "Drankenwinkel",
+                        "newsagent": "Krantenkiosk",
+                        "general": "Algemene winkel",
+                        "ticket": "Ticketverkoop",
+                        "interior_decoration": "Binnenhuisdecoratiewinkel",
+                        "deli": "Delicatessen",
+                        "houseware": "Huisraadwinkel",
+                        "toys": "Speelgoedwinkel",
+                        "seafood": "Viswinkel",
+                        "wine": "Wijnhandel",
+                        "tattoo": "Tattoozetter",
+                        "wholesale": "Groothandel",
+                        "paint": "Verfwinkel",
+                        "second_hand": "Tweedehandswinkel",
+                        "pawnbroker": "Pandjeshuis",
+                        "medical_supply": "Winkel voor medische hulpmiddelen",
+                        "charity": "Winkel van goed doel",
+                        "photo": "Fotowinkel",
+                        "bed": "Bed-/Matrassenwinkel",
+                        "kitchen": "Keukenontwerpwinkel",
+                        "bookmaker": "Bookmaker (gokkantoor)",
+                        "art": "Kunstwinkel",
+                        "lottery": "Loterij",
+                        "agrarian": "Landbouwbenodigdhedenwinkel",
+                        "outdoor": "Buitensportwinkel",
+                        "antiques": "Antiekwinkel",
+                        "e-cigarette": "E-sigarettenwinkel",
+                        "fabric": "Stofwinkel",
+                        "coffee": "Koffiewinkel",
+                        "perfumery": "Parfumwinkel",
+                        "gas": "Gasflessenwinkel",
+                        "motorcycle_repair": "Motorreparatie",
+                        "hearing_aids": "Hoorapparatenwinkel",
+                        "appliance": "Huishoudelijkeapparatuurwinkel",
+                        "craft": "Winkel voor schilder- en tekengereedschap",
+                        "electrical": "Winkel voor elektriciteitsbenodigdheden",
+                        "telecommunication": "Telecomwinkel",
+                        "money_lender": "Particuliere Gelduitleendienst",
+                        "pet_grooming": "Huisdiertrimmer",
+                        "tea": "Theewinkel",
+                        "bag": "Tas-/Reiskofferwinkel",
+                        "dairy": "Zuivelhandel",
+                        "baby_goods": "Babyartikelenwinkel",
+                        "musical_instrument": "Muziekinstrumentenwinkel",
+                        "rental": "Verhuurwinkel",
+                        "fashion_accessories": "Modeaccessoirewinkel",
+                        "cannabis": "Cannabiswinkel",
+                        "health_food": "Natuurvoedingswinkel",
+                        "chocolate": "Chocoladewinkel",
+                        "music": "Muziekwinkel",
+                        "carpet": "Tapijtwinkel",
+                        "cheese": "Kaaswinkel",
+                        "fishing": "Hengelsportwinkel",
+                        "repair": "Reparatiewinkel",
+                        "locksmith": "Slotenmaker",
+                        "nutrition_supplements": "Voedingssupplementenwinkel",
+                        "bathroom_furnishing": "Badkamermeubelwinkel",
+                        "watches": "Horlogewinkel",
+                        "sewing": "Naaiwinkel",
+                        "video_games": "Computerspelwinkel",
+                        "curtain": "Gordijnenwinkel",
+                        "lighting": "Verlichtingswinkel",
+                        "herbalist": "Herbalist",
+                        "tiles": "Tegelwinkel",
+                        "flooring": "Vloerwinkel",
+                        "frozen_food": "Winkel voor bevroren voedsel",
+                        "doors": "Deurenwinkel",
+                        "hifi": "Hifi-/Bruingoedwinkel",
+                        "shoe_repair": "Schoenenreparatiewinkel",
+                        "erotic": "Seksshop",
+                        "party": "Feestwinkel",
+                        "water": "Drinkwaterwinkel",
+                        "religion": "Religieuze winkel",
+                        "frame": "Lijstenmakerij",
+                        "swimming_pool": "Winkel voor zwembadbenodigdheden",
+                        "hairdresser_supply": "Haarbenodigdhedenwinkel",
+                        "video": "Videotheek",
+                        "games": "Bordspellenwinkel",
+                        "leather": "Lederwinkel",
+                        "weapons": "Wapenwinkel",
+                        "country_store": "Plattelandswinkel",
+                        "fuel": "Brandstofwinkel",
+                        "boat": "Bootwinkel",
+                        "pottery": "Winkel voor aardewerk",
+                        "fireplace": "Haardwinkel",
+                        "window_blind": "Jaloeziewinkel",
+                        "collector": "Winkel voor verzamelobjecten",
+                        "tool_hire": "Gereedschapsverhuur",
+                        "caravan": "Caravan-dealer",
+                        "household_linen": "Winkel voor huishoudelijk linnen",
+                        "ice_cream": "IJssalon",
+                        "spices": "Kruidenwinkel",
+                        "scuba_diving": "Duikwinkel",
+                        "pyrotechnics": "Vuurwerkwinkel",
+                        "printer_ink": "Winkel voor printerinkt",
+                        "nuts": "Notenwinkel",
+                        "mobile_phone_accessories": "Winkel voor mobiele telefoonaccessoires",
+                        "model": "Modelwinkel",
+                        "gold_buyer": "Goudkoper",
+                        "candles": "Kaarsenwinkel",
+                        "hunting": "Jachtwinkel",
+                        "groundskeeping": "Winkel voor grasveld- en tuinbenodigdheden",
+                        "pasta": "Pastawinkel",
+                        "vacuum_cleaner": "Stofzuigerwinkel",
+                        "honey": "Honingwinkel",
+                        "camera": "Winkel voor camerabenodigdheden",
+                        "rice": "Rijstwinkel",
+                        "anime": "Anime-/Mangawinkel",
+                        "psychic": "Medium (esoterie)",
+                        "trophy": "Trofeewinkel",
+                        "wigs": "Pruikenwinkel",
+                        "catalogue": "Cataloguswinkel",
+                        "military_surplus": "Legerdump",
+                        "brewing_supplies": "Winkel voor brouwbenodigdheden",
+                        "esoteric": "Esoteriewinkel",
+                        "bbq": "BBQ Winkel"
+                    }
                 },
                 "dock": {
                     "label": "Type",
@@ -1870,14 +2110,14 @@
                     "label": "Type",
                     "options": {
                         "college": "Middelbaar beroepsonderwijs",
-                        "dancing_school": "Dansschool",
                         "kindergarten": "Kleuterschool",
                         "school": "School",
                         "university": "Universiteit of hogeschool",
                         "driving_school": "Rijschool",
                         "language_school": "Taalschool",
                         "music_school": "Muziekschool",
-                        "prep_school": "Bijlesinstituut"
+                        "prep_school": "Bijlesinstituut",
+                        "dancing_school": "Dansschool"
                     }
                 },
                 "ele": {
@@ -1949,13 +2189,13 @@
                         "exit": "Alleen uitgang",
                         "garage": "Garagedeur",
                         "home": "Woonhuis of appartement",
-                        "main": "Hoofdingang",
                         "secondary": "Secundair",
                         "service": "Achterdeur (voor personeel of leveranciers)",
-                        "staircase": "Trappenhuis",
                         "yes": "Algemeen",
+                        "main": "Hoofdingang",
                         "shop": "Winkelingang",
-                        "emergency": "Nooduitgang"
+                        "emergency": "Nooduitgang",
+                        "staircase": "Ingang van trappenhuis"
                     },
                     "terms": [
                         "type",
@@ -1985,6 +2225,7 @@
                 },
                 "fax": {
                     "label": "Fax",
+                    "placeholder": "+000 0000 0000 0000",
                     "terms": [
                         "fax",
                         "telefax"
@@ -2353,11 +2594,13 @@
                     "label": "Aangeduid gevaar",
                     "options": {
                         "animal_crossing": "Oversteekplaats van dieren",
+                        "bump": "Korte verkeersdrempel",
                         "children": "Kinderen",
                         "curve": "Bocht",
                         "curves": "Meerdere bochten",
                         "cyclists": "Fietsers",
                         "dangerous_junction": "Gevaarlijk kruispunt",
+                        "dip": "Verkeersremmende overdwarse uitholling",
                         "falling_rocks": "Vallende stenen",
                         "horse_riders": "Ruiters",
                         "ice": "IJs",
@@ -2377,12 +2620,11 @@
                     "label": "Type",
                     "options": {
                         "blood_bank": "Bloedbank",
-                        "blood_donation": "Centrum voor bloeddonatie",
                         "community_health_worker": "Gemeenschapsgezondheidswerker",
                         "hospital": "Ziekenhuis",
                         "nurse": "Verpleegkundige",
-                        "pharmacy": "Apotheek",
                         "vaccination_centre": "Vaccinatiecentrum",
+                        "pharmacy": "Apotheek",
                         "doctor": "Dokter",
                         "clinic": "Dagbehandelingscentrum",
                         "dentist": "Tandarts",
@@ -2391,7 +2633,6 @@
                         "optometrist": "Optometrist",
                         "rehabilitation": "Revalidatiekliniek",
                         "podiatrist": "Podoloog",
-                        "counselling": "Begeleidingscentrum",
                         "speech_therapist": "Logopedist",
                         "hospice": "Palliatievezorgcentrum",
                         "occupational_therapist": "Ergotherapeut",
@@ -2548,7 +2789,6 @@
                         "church": "Historische kerk",
                         "citywalls": "Stadsmuur",
                         "milestone": "Mijlpaal",
-                        "millstone": "Kilometerpaal",
                         "mine": "Mijn",
                         "mine_shaft": "Mijnschacht",
                         "railway": "Spoorweg",
@@ -2566,6 +2806,8 @@
                         "manor": "Landhuis",
                         "fort": "Historisch fort",
                         "city_gate": "Stadspoort",
+                        "aircraft": "Historisch luchtvaartuig",
+                        "cannon": "Kanon",
                         "wreck": "Scheepswrak",
                         "pillory": "Historische schandpaal"
                     }
@@ -2624,7 +2866,7 @@
                     "label": "Soort huis",
                     "options": {
                         "bungalow": {
-                            "description": "Een klein huis met een enkele verdieping",
+                            "description": "Een klein huis met één verdieping",
                             "title": "Bungalow"
                         },
                         "detached": {
@@ -2642,10 +2884,6 @@
                         "semi-detached": {
                             "description": "Een huis dat aan één zijde is verbonden met een ander huis",
                             "title": "Twee-onder-een-kapwoning "
-                        },
-                        "terrace": {
-                            "description": "Een rij huizen die in lijnverband aan elkaar verbonden zijn (bij voorkeur elk huis als een apart gebied in kaart brengen)",
-                            "title": "Blok van rijtjeshuizen"
                         },
                         "terraced": {
                             "description": "Individueel huis in een blok rijtjeshuizen",
@@ -3184,6 +3422,7 @@
                         "brass": "Messing",
                         "brick": "Baksteen",
                         "bronze": "Brons",
+                        "ceramic": "Keramiek",
                         "concrete": "Beton",
                         "dry_stone": "Stapelmuur",
                         "glass": "Glas",
@@ -3379,6 +3618,7 @@
                 },
                 "mobile": {
                     "label": "Mobiele telefoon",
+                    "placeholder": "+000 0000 0000 0000",
                     "terms": [
                         "telefoon",
                         "nummer",
@@ -3559,7 +3799,6 @@
                         "construction_company": "Bouwonderneming",
                         "courier": "Kantoor van een pakjesbedrijf",
                         "logistics": "Kantoor van transporteur",
-                        "property_management": "Kantoor van syndicus",
                         "government": "Overheidskantoor",
                         "company": "Kantoor van bedrijf",
                         "estate_agent": "Makelaarskantoor",
@@ -3584,6 +3823,7 @@
                         "energy_supplier": "Kantoor van energiemaatschappij",
                         "financial_advisor": "Financieel adviseur",
                         "consulting": "Adviesbureau",
+                        "property_management": "Kantoor van een vastgoedbeheerder",
                         "newspaper": "Krantredactie",
                         "security": "Kantoor van de beveiliging",
                         "engineer": "Kantoor van een werktuigkundige",
@@ -3666,6 +3906,7 @@
                 },
                 "opening_hours": {
                     "label": "Openingstijden",
+                    "placeholder": "Ma-Vr 09:00-18:00",
                     "terms": [
                         "uren",
                         "uur",
@@ -3779,7 +4020,7 @@
                         },
                         "half_on_kerb": {
                             "description": "Deels parkeren op het trottoir.",
-                            "title": "Half op de borduur"
+                            "title": "Half op de stoep"
                         },
                         "lane": {
                             "description": "Parkeren op de straat (waarbij de parkeerstrook makkelijk kan omgevormd worden tot een rijstrook).",
@@ -3795,7 +4036,7 @@
                         },
                         "on_kerb": {
                             "description": "Parkeren op het trottoir.",
-                            "title": "Op de borduur"
+                            "title": "Op de stoep"
                         },
                         "rooftop": {
                             "description": "Parking op het dak van een gebouw.",
@@ -3813,11 +4054,11 @@
                             "title": "Straatkant"
                         },
                         "surface": {
-                            "description": "Parking op de begane grond.",
+                            "description": "Parkeerplaats",
                             "title": "Oppervlak"
                         },
                         "underground": {
-                            "description": "Ondergrondse parking.",
+                            "description": "Ondergrondse parkeergarage.",
                             "title": "Ondergronds"
                         }
                     }
@@ -3872,7 +4113,7 @@
                         },
                         "half_on_kerb": {
                             "description": "Deels parkeren op het trottoir.",
-                            "title": "Half op de borduur"
+                            "title": "Half op de stoep"
                         },
                         "lane": {
                             "description": "Parkeren op de straat (waarbij de parkeerstrook makkelijk kan omgevormd worden tot een rijstrook).",
@@ -3888,7 +4129,7 @@
                         },
                         "on_kerb": {
                             "description": "Parkeren op het trottoir.",
-                            "title": "Op de borduur"
+                            "title": "Op de stoep"
                         },
                         "rooftop": {
                             "description": "Parking op het dak van een gebouw.",
@@ -3906,11 +4147,11 @@
                             "title": "Straatkant"
                         },
                         "surface": {
-                            "description": "Parking op de begane grond.",
+                            "description": "Parkeerplaats",
                             "title": "Oppervlak"
                         },
                         "underground": {
-                            "description": "Ondergrondse parking.",
+                            "description": "Ondergrondse parkeergarage.",
                             "title": "Ondergronds"
                         }
                     }
@@ -3942,7 +4183,6 @@
                         "dkv": "DKV",
                         "electronic_purses": "Elektronische waardekaart",
                         "ep_easycard": "Easycard",
-                        "ep_geldkarte": "GeldKarte",
                         "ep_ipass": "iPASS",
                         "girocard": "Girocard",
                         "google_pay": "Google Pay",
@@ -3966,6 +4206,12 @@
                         "betaalmethoden",
                         "betaalmiddelen"
                     ]
+                },
+                "pedagogy": {
+                    "options": {
+                        "dalton": "Dalton",
+                        "montessori": "Montessori"
+                    }
                 },
                 "phases": {
                     "label": "Fasen",
@@ -4160,33 +4406,26 @@
                 "playground": {
                     "label": "Speelplaatstype",
                     "options": {
-                        "activitypanel": "Activiteitenpaneel",
                         "aerialrotator": "Draaiplateau",
                         "archimedes_screw": "Schroef van Archimedes",
                         "baby_swing": "Babyschommel",
                         "balance": "Balanceertoestel (ongespecificeerd)",
-                        "balancebeam": "Evenwichtsbalk",
                         "ball_pool": "Ballenbak",
                         "bannister_bars": "Glijstangen",
                         "basketrotator": "Manddraaimolentje",
                         "belt_bridge": "Rubberen hangbrug",
                         "blackboard": "Schoolbord",
-                        "bridge": "Brug",
                         "chute": "Tunnelglijbaan",
                         "climbing": "Klimtoestel (ongespecificeerd)",
                         "climbing_pole": "Klimpaal",
                         "climbing_slope": "Klimhelling",
-                        "climbingframe": "Klimrek",
-                        "climbingwall": "Klimmuur",
                         "dome": "Koepelvormig klimrek",
                         "excavator": "Graafarm",
                         "exercise": "Fitnesstoestel",
                         "funnel_ball": "Funnel Ball",
                         "hammock": "Hangmat",
                         "hamster_wheel": "Hamsterrad",
-                        "horizontal_bar": "Rekstok",
                         "ladder": "Ladder",
-                        "map": "Kaart",
                         "marble_run": "Knikkerbaan",
                         "maze": "Doolhof",
                         "monkey_bars": "Apenrek",
@@ -4194,18 +4433,15 @@
                         "musical_instrument": "Muziekinstrument",
                         "parallel_bars": "Parallel bars (brug)",
                         "platform": "Platform",
-                        "playhouse": "Speelhuisje",
                         "pump": "Pomp",
                         "ride_on": "Vast rijtoestel",
                         "rope_swing": "Touwschommel",
                         "rope_traverse": "Touwparcours",
                         "rotator": "Draaielement (ongespecificeerd)",
-                        "roundabout": "Draaimolen",
                         "sand": "Zandtoestel (ongespecificeerd)",
                         "sand_pulley": "Zandtakel",
                         "sand_seesaw": "Zandwip",
                         "sand_wheel": "Zandrad",
-                        "sandpit": "Zandbak",
                         "seat": "Zitje",
                         "sieve": "Zeef",
                         "sledding": "Sleeheuvel",
@@ -4214,17 +4450,14 @@
                         "spinner_bowl": "Draaikom",
                         "spinning_circle": "Draaicirkel",
                         "spinning_disc": "Draaischijf",
-                        "splash_pad": "Waterspelplaats",
                         "spring_board": "Springplank",
                         "stepping_post": "Stappaal",
                         "stepping_stone": "Stapstenen",
                         "steps": "Trap",
-                        "structure": "Speeltuig",
                         "table": "Tafel",
                         "tire_swing": "Bandschommel",
                         "track": "Speelbaan",
                         "tunnel_tube": "Tunnelbuis",
-                        "water": "Watertoestel (ongespecificeerd)",
                         "water_barrier": "Waterdam",
                         "water_basin": "Waterbassin",
                         "water_cannon": "Waterkanon",
@@ -4235,14 +4468,27 @@
                         "water_wheel": "Waterrad",
                         "wobble_bridge": "Wiebelbrug",
                         "youth_bench": "Jongerenbank",
-                        "zipwire": "Tokkelbaan / Kabelbaan",
                         "swing": "Schommel",
+                        "structure": "Speeltuig",
                         "slide": "Glijbaan",
+                        "sandpit": "Zandbak",
                         "springy": "Veerwip",
+                        "climbingframe": "Klimrek",
                         "seesaw": "Wip",
+                        "playhouse": "Speelhuis",
                         "basketswing": "Mandschommel",
+                        "roundabout": "Speelplein-draaimolen",
                         "trampoline": "Trampoline",
+                        "zipwire": "Tokkelbaan",
+                        "horizontal_bar": "Rekstok als speeltuig",
+                        "balancebeam": "Evenwichtsbalk als speeltuig",
                         "hopscotch": "Hinkelen",
+                        "splash_pad": "Waterspeelmat",
+                        "climbingwall": "Klimmuur",
+                        "water": "Waterspeeltoestel (niet-gespecificeerd)",
+                        "bridge": "Speelbrug",
+                        "map": "Speeltuinkaart",
+                        "activitypanel": "Activiteitenpaneel",
                         "cushion": "Springkussen",
                         "teenshelter": "Hangplek voor jongeren"
                     }
@@ -4355,6 +4601,18 @@
                         "forward": "Voorwaarts (in richting van de getekende lijn)"
                     }
                 },
+                "railway/signal/position": {
+                    "options": {
+                        "left": "Links",
+                        "right": "Rechts"
+                    }
+                },
+                "railway/signal_box": {
+                    "options": {
+                        "electronic": "Volautomatisch",
+                        "track_diagram": "Digitaal"
+                    }
+                },
                 "railway/switch": {
                     "label": "Soort wissel",
                     "options": {
@@ -4368,6 +4626,12 @@
                 },
                 "railway/track_ref": {
                     "label": "Spoorlijnnummer"
+                },
+                "railway/turnout_side": {
+                    "options": {
+                        "left": "Links",
+                        "right": "Rechts"
+                    }
                 },
                 "ramp": {
                     "label": "Ingebedde helling",
@@ -4530,6 +4794,38 @@
                     "label": "Type"
                 },
                 "religion": {
+                    "label": "Religie",
+                    "options": {
+                        "bahai": "Bahai",
+                        "benzhu": "Benzhuïsme",
+                        "buddhist": "Boeddhistisch",
+                        "caodaism": "Caodaistisch",
+                        "chinese_folk": "Chinees volksgeloof",
+                        "christian": "Christelijk",
+                        "confucian": "Confucianistisch",
+                        "hindu": "Hindoestaans",
+                        "jain": "Jainisme",
+                        "jewish": "Joods",
+                        "multifaith": "Multireligieus",
+                        "muslim": "Islamitisch",
+                        "none": "Niet religieus",
+                        "pagan": "Paganisme",
+                        "shinto": "Shintoïsme",
+                        "sikh": "Sikhisme",
+                        "spiritualist": "Spiritualisme",
+                        "taoist": "Taoisme",
+                        "tenrikyo": "Tenrikyō",
+                        "unitarian_universalist": "Unitaristisch Universalisme",
+                        "vietnamese_folk": "Vietnamese volksreligies",
+                        "voodoo": "Voodoo"
+                    },
+                    "terms": [
+                        "religie",
+                        "geloof",
+                        "godsdienst"
+                    ]
+                },
+                "religion_place_of_worship": {
                     "label": "Religie",
                     "options": {
                         "bahai": "Bahai",
@@ -4788,7 +5084,6 @@
                     "label": "Kleur",
                     "options": {
                         "green": "Groen",
-                        "grey": "Grijs",
                         "red": "Rood"
                     }
                 },
@@ -4964,13 +5259,189 @@
                     "label": "Beschutting"
                 },
                 "shelter_type": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "public_transport": "Schuilhuisje voor openbaar vervoer",
+                        "picnic_shelter": "Picknickpaviljoen",
+                        "gazebo": "Prieel",
+                        "lean_to": "Halfopen hut"
+                    }
                 },
                 "shoes": {
                     "label": "Schoenen"
                 },
                 "shop": {
-                    "label": "Type"
+                    "label": "Type",
+                    "options": {
+                        "convenience": "Gemakswinkel",
+                        "supermarket": "Supermarkt",
+                        "clothes": "Kledingzaak",
+                        "hairdresser": "Kapper",
+                        "car_repair": "Autogarage",
+                        "bakery": "Bakkerij",
+                        "beauty": "Schoonheidssalon",
+                        "car": "Autoshowroom",
+                        "hardware": "Bouwmarkt",
+                        "butcher": "Slagerij",
+                        "kiosk": "Winkelkiosk",
+                        "mobile_phone": "Mobieletelefoonwinkel",
+                        "furniture": "Meubelzaak",
+                        "car_parts": "Auto-onderdelenwinkel",
+                        "alcohol": "Slijterij",
+                        "variety_store": "Discountwinkel",
+                        "florist": "Bloemenwinkel",
+                        "optician": "Opticien",
+                        "electronics": "Huishoudtoestellen-/Witgoedwinkel",
+                        "jewelry": "Juwelierszaak",
+                        "outpost": "Voorpost van een online retailer",
+                        "shoes": "Schoenenwinkel",
+                        "vacant": "Leegstaande winkel",
+                        "mall": "Winkelcentrum",
+                        "gift": "Cadeauwinkel",
+                        "doityourself": "Bouwmarkt, doe-het-zelfwinkel",
+                        "greengrocer": "Groenteboer",
+                        "chemist": "Drogisterij",
+                        "laundry": "Wasserette",
+                        "books": "Boekenwinkel",
+                        "bicycle": "Fietswinkel",
+                        "department_store": "Warenhuis",
+                        "pet": "Dierenwinkel",
+                        "travel_agency": "Reisbureau",
+                        "stationery": "Kantoorboekhandel",
+                        "sports": "Sportzaak",
+                        "confectionery": "Snoepwinkel",
+                        "tyres": "Bandenwinkel",
+                        "storage_rental": "Zelfopslag",
+                        "tobacco": "Tabakswinkel",
+                        "cosmetics": "Cosmeticawinkel",
+                        "trade": "Bouwmaterialenhandel",
+                        "massage": "Massagewinkel",
+                        "tailor": "Kleermaker",
+                        "computer": "Computerwinkel",
+                        "funeral_directors": "Begrafenisondernemer",
+                        "copyshop": "Copyshop",
+                        "pastry": "Patisserie",
+                        "motorcycle": "Motorwinkel",
+                        "dry_cleaning": "Stomerij",
+                        "farm": "Boerderijwinkel voor groente en fruit",
+                        "garden_centre": "Tuincentrum",
+                        "beverages": "Drankenwinkel",
+                        "newsagent": "Krantenkiosk",
+                        "general": "Algemene winkel",
+                        "ticket": "Ticketverkoop",
+                        "interior_decoration": "Binnenhuisdecoratiewinkel",
+                        "deli": "Delicatessen",
+                        "houseware": "Huisraadwinkel",
+                        "toys": "Speelgoedwinkel",
+                        "seafood": "Viswinkel",
+                        "wine": "Wijnhandel",
+                        "tattoo": "Tattoozetter",
+                        "wholesale": "Groothandel",
+                        "paint": "Verfwinkel",
+                        "second_hand": "Tweedehandswinkel",
+                        "pawnbroker": "Pandjeshuis",
+                        "medical_supply": "Winkel voor medische hulpmiddelen",
+                        "charity": "Winkel van goed doel",
+                        "photo": "Fotowinkel",
+                        "bed": "Bed-/Matrassenwinkel",
+                        "kitchen": "Keukenontwerpwinkel",
+                        "bookmaker": "Bookmaker (gokkantoor)",
+                        "art": "Kunstwinkel",
+                        "lottery": "Loterij",
+                        "agrarian": "Landbouwbenodigdhedenwinkel",
+                        "outdoor": "Buitensportwinkel",
+                        "antiques": "Antiekwinkel",
+                        "e-cigarette": "E-sigarettenwinkel",
+                        "fabric": "Stofwinkel",
+                        "coffee": "Koffiewinkel",
+                        "perfumery": "Parfumwinkel",
+                        "gas": "Gasflessenwinkel",
+                        "motorcycle_repair": "Motorreparatie",
+                        "hearing_aids": "Hoorapparatenwinkel",
+                        "appliance": "Huishoudelijkeapparatuurwinkel",
+                        "craft": "Winkel voor schilder- en tekengereedschap",
+                        "electrical": "Winkel voor elektriciteitsbenodigdheden",
+                        "telecommunication": "Telecomwinkel",
+                        "money_lender": "Particuliere Gelduitleendienst",
+                        "pet_grooming": "Huisdiertrimmer",
+                        "tea": "Theewinkel",
+                        "bag": "Tas-/Reiskofferwinkel",
+                        "dairy": "Zuivelhandel",
+                        "baby_goods": "Babyartikelenwinkel",
+                        "musical_instrument": "Muziekinstrumentenwinkel",
+                        "rental": "Verhuurwinkel",
+                        "fashion_accessories": "Modeaccessoirewinkel",
+                        "cannabis": "Cannabiswinkel",
+                        "health_food": "Natuurvoedingswinkel",
+                        "chocolate": "Chocoladewinkel",
+                        "music": "Muziekwinkel",
+                        "carpet": "Tapijtwinkel",
+                        "cheese": "Kaaswinkel",
+                        "fishing": "Hengelsportwinkel",
+                        "repair": "Reparatiewinkel",
+                        "locksmith": "Slotenmaker",
+                        "nutrition_supplements": "Voedingssupplementenwinkel",
+                        "bathroom_furnishing": "Badkamermeubelwinkel",
+                        "watches": "Horlogewinkel",
+                        "sewing": "Naaiwinkel",
+                        "video_games": "Computerspelwinkel",
+                        "curtain": "Gordijnenwinkel",
+                        "lighting": "Verlichtingswinkel",
+                        "herbalist": "Herbalist",
+                        "tiles": "Tegelwinkel",
+                        "flooring": "Vloerwinkel",
+                        "frozen_food": "Winkel voor bevroren voedsel",
+                        "doors": "Deurenwinkel",
+                        "hifi": "Hifi-/Bruingoedwinkel",
+                        "shoe_repair": "Schoenenreparatiewinkel",
+                        "erotic": "Seksshop",
+                        "party": "Feestwinkel",
+                        "water": "Drinkwaterwinkel",
+                        "religion": "Religieuze winkel",
+                        "frame": "Lijstenmakerij",
+                        "swimming_pool": "Winkel voor zwembadbenodigdheden",
+                        "hairdresser_supply": "Haarbenodigdhedenwinkel",
+                        "video": "Videotheek",
+                        "games": "Bordspellenwinkel",
+                        "leather": "Lederwinkel",
+                        "weapons": "Wapenwinkel",
+                        "country_store": "Plattelandswinkel",
+                        "fuel": "Brandstofwinkel",
+                        "boat": "Bootwinkel",
+                        "pottery": "Winkel voor aardewerk",
+                        "fireplace": "Haardwinkel",
+                        "window_blind": "Jaloeziewinkel",
+                        "collector": "Winkel voor verzamelobjecten",
+                        "tool_hire": "Gereedschapsverhuur",
+                        "caravan": "Caravan-dealer",
+                        "household_linen": "Winkel voor huishoudelijk linnen",
+                        "ice_cream": "IJssalon",
+                        "spices": "Kruidenwinkel",
+                        "scuba_diving": "Duikwinkel",
+                        "pyrotechnics": "Vuurwerkwinkel",
+                        "printer_ink": "Winkel voor printerinkt",
+                        "nuts": "Notenwinkel",
+                        "mobile_phone_accessories": "Winkel voor mobiele telefoonaccessoires",
+                        "model": "Modelwinkel",
+                        "gold_buyer": "Goudkoper",
+                        "candles": "Kaarsenwinkel",
+                        "hunting": "Jachtwinkel",
+                        "groundskeeping": "Winkel voor grasveld- en tuinbenodigdheden",
+                        "pasta": "Pastawinkel",
+                        "vacuum_cleaner": "Stofzuigerwinkel",
+                        "honey": "Honingwinkel",
+                        "camera": "Winkel voor camerabenodigdheden",
+                        "rice": "Rijstwinkel",
+                        "anime": "Anime-/Mangawinkel",
+                        "psychic": "Medium (esoterie)",
+                        "trophy": "Trofeewinkel",
+                        "wigs": "Pruikenwinkel",
+                        "catalogue": "Cataloguswinkel",
+                        "military_surplus": "Legerdump",
+                        "brewing_supplies": "Winkel voor brouwbenodigdheden",
+                        "esoteric": "Esoteriewinkel",
+                        "bbq": "BBQ Winkel"
+                    }
                 },
                 "short_name": {
                     "label": "korte naam,afgekort,verkort",
@@ -5063,7 +5534,6 @@
                     "label": "Type",
                     "options": {
                         "assisted_living": "Begeleid wonen",
-                        "day_care": "Dagverzorging",
                         "group_home": "Groepwoning",
                         "outreach": "Outreach",
                         "shelter": "Opvang",
@@ -6228,7 +6698,6 @@
                         "pizza": "Pizza",
                         "public_transport_tickets": "Kaartjes voor het openbaar vervoer",
                         "stamps": "Postzegels",
-                        "sweets": "Snoep",
                         "water": "Drinkwater"
                     }
                 },
@@ -6383,8 +6852,8 @@
                 "wetland": {
                     "label": "Type",
                     "options": {
-                        "reedbed": "Rietland",
                         "marsh": "Moeras (onbebost)",
+                        "reedbed": "Rietland",
                         "saltmarsh": "Zoutmoeras",
                         "tidalflat": "Wad",
                         "wet_meadow": "Natte weide",
@@ -6485,6 +6954,704 @@
                         "ster",
                         "driehoek"
                     ]
+                },
+                "building_area_yes": {
+                    "label": "Gebouw",
+                    "terms": [
+                        "gebouw",
+                        "structuur"
+                    ]
+                },
+                "construction_highway": {
+                    "label": "Type",
+                    "options": {
+                        "bridleway": "Ruiterpad",
+                        "cycleway": "Fietspad",
+                        "footway": "Voetpad",
+                        "living_street": "Woonerf",
+                        "motorway_link": "Verbindingsweg van autosnelweg",
+                        "path": "Pad",
+                        "pedestrian": "Voetgangersstraat",
+                        "primary": "Hoofdweg",
+                        "primary_link": "Verbindingsweg van hoofdweg",
+                        "raceway": "Motorsport racecircuit",
+                        "residential": "Straat",
+                        "secondary": "Secundaire weg",
+                        "secondary_link": "Verbindingsweg van secundaire weg",
+                        "service": "Toegangsweg",
+                        "steps": "Trap",
+                        "tertiary": "Tertiare weg",
+                        "tertiary_link": "Verbindingsweg van tertiaire weg",
+                        "track": "Veld- of bosweg",
+                        "trunk": "Autoweg",
+                        "motorway": "Autosnelweg",
+                        "trunk_link": "Verbindingsweg van autoweg",
+                        "road": "Weg met onbekend type"
+                    }
+                },
+                "cyclestreet-BE-NL": {
+                    "label": "Fietsstraat",
+                    "terms": [
+                        "auto te gast",
+                        "fiets",
+                        "fietslaan",
+                        "bike lane"
+                    ],
+                    "options": {
+                        "undefined": "Nee",
+                        "yes": "Ja"
+                    }
+                },
+                "design_power_pole": {
+                    "label": "Ontwerp"
+                },
+                "design_power_tower": {
+                    "label": "Ontwerp"
+                },
+                "destination_oneway": {
+                    "label": "Bestemmingen"
+                },
+                "direction_vertex_dual": {
+                    "label": "Richting beïnvloed",
+                    "terms": [
+                        "richting"
+                    ],
+                    "options": {
+                        "backward": "Achterwaarts (tegen richting van de getekende lijn in)",
+                        "both": "Beide / Alle",
+                        "forward": "Voorwaarts (in richting van de getekende lijn)"
+                    }
+                },
+                "dog_yes": {
+                    "label": "Honden",
+                    "terms": [
+                        "huisdier",
+                        "hond"
+                    ],
+                    "options": {
+                        "leashed": "Alleen aan de leiband",
+                        "no": "Niet toegestaan",
+                        "unleashed": "Leiband niet vereist",
+                        "yes": "Toegestaan"
+                    }
+                },
+                "drive_through-US": {
+                    "label": "Drive-Through",
+                    "terms": [
+                        "drive-through"
+                    ]
+                },
+                "drive_through-except-US": {
+                    "label": "Drive-Through",
+                    "terms": [
+                        "drive-through"
+                    ]
+                },
+                "drive_through_common_for_atm": {
+                    "label": "Drive-Through",
+                    "terms": [
+                        "drive-through"
+                    ]
+                },
+                "drive_through_uncommon_for_atm": {
+                    "label": "Drive-Through",
+                    "terms": [
+                        "drive-through"
+                    ]
+                },
+                "ele_node": {
+                    "label": "Hoogte (meter)",
+                    "terms": [
+                        "hoogte",
+                        "meters"
+                    ]
+                },
+                "frequency_electrified": {
+                    "label": "Frequentie",
+                    "terms": [
+                        "werkfrequentie"
+                    ]
+                },
+                "gender_simple": {
+                    "label": "Geslacht",
+                    "terms": [
+                        "gender"
+                    ],
+                    "options": {
+                        "female": "Vrouwelijk",
+                        "male": "Mannelijk",
+                        "unisex": "Unisex"
+                    }
+                },
+                "healthcare_therapist": {
+                    "label": "Type",
+                    "options": {
+                        "blood_bank": "Bloedbank",
+                        "community_health_worker": "Gemeenschapsgezondheidswerker",
+                        "hospital": "Ziekenhuis",
+                        "nurse": "Verpleegkundige",
+                        "vaccination_centre": "Vaccinatiecentrum",
+                        "pharmacy": "Apotheek",
+                        "doctor": "Dokter",
+                        "clinic": "Dagbehandelingscentrum",
+                        "dentist": "Tandarts",
+                        "laboratory": "Medisch laboratorium",
+                        "psychotherapist": "Psychotherapeut",
+                        "optometrist": "Optometrist",
+                        "rehabilitation": "Revalidatiekliniek",
+                        "podiatrist": "Podoloog",
+                        "speech_therapist": "Logopedist",
+                        "hospice": "Palliatievezorgcentrum",
+                        "occupational_therapist": "Ergotherapeut",
+                        "dialysis": "Dialysecentrum",
+                        "midwife": "Verloskundige",
+                        "sample_collection": "Faciliteit voor monsterafname",
+                        "audiologist": "Audiologist",
+                        "birthing_centre": "Geboortecentrum",
+                        "alternative": "Alternatieve geneeskunde"
+                    }
+                },
+                "intermittent_yes": {
+                    "label": "Staat soms droog",
+                    "terms": [
+                        "onderbroken"
+                    ]
+                },
+                "leaf_cycle_singular": {
+                    "label": "Bladercyclus",
+                    "terms": [
+                        "boom",
+                        "blad",
+                        "cyclus"
+                    ],
+                    "options": {
+                        "deciduous": "Bladverliezend",
+                        "evergreen": "Groenblijvend",
+                        "mixed": "Gemengd",
+                        "semi_deciduous": "Half-bladverliezend",
+                        "semi_evergreen": "Half-groenblijvend"
+                    }
+                },
+                "maxweight_bridge": {
+                    "label": "Gewichtsbeperking",
+                    "terms": [
+                        "gewicht",
+                        "beperking",
+                        "limiet"
+                    ]
+                },
+                "payment_multi_fee": {
+                    "label": "Betalingsmiddelen",
+                    "terms": [
+                        "betaalmethoden",
+                        "betaalmiddelen"
+                    ],
+                    "options": {
+                        "account_cards": "Bankpas",
+                        "alipay": "Alipay",
+                        "american_express": "American Express",
+                        "app": "Mobiele app",
+                        "apple_pay": "Apple Pay",
+                        "bancomat": "Bancomat",
+                        "blik": "BLIK",
+                        "cards": "Betaalpas",
+                        "cash": "Contant geld",
+                        "cheque": "Cheque",
+                        "clipper": "Clipper",
+                        "coins": "Munten",
+                        "contactless": "Contactloze betaling",
+                        "credit_cards": "Creditcard",
+                        "cryptocurrencies": "Cryptogeld",
+                        "debit_cards": "Debetkaart",
+                        "diners_club": "Diners Club",
+                        "discover_card": "Discover",
+                        "dkv": "DKV",
+                        "electronic_purses": "Elektronische waardekaart",
+                        "ep_easycard": "Easycard",
+                        "ep_ipass": "iPASS",
+                        "girocard": "Girocard",
+                        "google_pay": "Google Pay",
+                        "jcb": "JCB",
+                        "maestro": "Maestro",
+                        "mastercard": "Mastercard",
+                        "mastercard_contactless": "Mastercard contactloos",
+                        "notes": "Bankbiljetten",
+                        "paypal": "PayPal",
+                        "prepaid_ticket": "Prepaid ticket",
+                        "telephone_cards": "Telefoonkaart",
+                        "unionpay": "UnionPay",
+                        "uta": "UTA",
+                        "v_pay": "V Pay",
+                        "visa": "Visa",
+                        "visa_debit": "Visa Debit",
+                        "visa_electron": "Visa Electron",
+                        "wechat": "WeChat Pay"
+                    }
+                },
+                "ref_bridge_number": {
+                    "label": "Brugnummer",
+                    "terms": [
+                        "brug",
+                        "nummer",
+                        "referentie"
+                    ]
+                },
+                "reservation_booking": {
+                    "options": {
+                        "no": "Niet geaccepteerd",
+                        "recommended": "Aanbevolen",
+                        "required": "Vereist",
+                        "yes": "Geaccepteerd"
+                    },
+                    "terms": [
+                        "reservatie",
+                        "voorbehouden",
+                        "reserveren",
+                        "reservering"
+                    ]
+                },
+                "surface_sport_pitch": {
+                    "label": "Oppervlak",
+                    "terms": [
+                        "oppervlak",
+                        "ondergrond",
+                        "bedekking"
+                    ],
+                    "options": {
+                        "artificial_turf": "Kunstgras",
+                        "asphalt": "Asfalt",
+                        "clay": "Klei",
+                        "compacted": "Verdicht",
+                        "concrete": "Beton",
+                        "concrete:lanes": "Beton karrenspoor",
+                        "concrete:plates": "Betonplaten",
+                        "dirt": "Aarde",
+                        "fine_gravel": "Fijn steenslag",
+                        "grass": "Gras",
+                        "grass_paver": "Grasdallen",
+                        "gravel": "Grind",
+                        "ground": "Grond",
+                        "metal": "Metaal",
+                        "mud": "Altijd modderig",
+                        "paved": "Bestraat",
+                        "paving_stones": "Straatstenen",
+                        "pebblestone": "Steentjes",
+                        "salt": "Zout",
+                        "sand": "Zand",
+                        "sett": "Kasseien",
+                        "tartan": "Tartan",
+                        "unhewn_cobblestone": "Kinderkopjes (onbewerkte, ronde stenen)",
+                        "unpaved": "Niet-bestraat",
+                        "wood": "Hout",
+                        "woodchips": "Houtsnippers"
+                    }
+                },
+                "voltage_electrified": {
+                    "label": "Spanning"
+                },
+                "toilets/menstrual_products_poi": {
+                    "label": "Gratis menstruatieproducten beschikbaar",
+                    "terms": [
+                        "gratis",
+                        "menstrucatieproducten",
+                        "tampons",
+                        "maandverband",
+                        "beschikbaar"
+                    ],
+                    "options": {
+                        "limited": "Beperkt tot enkele hokjes",
+                        "no": "Geen",
+                        "yes": "Ja, in alle hokjes"
+                    }
+                },
+                "sport/sport_bowling": {
+                    "options": {
+                        "10pin": "Bowlen",
+                        "9pin": "Kegelen",
+                        "american_football": "Rugby",
+                        "athletics": "Atletiek",
+                        "badminton": "Badminton",
+                        "baseball": "Honkbal",
+                        "basketball": "Basketbal",
+                        "beachvolleyball": "Beachvolleybal",
+                        "billiards": "Biljart",
+                        "bmx": "BMX",
+                        "boules": "Jeu de Boules",
+                        "bowls": "Bowls",
+                        "canoe": "Kanoën",
+                        "chess": "Schaken",
+                        "climbing": "Klimmen",
+                        "cricket": "Cricket",
+                        "curling": "Curling",
+                        "cycling": "Fietsen",
+                        "darts": "Darts",
+                        "disc_golf": "Discgolf",
+                        "dog_racing": "Hondenrennen",
+                        "equestrian": "Paardensport",
+                        "fitness": "Fitness",
+                        "free_flying": "Paragliding\nParapente",
+                        "futsal": "Zaalvoetbal",
+                        "gaelic_games": "Gaelic Games",
+                        "golf": "Golf",
+                        "gymnastics": "Gymnastiek",
+                        "handball": "Handbal",
+                        "horse_racing": "Paardenrennen",
+                        "ice_hockey": "IJshockey",
+                        "ice_skating": "Schaatsen",
+                        "ice_stock": "IJsstokschieten",
+                        "karting": "Karten",
+                        "motocross": "Motorcross",
+                        "motor": "Motorsport",
+                        "multi": "Andere, niet nader gespecificeerde sport",
+                        "netball": "Netball",
+                        "orienteering": "Oriëntatieloop",
+                        "padel": "Padel",
+                        "pelota": "Pelota",
+                        "rugby_union": "Rugby Union",
+                        "running": "Hardlopen",
+                        "scuba_diving": "Duiken",
+                        "shooting": "Schieten",
+                        "skateboard": "Skateboarden",
+                        "ski_jumping": "Schansspringen",
+                        "skiing": "Skiën",
+                        "soccer": "Voetbal",
+                        "softball": "Softbal",
+                        "speedway": "Speedway",
+                        "swimming": "Zwemmen",
+                        "table_tennis": "Tafeltennis",
+                        "tennis": "Tennis",
+                        "volleyball": "Volleybal",
+                        "yoga": "Yoga"
+                    }
+                },
+                "railway/ref": {
+                    "label": "Referentiecode",
+                    "terms": [
+                        "code",
+                        "referentie"
+                    ]
+                },
+                "post_box/type-GB": {
+                    "label": "Type",
+                    "terms": [
+                        "type",
+                        "soort"
+                    ],
+                    "options": {
+                        "lamp": "Bevestigd aan een paal",
+                        "pillar": "Vrijstaande bus",
+                        "wall": "In een muur"
+                    }
+                },
+                "plant/method/hydro": {
+                    "label": "Generatiemethode (elektriciteit)",
+                    "options": {
+                        "anaerobic_digestion": "Anaerobe vergisting",
+                        "barrage": "Getijdenstuwdam",
+                        "combustion": "Verbranding",
+                        "fission": "Kernsplijting",
+                        "fusion": "Kernfusie",
+                        "gasification": "Vergassing",
+                        "photovoltaic": "Fotovoltaïsch",
+                        "run-of-the-river": "Run-of-river waterkrachtcentrale",
+                        "stream": "Getijdenstroom",
+                        "thermal": "Thermische zonne-energie",
+                        "water-pumped-storage": "Pompaccumulatie",
+                        "water-storage": "Reservoir",
+                        "wind_turbine": "Windturbine"
+                    }
+                },
+                "plant/method/solar": {
+                    "label": "Generatiemethode (elektriciteit)",
+                    "options": {
+                        "anaerobic_digestion": "Anaerobe vergisting",
+                        "barrage": "Getijdenstuwdam",
+                        "combustion": "Verbranding",
+                        "fission": "Kernsplijting",
+                        "fusion": "Kernfusie",
+                        "gasification": "Vergassing",
+                        "photovoltaic": "Fotovoltaïsch",
+                        "run-of-the-river": "Run-of-river waterkrachtcentrale",
+                        "stream": "Getijdenstroom",
+                        "thermal": "Thermische zonne-energie",
+                        "water-pumped-storage": "Pompaccumulatie",
+                        "water-storage": "Reservoir",
+                        "wind_turbine": "Windturbine"
+                    }
+                },
+                "plant/method/waste": {
+                    "label": "Generatiemethode (elektriciteit)",
+                    "options": {
+                        "anaerobic_digestion": "Anaerobe vergisting",
+                        "barrage": "Getijdenstuwdam",
+                        "combustion": "Verbranding",
+                        "fission": "Kernsplijting",
+                        "fusion": "Kernfusie",
+                        "gasification": "Vergassing",
+                        "photovoltaic": "Fotovoltaïsch",
+                        "run-of-the-river": "Run-of-river waterkrachtcentrale",
+                        "stream": "Getijdenstroom",
+                        "thermal": "Thermische zonne-energie",
+                        "water-pumped-storage": "Pompaccumulatie",
+                        "water-storage": "Reservoir",
+                        "wind_turbine": "Windturbine"
+                    }
+                },
+                "memorial/addr_subtags": {
+                    "label": "Dichtstbijzijnde adres",
+                    "terms": [
+                        "dichtstbijzinde",
+                        "adres",
+                        "in de buurt",
+                        "omgeving"
+                    ]
+                },
+                "generator/method/hydro": {
+                    "label": "Methode",
+                    "options": {
+                        "anaerobic_digestion": "Anaerobe vergisting",
+                        "barrage": "Getijdenstuwdam",
+                        "combustion": "Verbranding",
+                        "fission": "Kernsplijting",
+                        "fusion": "Kernfusie",
+                        "gasification": "Vergassing",
+                        "photovoltaic": "Fotovoltaïsch",
+                        "run-of-the-river": "Run-of-river waterkrachtcentrale",
+                        "stream": "Getijdenstroom",
+                        "thermal": "Thermische zonne-energie",
+                        "water-pumped-storage": "Pompaccumulatie",
+                        "water-storage": "Reservoir",
+                        "wind_turbine": "Windturbine"
+                    }
+                },
+                "fuel/fuel_multi-RU": {
+                    "label": "Brandstofsoorten",
+                    "options": {
+                        "GTL_diesel": "GTL-diesel",
+                        "HGV_diesel": "Vrachtwagendiesel",
+                        "LH2": "Vloeibare waterstof",
+                        "adblue": "AdBlue / AUS32",
+                        "adblue:canister": "AdBlue / AUS32 (verkocht in jerrycans)",
+                        "biodiesel": "Biodiesel",
+                        "cng": "Gecomprimeerd aardgas (CNG)",
+                        "diesel": "Diesel",
+                        "e10": "E10 Benzine",
+                        "e5": "E5 Benzine",
+                        "e85": "E85 Benzine",
+                        "h70": "Gasvormige waterstof (700 bar)",
+                        "lng": "Vloeibaar aardgas (LNG)",
+                        "lpg": "Vloeibaar Petroleumgas (LPG)",
+                        "octane_100": "Benzine (octaangetal 100)",
+                        "octane_80": "Benzine (octaangetal 80)",
+                        "octane_85": "Benzine (octaangetal 85)",
+                        "octane_87": "Benzine (octaangetal 87)",
+                        "octane_88": "Benzine (octaangetal 88)",
+                        "octane_89": "Benzine (octaangetal 89)",
+                        "octane_90": "Benzine (octaangetal 90)",
+                        "octane_91": "Benzine (octaangetal 91)",
+                        "octane_92": "Benzine (octaangetal 92)",
+                        "octane_93": "Benzine (octaangetal 93)",
+                        "octane_95": "Benzine (octaangetal 95)",
+                        "octane_97": "Benzine (octaangetal 97)",
+                        "octane_98": "Benzine (octaangetal 98)",
+                        "propane": "Propaan"
+                    }
+                },
+                "destination/ref_oneway": {
+                    "label": "Wegnummers van bestemmingen"
+                },
+                "destination/symbol_oneway": {
+                    "label": "Symbolen van bestemmingen"
+                },
+                "crossing/markings-BG": {
+                    "label": "Markering van oversteekplaats",
+                    "terms": [
+                        "oversteek",
+                        "markeringen",
+                        "wegmarkeringen",
+                        "oversteekplaats"
+                    ],
+                    "options": {
+                        "dashes": "Gestreepte lijnen dwars op de weg",
+                        "dots": "Gestippelde lijnen dwars op de weg",
+                        "ladder": "Ladder met dwarsbalken",
+                        "ladder:paired": "Ladder met sets dwarsbalken",
+                        "ladder:skewed": "Ladder met diagonale dwarsbalken",
+                        "lines": "Lijnen dwars op de weg",
+                        "lines:paired": "Dubbele dwarslijnen",
+                        "no": "Zonder markeringen op de weg",
+                        "pictograms": "Geschilderde pictogrammen",
+                        "surface": "Alleen afwijkend oppervlak",
+                        "yes": "Met markeringen",
+                        "zebra": "Zebrapad",
+                        "zebra:bicolour": "Tweekleurig zebrapad",
+                        "zebra:double": "Dubbel zebrapad (triple-four)",
+                        "zebra:paired": "Zebrapad met strepen in sets (double paired)"
+                    }
+                },
+                "crossing/markings-DE-AT-CH": {
+                    "label": "Markering van oversteekplaats",
+                    "terms": [
+                        "oversteek",
+                        "markeringen",
+                        "wegmarkeringen",
+                        "oversteekplaats"
+                    ],
+                    "options": {
+                        "dashes": "Gestreepte lijnen dwars op de weg",
+                        "dots": "Gestippelde lijnen dwars op de weg",
+                        "ladder": "Ladder met dwarsbalken",
+                        "ladder:paired": "Ladder met sets dwarsbalken",
+                        "ladder:skewed": "Ladder met diagonale dwarsbalken",
+                        "lines": "Lijnen dwars op de weg",
+                        "lines:paired": "Dubbele dwarslijnen",
+                        "no": "Zonder markeringen op de weg",
+                        "pictograms": "Geschilderde pictogrammen",
+                        "surface": "Alleen afwijkend oppervlak",
+                        "yes": "Met markeringen",
+                        "zebra": "Zebrapad",
+                        "zebra:bicolour": "Tweekleurig zebrapad",
+                        "zebra:double": "Dubbel zebrapad (triple-four)",
+                        "zebra:paired": "Zebrapad met strepen in sets (double paired)"
+                    }
+                },
+                "crossing/markings-PL": {
+                    "label": "Markering van oversteekplaats",
+                    "terms": [
+                        "oversteek",
+                        "markeringen",
+                        "wegmarkeringen",
+                        "oversteekplaats"
+                    ],
+                    "options": {
+                        "dashes": "Gestreepte lijnen dwars op de weg",
+                        "dots": "Gestippelde lijnen dwars op de weg",
+                        "ladder": "Ladder met dwarsbalken",
+                        "ladder:paired": "Ladder met sets dwarsbalken",
+                        "ladder:skewed": "Ladder met diagonale dwarsbalken",
+                        "lines": "Lijnen dwars op de weg",
+                        "lines:paired": "Dubbele dwarslijnen",
+                        "no": "Zonder markeringen op de weg",
+                        "pictograms": "Geschilderde pictogrammen",
+                        "surface": "Alleen afwijkend oppervlak",
+                        "yes": "Met markeringen",
+                        "zebra": "Zebrapad",
+                        "zebra:bicolour": "Tweekleurig zebrapad",
+                        "zebra:double": "Dubbel zebrapad (triple-four)",
+                        "zebra:paired": "Zebrapad met strepen in sets (double paired)"
+                    }
+                },
+                "crossing/markings_yes-BG": {
+                    "label": "Markering van oversteekplaats",
+                    "terms": [
+                        "oversteek",
+                        "markeringen",
+                        "wegmarkeringen",
+                        "oversteekplaats"
+                    ],
+                    "options": {
+                        "dashes": "Gestreepte lijnen dwars op de weg",
+                        "dots": "Gestippelde lijnen dwars op de weg",
+                        "ladder": "Ladder met dwarsbalken",
+                        "ladder:paired": "Ladder met sets dwarsbalken",
+                        "ladder:skewed": "Ladder met diagonale dwarsbalken",
+                        "lines": "Lijnen dwars op de weg",
+                        "lines:paired": "Dubbele dwarslijnen",
+                        "no": "Zonder markeringen op de weg",
+                        "pictograms": "Geschilderde pictogrammen",
+                        "surface": "Alleen afwijkend oppervlak",
+                        "yes": "Met markeringen",
+                        "zebra": "Zebrapad",
+                        "zebra:bicolour": "Tweekleurig zebrapad",
+                        "zebra:double": "Dubbel zebrapad (triple-four)",
+                        "zebra:paired": "Zebrapad met strepen in sets (double paired)"
+                    }
+                },
+                "crossing/markings_yes-DE-AT-CH": {
+                    "label": "Markering van oversteekplaats",
+                    "terms": [
+                        "oversteek",
+                        "markeringen",
+                        "wegmarkeringen",
+                        "oversteekplaats"
+                    ],
+                    "options": {
+                        "dashes": "Gestreepte lijnen dwars op de weg",
+                        "dots": "Gestippelde lijnen dwars op de weg",
+                        "ladder": "Ladder met dwarsbalken",
+                        "ladder:paired": "Ladder met sets dwarsbalken",
+                        "ladder:skewed": "Ladder met diagonale dwarsbalken",
+                        "lines": "Lijnen dwars op de weg",
+                        "lines:paired": "Dubbele dwarslijnen",
+                        "no": "Zonder markeringen op de weg",
+                        "pictograms": "Geschilderde pictogrammen",
+                        "surface": "Alleen afwijkend oppervlak",
+                        "yes": "Met markeringen",
+                        "zebra": "Zebrapad",
+                        "zebra:bicolour": "Tweekleurig zebrapad",
+                        "zebra:double": "Dubbel zebrapad (triple-four)",
+                        "zebra:paired": "Zebrapad met strepen in sets (double paired)"
+                    }
+                },
+                "crossing/markings_yes-PL": {
+                    "label": "Markering van oversteekplaats",
+                    "terms": [
+                        "oversteek",
+                        "markeringen",
+                        "wegmarkeringen",
+                        "oversteekplaats"
+                    ],
+                    "options": {
+                        "dashes": "Gestreepte lijnen dwars op de weg",
+                        "dots": "Gestippelde lijnen dwars op de weg",
+                        "ladder": "Ladder met dwarsbalken",
+                        "ladder:paired": "Ladder met sets dwarsbalken",
+                        "ladder:skewed": "Ladder met diagonale dwarsbalken",
+                        "lines": "Lijnen dwars op de weg",
+                        "lines:paired": "Dubbele dwarslijnen",
+                        "no": "Zonder markeringen op de weg",
+                        "pictograms": "Geschilderde pictogrammen",
+                        "surface": "Alleen afwijkend oppervlak",
+                        "yes": "Met markeringen",
+                        "zebra": "Zebrapad",
+                        "zebra:bicolour": "Tweekleurig zebrapad",
+                        "zebra:double": "Dubbel zebrapad (triple-four)",
+                        "zebra:paired": "Zebrapad met strepen in sets (double paired)"
+                    }
+                },
+                "crossing/markings_yes": {
+                    "label": "Markering van oversteekplaats",
+                    "terms": [
+                        "oversteek",
+                        "markeringen",
+                        "wegmarkeringen",
+                        "oversteekplaats"
+                    ],
+                    "options": {
+                        "dashes": "Gestreepte lijnen dwars op de weg",
+                        "dots": "Gestippelde lijnen dwars op de weg",
+                        "ladder": "Ladder met dwarsbalken",
+                        "ladder:paired": "Ladder met sets dwarsbalken",
+                        "ladder:skewed": "Ladder met diagonale dwarsbalken",
+                        "lines": "Lijnen dwars op de weg",
+                        "lines:paired": "Dubbele dwarslijnen",
+                        "no": "Zonder markeringen op de weg",
+                        "pictograms": "Geschilderde pictogrammen",
+                        "surface": "Alleen afwijkend oppervlak",
+                        "yes": "Met markeringen",
+                        "zebra": "Zebrapad",
+                        "zebra:bicolour": "Tweekleurig zebrapad",
+                        "zebra:double": "Dubbel zebrapad (triple-four)",
+                        "zebra:paired": "Zebrapad met strepen in sets (double paired)"
+                    }
+                },
+                "building/levels_building": {
+                    "label": "Aantal verdiepingen",
+                    "terms": [
+                        "niveaus",
+                        "verdiepingen"
+                    ],
+                    "placeholder": "2, 4, 6..."
                 }
             },
             "presets": {
@@ -6943,7 +8110,7 @@
                     "name": "Theehuisje"
                 },
                 "amenity/car_pooling": {
-                    "name": "Carpoolparking",
+                    "name": "Carpoolplaats",
                     "terms": [
                         "autodelen",
                         "carpoolen"
@@ -7070,19 +8237,6 @@
                         "oc",
                         "ontmoetingscentrum",
                         "gemeenschapscentrum"
-                    ]
-                },
-                "amenity/community_centre/cultural_centre": {
-                    "name": "Cultuurcentrum",
-                    "terms": [
-                        "cc",
-                        "cultuurcentrum"
-                    ]
-                },
-                "amenity/community_centre/family_centre": {
-                    "name": "Familiecentrum",
-                    "terms": [
-                        "familiecentrum"
                     ]
                 },
                 "amenity/community_centre/lgbtq": {
@@ -7310,17 +8464,6 @@
                     "terms": [
                         "plastisch chirurg",
                         "plastische chirurgie"
-                    ]
-                },
-                "amenity/doctors/podiatry": {
-                    "name": "Podoloog",
-                    "terms": [
-                        "voeten",
-                        "nagels",
-                        "voetheelkunde",
-                        "podologie",
-                        "podiatrie",
-                        "podiatrist"
                     ]
                 },
                 "amenity/doctors/proctology": {
@@ -7880,12 +9023,8 @@
                 "amenity/parking": {
                     "name": "Parkeerplaats",
                     "terms": [
-                        "parkeerplaats",
-                        "garage",
-                        "parkeergarage",
-                        "parkeergebouw",
-                        "autoparking",
-                        "parkeergelegenheid voor meerdere voertuigen"
+                        "parkeren",
+                        "parkeer"
                     ]
                 },
                 "amenity/parking/multi-storey": {
@@ -7934,6 +9073,9 @@
                 },
                 "amenity/parking_space/disabled": {
                     "name": "Gehandicaptenparkeerplaats"
+                },
+                "amenity/parking_surface": {
+                    "name": "Oppervlakte parkeerplaats"
                 },
                 "amenity/payment_centre": {
                     "name": "Betalingscentrum",
@@ -8820,6 +9962,9 @@
                         "uitleendienst"
                     ]
                 },
+                "amenity/traffic_park": {
+                    "name": "Verkeerspark"
+                },
                 "amenity/trolley_bay": {
                     "name": "Winkelwagenstalling",
                     "terms": [
@@ -8943,6 +10088,9 @@
                         "vrouwencondooms"
                     ]
                 },
+                "amenity/vending_machine/flowers": {
+                    "name": "Bloemenautomaat"
+                },
                 "amenity/vending_machine/food": {
                     "name": "Voedselautomaat",
                     "terms": [
@@ -9034,6 +10182,9 @@
                         "kauwgom"
                     ]
                 },
+                "amenity/vending_machine/water": {
+                    "name": "Drinkwaterautomaat"
+                },
                 "amenity/veterinary": {
                     "name": "Dierenarts",
                     "terms": [
@@ -9104,6 +10255,12 @@
                 },
                 "area": {
                     "name": "Vlak",
+                    "relation": {
+                        "role_labels": {
+                            "inner": "Binnenrand",
+                            "outer": "Buitenrand"
+                        }
+                    },
                     "terms": [
                         "gebied"
                     ]
@@ -9481,11 +10638,7 @@
                     ]
                 },
                 "barrier/lift_gate": {
-                    "name": "Slagboom",
-                    "terms": [
-                        "balk",
-                        "lat"
-                    ]
+                    "name": "Slagboom"
                 },
                 "barrier/log": {
                     "name": "Blokkade door omgevallen boom",
@@ -10961,20 +12114,6 @@
                         "Bevalcentrum"
                     ]
                 },
-                "healthcare/blood_donation": {
-                    "name": "Bloeddonorcentrum",
-                    "terms": [
-                        "bloedbank",
-                        "bloeddonatie",
-                        "bloedtransfusie",
-                        "aferese",
-                        "plasmaferese",
-                        "stamceldonatie"
-                    ]
-                },
-                "healthcare/counselling": {
-                    "name": "Begeleidingscentrum"
-                },
                 "healthcare/dentist/orthodontics": {
                     "name": "Orthodontist",
                     "terms": [
@@ -11119,16 +12258,6 @@
                 },
                 "highway/crossing/informal": {
                     "name": "Informele oversteekplaats"
-                },
-                "highway/crossing/traffic_signals": {
-                    "name": "Oversteekplaats met voetgangersverkeerslichten",
-                    "terms": [
-                        "verkeerslichten",
-                        "zebra",
-                        "oversteekplaats",
-                        "zebrapad",
-                        "stoplicht"
-                    ]
                 },
                 "highway/crossing/uncontrolled": {
                     "name": "Gemarkeerde oversteekplaats",
@@ -14658,6 +15787,12 @@
                 "playground/tunnel_tube": {
                     "name": "Speeltunnel"
                 },
+                "playground/water": {
+                    "name": "Waterspeeltoestel (niet-gespecificeerd)",
+                    "aliases": [
+                        "Waterspeeltoestel"
+                    ]
+                },
                 "playground/zipwire": {
                     "name": "Tokkelbaan",
                     "terms": [
@@ -15266,6 +16401,9 @@
                         "smalspoor"
                     ]
                 },
+                "railway/platform_edge": {
+                    "name": "Perronrand"
+                },
                 "railway/preserved": {
                     "name": "Erfgoed spoorweg",
                     "terms": [
@@ -15486,6 +16624,9 @@
                         "babykledijwinkel"
                     ]
                 },
+                "shop/bag": {
+                    "name": "Tas-/Reiskofferwinkel"
+                },
                 "shop/bakery": {
                     "name": "Bakkerij",
                     "terms": [
@@ -15526,6 +16667,9 @@
                         "bruinen",
                         "zonnebankcentrum"
                     ]
+                },
+                "shop/bed": {
+                    "name": "Bed-/Matrassenwinkel"
                 },
                 "shop/beverages": {
                     "name": "Drankenwinkel",
@@ -15890,6 +17034,9 @@
                         "lgbt erotische winkel"
                     ]
                 },
+                "shop/esoteric": {
+                    "name": "Esoteriewinkel"
+                },
                 "shop/fabric": {
                     "name": "Stofwinkel",
                     "terms": [
@@ -16057,6 +17204,9 @@
                         "fruitwinkel",
                         "versmarkt"
                     ]
+                },
+                "shop/groundskeeping": {
+                    "name": "Winkel voor grasveld- en tuinbenodigdheden"
                 },
                 "shop/hairdresser": {
                     "name": "Kapper",
@@ -16302,6 +17452,9 @@
                         "mobieltjeswinkel",
                         "mobieltjeszaak"
                     ]
+                },
+                "shop/mobile_phone_accessories": {
+                    "name": "Winkel voor mobiele telefoonaccessoires"
                 },
                 "shop/model": {
                     "name": "Modelwinkel",
@@ -17049,6 +18202,9 @@
                         "informatie"
                     ]
                 },
+                "tourism/information/office": {
+                    "name": "Touristeninformatiekantoor"
+                },
                 "tourism/information/route_marker": {
                     "name": "Routemarkering",
                     "terms": [
@@ -17060,6 +18216,9 @@
                     "terms": [
                         "informatietoestel"
                     ]
+                },
+                "tourism/information/visitor_centre": {
+                    "name": "Bezoekerscentrum"
                 },
                 "tourism/motel": {
                     "name": "Motel",
@@ -17272,17 +18431,37 @@
                         "drip"
                     ]
                 },
+                "type/associatedStreet": {
+                    "name": "Geassocieerde straat"
+                },
                 "type/boundary": {
                     "name": "Grens",
                     "terms": [
                         "grens"
-                    ]
+                    ],
+                    "relation": {
+                        "role_labels": {
+                            "inner": "Binnenrand",
+                            "outer": "Buitenrand"
+                        }
+                    }
                 },
                 "type/boundary/administrative": {
                     "name": "Bestuurlijke grens",
+                    "relation": {
+                        "role_labels": {
+                            "admin_centre": "Hoofdstad",
+                            "label": "Label",
+                            "inner": "Binnenrand",
+                            "outer": "Buitenrand"
+                        }
+                    },
                     "terms": [
                         "administratieve grens"
                     ]
+                },
+                "type/boundary/protected_area": {
+                    "name": "Beschermd gebied"
                 },
                 "type/connectivity": {
                     "name": "Rijstrookverbinding",
@@ -17297,7 +18476,13 @@
                         "wegwijzer",
                         "voorwegwijzer",
                         "bewegwijzer op afstand"
-                    ]
+                    ],
+                    "relation": {
+                        "role_labels": {
+                            "from": "Van",
+                            "to": "Naar"
+                        }
+                    }
                 },
                 "type/enforcement": {
                     "name": "Controle",
@@ -17317,7 +18502,13 @@
                     "name": "Multipolygoon",
                     "terms": [
                         "multipoligoon"
-                    ]
+                    ],
+                    "relation": {
+                        "role_labels": {
+                            "inner": "Binnenrand",
+                            "outer": "Buitenrand"
+                        }
+                    }
                 },
                 "type/public_transport/stop_area_group": {
                     "name": "Groep van een haltecomplex",
@@ -17327,9 +18518,36 @@
                 },
                 "type/restriction": {
                     "name": "Beperking",
+                    "relation": {
+                        "role_labels": {
+                            "from": "Van",
+                            "to": "Naar",
+                            "via": "Via"
+                        }
+                    },
                     "terms": [
                         "verbod"
                     ]
+                },
+                "type/restriction/no_entry": {
+                    "name": "Geen ingang",
+                    "relation": {
+                        "role_labels": {
+                            "from": "Van",
+                            "to": "Naar",
+                            "via": "Via"
+                        }
+                    }
+                },
+                "type/restriction/no_exit": {
+                    "name": "Geen uitgang",
+                    "relation": {
+                        "role_labels": {
+                            "from": "Van",
+                            "to": "Naar",
+                            "via": "Via"
+                        }
+                    }
                 },
                 "type/restriction/no_left_turn": {
                     "name": "Niet links afslaan",
@@ -17338,7 +18556,14 @@
                         "links inslaan verboden",
                         "niet links inslaan",
                         "niet naar links"
-                    ]
+                    ],
+                    "relation": {
+                        "role_labels": {
+                            "from": "Van",
+                            "to": "Naar",
+                            "via": "Via"
+                        }
+                    }
                 },
                 "type/restriction/no_right_turn": {
                     "name": "Niet rechts afslaan",
@@ -17347,7 +18572,14 @@
                         "rechts inslaan verboden",
                         "niet rechts inslaan",
                         "niet naar rechts"
-                    ]
+                    ],
+                    "relation": {
+                        "role_labels": {
+                            "from": "Van",
+                            "to": "Naar",
+                            "via": "Via"
+                        }
+                    }
                 },
                 "type/restriction/no_straight_on": {
                     "name": "Niet rechtdoor",
@@ -17356,7 +18588,14 @@
                         "rechtdoor gaan verboden",
                         "niet rechtdoorgaan",
                         "afslaan verplicht"
-                    ]
+                    ],
+                    "relation": {
+                        "role_labels": {
+                            "from": "Van",
+                            "to": "Naar",
+                            "via": "Via"
+                        }
+                    }
                 },
                 "type/restriction/no_u_turn": {
                     "name": "Niet omkeren",
@@ -17372,7 +18611,14 @@
                         "verboden te keren",
                         "keren verboden",
                         "niet draaien"
-                    ]
+                    ],
+                    "relation": {
+                        "role_labels": {
+                            "from": "Van",
+                            "to": "Naar",
+                            "via": "Via"
+                        }
+                    }
                 },
                 "type/restriction/only_left_turn": {
                     "name": "Alleen links afslaan",
@@ -17384,7 +18630,14 @@
                         "alleen links inslaan",
                         "verplicht links inslaan",
                         "links inslaan verplicht"
-                    ]
+                    ],
+                    "relation": {
+                        "role_labels": {
+                            "from": "Van",
+                            "to": "Naar",
+                            "via": "Via"
+                        }
+                    }
                 },
                 "type/restriction/only_right_turn": {
                     "name": "Alleen rechts afslaan",
@@ -17396,7 +18649,14 @@
                         "alleen rechts inslaan",
                         "verplicht rechts inslaan",
                         "rechts inslaan verplicht"
-                    ]
+                    ],
+                    "relation": {
+                        "role_labels": {
+                            "from": "Van",
+                            "to": "Naar",
+                            "via": "Via"
+                        }
+                    }
                 },
                 "type/restriction/only_straight_on": {
                     "name": "Alleen rechtdoor",
@@ -17408,7 +18668,14 @@
                         "niet inslaan",
                         "draaien verboden",
                         "afslaan verboden"
-                    ]
+                    ],
+                    "relation": {
+                        "role_labels": {
+                            "from": "Van",
+                            "to": "Naar",
+                            "via": "Via"
+                        }
+                    }
                 },
                 "type/restriction/only_u_turn": {
                     "name": "Alleen omkeren",
@@ -17418,7 +18685,14 @@
                         "afslagbeperking",
                         "beperking",
                         "enkel"
-                    ]
+                    ],
+                    "relation": {
+                        "role_labels": {
+                            "from": "Van",
+                            "to": "Naar",
+                            "via": "Via"
+                        }
+                    }
                 },
                 "type/route": {
                     "name": "Route",
@@ -17454,6 +18728,9 @@
                         "buslijn",
                         "lijn"
                     ]
+                },
+                "type/route/climbing": {
+                    "name": "Klimroute"
                 },
                 "type/route/detour": {
                     "name": "Permanente omleiding",
@@ -17523,13 +18800,8 @@
                         "pijpleidingsroute"
                     ]
                 },
-                "type/route/power": {
-                    "name": "Elektriciteitsleidingstraject",
-                    "terms": [
-                        "elektriciteitslijnroute",
-                        "elektriciteitslijntraject",
-                        "elektriciteitsleidingsroute"
-                    ]
+                "type/route/piste": {
+                    "name": "Piste"
                 },
                 "type/route/railway": {
                     "name": "Spoorwegroute",
@@ -17742,6 +19014,512 @@
                         "waterkering",
                         "stuwdam",
                         "keerdam"
+                    ]
+                },
+                "boundary": {
+                    "name": "Grens",
+                    "terms": [
+                        "grens"
+                    ]
+                },
+                "building_point": {
+                    "name": "Gebouw",
+                    "terms": [
+                        "pand",
+                        "bouwwerk",
+                        "bouwsel",
+                        "constructie"
+                    ]
+                },
+                "ford_line": {
+                    "name": "Voorde (doorwaadbare plaats)",
+                    "terms": [
+                        "drecht",
+                        "dracht",
+                        "trecht",
+                        "tricht",
+                        "waden",
+                        "doorwaadbaar"
+                    ]
+                },
+                "traffic_sign/maxspeed-US-CA-LR": {
+                    "name": "Verkeersbord maximumsnelheid",
+                    "terms": [
+                        "maximumsnelheid",
+                        "maximale snelheid",
+                        "snelheidslimietbord"
+                    ]
+                },
+                "shop/ice_cream": {
+                    "name": "IJssalon",
+                    "terms": [
+                        "ijskraam",
+                        "ijskraampje",
+                        "ijscowinkel",
+                        "ijsventer"
+                    ]
+                },
+                "route/ferry": {
+                    "name": "Veerbootroute",
+                    "terms": [
+                        "ferrytraject",
+                        "veerponttraject"
+                    ]
+                },
+                "railway/halt": {
+                    "name": "Treinstation op aanvraag",
+                    "terms": [
+                        "spoorwegstation",
+                        "treinhalte",
+                        "spoorweghalte",
+                        "halte"
+                    ]
+                },
+                "railway/platform": {
+                    "name": "Treinperron",
+                    "terms": [
+                        "spoorwegperron",
+                        "treinplatform"
+                    ]
+                },
+                "railway/station": {
+                    "name": "Treinstation",
+                    "terms": [
+                        "spoorwegstation"
+                    ]
+                },
+                "office/travel_agent": {
+                    "name": "Reisbureau",
+                    "terms": [
+                        "reisbureau"
+                    ]
+                },
+                "office/lawyer/notary": {
+                    "name": "Notariskantoor",
+                    "terms": [
+                        "notariaat",
+                        "notaris",
+                        "kantoor van notaris"
+                    ]
+                },
+                "natural/wood_point": {
+                    "name": "Natuurlijk bos"
+                },
+                "leisure/track/athletics/running": {
+                    "name": "Hardloopbaan",
+                    "terms": [
+                        "hardlooppiste",
+                        "looppiste",
+                        "atletiekpiste"
+                    ]
+                },
+                "landuse/basin": {
+                    "name": "Basin"
+                },
+                "landuse/reservoir": {
+                    "name": "Reservoir",
+                    "terms": [
+                        "waterbekken",
+                        "bekken",
+                        "waterreservoir"
+                    ]
+                },
+                "landuse/military/danger_area_point": {
+                    "name": "Militaire gevarenzone"
+                },
+                "landuse/industrial/brewery": {
+                    "name": "Industriële brouwerij"
+                },
+                "landuse/industrial/industrial_point": {
+                    "name": "Industriegebied",
+                    "terms": [
+                        "industriepark",
+                        "industriezone",
+                        "industrieel gebied",
+                        "industriële zone"
+                    ]
+                },
+                "indoor/corridor_line": {
+                    "name": "Gang in gebouw",
+                    "terms": [
+                        "binnen",
+                        "binnenshuis",
+                        "hal"
+                    ]
+                },
+                "highway/bus_stop": {
+                    "name": "Bushalte",
+                    "terms": [
+                        "busstop"
+                    ]
+                },
+                "highway/raceway_unspecific": {
+                    "name": "Motorsport racecircuit",
+                    "terms": [
+                        "circuit",
+                        "racebaan"
+                    ]
+                },
+                "highway/traffic_sign": {
+                    "name": "Verkeersbord",
+                    "terms": [
+                        "signalisatie",
+                        "verkeerssignalisatie",
+                        "verticale signalisatie"
+                    ]
+                },
+                "highway/motorway_link-US-CA": {
+                    "name": "Verbindingsweg van autosnelweg",
+                    "terms": [
+                        "autostrade",
+                        "snelweg",
+                        "autosnelweg",
+                        "link",
+                        "invoegstrook",
+                        "afslag"
+                    ]
+                },
+                "highway/primary_link-US-CA": {
+                    "name": "Verbindingsweg van hoofdweg",
+                    "terms": [
+                        "invoegstrook",
+                        "oprit",
+                        "afrit",
+                        "provinciale weg",
+                        "primaire weg",
+                        "gewestweg",
+                        "provincieweg"
+                    ]
+                },
+                "highway/trunk_link-US-CA": {
+                    "name": "Verbindingsweg van autoweg",
+                    "terms": [
+                        "invoegstrook",
+                        "oprit",
+                        "afrit",
+                        "expressweg",
+                        "autostrade",
+                        "autosnelweg"
+                    ]
+                },
+                "highway/path/bicycle_foot": {
+                    "name": "Fiets- en voetpad",
+                    "terms": [
+                        "gecombineerde",
+                        "fietser",
+                        "voetganger"
+                    ]
+                },
+                "highway/path/traffic_island_shared": {
+                    "name": "Vluchtheuvel voor fietsers en voetgangers"
+                },
+                "highway/path/crossing/informal": {
+                    "name": "Informele oversteekplaats"
+                },
+                "highway/path/crossing/marked": {
+                    "name": "Gemarkeerde fiets- en voetgangersoversteekplaats"
+                },
+                "highway/path/crossing/bicycle_foot": {
+                    "name": "Fiets- en voetgangersoversteekplaats",
+                    "terms": [
+                        "oversteekplaats",
+                        "gecombineerd",
+                        "fietser",
+                        "voetganger",
+                        "zebrapad"
+                    ]
+                },
+                "highway/footway/crossing/informal": {
+                    "name": "Informele oversteekplaats"
+                },
+                "highway/footway/crossing/marked": {
+                    "name": "Gemarkeerde oversteekplaats",
+                    "terms": [
+                        "voetganger",
+                        "zebra",
+                        "zebrapad"
+                    ]
+                },
+                "highway/footway/crossing/zebra": {
+                    "name": "Gemarkeerde oversteekplaats",
+                    "terms": [
+                        "voetganger",
+                        "zebra",
+                        "zebrapad"
+                    ]
+                },
+                "highway/cycleway/crossing/marked": {
+                    "name": "Gemarkeerde fietsoversteekplaats",
+                    "terms": [
+                        "fiets",
+                        "blokmarkering",
+                        "oversteekplaats",
+                        "fietser",
+                        "bromfietser"
+                    ]
+                },
+                "highway/crossing/marked": {
+                    "name": "Gemarkeerde oversteekplaats",
+                    "terms": [
+                        "voetganger",
+                        "zebra",
+                        "zebrapad"
+                    ]
+                },
+                "highway/crossing/zebra": {
+                    "name": "Gemarkeerde oversteekplaats",
+                    "terms": [
+                        "voetganger",
+                        "zebra",
+                        "zebrapad"
+                    ]
+                },
+                "craft/locksmith": {
+                    "name": "Slotenmaker",
+                    "terms": [
+                        "sleutels",
+                        "slotenmaker",
+                        "slot"
+                    ]
+                },
+                "craft/tailor": {
+                    "name": "Kleermaker",
+                    "terms": [
+                        "maatwerk",
+                        "kleren",
+                        "kledij",
+                        "kostuum"
+                    ]
+                },
+                "climbing/route": {
+                    "name": "Klimroute"
+                },
+                "building/entrance": {
+                    "name": "Ingang/Uitgang",
+                    "terms": [
+                        "ingang",
+                        "uitgang",
+                        "deur"
+                    ]
+                },
+                "building/glasshouse": {
+                    "name": "Broeikas",
+                    "terms": [
+                        "serre",
+                        "kas",
+                        "glastuinbouw"
+                    ]
+                },
+                "building/house/detached": {
+                    "name": "Alleenstaand huis",
+                    "terms": [
+                        "villa",
+                        "woning"
+                    ]
+                },
+                "building/house/semi-detached": {
+                    "name": "Koppelwoning",
+                    "terms": [
+                        "halfopen bebouwing",
+                        "koppelwoning",
+                        "koppelwoonst",
+                        "koppelhuis",
+                        "twee-onder-een-kap"
+                    ]
+                },
+                "building/house/terrace": {
+                    "name": "Blok van rijtjeshuizen"
+                },
+                "boundary/administrative": {
+                    "name": "Bestuurlijke grens",
+                    "terms": [
+                        "administratieve grens"
+                    ]
+                },
+                "amenity/bus_station": {
+                    "name": "Busstation",
+                    "terms": [
+                        "busterminal",
+                        "busstop"
+                    ]
+                },
+                "amenity/coworking_space": {
+                    "name": "Coworking-kantoor",
+                    "terms": [
+                        "samenwerken",
+                        "coworking",
+                        "coworking-kantoor",
+                        "kantoor",
+                        "gedeeld kantoor",
+                        "coworking-plaats",
+                        "coworking-omgeving"
+                    ]
+                },
+                "amenity/dancing_school": {
+                    "name": "Dansschool"
+                },
+                "amenity/driving_school": {
+                    "name": "Rijschool"
+                },
+                "amenity/embassy": {
+                    "name": "Ambassade"
+                },
+                "amenity/ferry_terminal": {
+                    "name": "Ferry terminal",
+                    "terms": [
+                        "ferryterminal",
+                        "veerpontterminal",
+                        "pontterminal",
+                        "aanmeerplaats",
+                        "dok"
+                    ]
+                },
+                "amenity/kindergarten": {
+                    "name": "Kleuterschool"
+                },
+                "amenity/language_school": {
+                    "name": "Taalschool"
+                },
+                "amenity/music_school": {
+                    "name": "Muziekschool"
+                },
+                "amenity/nursing_home": {
+                    "name": "Verpleeghuis",
+                    "terms": [
+                        "woonzorgcentrum",
+                        "verpleegtehuis",
+                        "rust- en verzorgingstehuis",
+                        "rusttehuis",
+                        "rusthuis",
+                        "bejaardentehuis",
+                        "rvt",
+                        "vvt",
+                        "wzc"
+                    ]
+                },
+                "amenity/prep_school": {
+                    "name": "Bijlesinstituut"
+                },
+                "amenity/school": {
+                    "name": "Schoolgebied"
+                },
+                "amenity/university": {
+                    "name": "Gebied van universiteit of hogeschool"
+                },
+                "amenity/doctors/podiatry": {
+                    "name": "Podoloog",
+                    "terms": [
+                        "voeten",
+                        "nagels",
+                        "voetheelkunde",
+                        "podologie",
+                        "podiatrie",
+                        "podiatrist"
+                    ]
+                },
+                "aerialway/station": {
+                    "name": "Kabelbaanstation",
+                    "terms": [
+                        "skiliftstation"
+                    ]
+                },
+                "@templates/contact": {
+                    "name": "Punt",
+                    "terms": [
+                        "anders",
+                        "overige",
+                        "iets anders",
+                        "algemeen"
+                    ]
+                },
+                "@templates/internet_access": {
+                    "name": "Punt",
+                    "terms": [
+                        "anders",
+                        "overige",
+                        "iets anders",
+                        "algemeen"
+                    ]
+                },
+                "@templates/poi": {
+                    "name": "Punt",
+                    "terms": [
+                        "anders",
+                        "overige",
+                        "iets anders",
+                        "algemeen"
+                    ]
+                },
+                "@templates/crossing/bicycle_more": {
+                    "name": "Punt",
+                    "terms": [
+                        "anders",
+                        "overige",
+                        "iets anders",
+                        "algemeen"
+                    ]
+                },
+                "@templates/crossing/defaults": {
+                    "name": "Punt",
+                    "terms": [
+                        "anders",
+                        "overige",
+                        "iets anders",
+                        "algemeen"
+                    ]
+                },
+                "@templates/crossing/geometry_way_more": {
+                    "name": "Punt",
+                    "terms": [
+                        "anders",
+                        "overige",
+                        "iets anders",
+                        "algemeen"
+                    ]
+                },
+                "@templates/crossing/markings": {
+                    "name": "Punt",
+                    "terms": [
+                        "anders",
+                        "overige",
+                        "iets anders",
+                        "algemeen"
+                    ]
+                },
+                "@templates/crossing/markings_yes": {
+                    "name": "Punt",
+                    "terms": [
+                        "anders",
+                        "overige",
+                        "iets anders",
+                        "algemeen"
+                    ]
+                },
+                "@templates/crossing/surfacequality": {
+                    "name": "Punt",
+                    "terms": [
+                        "anders",
+                        "overige",
+                        "iets anders",
+                        "algemeen"
+                    ]
+                },
+                "@templates/crossing/traffic_signal": {
+                    "name": "Punt",
+                    "terms": [
+                        "anders",
+                        "overige",
+                        "iets anders",
+                        "algemeen"
+                    ]
+                },
+                "@templates/crossing/traffic_signal_more": {
+                    "name": "Punt",
+                    "terms": [
+                        "anders",
+                        "overige",
+                        "iets anders",
+                        "algemeen"
                     ]
                 }
             }

@@ -15,12 +15,12 @@ jobs:
     if: ${{github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success'}}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: '.nvmrc'
 
       - name: Get pull request number artifact
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           name: pr
@@ -31,7 +31,7 @@ jobs:
         id: pull-request-number
         run: echo "result=$(cat ./tmp-pr-artifact/pr_number)" >> "$GITHUB_OUTPUT"
 
-      - uses: dawidd6/action-download-artifact@b6e2e70617bc3265edd6dab6c906732b2f1ae151 # v21
+      - uses: dawidd6/action-download-artifact@eab87c9830c39eff17e5a6eadb20bfb4bc880477 # v27
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           workflow: build-preview.yml

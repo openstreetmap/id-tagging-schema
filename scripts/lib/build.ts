@@ -194,7 +194,7 @@ async function processData(_options: Partial<Options> | undefined, type: 'build-
   if (deprecated) fs.writeFileSync(distDir + '/deprecated.json', JSON.stringify(deprecated, null, 4));
   if (discarded) fs.writeFileSync(distDir + '/discarded.json', JSON.stringify(discarded, null, 4));
 
-  expandTStrings(tstrings);
+  expandTStrings(sourceLocale, tstrings);
   let translationsForJson: typeof translationsForYaml = {};
   translationsForJson[sourceLocale] = { presets: tstrings };
 
@@ -215,7 +215,7 @@ async function processData(_options: Partial<Options> | undefined, type: 'build-
   ];
 
   if (doFetchTranslations) {
-    tasks.push(fetchTranslations(options, references));
+    tasks.push(fetchTranslations(options, references, tstrings));
   }
   return Promise.all(tasks);
 }
@@ -289,7 +289,6 @@ function generateFields(dataDir: string, tstrings: TStrings, searchableFieldIDs:
     // @ts-expect-error -- deleting a non-optional property
     delete field.label;
 
-    validateTerms(field.terms, `field "${id}"`);
     tstrings.fields[id].terms = Array.from(new Set(
       (field.terms || [])
         .map(t => t.toLowerCase().trim())
@@ -321,6 +320,14 @@ function generateFields(dataDir: string, tstrings: TStrings, searchableFieldIDs:
             references.fields[id].options ||= {};
             references.fields[id].options[prop] ||= {};
             references.fields[id].options[prop][key] = value;
+          } else if (typeof value === 'object' && isReference(value.title)) {
+            references.fields[id] ||= {};
+            references.fields[id].options ||= {};
+            references.fields[id].options[prop] ||= {};
+
+            // title is a reference, description is not
+            references.fields[id].options[prop][key] = { title: value.title };
+            t[prop][key] = { description: value.description };
           } else {
             t[prop][key] = value;
           }
@@ -416,7 +423,6 @@ function generatePresets(
     ));
     preset.aliases.forEach(a => names.add(a.toLowerCase()));
 
-    validateTerms(preset.terms, `preset "${id}"`);
     preset.terms = Array.from(new Set(
       (preset.terms || [])
         .map(t => t.toLowerCase().trim())
@@ -447,16 +453,24 @@ function generatePresets(
     }
 
     if (preset.relation) {
-      tstrings.presets[id].relation = {
-        role_labels: preset.relation.role_labels
-      };
+      for (const role in preset.relation.role_labels) {
+        const labelOrReference = preset.relation.role_labels[role];
+        if (isReference(labelOrReference)) {
+          references.presets[id] ||= {};
+          references.presets[id].roleLabels ||= {};
+          references.presets[id].roleLabels[role] = labelOrReference;
+        } else {
+          tstrings.presets[id].relation ||= { role_labels: {} };
+          tstrings.presets[id].relation.role_labels[role] = labelOrReference;
+        }
+      }
+
         // @ts-expect-error -- deleting a non-optional prop
       delete preset.relation.role_labels;
     }
     if (preset.relationCrossReference) {
       references.presets[id] ||= {};
       references.presets[id].relation = preset.relationCrossReference;
-      delete preset.relationCrossReference;
     }
 
     if (preset.locationSet) {
@@ -525,7 +539,9 @@ function generateTranslations(fields: AllFields, presets: AllPresets, tstrings: 
         options['#' + k] = field.key ? `${field.key}=${k}` : `field "${fieldId}" with value "${k}"`;
       } else {
         options[k]['#description'] = `description for ${field.key}=${k}`;
-        options[k]['#title'] = `title for ${field.key}=${k}`;
+        if (options[k].title) {
+           options[k]['#title'] = `title for ${field.key}=${k}`;
+        }
       }
     });
 
@@ -581,7 +597,17 @@ function generateTranslations(fields: AllFields, presets: AllPresets, tstrings: 
 
     if (yamlPreset.relation?.role_labels) {
       for (const role in yamlPreset.relation.role_labels) {
+        // skip empty values
+        if (!yamlPreset.relation.role_labels[role]) {
+          delete yamlPreset.relation.role_labels[role];
+          continue;
+        }
         yamlPreset.relation.role_labels[`#${role}`] = `Relation role “${role}” when used with ${tagsString}`;
+      }
+
+      // delete objects if they're empty
+      if (!Object.keys(yamlPreset.relation.role_labels).length) {
+        delete yamlPreset.relation;
       }
     }
 
@@ -605,6 +631,31 @@ function generateTranslations(fields: AllFields, presets: AllPresets, tstrings: 
 }
 
 
+
+function getIconUrlFromIdentifier(identifier: string) {
+  if (identifier?.startsWith('maki-')) {
+    return 'https://cdn.jsdelivr.net/gh/mapbox/maki/icons/' +
+      identifier.replace(/^maki-/, '') + '.svg';
+  } else if (identifier?.startsWith('temaki-')) {
+    return 'https://cdn.jsdelivr.net/gh/rapideditor/temaki/icons/' +
+      identifier.replace(/^temaki-/, '') + '.svg';
+  } else if (identifier && /^fa[srb]-/.test(identifier)) {
+    return 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/fontawesome/' +
+      identifier + '.svg';
+  } else if (identifier?.startsWith('roentgen-')) {
+    return 'https://cdn.jsdelivr.net/gh/enzet/Roentgen@main/icons/' +
+      identifier.replace(/^roentgen-/, '') + '.svg';
+  } else if (identifier?.startsWith('pinhead-')) {
+    return 'https://pinhead.ink/latest/' +
+      identifier.replace(/^pinhead-/, '') + '.svg';
+  } else if (identifier?.startsWith('iD-')) {
+    return 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/iD-sprite/presets/' +
+      identifier.replace(/^iD-/, '') + '.svg';
+  }
+  process.stderr.write(`Unknown icon set for: ${identifier}\n`);
+  process.stdout.write('\n');
+  process.exit(1);
+}
 
 function generateTaginfo(
     presets: AllPresets,
@@ -645,7 +696,7 @@ function generateTaginfo(
     for (const group of [preset.tags, preset.addTags, preset.removeTags]) {
       for (const key in group) {
           everyTag[key] ||= new Set();
-          everyTag[key].add(preset.tags[key]);
+          everyTag[key].add(group[key]);
       }
     }
 
@@ -667,24 +718,8 @@ function generateTaginfo(
         }
 
         // add icon
-        if (preset.icon?.startsWith('maki-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/mapbox/maki/icons/' +
-            preset.icon.replace(/^maki-/, '') + '.svg';
-        } else if (preset.icon?.startsWith('temaki-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/rapideditor/temaki/icons/' +
-            preset.icon.replace(/^temaki-/, '') + '.svg';
-        } else if (preset.icon && /^fa[srb]-/.test(preset.icon)) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/fontawesome/' +
-            preset.icon + '.svg';
-        } else if (preset.icon?.startsWith('roentgen-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/enzet/Roentgen@main/icons/' +
-            preset.icon.replace(/^roentgen-/, '') + '.svg';
-        } else if (preset.icon?.startsWith('pinhead-')) {
-          tag.icon_url = 'https://pinhead.ink/latest/' +
-            preset.icon.replace(/^pinhead-/, '') + '.svg';
-        } else if (preset.icon?.startsWith('iD-')) {
-          tag.icon_url = 'https://cdn.jsdelivr.net/gh/openstreetmap/iD@develop/svg/iD-sprite/presets/' +
-            preset.icon.replace(/^iD-/, '') + '.svg';
+        if (preset.icon !== undefined) {
+          tag.icon_url = getIconUrlFromIdentifier(preset.icon);
         }
 
         coalesceTags(taginfo, tag);
@@ -700,8 +735,12 @@ function generateTaginfo(
     if (field.type === 'directionalCombo') {
       // for directionalCombo, only :left and :right are included in field.keys,
       // so we need to explicitly add the two other possibilities.
-      const base = field.key!.replace(/:both$/, '');
-      keys.push(base, `${base}:both`);
+      const key = field.key!;
+      if (key.includes(':both')) {
+        keys.push(key.replace(/:both(:|$)/, '$1'), key);
+      } else {
+        keys.push(key, `${key}:both`);
+      }
     }
 
     keys.forEach(key => {
@@ -952,7 +991,7 @@ function validateCategoryPresets(categories: AllCategories, presets: AllPresets)
     if (!category.members) return;
     category.members.forEach(preset => {
       if (presets[preset] === undefined) {
-        process.stderr.write('Unknown preset: ' + preset + ' in category ' + category.name + '\n');
+        process.stderr.write(`Unknown preset: ${preset} in category ${category.name}\n`);
         process.stdout.write('\n');
         process.exit(1);
       }
@@ -971,14 +1010,15 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
 
     if (preset.replacement) {
       let replacementPreset = presets[preset.replacement];
-      let p1geometry = preset.geometry.slice().sort.toString();
-      let p2geometry = replacementPreset.geometry.slice().sort.toString();
+      let p1geometry = preset.geometry.slice().sort().toString();
       if (replacementPreset === undefined) {
-        process.stderr.write('Unknown preset "' + preset.replacement + '" referenced as replacement of preset "' + presetID + '" (' + preset.name + ')\n');
+        process.stderr.write(`Unknown preset "${preset.replacement}" referenced as replacement of preset "${presetID}" (${preset.name})\n`);
         process.stdout.write('\n');
         process.exit(1);
-      } else if (p1geometry !== p2geometry) {
-        process.stderr.write('The preset "' + presetID + '" has different geometry than its replacement preset, "' + preset.replacement + '". They must match for tag upgrades to work.\n');
+      }
+      let p2geometry = replacementPreset.geometry.slice().sort().toString();
+      if (p1geometry !== p2geometry) {
+        process.stderr.write(`The preset "${presetID}" has different geometry than its replacement preset, "${preset.replacement}". They must match for tag upgrades to work.\n`);
         process.stdout.write('\n');
         process.exit(1);
       }
@@ -998,7 +1038,7 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
           if (field.geometry) {
             let sharedGeometry = field.geometry.filter(value => preset.geometry.includes(value));
             if (!sharedGeometry.length) {
-              process.stderr.write('The preset "' + presetID + '" (' + preset.name + ') will never display the field "' + fieldID + '" since they don\'t share geometry types.\n');
+              process.stderr.write(`The preset "${presetID}" (${preset.name}) will never display the field "${fieldID}" since they don't share geometry types.\n`);
               process.stdout.write('\n');
               process.exit(1);
             }
@@ -1011,12 +1051,12 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
           if (regexResult) {
             let foreignPresetID = regexResult[0];
             if (presets[foreignPresetID] === undefined) {
-              process.stderr.write('Unknown preset "' + foreignPresetID + '" referenced in "' + fieldsKey + '" array of preset "' + presetID + '" (' + preset.name + ')\n');
+              process.stderr.write(`Unknown preset "${foreignPresetID}" referenced in "${fieldsKey}" array of preset "${presetID}" (${preset.name})\n`);
               process.stdout.write('\n');
               process.exit(1);
             }
           } else {
-            process.stderr.write('Unknown preset field "' + fieldID + '" in "' + fieldsKey + '" array of preset "' + presetID + '" (' + preset.name + ')\n');
+            process.stderr.write(`Unknown preset field "${fieldID}" in "${fieldsKey}" array of preset "${presetID}" (${preset.name})\n`);
             process.stdout.write('\n');
             process.exit(1);
           }
@@ -1025,6 +1065,36 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
 
       }
     }
+
+    let relatedKeys = ['expectedVertices'] as const;
+    for (let relatedKeyIndex in relatedKeys) {
+      let relatedKey = relatedKeys[relatedKeyIndex];
+      if (!preset.related?.[relatedKey]) continue;
+
+      for (let vertexIndex in preset.related[relatedKey]) {
+        let foreignPresetID = preset.related[relatedKey][vertexIndex];
+        if (presets[foreignPresetID] === undefined) {
+          if (isReference(foreignPresetID)) {
+            let referencedForeignPresetID = foreignPresetID.slice(1, -1)
+            if (presets[referencedForeignPresetID] === undefined) {
+              process.stderr.write(`Unknown preset "${referencedForeignPresetID}" referenced in "expectedVertices" array of preset "${presetID}" (${preset.name})\n`);
+              process.stdout.write('\n');
+              process.exit(1);
+            }
+        } else {
+            process.stderr.write('Unknown preset "' + foreignPresetID + '" stated as valid vertex in "expectedVertices" array of preset "' + presetID + '" (' + preset.name + ')\n');
+            process.stdout.write('\n');
+            process.exit(1);
+          }
+        } else if (!presets[foreignPresetID].geometry.includes("vertex")) {
+          process.stderr.write('preset not valid as a vertex "' + foreignPresetID + '" referenced in "expectedVertices" array of preset "' + presetID + '" (' + preset.name + ')\n');
+          process.stdout.write('\n');
+          process.stdout.write(presets[foreignPresetID].geometry.toString());
+          process.exit(1);
+        }
+      }
+    }
+
 
     if (preset.fields) {
       // since `moreFields` is available, check that `fields` doesn't get too cluttered
@@ -1040,7 +1110,7 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
         fieldCount = alwaysShownFields.length;
       }
       if (fieldCount > maxFieldsBeforeError) {
-        process.stderr.write(fieldCount + ' values in "fields" of "' + preset.name + '" (' + presetID + '). Limit: ' + maxFieldsBeforeError + '. Please move lower-priority fields to "moreFields".\n');
+        process.stderr.write(`${fieldCount} values in "fields" of "${preset.name}" (${presetID}). Limit: ${maxFieldsBeforeError}. Please move lower-priority fields to "moreFields".\n`);
         process.stdout.write('\n');
         process.exit(1);
       }
@@ -1054,22 +1124,6 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
       process.stdout.write('Field "' + fields[fieldID].label + '" (' + fieldID + ') isn\'t used by any presets.\n');
     }
   }
-}
-
-function validateTerms(terms: string[] | undefined, where: string) {
-  if (!terms) return;
-
-  const expectedTerms = terms.map(term => term.toLowerCase().trim()).sort();
-  if (terms.every((term, index) => expectedTerms[index] === term)) return;
-
-  process.stderr.write(`Expected terms in ${where} to be lowercase and sorted alphabetically.`);
-  process.stdout.write('\n');
-  process.stdout.write('expected terms\n\n');
-  process.stdout.write(JSON.stringify(expectedTerms, null, 2));
-  process.stdout.write('\n\ndiffer from actual ones\n\n');
-  process.stdout.write(`${terms}`);
-  process.stdout.write('\n');
-  process.exit(1);
 }
 
 function validateDefaults(defaults: PresetDefaults, categories: AllCategories, presets: AllPresets) {
@@ -1091,8 +1145,8 @@ function translationsToYAML(translations: SourceStrings) {
     if (a === '#' + b) return -1;
     if (b === '#' + a) return 1;
     if (a[0] !== b[0]) {
-      if (a[0] === '#') a = a.substr(1);
-      if (b[0] === '#') b = b.substr(1);
+      if (a[0] === '#') a = a.substring(1);
+      if (b[0] === '#') b = b.substring(1);
     }
     return (a > b ? 1 : a < b ? -1 : 0);
   }

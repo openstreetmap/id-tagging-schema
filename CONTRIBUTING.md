@@ -6,10 +6,10 @@ Don't hesitate to submit feedback about issues or how the tagging schema could b
 
 In general it is better to open a new issue compared to commenting in a closed issue or a closed pull request where such a comment will likely be missed.
 
-iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_CONDUCT.md) and [privacy policy](https://github.com/openstreetmap/iD/blob/release/PRIVACY.md) also apply to this project.
-
 
 ## General Guidelines
+
+iD's [code of conduct](https://github.com/openstreetmap/iD/blob/release/CODE_OF_CONDUCT.md) and [privacy policy](https://github.com/openstreetmap/iD/blob/release/PRIVACY.md) also apply to this project.
 
 Read the [GUIDELINES](./GUIDELINES.md) to help you understand what fields and tags should be added to the tagging schema.
 
@@ -46,6 +46,8 @@ Detailed documentation for the data format used in this repository is located in
 
 To make a change, update the corresponding file within the `data` folder: The `presets` contain a representation of OpenStreetMap's [map features](https://wiki.openstreetmap.org/wiki/Map_Features), and the `fields` are their properties. In addition, the tagging schema contains a few `categories` of presets and a list of `deprecated` and `discardable` tags.
 
+When creating a new preset, copying the JSON file of a similar preset and modifying it accordingly is often a good starting point, rather than writing it fully from scratch.
+
 ### Icons
 
 Icons from different sources (_icon sets_) can be used in the tagging schema. Head over to the [ICONS.md](./ICONS.md) about how to use them.
@@ -55,7 +57,10 @@ Icons from different sources (_icon sets_) can be used in the tagging schema. He
 <img alt="Screenshot of a preset in iD with the information details open." src="https://github.com/openstreetmap/id-tagging-schema/assets/111561/13549318-cd7c-4dd1-9948-7a2d84662f04" width="400" />
 
 iD and other tools provide users with a way to learn more about the main tag of a preset. It is important to provide good information in this information panel. Here are a few notes on how to do this:
-- Does your tag have a OSM Wiki data item? Click the small pencil icon next to the text to open the data item on the OSM Wiki. Improve this wording if needed. If the data item is missing, [learn more about how to add it in "Current methods for creating new items"](https://wiki.openstreetmap.org/wiki/Data_items#Item_creation_process).
+- Does your tag have a OSM Wiki data item? Click the small pencil icon next to the text to open the data item on the OSM Wiki. Improve this wording if needed.
+  - If the data item is missing, [learn more about how to add it in "Current methods for creating new items"](https://wiki.openstreetmap.org/wiki/Data_items#Item_creation_process).
+  - iD queries the data item linked to `Tag:<key>=<value>` or `Key:<key>` page and prefers the more specific variant. This connection (called sitelink) must be set and it can be done [here](https://wiki.openstreetmap.org/wiki/Special:SetSiteLink//wiki), see the documentation in link above.
+  - See, for example: [building key](https://wiki.openstreetmap.org/wiki/Item:Q108) and [building=yes tag](https://wiki.openstreetmap.org/wiki/Item:Q6135)
 - Does your tag have a Wiki page with a good image?
 - Your preset might need [a `reference` property](./SCHEMA.md#reference) to force the system to use a specific tag for the information section.
 

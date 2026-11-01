@@ -16,7 +16,7 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
     // fields and moreFields can reference other presets
     for (const prop of ['fields', 'moreFields'] as const) {
       if (!preset[prop]) continue;
-      for (let i = 0; i < preset[prop].length || 0; i++) {
+      for (let i = 0; i < preset[prop].length; i++) {
         const otherPresetID = preset[prop][i];
         if (isReference(otherPresetID)) {
           const referencedPreset = presets[otherPresetID.slice(1, -1)];
@@ -27,8 +27,8 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
             );
           }
 
-          // preset (A) references the fields of preset (B), but (B) has no
-          // fields. We silently and intentionally skip this, as it allows presets
+          // preset (A) references the fields / moreFields of preset (B), but (B) does not
+          // define them. We silently and intentionally skip this, as it allows presets
           // to specify fields and moreFields inheritance even while parent has no such field yet.
           // Otherwise defining for example new moreFields would require checking all children presets
           // whether inheritance should be added there.
@@ -37,12 +37,12 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
             continue;
           }
 
-          // Skip `fields` for the keys which define the preset.
+          // Skip fields and moreFields for the keys which define the preset.
           // These are usually `typeCombo` fields like `shop=*`
           function shouldInherit(fieldId: string) {
             // shouldInherit is called recursively as references are expanded.
             // if this field is reference, skip it for now. It will be
-            // processed in the next loop iteration.
+            // processed again in the next loop iteration, until it is no longer a reference.
             if (isReference(fieldId)) return true;
 
             const field = fields[fieldId];
@@ -70,7 +70,7 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
             return true;
           }
 
-          // replace the reference with every field. decrement i to reprocess this array index.
+          // replace the reference with what the referenced preset defined. decrement i to reprocess this array index.
           // this is necessary as it can also be a reference
           preset[prop].splice(i--, 1, ...referencedPreset[prop].filter(shouldInherit));
         }
@@ -85,6 +85,12 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
       if (!referencedPreset) {
         throw new Error(
           `Preset “${presetID}” references “${preset.relationCrossReference}” in relationCrossReference, but there is no such preset.`,
+        );
+      }
+
+      if (!referencedPreset.relation) {
+        throw new Error(
+          `Preset “${presetID}” references “${preset.relationCrossReference}” in relationCrossReference, but that preset has no "relation" attribute.`,
         );
       }
 
@@ -104,12 +110,53 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
 
       if (!referenced) {
         throw new Error(
-          `Preset “${presetID}” references “${foreignId}” in locationSetCrossReference, but there is no such ${type}.`,
+          `Preset “${presetID}” references “${foreignId.join('/')}” in locationSetCrossReference, but there is no such ${type}.`,
+        );
+      }
+
+      if (!referenced.locationSet) {
+        throw new Error(
+          `Preset “${presetID}” references “${foreignId.join('/')}” in locationSetCrossReference, but that ${type} has no "locationSet" attribute.`,
         );
       }
 
       preset.locationSet = referenced.locationSet;
       delete preset.locationSetCrossReference;
+    }
+
+    // presets can reference related.expectedVertices
+    const prop = "expectedVertices"
+    if (preset.related?.expectedVertices) {
+      for (let i = 0; i < preset.related.expectedVertices.length || 0; i++) {
+        const otherPresetID = preset.related.expectedVertices[i];
+        if (isReference(otherPresetID)) {
+          const referencedPreset = presets[otherPresetID.slice(1, -1)];
+
+          if (!referencedPreset) {
+            throw new Error(
+              `Preset “${presetID}” references “${otherPresetID}” in ${prop}.${i}, but there is no such preset.`,
+            );
+          }
+
+          if (!referencedPreset.related) {
+            throw new Error(
+              `Preset “${presetID}” references “${otherPresetID}” in related.expectedVertices, but this preset has no related field.`,
+            );
+          }
+
+          if (!referencedPreset.related.expectedVertices) {
+            throw new Error(
+              `Preset “${presetID}” references “${otherPresetID}” in related.expectedVertices, but this preset has no related.expectedVertices field.`,
+            );
+          }
+
+          // replace the reference with every field. decrement i to reprocess this array index.
+          // this is necessary as it can also be a reference
+          preset.related.expectedVertices.splice(i--, 1, ...referencedPreset.related.expectedVertices);
+        }
+      }
+      // deduplicate, possibly needed as result of dereferencing
+      preset.related.expectedVertices = [...new Set(preset.related.expectedVertices)]
     }
   }
 
@@ -123,6 +170,12 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
       if (!referencedField) {
         throw new Error(
           `Field “${fieldID}” references “${field.iconsCrossReference}” in iconsCrossReference, but there is no such field.`,
+        );
+      }
+
+      if (!referencedField.icons) {
+        throw new Error(
+          `Field “${fieldID}” references “${field.iconsCrossReference}” in iconsCrossReference, but that field has no "icons" attribute.`,
         );
       }
 
@@ -161,7 +214,7 @@ export function dereferenceUntranslatedContent(presets: AllPresets, fields: AllF
 
       if (!referenced) {
         throw new Error(
-          `Field “${fieldID}” references “${foreignId}” in locationSetCrossReference, but there is no such ${type}.`,
+          `Field “${fieldID}” references “${foreignId.join('/')}” in locationSetCrossReference, but there is no such ${type}.`,
         );
       }
 
@@ -207,6 +260,30 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
         throw new Error(
           `Preset “${presetID}” references “${p.relation}” in relationCrossReference, but there is no such preset.`,
         );
+      }
+    }
+
+    // presets' relation role_labels can reference the role_labels from other presets
+    if (p.roleLabels) {
+      for (const role in p.roleLabels) {
+        const match = p.roleLabels[role].slice(1, -1).split('.role_labels.');
+        if (match.length !== 2 || !match[0]) {
+          throw new Error(
+            `Preset “${presetID}” contains “${p.roleLabels[role]}” in relation.role_labels.${role}, but that syntax is not a valid reference.`,
+          );
+        }
+        const [otherPresetID, otherRole] = match;
+
+        const label = tstrings.presets[otherPresetID]?.relation?.role_labels?.[otherRole];
+        if (label) {
+          tstrings.presets[presetID] ||= {};
+          tstrings.presets[presetID].relation ||= { role_labels: {} };
+          tstrings.presets[presetID].relation.role_labels[role] = label;
+        } else if (strict) {
+          throw new Error(
+            `Preset “${presetID}” references “${p.roleLabels[role]}” in relation.role_labels.${role}, but preset “${otherPresetID}” does not exist or does not have such a role.`,
+          );
+        }
       }
     }
   }
@@ -266,7 +343,9 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
     if (f.options) {
       for (const prop in f.options) {
         for (const key in f.options[prop]) {
-          const [type, ...foreignId] = f.options[prop][key]
+          const reference = f.options[prop][key];
+          const referenceCode = (typeof reference === 'object' ? reference.title : reference);
+          const [type, ...foreignId] = referenceCode
             .slice(1, -1)
             .split('/');
           const referenced =
@@ -279,10 +358,19 @@ export function dereferencedTranslatableContent(tstrings: TStrings, references: 
           if (referenced) {
             if (!tstrings.fields[fieldID]) tstrings.fields[fieldID] = {};
             tstrings.fields[fieldID][prop] ||= {};
-            tstrings.fields[fieldID][prop][key] = referenced;
+            const existing = tstrings.fields[fieldID][prop][key];
+            if (typeof reference === 'object' && typeof existing !== 'string') {
+              tstrings.fields[fieldID][prop][key] = {
+                title: referenced,
+                ...existing,
+              };
+            } else {
+              tstrings.fields[fieldID][prop][key] = referenced;
+            }
           } else if (strict) {
+            const subkey = typeof reference === 'object' ? 'title.' : '';
             throw new Error(
-              `Field “${fieldID}” references “${foreignId}” in options.${prop}.${key}, but there is no such ${type}.`,
+              `Field “${fieldID}” references “${foreignId.join('/')}” in options.${prop}.${key}.${subkey} But there is no such ${type}.`,
             );
           }
         }
