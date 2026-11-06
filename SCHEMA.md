@@ -786,6 +786,62 @@ For example,
 
 intentionally directs to [Tag:healthcare=sample_collection](https://wiki.openstreetmap.org/wiki/Tag:healthcare%3Dsample_collection) rather than default [Key:sample_collection](https://wiki.openstreetmap.org/wiki/Key:sample_collection)
 
+##### `measurement`
+
+`measurement` defines the unit of measurements that are supported by this field. 
+
+> [!IMPORTANT]
+> This attribute is intended to be used with a future field type `type=measurement`, which does not exist yet. It will be introduced in the next major version, replacing `type=roadheight` and `type=roadspeed`.
+
+For example:
+
+```jsonc
+{
+  "key": "diameter",
+  "type": "measurement",
+  "measurement": {
+    // The dimension being measured. This constrains the permitted units.
+    // The value is the ID defined by CLDR.
+    // see https://cdn.jsdelivr.net/npm/cldr-core/supplemental/unitPreferenceData.json
+    "dimension": "length",
+
+    // The corresponding 'usage' from CLDR.
+    "usage": "default",
+
+    // If the field only allows some units, you can list them here
+    // using CLDR's unit names. If not specified, then, all units from
+    // this dimension are allowed.
+    "units": ["meter", "centimeter", "foot-and-inch"],
+
+    // Some OSM tags have a default unit, which does not need to be explicitly included in the tag value.
+    // This field defines how to interpret a value with no unit:
+    "impliedUnit": "meter"
+  }
+}
+```
+
+To convert the unit IDs into the values used by OSM, see [§Units](#Units).
+
+Translations for the [`narrow` and `long` form](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat) of each unit are bundled into iD-tagging-schema's locale files.
+
+### Units
+
+Use `units.json` ([Example](https://github.com/openstreetmap/id-tagging-schema/blob/main/data/units.json)) to define the suffixes used in OSM tag values.
+
+For example:
+
+```json
+{
+  "duration": {
+    "minute": ["minutes", "minute", "mins", "min", "m"]
+  }
+}
+```
+- The object key (`minute`) is the unit ID as defined by CLDR.
+- The object values (such as `mins`) are the values that are accepted in OSM tag values.
+  The first array item is the preferred value.
+  The other array items are alternative notations, which OSM editors should accept, but not encourage.
+
 ### Deprecations
 
 Use `deprecated.json` ([Example](data/deprecated.json), [Schema](schemas/deprecated.json)) to specify tag deprecations.
