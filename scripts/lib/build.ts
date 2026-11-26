@@ -1091,6 +1091,10 @@ function validatePresetFields(presets: AllPresets, fields: AllFields) {
           process.stdout.write('\n');
           process.stdout.write(presets[foreignPresetID].geometry.toString());
           process.exit(1);
+        } else if (presets[foreignPresetID].searchable === false) {
+          process.stderr.write('Unsearchable preset "' + foreignPresetID + '" referenced in "expectedVertices" array of preset "' + presetID + '" (' + preset.name + ') - which does not make sense as unsearchable presets will be never listed in search results\n');
+          process.stdout.write('\n');
+          process.exit(1);
         }
       }
     }
